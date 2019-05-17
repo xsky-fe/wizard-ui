@@ -1,0 +1,34 @@
+.story-props {
+  width: 100%;
+}
+.panel-empty {
+  width: 100%;
+  text-align: center;
+  color: #bebebe;
+  padding: 10px;
+}
+.story-table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  color: #333;
+  tbody > tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+  }
+  & th, & td {
+    border: 1px solid #ddd;
+    line-height: 1.43;
+    padding: 5px;
+    text-align: left;
+  }
+  .required {
+    margin-left: 5px ;
+    color: #0d8050;
+    background-color: #0f9960;
+    border-radius: 3px;
+    padding: 2px  4px;
+    font-size: 12px;
+    }
+}

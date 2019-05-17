@@ -1,0 +1,112 @@
+$white: #fff;
+
+/*******************************
+  * Use Case
+  *******************************/
+
+/* Color Use Case */
+$brand-primary: #6b58c4;
+$brand-success: #00bfa5;
+$brand-danger: #f24542;
+$brand-warning:#ffb71c;
+$brand-info: #448aff;
+$brand-error: #f07574;
+$brand-critical: #d9534f;
+$brand-muted: #a2a3a9;
+
+
+/* Badge */
+$badge-height: 20px;
+$badge-dot-small-size: 6px;
+
+.Badge {
+  display: inline-block;
+  line-height: 1;
+  &__count {
+    margin: 0 5px;
+    color: $white;
+    display: inline-block;
+    border-radius: $badge-height / 2;
+    height: $badge-height;
+    min-width: $badge-height;
+    text-align: center;
+    line-height: $badge-height;
+    font-size: 12px;
+    padding: 0 6px;
+    white-space: nowrap;
+  }
+  &__text {
+    margin-left: 8px;
+  }
+  &__dot {
+    display: inline-block;
+    border-radius: 50%;
+    vertical-align: middle;
+    &.small {
+      width: $badge-dot-small-size;
+      height: $badge-dot-small-size;
+      margin-right: $badge-dot-small-size;
+    }
+    &.middle {
+      width: $badge-dot-small-size * 2;
+      height: $badge-dot-small-size * 2;
+      margin-right: $badge-dot-small-size;
+    }
+    &.large {
+      width: $badge-dot-small-size * 3;
+      height: $badge-dot-small-size * 3;
+      margin-right: $badge-dot-small-size * 1.5;
+    }
+  }
+  &--default {
+    background-color: $brand-muted;
+  }
+  &--primary {
+    background-color: $brand-primary;
+  }
+  &--success {
+    background-color: $brand-success;
+  }
+  &--info {
+    background-color: $brand-info;
+  }
+  &--critical {
+    background-color: $brand-critical;
+  }
+  &--warning {
+    background-color: $brand-warning;
+  }
+  &--danger {
+    background-color: $brand-error;
+  }
+}
+
+.Badge__wrapper {
+  position: relative;
+  & > .Badge__count{
+    position: absolute;
+    transform: translateX(-50%);
+    top: $badge-height / (-2);
+    font-size: 12px;
+  }
+  & > .Badge__dot {
+    position: absolute;
+    transform: translateX(-50%);
+    &.small {
+      top: $badge-dot-small-size / (-2);
+    }
+    &.middle {
+      top: $badge-dot-small-size * (-1);
+    }
+    &.large {
+       top: $badge-dot-small-size * (-1.5);
+    }
+  }
+}
+
+.Badge__count {
+  min-width: 18px;
+  line-height: 18px;
+  height: 18px;
+  padding: 0 5px;
+}
