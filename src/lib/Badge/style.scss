@@ -1,23 +1,4 @@
-$white: #fff;
-
-/*******************************
-  * Use Case
-  *******************************/
-
-/* Color Use Case */
-$brand-primary: #6b58c4;
-$brand-success: #00bfa5;
-$brand-danger: #f24542;
-$brand-warning:#ffb71c;
-$brand-info: #448aff;
-$brand-error: #f07574;
-$brand-critical: #d9534f;
-$brand-muted: #a2a3a9;
-
-
-/* Badge */
-$badge-height: 20px;
-$badge-dot-small-size: 6px;
+@import '../../style/variables.scss';
 
 .Badge {
   display: inline-block;
