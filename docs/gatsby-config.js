@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: `/wizard-ui`,
   siteMetadata: {
     title: `Wizard UI Documentation`,
     description: `Wizard UI Documentation.`,

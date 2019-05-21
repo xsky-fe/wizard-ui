@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Row, Nav, Panel } from 'react-bootstrap';
 import { Link } from 'gatsby';
 import lodash from 'lodash';
@@ -20,14 +20,10 @@ const SIDE_NAV = {
 }
 
 const NavSection = props => {
-  const { heading, items, path, togglePanel, expanded } = props;
+  const { heading, items, path, } = props;
   return (
     <Panel
-      collapsible
-      onSelect={togglePanel}
       className="Sidebar__Header"
-      expanded={expanded.includes(path)}
-      eventKey={path}
       header={heading}
     >
       {items.length && (
@@ -46,22 +42,6 @@ const NavSection = props => {
 }
 
 const SideNav = props => {
-  const { location: { pathname } }= props;
-  let defaultExpanded = [];
-  const parent = pathname.split('/')[1];
-  if (lodash.keys(SIDE_NAV).includes(parent)) {
-    defaultExpanded = [`/${parent}`];
-  }
-  const [ expanded, setExpanded ] = useState(defaultExpanded);
-  const togglePanel = (path) => {
-    let newValue;
-    if (expanded.includes(path)) {
-      newValue = lodash.xor(expanded, [path]);
-    } else {
-      newValue = lodash.concat(expanded, path);
-    }
-    setExpanded(newValue);
-  }
   return (
     <Row className="Sidebar">
       {lodash.keys(SIDE_NAV).map(key => (
@@ -69,8 +49,6 @@ const SideNav = props => {
           key={key}
           location={props.location}
           path={`/${key}`}
-          togglePanel={togglePanel}
-          expanded={expanded}
           {...SIDE_NAV[key]}
         />
       ))}

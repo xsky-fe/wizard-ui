@@ -27,6 +27,7 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
+    "gh-pages": "^2.0.1",
     "prettier": "^1.17.1"
   },
   "keywords": [
@@ -38,8 +39,8 @@
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "deploy": "rm -rf public && gatsby build --prefix-paths && yarn docs",
+    "docs": "gh-pages -d public"
   },
   "repository": {
     "type": "git",

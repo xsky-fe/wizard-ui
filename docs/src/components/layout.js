@@ -15,8 +15,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Layout(props) {
   const { location, children } = props;
-  const { pathname } = location;
-  const isComponenet = pathname.includes('components') || pathname.includes('layout');
+  const { pathname } = location || {};
+  const isComponenet = pathname && (pathname.includes('components') || pathname.includes('layout'));
   return (
     <div>
       {<TopBar />}
