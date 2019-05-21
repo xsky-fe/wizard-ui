@@ -1,0 +1,11 @@
+.TopBar {
+  .navbar {
+    margin: 0;
+  }
+  .navbar-default .navbar-nav>li>a {
+    color: #777;
+    &.active {
+      color: #337ab7;
+    }
+  }
+}

@@ -8,42 +8,30 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { MDXProvider } from '@mdx-js/tag';
-
-import TopBar from "./TopBar"
+import { Grid, Row, Col } from 'react-bootstrap';
+import TopBar from "./TopBar";
+import SideNav from './SideNav';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// const Layout = ({ children }) => (
-//   <StaticQuery
-//     query={graphql`
-//       query SiteTitleQuery {
-//         site {
-//           siteMetadata {
-//             title
-//           }
-//         }
-//       }
-//     `}
-//     render={data => {
-//       console.log('data', data);
-//       return (
-//         (
-//           <>
-//             <TopBar siteTitle={data.site.siteMetadata.title} />
-//             <div>
-//               <main>{children}</main>
-//             </div>
-//           </>
-//         )
-//       )
-//     }}
-//   />
-// )
-
 function Layout(props) {
+  const { location, children } = props;
+  const { pathname } = location;
+  const isComponenet = pathname.includes('components') || pathname.includes('layout');
   return (
     <div>
-      <TopBar/>
-      <MDXProvider>{props.children}</MDXProvider>
+      {<TopBar />}
+      <Grid fluid className="Main">
+        {isComponenet ? (
+          <Row>
+            <Col xs={2} md={3}>
+              <SideNav location={location}/>
+            </Col>
+            <Col xs={10} md={9}>
+              <MDXProvider>{children}</MDXProvider>
+            </Col>
+          </Row>
+        ) : <MDXProvider>{children}</MDXProvider>}
+      </Grid>
     </div>
   )
 }

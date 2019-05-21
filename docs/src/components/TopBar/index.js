@@ -1,7 +1,8 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
+import './style.scss';
 
 const HEADER_LINKS = [
   {
@@ -23,14 +24,14 @@ const TopBar = (props) => {
   return (
     <div className="TopBar">
       <Navbar staticTop fluid>
-        <Navbar.Brand href="#home">Wizard UI</Navbar.Brand>
+        <Link to="/" className="navbar-brand">Wizard UI</Link>
         <Nav>
           {HEADER_LINKS.map(({ link, title }) => (
-            <NavItem key={link}>
-              <Link className="nav-link" to={link}>
+            <li key={link}>
+              <Link to={link} activeClassName="active">
                 {title}
               </Link>
-            </NavItem>
+            </li>
           ))}
         </Nav>
       </Navbar>
