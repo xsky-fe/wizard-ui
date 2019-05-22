@@ -1,5 +1,5 @@
 .Sidebar {
-  height: calc(100vh - 51px);
+  min-height: calc(100vh - 51px);
   background-color: #f7f7f7;
   .Sidebar__Header {
     &.panel {

@@ -12,11 +12,16 @@ import { Grid, Row, Col } from 'react-bootstrap';
 import Playground from '../Playground';
 import TopBar from '../TopBar';
 import SideNav from '../SideNav';
+import './style.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const components = {
   code: Playground,
   pre: props => <div className="pre" {...props} />
+};
+const showComponents = {
+  code: props => <Playground {...props} isShow/>,
+  pre: props => <div className="pre" {...props} />,
 };
 
 const Layout = props => (
@@ -56,7 +61,7 @@ const Layout = props => (
                     </MDXProvider>
                   </Col>
                 </Row>
-              : <MDXProvider>{children}</MDXProvider>}
+              : <MDXProvider components={showComponents}>{children}</MDXProvider>}
           </Grid>
         </div>
       );
