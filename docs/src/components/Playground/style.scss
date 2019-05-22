@@ -1,0 +1,22 @@
+.Playground {
+  background-color: #234361;
+  padding: 5px;
+  color: #fff;
+  &__Error {
+    background-color: #f24542;
+    border-radius: 4px;
+    pre {
+      padding: 15px;
+      background-color: transparent;
+      border: 0;
+      color: inherit;
+    }
+  }
+  &__View {
+    background-color: #fff;
+    border-radius: 3px;
+    color: #66788a;
+    margin: 4px;
+    padding: 16px;
+  }
+}
