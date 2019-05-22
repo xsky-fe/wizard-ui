@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import { Navbar, Nav } from 'react-bootstrap';
+import logo from '../../images/logo.png';
 import './style.scss';
 
 const HEADER_LINKS = [
@@ -24,7 +25,9 @@ const TopBar = (props) => {
   return (
     <div className="TopBar">
       <Navbar staticTop fluid>
-        <Link to="/" className="navbar-brand">Wizard UI</Link>
+        <Link to="/" className="navbar-brand">
+          <img src={logo} alt="wizard-ui" height={40} />
+        </Link>
         <Nav>
           {HEADER_LINKS.map(({ link, title }) => (
             <li key={link}>
