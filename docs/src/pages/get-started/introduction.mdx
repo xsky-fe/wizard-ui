@@ -1,2 +1,29 @@
 ## 介绍
-Wizard UI 的来源。
+Wizard UI 是基于 React 开发的 UI 组件库。
+
+### 安装和使用
+`wizard-ui` 提供了一系列的组件用于开发，仅仅只需要安装就可以使用
+```bash
+npm install wizard-ui --save
+# or
+yarn add wizard-ui
+```
+
+在工作场景中，可以在使用 [Create React APP](https://github.com/facebook/create-react-app) 后直接引用：
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Badge } from 'wizard-ui';
+ReactDOM.render(
+  <Badge count={20} status="success"/>,
+  document.getElementById('root')
+);
+```
+
+### 依赖包
+`wizard-ui` 通过第三方组件库进行快速开发，目前依赖的组件库有：
+
+| 组件库                                                                   | 依赖组件 |
+|-------------------------------------------------------------------------|---------|
+| [React-bootstrap](https://github.com/react-bootstrap/react-bootstrap)   | Button |
+

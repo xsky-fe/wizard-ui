@@ -12,56 +12,96 @@ import { Grid, Row, Col } from 'react-bootstrap';
 import Playground from '../Playground';
 import TopBar from '../TopBar';
 import SideNav from '../SideNav';
+import LinkedHeading from '../LinkedHeading';
+import Toc from '../Toc';
+import lodash from 'lodash';
+import './style.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 const components = {
+  h2: props => <LinkedHeading h="2" {...props} />,
+  h3: props => <LinkedHeading h="3" {...props} />,
+  h4: props => <LinkedHeading h="4" {...props} />,
   code: Playground,
   pre: props => <div className="pre" {...props} />
 };
+const showComponents = {
+  code: props => <Playground {...props} isShow/>,
+  pre: props => <div className="pre" {...props} />,
+};
 
-const Layout = props => (
-  <StaticQuery
-    query={graphql`
-      query {
-        allMdx {
-          edges {
-            node {
-              frontmatter {
-                author
-                date(formatString: "MMMM DD, YYYY")
+
+
+const Layout = props => {
+  const { location: { pathname }, children } = props;
+  const isComponenet =
+    pathname &&
+    (pathname.includes ('components') || pathname.includes ('layout'));
+  if (!isComponenet) {
+    return (
+      <div>
+        {<TopBar />}
+        <Grid fluid className="Main">
+          <MDXProvider components={showComponents}>{children}</MDXProvider>
+        </Grid>
+      </div>
+    )
+  }
+  return (
+    <StaticQuery
+      query={graphql`
+        query {
+          allMdx {
+            edges {
+              node {
+                headings {
+                  value
+                  depth
+                }
+                frontmatter {
+                  link
+                  title
+                  author
+                  date
+                }
               }
             }
           }
         }
-      }
-    `}
-    render={data => {
-      const {location, children} = props;
-      const {pathname} = location || {};
-      const isComponenet =
-        pathname &&
-        (pathname.includes ('components') || pathname.includes ('layout'));
-      return (
-        <div>
-          {<TopBar />}
-          <Grid fluid className="Main">
-            {isComponenet
-              ? <Row>
-                  <Col xs={2} md={3}>
-                    <SideNav location={location} />
-                  </Col>
-                  <Col xs={10} md={9}>
-                    <MDXProvider components={components}>
-                      {children}
-                    </MDXProvider>
-                  </Col>
-                </Row>
-              : <MDXProvider>{children}</MDXProvider>}
-          </Grid>
-        </div>
-      );
-    }}
-  />
-);
+      `}
+      render={data => {
+        const { location, children } = props;
+        const edges = lodash.get(data, 'allMdx.edges', []);
+        const current = lodash.find(edges, edge => pathname.includes(lodash.get(edge, 'node.frontmatter.link'))) || {};
+        const { headings = [],  frontmatter } = current.node || {};
+        const { title } = frontmatter || {};
+        return (
+          <div>
+            {<TopBar />}
+            <Grid fluid className="Main">
+              <Row>
+                <Col xs={12} md={2} xl={2}>
+                  <SideNav location={location} />
+                </Col>
+                <Col xs={12} md={8} xl={8}>
+                  <div className="Main__Header">
+                    <h2>{title}</h2>
+                  </div>
+                  <MDXProvider components={components}>
+                    {children}
+                  </MDXProvider>
+                </Col>
+                <Col md={2} xl={2}>
+                  <Toc headings={headings} location={location}/>
+                </Col>
+              </Row>
+            </Grid>
+          </div>
+        );
+      }}
+    />
+  )
+};
 
 export default Layout;

@@ -1,11 +1,43 @@
 ---
+link: components/badge
+title: Badges 徽标数
 author: kailang
 date: 2019-05-21
 ---
 
-## Badges
-
-```jsx
+```jsx isShow=true
 // status => ['default', 'success', 'info', 'critical', 'warning', 'danger'];
+```
+
+## 状态展示
+```jsx
 <Badge count={20} status="success"/>
 ```
+### 点状态
+```jsx
+<Badge dot status="info" text="通知"/>
+```
+### 限定数字值
+```
+<Badge count={2000} overflowCount={999} />
+```
+## 特殊处理
+```jsx
+<div>
+  <Badge count={0} showZero />
+  <Badge count={0} />
+</div>
+```
+### 作为 tip
+```jsx
+<div>
+  <Badge count={2000}>
+    UI
+  </Badge>
+  <span style={{ paddingLeft: '40px' }} />
+  <Badge dot>
+    UI
+  </Badge>
+</div>
+```
+

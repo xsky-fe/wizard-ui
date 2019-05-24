@@ -14,7 +14,7 @@ const SIDE_NAV = {
   components: {
     heading: '组件',
     items: [
-      { key: 'badge', value: '徽标数' }
+      { key: 'badge', value: '徽标数' },
     ]
   }
 }
