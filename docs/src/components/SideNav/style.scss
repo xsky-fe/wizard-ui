@@ -1,6 +1,8 @@
 .Sidebar {
-  min-height: calc(100vh - 51px);
+  height: calc(100vh - 51px);
   background-color: #f7f7f7;
+  position: fixed;
+  width: inherit;
   .Sidebar__Header {
     &.panel {
       border-radius: 0;

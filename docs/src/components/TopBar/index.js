@@ -24,7 +24,7 @@ const HEADER_LINKS = [
 const TopBar = (props) => {
   return (
     <div className="TopBar">
-      <Navbar staticTop fluid>
+      <Navbar fixedTop fluid>
         <Link to="/" className="navbar-brand">
           <img src={logo} alt="wizard-ui" height={40} />
         </Link>
