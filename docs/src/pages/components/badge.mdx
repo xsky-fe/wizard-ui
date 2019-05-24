@@ -5,30 +5,68 @@ author: kailang
 date: 2019-05-21
 ---
 
-```jsx isShow=true
-// status => ['default', 'success', 'info', 'critical', 'warning', 'danger'];
-```
+- 数据状态。支持状态有： default、success、info、critical、warning、danger；
+- 支持尺寸 small、middle、large；
+- 图标右上角的圆形徽标数字。
 
-## 状态展示
+## 使用场景
+展示一条资源数据的状态；通知图标消息条数展示。
+
+## 代码演示
+
+### 资源/数据状态
+1. 状态颜色围绕文本展示。默认为 danger：
+```jsx divide=true
+<div>
+  <Badge count="关闭" status="default"/>
+  <Badge count="健康" status="success"/>
+  <Badge count="通知" status="info"/>
+  <Badge count="紧急" status="critical"/>
+  <Badge count="警告" status="warning"/>
+  <Badge count="错误" status="danger"/>
+  <Badge count="默认" />
+  <Badge count="20" status="success"/>
+</div>
+```
+2. 状态颜色与文本分离展示：
 ```jsx
-<Badge count={20} status="success"/>
+<div>
+  <Badge dot text="关闭" status="default"/>
+  <Badge dot text="健康" status="success"/>
+  <Badge dot text="通知" status="info"/>
+  <Badge dot text="紧急" status="critical"/>
+  <Badge dot text="警告" status="warning"/>
+  <Badge dot text="错误" status="danger"/>
+</div>
 ```
-### 点状态
-```jsx
-<Badge dot status="info" text="通知"/>
-```
-### 限定数字值
-```
-<Badge count={2000} overflowCount={999} />
-```
-## 特殊处理
+3. 当 count 为 0 时，默认不展示，可以设置为展示：
 ```jsx
 <div>
   <Badge count={0} showZero />
   <Badge count={0} />
 </div>
 ```
-### 作为 tip
+
+### 尺寸大小
+可以结合 dot 属性设置展示大小。默认为 small。
+```jsx
+<div>
+  <Badge dot size="small" text="健康" status="success"/>
+  <Badge dot size="middle" text="健康" status="success"/>
+  <Badge dot size="large" text="健康" status="success"/>
+</div>
+```
+### 封顶数值
+数字展示可以设定最大的数，默认为 99。
+```
+<div>
+  <Badge count={10000} />
+  <Badge count={10000} overflowCount={999} />
+  <Badge count={10000} overflowCount={9999} />
+</div>
+```
+
+### 消息展示
 ```jsx
 <div>
   <Badge count={2000}>

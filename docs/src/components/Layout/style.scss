@@ -1,5 +1,20 @@
 .pre {
   border-radius: 4px;
+  margin-bottom: 10px;
+}
+h1 {
+  margin-top: 8px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 30px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 32px;
+}
+h3 {
+  font-size: 20px;
+  line-height: 28px;
 }
 table {
   width: 100%;
@@ -17,4 +32,7 @@ table {
     text-align: left;
     border: 1px solid #ebedf0;
   }
+}
+.Main__Body {
+  margin-bottom: 20px;
 }

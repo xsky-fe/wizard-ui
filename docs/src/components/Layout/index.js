@@ -15,8 +15,8 @@ import SideNav from '../SideNav';
 import LinkedHeading from '../LinkedHeading';
 import Toc from '../Toc';
 import lodash from 'lodash';
-import './style.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './style.scss';
 
 
 const components = {
@@ -85,12 +85,14 @@ const Layout = props => {
                   <SideNav location={location} />
                 </Col>
                 <Col xs={12} md={8} xl={8}>
-                  <div className="Main__Header">
-                    <h2>{title}</h2>
+                  <div className="Main__Body">
+                    <div className="Main__Header">
+                      <h1>{title}</h1>
+                    </div>
+                    <MDXProvider components={components}>
+                      {children}
+                    </MDXProvider>
                   </div>
-                  <MDXProvider components={components}>
-                    {children}
-                  </MDXProvider>
                 </Col>
                 <Col md={2} xl={2}>
                   <Toc headings={headings} location={location}/>

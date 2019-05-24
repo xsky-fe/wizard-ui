@@ -3,7 +3,7 @@ import './style.scss';
 
 function Toc({ headings, location }) {
   return (
-    <div className="Main__Toc">
+    <div className="Main__Toc row">
       {headings.map(({ depth, value }, idx) => {
         const isCurrent = location.hash && decodeURIComponent(location.hash).includes(value);
         return (
