@@ -6,6 +6,12 @@ module.exports = {
     author: `wizard ui contributors`,
   },
   plugins: [
+    {
+      resolve: "gatsby-plugin-ts-loader",
+      options: {
+        tslint: true // false or exclude to disable tslint
+      }
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

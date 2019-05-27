@@ -30,7 +30,7 @@ const NUMBER = `// show default overflowCount 99
 `
 
 
-export default function() {
+export default function(props) {
   return (
     <div>
       <ComponentBody

@@ -3,6 +3,7 @@
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
+require('ts-node/register')
 const path = require('path');
 
 exports.onCreateWebpackConfig = ({ actions }) => {
@@ -10,7 +11,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     resolve: {
       modules: [path.resolve(__dirname, 'node_modules')],
       alias: {
-        'wizard-ui': path.resolve(__dirname, '../src/index.js')
+        'wizard-ui': path.resolve(__dirname, '../src/index.tsx')
       }
     },
   })
