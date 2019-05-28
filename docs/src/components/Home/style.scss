@@ -1,0 +1,18 @@
+.Home {
+  &__hero {
+    padding: 80px 60px;
+  }
+  &__left {
+    padding-top: 60px;
+  }
+  &__btn {
+    a:first-child {
+      margin-right: 20px;
+    }
+  }
+  &__feature {
+    padding: 40px 60px;
+    background-color: #846ee0;
+    color: #fff;
+  }
+}

@@ -35,7 +35,8 @@ const showComponents = {
 
 
 const Layout = props => {
-  const { location: { pathname }, children } = props;
+  const { location , children } = props;
+  const { pathname } = location || {};
   const isComponenet =
     pathname &&
     (pathname.includes ('components') || pathname.includes ('layout'));

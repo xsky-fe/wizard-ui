@@ -1,11 +1,12 @@
 import React from "react"
 import Layout from "../Layout"
-import SEO from "../components/seo"
+import SEO from "../components/seo";
+import Home from '../components/Home';
 
 const IndexPage = props => (
   <Layout {...props}>
     <SEO title="Home" />
-    <h2>Wizard UI</h2>
+    <Home/>
   </Layout>
 )
 
