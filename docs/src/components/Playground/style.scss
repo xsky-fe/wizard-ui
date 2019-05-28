@@ -1,5 +1,7 @@
 .Playground {
-  background-color: #234361;
+  &.show {
+    background-color: #234361;
+  }
   border-radius: 4px;
   padding: 5px;
   color: #fff;
@@ -19,5 +21,16 @@
     color: #66788a;
     margin: 4px;
     padding: 16px;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    button {
+      padding: 0;
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+    &:hover button {
+      opacity: 1;
+    }
   }
 }
