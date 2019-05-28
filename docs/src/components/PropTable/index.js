@@ -39,7 +39,6 @@ const PropTable = props => {
           return pathname.includes(displayName) && !displayName.includes('components')
         }) || {};
         const currentProps = lodash.get(current, 'node.props', []);
-        console.log('---', currentProps, pathname, edges)
         if (lodash.isEmpty(currentProps)) {
           return (
             <div>
@@ -47,7 +46,6 @@ const PropTable = props => {
             </div>
           )
         }
-        console.log('currentProps', currentProps);
         return (
           <div className="PropTable">
             <table>
