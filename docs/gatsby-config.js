@@ -1,3 +1,4 @@
+const Path = require('path')
 module.exports = {
   pathPrefix: `/wizard-ui`,
   siteMetadata: {
@@ -7,19 +8,33 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `wizard-ui`,
+        path:  Path.resolve(__dirname, `../src/lib`)
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `wizard-ui-site`,
+        path:  Path.resolve(__dirname, `src/`)
+      },
+    },
+    {
+      resolve: 'gatsby-mdx',
+      options: {
+        defaultLayouts: require.resolve('./src/Layout'),
+      },
+    },
+    {
       resolve: "gatsby-plugin-ts-loader",
       options: {
         tslint: true // false or exclude to disable tslint
       }
     },
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `components`,
-        path: `${__dirname}/src/pages/components`,
-      },
-    },
+    `gatsby-transformer-react-docgen`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -38,12 +53,6 @@ module.exports = {
       resolve: `gatsby-plugin-sass`,
       cssLoaderOptions: {
         camelCase: false,
-      },
-    },
-    {
-      resolve: 'gatsby-mdx',
-      options: {
-        defaultLayouts: require.resolve('./src/components/Layout'),
       },
     },
   ],

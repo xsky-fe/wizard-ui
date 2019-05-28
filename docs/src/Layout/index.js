@@ -9,11 +9,12 @@ import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import { Grid, Row, Col } from 'react-bootstrap';
-import Playground from '../Playground';
-import TopBar from '../TopBar';
-import SideNav from '../SideNav';
-import LinkedHeading from '../LinkedHeading';
-import Toc from '../Toc';
+import Playground from '../components/Playground';
+import TopBar from '../components/TopBar';
+import SideNav from '../components/SideNav';
+import LinkedHeading from '../components/LinkedHeading';
+import PropTable from '../components/PropTable';
+import Toc from '../components/Toc';
 import lodash from 'lodash';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.scss';
@@ -92,6 +93,7 @@ const Layout = props => {
                     <MDXProvider components={components}>
                       {children}
                     </MDXProvider>
+                    <PropTable pathname={pathname}/>
                   </div>
                 </Col>
                 <Col md={2} xl={2}>
