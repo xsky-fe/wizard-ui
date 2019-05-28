@@ -40,11 +40,7 @@ const PropTable = props => {
         }) || {};
         const currentProps = lodash.get(current, 'node.props', []);
         if (lodash.isEmpty(currentProps)) {
-          return (
-            <div>
-              暂无
-            </div>
-          )
+          return null;
         }
         return (
           <div className="PropTable">

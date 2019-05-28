@@ -4,5 +4,6 @@ export const HEADINGS = {
   'resource-status': '资源/数据状态',
   size: '尺寸大小',
   'max-value': '封顶数值',
-  message: '消息展示'
+  message: '消息展示',
+  'all-icons': '所有图标',
 }

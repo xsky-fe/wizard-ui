@@ -1,0 +1,20 @@
+.Icon {
+  &__ul {
+    background-color: #edeef2;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__li {
+    width: 20%;
+    text-align: center;
+    padding: 25px 10px;
+    &:hover {
+      background-color: #dbddec;
+    }
+    .icon {
+      font-size: 20px;
+      display: block;
+      margin-bottom: 10px;
+    }
+  }
+}

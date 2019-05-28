@@ -8,3 +8,8 @@ export interface BadgeProps {
   text?: string;
   title?: string;
 }
+
+export interface IconProps {
+  type: string,
+  className?: string,
+}
