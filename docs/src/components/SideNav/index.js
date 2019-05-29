@@ -6,8 +6,9 @@ import './style.scss';
 
 const SIDE_NAV = {
   layout: {
-    heading: '排版',
+    heading: '通用',
     items: [
+      { key: 'font', value: '字体' },
       { key: 'grid', value: '栅格' }
     ],
   },

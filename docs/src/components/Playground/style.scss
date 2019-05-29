@@ -27,6 +27,7 @@
     button {
       padding: 0;
       opacity: 0;
+      max-height: 30px;
       transition: opacity .3s ease;
     }
     &:hover button {
