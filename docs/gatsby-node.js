@@ -11,7 +11,8 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     resolve: {
       modules: [path.resolve(__dirname, 'node_modules')],
       alias: {
-        'wizard-ui': path.resolve(__dirname, '../src/index.tsx')
+        'wizard-ui': path.resolve(__dirname, '../src/index.tsx'),
+        'icomoon-icon': path.resolve (__dirname, '../src/style/icomoon/selection.json')
       }
     },
   })

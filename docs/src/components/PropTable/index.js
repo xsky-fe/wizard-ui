@@ -2,9 +2,10 @@ import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import propTypeParse from '../../utils/prop-type-parse';
 import lodash from 'lodash';
+import './style.scss';
 
 const PropTable = props => {
-  const { pathname } = props;
+  const { of } = props;
   return (
     <StaticQuery
       query={graphql`
@@ -36,15 +37,11 @@ const PropTable = props => {
         const edges = lodash.get(data, 'allComponentMetadata.edges', []);
         const current = lodash.find(edges, edge => {
           const displayName = lodash.lowerFirst((lodash.get(edge, 'node.displayName')));
-          return pathname.includes(displayName) && !displayName.includes('components')
+          return of === displayName;
         }) || {};
         const currentProps = lodash.get(current, 'node.props', []);
         if (lodash.isEmpty(currentProps)) {
-          return (
-            <div>
-              暂无
-            </div>
-          )
+          return null;
         }
         return (
           <div className="PropTable">
