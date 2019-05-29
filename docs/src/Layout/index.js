@@ -13,7 +13,6 @@ import Playground from '../components/Playground';
 import TopBar from '../components/TopBar';
 import SideNav from '../components/SideNav';
 import LinkedHeading from '../components/LinkedHeading';
-import PropTable from '../components/PropTable';
 import Toc from '../components/Toc';
 import lodash from 'lodash';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -94,7 +93,6 @@ const Layout = props => {
                     <MDXProvider components={components}>
                       {children}
                     </MDXProvider>
-                    <PropTable pathname={pathname}/>
                   </div>
                 </Col>
                 <Col md={2} xl={2}>

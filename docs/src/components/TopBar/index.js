@@ -1,7 +1,8 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav, Button } from 'react-bootstrap';
+import GitHubIcon from '../GitHubIcon';
 import logo from '../../images/logo.png';
 import './style.scss';
 
@@ -36,6 +37,16 @@ const TopBar = (props) => {
               </Link>
             </li>
           ))}
+        </Nav>
+        <Nav pullRight>
+          <li>
+            <a target="_blank" rel="noopener noreferrer"  href="https://github.com/xsky-fe/wizard-ui">
+              <span className="github-icon">
+                <GitHubIcon />
+              </span>
+              GITHUB
+            </a>
+          </li>
         </Nav>
       </Navbar>
     </div>

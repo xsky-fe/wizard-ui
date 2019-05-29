@@ -4,6 +4,7 @@ import * as libs from 'wizard-ui';
 import AllIcon from '../Icon';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import { Button } from 'react-bootstrap';
+import PropTable from '../PropTable';
 import './style.scss';
 
 
@@ -13,7 +14,7 @@ export default ({ isShow, children, previewOnly }) => {
     setShow(!show);
   }
   return (
-    <LiveProvider scope={{ ReactDOM, AllIcon, ...libs }} code={children.trim()}>
+    <LiveProvider scope={{ ReactDOM, AllIcon, PropTable, ...libs }} code={children.trim()}>
       { previewOnly ? <LivePreview/> : (
         <div className={`Playground ${(show || isShow) ? 'show' : ''}`}>
           {isShow ? (

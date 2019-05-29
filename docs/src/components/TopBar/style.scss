@@ -12,4 +12,16 @@
       color: #337ab7;
     }
   }
+  .github-icon {
+    margin-right: 8px;
+    display: inline-block;
+    height: 16px;
+    position: relative;
+    top: 3px;
+    width: 16px;
+    svg {
+      height: 16px;
+      width: 16px;
+    }
+  }
 }
