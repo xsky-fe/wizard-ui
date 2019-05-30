@@ -53,7 +53,7 @@ const Layout = props => {
     <StaticQuery
       query={graphql`
         query {
-          allMdx {
+          allMdx(filter: { frontmatter: { link: { ne: null } } }) {
             edges {
               node {
                 headings {
@@ -74,6 +74,7 @@ const Layout = props => {
       render={data => {
         const { location, children } = props;
         const edges = lodash.get(data, 'allMdx.edges', []);
+        const links = edges.map(edge => lodash.get(edge, 'node.frontmatter'));
         const current = lodash.find(edges, edge => pathname.includes(lodash.get(edge, 'node.frontmatter.link'))) || {};
         const { headings = [],  frontmatter } = current.node || {};
         const { title } = frontmatter || {};
@@ -83,7 +84,7 @@ const Layout = props => {
             <Grid fluid className="Main">
               <Row>
                 <Col xs={12} md={2} xl={2}>
-                  <SideNav location={location} />
+                  <SideNav location={location} links={links} />
                 </Col>
                 <Col xs={12} md={8} xl={8}>
                   <div className="Main__Body">

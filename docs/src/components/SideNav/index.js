@@ -4,25 +4,8 @@ import { Link } from 'gatsby';
 import lodash from 'lodash';
 import './style.scss';
 
-const SIDE_NAV = {
-  layout: {
-    heading: '通用',
-    items: [
-      { key: 'font', value: '字体' },
-      { key: 'grid', value: '栅格' }
-    ],
-  },
-  components: {
-    heading: '组件',
-    items: [
-      { key: 'badge', value: '徽标数' },
-      { key: 'icon', value: '图标' },
-    ]
-  }
-}
-
 const NavSection = props => {
-  const { heading, items, path, } = props;
+  const { heading, items, path } = props;
   return (
     <Panel
       className="Sidebar__Header"
@@ -33,7 +16,7 @@ const NavSection = props => {
           {items.map(({ key, value }) => (
             <li key={key}>
               <Link to={`${path}/${key}`} activeClassName="active">
-                {`${lodash.upperFirst(key)}  ${value}`}
+                {value}
               </Link>
             </li>
           ))}
@@ -44,6 +27,24 @@ const NavSection = props => {
 }
 
 const SideNav = props => {
+  const { links } = props;
+  const SIDE_NAV = {
+    layout: {
+      heading: '通用',
+      items: [],
+    },
+    components: {
+      heading: '组件',
+      items: []
+    }
+  };
+  links.forEach(({ link, title }) => {
+    const [ parent, name ] = link.split('/');
+    SIDE_NAV[parent].items.push({
+      key: name,
+      value: title,
+    })
+  })
   return (
     <Row className="Sidebar">
       {lodash.keys(SIDE_NAV).map(key => (
