@@ -8,7 +8,7 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col, Glyphicon, Tooltip, OverlayTrigger } from 'react-bootstrap';
 import Playground from '../components/Playground';
 import TopBar from '../components/TopBar';
 import SideNav from '../components/SideNav';
@@ -89,7 +89,26 @@ const Layout = props => {
                 <Col xs={12} md={8} xl={8}>
                   <div className="Main__Body">
                     <div className="Main__Header">
-                      <h1>{title}</h1>
+                      <h1>
+                        {title}
+                        <OverlayTrigger
+                          placement="top"
+                          overlay={(
+                            <Tooltip id="tooltip">
+                              在 GitHub 上编辑此页！
+                            </Tooltip>
+                          )}
+                        >
+                          <a
+                            className="edit-button"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href={`https://github.com/xsky-fe/wizard-ui/edit/master/docs/src/pages/${frontmatter.link}.mdx`}
+                          >
+                            <Glyphicon glyph="pencil" />
+                          </a>
+                        </OverlayTrigger>
+                      </h1>
                     </div>
                     <MDXProvider components={components}>
                       {children}

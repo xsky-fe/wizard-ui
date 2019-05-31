@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: `Wizard UI Documentation`,
     description: `Wizard UI Documentation.`,
-    author: `wizard ui contributors`,
+    author: `xsky contributors`,
   },
   plugins: [
     {
