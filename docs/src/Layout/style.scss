@@ -50,15 +50,33 @@ table {
 }
 .Main__Body {
   margin-bottom: 20px;
-  a {
-    color: #777;
+}
+.edit-button {
+  color: #777;
+  display: inline-block;
+  margin-left: 8px;
+  text-decoration: none;
+  .glyphicon {
+    font-size: 16px;
   }
-  .edit-button {
-    display: inline-block;
-    margin-left: 8px;
-    text-decoration: none;
-    .glyphicon {
-      font-size: 16px;
-    }
+}
+
+.prev-next-nav {
+  overflow: hidden;
+  font-size: 14px;
+  border-top: 1px solid #ebedf0;
+  .prev-page,
+  .next-page {
+    display: block;
+    width: 50%;
+    height: 72px;
+    line-height: 72px;
+  }
+  .prev-page {
+    float: left;
+  }
+  .next-page {
+    float: right;
+    text-align: right;
   }
 }
