@@ -2,11 +2,11 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import { MDXProvider } from '@mdx-js/react';
 import Layout from "../Layout";
-import SEO from "../components/seo"
-import { Row, Col, Glyphicon, Tooltip, OverlayTrigger } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import LinkedHeading from '../components/LinkedHeading'
 import Playground from '../components/Playground'
 import SideNav from '../components/SideNav'
+import Header from '../components/Header'
 import Toc from '../components/Toc'
 import MDXRenderer from "gatsby-mdx/mdx-renderer"
 
@@ -21,42 +21,18 @@ const components = {
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.mdx;
-    const { headings = [],  frontmatter = {} } = post || {};
-    const { title, date } = frontmatter || {};
+    const { headings = [] } = post || {};
     const { previous, next } = this.props.pageContext;
 
     return (
       <Layout>
         <Row>
           <Col xs={12} md={2} xl={2}>
-            <SideNav location={this.props.location} links={[]} />
+            <SideNav location={this.props.location} />
           </Col>
           <Col xs={12} md={8} xl={8}>
             <div className="Main__Body">
-              <div className="Main__Header">
-                <SEO title={title} />
-                <h1>
-                  {title}
-                  <OverlayTrigger
-                    placement="top"
-                    overlay={(
-                      <Tooltip id="tooltip">
-                        在 GitHub 上编辑此页！
-                      </Tooltip>
-                    )}
-                  >
-                    <a
-                      className="edit-button"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href={`https://github.com/xsky-fe/wizard-ui/edit/master/docs/src/pages/${frontmatter.link}.mdx`}
-                    >
-                      <Glyphicon glyph="pencil" />
-                    </a>
-                  </OverlayTrigger>
-                </h1>
-                {date && <p>{post.frontmatter.date}</p>}
-              </div>
+              <Header post={post}/>
               <MDXProvider components={components}>
                 <MDXRenderer>{post.code.body}</MDXRenderer>
               </MDXProvider>
