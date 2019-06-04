@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Nav, Panel } from 'react-bootstrap';
-import { Link } from 'gatsby';
+import { Link, graphql, useStaticQuery } from 'gatsby';
 import lodash from 'lodash';
 import './style.scss';
 
@@ -27,7 +27,28 @@ const NavSection = props => {
 }
 
 const SideNav = props => {
-  const { links } = props;
+  const { allMdx: { edges } } = useStaticQuery(
+    graphql`
+      query {
+        allMdx(
+          sort: { fields: [frontmatter___date], order: DESC },
+          filter: { fields : { slug: { regex: "/layout|components/" } } }, 
+          limit: 1000
+        ) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+              }
+            }
+          }
+        }
+      }
+    `
+  );
   const SIDE_NAV = {
     layout: {
       heading: '通用',
@@ -38,11 +59,11 @@ const SideNav = props => {
       items: []
     }
   };
-  links.forEach(({ link, title }) => {
-    const [ parent, name ] = link.split('/');
+  edges.forEach(({ node: { fields, frontmatter } }) => {
+    const [ , parent, name ] = fields.slug.split('/');
     SIDE_NAV[parent].items.push({
       key: name,
-      value: title,
+      value: frontmatter.title,
     })
   })
   return (

@@ -17,16 +17,11 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `wizard-ui-site`,
-        path:  Path.resolve(__dirname, `src/`)
+        path: `${__dirname}/content`,
+        name: `content`,
       },
     },
-    {
-      resolve: 'gatsby-mdx',
-      options: {
-        defaultLayouts: require.resolve('./src/Layout'),
-      },
-    },
+    `gatsby-mdx`,
     {
       resolve: "gatsby-plugin-ts-loader",
       options: {
