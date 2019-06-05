@@ -7,7 +7,6 @@
 
 import React from 'react';
 import TopBar from '../components/TopBar';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Grid } from 'react-bootstrap';
 import './style.scss';
 

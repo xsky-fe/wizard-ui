@@ -1,24 +1,121 @@
 ---
 link: layout/grid
 title: Grid 栅格
-date: 2019-05-29
+date: 2019-06-05
 ---
 
-基于 1366px 宽 的页面，12 栅格系统的基础上使用 24 等分栅格系统。
+24 等分栅格系统。
 
 ## 设计理念
-- 在多数业务情况下，Xsky 需要在设计区域内解决大量信息收纳的问题，因此我们将整个设计建议区域按照 24 等分的原则进行划分。
-- 建议横向排列的盒子数量最多四个，最少一个。栅格在整个屏幕上占比见右图。设计部分基于盒子的单位定制盒子内部的排版规则，以保证视觉层面的舒适感。
+```jsx
+<Grid fluid className="grid-demo">
+  <Row>
+    <Col xs={24}>100%</Col>
+  </Row>
+  <Row>
+    <Col xs={6}>25%</Col>
+    <Col xs={6}>25%</Col>
+    <Col xs={6}>25%</Col>
+    <Col xs={6}>25%</Col>
+  </Row>
+  <Row>
+    <Col xs={8}>33.33%</Col>
+    <Col xs={8}>33.33%</Col>
+    <Col xs={8}>33.33%</Col>
+  </Row>
+  <Row>
+    <Col xs={12}>50%</Col>
+    <Col xs={12}>50%</Col>
+  </Row>
+  <Row>
+    <Col xs={16}>66.67%</Col>
+    <Col xs={8}>50%</Col>
+  </Row>
+  <Row>
+    <Col xs={8}>33.33%</Col>
+    <Col xs={16}>66.67%</Col>
+  </Row>
+</Grid>
+```
+在多数业务情况下，需要在设计区域内解决大量信息收纳的问题，因此我们将整个设计建议区域按照 24 等分的原则进行划分。
+
+建议横向排列的盒子数量最多四个，最少一个。栅格在整个屏幕上占比见上图。设计部分基于盒子的单位定制盒子内部的排版规则，以保证视觉层面的舒适感。
 
 ## 使用规范
-- 基于 1366px 页面，分成 24 栅格系统；
-- 栅格间距以 8px为基础单位，8n为栅格的间距（n 为自然数）；
-- 一个24栅格系统可以根据业务需要被2等分、3等分、4等分、6等分、8等分、12等分，还可以被1:1:1、1:2:1、1:3:2、2:3:3、1:2、1:3、1:5、3:5等不对称分割，具体采用哪种比例的组合需要我们根据自己业务需求来定，我们此处所说的比例实际上就是盒子的宽度；
+- 分成 24 等分栅格系统；
+- 栅格间距以 8px 为基础单位；
+- 24 栅格系统可以根据业务需要被 2 等分、3 等分、4 等分、6 等分、8 等分、12 等分，还可以被 1:1:1、1:2:1、1:3:2、2:3:3、1:2、1:3、1:5、3:5 等不对称分割，具体采用哪种比例的组合需要根据自己业务需求来定，此处所说的比例实际上就是盒子的宽度；
 - 建议横向排列的盒子数量最多四个，最少一个；
 - 所有组件及页面的尺寸制定，需要参考栅格规范。
 
-## 区块间隔
-栅格常常需要和间隔进行配合，栅格间距以 8px为基础单位，8n为栅格的间距（n 为自然数)。
+## 栅格类型
+### 基础栅格
+```jsx
+<Grid fluid className="grid-demo">
+   <Row>
+    <Col xs={12}>xs = 12</Col>
+    <Col xs={12}>xs = 12</Col>
+  </Row>
+  <Row>
+    <Col xs={8}>xs = 8</Col>
+    <Col xs={8}>xs = 8</Col>
+    <Col xs={8}>xs = 8</Col>
+  </Row>
+  <Row>
+    <Col xs={6}>xs = 6</Col>
+    <Col xs={6}>xs = 6</Col>
+    <Col xs={6}>xs = 6</Col>
+    <Col xs={6}>xs = 6</Col>
+  </Row>
+</Grid>
+```
 
-## 左右偏移
+### 区块间隔
+栅格常常需要和间隔进行配合，栅格间距以 8px 为基础单位。
+```jsx
+<Grid fluid className="grid-demo-split">
+  <Row>
+    <Col xs={6}>
+      <div>xs = 6</div>
+    </Col>
+    <Col xs={6}>
+      <div>xs = 6</div>
+    </Col>
+    <Col xs={6}>
+      <div>xs = 6</div>
+    </Col>
+    <Col xs={6}>
+      <div>xs = 6</div>
+    </Col>
+  </Row>
+</Grid>
+```
+
+### 左右偏移
 列偏移，让列向左右偏移 n 个栅格的距离。
+```jsx
+<Grid fluid className="grid-demo">
+   <Row>
+    <Col xs={8}>xs = 8</Col>
+    <Col xs={8} xsOffset={8}>xs = 8, xsOffset = 8</Col>
+  </Row>
+  <Row>
+    <Col xs={6} xsOffset={6}>xs = 6, xsOffset = 6</Col>
+    <Col xs={6} xsOffset={6}>xs = 6, xsOffset = 6</Col>
+  </Row>
+  <Row>
+    <Col xs={12} xsOffset={6}>xs = 12, xsOffset = 6</Col>
+  </Row>
+</Grid>
+```
+
+### 排序
+通过使用 push 和 pull 类就可以很容易的改变列的顺序。
+```jsx
+<Grid fluid className="grid-demo">
+   <Row>
+      <Col xs={12} xsPush={12}>xs = 12, xsPush = 12</Col>
+      <Col xs={12} xsPull={12}>xs = 12, xsPull = 12</Col>
+    </Row>
+</Grid>
+```

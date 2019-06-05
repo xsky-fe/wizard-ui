@@ -27,10 +27,10 @@ class BlogPostTemplate extends React.Component {
     return (
       <Layout>
         <Row>
-          <Col xs={12} md={2} xl={2}>
+          <Col xs={24} md={4} xl={4}>
             <SideNav location={this.props.location} />
           </Col>
-          <Col xs={12} md={8} xl={8}>
+          <Col xs={24} md={16} xl={16}>
             <div className="Main__Body">
               <Header post={post}/>
               <MDXProvider components={components}>
@@ -50,7 +50,7 @@ class BlogPostTemplate extends React.Component {
               )}
             </div>
           </Col>
-          <Col md={2} xl={2}>
+          <Col md={4} xl={4}>
             <Toc headings={headings} location={this.props.location}/>
           </Col>
         </Row>

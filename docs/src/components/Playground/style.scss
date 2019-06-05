@@ -1,3 +1,5 @@
+$w: 0.08333333333333333%;
+
 .Playground {
   &.show {
     background-color: #234361;
@@ -24,14 +26,109 @@
     border: 1px solid #ccc;
     display: flex;
     justify-content: space-between;
+    > div {
+      width: 100%;
+    }
     button {
       padding: 0;
       opacity: 0;
       max-height: 30px;
+      align-self: flex-end;
       transition: opacity .3s ease;
     }
     &:hover button {
       opacity: 1;
+    }
+    .grid-demo {
+      .row {
+        & > div:nth-child(odd){
+          background-color: rgba(107,88,196, 0.75);
+          color: #fff;
+        }
+        & > div:nth-child(even){
+          background-color: rgba(68,138,255, 0.75);
+          color: #fff;
+        }
+        & > div {
+          text-align: center;
+          padding-top: 24px;
+          padding-bottom: 24px;
+        }
+      }
+    }
+    .grid-demo-split {
+      .row {
+        & > div:nth-child(odd) > div {
+          background-color: rgba(107,88,196, 0.75);
+          color: #fff;
+        }
+        & > div:nth-child(even) > div {
+          background-color: rgba(68,138,255, 0.75);
+          color: #fff;
+        }
+        & > div > div {
+          text-align: center;
+          padding-top: 24px;
+          padding-bottom: 24px;
+        }
+      }
+    }
+    .grid-demo,
+    .grid-demo-split {
+      width: 100%;
+      .row {
+        background-image: linear-gradient(
+          90deg,
+          #dad6f7 4.16666667%,
+          transparent 4.16666667%,
+          transparent 8.33333333%,
+          #dad6f7 8.33333333%,
+          #dad6f7 12.5%,
+          transparent 12.5%,
+          transparent 16.66666667%,
+          #dad6f7 16.66666667%,
+          #dad6f7 20.83333333%,
+          transparent 20.83333333%,
+          transparent 25%,
+          #dad6f7 25%,
+          #dad6f7 29.16666667%,
+          transparent 29.16666667%,
+          transparent 33.33333333%,
+          #dad6f7 33.33333333%,
+          #dad6f7 37.5%,
+          transparent 37.5%,
+          transparent 41.66666667%,
+          #dad6f7 41.66666667%,
+          #dad6f7 45.83333333%,
+          transparent 45.83333333%,
+          transparent 50%,
+          #dad6f7 50%,
+          #dad6f7 54.16666667%,
+          transparent 54.16666667%,
+          transparent 58.33333333%,
+          #dad6f7 58.33333333%,
+          #dad6f7 62.5%,
+          transparent 62.5%,
+          transparent 66.66666667%,
+          #dad6f7 66.66666667%,
+          #dad6f7 70.83333333%,
+          transparent 70.83333333%,
+          transparent 75%,
+          #dad6f7 75%,
+          #dad6f7 79.16666667%,
+          transparent 79.16666667%,
+          transparent 83.33333333%,
+          #dad6f7 83.33333333%,
+          #dad6f7 87.5%,
+          transparent 87.5%,
+          transparent 91.66666667%,
+          #dad6f7 91.66666667%,
+          #dad6f7 95.83333333%,
+          transparent 95.83333333%
+        );
+        background-size: 100% 5%;
+        margin-bottom: 8px;
+      }
     }
   }
 }

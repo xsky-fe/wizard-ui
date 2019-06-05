@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import * as bs from 'react-bootstrap';
 import * as libs from 'wizard-ui';
 import AllIcon from '../Icon';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
@@ -14,7 +15,7 @@ export default ({ isShow, children, previewOnly }) => {
     setShow(!show);
   }
   return (
-    <LiveProvider scope={{ ReactDOM, AllIcon, PropTable, ...libs }} code={children.trim()}>
+    <LiveProvider scope={{ ReactDOM, AllIcon, PropTable, ...bs, ...libs }} code={children.trim()}>
       { previewOnly ? <LivePreview/> : (
         <div className={`Playground ${(show || isShow) ? 'show' : ''}`}>
           {isShow ? (
