@@ -15,7 +15,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         'wizard-ui': path.resolve(__dirname, '../src/index.tsx'),
         'icomoon-icon': path.resolve (__dirname, '../src/style/icomoon/selection.json')
       }
-    },
+    }
   })
 }
 

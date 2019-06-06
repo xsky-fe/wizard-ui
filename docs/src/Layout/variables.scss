@@ -1,0 +1,145 @@
+/* red */
+$red-lighter-4: #fcdddd;
+$red-lighter-3: #fde9e9;
+$red-lighter-2: #fdd2d2;
+$red-lighter-1: #fa6a68;
+$red-normal: #f24542;
+$red-darker-1: #f02e2a;
+$red-darker-2: #d11d00;
+$red-darker-3: #f46966;
+$red-gray-1: #edd3d7;
+$red-gray-2: #dcafb0;
+$red-gray-3: #b74b4b;
+$red-2-darker-2: #b90a38;
+
+/* purple */
+$purple-lighter-3: #f3f2f7;
+$purple-lighter-2: #dad6f7;
+$purple-lighter-1: #846ee0;
+$purple-normal: #6b58c4;
+$purple-darker-1: #614dc0;
+$purple-darker-2: #513dae;
+$purple-darker-3: #6B54C7;
+$purple-darker-4: #A795F1;
+
+/* blue */
+$blue-royal-normal: #5a6691;
+$blue-royal-darker-1: #545f88;
+$blue-royal-darker-2: #4c567b;
+$blue-royal-gray-1: #d9dbe9;
+$blue-royal-gray-2: #b4b9d7;
+$blue-royal-gray-3: #7988c2;
+$blue-lighter-3: #e0f3fb;
+$blue-lighter-2: #bee8f1;
+$blue-normal: #448aff;
+$blue-darker-1: #2979ff;
+$blue-darker-2: #2962ff;
+$blue-darker-3: #4F5FEF;
+$blue-darker-4: #3277EB;
+$blue-gray-2: #a7c9dc;
+$blue-gray-3: #3e88ab;
+$blue-green-normal: #00bfa5;
+
+/* green */
+$green-lighter-3: #eaf8ef;
+$green-lighter-2: #c2e9cf;
+$green-lighter-1: #41d074;
+$green-normal: #30b65f;
+$green-darker-1:#28ac57;
+$green-darker-2: #07a740;
+$green-darker-3: #0D8C07;
+$green-gray-2: #b1d0a8;
+$green-gray-3: #346c32;
+
+/* goldenrod */
+$goldenrod-lighter-3: #fdf7e1;
+$goldenrod-lighter-2: #f7ecaf;
+$goldenrod-lighter-1: #ffd740;
+$goldenrod-normal: #ffb71c;
+$goldenrod-darker-1: #ffae00;
+$goldenrod-darker-2: #f2a501;
+$goldenrod-darker-3: #FFB800;
+$goldenrod-gray-1: #faedd6;
+$goldenrod-gray-2: #dccdaf;
+$goldenrod-gray-3: #bf9858;
+
+/* gray */
+$gray-lighter-1: #f9f9f9;
+$gray-lighter-2: #edeef2;
+$gray-lighter-3: #e5e7eb;
+$gray-lighter-4: #dbddec;
+$gray-lighter-5: #f5f5f5;
+$gray-lighter-6: #e4ebf1;
+$gray-lighter-7: #ededed;
+$gray-medium-1: #d7d8e0;
+$gray-medium-2: #dddde1;
+$gray-medium-3: #cbcbd2;
+$gray-medium-4: #d5d9dc;
+$gray-medium-5: #9ea4bd;
+$gray-medium-6: #a2a3a9;
+$gray-medium-7: #e5e5e5;
+$gray-medium-8: #f5f5f5;
+$gray-medium-9: #777777;
+$gray-medium-10: #bfbfbf;
+$gray-medium-11: #999999;
+$gray-medium-12: #cccccc;
+$gray-medium-13: #666666;
+$gray-darker-1: #737995;
+$gray-darker-2: #5a5f6f;
+$gray-darker-3: #3f3f44;
+$gray-darker-4: #383e5d;
+$gray-darker-5: #2d3454;
+$gray-darker-6: #1a203e;
+$gray-darker-7: #242a49;
+$gray-darker-8: #333333;
+$gray-darker-9: #273849;
+
+/* yellow */
+$yellow-normal: #f0ad4e;
+$yellow-red-1: #ffe379;
+$yellow-red-2: #ffc876;
+$yellow-red-3: #fead73;
+$yellow-red-4: #fd926b;
+$yellow-red-5: #fb655e;
+
+
+$white: #fff;
+
+/* Color Use Case */
+$brand-primary: $purple-normal;
+$brand-success: $green-normal;
+$brand-danger: $red-normal;
+$brand-warning: $goldenrod-normal;
+$brand-info: $blue-normal;
+$brand-error: #f07574;
+$brand-critical: #d9534f;
+$brand-muted: $gray-medium-6;
+
+
+/* Badge */
+$badge-height: 20px;
+$badge-dot-small-size: 6px;
+
+ /* Color Use Case */
+  $brand-primary: $purple-normal;
+  $brand-success: $green-normal;
+  $brand-danger: $red-normal;
+  $brand-warning: $goldenrod-normal;
+  $brand-info: $blue-normal;
+  $brand-error: #f07574;
+  $brand-critical: #d9534f;
+  $brand-muted: $gray-medium-6;
+
+  $text-lighter-2: $white;
+  $text-lighter-1: $gray-medium-3;
+  $text-lighter: #c1c1c9;
+  $text: $gray-medium-6;
+  $text-darker: $gray-darker-2;
+  $text-darker-1: $gray-darker-3;
+
+  $bg-top-level: $white;
+  $bg-top-title: $gray-lighter-1;
+  $bg-body: $gray-lighter-3;
+  $bg-side-logo: $gray-darker-4;
+  $bg-side: $gray-darker-5;
+  $bg-side-nav: $gray-darker-6;
