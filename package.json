@@ -39,7 +39,10 @@
   "devDependencies": {
     "@storybook/addon-options": "^5.0.11",
     "@storybook/react": "^5.0.11",
+    "@types/classnames": "^2.2.8",
+    "@types/react-bootstrap": "^0.32.17",
     "babel-loader": "^8.0.6",
+    "classnames": "^2.2.6",
     "node-sass": "^4.12.0",
     "raw-loader": "^2.0.0",
     "react-syntax-highlighter": "^7.0.4"
