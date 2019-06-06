@@ -1,0 +1,30 @@
+@import '../../style/variables.scss';
+
+.Tooltip__icon {
+  font-size: 14px;
+  color: var(--light-steel-blue-normal);
+}
+.Tooltip {
+  display: inline-block;
+}
+.tooltip {
+  &.contrast {
+    &.top > .tooltip-arrow {
+      border-top-color: white;
+    }
+    &.right > .tooltip-arrow {
+      border-right-color: white;
+    }
+    &.bottom > .tooltip-arrow {
+      border-bottom-color: white;
+    }
+    &.left > .tooltip-arrow {
+      border-left-color: white;
+    }
+    .tooltip-inner {
+      color: black;
+      background-color: white;
+      box-shadow: 0 0 20px rgba(0,0,0,.3);
+    }
+  }
+}
