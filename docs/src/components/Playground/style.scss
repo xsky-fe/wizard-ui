@@ -1,6 +1,10 @@
 $w: 0.08333333333333333%;
 
 .Playground {
+  .flex-between {
+    display: flex;
+    justify-content: space-between;
+  }
   &.show {
     background-color: #234361;
   }

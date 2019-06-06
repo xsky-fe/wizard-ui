@@ -4,11 +4,37 @@ date: 2019-06-06
 ---
 
 ## 产品颜色
+### 品牌色
+品牌色体现产品特性和传播理念。wizard ui 的品牌色值取自基础色板的紫色， Hex 值是 `6B58C4`。
+```
+<div style={{ color: '#6b58c4' }}>我是品牌色。</div>
+```
+
+### 功能色
+- 功能色代表了明确的信息以及状态，比如成功、警告、失败、提醒、链接等。
+- 功能色的选取需要遵循用户对色彩几基本认知。自定义色彩尽量不要跟用户的认知体验冲突。
+```
+<div className="flex-between">
+  <span style={{ color: '#6b58c4' }}>默认 primary</span>
+  <span style={{ color: '#30b65f' }}>成功 success</span>
+  <span style={{ color: '#ffb71c' }}>警告 warning</span>
+  <span style={{ color: '#f24542' }}>危险 danger</span>
+  <span style={{ color: '#f07574' }}>失败 error</span>
+  <span style={{ color: '#448aff' }}>提醒 info</span>
+</div>
+```
+### 中性色
+大量用在界面的文字部分，此外还有背景、边框、分割线、等场景。产品中性色的定义需要考虑深色背景以及浅色背景的差异，同时结合 `WCAG 2.0` 标准。使用过程中不好从视觉层面把握，推荐定义多种使用场景来规范，避免开发者的滥用。
+
+### 产品颜色列表
+对于色彩的态度要克制。色彩在使用时更多的是基于信息传递、操作引导和交互反馈等目的。不破坏操作效率，影响信息的清晰传达的这些原则之上，理性的选择颜色很关键。
 ```jsx previewOnly
 <UseColor/>
 ```
 
 ## 基础颜色
+
+### 基础颜色列表
 ```jsx previewOnly
 <BasicColor/>
 ```
