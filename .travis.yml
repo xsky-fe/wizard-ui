@@ -1,13 +1,17 @@
 language: node_js
 node_js:
   - stable
+branches:
+  only:
+    - master
+cache:
+  yarn: true
 
 jobs:
   include:
     - stage: "Tests"
       name: "Unit Tests"
-      script: yarn && yarn test
-
-branches:
-  only:
-    - master
+      script: yarn test
+    - stage: "Deploy"
+      name: 'Deploy Docs'
+      script: cd docs && yarn && yarn deploy && cd ..
