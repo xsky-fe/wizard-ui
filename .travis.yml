@@ -15,6 +15,6 @@ jobs:
     - stage: "Tests"
       name: "Unit Tests"
       script: yarn test
-    - stage: "Deploy"
-      name: 'Deploy Docs'
-      script: cd docs && yarn && yarn deploy && cd ..
+    # - stage: "Deploy"
+    #   name: 'Deploy Docs'
+    #   script: cd docs && yarn && yarn deploy && cd ..
