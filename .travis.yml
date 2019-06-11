@@ -12,14 +12,9 @@ jobs:
     - stage: "Tests"
       name: "Unit Tests"
       script: yarn test
-    - stage: "Deploys"
-      name: "Deploy Docs"
-      script: yarn test 
 
-deploy:
-  provider: script
-  github_token: $GH_TOKEN  # Set in the settings page of your repository, as a secure variable
-  script: cd docs && yarn && yarn deploy && cd ..
-  skip_cleanup: true
-  on:
-    branch: master
+script:
+  - git config --global user.name "wangkailang"
+  - git config --global user.email "2418904055@qq.com"
+  - echo "machine github.com login wangkailang password c7202e7c76a3b7f74b48d21b370aeb594bdecf02" > ~/.netrc
+  - cd docs && yarn && yarn deploy && cd ..
