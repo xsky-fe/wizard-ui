@@ -1,0 +1,67 @@
+---
+title: UsageBar 使用量
+date: 2019-06-06
+---
+
+通过当前值、最大值等参数展现某一指标的使用量，比如硬盘、存储池的容量使用，license配额的使用等。
+
+## 使用场景
+- 展示资源占整体百分比
+- 某个资源的使用、消耗情况
+
+### 百分比格式展示
+```jsx
+ <div>
+  <UsageBar percent="0.16" />
+ </div>
+```
+### 字节
+```
+<div>
+  <UsageBar now={900000} max={7000000} isByte />
+  <UsageBar percent={900000/7000000} max={7000000} isByte />
+  <UsageBar now={900000} max={7000000} isByte withPercent />
+  <UsageBar now={900000} max={7000000} isByte withPercent hideNow/>
+</div>
+```
+
+### 个数
+```
+<div>
+  <UsageBar now={900000} max={7000000} isBulk />
+  <UsageBar percent={900000/7000000} max={7000000} isBulk />
+  {false && <UsageBar now={900000} max={7000000} isBulk withPercent hideNow />}
+  <UsageBar now={900000} max={7000000} isBulk withPercent />
+</div>
+```
+
+### 行内应用
+设置行内元素时，默认width为120px
+
+```
+ <div className="flex-between">
+  <UsageBar now={900000} max={7000000} isPercent inline />
+  <UsageBar now={900000} max={7000000} isByte inline />
+  <UsageBar now={900000} max={7000000} isBulk inline />
+</div>
+```
+
+### 状态
+告警：大于 max 的 75%，小于 max 的 85%
+```
+<UsageBar now={76} max={100} />
+```
+危险：大于 max 的 85%
+```
+<UsageBar now={90} max={100} />
+```
+### 极限值处理
+```
+<div>
+  <UsageBar now={0} isByte />
+  <UsageBar now={0} isBulk />
+  <UsageBar percent={0} isByte />
+  <UsageBar percent={0} isBulk />
+  <UsageBar percent={0} />
+</div>
+```

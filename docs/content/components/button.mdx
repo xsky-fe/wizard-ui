@@ -1,0 +1,53 @@
+---
+title: Button 按钮
+date: 2019-06-11
+---
+按钮用于开始一个即时操作，触发业务逻辑时使用。
+
+## 使用场景
+标记了一个（或封装一组）操作命令，响应用户点击行为，触发相应的业务逻辑。
+
+## 基本用法
+### 按钮状态
+根据操作类型的场景可以选择六种格式：
+```
+<div className="flex-between">
+  <Button>默认 default</Button>
+  <Button bsStyle="primary">通用 primary</Button>
+  <Button bsStyle="info">通知 info</Button>
+  <Button bsStyle="warning">警告 warning</Button>
+  <Button bsStyle="danger">危险 danger</Button>
+  <Button bsStyle="link">链接 link</Button>
+</div>
+```
+
+### 按钮大小
+按钮可以设置成四种大小：large（lg）、默认、small（sm）、xsmall（xs）
+```
+<div>
+  <div style={{ marginBottom: '5px' }}>
+    <Button bsStyle="primary" bsSize="large">通用 primary</Button>
+  </div>
+  <div style={{ marginBottom: '5px' }}>
+    <Button bsStyle="primary">通用 primary</Button>
+  </div>
+  <div style={{ marginBottom: '5px' }}>
+    <Button bsStyle="primary" bsSize="small">通用 primary</Button>
+  </div>
+  <div>
+    <Button bsStyle="primary" bsSize="xsmall">通用 primary</Button>
+  </div>
+</div>
+```
+### 按钮占据整行
+```
+<Button bsStyle="primary" block>通用 primary</Button>
+```
+### 激活按钮
+```
+<Button bsStyle="primary" active>通用 primary</Button>
+```
+### 禁用按钮
+```
+<Button bsStyle="primary" disabled>通用 primary</Button>
+```

@@ -3,11 +3,11 @@ import * as PropTypes from 'prop-types';
 import { BadgeProps } from '../../interface';
 import './style.scss';
 
-const Badge: React.FC<BadgeProps> = props => {
+const Badge: React.SFC<BadgeProps> = props => {
   const { count, overflowCount, dot, size, showZero, status, text, title, children } = props;
   const statusCls = `Badge--${status}`;
   const parentCls = children ? 'Badge Badge__wrapper' : 'Badge';
-  if (count || showZero ) {
+  if (count || showZero) {
     return (
       <span className={parentCls}>
         {children}

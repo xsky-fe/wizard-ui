@@ -2,10 +2,10 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import { IconProps } from '../../interface';
 
-const Icon: React.FC<IconProps> = props => {
-  const { type, className } = props;
+const Icon: React.SFC<IconProps> = props => {
+  const { type, className, ...rest } = props;
   const cls = `${className} icon icon-${type}`;
-  return <span className={cls}/>;
+  return <span className={cls} {...rest}/>;
 }
 
 Icon.propTypes = {

@@ -3,6 +3,7 @@ import * as PropTypes from 'prop-types';
 import cn from 'classnames';
 import { Overlay, Tooltip as BaseTooltip } from 'react-bootstrap';
 import { TooltipProps } from '../../interface';
+import Icon from '../Icon';
 import './style.scss';
 
 const Tooltip: React.FC<TooltipProps> = props => {
@@ -19,11 +20,12 @@ const Tooltip: React.FC<TooltipProps> = props => {
     ...extra
   } = props;
 
-  const wrapper = React.useRef(null);
+  const wrapper = React.useRef<HTMLInputElement>(null);
   const [ placement, setPlacement ] = React.useState('top');
   // 类似 componentDidMount。只会在 render 后执行一次
   React.useEffect(() => {
-    const elem: any = wrapper.current;
+    const elem = wrapper.current;
+    if (!elem) return;
     let placement = 'top';
     const docElem = document.documentElement;
     const box = elem.getBoundingClientRect();
@@ -49,16 +51,15 @@ const Tooltip: React.FC<TooltipProps> = props => {
   const placeholder = label ? (
     label
   ) : icon ? (
-    <span
-      className={`Tooltip__icon icon icon-${icon} ${iconClass}`}
-      onClick={onClick}
-      style={{
-        verticalAlign: iconAlign,
-      }}
-    />
-  ) : (
-        undefined
-      );
+      <Icon
+        type={icon}
+        className={`Tooltip__icon ${iconClass}`}
+        onClick={onClick}
+        style={{
+          verticalAlign: iconAlign,
+        }}
+      />
+    ) : undefined;
   return (
     <div
       ref={wrapper}

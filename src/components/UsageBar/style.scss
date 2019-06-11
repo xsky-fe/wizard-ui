@@ -1,0 +1,61 @@
+@import '../../style/variables.scss';
+
+.UsageBar {
+  display: flex;
+  flex-direction: column;
+  .progress {
+    margin-bottom: 0;
+    height: 8px;
+  }
+  &.inline {
+    display: inline-block;
+    width: 120px;
+  }
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    &--left {
+      white-space: nowrap;
+      margin-right: 10px;
+    }
+    &--right {
+      white-space: nowrap;
+    }
+  }
+}
+
+.progress-bar-info {
+  background-color: $gray-medium-10;
+}
+
+.PercentStack__tooltip-item {
+  padding: 5px;
+  position: relative;
+  padding-left: 20px;
+  .items::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: $white;
+    border: 1px solid $white;
+  }
+  .item-0::before {
+    display: none;
+  }
+
+  .item-1::before {
+    border-color: $purple-normal;
+    background-color: $purple-normal;
+  }
+
+  .item-2::before {
+    border-color: $gray-medium-10;
+    background-color: $gray-medium-10;
+  }
+}
+

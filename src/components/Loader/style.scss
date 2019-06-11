@@ -1,0 +1,73 @@
+.Loader {
+    position: relative;
+    display: flex;
+}
+
+.Loader__inner {
+    margin: auto;
+    text-align: center;
+}
+
+.Loader__circle {
+    box-sizing: border-box;
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    border: 10px solid rgba(255, 255, 255, 0.2);
+    border-top-color: #FFF;
+    animation: spin 1s infinite linear;
+    display: inline-block;
+}
+
+.Loader__text {
+    color: rgba(255, 255, 255, .9);
+    text-align: center;
+    padding-top: 10px;
+}
+
+.Loader--sm .Loader__circle {
+    width: 40px;
+    height: 40px;
+    border-width: 5px;
+}
+
+.Loader--mi .Loader__circle{
+    width: 60px;
+    height: 60px;
+    border-width: 8px;
+}
+
+.Loader--xs .Loader__circle{
+  width: 20px;
+  height: 20px;
+  border-width: 2px;
+}
+
+.Loader--sm .Loader__text {
+    padding-top: 5px;
+}
+
+.Loader--mi .Loader__text {
+    padding-top: 8px;
+}
+.Loader--xs .Loader__text {
+  padding-top: 8px;
+  font-size: 12px;
+  line-height: 100%;
+
+}
+
+.Loader--primary .Loader__circle {
+    border-color: #ddd;
+    border-top-color: #6b58c4;
+}
+.Loader--primary .Loader__text {
+    color: #666;
+}
+
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

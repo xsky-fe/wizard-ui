@@ -1,3 +1,6 @@
+import * as React from 'react';
+import { bsStyles } from 'react-bootstrap/lib/utils/bootstrapUtils';
+
 export interface BadgeProps {
   count?: number | string
   showZero?: boolean
@@ -12,6 +15,8 @@ export interface BadgeProps {
 export interface IconProps {
   type: string
   className?: string
+  onClick?: React.MouseEventHandler
+  style?: object
 }
 
 export interface TooltipProps {
@@ -24,4 +29,26 @@ export interface TooltipProps {
   style?: string
   placement?: string
   children: React.ReactNode
+}
+
+export interface UsageBarProps {
+  max?: number
+  now?: number
+  percent?: number
+  unavailableData?: number
+  isByte?: boolean
+  isPercent?: boolean
+  isBulk?: boolean
+  withPercent?: boolean
+  inline?: boolean
+  hideNow?: boolean
+  hideRight?: boolean
+  showZeroMax?: boolean
+  withUnavailable?: boolean
+}
+
+export interface LoaderProps {
+  bsSize?: string
+  bsStyle?: string
+  children?: React.ReactNode
 }

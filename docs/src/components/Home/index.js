@@ -9,7 +9,7 @@ const Home = () => (
     <Row className="Home__hero">
       <Col xs={24} md={12} className="Home__left">
         <h1>WIZARD UI</h1>
-        <h2>基于 React 和 Typescript 的组件模块化解决方案，让设计和开发专注更好的用户体验。</h2>
+        <h2>基于 React 16+ 和 Typescript 的组件模块化解决方案，让设计和开发专注更好的用户体验。</h2>
         <div className="Home__btn">
           <Link to="/get-started/introduction">
             <Button bsStyle="primary">
