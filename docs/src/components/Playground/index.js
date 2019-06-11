@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import * as bs from 'react-bootstrap';
+// @ts-ignore
 import * as libs from 'wizard-ui';
 import examples from '../../examples';
 import AllIcon from '../Icon';

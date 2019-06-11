@@ -11,7 +11,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `wizard-ui`,
-        path:  Path.resolve(__dirname, `../src/lib`)
+        path:  Path.resolve(__dirname, `../src/components`)
       },
     },
     {
@@ -22,12 +22,7 @@ module.exports = {
       },
     },
     `gatsby-mdx`,
-    {
-      resolve: "gatsby-plugin-ts-loader",
-      options: {
-        tslint: true // false or exclude to disable tslint
-      }
-    },
+    `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-react-docgen`,
     `gatsby-transformer-sharp`,

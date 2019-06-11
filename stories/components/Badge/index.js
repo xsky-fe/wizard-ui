@@ -1,4 +1,4 @@
-import Badge from '!!raw-loader!../../../src/lib/Badge';
+import Badge from '!!raw-loader!../../../src/components/Badge';
 import Default from './Default';
 import DefaultCode from '!!raw-loader!./Default';
 

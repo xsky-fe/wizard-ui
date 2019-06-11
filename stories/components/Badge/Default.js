@@ -1,6 +1,6 @@
 import React from 'react';
-import { Badge } from '../../../src/lib';
-import BadgeCode from '!!raw-loader!../../../src/lib/Badge';
+import { Badge } from '../../../src/components';
+import BadgeCode from '!!raw-loader!../../../src/components/Badge';
 import ComponentBody from '../../templates/ComponentBody/index';
 
 const SIZES = ['small', 'middle', 'large'];
