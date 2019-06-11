@@ -1,6 +1,22 @@
-$w: 0.08333333333333333%;
-
 .Playground {
+  .pane {
+    display: flex;
+    & > div,
+    &-li {
+      flex: 1 1 0%;
+      height: 63px;
+      max-width: 120px;
+      color: #fff;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+  }
+  .bg-black {
+    background-color: #234361;
+    padding: 10px 0;
+  }
   .flex-between {
     display: flex;
     justify-content: space-between;

@@ -21,11 +21,11 @@ const components = {
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.mdx;
-    const { headings = [] } = post || {};
+    const { headings = [], fields: { slug } } = post || {};
     const { previous, next } = this.props.pageContext;
 
     return (
-      <Layout>
+      <Layout slug={slug}>
         <Row>
           <Col xs={24} md={4} xl={4}>
             <SideNav location={this.props.location} />
@@ -68,6 +68,9 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       code {
         body
+      }
+      fields {
+        slug
       }
       headings {
         value

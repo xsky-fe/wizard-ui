@@ -17,12 +17,13 @@ const HEADER_LINKS = [
     title: '开始',
   },
   {
-    link: '/components/badge',
-    title: '组件'
+    link: '/components/button',
+    title: '组件',
   }
 ]
 
 const TopBar = (props) => {
+  const { slug } = props;
   return (
     <div className="TopBar">
       <Navbar fixedTop fluid>
@@ -30,11 +31,17 @@ const TopBar = (props) => {
           <img src={logo} alt="wizard-ui" height={40} />
         </Link>
         <Nav>
-          {HEADER_LINKS.map(({ link, title }) => (
+          {HEADER_LINKS.map(({ link, title, partiallyActive }) => (
             <li key={link}>
-              <Link to={link} activeClassName="active">
-                {title}
-              </Link>
+              {slug && slug.match(/components|layout/) && link.includes('components') ? (
+                <a href={link} className="active">
+                  {title}
+                </a>
+              ) : (
+                <Link to={link} activeClassName="active">
+                  {title}
+                </Link>
+              )}
             </li>
           ))}
         </Nav>

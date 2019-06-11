@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { bsStyles } from 'react-bootstrap/lib/utils/bootstrapUtils';
 
 export interface BadgeProps {
   count?: number | string
@@ -44,4 +45,10 @@ export interface UsageBarProps {
   hideRight?: boolean
   showZeroMax?: boolean
   withUnavailable?: boolean
+}
+
+export interface LoaderProps {
+  bsSize?: string
+  bsStyle?: string
+  children?: React.ReactNode
 }

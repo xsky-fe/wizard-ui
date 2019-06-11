@@ -1,0 +1,45 @@
+---
+title: Loader 加载器
+date: 2019-06-11
+---
+用于页面和区块的加载中状态。
+
+## 基本用法
+
+### 默认展示
+```
+<div className="bg-black">
+  <Loader />
+</div>
+```
+### 改变颜色
+```
+<div className="bg-black">
+  <Loader bsStyle="primary"/>
+</div>
+```
+
+### 改变大小
+```
+<div className="bg-black">
+  <Loader bsStyle="primary"/>
+  <Loader bsStyle="primary" bsSize="mi"/>
+  <Loader bsStyle="primary" bsSize="sm"/>
+  <Loader bsStyle="primary" bsSize="xs"/>
+</div>
+```
+### 带文本
+```
+<div className="bg-black">
+  <Loader bsStyle="primary">
+    <div style={{ color: '#fff' }}>
+      加载中...
+    </div>
+  </Loader>
+</div>
+```
+
+## API
+```jsx previewOnly
+<PropTable of="loader" />
+```
