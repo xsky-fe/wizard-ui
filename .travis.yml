@@ -7,14 +7,16 @@ branches:
 cache:
   yarn: true
 
-addons:
-    srcclr: true
-
 jobs:
   include:
     - stage: "Tests"
       name: "Unit Tests"
       script: yarn test
-    # - stage: "Deploy"
-    #   name: 'Deploy Docs'
-    #   script: cd docs && yarn && yarn deploy && cd ..
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GH_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
+  on:
+    branch: master.
