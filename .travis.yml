@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - stable
+branches:
+  only:
+    - master
+cache:
+  yarn: true
+
+addons:
+    srcclr: true
+
+jobs:
+  include:
+    - stage: "Tests"
+      name: "Unit Tests"
+      script: yarn test
+    # - stage: "Deploy"
+    #   name: 'Deploy Docs'
+    #   script: cd docs && yarn && yarn deploy && cd ..
