@@ -3,7 +3,6 @@
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
-require('ts-node/register')
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 
@@ -12,7 +11,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     resolve: {
       modules: [path.resolve(__dirname, 'node_modules')],
       alias: {
-        'wizard-ui': path.resolve(__dirname, '../src/index.tsx'),
+        'wizard-ui': path.resolve(__dirname, '../src/components'),
         'icomoon-icon': path.resolve (__dirname, '../src/style/icomoon/selection.json')
       }
     }
