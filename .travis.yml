@@ -12,11 +12,14 @@ jobs:
     - stage: "Tests"
       name: "Unit Tests"
       script: yarn test
+    - stage: "Deploys"
+      name: "Deploy Docs"
+      script: yarn test 
 
 deploy:
   provider: script
   github_token: $GH_TOKEN  # Set in the settings page of your repository, as a secure variable
-  script: yarn deploy
+  script: cd docs && yarn && yarn deploy && cd ..
   skip_cleanup: true
   on:
     branch: master
