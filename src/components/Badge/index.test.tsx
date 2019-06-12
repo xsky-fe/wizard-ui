@@ -28,4 +28,8 @@ describe('Badge', () => {
     const badge = shallow(<Badge count="2000">UI</Badge>);
     expect(badge.find('.Badge__wrapper').exists()).toEqual(true);
   });
+  it('badge showing dot with text', () => {
+    const badge = shallow(<Badge dot text="关闭" status="default" />);
+    expect(badge.find('.Badge__dot').exists()).toEqual(true); 
+  });
 })
