@@ -1,0 +1,18 @@
+.Steps {
+  text-align: center;
+}
+.Steps__Step {
+  display: inline-block;
+  opacity: .6;
+
+  .icon-angle-left {
+    display: inline-block;
+    transform: rotate(180deg);
+    margin: 0 10px;
+    font-size: 1rem;
+    vertical-align: 0;
+  }
+}
+.Steps__Step--active {
+  opacity: 1;
+}

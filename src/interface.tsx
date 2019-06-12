@@ -59,3 +59,8 @@ export interface TabsProps {
   direction?: 'right'
   onSelect?: React.MouseEventHandler
 }
+
+export interface StepsProps {
+  steps: any[]
+  currentStep: number
+}

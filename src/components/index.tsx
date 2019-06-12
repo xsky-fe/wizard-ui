@@ -4,6 +4,7 @@ import Tooltip from './Tooltip';
 import UsageBar from './UsageBar';
 import Loader from './Loader';
 import Tabs from './Tabs';
+import Steps from './Steps'
 
 export {
   Badge,
@@ -12,4 +13,5 @@ export {
   UsageBar,
   Loader,
   Tabs,
+  Steps,
 }
