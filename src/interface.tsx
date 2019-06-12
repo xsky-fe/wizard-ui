@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { bsStyles } from 'react-bootstrap/lib/utils/bootstrapUtils';
 
 export interface BadgeProps {
   count?: number | string
@@ -51,4 +50,12 @@ export interface LoaderProps {
   bsSize?: string
   bsStyle?: string
   children?: React.ReactNode
+}
+
+export interface TabsProps {
+  tabs: any[]
+  size?: 'small'
+  eventKeyName?: string
+  direction?: 'right'
+  onSelect?: React.MouseEventHandler
 }

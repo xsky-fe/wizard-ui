@@ -11,13 +11,13 @@ import PropTable from '../PropTable';
 import './style.scss';
 
 
-export default ({ isShow, children, previewOnly }) => {
+export default ({ isShow, children, previewOnly, noInline }) => {
   const [show, setShow] = useState(false);
   const toggle = () => {
     setShow(!show);
   }
   return (
-    <LiveProvider scope={{ ReactDOM, AllIcon, PropTable, ...bs, ...examples, ...libs }} code={children.trim()}>
+    <LiveProvider scope={{ ReactDOM, AllIcon, PropTable, ...bs, ...examples, ...libs }} code={children.trim()} noInline={noInline}>
       { previewOnly ? <LivePreview/> : (
         <div className={`Playground ${(show || isShow) ? 'show' : ''}`}>
           {isShow ? (
