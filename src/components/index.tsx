@@ -3,6 +3,7 @@ import Icon from './Icon';
 import Tooltip from './Tooltip';
 import UsageBar from './UsageBar';
 import Loader from './Loader';
+import Tabs from './Tabs';
 
 export {
   Badge,
@@ -10,4 +11,5 @@ export {
   Tooltip,
   UsageBar,
   Loader,
+  Tabs,
 }

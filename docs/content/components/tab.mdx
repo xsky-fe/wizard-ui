@@ -1,0 +1,82 @@
+---
+title: Tabs 选项卡
+date: 2019-06-12
+---
+在一组内容之间快速切换。
+
+## 基本用法
+
+### 默认展示
+```
+<div className="bg-gray">
+  <Tabs
+    tabs={[
+      { title: '标题1', key: 'key-1', children: <div>第1个tab</div> },
+      { title: '标题2', key: 'key-2', children: <div>第2个tab</div> },
+      { title: '标题3', key: 'key-3', children: <div>第3个tab</div> },
+      { title: '标题4', key: 'key-4', children: <div>第4个tab</div> }
+    ]}
+  />
+</div>
+```
+
+### 改变大小
+```
+<div className="bg-gray">
+  <Tabs
+    tabs={[
+      { title: '标题1', key: 'key-1', children: <div>第1个tab</div> },
+      { title: '标题2', key: 'key-2', children: <div>第2个tab</div> },
+      { title: '标题3', key: 'key-3', children: <div>第3个tab</div> },
+      { title: '标题4', key: 'key-4', children: <div>第4个tab</div> }
+    ]}
+    size="small"
+  />
+</div>
+```
+
+### 选项卡靠右
+```
+<div className="bg-gray">
+  <Tabs
+    tabs={[
+      { title: '标题1', key: 'key-1', children: <div>第1个tab</div> },
+      { title: '标题2', key: 'key-2', children: <div>第2个tab</div> },
+      { title: '标题3', key: 'key-3', children: <div>第3个tab</div> },
+      { title: '标题4', key: 'key-4', children: <div>第4个tab</div> }
+    ]}
+    direction="right"
+  />
+</div>
+```
+
+### 监听选项卡切换
+```jsx
+() => {
+  const TABS = [
+    { title: '标题1', key: '1', children: <div>第1个tab</div> },
+    { title: '标题2', key: '2', children: <div>第2个tab</div> },
+    { title: '标题3', key: '3', children: <div>第3个tab</div> },
+    { title: '标题4', key: '4', children: <div>第4个tab</div> },
+  ];
+  const [ key, setKey ] = React.useState(TABS[0].key);
+  const handleSelect = key => setKey(key);
+  return (
+    <div className="bg-gray">
+      <Tabs
+        tabs={TABS}
+        activeKey={key}
+        onSelect={handleSelect}
+      />
+      <p>外部监听当前选中第 {key} 个。</p>
+    </div>
+  )
+}
+```
+
+## API
+```jsx previewOnly
+<PropTable of="tabs" />
+```
+
+
