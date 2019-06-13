@@ -1,0 +1,19 @@
+.Switch {
+  & > span {
+    height: 18px !important;
+    width: 38px !important;
+    top: 7px;
+    margin-bottom: 4px;
+    & > span {
+      width: 16px !important;
+      height: 16px !important;
+    }
+  }
+}
+
+.Switch--inline {
+  display: inline;
+  & > span {
+    margin-bottom: 0;
+  }
+}

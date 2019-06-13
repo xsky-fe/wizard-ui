@@ -1,0 +1,15 @@
+.Modal {
+  .modal-body {
+    padding: 24px 50px 0 50px;
+  }
+  .modal-footer {
+    padding: 15px 20px;
+    .Loader {
+      display: inline-block;
+      padding-right: 5px;
+      .Loader__circle {
+        vertical-align: middle;
+      }
+    }
+  }
+}

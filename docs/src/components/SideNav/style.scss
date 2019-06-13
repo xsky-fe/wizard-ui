@@ -1,14 +1,16 @@
 .Sidebar {
   height: calc(100vh - 51px);
-  background-color: #f7f7f7;
+  overflow: scroll;
   position: fixed;
   width: inherit;
   border-right: 1px solid #ececec;
+  padding-bottom: 60px;
   .Sidebar__Header {
     &.panel {
       border-radius: 0;
       border: 0;
       margin: 0;
+      box-shadow: none;
     }
     .panel-heading {
       border: 0;

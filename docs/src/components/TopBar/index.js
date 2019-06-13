@@ -34,7 +34,7 @@ const TopBar = (props) => {
           {HEADER_LINKS.map(({ link, title, partiallyActive }) => (
             <li key={link}>
               {slug && slug.match(/components|layout/) && link.includes('components') ? (
-                <a href={link} className="active">
+                <a href={slug} className="active">
                   {title}
                 </a>
               ) : (

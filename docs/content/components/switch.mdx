@@ -1,0 +1,45 @@
+---
+title: Switch 开关
+date: 2019-06-13
+---
+开关选择器。
+
+## 何时使用
+表示两种相互对立的状态间的切换，多用于触发「开/关」。选中时的内容支持响应式。
+
+## 基本用法
+### 默认展示
+```
+<div>
+  <Switch />
+  <Switch checked />
+</div>
+```
+### 禁用
+开关禁止操作，视觉上 UI 颜色会变淡。
+```
+<div>
+  <Switch disabled />
+  <Switch checked disabled />
+</div>
+```
+
+### 交互
+点击 Switch 开关切换。
+```
+() => {
+  const [ checked, setCheck ] = React.useState(false);
+  const handleChange = checked => setCheck(checked)
+  return (
+    <div>
+      <Switch checked={checked} onChange={handleChange}/>
+      <p>{checked ? '开启' : '关闭'}</p>
+    </div>
+  )
+}
+```
+
+## API
+```jsx previewOnly
+<PropTable of="switch" />
+```

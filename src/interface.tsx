@@ -64,3 +64,30 @@ export interface StepsProps {
   steps: any[]
   currentStep: number
 }
+
+export interface ModalProps {
+  title: string
+  onHide: any
+  onOk?: any
+  show?: boolean
+  style?: React.CSSProperties
+  bsSize?: 'sm' | 'medium' | 'lg' | 'xlarge'
+  confirmText?: string
+  okStyle?: string
+  loading?: boolean
+}
+
+interface SwitchInput {
+  name?: string
+  onChange: any
+}
+
+export interface SwitchProps {
+  inline?: boolean
+  input?: SwitchInput
+  name?: string
+  disabled?: boolean
+  handleChange: any
+  checked?: boolean
+  onChange?: any
+}
