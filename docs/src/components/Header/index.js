@@ -1,10 +1,13 @@
 import React from 'react';
 import SEO from '../seo';
 import { Glyphicon, Tooltip, OverlayTrigger } from 'react-bootstrap';
+import lodash from 'lodash';
 import './style.scss';
 
 export default ({ post }) => {
   const { frontmatter = {} } = post || {};
+  const slug = lodash.get(post, 'fields.slug');
+  const path = slug.replace(/\/$/, '.mdx');
   const { title, date } = frontmatter || {};
   return (
     <div className="Header">
@@ -23,7 +26,7 @@ export default ({ post }) => {
             className="edit-button"
             target="_blank"
             rel="noopener noreferrer"
-            href={`https://github.com/xsky-fe/wizard-ui/edit/master/docs/src/pages/${frontmatter.link}.mdx`}
+            href={`https://github.com/xsky-fe/wizard-ui/edit/master/docs/content${path}`}
           >
             <Glyphicon glyph="pencil" />
           </a>
