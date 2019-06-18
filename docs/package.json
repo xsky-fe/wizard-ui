@@ -25,6 +25,7 @@
     "lodash": "^4.17.11",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
+    "rc-time-picker": "^3.7.1",
     "react": "^16.8.6",
     "react-bootstrap": "0.31.1",
     "react-dom": "^16.8.6",

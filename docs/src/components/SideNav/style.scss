@@ -1,41 +1,40 @@
 .Sidebar {
-  height: calc(100vh - 51px);
-  overflow: scroll;
-  position: fixed;
-  width: inherit;
-  border-right: 1px solid #ececec;
-  padding-bottom: 60px;
-  .Sidebar__Header {
-    &.panel {
+  margin: 0 -8px;
+}
+@media(min-width: 768px) {
+  .Sidebar {
+    height: calc(100vh - 51px);
+    overflow: scroll;
+    position: fixed;
+    border-right: 1px solid #ececec;
+    padding-bottom: 60px;
+    &.navbar {
+      border: 0;
       border-radius: 0;
-      border: 0;
-      margin: 0;
-      box-shadow: none;
     }
-    .panel-heading {
-      border: 0;
+    .navbar-nav,
+    li {
+      float: none;
     }
-    .panel-body {
-      padding: 0;
-    }
-    .panel-title a {
-      line-height: 36px;
-      display: block;
-      padding-left: 25px;
-      cursor: pointer;
-      text-decoration: none;
-    }
-    .nav a {
-      display: block;
-      padding-left: 30px;
-      cursor: pointer;
-      text-decoration: none;
-    }
-    a {
-      color: #777;
-      &.active {
-        color: #337ab7;
+    .Sidebar__Header {
+      .nav a {
+        display: block;
+        cursor: pointer;
+        text-decoration: none;
       }
+      a {
+        color: #777;
+        &.active {
+          color: #6b58c4;
+        }
+      }
+    }
+  }
+}
+@media(max-width: 768px) {
+  .Sidebar {
+    .navbar-nav {
+      margin: 0;
     }
   }
 }

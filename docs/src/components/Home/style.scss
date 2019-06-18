@@ -1,9 +1,6 @@
 .Home {
-  &__hero {
-    padding: 80px 60px;
-  }
   &__left {
-    padding-top: 60px;
+    padding-top: 30px;
   }
   &__btn {
     a:first-child {
@@ -11,8 +8,32 @@
     }
   }
   &__feature {
-    padding: 40px 60px;
     background-color: #846ee0;
     color: #fff;
+  }
+}
+@media(min-width: 768px) {
+  .Home {
+    &__hero {
+      padding: 80px 60px;
+    }
+    &__left {
+      padding-top: 60px;
+    }
+    &__feature {
+      padding: 40px 60px;
+    }
+  }
+}
+
+@media(max-width: 768px) {
+  .Home {
+    &__btn {
+      margin-bottom: 20px;
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 }

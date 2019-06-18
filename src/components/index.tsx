@@ -7,6 +7,7 @@ import Tabs from './Tabs';
 import Steps from './Steps';
 import Modal from './Modal';
 import Switch from './Switch';
+import TimePicker from './TimePicker';
 
 export {
   Badge,
@@ -18,4 +19,5 @@ export {
   Steps,
   Modal,
   Switch,
+  TimePicker,
 }

@@ -5,7 +5,7 @@
     &-li {
       flex: 1 1 0%;
       height: 63px;
-      max-width: 120px;
+      max-width: 150px;
       color: #fff;
       text-align: center;
       display: flex;
@@ -24,12 +24,12 @@
   .flex-between {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
   &.show {
     background-color: #234361;
   }
   border-radius: 4px;
-  padding: 5px;
   color: #fff;
   &__Error {
     background-color: #f24542;
@@ -45,20 +45,22 @@
     background-color: #fff;
     border-radius: 3px;
     color: #66788a;
-    margin: 4px;
     padding: 16px;
     border: 1px solid #ccc;
     display: flex;
     justify-content: space-between;
+    position: relative;
     > div {
       width: 100%;
     }
     button.toggle-code {
-      padding: 0;
       opacity: 0;
+      right: 0;
+      bottom: 0;
       max-height: 30px;
       align-self: flex-end;
       transition: opacity .3s ease;
+      position: absolute;
     }
     &:hover button {
       opacity: 1;
