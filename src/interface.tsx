@@ -101,3 +101,18 @@ export interface TimePickerProps {
   defaultValue ?: string
   onChange ?: any
 }
+
+export interface TreeData {
+  title: string
+  disabled?: boolean
+  key: string
+  children?: TreeData[]
+}
+
+export interface TreeProps {
+  data: TreeData[]
+  checkable?: boolean
+  prefixCls?: string
+  showIcon?: boolean
+  selectable?: boolean
+}

@@ -1,0 +1,122 @@
+@import '../../style/variables.scss';
+.Tree {
+  padding-top: 7px;
+  ul {
+    margin: 0;
+    padding: 0 0 0 18px;
+  }
+  li span.Tree-switcher {
+    display: inline-block;
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    cursor: pointer;
+    text-align: center;
+    &_open,
+    &_close {
+      position: relative;
+      &:after {
+        transition: 0.3s;
+        width: 0;
+        height: 0;
+        border-left: 5px dashed;
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+        content: " ";
+        position: absolute;
+        top: 8px;
+      }
+    }
+    &_open:after {
+      transform: rotate(90deg);
+    }
+  }
+  .Tree-checkbox {
+    margin: 0 4px;
+    line-height: 1.5;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    &-inner {
+      position: relative;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 16px;
+      height: 16px;
+      border: 1px solid $gray-medium-3;
+      border-radius: 2px;
+      &:after {
+        position: absolute;
+        transform: rotate(45deg) scale(0);
+        left: 5px;
+        top: 1px;
+        width: 6px;
+        height: 9px;
+        display: table;
+        border: 2px solid $white;
+        border-top: 0;
+        border-left: 0;
+        content: " ";
+      }
+    }
+    &-checked {
+      .Tree-checkbox-inner {
+        background-color: $brand-info;
+        border-color: $brand-info;
+        &:after {
+          transform: rotate(45deg) scale(1);
+        }
+      }
+    }
+    &-indeterminate {
+      .Tree-checkbox-inner {
+        background-color: $brand-info;
+        border-color: $brand-info;
+        &:after {
+          transform: rotate(0deg) scale(1);
+          left: 2px;
+          top: 6px;
+          width: 9px;
+          height: 1px;
+        }
+      }
+    }
+    &-disabled {
+      .Tree-checkbox-inner {
+        border-color: $gray-medium-1;
+        background-color: $gray-medium-8;
+      }
+    }
+  }
+  .Tree-treenode {
+    &-disabled {
+      .Tree-title {
+        color: $gray-medium-5;
+      }
+    }
+  }
+  .Tree-node-content-wrapper {
+    padding: 0 5px;
+    vertical-align: middle;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .Tree-iconEle {
+      line-height: 16px;
+      margin-right: 2px;
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      vertical-align: middle;
+      border: 0 none;
+      cursor: pointer;
+      outline: none;
+      background-color: #000;
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+    }
+}
