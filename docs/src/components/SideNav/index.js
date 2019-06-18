@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Nav, Panel } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import lodash from 'lodash';
 import './style.scss';
@@ -7,12 +7,10 @@ import './style.scss';
 const NavSection = props => {
   const { heading, items, path } = props;
   return (
-    <Panel
-      className="Sidebar__Header"
-      header={heading}
-    >
+    <Nav className="Sidebar__Header">
       {items.length && (
         <Nav>
+          <h3>{heading}</h3>
           {items.map(({ key, value }) => (
             <li key={key}>
               <Link to={`${path}/${key}`} activeClassName="active">
@@ -22,7 +20,7 @@ const NavSection = props => {
           ))}
         </Nav>
       )}
-    </Panel>
+    </Nav>
   )
 }
 
@@ -67,16 +65,21 @@ const SideNav = props => {
     })
   })
   return (
-    <Row className="Sidebar">
-      {lodash.keys(SIDE_NAV).map(key => (
-        <NavSection
-          key={key}
-          location={props.location}
-          path={`/${key}`}
-          {...SIDE_NAV[key]}
-        />
-      ))}
-    </Row>
+    <Navbar fluid className="Sidebar" collapseOnSelect>
+       <Navbar.Header>
+        <Navbar.Toggle aria-controls="side-navbar-nav" />
+       </Navbar.Header>
+      <Navbar.Collapse id="side-navbar-nav">
+        {lodash.keys(SIDE_NAV).map(key => (
+          <NavSection
+            key={key}
+            location={props.location}
+            path={`/${key}`}
+            {...SIDE_NAV[key]}
+          />
+        ))}
+      </Navbar.Collapse>
+    </Navbar>
   )
 }
 

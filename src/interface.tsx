@@ -91,3 +91,13 @@ export interface SwitchProps {
   checked?: boolean
   onChange?: any
 }
+
+export interface TimePickerProps {
+  placeholder ?: string
+  hourStart ?: boolean
+  hourEnd ?: boolean
+  allowEmpty ?: boolean
+  value ?: any
+  defaultValue ?: string
+  onChange ?: any
+}

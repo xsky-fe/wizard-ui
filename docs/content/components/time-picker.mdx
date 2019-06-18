@@ -1,5 +1,114 @@
 ---
 title: TimePicker 时间选择框
-date: 2019-06-13
+date: 2019-06-18
 ---
 用户输入一个时间，可以点击标准输入框，弹出时间面板进行选择。
+
+## 基本用法
+### 默认展示
+```jsx
+ <TimePicker/>
+```
+
+## 便利用法
+
+### 分钟固定为 0 的小时选择
+选择时间区间时，设置 hourStart 选择开始时间。
+```jsx
+() => {
+  const [ value, setValue ] = React.useState(null);
+  const onChange = time => {
+    setValue(time && time.format('HH:mm'));
+  }
+  return (
+    <div>
+      <p>选中时间：{value}</p>
+      <TimePicker
+        hourStart
+        onChange={onChange}
+      />
+    </div>
+  );
+}
+```
+
+### 分钟固定为 59 的小时选择
+选择时间区间时，设置 hourEnd 选择结束时间。
+```jsx
+() => {
+  const [ value, setValue ] = React.useState(null);
+  const onChange = time => {
+    setValue(time && time.format('HH:mm'));
+  }
+  return (
+    <div>
+      <p>选中时间：{value}</p>
+      <TimePicker
+        hourEnd
+        onChange={onChange}
+      />
+    </div>
+  );
+}
+```
+
+### 时间区间
+```jsx
+() => {
+  const [ start, setStart ] = React.useState(null);
+  const [ end, setEnd ] = React.useState(null);
+  const onStartChange = time => {
+    setStart(time && time.format('HH:mm'));
+  }
+  const onEndChange = time => {
+    setEnd(time && time.format('HH:mm'));
+  }
+  return (
+    <div>
+      <p>选中时间区间：{start || '开始时间'} ~ {end || '结束时间'}</p>
+      <div>
+        <TimePicker
+          hourStart
+          onChange={onStartChange}
+          placeholder="开始时间"
+        />
+        <span style={{ padding: '0 10px' }} >
+        -
+        </span>
+        <TimePicker
+          hourEnd
+          onChange={onEndChange}
+          placeholder="结束时间"
+        />
+      </div>
+    </div>
+  );
+}
+```
+
+## 其他设置
+### 隐藏清空操作
+设置隐藏”清空“操作
+```jsx
+() => {
+  const [ value, setValue ] = React.useState(null);
+  const onChange = time => {
+    setValue(time && time.format('HH:mm'));
+  }
+  return (
+    <div>
+      <p>选中时间：{value}</p>
+      <TimePicker
+        allowEmpty={false}
+        onChange={onChange}
+      />
+    </div>
+  );
+}
+```
+
+
+## API
+```jsx previewOnly
+<PropTable of="timePicker" />
+```

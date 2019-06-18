@@ -21,7 +21,12 @@
     text-decoration: none;
     &.current,
     &:hover {
-      color: #337ab7;
+      color: #6b58c4;
     }
+  }
+}
+@media(max-width: 900px) {
+  .Main__Toc{
+    display: none;
   }
 }
