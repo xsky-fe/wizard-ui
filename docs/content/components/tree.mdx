@@ -3,3 +3,148 @@ title: Tree 树级组件
 date: 2019-06-13
 ---
 树型选择控件。
+
+## 基本用法
+### 默认展示
+```jsx
+() => {
+  const treeData = [
+    {
+      key: '0-0',
+      title: 'parent 1',
+      children: [
+        {
+          key: '0-0-0',
+          title: 'parent 1-1',
+          children:[
+            { key: '0-0-0-0', title: 'parent 1-1-0'}
+          ],
+        },
+        {
+          key: '0-0-1',
+          title: 'parent 1-2',
+          children:[
+            { key: '0-0-1-0', title: 'parent 1-2-0', disableCheckbox: true },
+            { key: '0-0-1-1', title: 'parent 1-2-1' },
+          ],
+        },
+      ],
+    },
+  ];
+  return (
+    <Tree data={treeData}/>
+  )
+}
+```
+
+### 隐藏复选框
+```jsx
+() => {
+  const treeData = [
+    {
+      key: '0-0',
+      title: 'parent 1',
+      children: [
+        {
+          key: '0-0-0',
+          title: 'parent 1-1',
+          children:[
+            { key: '0-0-0-0', title: 'parent 1-1-0'}
+          ],
+        },
+        {
+          key: '0-0-1',
+          title: 'parent 1-2',
+          children:[
+            { key: '0-0-1-0', title: 'parent 1-2-0', disableCheckbox: true },
+            { key: '0-0-1-1', title: 'parent 1-2-1' },
+          ],
+        },
+      ],
+    },
+  ];
+  return (
+   <Tree data={treeData} checkable={false}/>
+  )
+}
+```
+
+### 默认节点展开
+```jsx
+() => {
+  const treeData = [
+    {
+      key: '0-0',
+      title: 'parent 1',
+      children: [
+        {
+          key: '0-0-0',
+          title: 'parent 1-1',
+          children:[
+            { key: '0-0-0-0', title: 'parent 1-1-0'}
+          ],
+        },
+        {
+          key: '0-0-1',
+          title: 'parent 1-2',
+          children:[
+            { key: '0-0-1-0', title: 'parent 1-2-0', disableCheckbox: true },
+            { key: '0-0-1-1', title: 'parent 1-2-1' },
+          ],
+        },
+      ],
+    },
+  ];
+  return (
+   <Tree data={treeData} defaultExpandAll/>
+  )
+}
+```
+
+### 交互
+```jsx
+() => {
+  const treeData = [
+    {
+      key: '0-0',
+      title: 'parent 1',
+      children: [
+        {
+          key: '0-0-0',
+          title: 'parent 1-1',
+          children:[
+            { key: '0-0-0-0', title: 'parent 1-1-0'}
+          ],
+        },
+        {
+          key: '0-0-1',
+          title: 'parent 1-2',
+          children:[
+            { key: '0-0-1-0', title: 'parent 1-2-0', disableCheckbox: true },
+            { key: '0-0-1-1', title: 'parent 1-2-1' },
+          ],
+        },
+      ],
+    },
+  ];
+  const [ state, setState ] = React.useState({
+    checkedKeys: [],
+    info: {},
+  });
+  const onCheck = (checkedKeys, info) => {
+    setState({ checkedKeys, info });
+  };
+  return (
+    <div>
+      <p>选中节点：{state.checkedKeys.join(', ')}</p>
+      <p>是否选中：{state.info.checked ? '是' : '否'}</p>
+      <Tree data={treeData} onCheck={onCheck}/>
+    </div>
+  )
+}
+```
+
+## API
+```jsx previewOnly
+<PropTable of="tree" />
+```
