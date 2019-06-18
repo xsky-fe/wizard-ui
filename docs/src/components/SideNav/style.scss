@@ -5,12 +5,15 @@
   .Sidebar {
     height: calc(100vh - 51px);
     overflow: scroll;
-    position: fixed;
     border-right: 1px solid #ececec;
     padding-bottom: 60px;
     &.navbar {
       border: 0;
       border-radius: 0;
+    }
+    .navbar-nav > li > a {
+      float: none;
+      padding: 8px 0px 8px 10px;
     }
     .navbar-nav,
     li {
