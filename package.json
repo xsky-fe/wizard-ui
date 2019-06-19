@@ -27,7 +27,8 @@
     "test": "react-scripts test --env=jsdom",
     "coverage": "yarn test --coverage --watchAll=false",
     "storybook": "start-storybook -p 6006 -c .storybook",
-    "build-storybook": "build-storybook -s ./stories/public -c .storybook -o build-stories"
+    "build-storybook": "build-storybook -s ./stories/public -c .storybook -o build-stories",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -52,6 +53,7 @@
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/react-bootstrap": "^0.32.17",
     "classnames": "^2.2.6",
+    "conventional-changelog-cli": "^2.0.21",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "node-sass": "^4.12.0",
