@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { SelectCallback, Sizes } from 'react-bootstrap';
 
 export interface BadgeProps {
   count?: number | string
@@ -115,4 +116,34 @@ export interface TreeProps {
   prefixCls?: string
   showIcon?: boolean
   selectable?: boolean
+}
+
+export interface SubMenuProps {
+  name?: string
+  title: string
+  children: React.ReactNode
+}
+
+export interface DropdownButtonMenuItem {
+  key?: string | number
+  children: DropdownButtonMenuItem[]
+  title: string
+}
+
+export interface DropdownButtonProps {
+  bsStyle?: string
+  id: string
+  onSelect?: SelectCallback
+  onToggle?: (isOpen: boolean) => void
+  bsSize?: Sizes
+  title?: string | React.ReactNode
+  menu?: DropdownButtonMenuItem[]
+  children: React.ReactNode
+  componentClass?: any
+  modifer?: string
+  disabled?: boolean
+  dropup?: boolean
+  noCaret?: boolean
+  open?: boolean
+  pullRight?: boolean
 }

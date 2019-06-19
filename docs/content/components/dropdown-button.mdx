@@ -1,0 +1,133 @@
+---
+title: DropdownButton 下拉框
+date: 2019-06-19
+---
+向下弹出的列表。
+
+## 何时使用
+当某个页面操作过多时，此组件可以收纳操作元素。点击触点，会出现一个下拉菜单。可在列表中进行选择，并执行相应的命令。
+
+## 基本用法
+### 默认展示
+```jsx
+<DropdownButton
+  id="a1"
+  title="操作"
+  bsStyle="info" 
+  menu={[
+    '操作-1',
+    { key: 'menu2', title: '操作-2', children: ['操作-2-1', '操作-2-2'] },
+    '操作-3'
+  ]}
+/>
+```
+
+### 禁用
+```jsx
+() => {
+  const [disabled, setToggle] = React.useState(true);
+  const handleClick = () => setToggle(!disabled);
+  return (
+    <div>
+      <div>
+        <Checkbox checked={disabled} onClick={handleClick}>禁用</Checkbox>
+      </div>
+      <DropdownButton
+        id="a1"
+        title="操作"
+        bsStyle="info"
+        disabled={disabled}
+        menu={['操作-1', '操作-2', '操作-3']}
+      />
+    </div>
+  )
+}
+```
+
+### 选择回调
+```jsx
+() => {
+  const [select, setSelect] = React.useState('');
+  const handleSelect = eventKey => setSelect(eventKey);
+  return (
+    <div>
+      <div>
+        你选择了第 {select} 个。
+      </div>
+      <DropdownButton
+        id="a1"
+        title="操作"
+        bsStyle="info"
+        onSelect={handleSelect}
+        menu={[
+          { title: '操作-1', eventKey: '1' },
+          { title: '操作-2', eventKey: '2' },
+          { title: '操作-3', eventKey: '3' },
+        ]}
+      />
+    </div>
+  )
+}
+```
+
+### 颜色
+```jsx
+() => {
+  const menu = ['操作-1', '操作-2', '操作-3'];
+  styles = [
+    ['default', '默认'],
+    ['primary', '产品色'],
+    ['success', '成功'],
+    ['info', '通知'],
+    ['warning', '告警'],
+    ['danger', '危险']
+  ];
+  return (
+    <div className="flex-between">
+      {styles.map(([style, title]) => (
+        <DropdownButton key={style} id={`${style}-style`} bsStyle={style} title={title} menu={menu} />
+      ))}
+    </div>
+  );
+}
+```
+
+### 大小
+```jsx
+() => {
+  const menu = ['操作-1', '操作-2', '操作-3'];
+  sizes = [
+    ['xs', '很小 sxmall'],
+    ['sm', '小 small'],
+    ['medium', '默认 medium'],
+    ['lg', '大 large'],
+  ];
+  return (
+    <div>
+      {sizes.map(([size, title]) => (
+        <DropdownButton key={size} id={`${size}-size`} bsSize={size} title={title} menu={menu} />
+      ))}
+    </div>
+  );
+}
+```
+
+### 靠右展示
+设置 pullRight 可以让展开操作右边对齐。
+```
+<div style={{ float: 'right' }}>
+  <DropdownButton
+    id="a1"
+    title="操作"
+    bsStyle="info" 
+    pullRight
+    menu={['操作-1', '操作-2', '操作-3']}
+  />
+</div>
+```
+
+## API
+```jsx previewOnly
+<PropTable of="dropdownButton" />
+```
+

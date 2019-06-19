@@ -1,0 +1,30 @@
+---
+title: SubMenu 级连菜单
+date: 2019-06-19
+---
+提供多级菜单展示。
+## 基本用法
+
+### 多层展示
+结合`下拉框（DropdownButton）`多层展示各个操作。
+```jsx
+<DropdownButton
+  title="操作"
+  id="dropdown-basic"
+  menu={[
+    '编辑',
+    {
+      title: '服务设置',
+      children: [
+        { title: 'XMS服务', children: ['开启', '关闭'] },
+        '其他'
+      ],
+    },
+  ]}
+/>
+```
+
+## API
+```jsx previewOnly
+<PropTable of="subMenu" />
+```

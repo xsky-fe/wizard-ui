@@ -9,6 +9,8 @@ import Modal from './Modal';
 import Switch from './Switch';
 import TimePicker from './TimePicker';
 import Tree from './Tree';
+import SubMenu from './SubMenu';
+import DropdownButton from './DropdownButton';
 
 export {
   Badge,
@@ -22,4 +24,6 @@ export {
   Switch,
   TimePicker,
   Tree,
+  SubMenu,
+  DropdownButton,
 }
