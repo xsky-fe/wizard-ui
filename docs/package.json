@@ -33,9 +33,11 @@
     "react-helmet": "^5.2.1",
     "react-ios-switch": "^0.1.19",
     "react-live": "^2.1.1",
+    "react-router": "3.2.0",
     "ts-node": "^8.2.0"
   },
   "devDependencies": {
+    "babel-loader": "8.0.5",
     "gh-pages": "^2.0.1",
     "prettier": "^1.17.1",
     "raw-loader": "^3.0.0"

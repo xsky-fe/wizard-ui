@@ -147,3 +147,20 @@ export interface DropdownButtonProps {
   open?: boolean
   pullRight?: boolean
 }
+
+export interface NavigationGroup {
+  title: string
+  panelKey: string
+  children: any[]
+}
+
+export interface NavigationProps {
+  navGroups: {
+    [key: string]: NavigationGroup
+  }
+  toggled?: boolean
+  location: {
+    pathname: string
+  }
+  logo?: boolean
+}

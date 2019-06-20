@@ -1,4 +1,4 @@
-export default function getBemClass(blockOrElement: string, modifiers: string[] = []) {
+export default function getBemClass(blockOrElement: string, modifiers: any[] | string | boolean = []) {
   if (typeof blockOrElement !== 'string' || blockOrElement === '') {
     return '';
   }

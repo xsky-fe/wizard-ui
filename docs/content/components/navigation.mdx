@@ -1,0 +1,135 @@
+---
+title: Navigation 导航栏
+date: 2019-06-20
+---
+
+## 基本用法
+### 默认展示
+```jsx
+() => {
+  const navs =  {
+    overview: {
+      title: '概览',
+      children: [
+        {
+          path: 'dashboard',
+          title: '集群概览',
+          icon: 'overview',
+        },
+      ],
+    },
+    blockStorage: {
+      title: '块存储管理',
+      panelKey: '1',
+      children: [
+        {
+          path: 'dashboard/block-volumes',
+          title: '块存储卷',
+          icon: 'volume',
+        },
+        {
+          path: 'dashboard/block-volume-groups',
+          title: '一致性组',
+          icon: 'consistency-group',
+        },
+        {
+          path: 'dashboard/access-paths',
+          title: '访问路径',
+          icon: 'access-target',
+        },
+      ],
+    },
+    fileStorage: {
+        title: '文件存储管理',
+        panelKey: '2',
+        children: [
+          {
+            path: 'dashboard/fs-users',
+            title: '文件用户',
+            icon: 'file-user',
+          },
+          {
+            path: 'dashboard/fs-clients',
+            title: '文件用户',
+            icon: 'fs-client',
+          },
+        ],
+      },
+  };
+  return (
+    <div style={{ width: '200px',   backgroundColor: '#2d3454' }}>
+      <Navigation navGroups={navs} location={{pathname: '/'}}/>
+    </div>
+  )
+}
+```
+
+### 交互
+```jsx
+() => {
+  const navs =  {
+    overview: {
+      title: '概览',
+      children: [
+        {
+          path: 'dashboard',
+          title: '集群概览',
+          icon: 'overview',
+        },
+      ],
+    },
+    blockStorage: {
+      title: '块存储管理',
+      panelKey: '1',
+      children: [
+        {
+          path: 'dashboard/block-volumes',
+          title: '块存储卷',
+          icon: 'volume',
+        },
+        {
+          path: 'dashboard/block-volume-groups',
+          title: '一致性组',
+          icon: 'consistency-group',
+        },
+        {
+          path: 'dashboard/access-paths',
+          title: '访问路径',
+          icon: 'access-target',
+        },
+      ],
+    },
+    fileStorage: {
+        title: '文件存储管理',
+        panelKey: '2',
+        children: [
+          {
+            path: 'dashboard/fs-users',
+            title: '文件用户',
+            icon: 'file-user',
+          },
+          {
+            path: 'dashboard/fs-clients',
+            title: '文件用户',
+            icon: 'fs-client',
+          },
+        ],
+      },
+  };
+  const [ toggle, setToggle ] = React.useState(true);
+  const handleClick = () => setToggle(!toggle);
+  return (
+    <div>
+      <Button bsStyle="primary" onClick={handleClick}>{toggle ? '展开' : '关闭'}</Button>
+      <div style={{ width: toggle ? '50px' : '200px',   backgroundColor: '#2d3454' }}>
+        <Navigation navGroups={navs} location={{pathname: '/'}} toggled={toggle}/>
+      </div>
+    </div>
+  )
+}
+```
+
+## API
+```jsx previewOnly
+<PropTable of="navigation" />
+```
