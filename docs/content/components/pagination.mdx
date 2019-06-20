@@ -1,0 +1,66 @@
+---
+title: Pagination 分页
+date: 2019-06-20
+---
+采用分页的形式分隔长列表，每次只加载一个页面。
+
+## 何时使用
+- 当加载/渲染所有数据将花费很多时间时；
+- 可切换页码浏览数据。
+
+## 基本用法
+### 默认展示
+```jsx
+<Pagination
+  items={10}
+  activePage={2}
+  ellipsis={false}
+/>
+```
+
+### 交互
+- `<<` 首页
+- `>>` 最后一页
+- `<` 上一页
+- `>` 下一页
+```jsx
+() => {
+  const totalPage = 100;
+  const [ activePage, setPage ] = React.useState(10);
+  const handlePageChange = page => setPage(page);
+  const [ per, setPer ] = React.useState(5);
+  return (
+    <div>
+      <Panel>
+        {[5, 8, 10].map(p => (
+          <Radio
+            key={p}
+            inline
+            checked={p === per}
+            value={p}
+            onChange={() => {
+              if (p !== per) {
+                setPer(p);
+              }
+            }}
+          >
+            展示 {p} 页
+          </Radio>
+        ))}
+      </Panel>
+      <p>总共 {totalPage} 页，当前是第 {activePage} 页。</p>
+      <Pagination
+        prev={activePage > 1}
+        next={activePage < totalPage}
+        first={activePage > 3}
+        last={activePage < totalPage - 2}
+        maxButtons={per}
+        items={totalPage}
+        activePage={activePage}
+        onSelect={handlePageChange}
+        ellipsis={false}
+      />
+    </div>
+  )
+}
+```

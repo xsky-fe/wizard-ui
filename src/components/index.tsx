@@ -11,6 +11,7 @@ import TimePicker from './TimePicker';
 import Tree from './Tree';
 import SubMenu from './SubMenu';
 import DropdownButton from './DropdownButton';
+import Navigation from './Navigation';
 
 export {
   Badge,
@@ -26,4 +27,5 @@ export {
   Tree,
   SubMenu,
   DropdownButton,
+  Navigation,
 }

@@ -3,10 +3,15 @@
 }
 @media(min-width: 768px) {
   .Sidebar {
+    position: fixed;
+    width: inherit;
     height: calc(100vh - 51px);
-    overflow: scroll;
     border-right: 1px solid #ececec;
-    padding-bottom: 60px;
+    & > div {
+      height: inherit;
+      overflow: scroll;
+      padding-bottom: 60px;
+    }
     &.navbar {
       border: 0;
       border-radius: 0;
