@@ -2,8 +2,10 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import { Navbar, Nav } from 'react-bootstrap';
+import { SideNavItems } from '../SideNav';
 import GitHubIcon from '../GitHubIcon';
 import logo from '../../images/logo.png';
+import useWindowWidth from '../../utils/hooks/get-window-width';
 import './style.scss';
 
 const HEADER_LINKS = [
@@ -22,8 +24,12 @@ const HEADER_LINKS = [
   }
 ]
 
+
+
 const TopBar = (props) => {
-  const { slug } = props;
+  const { slug, location } = props;
+  const width = useWindowWidth();
+
   return (
     <div className="TopBar">
       <Navbar fixedTop fluid collapseOnSelect>
@@ -51,6 +57,7 @@ const TopBar = (props) => {
               </li>
             ))}
           </Nav>
+          {width < 768 && <SideNavItems location={location}/>}
           <Nav pullRight>
             <li>
               <a target="_blank" rel="noopener noreferrer"  href="https://github.com/xsky-fe/wizard-ui">

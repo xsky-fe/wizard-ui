@@ -18,7 +18,12 @@ function NavItemText(props: any) {
   // 比如 '/dashboard/event-logs'  ==>  '/dashboard/action-logs'
   // '/dashboard/alert-groups' , 'alert-rules'    ==> '/dashboard/alerts'
   // Link to属性，pathMap存在对应Key，并且path匹配对应key的value，成立
-  const linkRes = window.location.pathname.split('/')[2];
+  let linkRes;
+  let wLocation;
+  if (typeof window !== 'undefined') {
+    wLocation = window.location;
+    linkRes = wLocation.pathname.split('/')[2];
+  }
   const pathname = linkRes
 
   const pathMap = {
@@ -48,8 +53,8 @@ function NavItemText(props: any) {
     <div className={getBemClass('Navigation__item', isFirst && 'first')}>
       <Link
         to={
-          pathMap[pathname] && path.match(pathMap[pathname])
-            ? `dashboard/${linkRes}${window.location.search}`
+          pathname && pathMap[pathname] && path.match(pathMap[pathname])
+            ? `dashboard/${linkRes}${wLocation && wLocation.search}`
             : path
         }
         className="Navigation__link"

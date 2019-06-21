@@ -25,3 +25,24 @@
     }
   }
 }
+@media(min-width: 768px) {
+  .TopBar {
+    .Sidebar__Header {
+      &.navbar-nav {
+        margin: 0;
+      }
+    }
+  }
+}
+@media(max-width: 768px) {
+  .TopBar {
+    .Sidebar__Header {
+      .navbar-nav {
+        margin: 0;
+      }
+      h3 {
+        padding-left: 8px;
+      }
+    }
+  }
+}

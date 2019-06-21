@@ -13,7 +13,7 @@ import './style.scss';
 const Layout = props => {
   return (
     <div>
-      {<TopBar slug={props.slug}/>}
+      {<TopBar slug={props.slug} location={props.location}/>}
       <Grid fluid className="Main">
         {props.children}
       </Grid>

@@ -1,8 +1,15 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { Link, graphql, useStaticQuery } from 'gatsby';
+import useWindowWidth from '../../utils/hooks/get-window-width';
+import Beta from '../Beta';
 import lodash from 'lodash';
 import './style.scss';
+
+const BETA_COMPONENTS = [
+  'date-picker',
+  'notification',
+]
 
 const NavSection = props => {
   const { heading, items, path } = props;
@@ -15,6 +22,7 @@ const NavSection = props => {
             <li key={key}>
               <Link to={`${path}/${key}`} activeClassName="active">
                 {value}
+                {BETA_COMPONENTS.includes(key) && <Beta/>}
               </Link>
             </li>
           ))}
@@ -24,13 +32,13 @@ const NavSection = props => {
   )
 }
 
-const SideNav = props => {
+const SideNavItems = props => {
   const { allMdx: { edges } } = useStaticQuery(
     graphql`
       query {
         allMdx(
           sort: { fields: [frontmatter___date], order: DESC },
-          filter: { fields : { slug: { regex: "/layout|components/" } } }, 
+          filter: { fields : { slug: { regex: "/layout|components/" } } },
           limit: 1000
         ) {
           edges {
@@ -65,23 +73,29 @@ const SideNav = props => {
     })
   })
   return (
-    <Navbar fluid className="Sidebar" collapseOnSelect>
-       <Navbar.Header>
-        <Navbar.Toggle aria-controls="side-navbar-nav" />
-       </Navbar.Header>
-      <Navbar.Collapse id="side-navbar-nav">
-        {lodash.keys(SIDE_NAV).map(key => (
-          <NavSection
-            key={key}
-            location={props.location}
-            path={`/${key}`}
-            {...SIDE_NAV[key]}
-          />
-        ))}
-      </Navbar.Collapse>
-    </Navbar>
+    <React.Fragment>
+      {lodash.keys(SIDE_NAV).map(key => (
+        <NavSection
+          key={key}
+          location={props.location}
+          path={`/${key}`}
+          {...SIDE_NAV[key]}
+        />
+      ))}
+    </React.Fragment>
   )
 }
 
+
+const SideNav = props => useWindowWidth() > 768 ? (
+  <Navbar fluid className="Sidebar">
+    <SideNavItems {...props}/>
+  </Navbar>
+) : null
+
 export default SideNav;
+
+export {
+  SideNavItems,
+};
 
