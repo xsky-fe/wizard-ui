@@ -8,12 +8,15 @@
       overflow: scroll;
       padding-bottom: 60px;
     }
+    &.navbar-default {
+      background-color: transparent;
+    }
     &.navbar {
       position: fixed;
       width: inherit;
       height: calc(100vh - 51px);
-      border-right: 1px solid #ececec;
       border: 0;
+      border-right: 1px solid #ececec;
       border-radius: 0;
     }
     .navbar-nav > li {
@@ -23,7 +26,10 @@
         padding: 8px 0px 8px 10px;
       }
     }
-    .Sidebar__Header {
+    &__Header {
+      &.navbar-nav {
+        float: none;
+      }
       .nav a {
         display: block;
         cursor: pointer;

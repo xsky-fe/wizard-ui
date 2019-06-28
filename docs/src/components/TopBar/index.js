@@ -1,9 +1,10 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav, Tooltip, OverlayTrigger } from 'react-bootstrap';
 import { SideNavItems } from '../SideNav';
 import GitHubIcon from '../GitHubIcon';
+import IssueIcon from '../IssueIcon';
 import logo from '../../images/logo.png';
 import useWindowWidth from '../../utils/hooks/get-window-width';
 import './style.scss';
@@ -61,11 +62,29 @@ const TopBar = (props) => {
           <Nav pullRight>
             <li>
               <a target="_blank" rel="noopener noreferrer"  href="https://github.com/xsky-fe/wizard-ui">
-                <span className="github-icon">
+                <span className="svg-icon">
                   <GitHubIcon />
                 </span>
                 GITHUB
               </a>
+            </li>
+          </Nav>
+          <Nav pullRight>
+            <li>
+              <OverlayTrigger
+                placement="left"
+                overlay={(
+                  <Tooltip id="tooltip">
+                    提交 Issue
+                  </Tooltip>
+                )}
+              >
+                <a target="_blank" rel="noopener noreferrer"  href="https://github.com/xsky-fe/wizard-ui/issues/new">
+                   <span className="svg-icon">
+                    <IssueIcon />
+                  </span>
+                </a>
+              </OverlayTrigger>
             </li>
           </Nav>
         </Navbar.Collapse>
