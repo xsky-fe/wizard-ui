@@ -95,7 +95,7 @@ date: 2019-06-20
   return (
     <div>
       <Button bsStyle="primary" onClick={handleClick} style={{ marginBottom: 8 }}>
-        <Icon type="slide-left"/>
+        <Icon type={toggle ? 'slide-right' : 'slide-left'}/>
       </Button>
       <div style={{ width: toggle ? '50px' : '200px',   backgroundColor: '#2d3454' }}>
         <Navigation navGroups={navs} toggled={toggle}/>
