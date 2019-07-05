@@ -150,8 +150,9 @@ export interface DropdownButtonProps {
 
 export interface NavigationGroup {
   title: string
-  panelKey: string
-  children: any[]
+  icon?: string
+  isFirst?: boolean
+  children?: any[]
 }
 
 export interface NavigationProps {
@@ -159,8 +160,5 @@ export interface NavigationProps {
     [key: string]: NavigationGroup
   }
   toggled?: boolean
-  location: {
-    pathname: string
-  }
   logo?: boolean
 }

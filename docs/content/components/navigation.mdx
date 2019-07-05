@@ -10,55 +10,42 @@ date: 2019-06-20
   const navs =  {
     overview: {
       title: '概览',
-      children: [
-        {
-          path: 'dashboard',
-          title: '集群概览',
-          icon: 'overview',
-        },
-      ],
+      icon: 'overview',
     },
-    blockStorage: {
-      title: '块存储管理',
-      panelKey: '1',
+    nav1: {
+      title: '导航栏一',
       children: [
         {
-          path: 'dashboard/block-volumes',
-          title: '块存储卷',
+          title: '选项一',
           icon: 'volume',
         },
         {
-          path: 'dashboard/block-volume-groups',
-          title: '一致性组',
+          title: '选项二',
           icon: 'consistency-group',
         },
         {
-          path: 'dashboard/access-paths',
-          title: '访问路径',
+          title: '选项三',
           icon: 'access-target',
         },
       ],
     },
-    fileStorage: {
-        title: '文件存储管理',
-        panelKey: '2',
-        children: [
-          {
-            path: 'dashboard/fs-users',
-            title: '文件用户',
-            icon: 'file-user',
-          },
-          {
-            path: 'dashboard/fs-clients',
-            title: '文件用户',
-            icon: 'fs-client',
-          },
-        ],
-      },
+    nav2: {
+      title: '导航栏二',
+      children: [
+        {
+          title: '选项一',
+          icon: 'file-user',
+        },
+        {
+          title: '选项二',
+          icon: 'fs-client',
+        },
+      ],
+    },
   };
   return (
     <div style={{ width: '200px',   backgroundColor: '#2d3454' }}>
-      <Navigation navGroups={navs} location={{pathname: '/'}}/>
+      <Navigation navGroups={navs} />
     </div>
   )
 }
@@ -70,59 +57,48 @@ date: 2019-06-20
   const navs =  {
     overview: {
       title: '概览',
-      children: [
-        {
-          path: 'dashboard',
-          title: '集群概览',
-          icon: 'overview',
-        },
-      ],
+      icon: 'overview',
     },
-    blockStorage: {
-      title: '块存储管理',
-      panelKey: '1',
+    nav1: {
+      title: '导航栏一',
       children: [
         {
-          path: 'dashboard/block-volumes',
-          title: '块存储卷',
+          title: '选项一',
           icon: 'volume',
         },
         {
-          path: 'dashboard/block-volume-groups',
-          title: '一致性组',
+          title: '选项二',
           icon: 'consistency-group',
         },
         {
-          path: 'dashboard/access-paths',
-          title: '访问路径',
+          title: '选项三',
           icon: 'access-target',
         },
       ],
     },
-    fileStorage: {
-        title: '文件存储管理',
-        panelKey: '2',
-        children: [
-          {
-            path: 'dashboard/fs-users',
-            title: '文件用户',
-            icon: 'file-user',
-          },
-          {
-            path: 'dashboard/fs-clients',
-            title: '文件用户',
-            icon: 'fs-client',
-          },
-        ],
-      },
+    nav2: {
+      title: '导航栏二',
+      children: [
+        {
+          title: '选项一',
+          icon: 'file-user',
+        },
+        {
+          title: '选项二',
+          icon: 'fs-client',
+        },
+      ],
+    },
   };
   const [ toggle, setToggle ] = React.useState(true);
   const handleClick = () => setToggle(!toggle);
   return (
     <div>
-      <Button bsStyle="primary" onClick={handleClick}>{toggle ? '展开' : '关闭'}</Button>
+      <Button bsStyle="primary" onClick={handleClick} style={{ marginBottom: 8 }}>
+        <Icon type={toggle ? 'slide-right' : 'slide-left'}/>
+      </Button>
       <div style={{ width: toggle ? '50px' : '200px',   backgroundColor: '#2d3454' }}>
-        <Navigation navGroups={navs} location={{pathname: '/'}} toggled={toggle}/>
+        <Navigation navGroups={navs} toggled={toggle}/>
       </div>
     </div>
   )
