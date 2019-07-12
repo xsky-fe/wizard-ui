@@ -4,7 +4,7 @@ node_js:
 cache:
   yarn: true
 before_install:
-  - echo -e "machine github.ibm.com\n  login $GIT_TOKEN" > ~/.netrc
+  - echo -e "machine github.com\n  login $GH_TOKEN" > ~/.netrc
 jobs:
   include:
     - stage: "Tests"
