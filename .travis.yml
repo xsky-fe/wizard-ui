@@ -1,12 +1,10 @@
 language: node_js
 node_js:
   - stable
-branches:
-  only:
-    - master
 cache:
   yarn: true
-
+before_install:
+  - echo -e "machine github.ibm.com\n  login $GIT_TOKEN" > ~/.netrc
 jobs:
   include:
     - stage: "Tests"
