@@ -12962,9 +12962,9 @@ with-open-file@^0.1.6:
     p-try "^2.1.0"
     pify "^4.0.1"
 
-"wizard-icons@git+ssh://git@github.com:xsky-fe/icons.git":
+"wizard-icons@git+https://github.com/xsky-fe/icons.git":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:xsky-fe/icons.git#eb7c9b9b85a2d2e1280e026f9a8a8f080a3d8904"
+  resolved "git+https://github.com/xsky-fe/icons.git#eb7c9b9b85a2d2e1280e026f9a8a8f080a3d8904"
   dependencies:
     "@types/lodash" "^4.14.136"
     "@types/node" "^12.6.2"

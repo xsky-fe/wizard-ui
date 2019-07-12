@@ -35,7 +35,7 @@
     "react-live": "^2.1.1",
     "react-router": "3.2.0",
     "ts-node": "^8.2.0",
-    "wizard-icons": "git+ssh://git@github.com:xsky-fe/icons.git"
+    "wizard-icons": "git+https://github.com/xsky-fe/icons.git"
   },
   "devDependencies": {
     "babel-loader": "8.0.5",
