@@ -12,7 +12,6 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       modules: [path.resolve(__dirname, 'node_modules')],
       alias: {
         'wizard-ui': path.resolve(__dirname, '../src/components'),
-        'icomoon-icon': path.resolve (__dirname, '../src/style/icomoon/selection.json')
       }
     }
   })

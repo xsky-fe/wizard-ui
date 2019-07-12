@@ -1,1 +1,12 @@
-@import '../../style/icomoon/style.css';
+@import '../../style/variables.scss';
+svg {
+  &.icon {
+    display: inline-block;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+  }
+  &.primary {
+    color: $purple-normal
+  }
+}
