@@ -1,19 +1,24 @@
 import React from 'react';
-import getIcons from '../../utils/get-icon';
+import icons from 'wizard-icons';
 import './style.scss';
+import lodash from 'lodash';
 
-const icons = getIcons();
+const keys = lodash.keys(icons);
 
 const Icon = () => (
   <div className="Icon">
-    <p>总共有 {icons.length} 个图标</p>
+    <p>总共有 {keys.length} 个图标</p>
     <div className="Icon__ul">
-      {icons.map((icon, index) => (
+      {keys.map((key, index) => {
+        const Icon = icons[key];
+        const name = lodash.kebabCase(key);
+        return (
           <div className="Icon__li" key={index}>
-            <span className={`icon icon-${icon.name}`} />
-            <div>{icon.name}</div>
+            <Icon />
+            <p>{name}</p>
           </div>
-        ))}
+        )
+      })}
     </div>
   </div>
 )

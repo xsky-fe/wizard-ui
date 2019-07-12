@@ -24,7 +24,8 @@
     "react-ios-switch": "^0.1.19",
     "react-router": "3.2.0",
     "react-scripts": "3.0.1",
-    "typescript": "3.4.5"
+    "typescript": "3.4.5",
+    "wizard-icons": "git+ssh://git@github.com:xsky-fe/icons.git"
   },
   "scripts": {
     "test": "react-scripts test --env=jsdom",

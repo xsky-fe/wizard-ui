@@ -14,6 +14,7 @@ export interface BadgeProps {
 
 export interface IconProps {
   type: string
+  color?: string
   className?: string
   onClick?: React.MouseEventHandler
   style?: object

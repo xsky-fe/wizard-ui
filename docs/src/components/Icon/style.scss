@@ -3,6 +3,7 @@
     background-color: #edeef2;
     display: flex;
     flex-wrap: wrap;
+    font-size: 22px;
   }
   &__li {
     width: 20%;
@@ -10,6 +11,9 @@
     padding: 25px 10px;
     &:hover {
       background-color: #dbddec;
+    }
+    p {
+      font-size: 12px;
     }
     .icon {
       font-size: 20px;
