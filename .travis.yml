@@ -1,6 +1,8 @@
 language: node_js
 node_js:
   - stable
+cache:
+  npm: false
 before_install:
   - echo -e "machine github.com\n  login $GH_TOKEN" > ~/.netrc
 jobs:
