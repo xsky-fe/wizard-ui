@@ -163,3 +163,8 @@ export interface NavigationProps {
   toggled?: boolean
   logo?: boolean
 }
+
+export interface WellProps {
+  size?: string
+  children: React.ReactNode
+}
