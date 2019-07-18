@@ -12,7 +12,6 @@ import Tree from './Tree';
 import SubMenu from './SubMenu';
 import DropdownButton from './DropdownButton';
 import Navigation from './Navigation';
-import Well from './Well';
 
 export {
   Badge,
@@ -29,5 +28,4 @@ export {
   SubMenu,
   DropdownButton,
   Navigation,
-  Well,
 }
