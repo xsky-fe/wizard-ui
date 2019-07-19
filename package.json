@@ -1,9 +1,22 @@
 {
   "name": "wizard-ui",
-  "version": "0.1.0",
+  "version": "0.0.1-beta.1",
   "private": false,
-  "main": "lib/es/index.js",
-  "module": "lib/es/index.js",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "author": "wangkailang",
+  "license": "MIT",
+  "homepage": "https://xsky-fe.github.io/wizard-ui/",
+  "files": [
+    "CHANGELOG.md",
+    "lib"
+  ],
+  "keywords": [
+    "reactjs",
+    "ui",
+    "ui-component",
+    "gatsby-site"
+  ],
   "dependencies": {
     "@types/jest": "^24.0.13",
     "@types/lodash": "^4.14.134",
@@ -74,5 +87,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/xsky-fe/wizard-ui.git"
+  },
+  "release": {
+    "publishDir": "lib"
   }
 }
