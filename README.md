@@ -21,17 +21,17 @@ if you not use [create-react-app](https://github.com/facebook/create-react-app),
 {
   test: /\.scss$/,
   use: [
-    'style-loader', // 将 JS 字符串生成为 style 节点
-    'css-loader', // 将 CSS 转化成 CommonJS 模块
-    'sass-loader' // 将 Sass 编译成 CSS，默认使用 Node Sass
+    'style-loader', 
+    'css-loader',
+    'sass-loader'
   ]
 },
 // choosed
 {
   test: /\.css$/,
   use: [
-    'style-loader', // 将 JS 字符串生成为 style 节点
-    'css-loader', // 将 CSS 转化成 CommonJS 模块
+    'style-loader',
+    'css-loader',
   ]
 }
 ```
