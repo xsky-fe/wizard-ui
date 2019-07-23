@@ -1,6 +1,5 @@
 codecov:
   token: 93f19ed1-1528-40bb-9aec-66389370aded
-  branch: master
 
 coverage:
   status:
