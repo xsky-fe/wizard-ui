@@ -37,7 +37,7 @@
     "react-ios-switch": "^0.1.19",
     "react-scripts": "3.0.1",
     "typescript": "3.4.5",
-    "wizard-icons": "git+https://github.com/xsky-fe/icons.git"
+    "wizard-icons": "0.0.1-beta.0"
   },
   "scripts": {
     "test": "react-scripts test --env=jsdom",
