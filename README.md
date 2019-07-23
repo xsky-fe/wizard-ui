@@ -2,6 +2,8 @@
 ### A Design System with React
 
 [![Build Status](https://travis-ci.org/xsky-fe/wizard-ui.svg?branch=master)](https://travis-ci.org/xsky-fe/wizard-ui)
+[![Codecov](https://img.shields.io/codecov/c/github/xsky-fe/wizard-ui/master.svg?style=flat-square)](https://codecov.io/gh/xsky-fe/wizard-ui/branch/master) 
+[![npm package](https://img.shields.io/npm/v/wizard-ui.svg?style=flat-square)](https://www.npmjs.org/package/wizard-ui)
 
 - React 16+
 - Typescript
