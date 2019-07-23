@@ -11,5 +11,6 @@ jobs:
       name: "Unit Tests"
       script: 
         - yarn test
+        - yarn coverage
         - bash <(curl -s https://codecov.io/bash)
 
