@@ -24,4 +24,6 @@ yarn-error.log*
 yarn.lock
 
 # build
-/lib/*
+/lib
+/esm
+/dist
