@@ -1,10 +1,10 @@
 {
   "name": "wizard-ui",
-  "version": "0.0.1-beta.1",
+  "version": "0.0.1-beta.2",
   "private": false,
   "main": "lib/index.js",
   "module": "lib/index.js",
-  "author": "wangkailang",
+  "author": "xsky-fe",
   "license": "MIT",
   "homepage": "https://xsky-fe.github.io/wizard-ui/",
   "files": [
@@ -18,30 +18,18 @@
     "gatsby-site"
   ],
   "dependencies": {
-    "@types/jest": "^24.0.13",
-    "@types/lodash": "^4.14.134",
-    "@types/node": "12.0.2",
     "@types/rc-time-picker": "^3.4.1",
     "@types/rc-tree": "^1.11.3",
-    "@types/react": "16.8.18",
-    "@types/react-dom": "16.8.4",
-    "babel-loader": "8.0.5",
     "bootstrap-sass": "^3.4.1",
-    "lodash": "^4.17.11",
-    "prop-types": "^15.7.2",
     "rc-time-picker": "^3.7.1",
     "rc-tree": "^2.1.0",
-    "react": "^16.8.6",
     "react-bootstrap": "^0.31.1",
-    "react-dom": "^16.8.6",
     "react-ios-switch": "^0.1.19",
-    "react-scripts": "3.0.1",
-    "typescript": "3.4.5",
     "wizard-icons": "0.0.1-beta.0"
   },
   "scripts": {
-    "test": "react-scripts test --env=jsdom",
-    "coverage": "yarn test --coverage --watchAll=false",
+    "test": "jest --watch",
+    "coverage": "jest --coverage --watchAll=false",
     "build-js": "rm -rf lib && NODE_ENV=production babel src --out-dir lib --copy-file --extensions '.ts,.tsx'",
     "copy": "node scripts/build-copy.js",
     "build": "yarn build-js && yarn copy",
@@ -49,38 +37,39 @@
     "build-storybook": "build-storybook -s ./stories/public -c .storybook -o build-stories",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "devDependencies": {
+    "@types/lodash": "^4.14.134",
     "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
     "@storybook/addon-options": "^5.0.11",
     "@storybook/react": "^5.0.11",
     "@types/classnames": "^2.2.8",
     "@types/enzyme": "^3.9.3",
     "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.13",
+    "@types/node": "12.0.2",
+    "@types/react": "16.8.18",
     "@types/react-bootstrap": "^0.32.17",
+    "@types/react-dom": "16.8.4",
+    "lodash": "^4.17.11",
+    "babel-jest": "^24.8.0",
+    "babel-loader": "8.0.5",
     "classnames": "^2.2.6",
     "conventional-changelog-cli": "^2.0.21",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "fs-extra": "^8.1.0",
     "node-sass": "^4.12.0",
+    "prop-types": "^15.7.2",
     "raw-loader": "^2.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.4",
     "react-syntax-highlighter": "^7.0.4",
-    "ts-jest": "^24.0.2"
+    "ts-jest": "^24.0.2",
+    "typescript": "3.4.5"
   },
   "repository": {
     "type": "git",

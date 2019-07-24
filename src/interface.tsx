@@ -59,7 +59,7 @@ export interface TabsProps {
   size?: 'small'
   eventKeyName?: string
   direction?: 'right'
-  onSelect?: React.MouseEventHandler
+  onSelect?: SelectCallback
 }
 
 export interface StepsProps {

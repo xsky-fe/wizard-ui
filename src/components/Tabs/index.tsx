@@ -9,8 +9,8 @@ const Tabs: React.SFC<TabsProps> = props => {
   const { tabs, size, eventKeyName, direction, ...restProps } = props;
   return (
     <BsTabs className={getBemClass('Tabs', [size, direction])} {...restProps} id="Tabs">
-      {tabs.map(tab => (
-        <Tab key={tab[eventKeyName]} eventKey={tab[eventKeyName]} title={tab.title}>
+      {tabs.map((tab, idx) => (
+        <Tab key={eventKeyName ? tab[eventKeyName] : idx} eventKey={eventKeyName ? tab[eventKeyName] : idx} title={tab.title}>
           {tab.children && <Panel className="Tabs__Body">{tab.children}</Panel>}
         </Tab>
       ))}
