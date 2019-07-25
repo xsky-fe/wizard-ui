@@ -23,5 +23,10 @@ yarn-debug.log*
 yarn-error.log*
 yarn.lock
 
+# storybook
+/build-stories
+
 # build
-/lib/*
+/lib
+/esm
+/dist

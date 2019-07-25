@@ -3,7 +3,6 @@ import ReactIOSSwitch from 'react-ios-switch';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import { SwitchProps } from '../../interface';
-import 'react-ios-switch/build/bundle.css';
 import './style.scss';
 
 const Switch: React.FC<SwitchProps> = props => {
