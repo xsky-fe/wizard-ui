@@ -31,7 +31,7 @@
   },
   "scripts": {
     "test": "jest --env=jsdom",
-    "coverage": "jest --coverage --watchAll=false",
+    "coverage": "jest --env=jsdom --coverage --watchAll=false",
     "build-esm": "rm -rf esm && NODE_ENV=production babel src --out-dir esm --copy-file --extensions '.ts,.tsx' --env-name 'esm'",
     "build-lib": "rm -rf lib && NODE_ENV=production babel src --out-dir lib --copy-file --extensions '.ts,.tsx' --env-name 'lib'",
     "build-dist": "rm -rf dist && NODE_ENV=production webpack",
@@ -67,7 +67,6 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "classnames": "^2.2.6",
     "conventional-changelog-cli": "^2.0.21",
-    "core-js": "^3.1.4",
     "css-loader": "^3.1.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
