@@ -4,14 +4,15 @@ module.exports = api => {
   const lib = env === 'lib';
   return {
     presets: [
-      [
-        '@babel/preset-react',
-      ],
+      '@babel/preset-react',
       '@babel/preset-typescript',
       [
         '@babel/preset-env',
         {
           modules: lib ? 'cjs' : false,
+          targets: {
+            node: 'current'
+          }
         }
       ],
     ],
@@ -31,10 +32,10 @@ module.exports = api => {
       '**/types',
       '**/interface.tsx',
       '**/global.d.ts',
-      '**/setupEnzyme.ts'
+      // '**/setupEnzyme.ts'
     ],
     // minified: true,
-    comments: false,
-    compact: true
+    // comments: false,
+    // compact: true,
   }
 }

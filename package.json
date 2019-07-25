@@ -30,7 +30,7 @@
     "wizard-icons": "0.0.1-beta.0"
   },
   "scripts": {
-    "test": "jest --watch --no-cache",
+    "test": "jest --env=jsdom",
     "coverage": "jest --coverage --watchAll=false",
     "build-esm": "rm -rf esm && NODE_ENV=production babel src --out-dir esm --copy-file --extensions '.ts,.tsx' --env-name 'esm'",
     "build-lib": "rm -rf lib && NODE_ENV=production babel src --out-dir lib --copy-file --extensions '.ts,.tsx' --env-name 'lib'",
