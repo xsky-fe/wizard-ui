@@ -30,6 +30,6 @@ describe('Badge', () => {
   });
   it('badge showing dot with text', () => {
     const badge = shallow(<Badge dot text="关闭" status="default" />);
-    expect(badge.find('.Badge__dot').exists()).toEqual(true); 
+    expect(badge.find('.Badge__dot').exists()).toEqual(true);
   });
 })

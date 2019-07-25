@@ -21,19 +21,25 @@ yarn add --dev node-sass style-loader css-loader sass-loader
 if you not use [create-react-app](https://github.com/facebook/create-react-app), you need set webpack config:
 ```js
 {
-  test: /\.scss$/,
-  use: [
-    'style-loader', 
-    'css-loader',
-    'sass-loader'
-  ]
-},
-// choosed
-{
-  test: /\.css$/,
+  test: /\.(css|scss)$/,
   use: [
     'style-loader',
     'css-loader',
+    'sass-loader'
   ]
 }
+```
+
+and then you can use like this:
+### commonjs
+```jsx
+import { Icon } from 'wizard-ui';
+
+export default () => <Icon type="os-search-role" />
+```
+### es
+```jsx
+import { Icon } from 'wizard-ui/esm';
+
+export default () => <Icon type="os-search-role" />
 ```

@@ -14,6 +14,7 @@ module.exports = {
     rules: [
       {
         test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
         loader: ['babel-loader', 'awesome-typescript-loader'],
         include: __dirname
       },

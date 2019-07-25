@@ -1,26 +1,23 @@
 module.exports = api => {
   const env = api.env();
   console.log('env', env);
-  const es = env === 'esm';
+  const lib = env === 'lib';
   return {
     presets: [
       [
         '@babel/preset-react',
-        {
-          useBuiltIns: true,
-        }
       ],
       '@babel/preset-typescript',
       [
         '@babel/preset-env',
         {
-          useBuiltIns: es ? 'entry' : false,
-          corejs: es ? 3 : false,
+          modules: lib ? 'cjs' : false,
         }
       ],
     ],
     plugins: [
       '@babel/plugin-proposal-class-properties',
+      '@babel/plugin-transform-runtime',
       [
         // Remove PropTypes from production build
         'babel-plugin-transform-react-remove-prop-types',
@@ -28,12 +25,6 @@ module.exports = api => {
           removeImport: true,
         },
       ],
-      [
-        '@babel/plugin-transform-runtime',
-        {
-          corejs: es ? 3 : false,
-        }
-      ]
     ],
     ignore: [
       '**/*.test.tsx',
@@ -43,6 +34,7 @@ module.exports = api => {
       '**/setupEnzyme.ts'
     ],
     // minified: true,
-    comments: false
+    comments: false,
+    compact: true
   }
 }
