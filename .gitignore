@@ -30,3 +30,4 @@ yarn.lock
 /lib
 /esm
 /dist
+types.d.ts

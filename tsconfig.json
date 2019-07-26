@@ -9,6 +9,7 @@
       "es2017",
       "dom"
     ],
+    "types":["jest"],
     "sourceMap": true,
     "allowJs": false,
     "jsx": "react",
@@ -32,8 +33,7 @@
     "esModuleInterop": true,
     "strict": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true
+    "declaration": true
   },
   "include": [
     "src/**/*"

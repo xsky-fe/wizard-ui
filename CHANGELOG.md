@@ -1,4 +1,9 @@
-## 0.0.1-beta.1 (2019-07-23)
+## 0.0.1-beta.5 (2019-07-26)
+
+
+### Bug Fixes
+
+* Test coverage run ([#33](https://github.com/xsky-fe/wizard-ui/issues/33)) ([34aac84](https://github.com/xsky-fe/wizard-ui/commit/34aac84))
 
 
 ### Features
@@ -20,6 +25,7 @@
 * SubMenu and DropdownButton ([627d4eb](https://github.com/xsky-fe/wizard-ui/commit/627d4eb))
 * Tabs ([060a8dd](https://github.com/xsky-fe/wizard-ui/commit/060a8dd))
 * Test add ([a4177c3](https://github.com/xsky-fe/wizard-ui/commit/a4177c3))
+* Test coverage ([#32](https://github.com/xsky-fe/wizard-ui/issues/32)) ([7ec6810](https://github.com/xsky-fe/wizard-ui/commit/7ec6810))
 * Timerpicker and phone media support ([dba1c32](https://github.com/xsky-fe/wizard-ui/commit/dba1c32))
 * Tooltip component and doc ([3c43293](https://github.com/xsky-fe/wizard-ui/commit/3c43293))
 * Tree ([e287ff2](https://github.com/xsky-fe/wizard-ui/commit/e287ff2))
