@@ -1,18 +1,18 @@
-const fs = require('fs-extra')
+import fs from 'fs-extra';
 
-const filterFunc = (src, dest) => {
+const filterFunc = (src: string, dest:string):boolean => {
   if (src.includes('.tsx')) {
     return false
   }
   return true
 }
 fs.copy('src/style', 'esm/style')
-fs.copy('src/components', 'esm/components', { filter: filterFunc }, err => {
+fs.copy('src/components', 'esm/components', { filter: filterFunc }, (err: Error) => {
   if (err) return console.error(err)
   console.log('Copy to ems success!')
 })
 fs.copy('src/style', 'lib/style')
-fs.copy('src/components', 'lib/components', { filter: filterFunc }, err => {
+fs.copy('src/components', 'lib/components', { filter: filterFunc }, (err: Error) => {
   if (err) return console.error(err)
   console.log('Copy to lib success!')
 })
