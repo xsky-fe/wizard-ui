@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { SelectCallback, Sizes } from 'react-bootstrap';
+import { Moment } from 'moment';
 
 export interface BadgeProps {
   count?: number | string
@@ -162,4 +163,21 @@ export interface NavigationProps {
   }
   toggled?: boolean
   logo?: boolean
+}
+
+export interface RangePickerProps {
+  value?: string[]
+  disabled?: boolean
+  lang?: string
+  format?: string
+  onChange?: (data: Moment[], dataString: string[]) => void
+  onOk?: (date: Moment[]) => void
+  onOpenChange?: (open: boolean) => void
+  showDuration?: boolean
+  defaultValue?: Moment[]
+}
+
+export interface RangePickerState {
+  value: Moment[] | string[]
+  open: boolean
 }

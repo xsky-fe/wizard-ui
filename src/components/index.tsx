@@ -12,6 +12,7 @@ import Tree from './Tree';
 import SubMenu from './SubMenu';
 import DropdownButton from './DropdownButton';
 import Navigation from './Navigation';
+import RangePicker from './RangePicker';
 
 export {
   Badge,
@@ -28,4 +29,5 @@ export {
   SubMenu,
   DropdownButton,
   Navigation,
+  RangePicker,
 }
