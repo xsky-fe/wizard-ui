@@ -7,10 +7,14 @@ import './style.scss';
 
 const Icon: React.SFC<IconProps> = props => {
   const { type, color, ...rest } = props;
-  const cls = `${color} icon`;
+  const cls = `${color} icon icon-${type}`;
   const name = lodash.upperFirst(lodash.camelCase(type));
   const Icon = icons[name];
-  return <Icon aria-hidden className={cls} {...rest} />;
+  return (
+    <span className={cls} {...rest} >
+      <Icon aria-hidden/>
+    </span>
+  );
 
 }
 

@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RangePicker render show primary without props inject 1`] = `
+<span
+  className="RangePicker form-control"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  onMouseDown={[Function]}
+  onTouchStart={[Function]}
+>
+  <span
+    className="glyphicon glyphicon-calendar"
+  />
+  <input
+    placeholder="开始时间"
+    readOnly={true}
+    tabIndex={-1}
+    value=""
+  />
+  <span>
+    至
+  </span>
+  <input
+    placeholder="结束时间"
+    readOnly={true}
+    tabIndex={-1}
+    value=""
+  />
+</span>
+`;
+
+exports[`RangePicker render show with en lang 1`] = `
+<span
+  className="RangePicker form-control"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  onMouseDown={[Function]}
+  onTouchStart={[Function]}
+>
+  <span
+    className="glyphicon glyphicon-calendar"
+  />
+  <input
+    placeholder="Start time"
+    readOnly={true}
+    tabIndex={-1}
+    value=""
+  />
+  <span>
+    To
+  </span>
+  <input
+    placeholder="End time"
+    readOnly={true}
+    tabIndex={-1}
+    value=""
+  />
+</span>
+`;

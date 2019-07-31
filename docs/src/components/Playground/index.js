@@ -8,6 +8,7 @@ import AllIcon from '../Icon';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import { Button } from 'react-bootstrap';
 import PropTable from '../PropTable';
+import moment from 'moment';
 import './style.scss';
 
 
@@ -17,7 +18,7 @@ export default ({ isShow, children, previewOnly, noInline }) => {
     setShow(!show);
   }
   return (
-    <LiveProvider scope={{ ReactDOM, AllIcon, PropTable, ...bs, ...examples, ...libs }} code={children.trim()} noInline={noInline}>
+    <LiveProvider scope={{ moment, ReactDOM, AllIcon, PropTable, ...bs, ...examples, ...libs }} code={children.trim()} noInline={noInline}>
       { previewOnly ? <LivePreview/> : (
         <div className={`Playground ${(show || isShow) ? 'show' : ''}`}>
           {isShow ? (
