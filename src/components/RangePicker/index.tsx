@@ -11,6 +11,7 @@ import CALENDAR_EN from 'rc-calendar/lib/locale/en_US';
 import moment, { Moment, DurationInputArg1, DurationInputArg2 } from 'moment';
 import { RangePickerProps, RangePickerState } from '../../interface';
 import lodash from 'lodash';
+import Icon from '../Icon';
 import './style.scss';
 const ranges = [
   {
@@ -192,10 +193,7 @@ export default class RangePicker extends React.PureComponent<RangePickerProps, R
       return;
     }
     return (
-      <span
-        className="icon icon-close"
-        onClick={this.clearSelection}
-      />
+      <Icon type="close" onClick={this.clearSelection} />
     );
   }
   render() {
