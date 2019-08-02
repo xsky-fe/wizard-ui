@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { getBemClass, uuid } from '../../utils';
 import { Tooltip, OverlayTrigger, Panel } from 'react-bootstrap';
 import { NavigationProps, NavigationGroup } from '../../interface';
-import lodash from 'lodash';
+import { xor, toPairs } from 'lodash';
 import './style.scss';
 
 function NavItemText(props: NavigationGroup) {
@@ -61,7 +61,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
     };
   }
   togglePanel(activeKey: any) {
-    this.setState({ expanded: lodash.xor(this.state.expanded, [activeKey]) });
+    this.setState({ expanded: xor(this.state.expanded, [activeKey]) });
   }
   renderPanelHeader(title: string, expanded: boolean) {
     const { toggled } = this.props;
@@ -97,7 +97,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
       >
         {logo && <div className="Navigation__logo">{logo}</div>}
         <div className="Navigation__list">
-          {lodash.toPairs(navGroups).map(([key, group]) => {
+          {toPairs(navGroups).map(([key, group]) => {
             if (!group.children) {
               return <NavItem key={key} {...group} />
             }

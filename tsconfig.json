@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "outDir": "./tt/",
     "module": "commonjs",
     "target": "es5",
     "lib": [
@@ -32,8 +33,7 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "strict": true,
-    "resolveJsonModule": true,
-    "declaration": true
+    "resolveJsonModule": true
   },
   "include": [
     "src/**/*"

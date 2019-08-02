@@ -3,18 +3,18 @@ import * as PropTypes from 'prop-types';
 import RCTimePicker from 'rc-time-picker';
 import { Glyphicon } from 'react-bootstrap';
 import { TimePickerProps } from '../../interface';
-import lodash from 'lodash';
+import { range } from 'lodash';
 
 import moment from 'moment';
 import 'rc-time-picker/assets/index.css';
 import './style.scss';
 
 function remove59() {
-  return lodash.range(59);
+  return range(59);
 }
 
 function remove0() {
-  return lodash.range(1, 60);
+  return range(1, 60);
 }
 
 const TimePicker: React.FC<TimePickerProps> = props => {

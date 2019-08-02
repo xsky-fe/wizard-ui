@@ -2,12 +2,12 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { getBemClass } from '../../utils';
 import { LoaderProps } from '../../interface';
-import lodash from 'lodash';
+import { compact } from 'lodash';
 import './style.scss';
 
 const Loader: React.SFC<LoaderProps> = props => {
   const { children, bsSize, bsStyle } = props;
-  const className: string = getBemClass('Loader', lodash.compact([bsSize, bsStyle]));
+  const className: string = getBemClass('Loader', compact([bsSize, bsStyle]));
   return (
     <div className={className}>
       <div className="Loader__inner">

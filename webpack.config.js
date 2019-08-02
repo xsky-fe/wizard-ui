@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const LodashModuleReplacementPlugin = require ('lodash-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -34,6 +35,8 @@ module.exports = {
     ]
   },
   plugins: [
+    new LodashModuleReplacementPlugin,
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /nb/),
     new MiniCssExtractPlugin({
       filename: "wizard-ui.min.css",
       ignoreOrder: true

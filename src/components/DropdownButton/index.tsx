@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types';
 import { DropdownButton as BootstrapDropdownButton, MenuItem, ButtonGroup } from 'react-bootstrap';
 import SubMenu from '../SubMenu';
 import { DropdownButtonMenuItem, DropdownButtonProps } from '../../interface';
-import lodash from 'lodash';
+import { cloneDeep } from 'lodash';
 import './style.scss';
 
 
@@ -19,7 +19,7 @@ function renderContent(menu: DropdownButtonMenuItem[] = []) {
   return menu;
 }
 function renderMenu(menu: DropdownButtonMenuItem) {
-  const item = lodash.cloneDeep(menu);
+  const item = cloneDeep(menu);
   if (!item) {
     return null;
   }

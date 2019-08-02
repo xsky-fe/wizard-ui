@@ -10,7 +10,7 @@ import CALENDAR_ZH from 'rc-calendar/lib/locale/zh_CN';
 import CALENDAR_EN from 'rc-calendar/lib/locale/en_US';
 import moment, { Moment, DurationInputArg1, DurationInputArg2 } from 'moment';
 import { RangePickerProps, RangePickerState } from '../../interface';
-import lodash from 'lodash';
+import { isEmpty } from 'lodash';
 import Icon from '../Icon';
 import './style.scss';
 const ranges = [
@@ -189,7 +189,7 @@ export default class RangePicker extends React.PureComponent<RangePickerProps, R
     )
   }
   renderClearIcon = () => {
-    if (this.state.value.every(lodash.isEmpty)) {
+    if (this.state.value.every(isEmpty)) {
       return;
     }
     return (
