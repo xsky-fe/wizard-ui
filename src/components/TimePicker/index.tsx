@@ -19,7 +19,7 @@ function remove0() {
 
 const TimePicker: React.FC<TimePickerProps> = props => {
   const { hourStart, allowEmpty, hourEnd, placeholder } = props;
-  const [ value, setValue ] = React.useState(props.value || props.defaultValue);
+  const [value, setValue] = React.useState(props.value || props.defaultValue);
   const handleChange = (val: moment.Moment): void => {
     const { onChange } = props;
     setValue(val);
@@ -53,8 +53,8 @@ const TimePicker: React.FC<TimePickerProps> = props => {
       value={currentValue}
       onChange={handleChange}
     />
-  )
-}
+  );
+};
 
 TimePicker.propTypes = {
   /** 分钟固定为 0 的小时选择 */
@@ -64,16 +64,16 @@ TimePicker.propTypes = {
   /** 默认展示文本 */
   placeholder: PropTypes.string,
   /**
-  * 改变时间会触发 onChange 执行
-  */
+   * 改变时间会触发 onChange 执行
+   */
   onChange: PropTypes.func,
   /** 是否允许为空 */
   allowEmpty: PropTypes.bool,
-}
+};
 
 TimePicker.defaultProps = {
   placeholder: '请选择时间',
   allowEmpty: true,
-}
+};
 
 export default TimePicker;

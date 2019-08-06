@@ -6,7 +6,6 @@ import { DropdownButtonMenuItem, DropdownButtonProps } from '../../interface';
 import { cloneDeep } from 'lodash';
 import './style.scss';
 
-
 function randomId() {
   return Math.random()
     .toString(36)
@@ -47,19 +46,9 @@ const DropdownButton: React.SFC<DropdownButtonProps> = props => {
       className += ' ' + modifer;
     }
     return className;
-  }
+  };
 
-  const {
-    bsStyle,
-    id,
-    onSelect,
-    onToggle,
-    bsSize,
-    title,
-    menu,
-    children,
-    componentClass,
-  } = props;
+  const { bsStyle, id, onSelect, onToggle, bsSize, title, menu, children, componentClass } = props;
   const allBoolProps = ['disabled', 'dropup', 'noCaret', 'open', 'pullRight'];
   const boolProps = {};
   allBoolProps.forEach(prop => {
@@ -83,8 +72,7 @@ const DropdownButton: React.SFC<DropdownButtonProps> = props => {
       {menu ? renderContent(menu) : children}
     </BootstrapDropdownButton>
   );
-
-}
+};
 
 DropdownButton.propTypes = {
   /**

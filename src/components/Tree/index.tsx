@@ -26,7 +26,7 @@ const Tree: React.SFC<TreeProps> = props => {
       {renderTreeNodes(data)}
     </RcTree>
   );
-}
+};
 
 Tree.propTypes = {
   /** tree 数据 */

@@ -11,18 +11,17 @@ const Icon: React.SFC<IconProps> = props => {
   const name = upperFirst(camelCase(type));
   const Icon = icons[name];
   return (
-    <span className={cls} {...rest} >
-      <Icon aria-hidden/>
+    <span className={cls} {...rest}>
+      <Icon aria-hidden />
     </span>
   );
-
-}
+};
 
 Icon.propTypes = {
   /** 图标类型 */
   type: PropTypes.string.isRequired,
   /** 颜色 */
-  color: PropTypes.string
-}
+  color: PropTypes.string,
+};
 
 export default Icon;

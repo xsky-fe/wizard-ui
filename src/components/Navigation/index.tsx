@@ -52,7 +52,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
      * Logo子元素标签文本
      **/
     logo: PropTypes.element,
-  }
+  };
   constructor(props: NavigationProps) {
     super(props);
     this.togglePanel = this.togglePanel.bind(this);
@@ -77,12 +77,12 @@ export default class Navigation extends React.Component<NavigationProps, any> {
       </div>
     );
     return toggled ? (
-      <OverlayTrigger placement="right" overlay={tooltip} >
+      <OverlayTrigger placement="right" overlay={tooltip}>
         {header}
       </OverlayTrigger>
     ) : (
-        header
-      );
+      header
+    );
   }
   render() {
     const { navGroups, toggled, logo } = this.props;
@@ -99,7 +99,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
         <div className="Navigation__list">
           {toPairs(navGroups).map(([key, group]) => {
             if (!group.children) {
-              return <NavItem key={key} {...group} />
+              return <NavItem key={key} {...group} />;
             }
             return (
               // @ts-ignore
@@ -115,7 +115,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
                   <NavItem key={index} {...item} />
                 ))}
               </Panel>
-            )
+            );
           })}
         </div>
       </nav>

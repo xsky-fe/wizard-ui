@@ -90,7 +90,11 @@ const UsageBar: React.SFC<UsageBarProps> = props => {
   // 处理 bar 颜色
   if (percent && percent > PERCENT_WITH_STATUS.danger) {
     bsStyle = 'danger';
-  } else if (percent && percent < PERCENT_WITH_STATUS.danger && percent > PERCENT_WITH_STATUS.warning) {
+  } else if (
+    percent &&
+    percent < PERCENT_WITH_STATUS.danger &&
+    percent > PERCENT_WITH_STATUS.warning
+  ) {
     bsStyle = 'warning';
   }
 
@@ -109,26 +113,26 @@ const UsageBar: React.SFC<UsageBarProps> = props => {
   }
   //纯数字的进度条屏蔽右侧显示
   if (hideRight) {
-    right = ''
+    right = '';
   }
 
   return (
     <div className={`UsageBar ${inline ? 'inline' : ''}`}>
-      {
-        withUnavailable ?
-          <ProgressBar>
-            <ProgressBar bsStyle={bsStyle} now={percent} max={1} key={1} />
-            <ProgressBar bsStyle='info' now={errorPercent} max={1} key={2} />
-          </ProgressBar>
-          : <ProgressBar bsStyle={bsStyle} now={percent} max={1} />
-      }
+      {withUnavailable ? (
+        <ProgressBar>
+          <ProgressBar bsStyle={bsStyle} now={percent} max={1} key={1} />
+          <ProgressBar bsStyle="info" now={errorPercent} max={1} key={2} />
+        </ProgressBar>
+      ) : (
+        <ProgressBar bsStyle={bsStyle} now={percent} max={1} />
+      )}
       <div className="UsageBar__footer">
         <div className="UsageBar__footer--left">{left}</div>
         <div className="UsageBar__footer--right">{right}</div>
       </div>
     </div>
   );
-}
+};
 
 UsageBar.propTypes = {
   /**

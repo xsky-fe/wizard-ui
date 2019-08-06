@@ -27,7 +27,7 @@ const Badge: React.SFC<BadgeProps> = props => {
     );
   }
   return null;
-}
+};
 
 Badge.propTypes = {
   /**
@@ -62,8 +62,7 @@ Badge.propTypes = {
    * 鼠标hover在点上展现的文字, 默认为count
    **/
   title: PropTypes.string,
-}
-
+};
 
 Badge.defaultProps = {
   size: 'small',

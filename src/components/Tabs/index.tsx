@@ -10,13 +10,17 @@ const Tabs: React.SFC<TabsProps> = props => {
   return (
     <BsTabs className={getBemClass('Tabs', [size, direction])} {...restProps} id="Tabs">
       {tabs.map((tab, idx) => (
-        <Tab key={eventKeyName ? tab[eventKeyName] : idx} eventKey={eventKeyName ? tab[eventKeyName] : idx} title={tab.title}>
+        <Tab
+          key={eventKeyName ? tab[eventKeyName] : idx}
+          eventKey={eventKeyName ? tab[eventKeyName] : idx}
+          title={tab.title}
+        >
           {tab.children && <Panel className="Tabs__Body">{tab.children}</Panel>}
         </Tab>
       ))}
     </BsTabs>
   );
-}
+};
 
 Tabs.propTypes = {
   /**

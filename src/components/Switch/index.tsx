@@ -14,8 +14,8 @@ const Switch: React.FC<SwitchProps> = props => {
         onChange(checked);
       }
       input && input.onChange(checked);
-    };
-  }
+    }
+  };
   const className = classNames('Switch', {
     'Switch--inline': inline,
   });
@@ -24,10 +24,16 @@ const Switch: React.FC<SwitchProps> = props => {
       data-name={switchName} // 兼容e2e测试中的page-object选择器
       className={className}
     >
-      <ReactIOSSwitch className='react-ios-switch-Switch-switch' disabled={disabled} {...input} {...rest} onChange={handleSwitchChange} />
+      <ReactIOSSwitch
+        className="react-ios-switch-Switch-switch"
+        disabled={disabled}
+        {...input}
+        {...rest}
+        onChange={handleSwitchChange}
+      />
     </div>
   );
-}
+};
 
 Switch.propTypes = {
   /**
