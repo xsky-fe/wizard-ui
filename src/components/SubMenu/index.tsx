@@ -14,7 +14,7 @@ const SubMenu: React.SFC<SubMenuProps> = props => {
       </MenuItem>
     </div>
   );
-}
+};
 
 SubMenu.propTypes = {
   /** 级联节点添加 data-name */

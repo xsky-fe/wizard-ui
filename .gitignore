@@ -31,3 +31,6 @@ yarn.lock
 /esm
 /dist
 types.d.ts
+
+# dist analysis file
+stats.json

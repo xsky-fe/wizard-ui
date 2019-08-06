@@ -3,9 +3,8 @@ import * as PropTypes from 'prop-types';
 import { DropdownButton as BootstrapDropdownButton, MenuItem, ButtonGroup } from 'react-bootstrap';
 import SubMenu from '../SubMenu';
 import { DropdownButtonMenuItem, DropdownButtonProps } from '../../interface';
-import lodash from 'lodash';
+import { cloneDeep } from 'lodash';
 import './style.scss';
-
 
 function randomId() {
   return Math.random()
@@ -19,7 +18,7 @@ function renderContent(menu: DropdownButtonMenuItem[] = []) {
   return menu;
 }
 function renderMenu(menu: DropdownButtonMenuItem) {
-  const item = lodash.cloneDeep(menu);
+  const item = cloneDeep(menu);
   if (!item) {
     return null;
   }
@@ -47,19 +46,9 @@ const DropdownButton: React.SFC<DropdownButtonProps> = props => {
       className += ' ' + modifer;
     }
     return className;
-  }
+  };
 
-  const {
-    bsStyle,
-    id,
-    onSelect,
-    onToggle,
-    bsSize,
-    title,
-    menu,
-    children,
-    componentClass,
-  } = props;
+  const { bsStyle, id, onSelect, onToggle, bsSize, title, menu, children, componentClass } = props;
   const allBoolProps = ['disabled', 'dropup', 'noCaret', 'open', 'pullRight'];
   const boolProps = {};
   allBoolProps.forEach(prop => {
@@ -83,8 +72,7 @@ const DropdownButton: React.SFC<DropdownButtonProps> = props => {
       {menu ? renderContent(menu) : children}
     </BootstrapDropdownButton>
   );
-
-}
+};
 
 DropdownButton.propTypes = {
   /**

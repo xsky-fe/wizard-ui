@@ -21,7 +21,7 @@ const Tooltip: React.FC<TooltipProps> = props => {
   } = props;
 
   const wrapper = React.useRef<HTMLInputElement>(null);
-  const [ placement, setPlacement ] = React.useState('top');
+  const [placement, setPlacement] = React.useState('top');
   // 类似 componentDidMount。只会在 render 后执行一次
   React.useEffect(() => {
     const elem = wrapper.current;
@@ -44,29 +44,26 @@ const Tooltip: React.FC<TooltipProps> = props => {
     }
     setPlacement(placement);
   }, []);
-  const [ show, setShow ] = React.useState(false);
+  const [show, setShow] = React.useState(false);
   const handleShow = () => setShow(true);
   const handleHide = () => setShow(false);
 
   const placeholder = label ? (
     label
   ) : icon ? (
-      <Icon
-        type={icon}
-        className={`Tooltip__icon ${iconClass}`}
-        onClick={onClick}
-        style={{
-          verticalAlign: iconAlign,
-        }}
-      />
-    ) : undefined;
+    <Icon
+      type={icon}
+      className={`Tooltip__icon ${iconClass}`}
+      onClick={onClick}
+      style={{
+        verticalAlign: iconAlign,
+      }}
+    />
+  ) : (
+    undefined
+  );
   return (
-    <div
-      ref={wrapper}
-      className="Tooltip"
-      onMouseEnter={handleShow}
-      onMouseLeave={handleHide}
-    >
+    <div ref={wrapper} className="Tooltip" onMouseEnter={handleShow} onMouseLeave={handleHide}>
       {placeholder}
       <Overlay
         {...extra}
@@ -86,7 +83,7 @@ const Tooltip: React.FC<TooltipProps> = props => {
       </Overlay>
     </div>
   );
-}
+};
 
 Tooltip.propTypes = {
   /**

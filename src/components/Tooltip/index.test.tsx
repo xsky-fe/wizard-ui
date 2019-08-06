@@ -4,11 +4,7 @@ import { mount, shallow } from 'enzyme';
 
 describe('Tooltip', () => {
   it('show tips', () => {
-    const tooltip = mount(
-      <Tooltip label={<span>text</span>}>
-        hello
-      </Tooltip>
-    );
+    const tooltip = mount(<Tooltip label={<span>text</span>}>hello</Tooltip>);
     expect(tooltip.find('.Tooltip').length).toBe(1);
     const div = tooltip.find('.Tooltip').at(0);
     div.simulate('mouseenter');

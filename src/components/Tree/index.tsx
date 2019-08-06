@@ -3,11 +3,11 @@ import * as PropTypes from 'prop-types';
 import RcTree, { TreeNode } from 'rc-tree';
 import { TreeData, TreeProps } from '../../interface';
 import './style.scss';
-import lodash from 'lodash';
+import { pick } from 'lodash';
 
 function renderTreeNodes(data: TreeData[]) {
   return data.map(item => {
-    const filterProps = lodash.pick(item, ['title', 'disabled', 'key']);
+    const filterProps = pick(item, ['title', 'disabled', 'key']);
     if (item.children) {
       return <TreeNode {...filterProps}>{renderTreeNodes(item.children)}</TreeNode>;
     } else {
@@ -26,7 +26,7 @@ const Tree: React.SFC<TreeProps> = props => {
       {renderTreeNodes(data)}
     </RcTree>
   );
-}
+};
 
 Tree.propTypes = {
   /** tree 数据 */

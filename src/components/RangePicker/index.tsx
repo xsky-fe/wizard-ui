@@ -10,7 +10,7 @@ import CALENDAR_ZH from 'rc-calendar/lib/locale/zh_CN';
 import CALENDAR_EN from 'rc-calendar/lib/locale/en_US';
 import moment, { Moment, DurationInputArg1, DurationInputArg2 } from 'moment';
 import { RangePickerProps, RangePickerState } from '../../interface';
-import lodash from 'lodash';
+import { isEmpty } from 'lodash';
 import Icon from '../Icon';
 import './style.scss';
 const ranges = [
@@ -34,12 +34,12 @@ const ranges = [
     title: '3 月内',
     value: '3 months',
   },
-]
+];
 
 function disabledDate(current: Moment) {
   if (!current) return false;
   const date = moment();
-  return current.isAfter(date);  // can not select days after today
+  return current.isAfter(date); // can not select days after today
 }
 
 export default class RangePicker extends React.PureComponent<RangePickerProps, RangePickerState> {
@@ -48,7 +48,7 @@ export default class RangePicker extends React.PureComponent<RangePickerProps, R
     showDuration: true,
     format: 'YYYY-MM-DD HH:mm:ss',
     defaultValue: [],
-  }
+  };
   static propTypes = {
     /**
      * 禁用
@@ -75,14 +75,14 @@ export default class RangePicker extends React.PureComponent<RangePickerProps, R
      */
     showDuration: PropTypes.bool,
     defaultValue: PropTypes.array,
-  }
+  };
   constructor(props: RangePickerProps) {
     super(props);
     const value = props.value || props.defaultValue || [];
     this.state = {
       value,
       open: false,
-    }
+    };
   }
   get lang() {
     return this.props.lang;
@@ -105,20 +105,17 @@ export default class RangePicker extends React.PureComponent<RangePickerProps, R
   formatValue = (value: Moment) => {
     const { format } = this.props;
     return (value && value.format(format)) || '';
-  }
+  };
   handleOuterChange = (value: Moment[]) => {
     const { onChange } = this.props;
     if (onChange) {
-      onChange(value, [
-        this.formatValue(value[0]),
-        this.formatValue(value[1]),
-      ]);
+      onChange(value, [this.formatValue(value[0]), this.formatValue(value[1])]);
     }
-  }
+  };
   handleChange = (value: Moment[]) => {
     this.handleOuterChange(value);
     this.setState({ value });
-  }
+  };
   handleRangeClick = (value: any) => {
     const { onOk } = this.props;
     const end: Moment = moment(new Date());
@@ -134,14 +131,14 @@ export default class RangePicker extends React.PureComponent<RangePickerProps, R
       value: duration,
       open: false,
     });
-  }
+  };
   handleOpenChange = (open: boolean) => {
     const { onOpenChange } = this.props;
     this.setState({ open });
     if (onOpenChange) {
       onOpenChange(open);
     }
-  }
+  };
   clearSelection = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -160,18 +157,14 @@ export default class RangePicker extends React.PureComponent<RangePickerProps, R
       <div className="RangePicker__duration">
         {ranges.map(({ title, value }) => {
           return (
-            <Button
-              bsStyle="link"
-              key={value}
-              onClick={() => this.handleRangeClick(value)}
-            >
+            <Button bsStyle="link" key={value} onClick={() => this.handleRangeClick(value)}>
               {this.lang === 'en' ? value : title}
             </Button>
-          )
+          );
         })}
       </div>
-    )
-  }
+    );
+  };
   renderCalendar = () => {
     const { onOk, format } = this.props;
     return (
@@ -186,16 +179,14 @@ export default class RangePicker extends React.PureComponent<RangePickerProps, R
         renderFooter={this.renderFooter}
         showToday={false}
       />
-    )
-  }
+    );
+  };
   renderClearIcon = () => {
-    if (this.state.value.every(lodash.isEmpty)) {
+    if (this.state.value.every(isEmpty)) {
       return;
     }
-    return (
-      <Icon type="close" onClick={this.clearSelection} />
-    );
-  }
+    return <Icon type="close" onClick={this.clearSelection} />;
+  };
   render() {
     const { disabled } = this.props;
     return (
@@ -208,31 +199,29 @@ export default class RangePicker extends React.PureComponent<RangePickerProps, R
         animation="slide-up"
         calendar={this.renderCalendar()}
       >
-        {
-          ({ value }: { value?: any}) => {
-            const [start, end] = value;
-            return (
-              <span className="RangePicker form-control">
-                <span className="glyphicon glyphicon-calendar" />
-                <input
-                  placeholder={this.startPlaceholder}
-                  readOnly
-                  value={this.formatValue(start)}
-                  tabIndex={-1}
-                />
-                <span>{this.seperator}</span>
-                <input
-                  placeholder={this.endPlaceholder}
-                  readOnly
-                  value={this.formatValue(end)}
-                  tabIndex={-1}
-                />
-                {this.renderClearIcon()}
-              </span>
-            )
-          }
-        }
+        {({ value }: { value?: any }) => {
+          const [start, end] = value;
+          return (
+            <span className="RangePicker form-control">
+              <span className="glyphicon glyphicon-calendar" />
+              <input
+                placeholder={this.startPlaceholder}
+                readOnly
+                value={this.formatValue(start)}
+                tabIndex={-1}
+              />
+              <span>{this.seperator}</span>
+              <input
+                placeholder={this.endPlaceholder}
+                readOnly
+                value={this.formatValue(end)}
+                tabIndex={-1}
+              />
+              {this.renderClearIcon()}
+            </span>
+          );
+        }}
       </Picker>
-    )
+    );
   }
 }

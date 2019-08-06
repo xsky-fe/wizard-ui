@@ -9,7 +9,8 @@ const { Header, Title, Body, Footer } = BaseModal;
 
 const Modal: React.FC<ModalProps> = props => {
   const { title, onHide, onOk, show, style, children, confirmText, okStyle, loading } = props;
-  let { bsSize } = props, dialogClassName = '';
+  let { bsSize } = props,
+    dialogClassName = '';
   if (bsSize === 'xlarge') {
     dialogClassName = 'modal-xlg';
     bsSize = undefined;
@@ -18,7 +19,7 @@ const Modal: React.FC<ModalProps> = props => {
   return (
     <BaseModal
       bsSize={bsSize}
-      className='Modal'
+      className="Modal"
       dialogClassName={dialogClassName}
       style={style}
       backdrop="static"
@@ -30,19 +31,14 @@ const Modal: React.FC<ModalProps> = props => {
       </Header>
       <Body key="body">{children}</Body>
       <Footer key="footer">
-        <Button
-          type="submit"
-          disabled={loading}
-          bsStyle={okStyle}
-          onClick={onOk}
-          >
+        <Button type="submit" disabled={loading} bsStyle={okStyle} onClick={onOk}>
           {loading && <Loader bsSize="xs" />}
           {confirmText}
         </Button>
       </Footer>
     </BaseModal>
   );
-}
+};
 
 Modal.propTypes = {
   /** 标题 */
@@ -68,6 +64,6 @@ Modal.propTypes = {
 Modal.defaultProps = {
   confirmText: '确定',
   okStyle: 'primary',
-}
+};
 
 export default Modal;

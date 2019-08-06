@@ -15,11 +15,11 @@ describe('Tabs', () => {
     expect(tabs).toMatchSnapshot();
   });
   it('should set small', () => {
-    const tabs = shallow(<Tabs tabs={TABS} size="small"/>);
+    const tabs = shallow(<Tabs tabs={TABS} size="small" />);
     expect(tabs.find('.Tabs--small').length).toBe(1);
   });
   it('should set right', () => {
-    const tabs = shallow(<Tabs tabs={TABS} direction="right"/>);
+    const tabs = shallow(<Tabs tabs={TABS} direction="right" />);
     expect(tabs.find('.Tabs--right').length).toBe(1);
   });
-})
+});

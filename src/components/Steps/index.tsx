@@ -22,7 +22,7 @@ const Steps: React.SFC<StepsProps> = props => {
       ))}
     </Well>
   );
-}
+};
 
 Steps.propTypes = {
   /**
