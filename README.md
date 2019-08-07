@@ -4,6 +4,7 @@
 [![Build Status](https://travis-ci.org/xsky-fe/wizard-ui.svg?branch=master)](https://travis-ci.org/xsky-fe/wizard-ui)
 [![Codecov](https://img.shields.io/codecov/c/github/xsky-fe/wizard-ui/master.svg?style=flat-square)](https://codecov.io/gh/xsky-fe/wizard-ui/branch/master) 
 [![npm package](https://img.shields.io/npm/v/wizard-ui.svg?style=flat-square)](https://www.npmjs.org/package/wizard-ui)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4ebb8f03-b43f-46d3-b43e-8a0c98605fcd/deploy-status)](https://app.netlify.com/sites/wizard-ui/deploys)
 
 - React 16+
 - Typescript
