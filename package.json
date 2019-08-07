@@ -44,7 +44,7 @@
     "storybook": "start-storybook -p 6006 -c .storybook",
     "build-storybook": "build-storybook -s ./stories/public -c .storybook -o build-stories",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "prettier": "prettier --config-precedence prefer-file '{src, stories}/**/*.tsx' --write"
+    "format": "prettier --config-precedence prefer-file '{src, stories}/**/*.tsx' --write"
  },
   "peerDependencies": {
     "react": ">=16.8.0",
