@@ -63,6 +63,7 @@ public
 
 # Yarn
 yarn.lock
+package.json
 yarn-error.log
 .pnp/
 .pnp.js

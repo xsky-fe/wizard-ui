@@ -13,6 +13,7 @@ import SubMenu from './SubMenu';
 import DropdownButton from './DropdownButton';
 import Navigation from './Navigation';
 import RangePicker from './RangePicker';
+import { Well } from 'react-bootstrap';
 
 export {
   Badge,
@@ -30,4 +31,5 @@ export {
   DropdownButton,
   Navigation,
   RangePicker,
+  Well,
 };
