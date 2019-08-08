@@ -1,8 +1,8 @@
 import lodash from 'lodash';
-import React from 'react'
+import React from 'react';
 
 export default function(type) {
-  if (!type) return ;
+  if (!type) return;
   let propType = type.name;
   // 需要完善 type.value 的判断
 
@@ -35,21 +35,22 @@ export default function(type) {
       <table>
         <tbody>
           {lodash.keys(type.value).map(key => {
-              const { name, description, required } = type.value[key];
-              return (
-                <tr key={key}>
-                  <td>{key}{required && <span className="required">Required</span>}</td>
-                  <td>{name}</td>
-                  <td>{description}</td>
-                </tr>
-              )
-            })
-          }
+            const { name, description, required } = type.value[key];
+            return (
+              <tr key={key}>
+                <td>
+                  {key}
+                  {required && <span className="required">Required</span>}
+                </td>
+                <td>{name}</td>
+                <td>{description}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
-    )
+    );
   }
-
 
   if (oneOfType.length > 0) {
     propType += `(${oneOfType.join(', ')})`;
@@ -66,9 +67,8 @@ export default function(type) {
         <div>{propType}</div>
         {shape}
       </div>
-    )
+    );
   }
-
 
   return propType;
 }
