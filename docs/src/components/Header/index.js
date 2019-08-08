@@ -8,7 +8,7 @@ export default ({ post }) => {
   const { frontmatter = {} } = post || {};
   const slug = lodash.get(post, 'fields.slug');
   const path = slug.replace(/\/$/, '.mdx');
-  const { title, date } = frontmatter || {};
+  const { title, date, author } = frontmatter || {};
   return (
     <div className="Header">
       <SEO title={title} />
@@ -32,7 +32,18 @@ export default ({ post }) => {
           </a>
         </OverlayTrigger>
       </h1>
-      {date && <p>{post.frontmatter.date}</p>}
+      <div className="Header__Sub">
+        {date && <b>{post.frontmatter.date}</b>}
+        {author && (
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={`https://github.com/${author}`}
+            >
+              {author}
+            </a>
+          )}
+      </div>
     </div>
   )
 }
