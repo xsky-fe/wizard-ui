@@ -10,7 +10,7 @@ function onOk(date: Moment[]) {
   console.log(date);
 }
 
-storiesOf('RangePicker', module)
+storiesOf('DATA ENTRY | RangePicker', module)
   .add('default', () => (
     <RangePicker onChange={onChange} onOk={onOk} />
   ))

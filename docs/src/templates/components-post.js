@@ -11,9 +11,9 @@ import Toc from '../components/Toc'
 import MDXRenderer from "gatsby-mdx/mdx-renderer"
 
 const components = {
-  h2: props => <LinkedHeading h="2" {...props} />,
-  h3: props => <LinkedHeading h="3" {...props} />,
-  h4: props => <LinkedHeading h="4" {...props} />,
+  h2: props => <LinkedHeading h="3" {...props} />,
+  h3: props => <LinkedHeading h="4" {...props} />,
+  h4: props => <LinkedHeading h="5" {...props} />,
   code: Playground,
   pre: props => <div className="pre" {...props} />,
 };
