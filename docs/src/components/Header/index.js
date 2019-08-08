@@ -35,13 +35,13 @@ export default ({ post }) => {
       <div className="Header__Sub">
         {date && <b>{post.frontmatter.date}</b>}
         {author && (
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href={`https://github.com/${author}`}
-            >
-              {author}
-            </a>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={`https://github.com/${author}`}
+          >
+            {author}
+          </a>
           )}
       </div>
     </div>
