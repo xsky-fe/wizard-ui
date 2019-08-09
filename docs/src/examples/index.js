@@ -4,4 +4,4 @@ import UseColor from './Color/Use';
 export default {
   BasicColor,
   UseColor,
-}
+};

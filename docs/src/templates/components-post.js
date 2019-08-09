@@ -1,14 +1,14 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import React from 'react';
+import { Link, graphql } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
-import Layout from "../Layout";
+import Layout from '../Layout';
 import { Row, Col } from 'react-bootstrap';
-import LinkedHeading from '../components/LinkedHeading'
-import Playground from '../components/Playground'
-import SideNav from '../components/SideNav'
-import Header from '../components/Header'
-import Toc from '../components/Toc'
-import MDXRenderer from "gatsby-mdx/mdx-renderer"
+import LinkedHeading from '../components/LinkedHeading';
+import Playground from '../components/Playground';
+import SideNav from '../components/SideNav';
+import Header from '../components/Header';
+import Toc from '../components/Toc';
+import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 
 const components = {
   h2: props => <LinkedHeading h="2" {...props} />,
@@ -21,7 +21,10 @@ const components = {
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.mdx;
-    const { headings = [], fields: { slug } } = post || {};
+    const {
+      headings = [],
+      fields: { slug },
+    } = post || {};
     const { previous, next } = this.props.pageContext;
 
     return (
@@ -32,14 +35,18 @@ class BlogPostTemplate extends React.Component {
           </Col>
           <Col xs={24} md={17} xl={17}>
             <div className="Main__Body">
-              <Header post={post}/>
+              <Header post={post} />
               <MDXProvider components={components}>
                 <MDXRenderer>{post.code.body}</MDXRenderer>
               </MDXProvider>
             </div>
             <div className="prev-next-nav">
               {previous && (
-                <Link className="prev-page" to={previous.fields.slug} rel="prev">
+                <Link
+                  className="prev-page"
+                  to={previous.fields.slug}
+                  rel="prev"
+                >
                   ← {previous.frontmatter.title}
                 </Link>
               )}
@@ -51,15 +58,15 @@ class BlogPostTemplate extends React.Component {
             </div>
           </Col>
           <Col md={3} xl={3}>
-            <Toc headings={headings} location={this.props.location}/>
+            <Toc headings={headings} location={this.props.location} />
           </Col>
         </Row>
       </Layout>
-    )
+    );
   }
 }
 
-export default BlogPostTemplate
+export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query PostBySlug($slug: String!) {
@@ -79,7 +86,8 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "YYYY-MM-DD")
+        author
       }
     }
   }
-`
+`;
