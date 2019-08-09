@@ -49,20 +49,20 @@ import 'wizard-ui/lib/style/index.scss';
 ```
 
 ### Usage
-### UMD
+> UMD
 ```jsx
 import { Icon } from 'wizard-ui';
 
 export default () => <Icon type="os-search-role" />
 ```
-### ES
+> ES
 ```jsx
 import { Icon } from 'wizard-ui/esm';
 
 export default () => <Icon type="os-search-role" />
 ```
 
-### dist file analysis
+### Dist file analysis
 ```bash
 yarn dist-stats
 ```
