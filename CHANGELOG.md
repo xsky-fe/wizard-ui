@@ -1,7 +1,5 @@
 ## [0.0.1](https://github.com/xsky-fe/wizard-ui/compare/0.0.1-beta.6...0.0.1) (2019-08-09)
 
-## [0.0.1](https://github.com/xsky-fe/wizard-ui/compare/0.0.1-beta.6...0.0.1) (2019-08-09)
-
 
 
 ## [0.0.1-beta.6](https://github.com/xsky-fe/wizard-ui/compare/39695b3...0.0.1-beta.6) (2019-08-09)
