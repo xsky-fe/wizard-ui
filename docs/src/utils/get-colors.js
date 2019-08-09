@@ -20,7 +20,12 @@ export default () => {
   const colorArr = colorString
     .split('\n')
     .filter(item => item.includes('$'))
-    .map(item => item.replace(';', '').split(':').map(k => k.trim()));
+    .map(item =>
+      item
+        .replace(';', '')
+        .split(':')
+        .map(k => k.trim())
+    );
   const basicColorKeys = lodash.keys(basicColorMap);
   const useColorKey = lodash.keys(useColorMap);
   colorArr.forEach(([text, color]) => {
@@ -33,9 +38,7 @@ export default () => {
     useColorKey.forEach(key => {
       const matchText = text.match(key);
       if (matchText && matchText.index === 1) {
-        const varToColor = colorArr.filter(item =>
-          color.includes(item[0])
-        );
+        const varToColor = colorArr.filter(item => color.includes(item[0]));
         if (varToColor.length) {
           useColorMap[key][`${text}(${varToColor[0][0]})`] = varToColor[0][1];
         } else {
@@ -48,4 +51,4 @@ export default () => {
     basicColorMap,
     useColorMap,
   };
-}
+};

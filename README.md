@@ -13,11 +13,15 @@
 - [Documentation With  Gatsby (WIP)](https://xsky-fe.github.io/wizard-ui/)
 
 ## Install and Usage
+
+### Dev and webpack setting
 Add in package.json
 ```bash
 yarn add wizard-ui
 # sass dep && loader
 yarn add --dev node-sass style-loader css-loader sass-loader
+# react bootstrap font dev
+yarn add --dev url-loader file-loader
 ```
 if you not use [create-react-app](https://github.com/facebook/create-react-app), you need set webpack config:
 ```js
@@ -28,17 +32,30 @@ if you not use [create-react-app](https://github.com/facebook/create-react-app),
     'css-loader',
     'sass-loader'
   ]
+},
+{
+  test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/,
+  use: ['file-loader']
+},
+{
+  test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+  use: 'url-loader?limit=100000'
 }
 ```
 
-and then you can use like this:
-### commonjs
+### Global style
+```
+import 'wizard-ui/lib/style/index.scss';
+```
+
+### Usage
+### UMD
 ```jsx
 import { Icon } from 'wizard-ui';
 
 export default () => <Icon type="os-search-role" />
 ```
-### es
+### ES
 ```jsx
 import { Icon } from 'wizard-ui/esm';
 

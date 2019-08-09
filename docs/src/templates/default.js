@@ -2,8 +2,8 @@ import React from 'react';
 import Layout from '../Layout';
 import Playground from '../components/Playground';
 import { MDXProvider } from '@mdx-js/react';
-import { graphql } from "gatsby"
-import Header from '../components/Header'
+import { graphql } from 'gatsby';
+import Header from '../components/Header';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 
 const showComponents = {
@@ -20,8 +20,8 @@ export default props => {
         <MDXRenderer>{post.code.body}</MDXRenderer>
       </MDXProvider>
     </Layout>
-  )
-}
+  );
+};
 
 export const pageQuery = graphql`
   query StartBySlug($slug: String!) {
