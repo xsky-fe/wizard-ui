@@ -28,6 +28,7 @@
     "rc-time-picker": "^3.7.1",
     "rc-tree": "^2.1.0",
     "react-bootstrap": "^0.31.1",
+    "react-dev-utils": "^9.0.2",
     "react-ios-switch": "^0.1.19",
     "wizard-icons": "0.0.1-beta.0"
   },
