@@ -13,7 +13,7 @@ import SubMenu from './SubMenu';
 import DropdownButton from './DropdownButton';
 import Navigation from './Navigation';
 import RangePicker from './RangePicker';
-import { Well } from 'react-bootstrap';
+import { Well, PanelGroup } from 'react-bootstrap';
 import Panel from './Panel';
 
 export {
@@ -34,4 +34,5 @@ export {
   RangePicker,
   Well,
   Panel,
+  PanelGroup,
 };

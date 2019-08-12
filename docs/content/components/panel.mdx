@@ -22,7 +22,10 @@ author: shenghou
 
 ```jsx
 <div>
-  <Panel bsStyle="warning">i am panel </Panel>
+  <Panel bsStyle="warning">i am panel and warning style </Panel>
+  <Panel bsStyle="warning" header="i am header">
+    i have header and warning style
+  </Panel>
   <Panel bg="primary" text="white">
     i am panel and have primary bg color
   </Panel>
@@ -34,12 +37,8 @@ author: shenghou
 
 ```jsx
 <div>
-  <Panel header={<p>i am panel header</p>}>
-    i am panel and have danger text color
-  </Panel>
-  <Panel footer={<p>i am panel footer</p>}>
-    i am panel and have danger text color
-  </Panel>
+  <Panel header={<p>i am panel header</p>}>i am panel</Panel>
+  <Panel footer={<p>i am panel footer</p>}>i am panel</Panel>
 </div>
 ```
 
@@ -59,12 +58,12 @@ author: shenghou
   <Panel
     expanded={false}
     collapsible
-    header={<p>i am panel and collapsible but can not expanded</p>}
+    header={<p>i am panel and collapsible but can not expand</p>}
   >
     i am panel and collapsible but can not expanded
   </Panel>
   <Panel expanded collapsible header={<p>i am panel header</p>}>
-    i am panel and collapsible and expanded
+    i am panel and and expanded but collapsible does not work
   </Panel>
   <Panel expanded header={<p>i am panel header</p>}>
     i am panel and expand body
@@ -79,9 +78,28 @@ author: shenghou
   return (
     <div>
       <h3>
-        <p onClick={handleSelect}>i am onClick</p>
+        <p onClick={handleSelect}>i am onClick can expand body</p>
       </h3>
       <Panel collapsible expanded={open}>
+        i am collaspe
+      </Panel>
+    </div>
+  );
+};
+```
+
+```jsx
+() => {
+  const [open, setCollapse] = React.useState(true);
+  const handleSelect = () => setCollapse(!open);
+  return (
+    <div>
+      <Panel
+        collapsible
+        expanded={open}
+        onSelect={handleSelect}
+        header="I am select header"
+      >
         i am collaspe
       </Panel>
     </div>

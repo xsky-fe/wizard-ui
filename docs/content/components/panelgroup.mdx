@@ -1,0 +1,62 @@
+---
+title: PanelGroup 面板组
+date: 2019-08-12
+author: shenghou
+---
+
+将 PanelGroup 用在元素上。
+
+## 何时使用
+
+- 增强文案显示常用于在多个面板累计折叠情况
+
+### 常规
+
+```jsx
+<PanelGroup defaultActiveKey="2">
+  <Panel header="Panel 1" eventKey="1">
+    Panel 1 content
+  </Panel>
+  <Panel header="Panel 2" eventKey="2">
+    Panel 2 content
+  </Panel>
+</PanelGroup>
+```
+
+### 手风琴效果
+
+```jsx
+() => {
+  const [activeKey, setActiveKey] = React.useState('one');
+  const handleSelect = key => setActiveKey(key);
+  return (
+    <div>
+      <PanelGroup activeKey={activeKey} onSelect={handleSelect} accordion>
+        <Panel header="Panel 1" eventKey="one">
+          Panel 1 content
+        </Panel>
+        <Panel header="Panel 2" eventKey="two">
+          Panel 2 content
+        </Panel>
+      </PanelGroup>
+    </div>
+  );
+};
+```
+
+```jsx
+<PanelGroup defaultActiveKey="2" accordion>
+  <Panel header="Panel 1" eventKey="1">
+    Panel 1 content
+  </Panel>
+  <Panel header="Panel 2" eventKey="2">
+    Panel 2 content
+  </Panel>
+</PanelGroup>
+```
+
+## API
+
+```jsx previewOnly
+<PropTable of="panelgroup" />
+```
