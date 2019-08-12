@@ -14,6 +14,7 @@ import DropdownButton from './DropdownButton';
 import Navigation from './Navigation';
 import RangePicker from './RangePicker';
 import { Well } from 'react-bootstrap';
+import Panel from './Panel';
 
 export {
   Badge,
@@ -32,4 +33,5 @@ export {
   Navigation,
   RangePicker,
   Well,
+  Panel,
 };

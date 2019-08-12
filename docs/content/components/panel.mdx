@@ -1,0 +1,50 @@
+---
+title: Panel 面板
+date: 2019-08-09
+author: shenghou
+---
+
+将 Panel 用在元素上。
+
+## 何时使用
+
+- 增强文案显示
+
+### 常规
+
+```jsx
+<div>
+  <Panel>i am panel </Panel>
+</div>
+```
+
+### 带颜色
+
+```jsx
+<div>
+  <Panel bsStyle="warning">i am panel </Panel>
+  <Panel bg="primary" text="white">
+    i am panel and have primary bg color{' '}
+  </Panel>
+  <Panel text="danger">i am panel and have danger text color </Panel>
+</div>
+```
+
+### 带头部或底部
+
+```jsx
+<div>
+  <Panel header={<p>i am panel header</p>}>
+    i am panel and have danger text color{' '}
+  </Panel>
+  <Panel footer={<p>i am panel footer</p>}>
+    i am panel and have danger text color{' '}
+  </Panel>
+</div>
+```
+
+## API
+
+```jsx previewOnly
+<PropTable of="panel" />
+```

@@ -181,3 +181,14 @@ export interface RangePickerState {
   value: Moment[] | string[];
   open: boolean;
 }
+
+export interface PanelProps {
+  // header?: React.ReactNode;
+  children?: React.ReactNode;
+  header?: React.ReactNode;
+  footer?: React.ReactNode;
+  bsStyle?: string;
+  bg?: string;
+  text?: string;
+}
+

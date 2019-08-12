@@ -1,0 +1,40 @@
+@import '../../style/variables.scss';
+
+.primary {
+  background-color: $purple-normal
+}
+.success {
+  background-color: $green-normal
+}
+.info {
+  background-color: $blue-normal
+}
+.warning {
+  background-color: $goldenrod-normal
+}
+.danger {
+  background-color: $red-normal
+}
+
+.text-primary {
+  color: $purple-normal
+}
+.text-success {
+  color: $green-normal
+}
+.text-info {
+  color: $blue-normal;
+}
+.text-warning {
+  color: $goldenrod-normal;
+}
+.text-danger {
+  color: $red-normal;
+}
+.text-white {
+  color: $white;
+}
+.text-dark {
+  color: $dark;
+}
+
