@@ -183,12 +183,17 @@ export interface RangePickerState {
 }
 
 export interface PanelProps {
-  // header?: React.ReactNode;
+  id?: string;
   children?: React.ReactNode;
   header?: React.ReactNode;
   footer?: React.ReactNode;
   bsStyle?: string;
   bg?: string;
   text?: string;
+  collapsible?: boolean;
+  defaultExpanded?: boolean;
+  expanded?: boolean;
+  headerRole?: string;
+  panelRole?: string;
+  eventKey?: any;
 }
-

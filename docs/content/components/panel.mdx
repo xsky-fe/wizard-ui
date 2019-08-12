@@ -24,7 +24,7 @@ author: shenghou
 <div>
   <Panel bsStyle="warning">i am panel </Panel>
   <Panel bg="primary" text="white">
-    i am panel and have primary bg color{' '}
+    i am panel and have primary bg color
   </Panel>
   <Panel text="danger">i am panel and have danger text color </Panel>
 </div>
@@ -35,10 +35,69 @@ author: shenghou
 ```jsx
 <div>
   <Panel header={<p>i am panel header</p>}>
-    i am panel and have danger text color{' '}
+    i am panel and have danger text color
   </Panel>
   <Panel footer={<p>i am panel footer</p>}>
-    i am panel and have danger text color{' '}
+    i am panel and have danger text color
+  </Panel>
+</div>
+```
+
+### 带折叠
+
+```jsx
+<div>
+  <Panel collapsible header={<p>i am panel header</p>}>
+    i am panel and can collapsible(collapsible = true)
+  </Panel>
+  <Panel collapsible={false} header={<p>i am panel header</p>}>
+    i am panel and can not collapsible(collapsible = false)
+  </Panel>
+  <Panel defaultExpanded header={<p>i am panel header</p>}>
+    i am panel and default expand body
+  </Panel>
+  <Panel
+    expanded={false}
+    collapsible
+    header={<p>i am panel and collapsible but can not expanded</p>}
+  >
+    i am panel and collapsible but can not expanded
+  </Panel>
+  <Panel expanded collapsible header={<p>i am panel header</p>}>
+    i am panel and collapsible and expanded
+  </Panel>
+  <Panel expanded header={<p>i am panel header</p>}>
+    i am panel and expand body
+  </Panel>
+</div>
+```
+
+```jsx
+() => {
+  const [open, setCollapse] = React.useState(true);
+  const handleSelect = () => setCollapse(!open);
+  return (
+    <div>
+      <h3>
+        <p onClick={handleSelect}>i am onClick</p>
+      </h3>
+      <Panel collapsible expanded={open}>
+        i am collaspe
+      </Panel>
+    </div>
+  );
+};
+```
+
+### role 的
+
+```jsx
+<div>
+  <Panel collapsible panelRole="collapse" header={<p>i am panel header</p>}>
+    i am panel role in collapse
+  </Panel>
+  <Panel headerRole="collapse" header={<p>i am panel header</p>}>
+    i am panel role in header
   </Panel>
 </div>
 ```

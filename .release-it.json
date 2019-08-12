@@ -1,0 +1,25 @@
+{
+  "hooks": {
+    "before:init": ["yarn test"],
+    "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": "angular",
+      "infile": "CHANGELOG.md",
+      "push": false
+    }
+  },
+  "npm": {
+    "publish": false
+  },
+  "git": {
+    "changelog": "git log --pretty=format:\"* %s (%h)\" ${latestTag}...HEAD",
+    "requireCleanWorkingDir": false,
+    "commitMessage": "Release ${version}"
+  },
+  "github": {
+    "release": false,
+    "preRelease": true
+  }
+}

@@ -1,8 +1,13 @@
-## 0.0.1-beta.5 (2019-07-26)
+## [0.0.1](https://github.com/xsky-fe/wizard-ui/compare/0.0.1-beta.6...0.0.1) (2019-08-09)
+
+
+
+## [0.0.1-beta.6](https://github.com/xsky-fe/wizard-ui/compare/39695b3...0.0.1-beta.6) (2019-08-09)
 
 
 ### Bug Fixes
 
+* Storybook dev ([#35](https://github.com/xsky-fe/wizard-ui/issues/35)) ([192e85c](https://github.com/xsky-fe/wizard-ui/commit/192e85c))
 * Test coverage run ([#33](https://github.com/xsky-fe/wizard-ui/issues/33)) ([34aac84](https://github.com/xsky-fe/wizard-ui/commit/34aac84))
 
 
@@ -20,7 +25,9 @@
 * Docs deploy ([ba89a89](https://github.com/xsky-fe/wizard-ui/commit/ba89a89))
 * Docs with gatsby ([39695b3](https://github.com/xsky-fe/wizard-ui/commit/39695b3))
 * Grid docs with custom bootstrap sass ([315e87e](https://github.com/xsky-fe/wizard-ui/commit/315e87e))
+* Mdx add author sub title ([#40](https://github.com/xsky-fe/wizard-ui/issues/40)) ([d3f06bf](https://github.com/xsky-fe/wizard-ui/commit/d3f06bf))
 * Pagination and Navigation ([c59e0c6](https://github.com/xsky-fe/wizard-ui/commit/c59e0c6))
+* RangePicker ([#36](https://github.com/xsky-fe/wizard-ui/issues/36)) ([6b385fc](https://github.com/xsky-fe/wizard-ui/commit/6b385fc))
 * Steps ([50ba611](https://github.com/xsky-fe/wizard-ui/commit/50ba611))
 * SubMenu and DropdownButton ([627d4eb](https://github.com/xsky-fe/wizard-ui/commit/627d4eb))
 * Tabs ([060a8dd](https://github.com/xsky-fe/wizard-ui/commit/060a8dd))
@@ -30,6 +37,4 @@
 * Tooltip component and doc ([3c43293](https://github.com/xsky-fe/wizard-ui/commit/3c43293))
 * Tree ([e287ff2](https://github.com/xsky-fe/wizard-ui/commit/e287ff2))
 * UsageBar docs ([2552692](https://github.com/xsky-fe/wizard-ui/commit/2552692))
-
-
 
