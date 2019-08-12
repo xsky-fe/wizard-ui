@@ -38,7 +38,7 @@ function renderMenu(menu: DropdownButtonMenuItem) {
   return <MenuItem {...item}>{item.title}</MenuItem>;
 }
 
-const DropdownButton: React.SFC<DropdownButtonProps> = props => {
+const DropdownButton: React.FC<DropdownButtonProps> = props => {
   const getContainerClass = () => {
     const { modifer } = props;
     let className = 'dropdown-container';

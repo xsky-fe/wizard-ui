@@ -16,7 +16,7 @@ function renderTreeNodes(data: TreeData[]) {
   });
 }
 
-const Tree: React.SFC<TreeProps> = props => {
+const Tree: React.FC<TreeProps> = props => {
   const { data, checkable, prefixCls } = props;
   return (
     <RcTree

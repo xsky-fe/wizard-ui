@@ -24,7 +24,7 @@ function calcPercent(p: number) {
   return percent;
 }
 
-const UsageBar: React.SFC<UsageBarProps> = props => {
+const UsageBar: React.FC<UsageBarProps> = props => {
   const {
     max,
     isByte,

@@ -5,7 +5,7 @@ import { LoaderProps } from '../../interface';
 import { compact } from 'lodash';
 import './style.scss';
 
-const Loader: React.SFC<LoaderProps> = props => {
+const Loader: React.FC<LoaderProps> = props => {
   const { children, bsSize, bsStyle } = props;
   const className: string = getBemClass('Loader', compact([bsSize, bsStyle]));
   return (
