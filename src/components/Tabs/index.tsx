@@ -5,7 +5,7 @@ import { getBemClass } from '../../utils';
 import { TabsProps } from '../../interface';
 import './style.scss';
 
-const Tabs: React.SFC<TabsProps> = props => {
+const Tabs: React.FC<TabsProps> = props => {
   const { tabs, size, eventKeyName, direction, ...restProps } = props;
   return (
     <BsTabs className={getBemClass('Tabs', [size, direction])} {...restProps} id="Tabs">

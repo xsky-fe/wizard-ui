@@ -6,7 +6,7 @@ import { getBemClass } from '../../utils';
 import { StepsProps } from '../../interface';
 import './style.scss';
 
-const Steps: React.SFC<StepsProps> = props => {
+const Steps: React.FC<StepsProps> = props => {
   const { steps, currentStep } = props;
   return (
     <Well className="Steps">
