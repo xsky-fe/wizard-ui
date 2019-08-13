@@ -3,7 +3,9 @@ const TerserJSPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const LodashModuleReplacementPlugin = require ('lodash-webpack-plugin');
+const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
 
+const sassModuleRegex = /\.module\.(scss|sass)$/;
 module.exports = {
   mode: 'production',
    optimization: {
@@ -26,10 +28,27 @@ module.exports = {
       },
       {
         test: /\.(css|scss)$/,
+        exclude: sassModuleRegex,
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader',
+        ],
+      },
+      {
+        test: sassModuleRegex,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2,
+              modules: {
+                getLocalIdent: getCSSModuleLocalIdent,
+              },
+            },
+          },
+          'sass-loader'
         ],
       },
     ]
