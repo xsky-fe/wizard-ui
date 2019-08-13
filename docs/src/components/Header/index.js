@@ -12,7 +12,7 @@ export default ({ post }) => {
   return (
     <div className="Header">
       <SEO title={title} />
-      <h1>
+      <h2>
         {title}
         <OverlayTrigger
           placement="top"
@@ -31,7 +31,7 @@ export default ({ post }) => {
             <Glyphicon glyph="pencil" />
           </a>
         </OverlayTrigger>
-      </h1>
+      </h2>
       <div className="Header__Sub">
         {date && <b>{post.frontmatter.date}</b>}
         {author && (
