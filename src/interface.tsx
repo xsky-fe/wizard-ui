@@ -188,3 +188,12 @@ export interface PanelProps {
   text?: string;
 }
 
+export interface DropdownDefaultProps {
+  id: string;
+}
+
+export interface DropdownProps extends DropdownDefaultProps {
+  className?: string;
+  title?: string;
+  children?: React.ReactNode;
+}
