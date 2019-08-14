@@ -18,15 +18,15 @@ font-family: "Helvetica Neue","Helvetica","PingFang SC","Arial","Microsoft YaHei
 
 ## 主字体
 
-大小为 13px，以保证在多数常用显示器上的用户阅读效率最佳。
+大小为 14px，以保证在多数常用显示器上的用户阅读效率最佳。
 
 ## 字阶与行高
 
-根据产品需求及设计需求，定义了 7 个不同尺寸的字体以及与之相对应的行高。
+根据产品需求及设计需求，定义了 6 个不同尺寸的字体以及与之相对应的行高。
 
-| Font Size    | 12  | 13  | 14  | 16  | 20  | 28  | 36  | ... |
-| ------------ | --- | --- | --- | --- | --- | --- | --- | --- |
-| Light Height | 20  | 22  | 22  | 24  | 28  | 36  | 44  | ... |
+| Font Size    | 12  | 14  | 16  | 20  | 28  | 36  | ... |
+| ------------ | --- | --- | --- | --- | --- | --- | --- |
+| Light Height | 20  | 22  | 24  | 28  | 36  | 44  | ... |
 
 ## 字重
 
@@ -34,22 +34,21 @@ font-family: "Helvetica Neue","Helvetica","PingFang SC","Arial","Microsoft YaHei
 
 ## 使用规范
 
-- H1：大小 36px，行高 44px
-- H2：大小 28px，行高 36px
-- H3：大小 20px，行高 28px
-- H4：大小 16px，行高 24x
+- H1：大小 34px，行高 42px
+- H2：大小 26px，行高 34px
+- H3：大小 18px，行高 26px
+- H4：大小 16px，行高 24px
 - 正文（标题）：大小 14px，行高 22px
-- 正文：大小 13px，行高 22px
+- 正文：大小 14px，行高 22px
 - 提示：大小 12px，行高 20px
 
 ```jsx
 <div>
-  <div style={{ fontSize: '36px', lineHeight: '44px' }}>36 号字体 ABCDEFG</div>
-  <div style={{ fontSize: '28px', lineHeight: '36px' }}>28 号字体 ABCDEFG</div>
-  <div style={{ fontSize: '20px', lineHeight: '28px' }}>20 号字体 ABCDEFG</div>
+  <div style={{ fontSize: '34px', lineHeight: '42px' }}>34 号字体 ABCDEFG</div>
+  <div style={{ fontSize: '26px', lineHeight: '34px' }}>26 号字体 ABCDEFG</div>
+  <div style={{ fontSize: '18px', lineHeight: '26px' }}>18 号字体 ABCDEFG</div>
   <div style={{ fontSize: '16px', lineHeight: '24px' }}>16 号字体 ABCDEFG</div>
   <div style={{ fontSize: '14px', lineHeight: '22px' }}>14 号字体 ABCDEFG</div>
-  <div style={{ fontSize: '13px', lineHeight: '22px' }}>13 号字体 ABCDEFG</div>
   <div style={{ fontSize: '12px', lineHeight: '20px' }}>12 号字体 ABCDEFG</div>
 </div>
 ```
@@ -65,5 +64,9 @@ font-family: "Helvetica Neue","Helvetica","PingFang SC","Arial","Microsoft YaHei
 三级色值：#A2A3A9
 
 文字链：#6B58C4
+
+白色：#FFFFFF
+
+状态色：健康（#30B65F）、警告（#FFB71C）、错误（#F24542）、紧急（#B90A38）、进行中（#448AFF）
 
 [wizard 字体规范](http://wiki.xsky.com/pages/viewpage.action?pageId=26709621)
