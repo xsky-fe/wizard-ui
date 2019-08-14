@@ -1,43 +1,22 @@
 @import '../../style/variables.scss';
 
 .Panel {
-  .primary {
+  .panel-primary-bg {
     background-color: $purple-normal
   }
-  .success {
+  .panel-success-bg {
     background-color: $green-normal
   }
-  .info {
+  .panel-info-bg {
     background-color: $blue-normal
   }
-  .warning {
+  .panel-warning-bg {
     background-color: $goldenrod-normal
   }
-  .danger {
+  .panel-danger-bg {
     background-color: $red-normal
   }
 
-  .text-primary {
-    color: $purple-normal
-  }
-  .text-success {
-    color: $green-normal
-  }
-  .text-info {
-    color: $blue-normal;
-  }
-  .text-warning {
-    color: $goldenrod-normal;
-  }
-  .text-danger {
-    color: $red-normal;
-  }
-  .text-white {
-    color: $white;
-  }
-  .text-dark {
-    color: $dark;
-  }
 }
 
 
