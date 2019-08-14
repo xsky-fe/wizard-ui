@@ -2,6 +2,7 @@
 
 exports[`DatePicker get time 1`] = `
 <span
+  className="DatePicker"
   onClick={[Function]}
   onKeyDown={[Function]}
   onMouseDown={[Function]}
@@ -17,6 +18,7 @@ exports[`DatePicker get time 1`] = `
 
 exports[`DatePicker render disable 1`] = `
 <span
+  className="DatePicker"
   onKeyDown={[Function]}
 >
   <input
@@ -29,6 +31,7 @@ exports[`DatePicker render disable 1`] = `
 
 exports[`DatePicker render show en lang 1`] = `
 <span
+  className="DatePicker"
   onClick={[Function]}
   onKeyDown={[Function]}
   onMouseDown={[Function]}
