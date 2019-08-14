@@ -181,3 +181,13 @@ export interface RangePickerState {
   value: Moment[] | string[];
   open: boolean;
 }
+
+export interface DropdownDefaultProps {
+  id: string;
+}
+
+export interface DropdownProps extends DropdownDefaultProps {
+  className?: string;
+  title?: string;
+  children?: React.ReactNode;
+}
