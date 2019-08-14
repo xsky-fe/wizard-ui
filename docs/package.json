@@ -27,7 +27,7 @@
     "prop-types": "^15.7.2",
     "rc-calendar": "^9.15.4",
     "rc-time-picker": "^3.7.1",
-    "rc-tree": "^2.1.0",
+    "rc-tree": "2.1.0",
     "react": "^16.8.6",
     "react-bootstrap": "0.31.1",
     "react-dom": "^16.8.6",
