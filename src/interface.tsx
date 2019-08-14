@@ -192,3 +192,13 @@ export interface DatePickerProps {
   disabledDate?: (mtime: Moment | undefined) => boolean;
   lang?: string;
 }
+
+export interface DropdownDefaultProps {
+  id: string;
+}
+
+export interface DropdownProps extends DropdownDefaultProps {
+  className?: string;
+  title?: string;
+  children?: React.ReactNode;
+}

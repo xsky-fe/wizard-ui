@@ -1,4 +1,5 @@
 import Badge from './Badge';
+import Dropdown from './Dropdown';
 import Icon from './Icon';
 import Tooltip from './Tooltip';
 import UsageBar from './UsageBar';
@@ -18,6 +19,7 @@ import { Well } from 'react-bootstrap';
 
 export {
   Badge,
+  Dropdown,
   Icon,
   Tooltip,
   UsageBar,
