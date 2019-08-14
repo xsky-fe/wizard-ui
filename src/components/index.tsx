@@ -13,6 +13,7 @@ import SubMenu from './SubMenu';
 import DropdownButton from './DropdownButton';
 import Navigation from './Navigation';
 import RangePicker from './RangePicker';
+import DatePicker from './DatePicker';
 import { Well } from 'react-bootstrap';
 
 export {
@@ -31,5 +32,6 @@ export {
   DropdownButton,
   Navigation,
   RangePicker,
+  DatePicker,
   Well,
 };

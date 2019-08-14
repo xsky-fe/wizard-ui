@@ -181,3 +181,14 @@ export interface RangePickerState {
   value: Moment[] | string[];
   open: boolean;
 }
+
+export interface DatePickerProps {
+  getTime?: (time: string) => void;
+  disabled?: boolean;
+  showTime?: boolean;
+  placeholder?: string;
+  reset?: boolean;
+  defaultValue?: string;
+  disabledDate?: (mtime: Moment | undefined) => boolean;
+  lang?: string;
+}

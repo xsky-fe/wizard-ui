@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DatePicker get time 1`] = `
+<span
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  onMouseDown={[Function]}
+  onTouchStart={[Function]}
+>
+  <input
+    disabled={false}
+    readOnly={true}
+    value=""
+  />
+</span>
+`;
+
+exports[`DatePicker render disable 1`] = `
+<span
+  onKeyDown={[Function]}
+>
+  <input
+    disabled={true}
+    readOnly={true}
+    value=""
+  />
+</span>
+`;
+
+exports[`DatePicker render show en lang 1`] = `
+<span
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  onMouseDown={[Function]}
+  onTouchStart={[Function]}
+>
+  <input
+    disabled={false}
+    readOnly={true}
+    value=""
+  />
+</span>
+`;
