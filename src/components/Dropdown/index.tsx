@@ -33,7 +33,7 @@ Dropdown.propTypes = {
   /**
    * 下拉框展开时详细内容 React.ReactNode
    **/
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
 
 Dropdown.defaultProps = defaultProps;
