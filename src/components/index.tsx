@@ -1,3 +1,4 @@
+import Alert from './Alert';
 import Badge from './Badge';
 import Icon from './Icon';
 import Tooltip from './Tooltip';
@@ -16,6 +17,7 @@ import RangePicker from './RangePicker';
 import { Well } from 'react-bootstrap';
 
 export {
+  Alert,
   Badge,
   Icon,
   Tooltip,
