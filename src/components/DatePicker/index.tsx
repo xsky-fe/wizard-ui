@@ -9,6 +9,7 @@ import CALENDAR_ZH from 'rc-calendar/lib/locale/zh_CN';
 import CALENDAR_EN from 'rc-calendar/lib/locale/en_US';
 import moment, { Moment } from 'moment';
 import { DatePickerProps } from '../../interface';
+import './style.scss';
 
 const format: string = 'YYYY-MM-DD HH:mm:ss';
 
@@ -58,7 +59,7 @@ const DatePicker: React.FC<DatePickerProps> = props => {
     >
       {({ value }: any) => {
         return (
-          <span>
+          <span className="DatePicker">
             <input
               placeholder={placeholder}
               disabled={disabled}
@@ -75,8 +76,8 @@ const DatePicker: React.FC<DatePickerProps> = props => {
 DatePicker.propTypes = {
   disabled: PropTypes.bool,
   showTime: PropTypes.bool,
-  placeholder: PropTypes.string.isRequired,
-  getTime: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
+  getTime: PropTypes.func,
 };
 
 DatePicker.defaultProps = {

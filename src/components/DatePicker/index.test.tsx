@@ -38,5 +38,5 @@ describe('DatePicker', () => {
     const getTime = (val: string) => console.log(val);
     const picker = renderer.create(<DatePicker getTime={getTime} />).toJSON();
     expect(picker).toMatchSnapshot();
-  })
+  });
 });
