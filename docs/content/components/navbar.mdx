@@ -1,0 +1,97 @@
+---
+title: Navbar 导航条
+date: 2019-08-14
+author: lijianxin1202
+---
+
+一个丰富的，响应式的导航头，支持商标，导航等等
+
+## 使用场景
+
+- 将一些公共的，与具体模块无关的导航、提示语等集中放在一起，以供用户方便的查看、跳转
+
+### 常规
+
+```jsx
+<Navbar>
+  <Navbar.Header>
+    <Navbar.Brand>
+      <a href="#home">React-Bootstrap</a>
+    </Navbar.Brand>
+  </Navbar.Header>
+  <Nav>
+    <NavItem eventKey={1} href="#">
+      Link
+    </NavItem>
+    <NavItem eventKey={2} href="#">
+      Link
+    </NavItem>
+    <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
+      <MenuItem eventKey={3.1}>Action</MenuItem>
+      <MenuItem eventKey={3.2}>Another action</MenuItem>
+      <MenuItem eventKey={3.3}>Something else here</MenuItem>
+      <MenuItem divider />
+      <MenuItem eventKey={3.4}>Separated link</MenuItem>
+    </NavDropdown>
+  </Nav>
+</Navbar>;
+```
+
+### 表单
+
+```jsx
+<Navbar className="bg-light justify-content-between">
+  <Form inline>
+    <InputGroup>
+      <InputGroup.Prepend>
+        <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
+      </InputGroup.Prepend>
+      <FormControl
+        placeholder="Username"
+        aria-label="Username"
+        aria-describedby="basic-addon1"
+      />
+    </InputGroup>
+  </Form>
+  <Form inline>
+    <FormControl type="text" placeholder="Search" className=" mr-sm-2" />
+    <Button type="submit">Submit</Button>
+  </Form>
+</Navbar>
+```
+
+### 文本和非导航链接
+
+```jsx
+<Navbar>
+  <Navbar.Header>
+    <Navbar.Brand>
+      <a href="#home">Brand</a>
+    </Navbar.Brand>
+    <Navbar.Toggle />
+  </Navbar.Header>
+  <Navbar.Collapse>
+    <Navbar.Text>
+      Signed in as: <Navbar.Link href="#">Mark Otto</Navbar.Link>
+    </Navbar.Text>
+    <Navbar.Text pullRight>Have a great day!</Navbar.Text>
+  </Navbar.Collapse>
+</Navbar>;
+```
+
+## API
+
+| 参数    | 类型                      | 默认值 | 说明     |
+| ------- | ------------------------- | ------ | -------- |
+| fixedTop  | boolean | false | 生成一个顶部固定的、随页面流动的导航条 |
+| fixedBottom | boolean | false | 生成一个底部固定、随页面流动的导航条 |
+| staticTop | boolean | false | 生成全宽度的随页面流动的导航条 |
+| inverse | boolean | false | 使用暗色的导航条 |
+| fluid | boolean | false | 允许流动的导航条调整至页面或容器宽度而不是预设的屏幕宽度 |
+| componentClass| elementType | 'nav' | 为此组件设置一个定制化的风格 |
+| onToggle | function | | 当收缩或展开时调用的回调函数 |
+| onSelect | function | | 子 <Nav> 被选中调用的回调，用来执行复杂的关闭或其它操作 |
+| collapseOnSelect | boolean | false | 当一个 <Nav> 下属触发 onSelect 时，设置 expanded 为 false
+| expanded | boolean | | 显式设置 navbar 主体可视 |
+| role | string | | |
+| bsStyle | one of 'default', 'inverse' | 'default' | 定义组件可视的或上下文相关的样式属性 |
