@@ -181,7 +181,6 @@ export interface RangePickerState {
   value: Moment[] | string[];
   open: boolean;
 }
-
 export interface AlertProps {
   children: React.ReactNode;
   bsStyle?: string;
@@ -190,4 +189,13 @@ export interface AlertProps {
   bsClass?: string;
   onDismiss?: () => void;
   dismissDirection?: string;
+}
+export interface DropdownDefaultProps {
+  id: string;
+}
+
+export interface DropdownProps extends DropdownDefaultProps {
+  className?: string;
+  title?: string;
+  children?: React.ReactNode;
 }
