@@ -1,23 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Dropdown } from 'react-bootstrap';
+import { Dropdown as BootstrapDropdown } from 'react-bootstrap';
 import { DropdownProps, DropdownDefaultProps } from '../../interface';
 
 const defaultProps: DropdownDefaultProps = {
   id: 'CustomDropdown'
 }
 
-const CustomDropdown = (props: DropdownProps) => {
+const Dropdown = (props: DropdownProps) => {
   const { className, id, title, children } = props;
   return (
-    <Dropdown id={id} className={className}>
-      <Dropdown.Toggle>{title}</Dropdown.Toggle>
-      <Dropdown.Menu>{children}</Dropdown.Menu>
-    </Dropdown>
+    <BootstrapDropdown id={id} className={className}>
+      <BootstrapDropdown.Toggle>{title}</BootstrapDropdown.Toggle>
+      <BootstrapDropdown.Menu>{children}</BootstrapDropdown.Menu>
+    </BootstrapDropdown>
   );
 }
 
-CustomDropdown.propTypes = {
+Dropdown.propTypes = {
   /**
    * 元素 class 名称 string
    **/
@@ -36,6 +36,6 @@ CustomDropdown.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-CustomDropdown.defaultProps = defaultProps;
+Dropdown.defaultProps = defaultProps;
 
-export default CustomDropdown;
+export default Dropdown;
