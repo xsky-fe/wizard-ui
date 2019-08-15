@@ -42,18 +42,6 @@ author: lijianxin1202
 ```jsx
 <Navbar className="bg-light justify-content-between">
   <Form inline>
-    <InputGroup>
-      <InputGroup.Prepend>
-        <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
-      </InputGroup.Prepend>
-      <FormControl
-        placeholder="Username"
-        aria-label="Username"
-        aria-describedby="basic-addon1"
-      />
-    </InputGroup>
-  </Form>
-  <Form inline>
     <FormControl type="text" placeholder="Search" className=" mr-sm-2" />
     <Button type="submit">Submit</Button>
   </Form>
@@ -90,8 +78,8 @@ author: lijianxin1202
 | fluid | boolean | false | 允许流动的导航条调整至页面或容器宽度而不是预设的屏幕宽度 |
 | componentClass| elementType | 'nav' | 为此组件设置一个定制化的风格 |
 | onToggle | function | | 当收缩或展开时调用的回调函数 |
-| onSelect | function | | 子 <Nav> 被选中调用的回调，用来执行复杂的关闭或其它操作 |
-| collapseOnSelect | boolean | false | 当一个 <Nav> 下属触发 onSelect 时，设置 expanded 为 false
+| onSelect | function | | 子 `<Nav>` 被选中调用的回调，用来执行复杂的关闭或其它操作 |
+| collapseOnSelect | boolean | false | 当一个 `<Nav>` 下属触发 onSelect 时，设置 expanded 为 false
 | expanded | boolean | | 显式设置 navbar 主体可视 |
 | role | string | | |
 | bsStyle | one of 'default', 'inverse' | 'default' | 定义组件可视的或上下文相关的样式属性 |
