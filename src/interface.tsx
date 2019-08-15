@@ -182,15 +182,19 @@ export interface RangePickerState {
   open: boolean;
 }
 
-export interface DatePickerProps {
-  getTime?: (time: string) => void;
+export interface DatePickerDefaultProps {
   disabled?: boolean;
   showTime?: boolean;
+}
+
+export interface DatePickerProps extends DatePickerDefaultProps {
+  getTime?: (time: string) => void;
   placeholder?: string;
   reset?: boolean;
   defaultValue?: string;
   disabledDate?: (mtime: Moment | undefined) => boolean;
-  lang?: string;
+  lang?: 'en' | 'zh';
+  disabled?: boolean;
 }
 
 export interface DropdownDefaultProps {

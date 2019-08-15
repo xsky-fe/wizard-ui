@@ -8,12 +8,12 @@ import 'rc-time-picker/assets/index.css';
 import CALENDAR_ZH from 'rc-calendar/lib/locale/zh_CN';
 import CALENDAR_EN from 'rc-calendar/lib/locale/en_US';
 import moment, { Moment } from 'moment';
-import { DatePickerProps } from '../../interface';
+import { DatePickerDefaultProps, DatePickerProps } from '../../interface';
 import './style.scss';
 
-const format: string = 'YYYY-MM-DD HH:mm:ss';
+const format = 'YYYY-MM-DD HH:mm:ss';
 
-function getFormat(time: boolean | undefined) {
+function getFormat(time?: boolean) {
   return time ? format : 'YYYY-MM-DD';
 }
 
@@ -78,11 +78,14 @@ DatePicker.propTypes = {
   showTime: PropTypes.bool,
   placeholder: PropTypes.string,
   getTime: PropTypes.func,
+  reset: PropTypes.bool,
+  defaultValue: PropTypes.string,
+  disabledDate: PropTypes.func,
 };
 
 DatePicker.defaultProps = {
   disabled: false,
   showTime: true,
-};
+} as DatePickerDefaultProps;
 
 export default DatePicker;
