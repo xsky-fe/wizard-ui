@@ -4,7 +4,7 @@ import Playground from '../components/Playground';
 import { MDXProvider } from '@mdx-js/react';
 import { graphql } from 'gatsby';
 import Header from '../components/Header';
-import MDXRenderer from 'gatsby-mdx/mdx-renderer';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 const showComponents = {
   code: props => <Playground {...props} isShow />,
@@ -17,7 +17,7 @@ export default props => {
     <Layout>
       <Header post={post} />
       <MDXProvider components={showComponents}>
-        <MDXRenderer>{post.code.body}</MDXRenderer>
+        <MDXRenderer>{post.body}</MDXRenderer>
       </MDXProvider>
     </Layout>
   );
@@ -28,9 +28,7 @@ export const pageQuery = graphql`
     mdx(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
-      code {
-        body
-      }
+      body
       fields {
         slug
       }

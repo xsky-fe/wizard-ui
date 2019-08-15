@@ -8,7 +8,7 @@ import Playground from '../components/Playground';
 import SideNav from '../components/SideNav';
 import Header from '../components/Header';
 import Toc from '../components/Toc';
-import MDXRenderer from 'gatsby-mdx/mdx-renderer';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 const components = {
   h2: props => <LinkedHeading h="3" {...props} />,
@@ -37,7 +37,7 @@ class BlogPostTemplate extends React.Component {
             <div className="Main__Body">
               <Header post={post} />
               <MDXProvider components={components}>
-                <MDXRenderer>{post.code.body}</MDXRenderer>
+                <MDXRenderer>{post.body}</MDXRenderer>
               </MDXProvider>
             </div>
             <div className="prev-next-nav">
@@ -73,9 +73,7 @@ export const pageQuery = graphql`
     mdx(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
-      code {
-        body
-      }
+      body
       fields {
         slug
       }
