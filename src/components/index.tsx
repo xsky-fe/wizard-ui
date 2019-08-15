@@ -14,7 +14,7 @@ import TimePicker from './TimePicker';
 import Tooltip from './Tooltip';
 import Tree from './Tree';
 import UsageBar from './UsageBar';
-import { Navbar, Well } from 'react-bootstrap';
+import { MenuItem, Navbar, NavDropdown, NavItem, Well } from 'react-bootstrap';
 
 export {
   Badge,
@@ -22,8 +22,11 @@ export {
   DropdownButton,
   Icon,
   Loader,
+  MenuItem,
   Modal,
   Navbar,
+  NavDropdown,
+  NavItem,
   Navigation,
   RangePicker,
   Steps,
