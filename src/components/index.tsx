@@ -14,10 +14,12 @@ import TimePicker from './TimePicker';
 import Tooltip from './Tooltip';
 import Tree from './Tree';
 import UsageBar from './UsageBar';
-import { MenuItem, Navbar, NavDropdown, NavItem, Well } from 'react-bootstrap';
+import { Col, Clearfix, MenuItem, Navbar, NavDropdown, NavItem, Row, Well } from 'react-bootstrap';
 
 export {
   Badge,
+  Col,
+  Clearfix,
   Dropdown,
   DropdownButton,
   Icon,
@@ -29,6 +31,7 @@ export {
   NavItem,
   Navigation,
   RangePicker,
+  Row,
   Steps,
   SubMenu,
   Switch,
