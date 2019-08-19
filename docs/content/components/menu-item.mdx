@@ -1,0 +1,57 @@
+---
+title: MenuItem 菜单项
+date: 2019-08-16
+author: lijianxin1202
+---
+
+菜单条目
+
+## 使用场景
+
+- 通常在下拉框中作为不同的菜单选项
+
+### 常规
+
+```jsx
+<div>
+  <ButtonToolbar>
+    <SplitButton title="Dropup" dropup id="split-button-dropup">
+      <MenuItem eventKey="1">Action</MenuItem>
+      <MenuItem eventKey="2">Another action</MenuItem>
+      <MenuItem eventKey="3">Something else here</MenuItem>
+      <MenuItem divider />
+      <MenuItem eventKey="4">Separated link</MenuItem>
+    </SplitButton>
+  </ButtonToolbar>
+
+  <ButtonToolbar>
+    <SplitButton
+      bsStyle="primary"
+      title="Right dropup"
+      dropup
+      pullRight
+      id="split-button-dropup-pull-right"
+    >
+      <MenuItem eventKey="1">Action</MenuItem>
+      <MenuItem eventKey="2">Another action</MenuItem>
+      <MenuItem eventKey="3">Something else here</MenuItem>
+      <MenuItem divider />
+      <MenuItem eventKey="4">Separated link</MenuItem>
+    </SplitButton>
+  </ButtonToolbar>
+</div>
+```
+
+## API
+
+| 参数    | 类型                      | 默认值 | 说明     |
+| ------- | ------------------------- | ------ | -------- |
+| active  | boolean | | 高亮显示菜单项，表示菜单项被选中。 |
+| disabled | boolean | false | 禁用菜单项，使其不能被选中。 |
+| divider | all | false | 将此菜单项显示为水平分隔线，用在一组菜单项之间的区块分隔。 |
+| eventKey | any  | 传送给 onSelect 处理函数的参数, 用于标记选中菜单项的关键字。 |
+| header | boolean | false | 将菜单项的风格显示为标题头标签，用来描述一组菜单项 |
+| href | string | | HTML href 与 a.href 相关的属性 |
+| onClick | function | | 菜单被点击时调用的回调函数。 |
+| onSelect | function | | 菜单被选中时调用的回调函数。 |
+| bsClass | string | 'dropdown' | 定义组件基础 CSS 及前缀。通常改变 bsClass 目的是为组件提供新的、非 Bootstrap 自带样式。 |
