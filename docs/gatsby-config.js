@@ -21,7 +21,12 @@ module.exports = {
         name: `content`,
       },
     },
-    `gatsby-mdx`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+      },
+    },
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-react-docgen`,
