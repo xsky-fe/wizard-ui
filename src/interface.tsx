@@ -182,6 +182,12 @@ export interface RangePickerState {
   open: boolean;
 }
 
+export interface PanelProps {
+  children?: React.ReactNode;
+  bg?: string;
+  text?: string;
+}
+
 export interface DropdownDefaultProps {
   id: string;
 }
