@@ -15,6 +15,7 @@ import Tooltip from './Tooltip';
 import Tree from './Tree';
 import Panel from './Panel';
 import UsageBar from './UsageBar';
+import VirtualList from './VirtualList';
 import { MenuItem, Navbar, NavDropdown, NavItem, Well, PanelGroup } from 'react-bootstrap';
 
 export {
@@ -41,4 +42,5 @@ export {
   Well,
   Panel,
   PanelGroup,
+  VirtualList,
 };
