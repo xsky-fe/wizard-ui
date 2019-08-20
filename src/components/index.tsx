@@ -13,6 +13,7 @@ import Tabs from './Tabs';
 import TimePicker from './TimePicker';
 import Tooltip from './Tooltip';
 import Tree from './Tree';
+import DatePicker from './DatePicker';
 import Panel from './Panel';
 import UsageBar from './UsageBar';
 import { MenuItem, Navbar, NavDropdown, NavItem, Well, PanelGroup } from 'react-bootstrap';
@@ -37,6 +38,7 @@ export {
   TimePicker,
   Tooltip,
   Tree,
+  DatePicker,
   UsageBar,
   Well,
   Panel,
