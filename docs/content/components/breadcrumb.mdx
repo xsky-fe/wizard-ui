@@ -1,17 +1,49 @@
 ---
 title: Breadcrumb 面包屑
-date: 2019-06-19
+date: 2019-08-14
+author: shenghou
 ---
 
-显示当前页面的路径，可以快速返回上级的页面。
+面包屑允许用户从一系列值中进行选择。
 
 ## 基本用法
-### 默认展示
+
 ```jsx
 <Breadcrumb>
-  <Breadcrumb.Item href="#">资源列表</Breadcrumb.Item>
-  <Breadcrumb.Item href="#">
-    资源详情
+  <Breadcrumb.Item href="#">资源列表1</Breadcrumb.Item>
+  <Breadcrumb.Item href="#">资源列表2</Breadcrumb.Item>
+</Breadcrumb>
+```
+
+### 活动状态
+
+```jsx
+<Breadcrumb>
+  <Breadcrumb.Item href="#">资源列表1</Breadcrumb.Item>
+  <Breadcrumb.Item href="#">资源列表2</Breadcrumb.Item>
+  <Breadcrumb.Item href="#" active>
+    活动列表3
   </Breadcrumb.Item>
 </Breadcrumb>
 ```
+
+### 带 title
+
+```jsx
+<Breadcrumb>
+  <Breadcrumb.Item active>活动列表1</Breadcrumb.Item>
+  <Breadcrumb.Item href="#" title="我有title属性">
+    title列表
+  </Breadcrumb.Item>
+  <Breadcrumb.Item href="#">资源列表3</Breadcrumb.Item>
+</Breadcrumb>
+```
+
+## API
+
+| 参数   | 类型    | 默认值 | 说明                           |
+| ------ | ------- | ------ | ------------------------------ |
+| active | boolean | false  | 当设置为 `true` 时候渲染`span` |
+| href   | string  |        | `a`元素`href`属性              |
+| title  | string  |        | `a`元素`title`属性             |
+| target | string  |        | `a`元素`target`属性            |

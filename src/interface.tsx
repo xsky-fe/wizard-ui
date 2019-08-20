@@ -197,6 +197,12 @@ export interface DatePickerProps extends DatePickerDefaultProps {
   disabled?: boolean;
 }
 
+export interface PanelProps {
+  children?: React.ReactNode;
+  bg?: string;
+  text?: string;
+}
+
 export interface DropdownDefaultProps {
   id: string;
 }
