@@ -1,0 +1,61 @@
+---
+title: Collapse 折叠面板
+date: 2019-08-21
+author: YuunYang
+---
+可以折叠/展开的内容区域。
+
+## 使用方式
+点击面板标题会折叠/展开内容，并可以设置icon，以及自定义样式。
+
+## 基本用法
+点击面板标题后会折叠/展开内容：
+```tsx
+<Collapse
+  title={"title"}
+>
+  hello
+</Collapse>
+```
+```tsx
+<Collapse
+  open={true}
+  title={"title"}
+>
+  hello
+</Collapse>
+```
+## 自定义样式
+```tsx
+<Collapse
+  title={"title"}
+  collapseStyle={{
+    background: '#f7f7f7',
+    borderRadius: 4,
+    marginBottom: 24,
+    border: 0,
+    overflow: 'hidden',
+  }}
+  contentStyle={{
+    background: '#f7f7f7',
+    border: 0,
+  }}
+>
+  hello
+</Collapse>
+```
+## open和close事件
+```tsx
+<Collapse
+  title={"title"}
+  onOpen={() => alert("opened")}
+  onClose={() => alert("closed")}
+>
+  hello
+</Collapse>
+```
+
+## API
+```jsx previewOnly
+<PropTable of="collapse" />
+```

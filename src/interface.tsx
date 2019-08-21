@@ -212,3 +212,14 @@ export interface DropdownProps extends DropdownDefaultProps {
   title?: string;
   children?: React.ReactNode;
 }
+
+export interface CollapseProps {
+  open?: boolean;
+  onOpen?: () => void;
+  onClose?: () => void;
+  showIcon?: boolean | string;
+  collapseStyle?: object;
+  contentStyle?: object;
+  title: React.ReactNode;
+  children: React.ReactNode;
+}
