@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { SelectCallback, Sizes } from 'react-bootstrap';
 import { Moment } from 'moment';
+import CSS from 'csstype';
 
 export interface BadgeProps {
   count?: number | string;
@@ -197,3 +198,45 @@ export interface DropdownProps extends DropdownDefaultProps {
   title?: string;
   children?: React.ReactNode;
 }
+
+export interface Query {
+  offset: number
+  limit: number,
+}
+export interface VirtualRowArgs {
+  index: number
+  item: object
+  prevItem: object | null
+  nextItem: object | null
+  style: { transform: string; position: CSS.PositionProperty; width: string; }
+}
+export interface VirtualAnchorItem {
+  index: number,
+  offset: number
+}
+export interface VirtualListState {
+  startIndex: number
+  endIndex: number
+}
+export interface VirtualListProps {
+  runwayItems?: number
+  runwayItemsOppsite?: number
+  query?: Query,
+  onQueryChange?: (query: Query) => Promise<void>
+  rowHeight?: number | ((item: object) => number)
+  rowRenderer: (item: VirtualRowArgs) => React.ReactNode | Element
+  isFetching?: boolean
+  isReloading?: boolean
+  loader?: React.ReactNode
+  height?: number
+  noMore?: boolean
+  totalCount?: number
+  data: object[]
+  placeholder?: string
+  noMoreHint?: boolean
+  className?: string
+  isEstimate?: boolean
+  debug?: boolean
+}
+
+

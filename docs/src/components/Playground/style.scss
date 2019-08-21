@@ -51,6 +51,15 @@
     display: flex;
     justify-content: space-between;
     position: relative;
+    .box {
+      border: 1px solid #ccc;
+      overflow: scroll;
+    }
+    .list-item {
+      line-height: 34px;
+      border-bottom: 1px dotted #ccc;
+      padding-left: 10px;
+    }
     .sub-menu-basic {
       li {
         width: 160px;

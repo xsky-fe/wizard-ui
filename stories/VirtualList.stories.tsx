@@ -3,15 +3,16 @@ import { storiesOf } from '@storybook/react';
 import { VirtualList } from '../src';
 import getMockDatas from './utils/getMockDatas';
 import { get } from 'lodash';
+import { Query, VirtualRowArgs } from '../src/interface'
 
 const resName = "list";
-function getDatas(query: { limit: number, offset: number }) {
+function getDatas(query: Query) {
   return getMockDatas(query, 180, resName);
 }
 
-const rowRenderer = (i: { index: number, style: object }) => <div className="list-item" style={i.style} key={i.index}>{resName}-{i.index + 1}</div>;
+const rowRenderer = (i: VirtualRowArgs) => <div className="list-item" style={i.style} key={i.index}>{resName}-{i.index + 1}</div>;
 
-const rowRendererRandomHeight = (i: { index: number, style: object }) => <div className="list-item" style={i.style} key={i.index}><div style={{ height: `${35 + (i.index%5 * 4)}px` }}>{resName}-{i.index + 1}</div></div>;
+const rowRendererRandomHeight = (i: VirtualRowArgs) => <div className="list-item" style={i.style} key={i.index}><div style={{ height: `${35 + (i.index%5 * 4)}px` }}>{resName}-{i.index + 1}</div></div>;
 
 const AsyncVirtualList = (props: { random?: boolean }) => {
   const listRef = React.useRef<HTMLDivElement>(null);

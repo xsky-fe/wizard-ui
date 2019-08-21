@@ -1,10 +1,12 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { sum, isFunction } from 'lodash';
+import { VirtualListState,VirtualAnchorItem, VirtualListProps } from '../../interface';
+import CSS from 'csstype';
 import './style.scss';
 
-const BASIC_STYLES = {
+const BASIC_STYLES: CSS.Properties = {
   position: 'absolute',
   width: '100%',
 };
@@ -19,72 +21,38 @@ function getHeight(el: HTMLDivElement) {
   return height + marginTop + marginBottom;
 }
 
-interface Query {
-  offset: number
-  limit: number,
-}
-interface RowArgs {
-  index: number
-  item: object
-  prevItem: object | null
-  nextItem: object | null
-  style: { transform: string; position: string; width: string; }
-}
-
-interface Props {
-  runwayItems?: number
-  runwayItemsOppsite?: number
-  query?: Query,
-  onQueryChange?: (query: Query) => Promise<void>
-  rowHeight?: number
-  rowRenderer: (item: RowArgs) => React.ReactNode | Element
-  isFetching?: boolean
-  isReloading?: boolean
-  loader?: React.ReactNode
-  height?: number
-  noMore?: boolean
-  totalCount?: number
-  data: object[]
-  placeholder?: string
-  noMoreHint?: boolean
-  className?: string
-  isEstimate?: boolean
-  debug?: boolean
-}
-
-interface State {
-  startIndex: number
-  endIndex: number
-}
-
-interface VirtualAnchorItem {
-  index: number,
-  offset: number
-}
-
-class VirtualList extends PureComponent<Props, State> {
-  private holder: React.RefObject<HTMLDivElement>;
-  private list: React.RefObject<HTMLDivElement>;
-  private heightCache: number[];
-  private totalHeight?: number;
-  private anchorItem: VirtualAnchorItem;
-  private anchorScrollTop: number;
+export default class VirtualList extends React.Component<VirtualListProps, VirtualListState> {
   static propTypes = {
+    /** 行高 */
     rowHeight: PropTypes.oneOfType([PropTypes.func, PropTypes.number]).isRequired,
+    /** 渲染 row UI */
     rowRenderer: PropTypes.func.isRequired,
+    /** 可见高度 */
     height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    /** 数据 */
     data: PropTypes.array,
+    /** 是否开启计算 */
     isEstimate: PropTypes.bool,
+    /** 监听 query 改变 */
     onQueryChange: PropTypes.func,
+    /** 确定异步数据的 offset 和 limit */
     query: PropTypes.object,
+    /** 总数 */
     totalCount: PropTypes.number,
+    /** 是否在获取数据 */
     isFetching: PropTypes.bool,
+    /** 行高 */
     runwayItems: PropTypes.number,
+    /** 行高 */
     runwayItemsOppsite: PropTypes.number,
+    /** 数据加载中时展示 */
     loader: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
+    /** 默认展示文本 */
     placeholder: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
+    /** 是否展示没有多余的数据 */
     noMore: PropTypes.bool,
     noMoreHint: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
+    /** Debug */
     debug: PropTypes.bool,
   };
   static defaultProps = {
@@ -97,11 +65,18 @@ class VirtualList extends PureComponent<Props, State> {
     noMoreHint: <p className="VirtualList__no-more-hint">没有更多信息</p>,
     debug: true,
   };
-  constructor(props: Props) {
+  holder: React.RefObject<HTMLDivElement>;
+  list: React.RefObject<HTMLDivElement>;
+  heightCache: number[];
+  totalHeight: number;
+  anchorItem: VirtualAnchorItem;
+  anchorScrollTop: number;
+  constructor(props: VirtualListProps) {
     super(props);
     this.holder = React.createRef();
     this.list = React.createRef();
     this.heightCache = [];
+    this.totalHeight = 0;
     this.anchorItem = {
       index: 0,
       offset: 0,
@@ -139,7 +114,7 @@ class VirtualList extends PureComponent<Props, State> {
     this.handleResize(data);
     window.addEventListener('resize', this.resizeHandler);
   }
-  UNSAFE_componentWillReceiveProps(nextProps: Props) {
+  UNSAFE_componentWillReceiveProps(nextProps: VirtualListProps) {
     const { data, isReloading } = this.props;
     if (data !== nextProps.data) {
       this.handleResize(nextProps.data, false);
@@ -230,7 +205,9 @@ class VirtualList extends PureComponent<Props, State> {
           nextItem,
         })
         : rowHeight;
-      this.heightCache.push(height);
+      if (height) {
+        this.heightCache.push(height);
+      }
     }
     this.totalHeight = sum(this.heightCache);
     this.forceUpdate();
@@ -387,8 +364,6 @@ class VirtualList extends PureComponent<Props, State> {
     );
   }
 }
-
-export default VirtualList;
 
 
 
