@@ -6,8 +6,8 @@ import classNames from 'classnames';
 import './index.scss';
 
 const Panel: React.FC<PanelProps> = props => {
-  const { bg , children, text, ...restProps } = props;
-  const bgClass = bg ? `panel-${bg}-bg`: '';
+  const { bg, children, text, ...restProps } = props;
+  const bgClass = bg ? `panel-${bg}-bg` : '';
   const textClass = text ? `text-${text}` : 'text-dark';
   return (
     <div className="Panel">

@@ -200,43 +200,41 @@ export interface DropdownProps extends DropdownDefaultProps {
 }
 
 export interface Query {
-  offset: number
-  limit: number,
+  offset: number;
+  limit: number;
 }
 export interface VirtualRowArgs {
-  index: number
-  item: object
-  prevItem: object | null
-  nextItem: object | null
-  style: { transform: string; position: CSS.PositionProperty; width: string; }
+  index: number;
+  item: object;
+  prevItem: object | null;
+  nextItem: object | null;
+  style: { transform: string; position: CSS.PositionProperty; width: string };
 }
 export interface VirtualAnchorItem {
-  index: number,
-  offset: number
+  index: number;
+  offset: number;
 }
 export interface VirtualListState {
-  startIndex: number
-  endIndex: number
+  startIndex: number;
+  endIndex: number;
 }
 export interface VirtualListProps {
-  runwayItems?: number
-  runwayItemsOppsite?: number
-  query?: Query,
-  onQueryChange?: (query: Query) => Promise<void>
-  rowHeight?: number | ((item: object) => number)
-  rowRenderer: (item: VirtualRowArgs) => React.ReactNode | Element
-  isFetching?: boolean
-  isReloading?: boolean
-  loader?: React.ReactNode
-  height?: number
-  noMore?: boolean
-  totalCount?: number
-  data: object[]
-  placeholder?: string
-  noMoreHint?: boolean
-  className?: string
-  isEstimate?: boolean
-  debug?: boolean
+  runwayItems?: number;
+  runwayItemsOppsite?: number;
+  query?: Query;
+  onQueryChange?: (query: Query) => Promise<void>;
+  rowHeight?: number | ((item: object) => number);
+  rowRenderer: (item: VirtualRowArgs) => React.ReactNode | Element;
+  isFetching?: boolean;
+  isReloading?: boolean;
+  loader?: React.ReactNode;
+  height?: number;
+  noMore?: boolean;
+  totalCount?: number;
+  data: any[];
+  placeholder?: string;
+  noMoreHint?: boolean;
+  className?: string;
+  isEstimate?: boolean;
+  debug?: boolean;
 }
-
-

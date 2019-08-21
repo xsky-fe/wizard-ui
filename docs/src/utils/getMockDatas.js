@@ -11,14 +11,14 @@ function createDatas(query, totalCount, resName) {
     response: {
       [`${resName}s`]: rlt,
       paging: {
-        totalCount
-      }
+        totalCount,
+      },
     },
-  }
+  };
 }
 
 export default function getMockDatas(query, totalCount, resName) {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     setTimeout(() => {
       const datas = createDatas(query, totalCount, resName);
       resolve(datas);

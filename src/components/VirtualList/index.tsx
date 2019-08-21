@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { sum, isFunction } from 'lodash';
-import { VirtualListState,VirtualAnchorItem, VirtualListProps } from '../../interface';
+import { VirtualListState, VirtualAnchorItem, VirtualListProps } from '../../interface';
 import CSS from 'csstype';
 import './style.scss';
 
-const BASIC_STYLES: CSS.Properties = {
-  position: 'absolute',
+const BASIC_STYLES = {
+  position: 'absolute' as CSS.PositionProperty,
   width: '100%',
 };
 const RUNWAY_ITEMS = 50;
@@ -80,7 +80,7 @@ export default class VirtualList extends React.Component<VirtualListProps, Virtu
     this.anchorItem = {
       index: 0,
       offset: 0,
-    }
+    };
     this.anchorScrollTop = 0;
     this.state = {
       startIndex: 0,
@@ -136,7 +136,9 @@ export default class VirtualList extends React.Component<VirtualListProps, Virtu
 
     let needRender = false;
     if (isEstimate && this.list.current) {
-      const rows: NodeListOf<HTMLDivElement> = this.list.current.querySelectorAll('.VirtualList > *');
+      const rows: NodeListOf<HTMLDivElement> = this.list.current.querySelectorAll(
+        '.VirtualList > *',
+      );
       for (let i = 0; i < rows.length; i++) {
         const row = rows[i];
         const realHeight = getHeight(row);
@@ -144,9 +146,7 @@ export default class VirtualList extends React.Component<VirtualListProps, Virtu
         if (realHeight !== this.heightCache[index]) {
           if (debug && process && process.env.NODE_ENV === 'development') {
             console.warn(
-              `Index ${index} estimate height is ${
-              this.heightCache[index]
-              }, real height is ${realHeight}.`,
+              `Index ${index} estimate height is ${this.heightCache[index]}, real height is ${realHeight}.`,
             );
           }
           this.heightCache[index] = realHeight;
@@ -176,15 +176,15 @@ export default class VirtualList extends React.Component<VirtualListProps, Virtu
   // only used for addEventListener and removeEventListener
   resizeHandler = () => {
     this.handleResize(this.props.data);
-  }
+  };
   handleResize = (data: object[], flushCache?: boolean) => {
     this.recomputeRowHeight(data, flushCache);
     this.handleScroll();
-  }
+  };
   correctAnchor = () => {
     const { index, offset } = this.anchorItem;
     this.anchorScrollTop = sum(this.heightCache.slice(0, index)) + offset;
-  }
+  };
   recomputeRowHeight = (nextData: object[], flushCache: boolean = true) => {
     if (flushCache) {
       this.heightCache = [];
@@ -199,11 +199,11 @@ export default class VirtualList extends React.Component<VirtualListProps, Virtu
       const nextItem = i < data.length - 1 ? data[i + 1] : null;
       const height = isFunction(rowHeight)
         ? rowHeight({
-          index: i,
-          item,
-          prevItem,
-          nextItem,
-        })
+            index: i,
+            item,
+            prevItem,
+            nextItem,
+          })
         : rowHeight;
       if (height) {
         this.heightCache.push(height);
@@ -211,7 +211,7 @@ export default class VirtualList extends React.Component<VirtualListProps, Virtu
     }
     this.totalHeight = sum(this.heightCache);
     this.forceUpdate();
-  }
+  };
 
   handleScroll = () => {
     const { runwayItems = RUNWAY_ITEMS, runwayItemsOppsite = RUNWAY_ITEMS_OPPSITE } = this.props;
@@ -238,7 +238,7 @@ export default class VirtualList extends React.Component<VirtualListProps, Virtu
       },
       this.tryToFetchData,
     );
-  }
+  };
 
   calculateAnchoredItem = (delta: number) => {
     const { data } = this.props;
@@ -268,7 +268,7 @@ export default class VirtualList extends React.Component<VirtualListProps, Virtu
       index,
       offset: delta,
     };
-  }
+  };
 
   attachItems = () => {
     this.correctAnchor();
@@ -305,7 +305,7 @@ export default class VirtualList extends React.Component<VirtualListProps, Virtu
       currentPosition += this.heightCache[i];
     }
     return items;
-  }
+  };
 
   tryToFetchData = () => {
     const { data, query, onQueryChange, isFetching } = this.props;
@@ -321,7 +321,7 @@ export default class VirtualList extends React.Component<VirtualListProps, Virtu
         limit,
       });
     }
-  }
+  };
 
   render() {
     const {
@@ -345,18 +345,17 @@ export default class VirtualList extends React.Component<VirtualListProps, Virtu
           ref={this.list}
         >
           {!isFetching && noData && placeholder}
-          {!isReloading &&
-            !noData && (
-              <div
-                className={classnames('VirtualList', className)}
-                style={{
-                  width: '100%',
-                  height: this.totalHeight,
-                }}
-              >
-                {this.attachItems().map(rowRenderer)}
-              </div>
-            )}
+          {!isReloading && !noData && (
+            <div
+              className={classnames('VirtualList', className)}
+              style={{
+                width: '100%',
+                height: this.totalHeight,
+              }}
+            >
+              {this.attachItems().map(rowRenderer)}
+            </div>
+          )}
           {isFetching && loader}
           {!isFetching && !noData && this.noMore && noMoreHint}
         </div>
@@ -364,6 +363,3 @@ export default class VirtualList extends React.Component<VirtualListProps, Virtu
     );
   }
 }
-
-
-

@@ -58,7 +58,14 @@
     .list-item {
       line-height: 34px;
       border-bottom: 1px dotted #ccc;
-      padding-left: 10px;
+      padding: 0 15px;
+      display: flex;
+      align-items: center;
+      span {
+        text-align: right;
+        flex: 1;
+        color: #bdbdbd;
+      }
     }
     .sub-menu-basic {
       li {
