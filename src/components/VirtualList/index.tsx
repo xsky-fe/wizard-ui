@@ -6,8 +6,8 @@ import { VirtualListState, VirtualAnchorItem, VirtualListProps } from '../../int
 import CSS from 'csstype';
 import './style.scss';
 
-const BASIC_STYLES = {
-  position: 'absolute' as CSS.PositionProperty,
+const BASIC_STYLES: CSS.Properties = {
+  position: 'absolute',
   width: '100%',
 };
 const RUNWAY_ITEMS = 50;
@@ -51,6 +51,7 @@ export default class VirtualList extends React.Component<VirtualListProps, Virtu
     placeholder: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
     /** 是否展示没有多余的数据 */
     noMore: PropTypes.bool,
+     /** 没有需要加载的数据时展示 */
     noMoreHint: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
     /** Debug */
     debug: PropTypes.bool,

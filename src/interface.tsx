@@ -208,7 +208,7 @@ export interface VirtualRowArgs {
   item: object;
   prevItem: object | null;
   nextItem: object | null;
-  style: { transform: string; position: CSS.PositionProperty; width: string };
+  style: CSS.Properties
 }
 export interface VirtualAnchorItem {
   index: number;
