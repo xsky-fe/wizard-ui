@@ -27,6 +27,94 @@ exports[`VirtualList only show loader when reloading 1`] = `
 </div>
 `;
 
+exports[`VirtualList scrolling dynamic row height 1`] = `
+<div>
+  <p>
+    总共 
+    0
+    , 获取了 
+    0
+     条数据。
+  </p>
+  <p>
+    VirtualList 会在增加 list 条数的同时，销毁超出的 UI，目前渲染出来的 list 条数是： 
+    0
+  </p>
+  <div
+    className="box"
+  >
+    <div
+      className="VirtualList__holder"
+      style={
+        Object {
+          "height": 210,
+        }
+      }
+    >
+      <div
+        className="VirtualList__wrapper"
+        onScroll={[Function]}
+        style={
+          Object {
+            "height": 210,
+          }
+        }
+      >
+        <p
+          className="VirtualList__loader"
+        >
+          数据加载中
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`VirtualList scrolling equal row height 1`] = `
+<div>
+  <p>
+    总共 
+    0
+    , 获取了 
+    0
+     条数据。
+  </p>
+  <p>
+    VirtualList 会在增加 list 条数的同时，销毁超出的 UI，目前渲染出来的 list 条数是： 
+    0
+  </p>
+  <div
+    className="box"
+  >
+    <div
+      className="VirtualList__holder"
+      style={
+        Object {
+          "height": 210,
+        }
+      }
+    >
+      <div
+        className="VirtualList__wrapper"
+        onScroll={[Function]}
+        style={
+          Object {
+            "height": 210,
+          }
+        }
+      >
+        <p
+          className="VirtualList__loader"
+        >
+          数据加载中
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`VirtualList show list and loader when fetching more 1`] = `
 <div
   className="VirtualList__holder"

@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 import VirtualList from './index';
 import { VirtualRowArgs } from '../../interface';
+import AsyncVirtualList from '../../../stories/demos/AsyncVirtualList';
 
 function createNodeMock(element: React.ReactElement) {
   if (element.type === 'div') {
@@ -89,4 +90,23 @@ describe('VirtualList', () => {
       .toJSON();
     expect(list).toMatchSnapshot();
   });
+
+  it('scrolling equal row height', () => {
+    const list = renderer
+      .create(
+        <AsyncVirtualList/>,
+        snapOptions,
+      )
+      .toJSON();
+    expect(list).toMatchSnapshot();
+  })
+  it('scrolling dynamic row height', () => {
+    const list = renderer
+      .create(
+        <AsyncVirtualList random />,
+        snapOptions,
+      )
+      .toJSON();
+    expect(list).toMatchSnapshot();
+  })
 });

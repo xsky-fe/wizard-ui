@@ -137,7 +137,7 @@ export default class VirtualList extends React.Component<VirtualListProps, Virtu
 
     let needRender = false;
     if (isEstimate && this.list.current) {
-      const rows: NodeListOf<HTMLDivElement> = this.list.current.querySelectorAll(
+      const rows: NodeListOf<HTMLDivElement> = document.querySelectorAll(
         '.VirtualList > *',
       );
       for (let i = 0; i < rows.length; i++) {
