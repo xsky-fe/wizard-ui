@@ -1,12 +1,12 @@
 ---
-title: Col 列
-date: 2019-08-16
+title: Grid 布局系统
+date: 2019-08-22
 author: lijianxin1202
 ---
-定义一列
+使用行列进行布局
 
 ## 使用方式
-通常和 Row 一块儿使用，来进行表格布局
+进行表格布局时使用
 
 ## 基本用法
 
@@ -51,6 +51,7 @@ author: lijianxin1202
 ```
 
 ## API
+### Col
 
 | 参数    | 类型                      | 默认值 | 说明     |
 | ------- | ------------------------- | ------ | -------- |
@@ -76,3 +77,9 @@ author: lijianxin1202
 | mdPull | number | | 中型设备上右移列数（对前一列位置无影响），，对应于样式前缀 col-xs-pull- |
 | lgPull | number | | 大型设备上右移列数（对前一列位置无影响），，对应于样式前缀 col-xs-pull- |
 | bsClass | string | 'col' | 定义组件基础 CSS 及前缀。通常改变 bsClass 目的是为组件提供新的、非 Bootstrap 自带样式。 |
+
+### Row
+| 参数    | 类型                      | 默认值 | 说明     |
+| ------- | ------------------------- | ------ | -------- |
+| componentClass | elementType | 'div' | 使用一个此组件提供的定制化样式。 |
+| bsClass | string | 'row' | 定义组件基础 CSS 及前缀。通常改变 bsClass 目的是为组件提供新的、非 Bootstrap 自带样式。 |
