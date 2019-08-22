@@ -1,6 +1,52 @@
 ---
 title: DatePicker 日期选择器
-date: 2019-06-13
+date: 2019-08-14
+author: wangkailang
 ---
 
-展示月历，允许用户选择日期。
+展示月历，允许用户选择日期和具体的时间。基于 [rc-calendar](https://github.com/react-component/calendar) 开发。
+
+## 使用场景
+1. 选择单个日期；
+2. 默认支持选择日期和具体到秒级别的时间，可以定制只选择日期；
+3. 支持中文、英文。
+
+## 代码演示
+### 默认展示
+```jsx
+<DatePicker placeholder="请选择时间"/>
+```
+### 设置默认值
+```jsx
+<DatePicker defaultValue="2019-08-13 12:02:53" />
+```
+### 设置 `lang` 为 `en` 展示为英文
+```jsx
+<DatePicker lang="en" placeholder="Please select time"/>
+```
+### 禁用
+```jsx
+<DatePicker disabled placeholder="请选择时间"/>
+```
+### 今天之后的禁止选择
+```jsx
+() => {
+  const disabledDate = val => {
+    if (!val) {
+      return false;
+    }
+    const today = moment(new Date());
+    return val.diff(today, 'seconds') > 0;
+  };
+  return <DatePicker disabledDate={disabledDate} placeholder="请选择时间"/>
+}
+```
+### 只选择日期
+```
+<DatePicker showTime={false} placeholder="请选择日期"/>
+```
+
+## API
+```jsx previewOnly
+<PropTable of="datePicker" />
+```

@@ -1,0 +1,22 @@
+@import '../../style/variables.scss';
+
+.Panel {
+  .panel-primary-bg {
+    background-color: $purple-normal
+  }
+  .panel-success-bg {
+    background-color: $green-normal
+  }
+  .panel-info-bg {
+    background-color: $blue-normal
+  }
+  .panel-warning-bg {
+    background-color: $goldenrod-normal
+  }
+  .panel-danger-bg {
+    background-color: $red-normal
+  }
+
+}
+
+

@@ -7,48 +7,54 @@ date: 2019-05-29
 字体是体系化界面设计中最基本的构成之一。
 
 ## 字体家族
+
 优秀的字体系统首先是要选择合适的字体家族。XSKY 的字体家族中优先使用系统默认的界面字体，同时提供了一套利于屏显的备用字体库，来维护在不同平台以及浏览器的显示下，字体始终保持良好的易读性和可读性，体现了友好、稳定和专业的特性。
 
 ```json isShow
-font-family: "Helvetica Neue","Helvetica","PingFang SC","Arial","Microsoft YaHei","微软雅黑";
+font-family: "Helvetica Neue","Helvetica","PingFang SC","Arial","Microsoft YaHei", "微软雅黑";
 ```
+
 另外，在中后台系统中，数字经常需要进行纵向对比展示，我们单独将数字的字体 [font-variant-numeric](https://www.fonts.com/content/learning/fontology/level-3/numbers/proportional-vs-tabular-figures) 设置为 tabular-nums，使其为等宽字体。
 
 ## 主字体
-大小为 13px，以保证在多数常用显示器上的用户阅读效率最佳。
+
+大小为 14px，以保证在多数常用显示器上的用户阅读效率最佳。
 
 ## 字阶与行高
-根据产品需求及设计需求，定义了 7 个不同尺寸的字体以及与之相对应的行高。
 
-| Font Size    | 12 | 13 | 14 | 16 | 20 | 28 | 36 | ...|
-|--------------|----|----|----|----|----|----|----|----|
-| Light Height | 20 | 22 | 22 | 24 | 28 | 36 | 44 | ...|
+根据产品需求及设计需求，定义了 6 个不同尺寸的字体以及与之相对应的行高。
+
+| Font Size    | 12  | 14  | 16  | 18  | 26  | 34  | ... |
+| ------------ | --- | --- | --- | --- | --- | --- | --- |
+| Light Height | 20  | 22  | 24  | 26  | 34  | 42  | ... |
 
 ## 字重
+
 字重的选择同样基于秩序、稳定、克制的原则。多数情况下，只出现 regular 以及 medium 的两种字体重量。
 
 ## 使用规范
-- H1：大小 36px，行高 44px
-- H2：大小 28px，行高 36px
-- H3：大小 20px，行高 28px
-- H4：大小 16px，行高 24x
+
+- H1：大小 34px，行高 42px
+- H2：大小 26px，行高 34px
+- H3：大小 18px，行高 26px
+- H4：大小 16px，行高 24px
 - 正文（标题）：大小 14px，行高 22px
-- 正文：大小 13px，行高 22px
+- 正文：大小 14px，行高 22px
 - 提示：大小 12px，行高 20px
 
 ```jsx
 <div>
-  <div style={{ fontSize: '36px', lineHeight: '44px' }}>36 号字体 ABCDEFG</div>
-  <div style={{ fontSize: '28px', lineHeight: '36px' }}>28 号字体 ABCDEFG</div>
-  <div style={{ fontSize: '20px', lineHeight: '28px' }}>20 号字体 ABCDEFG</div>
+  <div style={{ fontSize: '34px', lineHeight: '42px' }}>34 号字体 ABCDEFG</div>
+  <div style={{ fontSize: '26px', lineHeight: '34px' }}>26 号字体 ABCDEFG</div>
+  <div style={{ fontSize: '18px', lineHeight: '26px' }}>18 号字体 ABCDEFG</div>
   <div style={{ fontSize: '16px', lineHeight: '24px' }}>16 号字体 ABCDEFG</div>
   <div style={{ fontSize: '14px', lineHeight: '22px' }}>14 号字体 ABCDEFG</div>
-  <div style={{ fontSize: '13px', lineHeight: '22px' }}>13 号字体 ABCDEFG</div>
   <div style={{ fontSize: '12px', lineHeight: '20px' }}>12 号字体 ABCDEFG</div>
 </div>
 ```
 
 ## 字体颜色
+
 文本颜色如果和背景颜色太接近就会难以阅读。考虑到无障碍设计的需求，我们参考了 WCAG 的标准，将正文文本、标题和背景色之间保持在了 4.5:1 以上的 AA 级对比度。
 
 一级色值：#3F3F44
@@ -58,3 +64,9 @@ font-family: "Helvetica Neue","Helvetica","PingFang SC","Arial","Microsoft YaHei
 三级色值：#A2A3A9
 
 文字链：#6B58C4
+
+白色：#FFFFFF
+
+状态色：健康（#30B65F）、警告（#FFB71C）、错误（#F24542）、紧急（#B90A38）、进行中（#448AFF）
+
+[wizard 字体规范](http://wiki.xsky.com/pages/viewpage.action?pageId=26709621)

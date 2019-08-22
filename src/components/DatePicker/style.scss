@@ -1,0 +1,21 @@
+@import '../../style/variables.scss';
+.DatePicker {
+  input {
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    border: 1px solid $gray-medium-12;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    outline: none;
+    &:focus {
+      border-color: $brand-primary;
+      box-shadow: 0 0 0 2px rgba(123, 119, 196, 0.2);
+    }
+    &:disabled {
+      background-color: #eee;
+      cursor: not-allowed;
+    }
+  }
+}

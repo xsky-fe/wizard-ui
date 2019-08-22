@@ -7,7 +7,6 @@ import lodash from 'lodash';
 import './style.scss';
 
 const BETA_COMPONENTS = [
-  'date-picker',
   'notification',
 ]
 
