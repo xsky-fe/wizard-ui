@@ -1,0 +1,34 @@
+---
+title: NavDropdown 导航条
+date: 2019-08-15
+author: lijianxin1202
+---
+
+以下拉方式导航
+
+## 使用场景
+
+- 在子导航较多时，可以用下拉方式来节省空间
+
+### 常规
+
+```jsx
+<Nav bsStyle="tabs" activeKey="1" onSelect={this.handleSelect}>
+  <NavDropdown eventKey="4" title="下拉" id="nav-dropdown">
+    <MenuItem eventKey="4.1">操作</MenuItem>
+    <MenuItem eventKey="4.2">另一个操作</MenuItem>
+    <MenuItem eventKey="4.3">其它内容</MenuItem>
+    <MenuItem divider />
+    <MenuItem eventKey="4.4">其它链接</MenuItem>
+  </NavDropdown>
+</Nav>
+```
+
+## API
+
+| 参数    | 类型                      | 默认值 | 说明     |
+| ------- | ------------------------- | ------ | -------- |
+| active  | boolean | false | 当前是否处于选中状态 |
+| noCaret | boolean | false | 隐藏箭头图标 |
+| eventKey | any | | 唯一标识符，用来和其他项进行区分 |
+| title | React.ReactNode | | 下拉框标题 |

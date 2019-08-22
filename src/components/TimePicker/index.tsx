@@ -21,12 +21,15 @@ const TimePicker: React.FC<TimePickerProps> = props => {
   const { hourStart, allowEmpty, hourEnd, placeholder, onChange } = props;
   const [value, setValue] = React.useState(props.value || props.defaultValue);
   // 使用时才调用
-  const handleChange = React.useCallback((val: moment.Moment): void => {
-    setValue(val);
-    if (onChange) {
-      onChange(val);
-    }
-  }, [setValue, onChange]);
+  const handleChange = React.useCallback(
+    (val: moment.Moment): void => {
+      setValue(val);
+      if (onChange) {
+        onChange(val);
+      }
+    },
+    [setValue, onChange],
+  );
   let restProps = {};
   let currentValue = value;
   if (hourStart) {
