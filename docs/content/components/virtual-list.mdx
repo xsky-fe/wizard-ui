@@ -150,7 +150,7 @@ const rowRenderer = ({
     return (
       <div className="list-item" style={{...i.style, height: randomHeight}} key={i.index}>
         <div>{resName}-{i.index + 1}</div>
-        <span>{randomHeight}</span>
+        <span>height: {randomHeight}, transform: {i.style.transform}</span>
       </div>
     )
   };
