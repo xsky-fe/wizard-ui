@@ -64,6 +64,10 @@ InputDropdown.propTypes = {
    * value 变化后回调
    **/
   onChange: PropTypes.func,
+  /**
+   * value，传入 value 时变为受控组件
+   **/
+  value: PropTypes.string,
 };
 
 InputDropdown.defaultProps = {
