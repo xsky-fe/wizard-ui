@@ -126,13 +126,18 @@ export interface SubMenuProps {
   children: React.ReactNode;
 }
 
-export interface DropdownButtonMenuItem {
+export type DropdownButtonMenuItem = {
   key?: string | number;
-  children: DropdownButtonMenuItem[];
+  children?: DropdownButtonMenuItem[];
   title: string;
-}
+  eventKey?: string;
+  'data-action'?: string;
+} | string;
 
-export interface DropdownButtonProps {
+export interface DefaultDropdownButtonProps {
+  componentClass: any;
+}
+export interface DropdownButtonProps extends DefaultDropdownButtonProps {
   bsStyle?: string;
   id: string;
   onSelect?: SelectCallback;
@@ -140,8 +145,7 @@ export interface DropdownButtonProps {
   bsSize?: Sizes;
   title?: string | React.ReactNode;
   menu?: DropdownButtonMenuItem[];
-  children: React.ReactNode;
-  componentClass?: any;
+  children?: React.ReactNode;
   modifer?: string;
   disabled?: boolean;
   dropup?: boolean;
