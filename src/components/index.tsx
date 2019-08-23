@@ -17,11 +17,13 @@ import Tree from './Tree';
 import DatePicker from './DatePicker';
 import Panel from './Panel';
 import UsageBar from './UsageBar';
-import { MenuItem, Navbar, NavDropdown, NavItem, Well, PanelGroup } from 'react-bootstrap';
+import { Col, Clearfix, MenuItem, Navbar, NavDropdown, NavItem, Row, Well, PanelGroup } from 'react-bootstrap';
 
 export {
   Alert,
   Badge,
+  Col,
+  Clearfix,
   Dropdown,
   DropdownButton,
   Icon,
@@ -33,6 +35,7 @@ export {
   NavItem,
   Navigation,
   RangePicker,
+  Row,
   Steps,
   SubMenu,
   Switch,
