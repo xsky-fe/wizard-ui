@@ -23,5 +23,5 @@ storiesOf('InputDropdown', module)
         </InputGroup>
       </div>);
     }
-    return <Demo />
+    return <Demo />;
   })
