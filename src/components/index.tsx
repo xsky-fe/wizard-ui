@@ -1,3 +1,4 @@
+import Alert from './Alert';
 import Badge from './Badge';
 import Dropdown from './Dropdown';
 import DropdownButton from './DropdownButton';
@@ -19,6 +20,7 @@ import UsageBar from './UsageBar';
 import { MenuItem, Navbar, NavDropdown, NavItem, Well, PanelGroup } from 'react-bootstrap';
 
 export {
+  Alert,
   Badge,
   Dropdown,
   DropdownButton,

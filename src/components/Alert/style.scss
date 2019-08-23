@@ -1,0 +1,82 @@
+.alert {
+  &.with-icon{
+    position: relative;
+    padding-left: 30px;
+    & .icon {
+      position: absolute;
+      display: inline-flex;
+      left: .75rem;
+      top: 1.45rem;
+    }
+  }
+  &.alert-danger {
+    & .icon path {
+      fill: #a94442;
+    }
+    & a{
+      color: #491217;
+    }
+  }
+  &.alert-info {
+    & .icon path {
+      fill: #31708f;
+    }
+    & a{
+      color: #002752;
+    }
+  }
+  &.alert-success {
+    & .icon path {
+      fill: #3c763d;
+    }
+    & a{
+      color: #0b2e13;
+    }
+  }
+  &.alert-warning {
+    & .icon path {
+      fill: #8a6d3b;
+    }
+    & a{
+      color: #533f03;
+    }
+  }
+  &.show-alert{
+    &.dismiss-up{
+      transform: rotateX(0deg);
+      transform-origin: 0 0 0;
+    }
+    &.dismiss-right{
+      transform: rotateY(0deg);
+      transform-origin: 100% 100% 0;
+    }
+    &.dismiss-down{
+      transform: rotateX(0deg);
+      transform-origin: 100% 100% 0;
+    }
+    &.dismiss-left{
+      transform: rotateY(0deg);
+      transform-origin: 0 100% 0;
+    }
+  }
+  &.hidden-alert{
+    &.dismiss-up{
+      transform: rotateX(90deg);
+      transform-origin: 0 0 0;
+    }
+    &.dismiss-right{
+      transform: rotateY(90deg);
+      transform-origin: 100% 100% 0;
+    }
+    &.dismiss-down{
+      transform: rotateX(90deg);
+      transform-origin: 100% 100% 0;
+    }
+    &.dismiss-left{
+      transform: rotateY(90deg);
+      transform-origin: 0 100% 0;
+    }
+  }
+  
+  transition: transform .35s ease;
+}

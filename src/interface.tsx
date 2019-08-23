@@ -181,6 +181,15 @@ export interface RangePickerState {
   value: Moment[] | string[];
   open: boolean;
 }
+export interface AlertProps {
+  children: React.ReactNode;
+  bsStyle?: string;
+  show?: boolean;
+  showIcon?: boolean;
+  bsClass?: string;
+  onDismiss?: () => void;
+  dismissDirection?: string;
+}
 
 export interface DatePickerDefaultProps {
   disabled?: boolean;
