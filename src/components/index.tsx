@@ -1,5 +1,6 @@
 import Alert from './Alert';
 import Badge from './Badge';
+import Collapse from './Collapse';
 import Dropdown from './Dropdown';
 import DropdownButton from './DropdownButton';
 import Icon from './Icon';
@@ -22,6 +23,7 @@ import { MenuItem, Navbar, NavDropdown, NavItem, Well, PanelGroup } from 'react-
 export {
   Alert,
   Badge,
+  Collapse,
   Dropdown,
   DropdownButton,
   Icon,
