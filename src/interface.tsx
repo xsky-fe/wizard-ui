@@ -182,6 +182,30 @@ export interface RangePickerState {
   value: Moment[] | string[];
   open: boolean;
 }
+export interface AlertProps {
+  children: React.ReactNode;
+  bsStyle?: string;
+  show?: boolean;
+  showIcon?: boolean;
+  bsClass?: string;
+  onDismiss?: () => void;
+  dismissDirection?: string;
+}
+
+export interface DatePickerDefaultProps {
+  disabled?: boolean;
+  showTime?: boolean;
+}
+
+export interface DatePickerProps extends DatePickerDefaultProps {
+  getTime?: (time: string) => void;
+  placeholder?: string;
+  reset?: boolean;
+  defaultValue?: string;
+  disabledDate?: (mtime: Moment | undefined) => boolean;
+  lang?: 'en' | 'zh';
+  disabled?: boolean;
+}
 
 export interface PanelProps {
   children?: React.ReactNode;
