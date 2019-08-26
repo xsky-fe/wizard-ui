@@ -218,23 +218,25 @@ export interface VirtualListState {
   startIndex: number;
   endIndex: number;
 }
-export interface VirtualListProps {
+export interface VirtualListDefaultProps {
+  height?: number | string;
+  data: any[],
   runwayItems?: number;
   runwayItemsOppsite?: number;
+  loader?: React.ReactNode;
+  placeholder?: React.ReactNode | string;
+  noMoreHint?: React.ReactNode | boolean;
+  debug?: boolean;
+}
+export interface VirtualListProps extends VirtualListDefaultProps {
   query?: Query;
   onQueryChange?: (query: Query) => Promise<void>;
   rowHeight?: number | ((item: object) => number);
   rowRenderer: (item: VirtualRowArgs) => React.ReactNode | Element;
   isFetching?: boolean;
   isReloading?: boolean;
-  loader?: React.ReactNode;
-  height?: number;
   noMore?: boolean;
   totalCount?: number;
-  data: any[];
-  placeholder?: string;
-  noMoreHint?: boolean;
   className?: string;
   isEstimate?: boolean;
-  debug?: boolean;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { sum, isFunction } from 'lodash';
-import { VirtualListState, VirtualAnchorItem, VirtualListProps } from '../../interface';
+import { VirtualListState, VirtualAnchorItem, VirtualListDefaultProps, VirtualListProps } from '../../interface';
 import CSS from 'csstype';
 import './style.scss';
 
@@ -20,6 +20,17 @@ function getHeight(el: HTMLDivElement) {
   const marginBottom = parseFloat(styles.marginBottom || '0');
   return height + marginTop + marginBottom;
 }
+
+const defaultProps: VirtualListDefaultProps = {
+  height: '100%',
+  data: [],
+  runwayItems: RUNWAY_ITEMS,
+  runwayItemsOppsite: RUNWAY_ITEMS_OPPSITE,
+  loader: <p className="VirtualList__loader">数据加载中</p>,
+  placeholder: <p className="VirtualList__placeholder">暂无数据</p>,
+  noMoreHint: <p className="VirtualList__no-more-hint">没有更多信息</p>,
+  debug: true,
+};
 
 export default class VirtualList extends React.Component<VirtualListProps, VirtualListState> {
   static propTypes = {
@@ -56,16 +67,7 @@ export default class VirtualList extends React.Component<VirtualListProps, Virtu
     /** Debug */
     debug: PropTypes.bool,
   };
-  static defaultProps = {
-    height: '100%',
-    data: [],
-    runwayItems: RUNWAY_ITEMS,
-    runwayItemsOppsite: RUNWAY_ITEMS_OPPSITE,
-    loader: <p className="VirtualList__loader">数据加载中</p>,
-    placeholder: <p className="VirtualList__placeholder">暂无数据</p>,
-    noMoreHint: <p className="VirtualList__no-more-hint">没有更多信息</p>,
-    debug: true,
-  };
+  static defaultProps = defaultProps;
   holder: React.RefObject<HTMLDivElement>;
   list: React.RefObject<HTMLDivElement>;
   heightCache: number[];
@@ -115,12 +117,14 @@ export default class VirtualList extends React.Component<VirtualListProps, Virtu
     this.handleResize(data);
     window.addEventListener('resize', this.resizeHandler);
   }
-  UNSAFE_componentWillReceiveProps(nextProps: VirtualListProps) {
-    const { data, isReloading } = this.props;
-    if (data !== nextProps.data) {
-      this.handleResize(nextProps.data, false);
+  componentDidUpdate(prevProps: VirtualListProps) {
+    const { isEstimate, debug, data, isReloading } = this.props;
+    const { startIndex } = this.state;
+
+    if (prevProps.data !== data) {
+      this.handleResize(data, false);
     }
-    if (!isReloading && nextProps.isReloading) {
+    if (!prevProps.isReloading && isReloading) {
       this.reset();
       if (this.list.current) {
         this.list.current.scrollTop = 0;
@@ -130,10 +134,6 @@ export default class VirtualList extends React.Component<VirtualListProps, Virtu
         endIndex: 0,
       });
     }
-  }
-  componentDidUpdate() {
-    const { isEstimate, debug } = this.props;
-    const { startIndex } = this.state;
 
     let needRender = false;
     if (isEstimate && this.list.current && this.list.current.querySelectorAll) {
