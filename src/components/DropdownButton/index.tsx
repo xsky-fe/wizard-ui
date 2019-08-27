@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import { DropdownButton as BootstrapDropdownButton, MenuItem, ButtonGroup } from 'react-bootstrap';
 import SubMenu from '../SubMenu';
-import { DropdownButtonMenuItem, DropdownButtonProps } from '../../interface';
+import { DropdownButtonMenuItem, DropdownButtonProps, DefaultDropdownButtonProps } from '../../interface';
 import { cloneDeep } from 'lodash';
 import './style.scss';
 
@@ -38,7 +38,7 @@ function renderMenu(menu: DropdownButtonMenuItem) {
   return <MenuItem {...item}>{item.title}</MenuItem>;
 }
 
-const DropdownButton: React.FC<DropdownButtonProps> = props => {
+const DropdownButton = (props: DropdownButtonProps) => {
   const getContainerClass = () => {
     const { modifer } = props;
     let className = 'dropdown-container';
@@ -139,8 +139,8 @@ DropdownButton.propTypes = {
   title: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
 };
 
-DropdownButton.defaultProps = {
-  componentClass: ButtonGroup,
-};
+const defaultProps: DefaultDropdownButtonProps = { componentClass: ButtonGroup, }
+
+DropdownButton.defaultProps = defaultProps;
 
 export default DropdownButton;
