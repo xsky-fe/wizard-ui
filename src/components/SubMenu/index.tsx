@@ -4,7 +4,7 @@ import { MenuItem } from 'react-bootstrap';
 import { SubMenuProps } from '../../interface';
 import './style.scss';
 
-const SubMenu: React.FC<SubMenuProps> = props => {
+const SubMenu = (props: SubMenuProps) => {
   const { title, children, name } = props;
   return (
     <div className="SubMenu" data-name={`SubMenu-${name}`}>
