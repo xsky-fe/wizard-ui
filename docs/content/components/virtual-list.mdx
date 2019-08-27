@@ -1,0 +1,222 @@
+---
+title: VirtualList 滚动加载
+date: 2019-08-20
+author: wangkailang
+---
+
+当一个资源数据量很大时，一次加载数据会导致浏览器页面卡顿甚至崩溃，VirtualList 支持根据鼠标滚动加载数据，同时销毁超出数据的 `DOM` 结构，保证页面的流畅性。
+
+## 基本用法
+- `rowRenderer` 对列表中每行元素进行渲染，可做到动态布局（每列不等高时重新计算并重新渲染）;
+- `data` 指要渲染资源数据，可结合 `onQueryChange` 做异步加载。
+```js isShow
+const rowRenderer = ({
+  index,
+  item, // item: <T>为数组中对应项
+  prevItem, // 前一项
+  nextItem, // 后一项
+  style, // row对应的style，需要应用在row对应的dom上，可以与自定义style合并
+}) => <p key={index} style={style}>{item}</p>;
+
+<VirtualList
+  rowHeight={34} // 每行的高度
+  rowRenderer={rowRenderer}
+  data={[]}
+  onQueryChange={handleQueryChange}
+  height={210} // List wrapper高度，default 450
+/>
+```
+## 代码演示
+
+### 空数组
+```jsx
+<div className="box">
+  <VirtualList
+    rowHeight={35}
+    rowRenderer={({ index }) => <div key={i.index}>{i.index}</div>}
+    data={[]}
+    height={35}
+    isFetching={false}
+    isReloading={false}
+    totalCount={0}
+  />
+</div>
+```
+### 加载新数据
+真实场景中鼠标滚动，页面下滑过程中会加载新的数据。
+```jsx
+<div className="box">
+  <VirtualList
+    rowHeight={35}
+    rowRenderer={i => <div className="list-item" style={i.style} key={i.index}>item-1</div>}
+    data={[1]}
+    height={70}
+    isFetching={true}
+    isReloading={false}
+    totalCount={1}
+  />
+</div>
+```
+### 重新加载
+```jsx
+<div className="box">
+  <VirtualList
+    rowHeight={35}
+    rowRenderer={i => <div className="list-item" style={i.style} key={i.index}>item-1</div>}
+    data={[]}
+    height={35}
+    isFetching={true}
+    isReloading={true}
+    totalCount={0}
+  />
+</div>
+```
+
+### 加载完成
+```jsx
+<div className="box">
+  <VirtualList
+    rowHeight={35}
+    rowRenderer={i => <div className="list-item" style={i.style} key={i.index}>item-1</div>}
+    data={[1]}
+    height={70}
+    isFetching={false}
+    isReloading={false}
+    totalCount={1}
+  />
+</div>
+```
+### 异步等高
+```jsx
+() => {
+  const resName = "list";
+  const rowRenderer = i => <div className="list-item" style={i.style} key={i.index}>{resName}-{i.index + 1}</div>;
+  const listRef = React.useRef(null);
+  const [fetching, setFetch] = React.useState(false);
+  const [datas, setDatas] = React.useState([]);
+  const [totalCount, setTotalCount] = React.useState(0);
+  const [count, setCount] = React.useState(0);
+  async function handleQueryChange(query) {
+    setFetch(true);
+    const actionResult = await getMockDatas(query, 180, resName);
+    setFetch(false);
+    const totalCount = actionResult.response.paging.totalCount;
+    const lists = actionResult.response.lists;
+    setTotalCount(totalCount);
+    setDatas(datas.concat(lists));
+  }
+  React.useEffect(() => {
+    handleQueryChange({
+      limit: 30,
+      offset: 0,
+    })
+  }, []);
+  React.useEffect(() => {
+    const existLists = listRef.current && listRef.current.querySelectorAll('.VirtualList > *');
+    setCount(existLists ? existLists.length : 0);
+  }, [datas]);
+  return (
+    <div>
+      <p>总共 {totalCount} 条数据, 获取了 {datas.length} 条。</p>
+      <p>渲染到 DOM 中的条数是： {count}</p>
+      <div className="box" ref={listRef}>
+        <VirtualList
+          rowHeight={35}
+          rowRenderer={rowRenderer}
+          height={210}
+          data={datas}
+          query={{
+            limit: 30,
+            offset: 0,
+          }}
+          onQueryChange={handleQueryChange}
+          totalCount={totalCount}
+          isFetching={fetching}
+          noMore={datas.length === totalCount}
+        />
+      </div>
+    </div>
+  )
+}
+```
+
+### 异步不等高
+`row` 不等高时需要计算调整，设置 `isEstimate` 为 `true`。
+```jsx
+() => {
+  const resName = "list";
+  const rowRenderer = i => {
+    const randomHeight = `${35 + (i.index%5 * 4)}px`;
+    return (
+      <div className="list-item" style={{...i.style, height: randomHeight}} key={i.index}>
+        <div>{resName}-{i.index + 1}</div>
+        <span>height: {randomHeight}, transform: {i.style.transform}</span>
+      </div>
+    )
+  };
+  const listRef = React.useRef(null);
+  const [fetching, setFetch] = React.useState(false);
+  const [datas, setDatas] = React.useState([]);
+  const [totalCount, setTotalCount] = React.useState(0);
+  const [count, setCount] = React.useState(0);
+  async function handleQueryChange(query) {
+    setFetch(true);
+    const actionResult = await getMockDatas(query, 180, resName);
+    setFetch(false);
+    const totalCount = actionResult.response.paging.totalCount;
+    const lists = actionResult.response.lists;
+    setTotalCount(totalCount);
+    setDatas(datas.concat(lists));
+  }
+  React.useEffect(() => {
+    handleQueryChange({
+      limit: 30,
+      offset: 0,
+    })
+  }, []);
+  React.useEffect(() => {
+    const existLists = listRef.current && listRef.current.querySelectorAll('.VirtualList > *');
+    setCount(existLists ? existLists.length : 0);
+  }, [datas]);
+  return (
+    <div>
+      <p>总共 {totalCount} 条数据, 获取了 {datas.length} 条。</p>
+      <p>渲染到 DOM 中的条数是： {count}</p>
+      <div className="box" ref={listRef}>
+        <VirtualList
+          rowHeight={35}
+          rowRenderer={rowRenderer}
+          height={210}
+          data={datas}
+          query={{
+            limit: 30,
+            offset: 0,
+          }}
+          onQueryChange={handleQueryChange}
+          totalCount={totalCount}
+          isFetching={fetching}
+          noMore={datas.length === totalCount}
+          isEstimate
+        />
+      </div>
+    </div>
+  )
+}
+```
+
+## 注意事项
+`rowHeight`函数动态改变返回高度**并不会 rerender**,需要主动触发 `recomputeRowHeight` 方法。
+
+## 估计模式与 Debug
+对于高度无法完全确定的 row（如内容高度不固定等），依然需要给出一个较准确的 rowHeight。同时设置 `isEstimate={true}`，VirtualList会在render结束后对可视dom进行计算，并与对应的 rowHeight 比较。如果实际高度与 rowHeight 指定高度不同，则会用实际高度 rerender，直至完全一致。
+
+由于 VirtualList 已将 dom 数量控制在可控范围之内，因此遍历计算再重新渲染的开销在可承受范围内，但对于可以确定高度的列表仍然要避免使用估计模式。
+
+同时估计模式提供 debug 参数方便开发时确定 dom 的真实高度。同时设置 `isEstimate={true}` 和 `debug={true}`，VirtualList 会打印真实高度与 rowHeight 不同的 row 对应的信息。
+```js isShow
+warning: Index 1 estimate height is 16, real height is 18.
+```
+## API
+```jsx previewOnly
+<PropTable of="virtualList" />
+```

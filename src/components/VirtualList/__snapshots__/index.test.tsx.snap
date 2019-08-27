@@ -1,0 +1,223 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VirtualList only show loader when reloading 1`] = `
+<div
+  className="VirtualList__holder"
+  style={
+    Object {
+      "height": "100%",
+    }
+  }
+>
+  <div
+    className="VirtualList__wrapper"
+    onScroll={[Function]}
+    style={
+      Object {
+        "height": 100,
+      }
+    }
+  >
+    <p
+      className="VirtualList__loader"
+    >
+      数据加载中
+    </p>
+  </div>
+</div>
+`;
+
+exports[`VirtualList scrolling dynamic row height 1`] = `
+<div>
+  <p>
+    总共 
+    0
+    , 获取了 
+    0
+     条数据。
+  </p>
+  <p>
+    VirtualList 会在增加 list 条数的同时，销毁超出的 UI，目前渲染出来的 list 条数是： 
+    0
+  </p>
+  <div
+    className="box"
+  >
+    <div
+      className="VirtualList__holder"
+      style={
+        Object {
+          "height": 210,
+        }
+      }
+    >
+      <div
+        className="VirtualList__wrapper"
+        onScroll={[Function]}
+        style={
+          Object {
+            "height": 210,
+          }
+        }
+      >
+        <p
+          className="VirtualList__loader"
+        >
+          数据加载中
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`VirtualList scrolling equal row height 1`] = `
+<div>
+  <p>
+    总共 
+    0
+    , 获取了 
+    0
+     条数据。
+  </p>
+  <p>
+    VirtualList 会在增加 list 条数的同时，销毁超出的 UI，目前渲染出来的 list 条数是： 
+    0
+  </p>
+  <div
+    className="box"
+  >
+    <div
+      className="VirtualList__holder"
+      style={
+        Object {
+          "height": 210,
+        }
+      }
+    >
+      <div
+        className="VirtualList__wrapper"
+        onScroll={[Function]}
+        style={
+          Object {
+            "height": 210,
+          }
+        }
+      >
+        <p
+          className="VirtualList__loader"
+        >
+          数据加载中
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`VirtualList show list and loader when fetching more 1`] = `
+<div
+  className="VirtualList__holder"
+  style={
+    Object {
+      "height": "100%",
+    }
+  }
+>
+  <div
+    className="VirtualList__wrapper"
+    onScroll={[Function]}
+    style={
+      Object {
+        "height": 100,
+      }
+    }
+  >
+    <div
+      className="VirtualList"
+      style={
+        Object {
+          "height": 10,
+          "width": "100%",
+        }
+      }
+    >
+      <div>
+        item
+      </div>
+    </div>
+    <p
+      className="VirtualList__loader"
+    >
+      数据加载中
+    </p>
+  </div>
+</div>
+`;
+
+exports[`VirtualList show no data placeholder when data array is empty 1`] = `
+<div
+  className="VirtualList__holder"
+  style={
+    Object {
+      "height": "100%",
+    }
+  }
+>
+  <div
+    className="VirtualList__wrapper"
+    onScroll={[Function]}
+    style={
+      Object {
+        "height": 100,
+      }
+    }
+  >
+    <p
+      className="VirtualList__placeholder"
+    >
+      暂无数据
+    </p>
+  </div>
+</div>
+`;
+
+exports[`VirtualList show no more data hint when all data fetched 1`] = `
+<div
+  className="VirtualList__holder"
+  style={
+    Object {
+      "height": "100%",
+    }
+  }
+>
+  <div
+    className="VirtualList__wrapper"
+    onScroll={[Function]}
+    style={
+      Object {
+        "height": 100,
+      }
+    }
+  >
+    <div
+      className="VirtualList"
+      style={
+        Object {
+          "height": 10,
+          "width": "100%",
+        }
+      }
+    >
+      <div>
+        item
+      </div>
+    </div>
+    <p
+      className="VirtualList__no-more-hint"
+    >
+      没有更多信息
+    </p>
+  </div>
+</div>
+`;
