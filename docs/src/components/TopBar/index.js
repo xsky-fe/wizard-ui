@@ -5,6 +5,7 @@ import { Navbar, Nav, Tooltip, OverlayTrigger } from 'react-bootstrap';
 import { SideNavItems } from '../SideNav';
 import GitHubIcon from '../GitHubIcon';
 import IssueIcon from '../IssueIcon';
+import HeaderSearch from '../HeaderSearch';
 import logo from '../../images/logo.png';
 import useWindowWidth from '../../utils/hooks/get-window-width';
 import './style.scss';
@@ -86,6 +87,9 @@ const TopBar = (props) => {
                 </a>
               </OverlayTrigger>
             </li>
+          </Nav>
+          <Nav pullRight>
+            <HeaderSearch />
           </Nav>
         </Navbar.Collapse>
       </Navbar>
