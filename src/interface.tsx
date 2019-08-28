@@ -6,14 +6,14 @@ import CSS from 'csstype';
 export interface Query {
   offset?: number;
   limit?: number;
-  q?: string
+  q?: string;
 }
 
 export interface FetchResponse {
   readonly response?: {
-    readonly [res: string]: any,
-  }
-  readonly error?: string
+    readonly [res: string]: any;
+  };
+  readonly error?: string;
 }
 
 export interface BadgeProps {
@@ -140,13 +140,15 @@ export interface SubMenuProps {
   children: React.ReactNode;
 }
 
-export type DropdownButtonMenuItem = {
-  key?: string | number;
-  children?: DropdownButtonMenuItem[];
-  title: string;
-  eventKey?: string;
-  'data-action'?: string;
-} | string;
+export type DropdownButtonMenuItem =
+  | {
+      key?: string | number;
+      children?: DropdownButtonMenuItem[];
+      title: string;
+      eventKey?: string;
+      'data-action'?: string;
+    }
+  | string;
 
 export interface DefaultDropdownButtonProps {
   componentClass: any;
@@ -244,11 +246,11 @@ export interface DropdownProps extends DropdownDefaultProps {
 export interface VirtualRowArgs {
   index: number;
   item: {
-    id?: number,
+    id?: number;
   };
   prevItem: object | null;
   nextItem: object | null;
-  style: CSS.Properties
+  style: CSS.Properties;
 }
 export interface VirtualAnchorItem {
   index: number;
@@ -260,7 +262,7 @@ export interface VirtualListState {
 }
 export interface VirtualListDefaultProps {
   height?: number | string;
-  data: any[],
+  data: any[];
   runwayItems?: number;
   runwayItemsOppsite?: number;
   loader?: React.ReactNode;
@@ -282,37 +284,39 @@ export interface VirtualListProps extends VirtualListDefaultProps {
 }
 
 export interface VirtualSelectBoxDefaultProps {
-  rowHeight?: number
-  isBtn?: boolean
-  disabled?: boolean
-  placeholder?: string
-  query?: Query
+  rowHeight?: number;
+  isBtn?: boolean;
+  disabled?: boolean;
+  placeholder?: string;
+  query?: Query;
 }
 
 export interface VirtualSelectBoxProps extends VirtualSelectBoxDefaultProps {
-  fetchData: (query: Query) => Promise<FetchResponse>
-  resName: string
-  formatSearchKeys?: (res: string, item?: object) => {
-    nameKey: string,
-    query: Query,
-    resNamePlural: string,
-    title?: string
-  }
-  item?: object
-  className?: string
+  fetchData: (query: Query) => Promise<FetchResponse>;
+  resName: string;
+  formatSearchKeys?: (
+    res: string,
+    item?: object,
+  ) => {
+    nameKey: string;
+    query: Query;
+    resNamePlural: string;
+    title?: string;
+  };
+  item?: object;
+  className?: string;
   clear?: boolean;
-  onSelect?: (i: object) => void
-  formatOption?: (item: object) => object
+  onSelect?: (i: object) => void;
+  formatOption?: (item: object) => object;
 }
 
 export interface VirtualSelectBoxState {
-  readonly search: string,
-  readonly items: never[],
-  readonly query: Query
-  readonly isFetching: boolean,
-  readonly totalCount: number,
-  readonly isOpen: boolean,
-  readonly isReloading: boolean,
-  readonly error?: string
+  readonly search: string;
+  readonly items: never[];
+  readonly query: Query;
+  readonly isFetching: boolean;
+  readonly totalCount: number;
+  readonly isOpen: boolean;
+  readonly isReloading: boolean;
+  readonly error?: string;
 }
-

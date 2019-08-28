@@ -5,7 +5,13 @@ import { get, debounce, concat, isEmpty } from 'lodash';
 import classNames from 'classnames';
 import VirtualList from '../VirtualList';
 import { elasticQuery } from '../../utils';
-import { Query, VirtualRowArgs, VirtualSelectBoxDefaultProps, VirtualSelectBoxProps, VirtualSelectBoxState } from '../../interface';
+import {
+  Query,
+  VirtualRowArgs,
+  VirtualSelectBoxDefaultProps,
+  VirtualSelectBoxProps,
+  VirtualSelectBoxState,
+} from '../../interface';
 import Icon from '../Icon';
 import './style.scss';
 
@@ -17,7 +23,7 @@ const defaultProps: VirtualSelectBoxDefaultProps = {
   disabled: false,
   placeholder: '请选择',
   query: {},
-}
+};
 
 class VirtualSelectBox extends React.Component<VirtualSelectBoxProps, VirtualSelectBoxState> {
   static propTypes = {
@@ -65,6 +71,9 @@ class VirtualSelectBox extends React.Component<VirtualSelectBoxProps, VirtualSel
      * 格式化 search 时需要特殊处理的值
      */
     formatSearchKeys: PropTypes.func,
+    /**
+     * 清除
+     */
     clear: PropTypes.bool,
   };
   static defaultProps = defaultProps;
@@ -137,7 +146,7 @@ class VirtualSelectBox extends React.Component<VirtualSelectBoxProps, VirtualSel
         };
       });
     }
-  }
+  };
 
   async fetchResource() {
     const { resName, fetchData, formatSearchKeys } = this.props;
@@ -158,7 +167,7 @@ class VirtualSelectBox extends React.Component<VirtualSelectBoxProps, VirtualSel
       qArr.push({
         type: nameKey,
         value: search,
-      })
+      });
     }
     if (!isEmpty(extraQuery)) {
       qArr = concat(qArr, elasticQuery.toArr(extraQuery.q));
@@ -200,13 +209,13 @@ class VirtualSelectBox extends React.Component<VirtualSelectBoxProps, VirtualSel
       if (!window.addEventListener && window['attachEvent']) {
         window['attachEvent']('click', this.handleClickOutside);
       } else {
-        window.addEventListener('click', (event) => this.handleClickOutside(event));
+        window.addEventListener('click', event => this.handleClickOutside(event));
       }
     } else {
       if (!window.removeEventListener && window['detachEvent']) {
         window['detachEvent']('click', this.handleClickOutside);
       } else {
-        window.removeEventListener('click', (event) => this.handleClickOutside(event));
+        window.removeEventListener('click', event => this.handleClickOutside(event));
       }
     }
   }
@@ -237,7 +246,7 @@ class VirtualSelectBox extends React.Component<VirtualSelectBoxProps, VirtualSel
     if (onSelect) {
       onSelect({});
     }
-  }
+  };
 
   renderLabel(item?: object) {
     const { resName, placeholder, formatSearchKeys } = this.props;
@@ -263,7 +272,7 @@ class VirtualSelectBox extends React.Component<VirtualSelectBoxProps, VirtualSel
     const { onSelect, rowHeight, formatOption } = this.props;
     const label = this.renderLabel(item);
     const className = classNames('SelectBox__item text-truncate', {
-      active: get(this.props, 'item.id') === item.id
+      active: get(this.props, 'item.id') === item.id,
     });
     if (onSelect) {
       const onClick = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -276,7 +285,12 @@ class VirtualSelectBox extends React.Component<VirtualSelectBoxProps, VirtualSel
         this.setState({ isOpen: false });
       };
       return (
-        <div style={{ ...style, height: rowHeight }} className={className} key={index} onClick={onClick}>
+        <div
+          style={{ ...style, height: rowHeight }}
+          className={className}
+          key={index}
+          onClick={onClick}
+        >
           {label}
         </div>
       );
@@ -338,9 +352,7 @@ class VirtualSelectBox extends React.Component<VirtualSelectBoxProps, VirtualSel
         {/*
         // react-bootstrap 跟 @types/react-bootstrap 不兼容
         // @ts-ignore */}
-        <Panel header={this.renderSearch()}>
-          {this.renderList()}
-        </Panel>
+        <Panel header={this.renderSearch()}>{this.renderList()}</Panel>
       </div>
     );
   }
@@ -355,9 +367,14 @@ class VirtualSelectBox extends React.Component<VirtualSelectBoxProps, VirtualSel
     const selectBoxClass = classNames('SelectBox', {
       disabled: disabled,
       [`${className || ''}`]: true,
-    })
+    });
     return (
-      <span className={selectBoxClass} onKeyDown={this.handleKeyDown} onClick={() => this.toggleMenu()} ref={this.wrapper}>
+      <span
+        className={selectBoxClass}
+        onKeyDown={this.handleKeyDown}
+        onClick={() => this.toggleMenu()}
+        ref={this.wrapper}
+      >
         <span className={btnClassName}>
           {this.renderLabel(item)} {isBtn && <Glyphicon glyph="triangle-bottom" />}
           {clear && !isEmpty(item) && <Icon type="close" onClick={this.clear} />}
