@@ -159,8 +159,7 @@ export interface DropdownButtonProps extends DefaultDropdownButtonProps {
   onSelect?: SelectCallback;
   onToggle?: (isOpen: boolean) => void;
   bsSize?: Sizes;
-  // TODO(kailang) React.ReactNode 在 react 版本15、16上不兼容
-  title?: any;
+  title?: string | React.ReactNode;
   menu?: DropdownButtonMenuItem[];
   children?: React.ReactNode;
   modifer?: string;
