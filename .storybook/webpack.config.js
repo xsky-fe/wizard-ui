@@ -29,7 +29,12 @@ module.exports = async ({ config, mode }) => {
     use: [
       'style-loader',
       'css-loader',
-      'sass-loader',
+      {
+        loader: require.resolve('sass-loader'),
+        options: {
+          precision: 8,
+        }
+      },
     ],
     include: path.resolve(__dirname, '../')
   });
@@ -56,7 +61,12 @@ module.exports = async ({ config, mode }) => {
           },
         },
       },
-      'sass-loader'
+      {
+        loader: require.resolve('sass-loader'),
+        options: {
+          precision: 8,
+        }
+      },
     ],
   },)
   config.resolve.extensions.push('.ts', '.tsx')
