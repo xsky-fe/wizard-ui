@@ -27,7 +27,7 @@
     "rc-calendar": "^9.15.4",
     "rc-time-picker": "^3.7.1",
     "rc-tree": "2.1.0",
-    "react-bootstrap": "^0.31.1",
+    "react-bootstrap": "0.31.1",
     "react-dev-utils": "^9.0.2",
     "react-ios-switch": "^0.1.19",
     "wizard-icons": "0.0.1-beta.0"
@@ -70,7 +70,7 @@
     "@types/lodash": "^4.14.134",
     "@types/node": "12.0.2",
     "@types/react": "16.8.18",
-    "@types/react-bootstrap": "^0.32.17",
+    "@types/react-bootstrap": "^0.31.1",
     "@types/react-dom": "16.8.4",
     "@types/react-test-renderer": "^16.8.3",
     "@types/storybook__react": "^4.0.2",

@@ -315,7 +315,7 @@ export default class VirtualList extends React.Component<VirtualListProps, Virtu
     if (endIndex < data.length) return;
     if (this.noMore) return;
     if (onQueryChange && query) {
-      const { offset, limit } = query;
+      const { offset = 0, limit = 0 } = query;
       onQueryChange({
         ...query,
         offset: offset + limit,

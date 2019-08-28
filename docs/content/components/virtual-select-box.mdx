@@ -1,0 +1,164 @@
+---
+title: VirtualSelectBox 滚动下拉
+date: 2019-08-28
+author: wangkailang
+---
+在大量异步数据中选择需要的数据，支持滚动加载和搜索（[ElasticSearch](https://www.elastic.co/cn/products/elasticsearch)）。使用此组件需要满足以下几个条件：
+
+## 限制条件
+
+1. 异步 `API` 支持获取部分数据，query 的格式如下：
+```js isShow
+{
+  // 取 10 条数据
+  limit: 10,
+  // 从第 20 条数据开始取
+  offset: 20
+}
+```
+表示从第 20 条数据开始取10 条数据。
+
+2. 搜索直接通过 （[ElasticSearch](https://www.elastic.co/cn/products/elasticsearch)）查询，通过 `query` 中的 `q` 属性进行匹配，比如：
+```js isShow
+{
+  q: name:test AND id: 10
+}
+```
+表示模糊匹配 `name` 中包含 “test” 并且 `id` 中包含 “10” 的资源。
+
+3. 异步返回 `Promise` 中的数据结构有限制
+- 成功拿到数据结构：
+```js isShow
+{
+  response: {
+     resNames: [{ id: xxx, ... }, ...],
+     paging: {
+      limit: 30,
+      offset: 0,
+      totalCount: 15
+     }
+  }
+}
+```
+数据的 `key` 均为驼峰格式；
+- 失败数据结构：
+```js isShow
+{
+  error: xxx
+}
+```
+## 基本用法
+- `fetchData` 异步数据 `API`, `Promise` 返回数据结构有严格要求，模拟结构如下：
+```js isShow
+const fetchData = () => new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve({
+      response: {
+        resNames: [xxx],
+        paging: {
+          totalCount: xxx
+        }
+      }
+    });
+    reject({
+      error: xxx,
+    });
+  }, time);
+});
+```
+- `item` 选中项，允许为空对象 `{}`
+- `resName` 资源名称, 约定为驼峰格式
+
+具体使用：
+```js isShow
+<VirtualSelectBox
+  item={item}
+  resName={resName}
+  fetchData={getDatas}
+/>
+```
+
+## 代码演示
+
+### 空数组
+```jsx
+() => {
+  const getDatas = () => new Promise(resolve => {
+    setTimeout(() => {
+      resolve({
+        response: {
+          resNames: [],
+          paging: {
+            totalCount: 0
+          }
+        }
+      });
+    }, 500);
+  });
+  return (
+    <VirtualSelectBox
+      item={{}}
+      resName="resName"
+      fetchData={getDatas}
+    />
+  );
+}
+```
+### 有数据
+```jsx
+() => {
+  const TOTAL = 180;
+  const getDatas = query => new Promise(resolve => {
+    setTimeout(() => {
+      const { limit = 0, offset = 0 } = query;
+      let rlt = [];
+      if (offset <= TOTAL) {
+        const len = Math.min(limit, TOTAL - offset);
+        for (let i = 0; len - i > 0; i++) {
+          rlt.push({ id: offset + i, name: `resName-${offset + i}` });
+        }
+      }
+      resolve({
+        response: {
+          resNames: rlt,
+          paging: {
+            totalCount: TOTAL
+          }
+        }
+      });
+    }, 500);
+  });
+
+  const [item, setItem] = React.useState({ id: 1, name: 'resName-1' });
+  const onSelect = React.useCallback(async (item) => {
+    setItem(item);
+  }, [item, setItem]);
+
+  const [clear, setClear] = React.useState(true);
+
+  return (
+    <div>
+      <div>
+        <Checkbox checked={clear} onChange={() => setClear(!clear)}>
+          允许清除
+        </Checkbox>
+      </div>
+      <VirtualSelectBox
+        onSelect={onSelect}
+        item={item}
+        resName="resName"
+        fetchData={getDatas}
+        clear={clear}
+      />
+    </div>
+  )
+}
+```
+
+## API
+```jsx previewOnly
+<PropTable of="virtualSelectBox" />
+```
+
+
+

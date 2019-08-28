@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Dropdown as BootstrapDropdown } from 'react-bootstrap';
+import { Dropdown as BootstrapDropdown, DropdownToggle, DropdownMenu } from 'react-bootstrap';
 import { DropdownProps, DropdownDefaultProps } from '../../interface';
 
 const defaultProps: DropdownDefaultProps = {
@@ -11,8 +11,8 @@ const Dropdown = (props: DropdownProps) => {
   const { className, id, title, children } = props;
   return (
     <BootstrapDropdown id={id} className={className}>
-      <BootstrapDropdown.Toggle>{title}</BootstrapDropdown.Toggle>
-      <BootstrapDropdown.Menu>{children}</BootstrapDropdown.Menu>
+      <DropdownToggle>{title}</DropdownToggle>
+      <DropdownMenu>{children}</DropdownMenu>
     </BootstrapDropdown>
   );
 };

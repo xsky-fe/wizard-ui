@@ -3,6 +3,19 @@ import { SelectCallback, Sizes } from 'react-bootstrap';
 import { Moment } from 'moment';
 import CSS from 'csstype';
 
+export interface Query {
+  offset?: number;
+  limit?: number;
+  q?: string
+}
+
+export interface FetchResponse {
+  readonly response?: {
+    readonly [res: string]: any,
+  }
+  readonly error?: string
+}
+
 export interface BadgeProps {
   count?: number | string;
   showZero?: boolean;
@@ -144,7 +157,8 @@ export interface DropdownButtonProps extends DefaultDropdownButtonProps {
   onSelect?: SelectCallback;
   onToggle?: (isOpen: boolean) => void;
   bsSize?: Sizes;
-  title?: string | React.ReactNode;
+  // TODO(kailang) React.ReactNode 在 react 版本15、16上不兼容
+  title?: any;
   menu?: DropdownButtonMenuItem[];
   children?: React.ReactNode;
   modifer?: string;
@@ -227,13 +241,11 @@ export interface DropdownProps extends DropdownDefaultProps {
   children?: React.ReactNode;
 }
 
-export interface Query {
-  offset: number;
-  limit: number;
-}
 export interface VirtualRowArgs {
   index: number;
-  item: object;
+  item: {
+    id?: number,
+  };
   prevItem: object | null;
   nextItem: object | null;
   style: CSS.Properties
@@ -268,3 +280,39 @@ export interface VirtualListProps extends VirtualListDefaultProps {
   className?: string;
   isEstimate?: boolean;
 }
+
+export interface VirtualSelectBoxDefaultProps {
+  rowHeight?: number
+  isBtn?: boolean
+  disabled?: boolean
+  placeholder?: string
+  query?: Query
+}
+
+export interface VirtualSelectBoxProps extends VirtualSelectBoxDefaultProps {
+  fetchData: (query: Query) => Promise<FetchResponse>
+  resName: string
+  formatSearchKeys?: (res: string, item?: object) => {
+    nameKey: string,
+    query: Query,
+    resNamePlural: string,
+    title?: string
+  }
+  item?: object
+  className?: string
+  clear?: boolean;
+  onSelect?: (i: object) => void
+  formatOption?: (item: object) => object
+}
+
+export interface VirtualSelectBoxState {
+  readonly search: string,
+  readonly items: never[],
+  readonly query: Query
+  readonly isFetching: boolean,
+  readonly totalCount: number,
+  readonly isOpen: boolean,
+  readonly isReloading: boolean,
+  readonly error?: string
+}
+

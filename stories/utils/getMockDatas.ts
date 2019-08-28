@@ -1,5 +1,6 @@
-function createDatas(query: { limit: number, offset: number }, totalCount: number, resName: string) {
-  const { limit, offset } = query;
+import { Query } from '../../src/interface';
+function createDatas(query: Query, totalCount: number, resName: string) {
+  const { limit = 0, offset = 0 } = query;
   console.log('limit:', limit, 'offset:', offset, 'total:', totalCount);
   let rlt = [];
   if (offset <= totalCount) {
@@ -18,7 +19,7 @@ function createDatas(query: { limit: number, offset: number }, totalCount: numbe
   }
 }
 
-export default function getMockDatas(query: { limit: number, offset: number }, totalCount: number, resName: string) {
+export default function getMockDatas(query: Query, totalCount: number, resName: string) {
   return new Promise((resolve) => {
     setTimeout(() => {
       const datas= createDatas(query, totalCount, resName);

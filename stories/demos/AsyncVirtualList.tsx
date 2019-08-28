@@ -28,7 +28,7 @@ export default (props: { random?: boolean }) => {
     const existLists = document.querySelectorAll('.VirtualList > *');
     setCount(existLists ? existLists.length : 0);
   }, [datas]);
-  const handleQueryChange = async (query: { limit: number, offset: number }) => {
+  const handleQueryChange = async (query: Query) => {
     setFetch(true);
     const actionResult: any = await getDatas(query);
     setFetch(false);
