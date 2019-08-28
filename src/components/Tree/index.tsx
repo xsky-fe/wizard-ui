@@ -9,8 +9,10 @@ function renderTreeNodes(data: TreeData[]) {
   return data.map(item => {
     const filterProps = pick(item, ['title', 'disabled', 'key']);
     if (item.children) {
+      // @ts-ignore
       return <TreeNode {...filterProps}>{renderTreeNodes(item.children)}</TreeNode>;
     } else {
+      // @ts-ignore
       return <TreeNode {...filterProps} />;
     }
   });
@@ -19,6 +21,7 @@ function renderTreeNodes(data: TreeData[]) {
 const Tree: React.FC<TreeProps> = props => {
   const { data, checkable, prefixCls } = props;
   return (
+    // @ts-ignore
     <RcTree
       {...props}
       checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}

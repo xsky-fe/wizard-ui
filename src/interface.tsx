@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { SelectCallback, Sizes } from 'react-bootstrap';
 import { Moment } from 'moment';
+import CSS from 'csstype';
 
 export interface BadgeProps {
   count?: number | string;
@@ -126,13 +127,18 @@ export interface SubMenuProps {
   children: React.ReactNode;
 }
 
-export interface DropdownButtonMenuItem {
+export type DropdownButtonMenuItem = {
   key?: string | number;
-  children: DropdownButtonMenuItem[];
+  children?: DropdownButtonMenuItem[];
   title: string;
-}
+  eventKey?: string;
+  'data-action'?: string;
+} | string;
 
-export interface DropdownButtonProps {
+export interface DefaultDropdownButtonProps {
+  componentClass: any;
+}
+export interface DropdownButtonProps extends DefaultDropdownButtonProps {
   bsStyle?: string;
   id: string;
   onSelect?: SelectCallback;
@@ -140,8 +146,7 @@ export interface DropdownButtonProps {
   bsSize?: Sizes;
   title?: string | React.ReactNode;
   menu?: DropdownButtonMenuItem[];
-  children: React.ReactNode;
-  componentClass?: any;
+  children?: React.ReactNode;
   modifer?: string;
   disabled?: boolean;
   dropup?: boolean;
@@ -180,6 +185,15 @@ export interface RangePickerProps {
 export interface RangePickerState {
   value: Moment[] | string[];
   open: boolean;
+}
+export interface AlertProps {
+  children: React.ReactNode;
+  bsStyle?: string;
+  show?: boolean;
+  showIcon?: boolean;
+  bsClass?: string;
+  onDismiss?: () => void;
+  dismissDirection?: string;
 }
 
 export interface DatePickerDefaultProps {
@@ -224,4 +238,45 @@ export interface InputDropdownProps {
   onChange?: SelectCallback;
   input?: any;
   meta?: any;
+}
+export interface Query {
+  offset: number;
+  limit: number;
+}
+export interface VirtualRowArgs {
+  index: number;
+  item: object;
+  prevItem: object | null;
+  nextItem: object | null;
+  style: CSS.Properties
+}
+export interface VirtualAnchorItem {
+  index: number;
+  offset: number;
+}
+export interface VirtualListState {
+  startIndex: number;
+  endIndex: number;
+}
+export interface VirtualListDefaultProps {
+  height?: number | string;
+  data: any[],
+  runwayItems?: number;
+  runwayItemsOppsite?: number;
+  loader?: React.ReactNode;
+  placeholder?: React.ReactNode | string;
+  noMoreHint?: React.ReactNode | boolean;
+  debug?: boolean;
+}
+export interface VirtualListProps extends VirtualListDefaultProps {
+  query?: Query;
+  onQueryChange?: (query: Query) => Promise<void>;
+  rowHeight?: number | ((item: object) => number);
+  rowRenderer: (item: VirtualRowArgs) => React.ReactNode | Element;
+  isFetching?: boolean;
+  isReloading?: boolean;
+  noMore?: boolean;
+  totalCount?: number;
+  className?: string;
+  isEstimate?: boolean;
 }

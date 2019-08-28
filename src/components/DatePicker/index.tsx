@@ -13,10 +13,10 @@ import './style.scss';
 
 const format = 'YYYY-MM-DD HH:mm:ss';
 
-const defaultProps:DatePickerDefaultProps = {
+const defaultProps: DatePickerDefaultProps = {
   disabled: false,
   showTime: true,
-}
+};
 
 function getFormat(time?: boolean) {
   return time ? format : 'YYYY-MM-DD';

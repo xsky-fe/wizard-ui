@@ -51,6 +51,22 @@
     display: flex;
     justify-content: space-between;
     position: relative;
+    .box {
+      border: 1px solid #ccc;
+      overflow: scroll;
+    }
+    .list-item {
+      line-height: 34px;
+      border-bottom: 1px dotted #ccc;
+      padding: 0 15px;
+      display: flex;
+      align-items: center;
+      span {
+        text-align: right;
+        flex: 1;
+        color: #bdbdbd;
+      }
+    }
     .sub-menu-basic {
       li {
         width: 160px;
@@ -165,6 +181,17 @@
         background-size: 100% 5%;
         margin-bottom: 8px;
       }
+    }
+    .container {
+      width: auto;
+    }
+    .show-grid [class^=col-] {
+      background-color: #eee;
+      background-color: rgba(86,61,124,.15);
+      border: 1px solid #ddd;
+      border: 1px solid rgba(86,61,124,.2);
+      padding-bottom: 10px;
+      padding-top: 10px;
     }
   }
 }

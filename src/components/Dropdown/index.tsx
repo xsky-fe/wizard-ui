@@ -4,8 +4,8 @@ import { Dropdown as BootstrapDropdown } from 'react-bootstrap';
 import { DropdownProps, DropdownDefaultProps } from '../../interface';
 
 const defaultProps: DropdownDefaultProps = {
-  id: 'CustomDropdown'
-}
+  id: 'CustomDropdown',
+};
 
 const Dropdown = (props: DropdownProps) => {
   const { className, id, title, children } = props;
@@ -15,7 +15,7 @@ const Dropdown = (props: DropdownProps) => {
       <BootstrapDropdown.Menu>{children}</BootstrapDropdown.Menu>
     </BootstrapDropdown>
   );
-}
+};
 
 Dropdown.propTypes = {
   /**
