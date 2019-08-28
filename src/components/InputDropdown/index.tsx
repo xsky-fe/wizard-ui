@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import lodash from 'lodash';
+import { find, get } from 'lodash';
 import { DropdownButton, MenuItem, InputGroup } from 'react-bootstrap';
 import { uuid } from '../../utils';
 import { InputDropdownProps } from '../../interface';
@@ -16,8 +16,8 @@ const InputDropdown = (props: InputDropdownProps) => {
 
   function getTitle() {
     const { options } = props;
-    const option = lodash.find(options, { value: getValue() });
-    return lodash.get(option, 'title');
+    const option = find(options, { value: getValue() });
+    return get(option, 'title');
   }
 
   function handleSelect(eventKey: any) {
