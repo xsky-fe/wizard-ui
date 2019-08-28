@@ -335,6 +335,9 @@ class VirtualSelectBox extends React.Component<VirtualSelectBoxProps, VirtualSel
   renderOuter() {
     return (
       <div className="SelectBox__outer">
+        {/*
+        // react-bootstrap 跟 @types/react-bootstrap 不兼容
+        // @ts-ignore */}
         <Panel header={this.renderSearch()}>
           {this.renderList()}
         </Panel>
