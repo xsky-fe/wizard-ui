@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Panel, FormControl, Glyphicon } from 'react-bootstrap';
-import { get, debounce, concat, isEmpty } from 'lodash';
+import { get, debounce, isEmpty } from 'lodash';
 import classNames from 'classnames';
 import VirtualList from '../VirtualList';
-import { elasticQuery } from '../../utils';
 import {
   Query,
   VirtualRowArgs,
@@ -31,10 +30,6 @@ class VirtualSelectBox extends React.Component<VirtualSelectBoxProps, VirtualSel
      * 选中资源项
      */
     item: PropTypes.object.isRequired,
-    /**
-     * 资源名称（驼峰格式）
-     */
-    resName: PropTypes.string.isRequired,
     /**
      * 	获取异步数据的函数
      */
@@ -67,10 +62,6 @@ class VirtualSelectBox extends React.Component<VirtualSelectBoxProps, VirtualSel
      * async query
      */
     query: PropTypes.object,
-    /**
-     * 格式化 search 时需要特殊处理的值
-     */
-    formatSearchKeys: PropTypes.func,
     /**
      * 清除
      */
@@ -118,78 +109,34 @@ class VirtualSelectBox extends React.Component<VirtualSelectBoxProps, VirtualSel
 
   handleQueryChange = async (query: Query) => {
     this.setState({ isFetching: true });
-    const { fetchData, resName, formatSearchKeys } = this.props;
-    let extraQuery = {};
-    let resNamePlural = `${resName}s`;
-    if (formatSearchKeys) {
-      const keys = formatSearchKeys(resName);
-      extraQuery = keys.query;
-      resNamePlural = keys.resNamePlural;
-    }
-    const actionResult = await fetchData({ ...extraQuery, ...query });
-    if (!this.isMount) {
-      return;
-    }
-    if (actionResult.error) {
-      this.setState({ error: actionResult.error, isFetching: false });
+    const { fetchData } = this.props;
+    const { items, totalCount, error } = await fetchData(false, query);
+    if (error) {
+      this.setState({ error, isFetching: false });
     } else {
       const newState = {
         query,
         isFetching: false,
-        totalCount: get(actionResult, 'response.paging.totalCount'),
+        totalCount,
       };
-      const data: [] = get(actionResult, `response.${resNamePlural}`, []);
       this.setState((prevState: VirtualSelectBoxState) => {
         return {
           ...newState,
-          items: prevState.items.concat(data),
+          items: prevState.items.concat(items),
         };
       });
     }
   };
 
   async fetchResource() {
-    const { resName, fetchData, formatSearchKeys } = this.props;
+    const { fetchData, query } = this.props;
     const { search } = this.state;
     this.setState({ isFetching: true, isReloading: true });
-    let nameKey = 'name';
-    let extraQuery: Query = {};
-    let resNamePlural = `${resName}s`;
-    if (formatSearchKeys) {
-      const keys = formatSearchKeys(resName);
-      nameKey = keys.nameKey;
-      extraQuery = keys.query;
-      resNamePlural = keys.resNamePlural;
-    }
-
-    let qArr = elasticQuery.toArr(get(this.props, 'query.q', ''));
-    if (search) {
-      qArr.push({
-        type: nameKey,
-        value: search,
-      });
-    }
-    if (!isEmpty(extraQuery)) {
-      qArr = concat(qArr, elasticQuery.toArr(extraQuery.q));
-    }
-    // 查询的时候重置 query
-    let query = {
-      ...this.props.query,
-      ...extraQuery,
-      limit,
-      offset: 0,
-      q: elasticQuery.toStr(qArr),
-    };
-
-    if (typeof fetchData !== 'function') return;
-    const actionResult = await fetchData(query);
-    const items = get(actionResult, `response.${resNamePlural}`, []);
+    const formats = await fetchData(true, query, search);
     this.setState({
-      query,
-      items,
+      ...formats,
       isFetching: false,
       isReloading: false,
-      totalCount: get(actionResult, 'response.paging.totalCount'),
     });
   }
 
@@ -249,14 +196,9 @@ class VirtualSelectBox extends React.Component<VirtualSelectBoxProps, VirtualSel
   };
 
   renderLabel(item?: object) {
-    const { resName, placeholder, formatSearchKeys } = this.props;
+    const { placeholder } = this.props;
     let nameKey = 'name';
     let title = get(item, nameKey) || placeholder;
-    if (formatSearchKeys) {
-      const keys = formatSearchKeys(resName, item);
-      nameKey = keys.nameKey;
-      title = keys.title;
-    }
 
     return (
       <span title={title} className="text-truncate">

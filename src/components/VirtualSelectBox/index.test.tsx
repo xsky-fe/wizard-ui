@@ -4,8 +4,12 @@ import VirtualSelectBox from './index';
 import getMockDatas from '../../../stories/utils/getMockDatas';
 import { sleep } from '../../utils';
 import { Query } from '../../interface';
+import { get } from 'lodash';
+;
+const noOp = () => {};
 
-const resName = 'osUser';
+const resName = 'list';
+const limit = 30;
 function getEmptyDatas(query: Query) {
   return getMockDatas(query, 0, resName);
 }
@@ -13,10 +17,43 @@ function getDatas(query: Query) {
   return getMockDatas(query, 180, resName);
 }
 
+const fetchEmptyDatas = async (isReloading: boolean, dQuery: Query = {}) => {
+  let resNamePlural = `${resName}s`;
+  const query = {
+    ...dQuery,
+    limit,
+    offset: 0,
+  };
+  const actionResult = await getEmptyDatas(dQuery);
+  const items = get(actionResult, `response.${resNamePlural}`, []);
+  const totalCount = get(actionResult, 'response.paging.totalCount');
+  return {
+    query,
+    items,
+    totalCount,
+  }
+}
+const fetchDatas = async (isReloading: boolean, dQuery: Query = {}) => {
+  let resNamePlural = `${resName}s`;
+  const query = {
+    ...dQuery,
+    limit,
+    offset: 0,
+  };
+  const actionResult = await getDatas(dQuery);
+  const items = get(actionResult, `response.${resNamePlural}`, []);
+  const totalCount = get(actionResult, 'response.paging.totalCount');
+  return {
+    query,
+    items,
+    totalCount,
+  }
+}
+
 describe('VirtualSelectBox', () => {
   it('render with empty data', async () => {
     const picker = mount(
-      <VirtualSelectBox item={{}} resName={resName} fetchData={getEmptyDatas} />,
+      <VirtualSelectBox item={{}} fetchData={fetchEmptyDatas} />,
     );
     const node = picker.find('.SelectBox');
     expect(node.length).toBe(1);
@@ -33,8 +70,8 @@ describe('VirtualSelectBox', () => {
     const picker = mount(
       <VirtualSelectBox
         item={{ id: 1, name: `${resName}-1` }}
-        resName={resName}
-        fetchData={getDatas}
+        fetchData={fetchDatas}
+        onSelect={noOp}
         clear
       />,
     );
@@ -45,11 +82,13 @@ describe('VirtualSelectBox', () => {
         .find('.SelectBox__btn > span')
         .at(0)
         .props().children,
-    ).toBe('osUser-1');
+    ).toBe('list-1');
     expect(picker.find('.icon-close').exists()).toBeTruthy();
     node.find('Glyphicon').simulate('click');
     await sleep(500);
     picker.update();
+    // 存在 onClick 操作
+    expect(picker.find('.VirtualList > .SelectBox__item').at(1).props().onClick).not.toBeUndefined;
     // 默认第二个高亮
     expect(
       picker

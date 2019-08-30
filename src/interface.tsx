@@ -9,11 +9,11 @@ export interface Query {
   q?: string;
 }
 
-export interface FetchResponse {
-  readonly response?: {
-    readonly [res: string]: any;
+export interface FetchResponse <T = any> {
+  response?: {
+    [res: string]: T | T[];
   };
-  readonly error?: string;
+  error?: string;
 }
 
 export interface BadgeProps {
@@ -283,25 +283,20 @@ export interface VirtualListProps extends VirtualListDefaultProps {
 }
 
 export interface VirtualSelectBoxDefaultProps {
-  rowHeight?: number;
-  isBtn?: boolean;
-  disabled?: boolean;
-  placeholder?: string;
-  query?: Query;
+  rowHeight: number;
+  isBtn: boolean;
+  disabled: boolean;
+  placeholder: string;
+  query: Query;
 }
 
 export interface VirtualSelectBoxProps extends VirtualSelectBoxDefaultProps {
-  fetchData: (query: Query) => Promise<FetchResponse>;
-  resName: string;
-  formatSearchKeys?: (
-    res: string,
-    item?: object,
-  ) => {
-    nameKey: string;
+  fetchData: (isReloading: boolean, query: Query, search?: string) => Promise<{
     query: Query;
-    resNamePlural: string;
-    title?: string;
-  };
+    items: never[];
+    totalCount: number;
+    error?: string;
+  }>;
   item?: object;
   className?: string;
   clear?: boolean;
@@ -310,12 +305,12 @@ export interface VirtualSelectBoxProps extends VirtualSelectBoxDefaultProps {
 }
 
 export interface VirtualSelectBoxState {
-  readonly search: string;
-  readonly items: never[];
-  readonly query: Query;
-  readonly isFetching: boolean;
-  readonly totalCount: number;
-  readonly isOpen: boolean;
-  readonly isReloading: boolean;
-  readonly error?: string;
+  search: string;
+  items: never[];
+  query: Query;
+  isFetching: boolean;
+  totalCount: number;
+  isOpen: boolean;
+  isReloading: boolean;
+  error?: string;
 }

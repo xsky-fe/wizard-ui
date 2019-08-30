@@ -1,7 +1,8 @@
 import lodash from 'lodash';
+type ValueType = string | number;
 type ArrType = {
   type: string
-  value: string | number
+  value: ValueType
 }
 /**
  * asdf%20AND%20passive%3Dtrue => [{ type: 'text', value: 'asdf' }, { type: passive, value: 'true' }]
@@ -33,8 +34,8 @@ function toArr(str?: string) {
  */
 function toStr(arr: ArrType[]) {
   if (!(arr instanceof Array)) return '';
-  const forward: any[] = [];
-  const reverse: any[] = [];
+  const forward: ValueType[] = [];
+  const reverse: ValueType[] = [];
   arr.forEach(({ type, value })  => {
     if (type === 'text') {
       forward.push(value);

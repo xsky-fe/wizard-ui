@@ -67,13 +67,11 @@ const fetchData = () => new Promise((resolve, reject) => {
 });
 ```
 - `item` 选中项，允许为空对象 `{}`
-- `resName` 资源名称, 约定为驼峰格式
 
 具体使用：
 ```js isShow
 <VirtualSelectBox
   item={item}
-  resName={resName}
   fetchData={getDatas}
 />
 ```
@@ -83,7 +81,8 @@ const fetchData = () => new Promise((resolve, reject) => {
 ### 空数组
 ```jsx
 () => {
-  const getDatas = () => new Promise(resolve => {
+  const limit = 30;
+  const getEmptyDatas = () => new Promise(resolve => {
     setTimeout(() => {
       resolve({
         response: {
@@ -95,11 +94,26 @@ const fetchData = () => new Promise((resolve, reject) => {
       });
     }, 500);
   });
+  async function fetchEmptyDatas(isReloading, dQuery = {}) {
+    const actionResult = await getEmptyDatas(dQuery);
+    const items = actionResult.response.resNames;
+    const totalCount = actionResult.response.paging.totalCount;
+    const query = {
+      ...dQuery,
+      limit,
+      offset: 0,
+    };
+    return {
+      query,
+      items,
+      totalCount,
+    }
+  }
+
   return (
     <VirtualSelectBox
       item={{}}
-      resName="resName"
-      fetchData={getDatas}
+      fetchData={fetchEmptyDatas}
     />
   );
 }
@@ -107,6 +121,7 @@ const fetchData = () => new Promise((resolve, reject) => {
 ### 有数据
 ```jsx
 () => {
+  const limit = 30;
   const TOTAL = 180;
   const getDatas = query => new Promise(resolve => {
     setTimeout(() => {
@@ -115,7 +130,7 @@ const fetchData = () => new Promise((resolve, reject) => {
       if (offset <= TOTAL) {
         const len = Math.min(limit, TOTAL - offset);
         for (let i = 0; len - i > 0; i++) {
-          rlt.push({ id: offset + i, name: `resName-${offset + i}` });
+          rlt.push({ id: offset + i, name: `list-${offset + i}` });
         }
       }
       resolve({
@@ -128,8 +143,22 @@ const fetchData = () => new Promise((resolve, reject) => {
       });
     }, 500);
   });
-
-  const [item, setItem] = React.useState({ id: 1, name: 'resName-1' });
+  async function fetchDatas(isReloading, dQuery = {}) {
+    const actionResult = await getDatas(dQuery);
+    const items = actionResult.response.resNames;
+    const totalCount = actionResult.response.paging.totalCount;
+    const query = {
+      ...dQuery,
+      limit,
+      offset: 0,
+    };
+    return {
+      query,
+      items,
+      totalCount,
+    }
+  }
+  const [item, setItem] = React.useState({ id: 1, name: 'list-1' });
   const onSelect = React.useCallback(async (item) => {
     setItem(item);
   }, [item, setItem]);
@@ -146,8 +175,7 @@ const fetchData = () => new Promise((resolve, reject) => {
       <VirtualSelectBox
         onSelect={onSelect}
         item={item}
-        resName="resName"
-        fetchData={getDatas}
+        fetchData={fetchDatas}
         clear={clear}
       />
     </div>
