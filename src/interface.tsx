@@ -227,6 +227,18 @@ export interface DropdownProps extends DropdownDefaultProps {
   children?: React.ReactNode;
 }
 
+export interface MenuItemOptions {
+  title: string;
+  value: string;
+}
+export interface InputDropdownProps {
+  options?: MenuItemOptions[];
+  defaultValue?: string;
+  value?: string;
+  onChange?: SelectCallback;
+  input?: any;
+  meta?: any;
+}
 export interface Query {
   offset: number;
   limit: number;

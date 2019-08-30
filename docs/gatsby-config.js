@@ -65,6 +65,9 @@ module.exports = {
       cssLoaderOptions: {
         camelCase: false,
       },
+      options: {
+        precision: 8,
+      },
     },
   ],
 }
