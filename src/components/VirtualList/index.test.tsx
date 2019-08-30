@@ -92,21 +92,11 @@ describe('VirtualList', () => {
   });
 
   it('scrolling equal row height', () => {
-    const list = renderer
-      .create(
-        <AsyncVirtualList/>,
-        snapOptions,
-      )
-      .toJSON();
+    const list = renderer.create(<AsyncVirtualList />, snapOptions).toJSON();
     expect(list).toMatchSnapshot();
-  })
+  });
   it('scrolling dynamic row height', () => {
-    const list = renderer
-      .create(
-        <AsyncVirtualList random />,
-        snapOptions,
-      )
-      .toJSON();
+    const list = renderer.create(<AsyncVirtualList random />, snapOptions).toJSON();
     expect(list).toMatchSnapshot();
-  })
+  });
 });

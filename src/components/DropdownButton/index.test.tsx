@@ -9,7 +9,7 @@ describe('Dropdown', () => {
     const classNames = [
       '.dropdown.btn-group.btn-group-lg',
       '.dropdown.btn-group.btn-group-sm',
-      '.dropdown.btn-group.btn-group-xs'
+      '.dropdown.btn-group.btn-group-xs',
     ];
     sizes.forEach((size, index) => {
       const dropdown = mount(<DropdownButton id="a1" bsSize={size} title="size" />);

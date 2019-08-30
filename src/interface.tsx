@@ -128,13 +128,15 @@ export interface SubMenuProps {
   children: React.ReactNode;
 }
 
-export type DropdownButtonMenuItem = {
-  key?: string | number;
-  children?: DropdownButtonMenuItem[];
-  title: string;
-  eventKey?: string;
-  'data-action'?: string;
-} | string;
+export type DropdownButtonMenuItem =
+  | {
+      key?: string | number;
+      children?: DropdownButtonMenuItem[];
+      title: string;
+      eventKey?: string;
+      'data-action'?: string;
+    }
+  | string;
 
 export interface DefaultDropdownButtonProps {
   componentClass: any;
@@ -237,7 +239,7 @@ export interface VirtualRowArgs {
   item: object;
   prevItem: object | null;
   nextItem: object | null;
-  style: CSS.Properties
+  style: CSS.Properties;
 }
 export interface VirtualAnchorItem {
   index: number;
@@ -249,7 +251,7 @@ export interface VirtualListState {
 }
 export interface VirtualListDefaultProps {
   height?: number | string;
-  data: any[],
+  data: any[];
   runwayItems?: number;
   runwayItemsOppsite?: number;
   loader?: React.ReactNode;

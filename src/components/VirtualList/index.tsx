@@ -2,7 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { sum, isFunction } from 'lodash';
-import { VirtualListState, VirtualAnchorItem, VirtualListDefaultProps, VirtualListProps } from '../../interface';
+import {
+  VirtualListState,
+  VirtualAnchorItem,
+  VirtualListDefaultProps,
+  VirtualListProps,
+} from '../../interface';
 import CSS from 'csstype';
 import './style.scss';
 
@@ -62,7 +67,7 @@ export default class VirtualList extends React.Component<VirtualListProps, Virtu
     placeholder: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
     /** 是否展示没有多余的数据 */
     noMore: PropTypes.bool,
-     /** 没有需要加载的数据时展示 */
+    /** 没有需要加载的数据时展示 */
     noMoreHint: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
     /** Debug */
     debug: PropTypes.bool,
