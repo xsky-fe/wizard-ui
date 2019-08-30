@@ -1,3 +1,15 @@
+# [0.2.0](https://github.com/xsky-fe/wizard-ui/compare/0.1.0...0.2.0) (2019-08-30)
+
+
+### Features
+
+* Add DropdownButton storybook and test. ([#63](https://github.com/xsky-fe/wizard-ui/issues/63)) ([60e361d](https://github.com/xsky-fe/wizard-ui/commit/60e361d))
+* Add grid. ([#58](https://github.com/xsky-fe/wizard-ui/issues/58)) ([5d52289](https://github.com/xsky-fe/wizard-ui/commit/5d52289))
+* Add InputDropdown. ([#64](https://github.com/xsky-fe/wizard-ui/issues/64)) ([a1dcf2a](https://github.com/xsky-fe/wizard-ui/commit/a1dcf2a))
+* Add test and storybook for SubMenu. ([#62](https://github.com/xsky-fe/wizard-ui/issues/62)) ([49980bf](https://github.com/xsky-fe/wizard-ui/commit/49980bf))
+* Docs support search ([#56](https://github.com/xsky-fe/wizard-ui/issues/56)) ([8849a31](https://github.com/xsky-fe/wizard-ui/commit/8849a31))
+* VirtualList ([#59](https://github.com/xsky-fe/wizard-ui/issues/59)) ([b3ec465](https://github.com/xsky-fe/wizard-ui/commit/b3ec465))
+
 # [0.1.0](https://github.com/xsky-fe/wizard-ui/compare/0.0.1...0.1.0) (2019-08-22)
 
 
