@@ -24,7 +24,11 @@
   .flex-between {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
+  }
+  .flex-around {
+    display: flex;
+    justify-content: space-around;
   }
   &.show {
     background-color: #234361;

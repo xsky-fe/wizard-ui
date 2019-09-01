@@ -16,6 +16,7 @@ import Tooltip from './Tooltip';
 import Tree from './Tree';
 import DatePicker from './DatePicker';
 import Panel from './Panel';
+import Popover from './Popover';
 import UsageBar from './UsageBar';
 import VirtualList from './VirtualList';
 import { Col, Clearfix, MenuItem, Navbar, NavDropdown, NavItem, Row, Well, PanelGroup } from 'react-bootstrap';
@@ -48,6 +49,7 @@ export {
   UsageBar,
   Well,
   Panel,
+  Popover,
   PanelGroup,
   VirtualList,
 };

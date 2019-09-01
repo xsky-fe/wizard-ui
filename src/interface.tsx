@@ -34,6 +34,16 @@ export interface TooltipProps {
   children: React.ReactNode;
 }
 
+export interface PopoverProps {
+  placement?: string;
+  trigger?: string | string[];
+  content: React.ReactNode;
+  children: React.ReactNode;
+  shadow?: boolean;
+  modifer?: string;
+  rootClose?: boolean;
+}
+
 export interface UsageBarProps {
   max?: number;
   now?: number;
