@@ -2,7 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { sum, isFunction } from 'lodash';
-import { VirtualListState, VirtualAnchorItem, VirtualListDefaultProps, VirtualListProps } from '../../interface';
+import {
+  VirtualListState,
+  VirtualAnchorItem,
+  VirtualListDefaultProps,
+  VirtualListProps,
+  VirtualItem,
+} from '../../interface';
 import CSS from 'csstype';
 import './style.scss';
 
@@ -21,7 +27,7 @@ function getHeight(el: HTMLDivElement) {
   return height + marginTop + marginBottom;
 }
 
-const defaultProps: VirtualListDefaultProps = {
+const defaultProps: VirtualListDefaultProps<VirtualItem> = {
   height: '100%',
   data: [],
   runwayItems: RUNWAY_ITEMS,
@@ -32,7 +38,7 @@ const defaultProps: VirtualListDefaultProps = {
   debug: true,
 };
 
-export default class VirtualList extends React.Component<VirtualListProps, VirtualListState> {
+export default class VirtualList<T extends VirtualItem> extends React.Component<VirtualListProps<T>, VirtualListState> {
   static propTypes = {
     /** 行高 */
     rowHeight: PropTypes.oneOfType([PropTypes.func, PropTypes.number]).isRequired,
@@ -62,7 +68,7 @@ export default class VirtualList extends React.Component<VirtualListProps, Virtu
     placeholder: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
     /** 是否展示没有多余的数据 */
     noMore: PropTypes.bool,
-     /** 没有需要加载的数据时展示 */
+    /** 没有需要加载的数据时展示 */
     noMoreHint: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
     /** Debug */
     debug: PropTypes.bool,
@@ -74,7 +80,7 @@ export default class VirtualList extends React.Component<VirtualListProps, Virtu
   totalHeight: number;
   anchorItem: VirtualAnchorItem;
   anchorScrollTop: number;
-  constructor(props: VirtualListProps) {
+  constructor(props: VirtualListProps<T>) {
     super(props);
     this.holder = React.createRef();
     this.list = React.createRef();
@@ -117,7 +123,7 @@ export default class VirtualList extends React.Component<VirtualListProps, Virtu
     this.handleResize(data);
     window.addEventListener('resize', this.resizeHandler);
   }
-  componentDidUpdate(prevProps: VirtualListProps) {
+  componentDidUpdate(prevProps: VirtualListProps<T>) {
     const { isEstimate, debug, data, isReloading } = this.props;
     const { startIndex } = this.state;
 
@@ -178,7 +184,7 @@ export default class VirtualList extends React.Component<VirtualListProps, Virtu
   resizeHandler = () => {
     this.handleResize(this.props.data);
   };
-  handleResize = (data: object[], flushCache?: boolean) => {
+  handleResize = (data: T[], flushCache?: boolean) => {
     this.recomputeRowHeight(data, flushCache);
     this.handleScroll();
   };
@@ -186,7 +192,7 @@ export default class VirtualList extends React.Component<VirtualListProps, Virtu
     const { index, offset } = this.anchorItem;
     this.anchorScrollTop = sum(this.heightCache.slice(0, index)) + offset;
   };
-  recomputeRowHeight = (nextData: object[], flushCache: boolean = true) => {
+  recomputeRowHeight = (nextData: T[], flushCache: boolean = true) => {
     if (flushCache) {
       this.heightCache = [];
     }
@@ -315,7 +321,7 @@ export default class VirtualList extends React.Component<VirtualListProps, Virtu
     if (endIndex < data.length) return;
     if (this.noMore) return;
     if (onQueryChange && query) {
-      const { offset, limit } = query;
+      const { offset = 0, limit = 0 } = query;
       onQueryChange({
         ...query,
         offset: offset + limit,

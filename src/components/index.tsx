@@ -19,7 +19,18 @@ import DatePicker from './DatePicker';
 import Panel from './Panel';
 import UsageBar from './UsageBar';
 import VirtualList from './VirtualList';
-import { Col, Clearfix, MenuItem, Navbar, NavDropdown, NavItem, Row, Well, PanelGroup } from 'react-bootstrap';
+import VirtualSelectBox from './VirtualSelectBox';
+import {
+  Col,
+  Clearfix,
+  MenuItem,
+  Navbar,
+  NavDropdown,
+  NavItem,
+  Row,
+  Well,
+  PanelGroup,
+} from 'react-bootstrap';
 
 export {
   Alert,
@@ -52,4 +63,5 @@ export {
   Panel,
   PanelGroup,
   VirtualList,
+  VirtualSelectBox,
 };
