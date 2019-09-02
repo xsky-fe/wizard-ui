@@ -3,6 +3,7 @@ import Badge from './Badge';
 import Dropdown from './Dropdown';
 import DropdownButton from './DropdownButton';
 import Icon from './Icon';
+import InputDropdown from './InputDropdown';
 import Loader from './Loader';
 import Modal from './Modal';
 import Navigation from './Navigation';
@@ -39,6 +40,7 @@ export {
   Dropdown,
   DropdownButton,
   Icon,
+  InputDropdown,
   Loader,
   MenuItem,
   Modal,

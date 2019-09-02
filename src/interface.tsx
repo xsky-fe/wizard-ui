@@ -241,6 +241,19 @@ export interface DropdownProps extends DropdownDefaultProps {
   title?: string;
   children?: React.ReactNode;
 }
+
+export interface MenuItemOptions {
+  title: string;
+  value: string;
+}
+export interface InputDropdownProps {
+  options?: MenuItemOptions[];
+  defaultValue?: string;
+  value?: string;
+  onChange?: SelectCallback;
+  input?: any;
+  meta?: any;
+}
 export type VirtualItem = {
   id?: number;
 } | string | number
