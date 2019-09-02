@@ -1,12 +1,12 @@
 @import '../../style/variables.scss';
-svg {
-  &.icon {
+.icon {
+  svg {
     display: inline-block;
     stroke-width: 0;
     stroke: currentColor;
     fill: currentColor;
   }
   &.primary {
-    color: $purple-normal
+    color: $purple-normal;
   }
 }

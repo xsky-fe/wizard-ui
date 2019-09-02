@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 import VirtualList from './index';
-import { VirtualRowArgs } from '../../interface';
+import { VirtualRowArgs, VirtualItem } from '../../interface';
 import AsyncVirtualList from '../../../stories/demos/AsyncVirtualList';
 
 function createNodeMock(element: React.ReactElement) {
@@ -16,7 +16,7 @@ function createNodeMock(element: React.ReactElement) {
 }
 const snapOptions = { createNodeMock };
 
-const rowRenderer = (i: VirtualRowArgs) => <div key={i.index}>item</div>;
+const rowRenderer = (i: VirtualRowArgs<VirtualItem>) => <div key={i.index}>item</div>;
 
 describe('VirtualList', () => {
   it('render without crush', () => {

@@ -1,17 +1,17 @@
 import React from 'react';
 import { VirtualList } from '../../src';
-import getMockDatas from '../utils/getMockDatas';
+import { getMockDatas } from '../../src/utils';
 import { get } from 'lodash';
-import { Query, VirtualRowArgs } from '../../src/interface'
+import { Query, VirtualRowArgs, VirtualItem } from '../../src/interface'
 
 const resName = "list";
 function getDatas(query: Query) {
   return getMockDatas(query, 180, resName);
 }
 
-export const rowRenderer = (i: VirtualRowArgs) => <div className="list-item" style={i.style} key={i.index}>{resName}-{i.index + 1}</div>;
+export const rowRenderer = (i: VirtualRowArgs<VirtualItem>) => <div className="list-item" style={i.style} key={i.index}>{resName}-{i.index + 1}</div>;
 
-const rowRendererRandomHeight = (i: VirtualRowArgs) => <div className="list-item" style={i.style} key={i.index}><div style={{ height: `${35 + (i.index % 5 * 4)}px` }}>{resName}-{i.index + 1}</div></div>;
+const rowRendererRandomHeight = (i: VirtualRowArgs<VirtualItem>) => <div className="list-item" style={i.style} key={i.index}><div style={{ height: `${35 + (i.index % 5 * 4)}px` }}>{resName}-{i.index + 1}</div></div>;
 
 export default (props: { random?: boolean }) => {
   const [fetching, setFetch] = React.useState(false);
@@ -28,7 +28,7 @@ export default (props: { random?: boolean }) => {
     const existLists = document.querySelectorAll('.VirtualList > *');
     setCount(existLists ? existLists.length : 0);
   }, [datas]);
-  const handleQueryChange = async (query: { limit: number, offset: number }) => {
+  const handleQueryChange = async (query: Query) => {
     setFetch(true);
     const actionResult: any = await getDatas(query);
     setFetch(false);

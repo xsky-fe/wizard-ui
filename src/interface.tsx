@@ -3,6 +3,19 @@ import { SelectCallback, Sizes } from 'react-bootstrap';
 import { Moment } from 'moment';
 import CSS from 'csstype';
 
+export interface Query {
+  offset?: number;
+  limit?: number;
+  q?: string;
+}
+
+export interface FetchResponse <T = any> {
+  response?: {
+    [res: string]: T | T[];
+  };
+  error?: string;
+}
+
 export interface BadgeProps {
   count?: number | string;
   showZero?: boolean;
@@ -230,15 +243,26 @@ export interface DropdownProps extends DropdownDefaultProps {
   children?: React.ReactNode;
 }
 
-export interface Query {
-  offset: number;
-  limit: number;
+export interface MenuItemOptions {
+  title: string;
+  value: string;
 }
-export interface VirtualRowArgs {
+export interface InputDropdownProps {
+  options?: MenuItemOptions[];
+  defaultValue?: string;
+  value?: string;
+  onChange?: SelectCallback;
+  input?: any;
+  meta?: any;
+}
+export type VirtualItem = {
+  id?: number;
+} | string | number
+export interface VirtualRowArgs<T> {
   index: number;
-  item: object;
-  prevItem: object | null;
-  nextItem: object | null;
+  item: T;
+  prevItem: T | null;
+  nextItem: T | null;
   style: CSS.Properties;
 }
 export interface VirtualAnchorItem {
@@ -249,9 +273,9 @@ export interface VirtualListState {
   startIndex: number;
   endIndex: number;
 }
-export interface VirtualListDefaultProps {
+export interface VirtualListDefaultProps<T> {
   height?: number | string;
-  data: any[];
+  data: T[];
   runwayItems?: number;
   runwayItemsOppsite?: number;
   loader?: React.ReactNode;
@@ -259,15 +283,47 @@ export interface VirtualListDefaultProps {
   noMoreHint?: React.ReactNode | boolean;
   debug?: boolean;
 }
-export interface VirtualListProps extends VirtualListDefaultProps {
+export interface VirtualListProps<T> extends VirtualListDefaultProps<T> {
   query?: Query;
   onQueryChange?: (query: Query) => Promise<void>;
   rowHeight?: number | ((item: object) => number);
-  rowRenderer: (item: VirtualRowArgs) => React.ReactNode | Element;
+  rowRenderer: (item: VirtualRowArgs<T>) => React.ReactNode | Element;
   isFetching?: boolean;
   isReloading?: boolean;
   noMore?: boolean;
   totalCount?: number;
   className?: string;
   isEstimate?: boolean;
+}
+
+export interface VirtualSelectBoxDefaultProps<T> {
+  rowHeight: number;
+  isBtn: boolean;
+  disabled: boolean;
+  placeholder: string;
+  query: Query;
+  defaultItem: T;
+}
+export interface VirtualSelectBoxProps<T> extends VirtualSelectBoxDefaultProps<T> {
+  fetchData: (isReloading: boolean, query: Query, search?: string) => Promise<{
+    query: Query;
+    items: T[];
+    totalCount: number;
+    error?: string;
+  }>;
+  item?: T;
+  className?: string;
+  clear?: boolean;
+  onSelect?: (item: T) => void;
+  formatOption?: (item: T) => T;
+}
+export interface VirtualSelectBoxState<T> {
+  search: string;
+  items: T[];
+  query: Query;
+  isFetching: boolean;
+  totalCount: number;
+  isOpen: boolean;
+  isReloading: boolean;
+  error?: string;
 }
