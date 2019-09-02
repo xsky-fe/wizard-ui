@@ -10,21 +10,23 @@ import {
   VirtualSelectBoxDefaultProps,
   VirtualSelectBoxProps,
   VirtualSelectBoxState,
+  VirtualItem,
 } from '../../interface';
 import Icon from '../Icon';
 import './style.scss';
 
 const limit = 30;
 const maxHeight = 210;
-const defaultProps: VirtualSelectBoxDefaultProps = {
+const defaultProps: VirtualSelectBoxDefaultProps<VirtualItem> = {
   rowHeight: 30,
   isBtn: true,
   disabled: false,
   placeholder: '请选择',
   query: {},
+  defaultItem: {},
 };
 
-class VirtualSelectBox extends React.Component<VirtualSelectBoxProps, VirtualSelectBoxState> {
+class VirtualSelectBox<T extends VirtualItem> extends React.Component<VirtualSelectBoxProps<T>, VirtualSelectBoxState<T>> {
   static propTypes = {
     /**
      * 选中资源项
@@ -71,7 +73,7 @@ class VirtualSelectBox extends React.Component<VirtualSelectBoxProps, VirtualSel
   debounceFetch: () => Promise<void>;
   isMount: boolean;
   wrapper: React.RefObject<HTMLDivElement>;
-  constructor(props: VirtualSelectBoxProps) {
+  constructor(props: VirtualSelectBoxProps<T>) {
     super(props);
     this.debounceFetch = debounce(this.fetchResource, 200).bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
@@ -119,7 +121,7 @@ class VirtualSelectBox extends React.Component<VirtualSelectBoxProps, VirtualSel
         isFetching: false,
         totalCount,
       };
-      this.setState((prevState: VirtualSelectBoxState) => {
+      this.setState((prevState: VirtualSelectBoxState<T>) => {
         return {
           ...newState,
           items: prevState.items.concat(items),
@@ -189,13 +191,13 @@ class VirtualSelectBox extends React.Component<VirtualSelectBoxProps, VirtualSel
     this.blockEvent(event);
   }
   clear = () => {
-    const { onSelect } = this.props;
+    const { onSelect, defaultItem } = this.props;
     if (onSelect) {
-      onSelect({});
+      onSelect(defaultItem);
     }
   };
 
-  renderLabel(item?: object) {
+  renderLabel(item?: T) {
     const { placeholder } = this.props;
     let nameKey = 'name';
     let title = get(item, nameKey) || placeholder;
@@ -207,14 +209,16 @@ class VirtualSelectBox extends React.Component<VirtualSelectBoxProps, VirtualSel
     );
   }
 
-  renderItem({ item, style, index }: VirtualRowArgs) {
+  renderItem({ item, style, index }: VirtualRowArgs<T>) {
     if (!item) {
       return;
     }
     const { onSelect, rowHeight, formatOption } = this.props;
     const label = this.renderLabel(item);
+    const activeKey = typeof item === 'object' ? 'item.id' : 'item';
+    const activeItem = typeof item === 'object' ? get(item, 'id') : item;
     const className = classNames('SelectBox__item text-truncate', {
-      active: get(this.props, 'item.id') === item.id,
+      active: get(this.props, activeKey) === activeItem,
     });
     if (onSelect) {
       const onClick = (event: React.MouseEvent<HTMLDivElement>) => {

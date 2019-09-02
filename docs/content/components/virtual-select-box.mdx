@@ -3,11 +3,11 @@ title: VirtualSelectBox 滚动下拉
 date: 2019-08-28
 author: wangkailang
 ---
-在大量异步数据中选择需要的数据，支持滚动加载和搜索（[ElasticSearch](https://www.elastic.co/cn/products/elasticsearch)）。使用此组件需要满足以下几个条件：
+在大量异步数据中选择需要的数据，支持滚动加载和搜索。
 
 ## 限制条件
 
-1. 异步 `API` 支持获取部分数据，query 的格式如下：
+异步 `API` 支持获取部分数据（分页），query 的格式如下：
 ```js isShow
 {
   // 取 10 条数据
@@ -18,37 +18,8 @@ author: wangkailang
 ```
 表示从第 20 条数据开始取10 条数据。
 
-2. 搜索直接通过 （[ElasticSearch](https://www.elastic.co/cn/products/elasticsearch)）查询，通过 `query` 中的 `q` 属性进行匹配，比如：
-```js isShow
-{
-  q: name:test AND id: 10
-}
-```
-表示模糊匹配 `name` 中包含 “test” 并且 `id` 中包含 “10” 的资源。
-
-3. 异步返回 `Promise` 中的数据结构有限制
-- 成功拿到数据结构：
-```js isShow
-{
-  response: {
-     resNames: [{ id: xxx, ... }, ...],
-     paging: {
-      limit: 30,
-      offset: 0,
-      totalCount: 15
-     }
-  }
-}
-```
-数据的 `key` 均为驼峰格式；
-- 失败数据结构：
-```js isShow
-{
-  error: xxx
-}
-```
 ## 基本用法
-- `fetchData` 异步数据 `API`, `Promise` 返回数据结构有严格要求，模拟结构如下：
+- `fetchData` 异步数据 `API`, `Promise` 返回数据结构没有严格要求，通用模拟结构如下：
 ```js isShow
 const fetchData = () => new Promise((resolve, reject) => {
   setTimeout(() => {
@@ -66,7 +37,7 @@ const fetchData = () => new Promise((resolve, reject) => {
   }, time);
 });
 ```
-- `item` 选中项，允许为空对象 `{}`
+- `item` 选中项，允许为空对象 `{}` 或者 `""`
 
 具体使用：
 ```js isShow

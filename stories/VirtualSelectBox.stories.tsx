@@ -1,9 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { VirtualSelectBox } from '../src';
-import getMockDatas from './utils/getMockDatas';
 import { Query } from '../src/interface';
-import { elasticQuery } from '../src/utils';
+import { elasticQuery, getMockDatas } from '../src/utils';
 import { get, isEmpty, concat } from 'lodash';
 
 const resName = "list";
@@ -64,7 +63,6 @@ const AsyncWithES = ({ clear } : { clear?: boolean }) => {
     <VirtualSelectBox
       onSelect={onSelect}
       item={item}
-      resName={resName}
       fetchData={fetchFormatDatas}
       clear={clear}
     />
@@ -89,10 +87,16 @@ const fetchEmptyDatas = async (isReloading: boolean, dQuery: Query = {}) => {
 }
 
 storiesOf('DATA SHOW | VirtualSelectBox', module)
-  .add('empty data', () => (
+  .add('empty object data', () => (
     <VirtualSelectBox
       item={{}}
-      resName={resName}
+      fetchData={fetchEmptyDatas}
+    />
+  ))
+  .add('empty string data', () => (
+    <VirtualSelectBox<string>
+      item=""
+      defaultItem=""
       fetchData={fetchEmptyDatas}
     />
   ))

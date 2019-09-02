@@ -1,8 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import VirtualSelectBox from './index';
-import getMockDatas from '../../../stories/utils/getMockDatas';
-import { sleep } from '../../utils';
+import { sleep, getMockDatas } from '../../utils';
 import { Query } from '../../interface';
 import { get } from 'lodash';
 ;
@@ -67,8 +66,9 @@ describe('VirtualSelectBox', () => {
     expect(picker.find('.VirtualList__placeholder').exists()).toBeTruthy();
   });
   it('render with async datas', async () => {
+    type Data = { id?: number; name: string };
     const picker = mount(
-      <VirtualSelectBox
+      <VirtualSelectBox<Data>
         item={{ id: 1, name: `${resName}-1` }}
         fetchData={fetchDatas}
         onSelect={noOp}
