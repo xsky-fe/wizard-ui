@@ -228,7 +228,7 @@ export interface OverlayProps {
   show?: boolean; 
   rootClose?: boolean; 
   placement?: string;
-  animation?: string; 
+  animation?: boolean | React.ReactNode; 
   onHide?: () => void; 
   onEnter?: () => void; 
   onEntering?: () => void; 
