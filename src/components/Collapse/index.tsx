@@ -29,19 +29,12 @@ const Collapse: React.FC<CollapseProps> = props => {
   }
 
   function renderIcon(open: boolean){
-    if(showIcon){
-      if(typeof showIcon === 'string'){
-        return <Icon type={showIcon} />
-      } else {
-        return open ? <Icon type="chevron-down" />
-        : <Icon type="chevron-up" />
-      }
-    }
-    return null;
+    const type = typeof showIcon === 'string' ? showIcon : open ? 'chevron-down' : 'chevron-up';
+    return <Icon type={type} />
   }
 
   return(
-    <div className="collapse-root" style={collapseStyle && collapseStyle}>
+    <div className="collapse-root" style={collapseStyle}>
       <div 
         className={classNames("collapse-title", showIcon ? 'with-icon' : '')} 
         onClick={handleClick}
@@ -51,7 +44,7 @@ const Collapse: React.FC<CollapseProps> = props => {
       <BSCollapse in={open}>
         <div style={contentStyle && contentStyle}>
           <div className="collapse-content">
-            {children && children}
+            {children}
           </div>
         </div>
       </BSCollapse>
