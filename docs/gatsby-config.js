@@ -2,11 +2,13 @@ const Path = require('path')
 module.exports = {
   pathPrefix: `/wizard-ui`,
   siteMetadata: {
+    siteUrl: 'https://wizard-ui.netlify.com/',
     title: `Wizard UI Documentation`,
     description: `Wizard UI Documentation.`,
     author: `xsky contributors`,
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
