@@ -5,7 +5,7 @@ import './style.scss';
 
 addDecorator (
   withOptions ({
-    name: 'wizard ui',
+    name: 'WIZARD UI',
     url: 'https://github.com/xsky-fe/wizard-ui',
     sidebarAnimations: true,
     // stories 根据字母，数组小到大排序，根据执行顺序排序

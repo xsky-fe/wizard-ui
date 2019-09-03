@@ -3,6 +3,7 @@ import Badge from './Badge';
 import Dropdown from './Dropdown';
 import DropdownButton from './DropdownButton';
 import Icon from './Icon';
+import InputDropdown from './InputDropdown';
 import Loader from './Loader';
 import Modal from './Modal';
 import Navigation from './Navigation';
@@ -18,6 +19,8 @@ import Tree from './Tree';
 import DatePicker from './DatePicker';
 import Panel from './Panel';
 import UsageBar from './UsageBar';
+import VirtualList from './VirtualList';
+import VirtualSelectBox from './VirtualSelectBox';
 import {
   Col,
   Clearfix,
@@ -38,6 +41,7 @@ export {
   Dropdown,
   DropdownButton,
   Icon,
+  InputDropdown,
   Loader,
   MenuItem,
   Modal,
@@ -60,4 +64,6 @@ export {
   Well,
   Panel,
   PanelGroup,
+  VirtualList,
+  VirtualSelectBox,
 };

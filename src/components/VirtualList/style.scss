@@ -1,0 +1,10 @@
+.VirtualList__wrapper {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.VirtualList__no-more-hint,
+.VirtualList__loader {
+  padding-left: 10px
+}

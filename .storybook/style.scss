@@ -1,3 +1,12 @@
 .sb-show-main {
   padding: 25px;
 }
+.box {
+  border: 1px solid #ccc;
+  overflow: scroll;
+}
+.list-item {
+  line-height: 34px;
+  border-bottom: 1px dotted #ccc;
+  padding-left: 10px;
+}
