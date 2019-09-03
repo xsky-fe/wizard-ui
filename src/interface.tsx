@@ -224,14 +224,14 @@ export interface DropdownProps extends DropdownDefaultProps {
 
 export interface OverlayProps {
   children: React.ReactNode;
-  content: React.ReactNode;
-  show?: boolean; 
-  rootClose?: boolean; 
+  label: React.ReactNode;
+  show?: boolean;
+  rootClose?: boolean;
   placement?: string;
-  animation?: boolean | React.ReactNode; 
-  onHide?: () => void; 
-  onEnter?: () => void; 
-  onEntering?: () => void; 
+  animation?: boolean | React.ReactNode;
+  onHide?: () => void;
+  onEnter?: () => void;
+  onEntering?: () => void;
   onEntered?: () => void;
   onExit?: () => void;
   onExiting?: () => void;

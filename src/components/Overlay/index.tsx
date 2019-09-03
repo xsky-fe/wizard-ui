@@ -5,19 +5,35 @@ import { OverlayProps } from '../../interface';
 import './style.scss';
 
 const Overlay: React.FC<OverlayProps> = props => {
-  const { show: propsShow, animation, placement, children, content, rootClose, onHide, ...restProps } = props;
-  const [ show, setShow ] = useState(propsShow || false);
+  const { show: propsShow, placement, children, label, rootClose, onHide, ...restProps } = props;
+  const [show, setShow] = useState(propsShow || false);
   const wrapper = React.useRef<HTMLDivElement>(null);
+  const label_is_node = label && label.hasOwnProperty('$$typeof');
   function handleClick() {
     setShow(!show);
   }
-  function handleHide(){
-    if(rootClose){
+  function handleHide() {
+    if (rootClose) {
       setShow(false);
       onHide && onHide();
     }
   }
-  return(
+  function renderCustomLabel() {
+    if (label_is_node) {
+      return <div className="overlay-label">{label}</div>;
+    } else {
+      return (
+        <Tooltip
+          placement={placement}
+          className="overlay-label in"
+          id={`overload-${placement || 'right'}`}
+        >
+          {label}
+        </Tooltip>
+      );
+    }
+  }
+  return (
     <div className="overlay-wrapper">
       <div ref={wrapper} className="overlay-target" onClick={handleClick}>
         {children}
@@ -27,32 +43,22 @@ const Overlay: React.FC<OverlayProps> = props => {
         target={wrapper.current || undefined}
         rootClose={rootClose}
         onHide={handleHide}
+        placement={placement}
         {...restProps}
       >
-        {content && content.hasOwnProperty('$$typeof') ? 
-          <div className="overlay-content">{content}</div> : 
-          <Tooltip placement={placement || 'right'} className="overlay-content in" id={`overload-${placement || 'right'}`}>
-            {content}
-          </Tooltip>} 
+        {renderCustomLabel()}
       </BSOverlay>
     </div>
-  )
-}
+  );
+};
 
 Overlay.propTypes = {
   /* 配置overlay初始是否显示 */
   show: PropTypes.bool,
   /* 配置overlay是否在点击root元素时消失 */
   rootClose: PropTypes.bool,
-  /* 配置overlay动画 */
-  animation: PropTypes.string,
   /* 配置overlay方向 */
-  placement: PropTypes.oneOf([
-    'top',
-    'right',
-    'bottom',
-    'left'
-  ]),
+  placement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
   /* 配置overlay点击root元素消失时的事件，需指定rootClass */
   onHide: PropTypes.func,
   /* 配置overlay动画进入之前事件 */
@@ -74,7 +80,5 @@ Overlay.defaultProps = {
   animation: true,
   placement: 'right',
 };
-
-
 
 export default Overlay;
