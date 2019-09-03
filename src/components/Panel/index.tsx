@@ -6,12 +6,15 @@ import classNames from 'classnames';
 import './index.scss';
 
 const Panel: React.FC<PanelProps> = props => {
-  const { bg, children, text, ...restProps } = props;
+  const { bg, children, text, className, ...restProps } = props;
   const bgClass = bg ? `panel-${bg}-bg` : '';
   const textClass = text ? `text-${text}` : 'text-dark';
   return (
     <div className="Panel">
-      <BootstrapPanel {...restProps} className={classNames(bgClass, textClass)}>
+      <BootstrapPanel
+        {...restProps}
+        className={classNames(bgClass, textClass, { className: true })}
+      >
         {children && children}
       </BootstrapPanel>
     </div>
