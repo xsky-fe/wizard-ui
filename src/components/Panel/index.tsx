@@ -13,7 +13,7 @@ const Panel: React.FC<PanelProps> = props => {
     <div className="Panel">
       <BootstrapPanel
         {...restProps}
-        className={classNames(bgClass, textClass, { className: true })}
+        className={classNames(bgClass, textClass, { [`${className}`]: className })}
       >
         {children && children}
       </BootstrapPanel>
