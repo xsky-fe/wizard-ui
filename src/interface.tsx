@@ -230,6 +230,7 @@ export interface PanelProps {
   children?: React.ReactNode;
   bg?: string;
   text?: string;
+  className?: string;
 }
 
 export interface DropdownDefaultProps {
