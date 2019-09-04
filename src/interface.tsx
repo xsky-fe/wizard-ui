@@ -230,7 +230,7 @@ export interface PanelProps {
   children?: React.ReactNode;
   bg?: string;
   text?: string;
-  classname?: string;
+  className?: string;
 }
 
 export interface DropdownDefaultProps {
@@ -241,6 +241,8 @@ export interface DropdownProps extends DropdownDefaultProps {
   className?: string;
   title?: string;
   children?: React.ReactNode;
+  customToggle?: boolean;
+  pullRight?: boolean;
 }
 
 export interface MenuItemOptions {

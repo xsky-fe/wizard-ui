@@ -31,7 +31,7 @@
     "rc-time-picker": "^3.7.1",
     "rc-tree": "2.1.0",
     "react": "^16.8.6",
-    "react-bootstrap": "0.31.1",
+    "react-bootstrap": "^0.31.1",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-ios-switch": "^0.1.19",

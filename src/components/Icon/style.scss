@@ -7,6 +7,7 @@
     stroke-width: 0;
     stroke: currentColor;
     fill: currentColor;
+    pointer-events: none;
   }
   &.primary {
     color: $purple-normal;
