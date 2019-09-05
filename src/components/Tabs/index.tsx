@@ -8,7 +8,7 @@ import './style.scss';
 const Tabs: React.FC<TabsProps> = props => {
   const { tabs, size, eventKeyName, direction, ...restProps } = props;
   return (
-    <BsTabs className={getBemClass('Tabs', [size, direction])} {...restProps} id="Tabs">
+    <BsTabs className={getBemClass('Tabs', [size, direction])} {...restProps}>
       {tabs.map((tab, idx) => (
         <Tab
           key={eventKeyName ? tab[eventKeyName] : idx}
@@ -47,6 +47,7 @@ Tabs.propTypes = {
 
 Tabs.defaultProps = {
   eventKeyName: 'key',
+  id: 'Tabs',
 };
 
 export default Tabs;

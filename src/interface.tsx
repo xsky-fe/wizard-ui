@@ -75,6 +75,7 @@ export interface TabsProps {
   eventKeyName?: string;
   direction?: 'right';
   onSelect?: SelectCallback;
+  id?: string;
 }
 
 export interface StepsProps {
