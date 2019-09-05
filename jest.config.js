@@ -2,7 +2,7 @@ module.exports = {
   roots: ['<rootDir>/src'],
   verbose: true,
   preset: 'ts-jest',
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
   transform: {
     '^.+\\.jsx?$': 'babel-jest',
     '^.+\\.tsx?$': 'ts-jest'
@@ -11,5 +11,5 @@ module.exports = {
   setupFilesAfterEnv: ['<rootDir>/src/setupEnzyme.ts'],
   moduleNameMapper: {
     '^.+\\.(css|less|scss)$': 'babel-jest'
-  }
+  },
 }
