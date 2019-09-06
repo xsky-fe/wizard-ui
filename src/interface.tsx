@@ -80,6 +80,10 @@ export interface TabsProps {
 export interface StepsProps {
   steps: any[];
   currentStep: number;
+  stepIcon?: string;
+  stepIconSize?: string;
+  stepIconStatus?: string;
+  alternativeLabel?: boolean;
 }
 
 export interface ModalProps {

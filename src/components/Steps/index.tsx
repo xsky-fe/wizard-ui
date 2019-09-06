@@ -4,22 +4,34 @@ import { Well } from 'react-bootstrap';
 import Badge from '../Badge';
 import { getBemClass } from '../../utils';
 import { StepsProps } from '../../interface';
+import Icon from '../Icon';
 import './style.scss';
 
 const Steps: React.FC<StepsProps> = props => {
-  const { steps, currentStep } = props;
+  const { steps, currentStep, stepIcon, stepIconSize, stepIconStatus, alternativeLabel } = props;
+  const badgeIcon = stepIcon ? stepIcon : 'dot';
+  const badgeIconSize = stepIconSize ? stepIconSize : 'middle';
+  const badgeIconStatus = stepIconStatus ? stepIconStatus : 'primary';
   return (
     <Well className="Steps">
-      {steps.map((step, index) => (
-        <div
-          className={getBemClass('Steps__Step', currentStep >= index + 1 && 'active')}
-          key={index}
-        >
-          <Badge dot size="middle" status="primary" />
-          {step}
-          {index !== steps.length - 1 && <span className="icon icon-angle-left" />}
-        </div>
-      ))}
+      {steps.map((step, index) => {
+        const stepLabel = typeof step === 'string' ? step : step.label;
+        return (
+          <div
+            className={getBemClass('Steps__Step', currentStep >= index + 1 && 'active')}
+            key={index}
+          >
+            <Badge
+              dot={badgeIcon === 'dot'}
+              count={badgeIcon === 'count' ? index + 1 : ''}
+              size={badgeIconSize}
+              status={badgeIconStatus}
+            />
+            {stepLabel}
+            {index !== steps.length - 1 && <Icon type="angle-left" />}
+          </div>
+        );
+      })}
     </Well>
   );
 };
@@ -33,6 +45,22 @@ Steps.propTypes = {
    * 当前步骤，从 1 开始计数
    **/
   currentStep: PropTypes.number.isRequired,
+  /**
+   * 步骤的图标 `dot`代表圆点，`count`代表数字
+   **/
+  stepIcon: PropTypes.string,
+  /**
+   * 步骤图标大小，stepIcon为`dot`时候生效 ['small', 'middle', 'large']
+   **/
+  stepIconSize: PropTypes.string,
+  /**
+   * 步骤图标状态，['default', 'primary', 'success', 'info', 'critical', 'warning', 'danger']
+   **/
+  stepIconStatus: PropTypes.string,
+  /**
+   * 是否将标签内容放在图标下方
+   **/
+  alternativeLabel: PropTypes.bool,
 };
 
 export default Steps;

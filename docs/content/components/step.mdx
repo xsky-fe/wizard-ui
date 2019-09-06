@@ -15,6 +15,38 @@ date: 2019-06-12
   currentStep={2}
 />
 ```
+```jsx
+<Steps
+  steps={['第一步', '第二步', '第三步', '确认']}
+  currentStep={2}
+  stepIcon="dot"
+  stepIconSize="small"
+/>
+```
+```jsx
+<Steps
+  steps={['第一步', '第二步', '第三步', '确认']}
+  currentStep={2}
+  stepIconStatus="danger"
+/>
+```
+
+```jsx
+<Steps
+  steps={['A', 'B', 'C', 'D']}
+  currentStep={2}
+  stepIcon="dot"
+/>
+```
+
+```jsx
+<Steps
+  steps={['A', 'B', 'C', 'D']}
+  currentStep={2}
+  stepIcon="count"
+/>
+```
+
 ### 交互
 ```jsx
 () => {
@@ -24,7 +56,27 @@ date: 2019-06-12
   return (
     <div>
       <Steps
-        steps={['第一步', '第二步', '第三步', '确认']}
+        steps={['A', 'B', 'C', 'D']}
+        currentStep={step}
+      />
+      <p>第 {step} 步</p>
+      <Button bsStyle="info" onClick={prevStep}>上一步</Button>
+      <span style={{ paddingLeft: '40px' }} />
+      <Button bsStyle="primary" onClick={nextStep}>下一步</Button>
+    </div>
+  )
+}
+```
+
+```jsx
+() => {
+  const [ step, setStep ] = React.useState(1);
+  const prevStep = () => setStep(step - 1);
+  const nextStep = () => setStep(step + 1);
+  return (
+    <div>
+      <Steps
+        steps={[{label:'第一步'},{label:'第二步'},{label:'第三步'}]}
         currentStep={step}
       />
       <p>第 {step} 步</p>
