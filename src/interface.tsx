@@ -75,6 +75,7 @@ export interface TabsProps {
   eventKeyName?: string;
   direction?: 'right';
   onSelect?: SelectCallback;
+  id?: string;
 }
 
 export interface StepsProps {
@@ -242,6 +243,8 @@ export interface DropdownProps extends DropdownDefaultProps {
   className?: string;
   title?: string;
   children?: React.ReactNode;
+  customToggle?: boolean;
+  pullRight?: boolean;
 }
 
 export interface MenuItemOptions {

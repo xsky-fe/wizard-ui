@@ -10,14 +10,12 @@ const Panel: React.FC<PanelProps> = props => {
   const bgClass = bg ? `panel-${bg}-bg` : '';
   const textClass = text ? `text-${text}` : 'text-dark';
   return (
-    <div className="Panel">
-      <BootstrapPanel
-        {...restProps}
-        className={classNames(bgClass, textClass, { [`${className}`]: className })}
-      >
-        {children && children}
-      </BootstrapPanel>
-    </div>
+    <BootstrapPanel
+      {...restProps}
+      className={classNames(bgClass, textClass, className)}
+    >
+      {children && children}
+    </BootstrapPanel>
   );
 };
 
