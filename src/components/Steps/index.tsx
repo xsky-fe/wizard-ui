@@ -16,6 +16,7 @@ const Steps: React.FC<StepsProps> = props => {
     <Well className="Steps">
       {steps.map((step, index) => {
         const stepLabel = typeof step === 'string' ? step : step.label;
+        const stepCount = typeof step === 'string' ? false : step.count;
         return (
           <div
             className={getBemClass('Steps__Step', currentStep >= index + 1 && 'active')}
@@ -23,7 +24,7 @@ const Steps: React.FC<StepsProps> = props => {
           >
             <Badge
               dot={badgeIcon === 'dot'}
-              count={badgeIcon === 'count' ? index + 1 : ''}
+              count={badgeIcon === 'count' ? (stepCount ? stepCount : index + 1) : ''}
               size={badgeIconSize}
               status={badgeIconStatus}
             />
@@ -38,7 +39,7 @@ const Steps: React.FC<StepsProps> = props => {
 
 Steps.propTypes = {
   /**
-   * 步骤条title的集合
+   * 步骤条title的集合`string`时候显示内容，`{label: string, count: string|number}`时显示`label`，当`stepIcon='count'`显示count内容
    **/
   steps: PropTypes.array.isRequired,
   /**

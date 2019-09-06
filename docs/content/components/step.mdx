@@ -2,27 +2,33 @@
 title: Steps 步骤条
 date: 2019-06-12
 ---
+
 引导用户按照流程完成任务的导航条。
 
 ## 何时使用
+
 当任务复杂或者存在先后关系时，将其分解成一系列步骤，从而简化任务。
 
 ## 基本用法
+
 ### 默认展示
+
 ```jsx
-<Steps
-  steps={['第一步', '第二步', '第三步', '确认']}
-  currentStep={2}
-/>
+<Steps steps={['第一步', '第二步', '第三步', '确认']} currentStep={2} />
 ```
+
+### 图标大小变化
+
 ```jsx
 <Steps
   steps={['第一步', '第二步', '第三步', '确认']}
   currentStep={2}
-  stepIcon="dot"
   stepIconSize="small"
 />
 ```
+
+### 图标颜色变化
+
 ```jsx
 <Steps
   steps={['第一步', '第二步', '第三步', '确认']}
@@ -31,64 +37,51 @@ date: 2019-06-12
 />
 ```
 
+### 图标变成数字
+
 ```jsx
-<Steps
-  steps={['A', 'B', 'C', 'D']}
-  currentStep={2}
-  stepIcon="dot"
-/>
+<Steps steps={['A', 'B', 'C', 'D']} currentStep={2} stepIcon="count" />
 ```
+
+### steps 内容可以是个对象（stepIcon 必须为 count 才可以是任意 count）
 
 ```jsx
 <Steps
-  steps={['A', 'B', 'C', 'D']}
+  steps={[
+    { label: '第一步', count: 99 },
+    { label: '第二步', count: 'Y' },
+    { label: '第三步', count: 'Z' },
+  ]}
   currentStep={2}
   stepIcon="count"
 />
 ```
 
 ### 交互
-```jsx
-() => {
-  const [ step, setStep ] = React.useState(1);
-  const prevStep = () => setStep(step - 1);
-  const nextStep = () => setStep(step + 1);
-  return (
-    <div>
-      <Steps
-        steps={['A', 'B', 'C', 'D']}
-        currentStep={step}
-      />
-      <p>第 {step} 步</p>
-      <Button bsStyle="info" onClick={prevStep}>上一步</Button>
-      <span style={{ paddingLeft: '40px' }} />
-      <Button bsStyle="primary" onClick={nextStep}>下一步</Button>
-    </div>
-  )
-}
-```
 
 ```jsx
 () => {
-  const [ step, setStep ] = React.useState(1);
+  const [step, setStep] = React.useState(1);
   const prevStep = () => setStep(step - 1);
   const nextStep = () => setStep(step + 1);
   return (
     <div>
-      <Steps
-        steps={[{label:'第一步'},{label:'第二步'},{label:'第三步'}]}
-        currentStep={step}
-      />
+      <Steps steps={['A', 'B', 'C', 'D']} currentStep={step} />
       <p>第 {step} 步</p>
-      <Button bsStyle="info" onClick={prevStep}>上一步</Button>
+      <Button bsStyle="info" onClick={prevStep}>
+        上一步
+      </Button>
       <span style={{ paddingLeft: '40px' }} />
-      <Button bsStyle="primary" onClick={nextStep}>下一步</Button>
+      <Button bsStyle="primary" onClick={nextStep}>
+        下一步
+      </Button>
     </div>
-  )
-}
+  );
+};
 ```
 
 ## API
+
 ```jsx previewOnly
 <PropTable of="steps" />
 ```
