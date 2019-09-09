@@ -20,6 +20,7 @@ import Panel from './Panel';
 import UsageBar from './UsageBar';
 import VirtualList from './VirtualList';
 import VirtualSelectBox from './VirtualSelectBox';
+import NotificationList from './Notification/NotificationList';
 import {
   Col,
   Clearfix,
@@ -64,4 +65,5 @@ export {
   PanelGroup,
   VirtualList,
   VirtualSelectBox,
+  NotificationList,
 };
