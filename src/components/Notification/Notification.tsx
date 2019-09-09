@@ -1,30 +1,19 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Alert } from 'react-bootstrap';
+import Icon from '../Icon';
+import { NotificationProps } from '../../interface';
 import './style.scss';
 
 const STATUS = {
-  success: ['icon-check-circle'],
-  info: ['icon-info'],
+  success: ['check-circle'],
+  info: ['info'],
   process: ['loading', 'info'],
-  warning: ['icon-warning'],
-  danger: ['icon-times-circle'],
+  warning: ['warning'],
+  danger: ['times-circle'],
 };
 
-interface NotificationProps {
-  autoClose?: boolean;
-  id: number;
-  counter: number;
-  intervalMap: {
-    set: (key: string | number, func: () => void, time: number) => void,
-    clear: (key: string | number) => void,
-    has: (key: string | number) => boolean,
-  };
-  onDismiss?: Function;
-  status: string;
-  text: string;
-  title: string;
-}
+
 
 export default class Notification extends PureComponent<NotificationProps> {
   static propTypes = {
@@ -33,7 +22,7 @@ export default class Notification extends PureComponent<NotificationProps> {
     /** 多少毫秒后关闭通知栏 */
     counter: PropTypes.number,
     /** 操作通知栏关闭 */
-    onDismiss: PropTypes.func.isRequired,
+    onDismiss: PropTypes.func,
     /** 状态 */
     status: PropTypes.oneOf(['success', 'info', 'process', 'warning', 'danger']),
     /** 是否开启默认关闭 */
@@ -60,7 +49,7 @@ export default class Notification extends PureComponent<NotificationProps> {
   /** 设置定时器 */
   setTimer(isSet?: boolean) {
     const { autoClose, intervalMap, id, counter } = this.props;
-    if (autoClose || isSet) {
+    if (intervalMap && autoClose || isSet) {
       intervalMap.clear(id);
       // 只有在鼠标不在通知栏上时，才设置定时器
       if (!this.mouseIsEnter) {
@@ -87,14 +76,14 @@ export default class Notification extends PureComponent<NotificationProps> {
     const { id, intervalMap, status } = this.props;
     this.mouseIsEnter = true;
     // 如果不是进行中状态，函数监听
-    if (status !== 'process' && intervalMap.has(id)) {
+    if (status !== 'process' && intervalMap && intervalMap.has(id)) {
       intervalMap.clear(id);
     }
   }
   mouseLeave() {
-    const { autoClose, intervalMap, id, counter } = this.props;
+    const { autoClose, intervalMap, id, counter = 2000 } = this.props;
     this.mouseIsEnter = false;
-    if (autoClose && !intervalMap.has(id)) {
+    if (autoClose && intervalMap && !intervalMap.has(id)) {
       intervalMap.set(id, this.close, counter);
     }
   }
@@ -102,7 +91,7 @@ export default class Notification extends PureComponent<NotificationProps> {
     const { status } = this.props;
     const icon = STATUS[status] && STATUS[status][0];
     if (!icon) return null;
-    return <span className={`icon ${icon}`} />;
+    return <Icon type={icon} />;
   }
   renderText() {
     const { text, title } = this.props;
@@ -120,13 +109,13 @@ export default class Notification extends PureComponent<NotificationProps> {
   UNSAFE_componentWillReceiveProps(nextProps: NotificationProps) {
     const { intervalMap, id } = this.props;
     // 更新同 id 的通知时，重新设置定时器
-    if (nextProps.autoClose && !intervalMap.has(id)) {
+    if (nextProps.autoClose && intervalMap && !intervalMap.has(id)) {
       this.setTimer(true);
     }
   }
 
   render() {
-    const { status, id } = this.props;
+    const { status, id, onDismiss } = this.props;
     const style = (STATUS[status] && STATUS[status][1]) || status;
     return (
       <div
@@ -135,7 +124,7 @@ export default class Notification extends PureComponent<NotificationProps> {
         onMouseEnter={this.mouseEnter}
         onMouseLeave={this.mouseLeave}
       >
-        <Alert bsStyle={style} onDismiss={this.close}>
+        <Alert bsStyle={style} onDismiss={onDismiss && this.close}>
           {this.renderIcon()}
           {this.renderText()}
         </Alert>

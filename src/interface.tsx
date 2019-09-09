@@ -90,6 +90,7 @@ export interface TabsProps {
   eventKeyName?: string;
   direction?: 'right';
   onSelect?: SelectCallback;
+  id?: string;
 }
 
 export interface StepsProps {
@@ -257,6 +258,8 @@ export interface DropdownProps extends DropdownDefaultProps {
   className?: string;
   title?: string;
   children?: React.ReactNode;
+  customToggle?: boolean;
+  pullRight?: boolean;
 }
 
 export interface MenuItemOptions {
@@ -349,6 +352,16 @@ export interface NotificationItem {
   status: string;
   text: string;
   title?: React.ReactNode | string;
+}
+export interface NotificationProps extends NotificationItem {
+  autoClose?: boolean;
+  counter: number;
+  intervalMap: {
+    set: (key: string | number, func: () => void, time: number) => void,
+    clear: (key: string | number) => void,
+    has: (key: string | number) => boolean,
+  };
+  onDismiss?: Function;
 }
 export interface NotificationListProps {
   notifications: Map<string, Map<string, NotificationItem>>;

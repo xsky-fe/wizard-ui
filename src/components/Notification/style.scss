@@ -3,6 +3,7 @@
 .NotificationList {
   position: fixed;
   right: 20px;
+  top: 56px;
   z-index: 9999;
 }
 
@@ -163,7 +164,16 @@
     font-size: 14px;
     overflow: hidden;
     text-align: left;
-
+    .icon-loading {
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      border-top: 2px solid #c1c1c9;
+      border-right: 2px solid #cbcbd2;
+      animation: spin 1s linear infinite;
+      border-radius: 100%;
+      box-sizing: content-box;
+    }
     .icon {
       flex: 0 0 14px;
       margin-right: 8px;

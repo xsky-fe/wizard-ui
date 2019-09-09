@@ -9,10 +9,10 @@ import './style.scss';
 
 
 
-export default class   extends PureComponent<NotificationListProps, NotificationListStates> {
+export default class NotificationList  extends PureComponent<NotificationListProps, NotificationListStates> {
   static propTypes = {
     /** 操作移除单个通知栏 */
-    onDismiss: PropTypes.func.isRequired,
+    onDismiss: PropTypes.func,
     /** 统一格式化通知栏目的数据 */
     format: PropTypes.func,
     /** 是否开启自动关闭 */
@@ -29,14 +29,14 @@ export default class   extends PureComponent<NotificationListProps, Notification
     this.setState(prevState => ({ expanded: !prevState.expanded }));
   }
 
-  renderNotification(uuid: string | number, notification: NotificationItem) {
+  renderNotification = (notification: NotificationItem) => {
     const { onDismiss, autoClose, format } = this.props;
     const formatNotification = format ? format(notification) : notification;
 
     return (
       <Notification
-        key={uuid}
-        id={uuid}
+        key={notification.id}
+        id={notification.id}
         onDismiss={onDismiss}
         autoClose={autoClose}
         {...formatNotification}
@@ -52,14 +52,15 @@ export default class   extends PureComponent<NotificationListProps, Notification
       {'NotificationList__indicator-expanded': expanded }
     );
 
-    let lists: [string | number, NotificationItem][] = [];
+    let lists: NotificationItem[] = [];
     for (let nvs of notifications.values()) {
-      lists.push(...nvs.entries())
+      nvs.forEach(notificationItem => {
+        lists.push(notificationItem);
+      });
     }
-
     return (
       <div className="NotificationList">
-        {!!notifications.size && (
+        {!!lists.length && (
           <div className="NotificationList__control-wrapper" onClick={this.handleToggle}>
             <span className="NotificationList__control">
               <span className="NotificationList__control-left">
@@ -77,8 +78,7 @@ export default class   extends PureComponent<NotificationListProps, Notification
               transitionEnterTimeout={700}
               transitionLeaveTimeout={650}
             >
-              {lists.map(val => this.renderNotification(...val))
-              }
+              {lists.map(this.renderNotification)}
             </ReactCSSTransitionGroup>
           </div>
         )}

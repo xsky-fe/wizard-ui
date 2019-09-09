@@ -1,10 +1,13 @@
 @import '../../style/variables.scss';
+
 .icon {
+  line-height: 1;
   svg {
     display: inline-block;
     stroke-width: 0;
     stroke: currentColor;
     fill: currentColor;
+    pointer-events: none;
   }
   &.primary {
     color: $purple-normal;
