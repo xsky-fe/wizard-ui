@@ -104,10 +104,10 @@ export default class Notification extends PureComponent<NotificationProps> {
   componentDidMount() {
     this.setTimer();
   }
-  UNSAFE_componentWillReceiveProps(nextProps: NotificationProps) {
-    const { intervalMap, id } = this.props;
+  componentDidUpdate(prevProps: NotificationProps) {
+    const { intervalMap, id } = prevProps;
     // 更新同 id 的通知时，重新设置定时器
-    if (nextProps.autoClose && intervalMap && !intervalMap.has(id)) {
+    if (this.props.autoClose && intervalMap && !intervalMap.has(id)) {
       this.setTimer(true);
     }
   }
