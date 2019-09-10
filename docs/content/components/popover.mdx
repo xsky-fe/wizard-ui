@@ -127,6 +127,34 @@ date: 2019-08-28
   </Popover>
 </div>
 ```
+### 箭头颜色
+- 默认是白色
+```
+<div className="flex-around">
+  <Popover
+    content={
+      <>
+        <h4>你好👋！</h4>
+        <div>这是默认颜色</div>
+      </>
+    }
+  >
+    <Button>默认白色</Button>
+  </Popover>
+  <Popover
+    shadow
+    content={
+    <>
+      <h4>你好👋！</h4>
+      <div>这是紫颜色</div>
+    </>
+  }
+  >
+    <Button>这是紫颜色</Button>
+  </Popover>
+ 
+</div>
+```
 
 ## API
 ```jsx previewOnly
