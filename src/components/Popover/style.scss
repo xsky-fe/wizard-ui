@@ -13,7 +13,7 @@
       justify-content:space-between;
       width: 250px;
       padding: 0 6px;
-      color: var(--gray-darker-3);
+      color: $gray-darker-3;
       font-size: 12px;
       height: 20px;
       line-height: 20px;
@@ -38,34 +38,34 @@
 
   &.shadow {
     &.top {
-      border-bottom: 3px solid var(--purple-normal);
+      border-bottom: 3px solid $purple-normal;
 
       .arrow::after {
-        border-top-color: var(--purple-normal) !important;
+        border-top-color: $purple-normal !important;
       }
     }
 
     &.bottom {
-      border-top: 3px solid var(--purple-normal);
+      border-top: 3px solid $purple-normal;
     
       .arrow::after {
-        border-bottom-color: var(--purple-normal) !important;
+        border-bottom-color: $purple-normal !important;
       }
     }
 
     &.left {
-      border-right: 3px solid var(--purple-normal);
+      border-right: 3px solid $purple-normal;
     
       .arrow::after {
-        border-left-color: var(--purple-normal) !important;
+        border-left-color: $purple-normal !important;
       }
     }
 
     &.right {
-      border-left: 3px solid var(--purple-normal);
+      border-left: 3px solid $purple-normal;
     
       .arrow::after {
-        border-right-color: var(--purple-normal) !important;
+        border-right-color: $purple-normal !important;
       }
     }
   }
