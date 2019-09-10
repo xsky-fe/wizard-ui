@@ -6,9 +6,7 @@ import Beta from '../Beta';
 import lodash from 'lodash';
 import './style.scss';
 
-const BETA_COMPONENTS = [
-  'notification',
-]
+const BETA_COMPONENTS = [];
 
 const NavSection = props => {
   const { heading, items, path } = props;

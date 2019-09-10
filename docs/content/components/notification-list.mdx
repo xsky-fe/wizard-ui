@@ -21,14 +21,14 @@ author: wangkailang
             key={s}
             status={s}
             id={s}
-            title={`${s} text message !`}
+            text={`${s} text message !`}
           />
       ))}
     </div>
   )
 }
 ```
-- 消息提示列表由外部维护，内部只做展示，不同于 [ant.design](https://ant.design/components/notification-cn/) 会在内部缓存并且处理消息提示列表。
+- 消息提示列表缓存数据由外部维护，内部只做展示，不同于 [ant.design](https://ant.design/components/notification-cn/) 会在内部缓存并且处理消息提示列表。
 
 ## 代码演示
 ### 随机通知

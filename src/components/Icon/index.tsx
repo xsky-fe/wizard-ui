@@ -7,7 +7,7 @@ import { upperFirst, camelCase } from 'lodash';
 import './style.scss';
 
 const Icon: React.FC<IconProps> = props => {
-  const { type, color, className,  ...rest } = props;
+  const { type, color, className, ...rest } = props;
   const cls = cn(`icon icon-${type}`, {
     [`${color}`]: Boolean(color),
     [`${className}`]: Boolean(className),

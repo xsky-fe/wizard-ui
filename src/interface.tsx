@@ -24,7 +24,7 @@ export interface Query {
   q?: string;
 }
 
-export interface FetchResponse <T = any> {
+export interface FetchResponse<T = any> {
   response?: {
     [res: string]: T | T[];
   };
@@ -274,9 +274,12 @@ export interface InputDropdownProps {
   input?: any;
   meta?: any;
 }
-export type VirtualItem = {
-  id?: number;
-} | string | number
+export type VirtualItem =
+  | {
+      id?: number;
+    }
+  | string
+  | number;
 export interface VirtualRowArgs<T> {
   index: number;
   item: T;
@@ -324,7 +327,11 @@ export interface VirtualSelectBoxDefaultProps<T> {
   defaultItem: T;
 }
 export interface VirtualSelectBoxProps<T> extends VirtualSelectBoxDefaultProps<T> {
-  fetchData: (isReloading: boolean, query: Query, search?: string) => Promise<{
+  fetchData: (
+    isReloading: boolean,
+    query: Query,
+    search?: string,
+  ) => Promise<{
     query: Query;
     items: T[];
     totalCount: number;
@@ -348,7 +355,7 @@ export interface VirtualSelectBoxState<T> {
 }
 
 export interface NotificationItem {
-  id: string
+  id: string;
   status: string;
   text: string;
   title?: React.ReactNode | string;
@@ -356,10 +363,10 @@ export interface NotificationItem {
 export interface NotificationProps extends NotificationItem {
   autoClose?: boolean;
   counter: number;
-  intervalMap: {
-    set: (key: string | number, func: () => void, time: number) => void,
-    clear: (key: string | number) => void,
-    has: (key: string | number) => boolean,
+  intervalMap?: {
+    set: (key: string | number, func: () => void, time: number) => void;
+    clear: (key: string | number) => void;
+    has: (key: string | number) => boolean;
   };
   onDismiss?: Function;
 }

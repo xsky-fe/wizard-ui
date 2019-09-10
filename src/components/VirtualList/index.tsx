@@ -38,7 +38,10 @@ const defaultProps: VirtualListDefaultProps<VirtualItem> = {
   debug: true,
 };
 
-export default class VirtualList<T extends VirtualItem> extends React.Component<VirtualListProps<T>, VirtualListState> {
+export default class VirtualList<T extends VirtualItem> extends React.Component<
+  VirtualListProps<T>,
+  VirtualListState
+> {
   static propTypes = {
     /** 行高 */
     rowHeight: PropTypes.oneOfType([PropTypes.func, PropTypes.number]).isRequired,

@@ -13,18 +13,16 @@ const STATUS = {
   danger: ['times-circle'],
 };
 
-
-
 export default class Notification extends PureComponent<NotificationProps> {
   static propTypes = {
     /** 通知栏标识符 */
-    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     /** 多少毫秒后关闭通知栏 */
     counter: PropTypes.number,
     /** 操作通知栏关闭 */
     onDismiss: PropTypes.func,
     /** 状态 */
-    status: PropTypes.oneOf(['success', 'info', 'process', 'warning', 'danger']),
+    status: PropTypes.oneOf(['success', 'info', 'process', 'warning', 'danger']).isRequired,
     /** 是否开启默认关闭 */
     autoClose: PropTypes.bool,
     /** 标题 */
@@ -49,7 +47,7 @@ export default class Notification extends PureComponent<NotificationProps> {
   /** 设置定时器 */
   setTimer(isSet?: boolean) {
     const { autoClose, intervalMap, id, counter } = this.props;
-    if (intervalMap && autoClose || isSet) {
+    if (intervalMap && (autoClose || isSet)) {
       intervalMap.clear(id);
       // 只有在鼠标不在通知栏上时，才设置定时器
       if (!this.mouseIsEnter) {
@@ -60,7 +58,7 @@ export default class Notification extends PureComponent<NotificationProps> {
   /** 清除定时器 */
   clearTimer() {
     const { autoClose, intervalMap, id } = this.props;
-    if (autoClose) {
+    if (autoClose && intervalMap) {
       intervalMap.clear(id);
     }
   }

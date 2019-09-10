@@ -7,9 +7,10 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { NotificationItem, NotificationListProps, NotificationListStates } from '../../interface';
 import './style.scss';
 
-
-
-export default class NotificationList  extends PureComponent<NotificationListProps, NotificationListStates> {
+export default class NotificationList extends PureComponent<
+  NotificationListProps,
+  NotificationListStates
+> {
   static propTypes = {
     /** 操作移除单个通知栏 */
     onDismiss: PropTypes.func,
@@ -17,7 +18,7 @@ export default class NotificationList  extends PureComponent<NotificationListPro
     format: PropTypes.func,
     /** 是否开启自动关闭 */
     autoClose: PropTypes.bool,
-  }
+  };
   constructor(props: NotificationListProps) {
     super(props);
     this.handleToggle = this.handleToggle.bind(this);
@@ -42,15 +43,14 @@ export default class NotificationList  extends PureComponent<NotificationListPro
         {...formatNotification}
       />
     );
-  }
+  };
 
   render() {
     const { notifications } = this.props;
     const { expanded } = this.state;
-    const indicatorClass = cn(
-      'NotificationList__indicator',
-      {'NotificationList__indicator-expanded': expanded }
-    );
+    const indicatorClass = cn('NotificationList__indicator', {
+      'NotificationList__indicator-expanded': expanded,
+    });
 
     let lists: NotificationItem[] = [];
     for (let nvs of notifications.values()) {
@@ -58,19 +58,20 @@ export default class NotificationList  extends PureComponent<NotificationListPro
         lists.push(notificationItem);
       });
     }
+    if (!lists.length) {
+      return null;
+    }
     return (
       <div className="NotificationList">
-        {!!lists.length && (
-          <div className="NotificationList__control-wrapper" onClick={this.handleToggle}>
-            <span className="NotificationList__control">
-              <span className="NotificationList__control-left">
-                <Icon type="dialog"/>
-                {lists.length}
-              </span>
-              <Icon type="triangle-down" className={indicatorClass} />
+        <div className="NotificationList__control-wrapper" onClick={this.handleToggle}>
+          <span className="NotificationList__control">
+            <span className="NotificationList__control-left">
+              <Icon type="dialog" />
+              {lists.length}
             </span>
-          </div>
-        )}
+            <Icon type="triangle-down" className={indicatorClass} />
+          </span>
+        </div>
         {expanded && (
           <div>
             <ReactCSSTransitionGroup
@@ -86,4 +87,3 @@ export default class NotificationList  extends PureComponent<NotificationListPro
     );
   }
 }
-
