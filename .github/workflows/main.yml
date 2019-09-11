@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Install Dependencies
-      run: npm install
+      run: yarn
 
     - name: Unit Testing
-      run: npm run test
+      run: yarn test
