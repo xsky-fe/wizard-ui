@@ -2,6 +2,11 @@
 
 .SelectBox {
   position: relative;
+  &__Header {
+    .open > .dropdown-menu {
+      display: none;
+    }
+  }
   &.disabled {
     pointer-events: none;
     cursor: not-allowed;

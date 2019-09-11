@@ -15,11 +15,16 @@ function getDatas(query: Query) {
   return getMockDatas(query, 180, resName);
 }
 
-const AsyncWithES = ({ clear } : { clear?: boolean }) => {
+const AsyncWithES = ({ clear, multi }: { clear?: boolean; multi?: boolean; }) => {
   const [item, setItem] = React.useState({ id: 1, name: `${resName}-1` } as object);
-  const onSelect = React.useCallback(async (item: object) => {
-    setItem(item);
-  }, [item, setItem]);
+  const [value, setValue] = React.useState([]);
+  const onSelect = React.useCallback((i: any) => {
+    if (multi) {
+      setValue(i);
+    } else {
+      setItem(i);
+    }
+  }, [setItem, setValue]);
   const fetchFormatDatas = async (isReloading: boolean, dQuery: Query = {}, search?: string) => {
     let nameKey = 'name';
     let extraQuery: Query = {};
@@ -65,6 +70,8 @@ const AsyncWithES = ({ clear } : { clear?: boolean }) => {
       item={item}
       fetchData={fetchFormatDatas}
       clear={clear}
+      multi={!!multi}
+      value={value}
     />
   )
 }
@@ -102,3 +109,4 @@ storiesOf('DATA SHOW | VirtualSelectBox', module)
   ))
   .add('async datas', () => <AsyncWithES />)
   .add('async datas with clear', () => <AsyncWithES clear/>)
+  .add('multi with async datas', () => <AsyncWithES multi/>)

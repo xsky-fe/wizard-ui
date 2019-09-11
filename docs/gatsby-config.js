@@ -13,7 +13,8 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `wizard-ui`,
-        path:  Path.resolve(__dirname, `../src/components`)
+        path:  Path.resolve(__dirname, `../src/components`),
+        ignore: [`**/*.test.tsx`]
       },
     },
     {
