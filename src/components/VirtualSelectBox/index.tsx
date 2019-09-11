@@ -185,7 +185,6 @@ class VirtualSelectBox<T extends VirtualItem> extends React.Component<VirtualSel
     }
   };
   handleChange = (newValue: any) => {
-    console.log('newValue', newValue);
     const { onSelect } = this.props;
     const { items } = this.state;
     this.cacheSelected = items.map(this.formatMultItem).filter(i => newValue.includes(i.value));
