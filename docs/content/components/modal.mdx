@@ -31,6 +31,30 @@ date: 2019-06-13
   )
 }
 ```
+## 隐藏 footer
+```jsx
+() => {
+  const [ show, setShow ] = React.useState(false);
+  const handleClick = () => setShow(true);
+  const handleHide = () => setShow(false);
+  return (
+    <div>
+      <Button bsStyle="primary" onClick={handleClick}>打开对话框</Button>
+      <Modal
+        title="基本对话框"
+        show={show}
+        onHide={handleHide}
+        onOk={handleHide}
+        hideFooter
+      >
+        <p>内容 1</p>
+        <p>内容 2</p>
+      </Modal>
+    </div>
+  )
+}
+```
+
 
 ### 异步提交关闭
 模拟异步提交，例如提交表单。

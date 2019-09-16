@@ -32,7 +32,7 @@ const Alert: React.FC<AlertProps> = props => {
   }
 
   return (
-    <BSAlert bsStyle={bsStyle} className={classes.join(' ')} onDismiss={onClose}>
+    <BSAlert bsStyle={bsStyle} className={classes.join(' ')} onDismiss={onDismiss && onClose}>
       {showIcon && <Icon type={icons[bsStyle ? bsStyle : 'info']} />}
       {children}
     </BSAlert>

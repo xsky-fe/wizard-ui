@@ -4,7 +4,7 @@ exports[`Loader should render default ui 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "undefined icon icon-os-search-role",
+      "class": "icon icon-os-search-role",
     },
     "children": Array [
       Object {

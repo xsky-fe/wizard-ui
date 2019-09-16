@@ -1,3 +1,47 @@
+# [0.3.0](https://github.com/xsky-fe/wizard-ui/compare/0.2.0...0.3.0) (2019-09-12)
+
+
+### Bug Fixes
+
+* Panel add class name ([#70](https://github.com/xsky-fe/wizard-ui/issues/70)) ([1e588fe](https://github.com/xsky-fe/wizard-ui/commit/1e588fe))
+
+
+### Features
+
+* Github actions ([#76](https://github.com/xsky-fe/wizard-ui/issues/76)) ([0477764](https://github.com/xsky-fe/wizard-ui/commit/0477764))
+* SEO sitemap ([#68](https://github.com/xsky-fe/wizard-ui/issues/68)) ([32152bd](https://github.com/xsky-fe/wizard-ui/commit/32152bd))
+* VirtualSelectBox ([#65](https://github.com/xsky-fe/wizard-ui/issues/65)) ([c1b9940](https://github.com/xsky-fe/wizard-ui/commit/c1b9940))
+
+# [0.2.0](https://github.com/xsky-fe/wizard-ui/compare/0.1.0...0.2.0) (2019-08-30)
+
+
+### Features
+
+* Add DropdownButton storybook and test. ([#63](https://github.com/xsky-fe/wizard-ui/issues/63)) ([60e361d](https://github.com/xsky-fe/wizard-ui/commit/60e361d))
+* Add grid. ([#58](https://github.com/xsky-fe/wizard-ui/issues/58)) ([5d52289](https://github.com/xsky-fe/wizard-ui/commit/5d52289))
+* Add InputDropdown. ([#64](https://github.com/xsky-fe/wizard-ui/issues/64)) ([a1dcf2a](https://github.com/xsky-fe/wizard-ui/commit/a1dcf2a))
+* Add test and storybook for SubMenu. ([#62](https://github.com/xsky-fe/wizard-ui/issues/62)) ([49980bf](https://github.com/xsky-fe/wizard-ui/commit/49980bf))
+* Docs support search ([#56](https://github.com/xsky-fe/wizard-ui/issues/56)) ([8849a31](https://github.com/xsky-fe/wizard-ui/commit/8849a31))
+* VirtualList ([#59](https://github.com/xsky-fe/wizard-ui/issues/59)) ([b3ec465](https://github.com/xsky-fe/wizard-ui/commit/b3ec465))
+
+# [0.1.0](https://github.com/xsky-fe/wizard-ui/compare/0.0.1...0.1.0) (2019-08-22)
+
+
+### Bug Fixes
+
+* Component in docs ignore error ([#55](https://github.com/xsky-fe/wizard-ui/issues/55)) ([0890682](https://github.com/xsky-fe/wizard-ui/commit/0890682))
+* Rename well component. ([#54](https://github.com/xsky-fe/wizard-ui/issues/54)) ([56dd7d8](https://github.com/xsky-fe/wizard-ui/commit/56dd7d8))
+
+
+### Features
+
+* Add Dropdown component. ([#47](https://github.com/xsky-fe/wizard-ui/issues/47)) ([2a4ae83](https://github.com/xsky-fe/wizard-ui/commit/2a4ae83))
+* Add nav. ([#57](https://github.com/xsky-fe/wizard-ui/issues/57)) ([51cef8a](https://github.com/xsky-fe/wizard-ui/commit/51cef8a))
+* Add Navbar. ([#53](https://github.com/xsky-fe/wizard-ui/issues/53)) ([0e153d0](https://github.com/xsky-fe/wizard-ui/commit/0e153d0))
+* Breadcrumb ([#50](https://github.com/xsky-fe/wizard-ui/issues/50)) ([5b4e6c5](https://github.com/xsky-fe/wizard-ui/commit/5b4e6c5))
+* DatePicker ([#49](https://github.com/xsky-fe/wizard-ui/issues/49)) ([df9d2a0](https://github.com/xsky-fe/wizard-ui/commit/df9d2a0))
+* Support css module. ([#44](https://github.com/xsky-fe/wizard-ui/issues/44)) ([9ad1896](https://github.com/xsky-fe/wizard-ui/commit/9ad1896))
+
 ## [0.0.1](https://github.com/xsky-fe/wizard-ui/compare/0.0.1-beta.6...0.0.1) (2019-08-09)
 
 

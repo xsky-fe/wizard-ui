@@ -8,7 +8,18 @@ import './style.scss';
 const { Header, Title, Body, Footer } = BaseModal;
 
 const Modal: React.FC<ModalProps> = props => {
-  const { title, onHide, onOk, show, style, children, confirmText, okStyle, loading } = props;
+  const {
+    title,
+    onHide,
+    onOk,
+    show,
+    style,
+    children,
+    confirmText,
+    okStyle,
+    loading,
+    hideFooter,
+  } = props;
   let { bsSize } = props,
     dialogClassName = '';
   if (bsSize === 'xlarge') {
@@ -30,12 +41,14 @@ const Modal: React.FC<ModalProps> = props => {
         <Title>{title}</Title>
       </Header>
       <Body key="body">{children}</Body>
-      <Footer key="footer">
-        <Button type="submit" disabled={loading} bsStyle={okStyle} onClick={onOk}>
-          {loading && <Loader bsSize="xs" />}
-          {confirmText}
-        </Button>
-      </Footer>
+      {!hideFooter && (
+        <Footer key="footer">
+          <Button type="submit" disabled={loading} bsStyle={okStyle} onClick={onOk}>
+            {loading && <Loader bsSize="xs" />}
+            {confirmText}
+          </Button>
+        </Footer>
+      )}
     </BaseModal>
   );
 };
@@ -59,6 +72,8 @@ Modal.propTypes = {
   okStyle: PropTypes.string,
   /** 是否展示加载 UI */
   loading: PropTypes.bool,
+  /** 隐藏 footer */
+  hideFooter: PropTypes.bool,
 };
 
 Modal.defaultProps = {
