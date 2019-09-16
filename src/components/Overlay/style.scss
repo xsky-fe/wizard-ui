@@ -1,0 +1,10 @@
+.overlay-wrapper{
+  position: relative;
+  & .overlay-target{
+    display: inline-block;
+  }
+}
+.overlay-content{
+  position: absolute;
+  display: inline-block;
+}

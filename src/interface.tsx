@@ -247,6 +247,22 @@ export interface DropdownProps extends DropdownDefaultProps {
   pullRight?: boolean;
 }
 
+export interface OverlayProps {
+  children: React.ReactNode;
+  label: React.ReactNode;
+  show?: boolean;
+  rootClose?: boolean;
+  placement?: string;
+  animation?: boolean | React.ReactNode;
+  onHide?: () => void;
+  onEnter?: () => void;
+  onEntering?: () => void;
+  onEntered?: () => void;
+  onExit?: () => void;
+  onExiting?: () => void;
+  onExited?: () => void;
+}
+
 export interface MenuItemOptions {
   title: string;
   value: string;
@@ -259,6 +275,7 @@ export interface InputDropdownProps {
   input?: any;
   meta?: any;
 }
+
 export type VirtualItem = {
   id?: number;
 } | string | number

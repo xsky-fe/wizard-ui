@@ -7,6 +7,7 @@ import InputDropdown from './InputDropdown';
 import Loader from './Loader';
 import Modal from './Modal';
 import Navigation from './Navigation';
+import Overlay from './Overlay';
 import RangePicker from './RangePicker';
 import Steps from './Steps';
 import SubMenu from './SubMenu';
@@ -91,6 +92,7 @@ export {
   NavDropdown,
   NavItem,
   Navigation,
+  Overlay,
   RangePicker,
   Row,
   Steps,

@@ -1010,7 +1010,7 @@ initialize {
               "attribs": Object {
                 "aria-hidden": "false",
                 "aria-labelledby": "Tabs-tab-1",
-                "class": "tab-pane active fade in",
+                "class": "fade tab-pane active in",
                 "id": "Tabs-pane-1",
                 "role": "tabpanel",
               },
@@ -1021,15 +1021,112 @@ initialize {
                   },
                   "children": Array [
                     Object {
+                      "attribs": Object {},
+                      "children": Array [
+                        Object {
+                          "data": "第1个tab",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {},
+                      "x-attribsPrefix": Object {},
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "aria-hidden": "true",
+                  "aria-labelledby": "Tabs-tab-2",
+                  "class": "fade tab-pane",
+                  "id": "Tabs-pane-2",
+                  "role": "tabpanel",
+                },
+                "children": Array [
+                  Object {
+                    "attribs": Object {
+                      "class": "Tabs__Body panel panel-default",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {},
+                        "children": Array [
+                          Object {
+                            "data": "第2个tab",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "text",
+                          },
+                        ],
+                        "name": "div",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {},
+                        "x-attribsPrefix": Object {},
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Object {
+                  "attribs": Object {
+                    "aria-hidden": "true",
+                    "aria-labelledby": "Tabs-tab-3",
+                    "class": "fade tab-pane",
+                    "id": "Tabs-pane-3",
+                    "role": "tabpanel",
+                  },
+                  "children": Array [
+                    Object {
                       "attribs": Object {
-                        "class": "panel-body",
+                        "class": "Tabs__Body panel panel-default",
                       },
                       "children": Array [
                         Object {
                           "attribs": Object {},
                           "children": Array [
                             Object {
-                              "data": "第1个tab",
+                              "data": "第3个tab",
                               "next": null,
                               "parent": [Circular],
                               "prev": null,
@@ -1062,44 +1159,25 @@ initialize {
                   ],
                   "name": "div",
                   "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                  },
-                },
-              ],
-              "name": "div",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": Object {
-                "attribs": Object {
-                  "aria-hidden": "true",
-                  "aria-labelledby": "Tabs-tab-2",
-                  "class": "tab-pane fade",
-                  "id": "Tabs-pane-2",
-                  "role": "tabpanel",
-                },
-                "children": Array [
-                  Object {
+                  "next": Object {
                     "attribs": Object {
-                      "class": "Tabs__Body panel panel-default",
+                      "aria-hidden": "true",
+                      "aria-labelledby": "Tabs-tab-4",
+                      "class": "fade tab-pane",
+                      "id": "Tabs-pane-4",
+                      "role": "tabpanel",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {
-                          "class": "panel-body",
+                          "class": "Tabs__Body panel panel-default",
                         },
                         "children": Array [
                           Object {
                             "attribs": Object {},
                             "children": Array [
                               Object {
-                                "data": "第2个tab",
+                                "data": "第4个tab",
                                 "next": null,
                                 "parent": [Circular],
                                 "prev": null,
@@ -1114,160 +1192,6 @@ initialize {
                             "type": "tag",
                             "x-attribsNamespace": Object {},
                             "x-attribsPrefix": Object {},
-                          },
-                        ],
-                        "name": "div",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "class": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "class": undefined,
-                        },
-                      },
-                    ],
-                    "name": "div",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                ],
-                "name": "div",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": Object {
-                  "attribs": Object {
-                    "aria-hidden": "true",
-                    "aria-labelledby": "Tabs-tab-3",
-                    "class": "tab-pane fade",
-                    "id": "Tabs-pane-3",
-                    "role": "tabpanel",
-                  },
-                  "children": Array [
-                    Object {
-                      "attribs": Object {
-                        "class": "Tabs__Body panel panel-default",
-                      },
-                      "children": Array [
-                        Object {
-                          "attribs": Object {
-                            "class": "panel-body",
-                          },
-                          "children": Array [
-                            Object {
-                              "attribs": Object {},
-                              "children": Array [
-                                Object {
-                                  "data": "第3个tab",
-                                  "next": null,
-                                  "parent": [Circular],
-                                  "prev": null,
-                                  "type": "text",
-                                },
-                              ],
-                              "name": "div",
-                              "namespace": "http://www.w3.org/1999/xhtml",
-                              "next": null,
-                              "parent": [Circular],
-                              "prev": null,
-                              "type": "tag",
-                              "x-attribsNamespace": Object {},
-                              "x-attribsPrefix": Object {},
-                            },
-                          ],
-                          "name": "div",
-                          "namespace": "http://www.w3.org/1999/xhtml",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "tag",
-                          "x-attribsNamespace": Object {
-                            "class": undefined,
-                          },
-                          "x-attribsPrefix": Object {
-                            "class": undefined,
-                          },
-                        },
-                      ],
-                      "name": "div",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                  ],
-                  "name": "div",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Object {
-                    "attribs": Object {
-                      "aria-hidden": "true",
-                      "aria-labelledby": "Tabs-tab-4",
-                      "class": "tab-pane fade",
-                      "id": "Tabs-pane-4",
-                      "role": "tabpanel",
-                    },
-                    "children": Array [
-                      Object {
-                        "attribs": Object {
-                          "class": "Tabs__Body panel panel-default",
-                        },
-                        "children": Array [
-                          Object {
-                            "attribs": Object {
-                              "class": "panel-body",
-                            },
-                            "children": Array [
-                              Object {
-                                "attribs": Object {},
-                                "children": Array [
-                                  Object {
-                                    "data": "第4个tab",
-                                    "next": null,
-                                    "parent": [Circular],
-                                    "prev": null,
-                                    "type": "text",
-                                  },
-                                ],
-                                "name": "div",
-                                "namespace": "http://www.w3.org/1999/xhtml",
-                                "next": null,
-                                "parent": [Circular],
-                                "prev": null,
-                                "type": "tag",
-                                "x-attribsNamespace": Object {},
-                                "x-attribsPrefix": Object {},
-                              },
-                            ],
-                            "name": "div",
-                            "namespace": "http://www.w3.org/1999/xhtml",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "tag",
-                            "x-attribsNamespace": Object {
-                              "class": undefined,
-                            },
-                            "x-attribsPrefix": Object {
-                              "class": undefined,
-                            },
                           },
                         ],
                         "name": "div",
@@ -1363,7 +1287,7 @@ initialize {
               "attribs": Object {
                 "aria-hidden": "true",
                 "aria-labelledby": "Tabs-tab-2",
-                "class": "tab-pane fade",
+                "class": "fade tab-pane",
                 "id": "Tabs-pane-2",
                 "role": "tabpanel",
               },
@@ -1374,29 +1298,14 @@ initialize {
                   },
                   "children": Array [
                     Object {
-                      "attribs": Object {
-                        "class": "panel-body",
-                      },
+                      "attribs": Object {},
                       "children": Array [
                         Object {
-                          "attribs": Object {},
-                          "children": Array [
-                            Object {
-                              "data": "第2个tab",
-                              "next": null,
-                              "parent": [Circular],
-                              "prev": null,
-                              "type": "text",
-                            },
-                          ],
-                          "name": "div",
-                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "data": "第2个tab",
                           "next": null,
                           "parent": [Circular],
                           "prev": null,
-                          "type": "tag",
-                          "x-attribsNamespace": Object {},
-                          "x-attribsPrefix": Object {},
+                          "type": "text",
                         },
                       ],
                       "name": "div",
@@ -1405,12 +1314,8 @@ initialize {
                       "parent": [Circular],
                       "prev": null,
                       "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
+                      "x-attribsNamespace": Object {},
+                      "x-attribsPrefix": Object {},
                     },
                   ],
                   "name": "div",
@@ -1433,7 +1338,7 @@ initialize {
                 "attribs": Object {
                   "aria-hidden": "true",
                   "aria-labelledby": "Tabs-tab-3",
-                  "class": "tab-pane fade",
+                  "class": "fade tab-pane",
                   "id": "Tabs-pane-3",
                   "role": "tabpanel",
                 },
@@ -1444,29 +1349,14 @@ initialize {
                     },
                     "children": Array [
                       Object {
-                        "attribs": Object {
-                          "class": "panel-body",
-                        },
+                        "attribs": Object {},
                         "children": Array [
                           Object {
-                            "attribs": Object {},
-                            "children": Array [
-                              Object {
-                                "data": "第3个tab",
-                                "next": null,
-                                "parent": [Circular],
-                                "prev": null,
-                                "type": "text",
-                              },
-                            ],
-                            "name": "div",
-                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "data": "第3个tab",
                             "next": null,
                             "parent": [Circular],
                             "prev": null,
-                            "type": "tag",
-                            "x-attribsNamespace": Object {},
-                            "x-attribsPrefix": Object {},
+                            "type": "text",
                           },
                         ],
                         "name": "div",
@@ -1475,12 +1365,8 @@ initialize {
                         "parent": [Circular],
                         "prev": null,
                         "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "class": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "class": undefined,
-                        },
+                        "x-attribsNamespace": Object {},
+                        "x-attribsPrefix": Object {},
                       },
                     ],
                     "name": "div",
@@ -1503,7 +1389,7 @@ initialize {
                   "attribs": Object {
                     "aria-hidden": "true",
                     "aria-labelledby": "Tabs-tab-4",
-                    "class": "tab-pane fade",
+                    "class": "fade tab-pane",
                     "id": "Tabs-pane-4",
                     "role": "tabpanel",
                   },
@@ -1514,29 +1400,14 @@ initialize {
                       },
                       "children": Array [
                         Object {
-                          "attribs": Object {
-                            "class": "panel-body",
-                          },
+                          "attribs": Object {},
                           "children": Array [
                             Object {
-                              "attribs": Object {},
-                              "children": Array [
-                                Object {
-                                  "data": "第4个tab",
-                                  "next": null,
-                                  "parent": [Circular],
-                                  "prev": null,
-                                  "type": "text",
-                                },
-                              ],
-                              "name": "div",
-                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "data": "第4个tab",
                               "next": null,
                               "parent": [Circular],
                               "prev": null,
-                              "type": "tag",
-                              "x-attribsNamespace": Object {},
-                              "x-attribsPrefix": Object {},
+                              "type": "text",
                             },
                           ],
                           "name": "div",
@@ -1545,12 +1416,8 @@ initialize {
                           "parent": [Circular],
                           "prev": null,
                           "type": "tag",
-                          "x-attribsNamespace": Object {
-                            "class": undefined,
-                          },
-                          "x-attribsPrefix": Object {
-                            "class": undefined,
-                          },
+                          "x-attribsNamespace": Object {},
+                          "x-attribsPrefix": Object {},
                         },
                       ],
                       "name": "div",
@@ -1611,7 +1478,7 @@ initialize {
                 "attribs": Object {
                   "aria-hidden": "false",
                   "aria-labelledby": "Tabs-tab-1",
-                  "class": "tab-pane active fade in",
+                  "class": "fade tab-pane active in",
                   "id": "Tabs-pane-1",
                   "role": "tabpanel",
                 },
@@ -1622,29 +1489,14 @@ initialize {
                     },
                     "children": Array [
                       Object {
-                        "attribs": Object {
-                          "class": "panel-body",
-                        },
+                        "attribs": Object {},
                         "children": Array [
                           Object {
-                            "attribs": Object {},
-                            "children": Array [
-                              Object {
-                                "data": "第1个tab",
-                                "next": null,
-                                "parent": [Circular],
-                                "prev": null,
-                                "type": "text",
-                              },
-                            ],
-                            "name": "div",
-                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "data": "第1个tab",
                             "next": null,
                             "parent": [Circular],
                             "prev": null,
-                            "type": "tag",
-                            "x-attribsNamespace": Object {},
-                            "x-attribsPrefix": Object {},
+                            "type": "text",
                           },
                         ],
                         "name": "div",
@@ -1653,12 +1505,8 @@ initialize {
                         "parent": [Circular],
                         "prev": null,
                         "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "class": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "class": undefined,
-                        },
+                        "x-attribsNamespace": Object {},
+                        "x-attribsPrefix": Object {},
                       },
                     ],
                     "name": "div",
@@ -1716,7 +1564,7 @@ initialize {
               "attribs": Object {
                 "aria-hidden": "true",
                 "aria-labelledby": "Tabs-tab-3",
-                "class": "tab-pane fade",
+                "class": "fade tab-pane",
                 "id": "Tabs-pane-3",
                 "role": "tabpanel",
               },
@@ -1727,29 +1575,14 @@ initialize {
                   },
                   "children": Array [
                     Object {
-                      "attribs": Object {
-                        "class": "panel-body",
-                      },
+                      "attribs": Object {},
                       "children": Array [
                         Object {
-                          "attribs": Object {},
-                          "children": Array [
-                            Object {
-                              "data": "第3个tab",
-                              "next": null,
-                              "parent": [Circular],
-                              "prev": null,
-                              "type": "text",
-                            },
-                          ],
-                          "name": "div",
-                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "data": "第3个tab",
                           "next": null,
                           "parent": [Circular],
                           "prev": null,
-                          "type": "tag",
-                          "x-attribsNamespace": Object {},
-                          "x-attribsPrefix": Object {},
+                          "type": "text",
                         },
                       ],
                       "name": "div",
@@ -1758,12 +1591,8 @@ initialize {
                       "parent": [Circular],
                       "prev": null,
                       "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
+                      "x-attribsNamespace": Object {},
+                      "x-attribsPrefix": Object {},
                     },
                   ],
                   "name": "div",
@@ -1786,7 +1615,7 @@ initialize {
                 "attribs": Object {
                   "aria-hidden": "true",
                   "aria-labelledby": "Tabs-tab-4",
-                  "class": "tab-pane fade",
+                  "class": "fade tab-pane",
                   "id": "Tabs-pane-4",
                   "role": "tabpanel",
                 },
@@ -1797,29 +1626,14 @@ initialize {
                     },
                     "children": Array [
                       Object {
-                        "attribs": Object {
-                          "class": "panel-body",
-                        },
+                        "attribs": Object {},
                         "children": Array [
                           Object {
-                            "attribs": Object {},
-                            "children": Array [
-                              Object {
-                                "data": "第4个tab",
-                                "next": null,
-                                "parent": [Circular],
-                                "prev": null,
-                                "type": "text",
-                              },
-                            ],
-                            "name": "div",
-                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "data": "第4个tab",
                             "next": null,
                             "parent": [Circular],
                             "prev": null,
-                            "type": "tag",
-                            "x-attribsNamespace": Object {},
-                            "x-attribsPrefix": Object {},
+                            "type": "text",
                           },
                         ],
                         "name": "div",
@@ -1828,12 +1642,8 @@ initialize {
                         "parent": [Circular],
                         "prev": null,
                         "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "class": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "class": undefined,
-                        },
+                        "x-attribsNamespace": Object {},
+                        "x-attribsPrefix": Object {},
                       },
                     ],
                     "name": "div",
@@ -1876,7 +1686,7 @@ initialize {
                 "attribs": Object {
                   "aria-hidden": "true",
                   "aria-labelledby": "Tabs-tab-2",
-                  "class": "tab-pane fade",
+                  "class": "fade tab-pane",
                   "id": "Tabs-pane-2",
                   "role": "tabpanel",
                 },
@@ -1887,29 +1697,14 @@ initialize {
                     },
                     "children": Array [
                       Object {
-                        "attribs": Object {
-                          "class": "panel-body",
-                        },
+                        "attribs": Object {},
                         "children": Array [
                           Object {
-                            "attribs": Object {},
-                            "children": Array [
-                              Object {
-                                "data": "第2个tab",
-                                "next": null,
-                                "parent": [Circular],
-                                "prev": null,
-                                "type": "text",
-                              },
-                            ],
-                            "name": "div",
-                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "data": "第2个tab",
                             "next": null,
                             "parent": [Circular],
                             "prev": null,
-                            "type": "tag",
-                            "x-attribsNamespace": Object {},
-                            "x-attribsPrefix": Object {},
+                            "type": "text",
                           },
                         ],
                         "name": "div",
@@ -1918,12 +1713,8 @@ initialize {
                         "parent": [Circular],
                         "prev": null,
                         "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "class": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "class": undefined,
-                        },
+                        "x-attribsNamespace": Object {},
+                        "x-attribsPrefix": Object {},
                       },
                     ],
                     "name": "div",
@@ -1948,7 +1739,7 @@ initialize {
                   "attribs": Object {
                     "aria-hidden": "false",
                     "aria-labelledby": "Tabs-tab-1",
-                    "class": "tab-pane active fade in",
+                    "class": "fade tab-pane active in",
                     "id": "Tabs-pane-1",
                     "role": "tabpanel",
                   },
@@ -1959,29 +1750,14 @@ initialize {
                       },
                       "children": Array [
                         Object {
-                          "attribs": Object {
-                            "class": "panel-body",
-                          },
+                          "attribs": Object {},
                           "children": Array [
                             Object {
-                              "attribs": Object {},
-                              "children": Array [
-                                Object {
-                                  "data": "第1个tab",
-                                  "next": null,
-                                  "parent": [Circular],
-                                  "prev": null,
-                                  "type": "text",
-                                },
-                              ],
-                              "name": "div",
-                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "data": "第1个tab",
                               "next": null,
                               "parent": [Circular],
                               "prev": null,
-                              "type": "tag",
-                              "x-attribsNamespace": Object {},
-                              "x-attribsPrefix": Object {},
+                              "type": "text",
                             },
                           ],
                           "name": "div",
@@ -1990,12 +1766,8 @@ initialize {
                           "parent": [Circular],
                           "prev": null,
                           "type": "tag",
-                          "x-attribsNamespace": Object {
-                            "class": undefined,
-                          },
-                          "x-attribsPrefix": Object {
-                            "class": undefined,
-                          },
+                          "x-attribsNamespace": Object {},
+                          "x-attribsPrefix": Object {},
                         },
                       ],
                       "name": "div",
@@ -2069,7 +1841,7 @@ initialize {
               "attribs": Object {
                 "aria-hidden": "true",
                 "aria-labelledby": "Tabs-tab-4",
-                "class": "tab-pane fade",
+                "class": "fade tab-pane",
                 "id": "Tabs-pane-4",
                 "role": "tabpanel",
               },
@@ -2080,15 +1852,116 @@ initialize {
                   },
                   "children": Array [
                     Object {
+                      "attribs": Object {},
+                      "children": Array [
+                        Object {
+                          "data": "第4个tab",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {},
+                      "x-attribsPrefix": Object {},
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "aria-hidden": "true",
+                  "aria-labelledby": "Tabs-tab-3",
+                  "class": "fade tab-pane",
+                  "id": "Tabs-pane-3",
+                  "role": "tabpanel",
+                },
+                "children": Array [
+                  Object {
+                    "attribs": Object {
+                      "class": "Tabs__Body panel panel-default",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {},
+                        "children": Array [
+                          Object {
+                            "data": "第3个tab",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "text",
+                          },
+                        ],
+                        "name": "div",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {},
+                        "x-attribsPrefix": Object {},
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": Object {
+                  "attribs": Object {
+                    "aria-hidden": "true",
+                    "aria-labelledby": "Tabs-tab-2",
+                    "class": "fade tab-pane",
+                    "id": "Tabs-pane-2",
+                    "role": "tabpanel",
+                  },
+                  "children": Array [
+                    Object {
                       "attribs": Object {
-                        "class": "panel-body",
+                        "class": "Tabs__Body panel panel-default",
                       },
                       "children": Array [
                         Object {
                           "attribs": Object {},
                           "children": Array [
                             Object {
-                              "data": "第4个tab",
+                              "data": "第2个tab",
                               "next": null,
                               "parent": [Circular],
                               "prev": null,
@@ -2121,46 +1994,27 @@ initialize {
                   ],
                   "name": "div",
                   "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
+                  "next": [Circular],
                   "parent": [Circular],
-                  "prev": null,
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                  },
-                },
-              ],
-              "name": "div",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": Object {
-                "attribs": Object {
-                  "aria-hidden": "true",
-                  "aria-labelledby": "Tabs-tab-3",
-                  "class": "tab-pane fade",
-                  "id": "Tabs-pane-3",
-                  "role": "tabpanel",
-                },
-                "children": Array [
-                  Object {
+                  "prev": Object {
                     "attribs": Object {
-                      "class": "Tabs__Body panel panel-default",
+                      "aria-hidden": "false",
+                      "aria-labelledby": "Tabs-tab-1",
+                      "class": "fade tab-pane active in",
+                      "id": "Tabs-pane-1",
+                      "role": "tabpanel",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {
-                          "class": "panel-body",
+                          "class": "Tabs__Body panel panel-default",
                         },
                         "children": Array [
                           Object {
                             "attribs": Object {},
                             "children": Array [
                               Object {
-                                "data": "第3个tab",
+                                "data": "第1个tab",
                                 "next": null,
                                 "parent": [Circular],
                                 "prev": null,
@@ -2175,164 +2029,6 @@ initialize {
                             "type": "tag",
                             "x-attribsNamespace": Object {},
                             "x-attribsPrefix": Object {},
-                          },
-                        ],
-                        "name": "div",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "class": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "class": undefined,
-                        },
-                      },
-                    ],
-                    "name": "div",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                ],
-                "name": "div",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": [Circular],
-                "parent": [Circular],
-                "prev": Object {
-                  "attribs": Object {
-                    "aria-hidden": "true",
-                    "aria-labelledby": "Tabs-tab-2",
-                    "class": "tab-pane fade",
-                    "id": "Tabs-pane-2",
-                    "role": "tabpanel",
-                  },
-                  "children": Array [
-                    Object {
-                      "attribs": Object {
-                        "class": "Tabs__Body panel panel-default",
-                      },
-                      "children": Array [
-                        Object {
-                          "attribs": Object {
-                            "class": "panel-body",
-                          },
-                          "children": Array [
-                            Object {
-                              "attribs": Object {},
-                              "children": Array [
-                                Object {
-                                  "data": "第2个tab",
-                                  "next": null,
-                                  "parent": [Circular],
-                                  "prev": null,
-                                  "type": "text",
-                                },
-                              ],
-                              "name": "div",
-                              "namespace": "http://www.w3.org/1999/xhtml",
-                              "next": null,
-                              "parent": [Circular],
-                              "prev": null,
-                              "type": "tag",
-                              "x-attribsNamespace": Object {},
-                              "x-attribsPrefix": Object {},
-                            },
-                          ],
-                          "name": "div",
-                          "namespace": "http://www.w3.org/1999/xhtml",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "tag",
-                          "x-attribsNamespace": Object {
-                            "class": undefined,
-                          },
-                          "x-attribsPrefix": Object {
-                            "class": undefined,
-                          },
-                        },
-                      ],
-                      "name": "div",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                  ],
-                  "name": "div",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": [Circular],
-                  "parent": [Circular],
-                  "prev": Object {
-                    "attribs": Object {
-                      "aria-hidden": "false",
-                      "aria-labelledby": "Tabs-tab-1",
-                      "class": "tab-pane active fade in",
-                      "id": "Tabs-pane-1",
-                      "role": "tabpanel",
-                    },
-                    "children": Array [
-                      Object {
-                        "attribs": Object {
-                          "class": "Tabs__Body panel panel-default",
-                        },
-                        "children": Array [
-                          Object {
-                            "attribs": Object {
-                              "class": "panel-body",
-                            },
-                            "children": Array [
-                              Object {
-                                "attribs": Object {},
-                                "children": Array [
-                                  Object {
-                                    "data": "第1个tab",
-                                    "next": null,
-                                    "parent": [Circular],
-                                    "prev": null,
-                                    "type": "text",
-                                  },
-                                ],
-                                "name": "div",
-                                "namespace": "http://www.w3.org/1999/xhtml",
-                                "next": null,
-                                "parent": [Circular],
-                                "prev": null,
-                                "type": "tag",
-                                "x-attribsNamespace": Object {},
-                                "x-attribsPrefix": Object {},
-                              },
-                            ],
-                            "name": "div",
-                            "namespace": "http://www.w3.org/1999/xhtml",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "tag",
-                            "x-attribsNamespace": Object {
-                              "class": undefined,
-                            },
-                            "x-attribsPrefix": Object {
-                              "class": undefined,
-                            },
                           },
                         ],
                         "name": "div",
@@ -2453,7 +2149,7 @@ initialize {
             "attribs": Object {
               "aria-hidden": "false",
               "aria-labelledby": "Tabs-tab-1",
-              "class": "tab-pane active fade in",
+              "class": "fade tab-pane active in",
               "id": "Tabs-pane-1",
               "role": "tabpanel",
             },
@@ -2464,15 +2160,112 @@ initialize {
                 },
                 "children": Array [
                   Object {
+                    "attribs": Object {},
+                    "children": Array [
+                      Object {
+                        "data": "第1个tab",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {},
+                    "x-attribsPrefix": Object {},
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Object {
+              "attribs": Object {
+                "aria-hidden": "true",
+                "aria-labelledby": "Tabs-tab-2",
+                "class": "fade tab-pane",
+                "id": "Tabs-pane-2",
+                "role": "tabpanel",
+              },
+              "children": Array [
+                Object {
+                  "attribs": Object {
+                    "class": "Tabs__Body panel panel-default",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {},
+                      "children": Array [
+                        Object {
+                          "data": "第2个tab",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {},
+                      "x-attribsPrefix": Object {},
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "aria-hidden": "true",
+                  "aria-labelledby": "Tabs-tab-3",
+                  "class": "fade tab-pane",
+                  "id": "Tabs-pane-3",
+                  "role": "tabpanel",
+                },
+                "children": Array [
+                  Object {
                     "attribs": Object {
-                      "class": "panel-body",
+                      "class": "Tabs__Body panel panel-default",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {},
                         "children": Array [
                           Object {
-                            "data": "第1个tab",
+                            "data": "第3个tab",
                             "next": null,
                             "parent": [Circular],
                             "prev": null,
@@ -2505,44 +2298,25 @@ initialize {
                 ],
                 "name": "div",
                 "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": null,
-                "type": "tag",
-                "x-attribsNamespace": Object {
-                  "class": undefined,
-                },
-                "x-attribsPrefix": Object {
-                  "class": undefined,
-                },
-              },
-            ],
-            "name": "div",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": Object {
-              "attribs": Object {
-                "aria-hidden": "true",
-                "aria-labelledby": "Tabs-tab-2",
-                "class": "tab-pane fade",
-                "id": "Tabs-pane-2",
-                "role": "tabpanel",
-              },
-              "children": Array [
-                Object {
+                "next": Object {
                   "attribs": Object {
-                    "class": "Tabs__Body panel panel-default",
+                    "aria-hidden": "true",
+                    "aria-labelledby": "Tabs-tab-4",
+                    "class": "fade tab-pane",
+                    "id": "Tabs-pane-4",
+                    "role": "tabpanel",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "panel-body",
+                        "class": "Tabs__Body panel panel-default",
                       },
                       "children": Array [
                         Object {
                           "attribs": Object {},
                           "children": Array [
                             Object {
-                              "data": "第2个tab",
+                              "data": "第4个tab",
                               "next": null,
                               "parent": [Circular],
                               "prev": null,
@@ -2557,160 +2331,6 @@ initialize {
                           "type": "tag",
                           "x-attribsNamespace": Object {},
                           "x-attribsPrefix": Object {},
-                        },
-                      ],
-                      "name": "div",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                  ],
-                  "name": "div",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                  },
-                },
-              ],
-              "name": "div",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": Object {
-                "attribs": Object {
-                  "aria-hidden": "true",
-                  "aria-labelledby": "Tabs-tab-3",
-                  "class": "tab-pane fade",
-                  "id": "Tabs-pane-3",
-                  "role": "tabpanel",
-                },
-                "children": Array [
-                  Object {
-                    "attribs": Object {
-                      "class": "Tabs__Body panel panel-default",
-                    },
-                    "children": Array [
-                      Object {
-                        "attribs": Object {
-                          "class": "panel-body",
-                        },
-                        "children": Array [
-                          Object {
-                            "attribs": Object {},
-                            "children": Array [
-                              Object {
-                                "data": "第3个tab",
-                                "next": null,
-                                "parent": [Circular],
-                                "prev": null,
-                                "type": "text",
-                              },
-                            ],
-                            "name": "div",
-                            "namespace": "http://www.w3.org/1999/xhtml",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "tag",
-                            "x-attribsNamespace": Object {},
-                            "x-attribsPrefix": Object {},
-                          },
-                        ],
-                        "name": "div",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "class": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "class": undefined,
-                        },
-                      },
-                    ],
-                    "name": "div",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                ],
-                "name": "div",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": Object {
-                  "attribs": Object {
-                    "aria-hidden": "true",
-                    "aria-labelledby": "Tabs-tab-4",
-                    "class": "tab-pane fade",
-                    "id": "Tabs-pane-4",
-                    "role": "tabpanel",
-                  },
-                  "children": Array [
-                    Object {
-                      "attribs": Object {
-                        "class": "Tabs__Body panel panel-default",
-                      },
-                      "children": Array [
-                        Object {
-                          "attribs": Object {
-                            "class": "panel-body",
-                          },
-                          "children": Array [
-                            Object {
-                              "attribs": Object {},
-                              "children": Array [
-                                Object {
-                                  "data": "第4个tab",
-                                  "next": null,
-                                  "parent": [Circular],
-                                  "prev": null,
-                                  "type": "text",
-                                },
-                              ],
-                              "name": "div",
-                              "namespace": "http://www.w3.org/1999/xhtml",
-                              "next": null,
-                              "parent": [Circular],
-                              "prev": null,
-                              "type": "tag",
-                              "x-attribsNamespace": Object {},
-                              "x-attribsPrefix": Object {},
-                            },
-                          ],
-                          "name": "div",
-                          "namespace": "http://www.w3.org/1999/xhtml",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "tag",
-                          "x-attribsNamespace": Object {
-                            "class": undefined,
-                          },
-                          "x-attribsPrefix": Object {
-                            "class": undefined,
-                          },
                         },
                       ],
                       "name": "div",
@@ -2806,7 +2426,7 @@ initialize {
             "attribs": Object {
               "aria-hidden": "true",
               "aria-labelledby": "Tabs-tab-2",
-              "class": "tab-pane fade",
+              "class": "fade tab-pane",
               "id": "Tabs-pane-2",
               "role": "tabpanel",
             },
@@ -2817,29 +2437,14 @@ initialize {
                 },
                 "children": Array [
                   Object {
-                    "attribs": Object {
-                      "class": "panel-body",
-                    },
+                    "attribs": Object {},
                     "children": Array [
                       Object {
-                        "attribs": Object {},
-                        "children": Array [
-                          Object {
-                            "data": "第2个tab",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "text",
-                          },
-                        ],
-                        "name": "div",
-                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "data": "第2个tab",
                         "next": null,
                         "parent": [Circular],
                         "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {},
-                        "x-attribsPrefix": Object {},
+                        "type": "text",
                       },
                     ],
                     "name": "div",
@@ -2848,12 +2453,8 @@ initialize {
                     "parent": [Circular],
                     "prev": null,
                     "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
+                    "x-attribsNamespace": Object {},
+                    "x-attribsPrefix": Object {},
                   },
                 ],
                 "name": "div",
@@ -2876,7 +2477,7 @@ initialize {
               "attribs": Object {
                 "aria-hidden": "true",
                 "aria-labelledby": "Tabs-tab-3",
-                "class": "tab-pane fade",
+                "class": "fade tab-pane",
                 "id": "Tabs-pane-3",
                 "role": "tabpanel",
               },
@@ -2887,29 +2488,14 @@ initialize {
                   },
                   "children": Array [
                     Object {
-                      "attribs": Object {
-                        "class": "panel-body",
-                      },
+                      "attribs": Object {},
                       "children": Array [
                         Object {
-                          "attribs": Object {},
-                          "children": Array [
-                            Object {
-                              "data": "第3个tab",
-                              "next": null,
-                              "parent": [Circular],
-                              "prev": null,
-                              "type": "text",
-                            },
-                          ],
-                          "name": "div",
-                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "data": "第3个tab",
                           "next": null,
                           "parent": [Circular],
                           "prev": null,
-                          "type": "tag",
-                          "x-attribsNamespace": Object {},
-                          "x-attribsPrefix": Object {},
+                          "type": "text",
                         },
                       ],
                       "name": "div",
@@ -2918,12 +2504,8 @@ initialize {
                       "parent": [Circular],
                       "prev": null,
                       "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
+                      "x-attribsNamespace": Object {},
+                      "x-attribsPrefix": Object {},
                     },
                   ],
                   "name": "div",
@@ -2946,7 +2528,7 @@ initialize {
                 "attribs": Object {
                   "aria-hidden": "true",
                   "aria-labelledby": "Tabs-tab-4",
-                  "class": "tab-pane fade",
+                  "class": "fade tab-pane",
                   "id": "Tabs-pane-4",
                   "role": "tabpanel",
                 },
@@ -2957,29 +2539,14 @@ initialize {
                     },
                     "children": Array [
                       Object {
-                        "attribs": Object {
-                          "class": "panel-body",
-                        },
+                        "attribs": Object {},
                         "children": Array [
                           Object {
-                            "attribs": Object {},
-                            "children": Array [
-                              Object {
-                                "data": "第4个tab",
-                                "next": null,
-                                "parent": [Circular],
-                                "prev": null,
-                                "type": "text",
-                              },
-                            ],
-                            "name": "div",
-                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "data": "第4个tab",
                             "next": null,
                             "parent": [Circular],
                             "prev": null,
-                            "type": "tag",
-                            "x-attribsNamespace": Object {},
-                            "x-attribsPrefix": Object {},
+                            "type": "text",
                           },
                         ],
                         "name": "div",
@@ -2988,12 +2555,8 @@ initialize {
                         "parent": [Circular],
                         "prev": null,
                         "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "class": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "class": undefined,
-                        },
+                        "x-attribsNamespace": Object {},
+                        "x-attribsPrefix": Object {},
                       },
                     ],
                     "name": "div",
@@ -3054,7 +2617,7 @@ initialize {
               "attribs": Object {
                 "aria-hidden": "false",
                 "aria-labelledby": "Tabs-tab-1",
-                "class": "tab-pane active fade in",
+                "class": "fade tab-pane active in",
                 "id": "Tabs-pane-1",
                 "role": "tabpanel",
               },
@@ -3065,29 +2628,14 @@ initialize {
                   },
                   "children": Array [
                     Object {
-                      "attribs": Object {
-                        "class": "panel-body",
-                      },
+                      "attribs": Object {},
                       "children": Array [
                         Object {
-                          "attribs": Object {},
-                          "children": Array [
-                            Object {
-                              "data": "第1个tab",
-                              "next": null,
-                              "parent": [Circular],
-                              "prev": null,
-                              "type": "text",
-                            },
-                          ],
-                          "name": "div",
-                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "data": "第1个tab",
                           "next": null,
                           "parent": [Circular],
                           "prev": null,
-                          "type": "tag",
-                          "x-attribsNamespace": Object {},
-                          "x-attribsPrefix": Object {},
+                          "type": "text",
                         },
                       ],
                       "name": "div",
@@ -3096,12 +2644,8 @@ initialize {
                       "parent": [Circular],
                       "prev": null,
                       "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
+                      "x-attribsNamespace": Object {},
+                      "x-attribsPrefix": Object {},
                     },
                   ],
                   "name": "div",
@@ -3159,7 +2703,7 @@ initialize {
             "attribs": Object {
               "aria-hidden": "true",
               "aria-labelledby": "Tabs-tab-3",
-              "class": "tab-pane fade",
+              "class": "fade tab-pane",
               "id": "Tabs-pane-3",
               "role": "tabpanel",
             },
@@ -3170,29 +2714,14 @@ initialize {
                 },
                 "children": Array [
                   Object {
-                    "attribs": Object {
-                      "class": "panel-body",
-                    },
+                    "attribs": Object {},
                     "children": Array [
                       Object {
-                        "attribs": Object {},
-                        "children": Array [
-                          Object {
-                            "data": "第3个tab",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "text",
-                          },
-                        ],
-                        "name": "div",
-                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "data": "第3个tab",
                         "next": null,
                         "parent": [Circular],
                         "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {},
-                        "x-attribsPrefix": Object {},
+                        "type": "text",
                       },
                     ],
                     "name": "div",
@@ -3201,12 +2730,8 @@ initialize {
                     "parent": [Circular],
                     "prev": null,
                     "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
+                    "x-attribsNamespace": Object {},
+                    "x-attribsPrefix": Object {},
                   },
                 ],
                 "name": "div",
@@ -3229,7 +2754,7 @@ initialize {
               "attribs": Object {
                 "aria-hidden": "true",
                 "aria-labelledby": "Tabs-tab-4",
-                "class": "tab-pane fade",
+                "class": "fade tab-pane",
                 "id": "Tabs-pane-4",
                 "role": "tabpanel",
               },
@@ -3240,29 +2765,14 @@ initialize {
                   },
                   "children": Array [
                     Object {
-                      "attribs": Object {
-                        "class": "panel-body",
-                      },
+                      "attribs": Object {},
                       "children": Array [
                         Object {
-                          "attribs": Object {},
-                          "children": Array [
-                            Object {
-                              "data": "第4个tab",
-                              "next": null,
-                              "parent": [Circular],
-                              "prev": null,
-                              "type": "text",
-                            },
-                          ],
-                          "name": "div",
-                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "data": "第4个tab",
                           "next": null,
                           "parent": [Circular],
                           "prev": null,
-                          "type": "tag",
-                          "x-attribsNamespace": Object {},
-                          "x-attribsPrefix": Object {},
+                          "type": "text",
                         },
                       ],
                       "name": "div",
@@ -3271,12 +2781,8 @@ initialize {
                       "parent": [Circular],
                       "prev": null,
                       "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
+                      "x-attribsNamespace": Object {},
+                      "x-attribsPrefix": Object {},
                     },
                   ],
                   "name": "div",
@@ -3319,7 +2825,7 @@ initialize {
               "attribs": Object {
                 "aria-hidden": "true",
                 "aria-labelledby": "Tabs-tab-2",
-                "class": "tab-pane fade",
+                "class": "fade tab-pane",
                 "id": "Tabs-pane-2",
                 "role": "tabpanel",
               },
@@ -3330,29 +2836,14 @@ initialize {
                   },
                   "children": Array [
                     Object {
-                      "attribs": Object {
-                        "class": "panel-body",
-                      },
+                      "attribs": Object {},
                       "children": Array [
                         Object {
-                          "attribs": Object {},
-                          "children": Array [
-                            Object {
-                              "data": "第2个tab",
-                              "next": null,
-                              "parent": [Circular],
-                              "prev": null,
-                              "type": "text",
-                            },
-                          ],
-                          "name": "div",
-                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "data": "第2个tab",
                           "next": null,
                           "parent": [Circular],
                           "prev": null,
-                          "type": "tag",
-                          "x-attribsNamespace": Object {},
-                          "x-attribsPrefix": Object {},
+                          "type": "text",
                         },
                       ],
                       "name": "div",
@@ -3361,12 +2852,8 @@ initialize {
                       "parent": [Circular],
                       "prev": null,
                       "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
+                      "x-attribsNamespace": Object {},
+                      "x-attribsPrefix": Object {},
                     },
                   ],
                   "name": "div",
@@ -3391,7 +2878,7 @@ initialize {
                 "attribs": Object {
                   "aria-hidden": "false",
                   "aria-labelledby": "Tabs-tab-1",
-                  "class": "tab-pane active fade in",
+                  "class": "fade tab-pane active in",
                   "id": "Tabs-pane-1",
                   "role": "tabpanel",
                 },
@@ -3402,29 +2889,14 @@ initialize {
                     },
                     "children": Array [
                       Object {
-                        "attribs": Object {
-                          "class": "panel-body",
-                        },
+                        "attribs": Object {},
                         "children": Array [
                           Object {
-                            "attribs": Object {},
-                            "children": Array [
-                              Object {
-                                "data": "第1个tab",
-                                "next": null,
-                                "parent": [Circular],
-                                "prev": null,
-                                "type": "text",
-                              },
-                            ],
-                            "name": "div",
-                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "data": "第1个tab",
                             "next": null,
                             "parent": [Circular],
                             "prev": null,
-                            "type": "tag",
-                            "x-attribsNamespace": Object {},
-                            "x-attribsPrefix": Object {},
+                            "type": "text",
                           },
                         ],
                         "name": "div",
@@ -3433,12 +2905,8 @@ initialize {
                         "parent": [Circular],
                         "prev": null,
                         "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "class": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "class": undefined,
-                        },
+                        "x-attribsNamespace": Object {},
+                        "x-attribsPrefix": Object {},
                       },
                     ],
                     "name": "div",
@@ -3512,7 +2980,7 @@ initialize {
             "attribs": Object {
               "aria-hidden": "true",
               "aria-labelledby": "Tabs-tab-4",
-              "class": "tab-pane fade",
+              "class": "fade tab-pane",
               "id": "Tabs-pane-4",
               "role": "tabpanel",
             },
@@ -3523,15 +2991,116 @@ initialize {
                 },
                 "children": Array [
                   Object {
+                    "attribs": Object {},
+                    "children": Array [
+                      Object {
+                        "data": "第4个tab",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {},
+                    "x-attribsPrefix": Object {},
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": Object {
+              "attribs": Object {
+                "aria-hidden": "true",
+                "aria-labelledby": "Tabs-tab-3",
+                "class": "fade tab-pane",
+                "id": "Tabs-pane-3",
+                "role": "tabpanel",
+              },
+              "children": Array [
+                Object {
+                  "attribs": Object {
+                    "class": "Tabs__Body panel panel-default",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {},
+                      "children": Array [
+                        Object {
+                          "data": "第3个tab",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {},
+                      "x-attribsPrefix": Object {},
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "aria-hidden": "true",
+                  "aria-labelledby": "Tabs-tab-2",
+                  "class": "fade tab-pane",
+                  "id": "Tabs-pane-2",
+                  "role": "tabpanel",
+                },
+                "children": Array [
+                  Object {
                     "attribs": Object {
-                      "class": "panel-body",
+                      "class": "Tabs__Body panel panel-default",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {},
                         "children": Array [
                           Object {
-                            "data": "第4个tab",
+                            "data": "第2个tab",
                             "next": null,
                             "parent": [Circular],
                             "prev": null,
@@ -3564,46 +3133,27 @@ initialize {
                 ],
                 "name": "div",
                 "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
+                "next": [Circular],
                 "parent": [Circular],
-                "prev": null,
-                "type": "tag",
-                "x-attribsNamespace": Object {
-                  "class": undefined,
-                },
-                "x-attribsPrefix": Object {
-                  "class": undefined,
-                },
-              },
-            ],
-            "name": "div",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": null,
-            "parent": [Circular],
-            "prev": Object {
-              "attribs": Object {
-                "aria-hidden": "true",
-                "aria-labelledby": "Tabs-tab-3",
-                "class": "tab-pane fade",
-                "id": "Tabs-pane-3",
-                "role": "tabpanel",
-              },
-              "children": Array [
-                Object {
+                "prev": Object {
                   "attribs": Object {
-                    "class": "Tabs__Body panel panel-default",
+                    "aria-hidden": "false",
+                    "aria-labelledby": "Tabs-tab-1",
+                    "class": "fade tab-pane active in",
+                    "id": "Tabs-pane-1",
+                    "role": "tabpanel",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "panel-body",
+                        "class": "Tabs__Body panel panel-default",
                       },
                       "children": Array [
                         Object {
                           "attribs": Object {},
                           "children": Array [
                             Object {
-                              "data": "第3个tab",
+                              "data": "第1个tab",
                               "next": null,
                               "parent": [Circular],
                               "prev": null,
@@ -3618,164 +3168,6 @@ initialize {
                           "type": "tag",
                           "x-attribsNamespace": Object {},
                           "x-attribsPrefix": Object {},
-                        },
-                      ],
-                      "name": "div",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                  ],
-                  "name": "div",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                  },
-                },
-              ],
-              "name": "div",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": [Circular],
-              "parent": [Circular],
-              "prev": Object {
-                "attribs": Object {
-                  "aria-hidden": "true",
-                  "aria-labelledby": "Tabs-tab-2",
-                  "class": "tab-pane fade",
-                  "id": "Tabs-pane-2",
-                  "role": "tabpanel",
-                },
-                "children": Array [
-                  Object {
-                    "attribs": Object {
-                      "class": "Tabs__Body panel panel-default",
-                    },
-                    "children": Array [
-                      Object {
-                        "attribs": Object {
-                          "class": "panel-body",
-                        },
-                        "children": Array [
-                          Object {
-                            "attribs": Object {},
-                            "children": Array [
-                              Object {
-                                "data": "第2个tab",
-                                "next": null,
-                                "parent": [Circular],
-                                "prev": null,
-                                "type": "text",
-                              },
-                            ],
-                            "name": "div",
-                            "namespace": "http://www.w3.org/1999/xhtml",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "tag",
-                            "x-attribsNamespace": Object {},
-                            "x-attribsPrefix": Object {},
-                          },
-                        ],
-                        "name": "div",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "class": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "class": undefined,
-                        },
-                      },
-                    ],
-                    "name": "div",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                ],
-                "name": "div",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": [Circular],
-                "parent": [Circular],
-                "prev": Object {
-                  "attribs": Object {
-                    "aria-hidden": "false",
-                    "aria-labelledby": "Tabs-tab-1",
-                    "class": "tab-pane active fade in",
-                    "id": "Tabs-pane-1",
-                    "role": "tabpanel",
-                  },
-                  "children": Array [
-                    Object {
-                      "attribs": Object {
-                        "class": "Tabs__Body panel panel-default",
-                      },
-                      "children": Array [
-                        Object {
-                          "attribs": Object {
-                            "class": "panel-body",
-                          },
-                          "children": Array [
-                            Object {
-                              "attribs": Object {},
-                              "children": Array [
-                                Object {
-                                  "data": "第1个tab",
-                                  "next": null,
-                                  "parent": [Circular],
-                                  "prev": null,
-                                  "type": "text",
-                                },
-                              ],
-                              "name": "div",
-                              "namespace": "http://www.w3.org/1999/xhtml",
-                              "next": null,
-                              "parent": [Circular],
-                              "prev": null,
-                              "type": "tag",
-                              "x-attribsNamespace": Object {},
-                              "x-attribsPrefix": Object {},
-                            },
-                          ],
-                          "name": "div",
-                          "namespace": "http://www.w3.org/1999/xhtml",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "tag",
-                          "x-attribsNamespace": Object {
-                            "class": undefined,
-                          },
-                          "x-attribsPrefix": Object {
-                            "class": undefined,
-                          },
                         },
                       ],
                       "name": "div",
