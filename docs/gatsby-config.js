@@ -13,20 +13,22 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `wizard-ui`,
-        path:  Path.resolve(__dirname, `../src/components`)
+        path:  Path.resolve(__dirname, `../src/components`),
+        ignore: [`**/\*.test.*`, `**/\*.scss`, `**/\*.md`],
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content`,
         name: `content`,
+        path: `${__dirname}/content`,
       },
     },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
+        mediaTypes: [`text/markdown`, `text/x-markdown`],
       },
     },
     `gatsby-plugin-typescript`,

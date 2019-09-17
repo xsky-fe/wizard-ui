@@ -1,4 +1,4 @@
-@import './bootstrap.scss';
+@import '../../../src/style/bootstrap.scss';
 
 @media(min-width: 768px) {
   table {
@@ -20,6 +20,13 @@
   }
 }
 
+svg {
+  display: inline-block;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+  pointer-events: none;
+}
 .pre {
   border-radius: 4px;
   margin-bottom: 10px;
