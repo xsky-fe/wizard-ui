@@ -38,7 +38,7 @@ const TopBar = (props) => {
         <Navbar.Header>
           <Navbar.Brand>
             <Link to="/" className="navbar-brand">
-              <img src={logo} alt="react-bootstrap" height={40} />
+              <img src={logo} alt="wizard-ui" height={40} />
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="top-navbar-nav"/>
@@ -56,7 +56,7 @@ const TopBar = (props) => {
           {width < 768 && <NavSection />}
           <ul className="nav navbar-nav navbar-right">
             <li>
-              <a target="_blank" rel="noopener noreferrer"  href="https://github.com/xsky-fe/react-bootstrap">
+              <a target="_blank" rel="noopener noreferrer"  href="https://github.com/xsky-fe/wizard-ui">
                 <span className="svg-icon">
                   <GitHubIcon />
                 </span>
@@ -74,7 +74,7 @@ const TopBar = (props) => {
                   </Tooltip>
                 )}
                 >
-                <a target="_blank" rel="noopener noreferrer" href="https://github.com/xsky-fe/react-bootstrap/issues/new">
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/xsky-fe/wizard-ui/issues/new">
                   <span className="svg-icon">
                     <IssueIcon />
                   </span>

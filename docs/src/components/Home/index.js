@@ -16,7 +16,7 @@ const Home = () => (
               开始使用
             </Button>
           </Link>
-          <a target="_blank" rel="noopener noreferrer" href="https://github.com/xsky-fe/react-bootstrap">
+          <a target="_blank" rel="noopener noreferrer" href="https://github.com/xsky-fe/wizard-ui">
             <Button>
               Github
             </Button>
@@ -24,7 +24,7 @@ const Home = () => (
         </div>
       </Col>
       <Col xs={24} md={12}>
-        <img src={homeImg} alt="react-bootstrap" height={300} />
+        <img src={homeImg} alt="wizard-ui" height={300} />
       </Col>
     </Row>
     <Row className="Home__feature">

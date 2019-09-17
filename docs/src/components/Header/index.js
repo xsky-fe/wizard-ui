@@ -26,7 +26,7 @@ export default ({ post }) => {
             className="edit-button"
             target="_blank"
             rel="noopener noreferrer"
-            href={`https://github.com/xsky-fe/react-bootstrap/edit/master/docs/content${path}`}
+            href={`https://github.com/xsky-fe/wizard-ui/edit/master/docs/content${path}`}
           >
             <Glyphicon glyph="pencil" />
           </a>
