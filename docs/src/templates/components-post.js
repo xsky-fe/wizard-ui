@@ -27,7 +27,6 @@ class BlogPostTemplate extends React.Component {
       fields: { slug },
     } = post || {};
     const { previous, next, propDatas } = this.props.pageContext;
-    console.log('----', propDatas);
     return (
       <Layout slug={slug}>
         <Row>

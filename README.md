@@ -61,9 +61,3 @@ import { Icon } from 'wizard-ui/esm';
 
 export default () => <Icon type="os-search-role" />
 ```
-
-### Dist file analysis
-```bash
-yarn dist-stats
-```
-upload to https://webpack.jakoblind.no/optimize/#
