@@ -7,7 +7,7 @@
 
 import React from 'react';
 import TopBar from '../components/TopBar';
-import { Grid } from 'wizard-ui';
+import { Grid } from 'react-bootstrap';
 import './style.scss';
 
 const Layout = props => {

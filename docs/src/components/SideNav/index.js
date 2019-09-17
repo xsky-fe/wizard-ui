@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar } from 'wizard-ui';
+import { Navbar } from 'react-bootstrap';
 import Layout  from './Layout';
 import Component from './Component';
 import useWindowWidth from '../../utils/hooks/get-window-width';

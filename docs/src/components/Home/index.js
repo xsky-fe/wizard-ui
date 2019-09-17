@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { Row, Col, Button } from 'wizard-ui';
+import { Row, Col, Button } from 'react-bootstrap';
 import homeImg from '../../images/home-right.jpg';
 import './style.scss';
 
@@ -16,7 +16,7 @@ const Home = () => (
               开始使用
             </Button>
           </Link>
-          <a target="_blank" rel="noopener noreferrer" href="https://github.com/xsky-fe/wizard-ui">
+          <a target="_blank" rel="noopener noreferrer" href="https://github.com/xsky-fe/react-bootstrap">
             <Button>
               Github
             </Button>
@@ -24,7 +24,7 @@ const Home = () => (
         </div>
       </Col>
       <Col xs={24} md={12}>
-        <img src={homeImg} alt="wizard-ui" height={300} />
+        <img src={homeImg} alt="react-bootstrap" height={300} />
       </Col>
     </Row>
     <Row className="Home__feature">

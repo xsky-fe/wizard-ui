@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+// @ts-ignore
 import * as libs from 'wizard-ui';
-import { Button } from 'wizard-ui';
+import * as bs from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import examples from '../../examples';
 import AllIcon from '../Icon';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
@@ -16,7 +18,7 @@ export default ({ isShow, children, previewOnly, noInline }) => {
     setShow(!show);
   }
   return (
-    <LiveProvider scope={{ moment, getMockDatas, ReactDOM, AllIcon, ...examples, ...libs }} code={children.trim()} noInline={noInline}>
+    <LiveProvider scope={{ moment, getMockDatas, ReactDOM, AllIcon, ...bs, ...examples, ...libs }} code={children.trim()} noInline={noInline}>
       { previewOnly ? <LivePreview/> : (
         <div className={`Playground ${(show || isShow) ? 'show' : ''}`}>
           {isShow ? (

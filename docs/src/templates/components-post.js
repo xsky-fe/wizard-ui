@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, graphql } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import Layout from '../Layout';
-import { Row, Col } from 'wizard-ui';
+import { Row, Col } from 'react-bootstrap';
 import LinkedHeading from '../components/LinkedHeading';
 import Playground from '../components/Playground';
 import SideNav from '../components/SideNav';

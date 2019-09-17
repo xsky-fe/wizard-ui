@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import { Navbar, Tooltip } from 'wizard-ui';
+import { Navbar, Tooltip, OverlayTrigger } from 'react-bootstrap';
 import NavSection from '../SideNav/NavSection';
 import GitHubIcon from '../GitHubIcon';
 import IssueIcon from '../IssueIcon';
@@ -38,7 +38,7 @@ const TopBar = (props) => {
         <Navbar.Header>
           <Navbar.Brand>
             <Link to="/" className="navbar-brand">
-              <img src={logo} alt="wizard-ui" height={40} />
+              <img src={logo} alt="react-bootstrap" height={40} />
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="top-navbar-nav"/>
@@ -56,7 +56,7 @@ const TopBar = (props) => {
           {width < 768 && <NavSection />}
           <ul className="nav navbar-nav navbar-right">
             <li>
-              <a target="_blank" rel="noopener noreferrer"  href="https://github.com/xsky-fe/wizard-ui">
+              <a target="_blank" rel="noopener noreferrer"  href="https://github.com/xsky-fe/react-bootstrap">
                 <span className="svg-icon">
                   <GitHubIcon />
                 </span>
@@ -66,15 +66,20 @@ const TopBar = (props) => {
           </ul>
           <ul className="nav navbar-nav navbar-right">
             <li>
-              <Tooltip label={(
-                <a target="_blank" rel="noopener noreferrer" href="https://github.com/xsky-fe/wizard-ui/issues/new">
+              <OverlayTrigger
+                placement="bottom"
+                overlay={(
+                  <Tooltip id="tooltip">
+                    提交 Issue
+                  </Tooltip>
+                )}
+                >
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/xsky-fe/react-bootstrap/issues/new">
                   <span className="svg-icon">
                     <IssueIcon />
                   </span>
                 </a>
-              )} placement="bottom">
-                提交 Issue
-              </Tooltip>
+              </OverlayTrigger>
             </li>
           </ul>
           <ul className="nav navbar-nav navbar-right">

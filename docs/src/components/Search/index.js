@@ -1,6 +1,6 @@
 import React from "react"
 import { Index } from "elasticlunr"
-import { Icon, InputGroup, FormControl } from 'wizard-ui';
+import { Icon, InputGroup, FormControl } from 'react-bootstrap';
 import { Link } from "gatsby"
 import './style.scss';
 

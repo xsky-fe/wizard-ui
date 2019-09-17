@@ -1,6 +1,6 @@
 import React from 'react';
 import SEO from '../seo';
-import { Glyphicon, Tooltip } from 'wizard-ui';
+import { Glyphicon, Tooltip, OverlayTrigger } from 'react-bootstrap';
 import lodash from 'lodash';
 import './style.scss';
 
@@ -14,18 +14,23 @@ export default ({ post }) => {
       <SEO title={title} />
       <h2>
         {title}
-        <Tooltip label={(
+        <OverlayTrigger
+          placement="top"
+          overlay={(
+            <Tooltip id="tooltip">
+              在 GitHub 上编辑此页！
+            </Tooltip>
+          )}
+        >
           <a
             className="edit-button"
             target="_blank"
             rel="noopener noreferrer"
-            href={`https://github.com/xsky-fe/wizard-ui/edit/master/docs/content${path}`}
+            href={`https://github.com/xsky-fe/react-bootstrap/edit/master/docs/content${path}`}
           >
             <Glyphicon glyph="pencil" />
           </a>
-        )}>
-          在 GitHub 上编辑此页！
-        </Tooltip>
+        </OverlayTrigger>
       </h2>
       <div className="Header__Sub">
         {date && <b>{post.frontmatter.date}</b>}
