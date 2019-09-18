@@ -41,7 +41,6 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-react-docgen`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {

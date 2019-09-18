@@ -119,14 +119,14 @@ date: 2019-06-13
   const [ show, setShow ] = React.useState(false);
   const handleClick = () => setShow(true);
   const handleHide = () => setShow(false);
-  const SIZES = [['sm', '小'], ['medium', '中'], ['lg', '大']];
-  const [ size, setSize ] = React.useState('medium');
+  const SIZES = [['sm', '小'], [undefined, '中'], ['lg', '大']];
+  const [ size, setSize ] = React.useState(undefined);
   return (
     <div>
       <Panel>
-        {SIZES.map(([val, text]) => (
+        {SIZES.map(([val, text], idx) => (
           <Radio
-            key={val}
+            key={idx}
             inline
             checked={val === size}
             value={val}
