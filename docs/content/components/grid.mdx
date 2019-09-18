@@ -1,0 +1,82 @@
+---
+title: Grid 布局系统
+date: 2019-08-22
+author: lijianxin1202
+---
+使用行列进行布局
+
+## 使用方式
+进行表格布局时使用
+
+## 基本用法
+
+```jsx
+<Grid>
+  <Row className="show-grid">
+    <Col xs={24} md={16}>
+      <code>{'<Col xs={24} md={16} />'};</code>
+    </Col>
+    <Col xs={12} md={8}>
+      <code>{'<Col xs={12} md={8} />'}</code>
+    </Col>
+  </Row>
+  <Row className="show-grid">
+    <Col xs={12} md={8}>
+      <code>{'<Col xs={12} md={8} />'}</code>
+    </Col>
+    <Col xs={12} md={8}>
+      <code>{'<Col xs={12} md={8} />'}</code>
+    </Col>
+    <Col xsHidden md={8}>
+      <code>{'<Col xsHidden md={8} />'}</code>
+    </Col>
+  </Row>
+  <Row className="show-grid">
+    <Col xs={12} xsOffset={12}>
+      <code>{'<Col xs={12} xsOffset={12} />'}</code>
+    </Col>
+  </Row>
+  <Row className="show-grid">
+    <Col md={12} mdPush={12}>
+      <code>{'<Col md={12} mdPush={12} />'}</code>
+    </Col>
+    <Col md={12} mdPull={12}>
+      <code>{'<Col md={12} mdPull={12} />'}</code>
+    </Col>
+  </Row>
+</Grid>
+```
+
+## API
+### Col
+
+| 参数    | 类型                      | 默认值 | 说明     |
+| ------- | ------------------------- | ------ | -------- |
+| componentClass | elementType | 'div' | 使用一个此组件提供的定制化样式。 |
+| xs | number | | 极小设备(<768px)上列的跨度，对应于样式前缀 col-xs- |
+| sm | number | | 小型设备(≥768px)上列的跨度，对应于样式前缀 col-sm- |
+| md | number | | 中型设备(≥992px)上列的跨度，对应于样式前缀 col-md- |
+| lg | number | | 大型设备(≥1200px)上列的跨度，对应于样式前缀 col-lg- |
+| xsHidden | boolean | | 极小设备上隐藏列，对应于样式前缀 hidden-xs |
+| smHidden | boolean | | 小型设备上隐藏列，对应于样式前缀 hidden-sm |
+| mdHidden | boolean | | 中型设备上隐藏列，对应于样式前缀 hidden-md |
+| lgHidden | boolean | | 大型设备上隐藏列，对应于样式前缀 hidden-lg |
+| xsOffset | number | | 极小设备上右移列数，对应于样式前缀 col-xs-offset- |
+| smOffset | number | | 小型设备上右移列数，对应于样式前缀 col-sm-offset- |
+| mdOffset | number | | 中型设备上右移列数，对应于样式前缀 col-md-offset- |
+| lgOffset | number | | 大型设备上右移列数，对应于样式前缀 col-lg-offset- |
+| xsPush | number | | 极小设备上右移列数（对下一列位置无影响），，对应于样式前缀 col-xs-pull- |
+| smPush | number | | 小型设备上右移列数（对下一列位置无影响），，对应于样式前缀 col-xs-pull- |
+| mdPush | number | | 中型设备上右移列数（对下一列位置无影响），，对应于样式前缀 col-xs-pull- |
+| lgPush | number | | 大型设备上右移列数（对下一列位置无影响），，对应于样式前缀 col-xs-pull- |
+| xsPull | number | | 极小设备上左移列数（对前一列位置无影响），，对应于样式前缀 col-xs-pull- |
+| smPull | number | | 小型设备上右移列数（对前一列位置无影响），，对应于样式前缀 col-xs-pull- |
+| mdPull | number | | 中型设备上右移列数（对前一列位置无影响），，对应于样式前缀 col-xs-pull- |
+| lgPull | number | | 大型设备上右移列数（对前一列位置无影响），，对应于样式前缀 col-xs-pull- |
+| bsClass | string | 'col' | 定义组件基础 CSS 及前缀。通常改变 bsClass 目的是为组件提供新的、非 Bootstrap 自带样式。 |
+
+### Row
+| 参数    | 类型                      | 默认值 | 说明     |
+| ------- | ------------------------- | ------ | -------- |
+| componentClass | elementType | 'div' | 使用一个此组件提供的定制化样式。 |
+| bsClass | string | 'row' | 定义组件基础 CSS 及前缀。通常改变 bsClass 目的是为组件提供新的、非 Bootstrap 自带样式。 |

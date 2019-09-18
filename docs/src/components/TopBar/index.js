@@ -7,7 +7,6 @@ import GitHubIcon from '../GitHubIcon';
 import IssueIcon from '../IssueIcon';
 import HeaderSearch from '../HeaderSearch';
 import logo from '../../images/logo.png';
-import useWindowWidth from '../../utils/hooks/get-window-width';
 import './style.scss';
 
 const HEADER_LINKS = [
@@ -30,7 +29,6 @@ const HEADER_LINKS = [
 
 const TopBar = (props) => {
   const { slug } = props;
-  const width = useWindowWidth();
 
   return (
     <div className="TopBar">
@@ -53,7 +51,6 @@ const TopBar = (props) => {
               </li>
             ))}
           </ul>
-          {width < 768 && <NavSection />}
           <ul className="nav navbar-nav navbar-right">
             <li>
               <a target="_blank" rel="noopener noreferrer"  href="https://github.com/xsky-fe/wizard-ui">

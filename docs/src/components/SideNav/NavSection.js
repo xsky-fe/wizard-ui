@@ -1,12 +1,8 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import useWindowWidth from '../../utils/hooks/get-window-width';
 import './style.scss';
 
 export default props => {
-  if (useWindowWidth() <= 768) {
-    return null;
-  }
   const { heading, items } = props;
   return (
     <ul className="Sidebar__Header nav navbar-nav">
