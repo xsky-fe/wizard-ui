@@ -2,7 +2,6 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import { Navbar, Tooltip, OverlayTrigger } from 'react-bootstrap';
-import NavSection from '../SideNav/NavSection';
 import GitHubIcon from '../GitHubIcon';
 import IssueIcon from '../IssueIcon';
 import HeaderSearch from '../HeaderSearch';
