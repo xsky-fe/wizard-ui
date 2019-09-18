@@ -1,6 +1,6 @@
 import React from "react"
 import { Index } from "elasticlunr"
-import { Icon, InputGroup, FormControl } from 'react-bootstrap';
+import { Icon, InputGroup, FormControl } from 'wizard-ui';
 import { Link } from "gatsby"
 import './style.scss';
 
@@ -16,7 +16,7 @@ const Search = props => {
       .map(({ ref }) => index.documentStore.getDoc(ref));
     setQuery(value);
     setResults(rl.filter(r => r.title));
-  }, [setQuery, setResults]);
+  }, [setQuery, setResults, props.searchIndex]);
   return (
     <div className="HeaderSearch">
       <InputGroup>

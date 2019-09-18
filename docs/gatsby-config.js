@@ -8,6 +8,12 @@ module.exports = {
     author: `xsky contributors`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        precision: 8,
+      },
+    },
     `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -62,15 +68,6 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/logo.png`, // This path is relative to the root of the site.
-      },
-    },
-    {
-      resolve: `gatsby-plugin-sass`,
-      cssLoaderOptions: {
-        camelCase: false,
-      },
-      options: {
-        precision: 8,
       },
     },
   ],

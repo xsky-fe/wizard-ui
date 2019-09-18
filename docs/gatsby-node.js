@@ -12,13 +12,13 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     resolve: {
       modules: [path.resolve(__dirname, 'node_modules')],
       alias: {
-        'wizard-ui': path.resolve(__dirname, '../src/components'),
+        'wizard-ui': path.resolve(__dirname, '../src'),
       }
     }
   })
 }
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const componentPage = path.resolve(`./src/templates/components-post.js`);

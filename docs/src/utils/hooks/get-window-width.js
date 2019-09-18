@@ -1,15 +1,17 @@
 import React from "react";
 export default function useWindowWidth() {
-  if (typeof window !== 'undefined') {
-    const [width, setWidth] = React.useState(window.innerWidth);
+  const [width, setWidth] = React.useState(window.innerWidth);
 
-    React.useEffect(() => {
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      return undefined;
+    } else {
       const handleResize = () => setWidth(window.innerWidth);
       window.addEventListener('resize', handleResize);
       return () => {
         window.removeEventListener('resize', handleResize);
       };
-    });
-    return width;
-  }
+    }
+  }, []);
+  return width;
 }
