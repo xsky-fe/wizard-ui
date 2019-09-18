@@ -35,6 +35,3 @@ types.d.ts
 
 # dist analysis file
 stats.json
-
-# docs
-docs/yarn.lock
