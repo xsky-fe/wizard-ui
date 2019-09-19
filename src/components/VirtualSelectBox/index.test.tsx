@@ -4,8 +4,7 @@ import VirtualSelectBox from './index';
 import { sleep, getMockDatas } from '../../utils';
 import { Query } from '../../interface';
 import { get } from 'lodash';
-;
-const noOp = () => {};
+const noOp = () => { };
 
 const resName = 'list';
 const limit = 30;
@@ -66,9 +65,8 @@ describe('VirtualSelectBox', () => {
     expect(picker.find('.VirtualList__placeholder').exists()).toBeTruthy();
   });
   it('render with async datas', async () => {
-    type Data = { id?: number; name: string };
     const picker = mount(
-      <VirtualSelectBox<Data>
+      <VirtualSelectBox
         item={{ id: 1, name: `${resName}-1` }}
         fetchData={fetchDatas}
         onSelect={noOp}

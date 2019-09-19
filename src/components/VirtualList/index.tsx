@@ -38,7 +38,7 @@ const defaultProps: VirtualListDefaultProps<VirtualItem> = {
   debug: true,
 };
 
-export default class VirtualList<T extends VirtualItem> extends React.Component<VirtualListProps<T>, VirtualListState> {
+export default class VirtualList<T> extends React.Component<VirtualListProps<T>, VirtualListState> {
   static propTypes = {
     /** 行高 */
     rowHeight: PropTypes.oneOfType([PropTypes.func, PropTypes.number]).isRequired,
@@ -206,11 +206,11 @@ export default class VirtualList<T extends VirtualItem> extends React.Component<
       const nextItem = i < data.length - 1 ? data[i + 1] : null;
       const height = isFunction(rowHeight)
         ? rowHeight({
-            index: i,
-            item,
-            prevItem,
-            nextItem,
-          })
+          index: i,
+          item,
+          prevItem,
+          nextItem,
+        })
         : rowHeight;
       if (height) {
         this.heightCache.push(height);
