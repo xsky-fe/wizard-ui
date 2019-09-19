@@ -1,20 +1,14 @@
 # docs: https://help.github.com/en/articles/workflow-syntax-for-github-actions
 
-name: Unit Test
+name: Deploy
 
 on: [push]
 
 jobs:
-  unit-test:
+  deploy:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-
-    - name: Install Dependencies And Testing
-      run: yarn
-
-    - name: Unit Testing
-      run: yarn test
 
     - name: Build and Deploy
       uses: JamesIves/github-pages-deploy-action@master
