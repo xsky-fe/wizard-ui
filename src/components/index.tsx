@@ -21,6 +21,7 @@ import UsageBar from './UsageBar';
 import VirtualList from './VirtualList';
 import VirtualSelectBox from './VirtualSelectBox';
 import {
+  SplitButton,
   ToggleButtonGroup,
   ToggleButton,
   ProgressBar,
@@ -60,6 +61,7 @@ import {
 } from 'react-bootstrap';
 
 export {
+  SplitButton,
   ToggleButtonGroup,
   ToggleButton,
   ProgressBar,

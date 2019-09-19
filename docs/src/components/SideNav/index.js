@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar } from 'react-bootstrap';
+import { Navbar } from 'wizard-ui';
 import Layout  from './Layout';
 import Component from './Component';
 

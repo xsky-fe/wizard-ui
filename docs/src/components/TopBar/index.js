@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import { Navbar, Tooltip, OverlayTrigger } from 'react-bootstrap';
+import { Navbar, Tooltip } from 'wizard-ui';
 import GitHubIcon from '../GitHubIcon';
 import IssueIcon from '../IssueIcon';
 import HeaderSearch from '../HeaderSearch';
@@ -62,20 +62,15 @@ const TopBar = (props) => {
           </ul>
           <ul className="nav navbar-nav navbar-right">
             <li>
-              <OverlayTrigger
-                placement="bottom"
-                overlay={(
-                  <Tooltip id="tooltip">
-                    提交 Issue
-                  </Tooltip>
-                )}
-                >
+              <Tooltip label={(
                 <a target="_blank" rel="noopener noreferrer" href="https://github.com/xsky-fe/wizard-ui/issues/new">
                   <span className="svg-icon">
                     <IssueIcon />
                   </span>
                 </a>
-              </OverlayTrigger>
+              )} placement="bottom">
+                提交 Issue
+              </Tooltip>
             </li>
           </ul>
           <ul className="nav navbar-nav navbar-right">
