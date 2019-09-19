@@ -2,7 +2,10 @@
 
 name: Deploy Storybook
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   deploy:
