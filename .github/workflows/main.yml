@@ -1,0 +1,15 @@
+# docs: https://help.github.com/en/articles/workflow-syntax-for-github-actions
+
+name: Unit Test
+
+on: [push]
+
+jobs:
+  unit-test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install Dependencies
+      run: yarn
+
+    - name: Unit Testing
+      run: yarn test

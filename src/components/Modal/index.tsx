@@ -65,7 +65,7 @@ Modal.propTypes = {
   /** 对话框附加行内样式 */
   style: PropTypes.object,
   /** 对话框大小 */
-  bsSize: PropTypes.oneOf(['sm', 'medium', 'lg', 'xlarge']),
+  bsSize: PropTypes.oneOf(['sm', 'lg']),
   /** 确定、提交按钮文案 */
   confirmText: PropTypes.string,
   /** 确定、提交按钮样式 */

@@ -1,3 +1,4 @@
+
 @import './bootstrap.scss';
 
 @media(min-width: 768px) {
@@ -20,6 +21,13 @@
   }
 }
 
+svg {
+  display: inline-block;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+  pointer-events: none;
+}
 .pre {
   border-radius: 4px;
   margin-bottom: 10px;

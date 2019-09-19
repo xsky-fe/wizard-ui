@@ -53,8 +53,8 @@ export default class NotificationList extends PureComponent<
     });
 
     let lists: NotificationItem[] = [];
-    for (let nvs of notifications.values()) {
-      nvs.forEach(notificationItem => {
+    for (const nvs of notifications.values()) {
+      nvs.forEach((notificationItem: NotificationItem) => {
         lists.push(notificationItem);
       });
     }
