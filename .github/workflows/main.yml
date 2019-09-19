@@ -1,6 +1,6 @@
 # docs: https://help.github.com/en/articles/workflow-syntax-for-github-actions
 
-name: Deploy
+name: Deploy Storybook
 
 on: [push]
 
@@ -10,10 +10,10 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
-    - name: Build and Deploy
+    - name: Build and Deploy Storybook
       uses: JamesIves/github-pages-deploy-action@master
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BRANCH: gh-pages
-        FOLDER: public
-        BUILD_SCRIPT: cd docs && yarn && yarn build
+        FOLDER: build-stories
+        BUILD_SCRIPT: yarn && yarn build-storybook
