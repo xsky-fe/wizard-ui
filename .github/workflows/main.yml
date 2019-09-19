@@ -15,5 +15,5 @@ jobs:
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BRANCH: gh-pages
-        FOLDER: docs/public
+        FOLDER: public
         BUILD_SCRIPT: cd docs && yarn && yarn build
