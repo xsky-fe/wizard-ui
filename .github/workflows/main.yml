@@ -6,16 +6,12 @@ on: [push]
 
 jobs:
   unit-test:
-    name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        node_version: [8, 10, 12]
-        os: [ubuntu-latest, windows-latest, macOS-latest]
-
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+
     - name: Install Dependencies And Testing
-      run: |
-       yarn
-       yarn test
+      run: yarn
+
+    - name: Unit Testing
+      run: yarn test
