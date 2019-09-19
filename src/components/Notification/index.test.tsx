@@ -1,7 +1,7 @@
 import React from 'react';
 import Notification from './Notification';
 import NotificationList from './NotificationList';
-import { NotificationItem } from '../../interface';
+import { NotificationItem, NotificationItemStatus } from '../../interface';
 import { mount } from 'enzyme';
 
 const STATUS = ['success', 'info', 'process', 'warning', 'danger'];
@@ -11,7 +11,7 @@ describe('Notification', () => {
     const node = mount(
       <div>
         {STATUS.map(s => (
-          <Notification key={s} status={s} id={s} text={`${s} text message !`} />
+          <Notification key={s} status={s as NotificationItemStatus} id={s} text={`${s} text message !`} />
         ))}
       </div>,
     );
@@ -91,7 +91,7 @@ describe('NotificationList', () => {
     const notifications = new Map();
     const items = new Map();
     STATUS.forEach(s => {
-      const item: NotificationItem = { id: s, status: s, text: `${s} text message !` };
+      const item: NotificationItem = { id: s, status: s as NotificationItemStatus, text: `${s} text message !` };
       items.set(s, item);
     });
     notifications.set('1', items);
