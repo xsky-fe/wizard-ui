@@ -61,6 +61,9 @@
     }
     > .panel-heading {
       padding: 7px;
+      .panel-title {
+        font-size: inherit;
+      }
     }
   }
 }

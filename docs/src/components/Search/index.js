@@ -1,5 +1,6 @@
 import React from "react"
 import { Index } from "elasticlunr"
+import { Icon, InputGroup, FormControl } from 'wizard-ui';
 import { Link } from "gatsby"
 import './style.scss';
 
@@ -15,16 +16,19 @@ const Search = props => {
       .map(({ ref }) => index.documentStore.getDoc(ref));
     setQuery(value);
     setResults(rl.filter(r => r.title));
-  }, [setQuery, setResults]);
+  }, [setQuery, setResults, props.searchIndex]);
   return (
     <div className="HeaderSearch">
-      <input
-        className="form-control"
-        type="text"
-        value={query}
-        onChange={handleChange}
-        placeholder="在 wizard ui 中搜索"
-      />
+      <InputGroup>
+        <InputGroup.Addon>
+          <Icon type="search"/>
+        </InputGroup.Addon>
+        <FormControl
+          value={query}
+          onChange={handleChange}
+          placeholder="在 wizard ui 中搜索"
+        />
+      </InputGroup>
       {results.length > 0 && (
         <ul>
           {results.map(page => (

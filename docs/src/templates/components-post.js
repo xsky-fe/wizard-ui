@@ -2,12 +2,13 @@ import React from 'react';
 import { Link, graphql } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import Layout from '../Layout';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'wizard-ui';
 import LinkedHeading from '../components/LinkedHeading';
 import Playground from '../components/Playground';
 import SideNav from '../components/SideNav';
 import Header from '../components/Header';
 import Toc from '../components/Toc';
+import PropTable from '../components/PropTable';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 const components = {
@@ -25,8 +26,7 @@ class BlogPostTemplate extends React.Component {
       headings = [],
       fields: { slug },
     } = post || {};
-    const { previous, next } = this.props.pageContext;
-
+    const { previous, next, propDatas } = this.props.pageContext;
     return (
       <Layout slug={slug}>
         <Row>
@@ -40,6 +40,7 @@ class BlogPostTemplate extends React.Component {
                 <MDXRenderer>{post.body}</MDXRenderer>
               </MDXProvider>
             </div>
+            <PropTable propDatas={propDatas}/>
             <div className="prev-next-nav">
               {previous && (
                 <Link
