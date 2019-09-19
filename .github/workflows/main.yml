@@ -8,8 +8,7 @@ jobs:
   unit-test:
     runs-on: ubuntu-latest
     steps:
-    - name: Install Dependencies
-      run: yarn
-
-    - name: Unit Testing
-      run: yarn test
+    - name: Install Dependencies And Testing
+      run: |
+       yarn
+       yarn test
