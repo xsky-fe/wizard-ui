@@ -1,3 +1,17 @@
+# [0.3.0](https://github.com/xsky-fe/wizard-ui/compare/0.2.0...0.3.0) (2019-09-12)
+
+
+### Bug Fixes
+
+* Panel add class name ([#70](https://github.com/xsky-fe/wizard-ui/issues/70)) ([1e588fe](https://github.com/xsky-fe/wizard-ui/commit/1e588fe))
+
+
+### Features
+
+* Github actions ([#76](https://github.com/xsky-fe/wizard-ui/issues/76)) ([0477764](https://github.com/xsky-fe/wizard-ui/commit/0477764))
+* SEO sitemap ([#68](https://github.com/xsky-fe/wizard-ui/issues/68)) ([32152bd](https://github.com/xsky-fe/wizard-ui/commit/32152bd))
+* VirtualSelectBox ([#65](https://github.com/xsky-fe/wizard-ui/issues/65)) ([c1b9940](https://github.com/xsky-fe/wizard-ui/commit/c1b9940))
+
 # [0.2.0](https://github.com/xsky-fe/wizard-ui/compare/0.1.0...0.2.0) (2019-08-30)
 
 

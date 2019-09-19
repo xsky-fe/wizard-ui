@@ -24,6 +24,9 @@
       a {
         float: none;
         padding: 8px 0px 8px 10px;
+        &.active {
+          color: #6b58c4;
+        }
       }
     }
     &__Header {
@@ -37,9 +40,6 @@
       }
       a {
         color: #777;
-        &.active {
-          color: #6b58c4;
-        }
       }
     }
   }

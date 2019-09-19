@@ -80,7 +80,6 @@ const fetchData = () => new Promise((resolve, reject) => {
       totalCount,
     }
   }
-
   return (
     <VirtualSelectBox
       item={{}}
@@ -133,9 +132,7 @@ const fetchData = () => new Promise((resolve, reject) => {
   const onSelect = React.useCallback(async (item) => {
     setItem(item);
   }, [item, setItem]);
-
   const [clear, setClear] = React.useState(true);
-
   return (
     <div>
       <div>
@@ -155,9 +152,3 @@ const fetchData = () => new Promise((resolve, reject) => {
 ```
 
 ## API
-```jsx previewOnly
-<PropTable of="virtualSelectBox" />
-```
-
-
-
