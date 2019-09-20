@@ -26,10 +26,7 @@ const defaultProps: VirtualSelectBoxDefaultProps<VirtualItem> = {
   defaultItem: {},
 };
 
-class VirtualSelectBox<T extends VirtualItem> extends React.Component<
-  VirtualSelectBoxProps<T>,
-  VirtualSelectBoxState<T>
-> {
+class VirtualSelectBox<T> extends React.Component<VirtualSelectBoxProps<T>, VirtualSelectBoxState<T>> {
   static propTypes = {
     /**
      * 选中资源项
