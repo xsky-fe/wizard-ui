@@ -12,7 +12,6 @@ import {
   VirtualSelectBoxProps,
   VirtualSelectBoxState,
   VirtualItem,
-  SingleVirtualItem,
   MultiVirtualSelectItem,
 } from '../../interface';
 import Icon from '../Icon';

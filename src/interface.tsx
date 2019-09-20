@@ -274,16 +274,11 @@ export interface InputDropdownProps {
   input?: any;
   meta?: any;
 }
-export interface SingleVirtualItem {
-  id: number | string;
-  name: string;
-}
 export interface MultiVirtualSelectItem {
   label: string;
   value: number | string;
 }
 export type VirtualItem =
-  | SingleVirtualItem
   | MultiVirtualSelectItem
   | object
   | string
