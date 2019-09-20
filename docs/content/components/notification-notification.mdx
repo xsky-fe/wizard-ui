@@ -1,0 +1,162 @@
+---
+title: Notification 通知提醒框
+date: 2019-09-09
+author: wangkailang
+---
+
+全局显示通知提醒信息，用于以下情况：
+- 系统性消息推送；
+- 异步结果信息返回。
+
+## 基本用法
+- 消息提示支持 5 种状态： 成功（success）、通知（info）、进行中（process）、告警（warning）、危险（danger）。每一种默认配对图标，背景颜色和文字颜色；
+
+```jsx
+() => {
+  const STATUS = ['success', 'info', 'process', 'warning', 'danger'];
+  return (
+    <div>
+      {STATUS.map(s => (
+         <Notification
+            key={s}
+            status={s}
+            id={s}
+            text={`${s} text message !`}
+          />
+      ))}
+    </div>
+  )
+}
+```
+- 消息提示列表缓存数据由外部维护，内部只做展示，不同于 [ant.design](https://ant.design/components/notification-cn/) 会在内部缓存并且处理消息提示列表。
+
+## 代码演示
+### 随机通知
+```jsx
+() => {
+  const STATUS = ['success', 'info', 'process', 'warning', 'danger'];
+  const [items, setItems] = React.useState({});
+  const handleClick = () => {
+    const num = Math.floor(Math.random() * 5);
+    const time = Date.now();
+    setItems({
+      ...items,
+      [time]: num
+    });
+  }
+  const close = id => {
+    delete items[id];
+    setItems({...items});
+  }
+  return (
+    <div>
+      <Button onClick={handleClick}>随机消息</Button>
+      {Object.keys(items).map(time => (
+         <Notification
+            key={time}
+            status={STATUS[items[time]]}
+            id={time}
+            title={`${STATUS[items[time]]} text message at ${time} !`}
+            onDismiss={close}
+          />
+      ))}
+    </div>
+  )
+}
+```
+### 列表默认展示
+5 种状态对应 5 种通知提示格式。
+```jsx
+() => {
+  const STATUS = ['success', 'info', 'process', 'warning', 'danger'];
+  const [lists, setLists] = React.useState(() => {
+    const notifications = new Map();
+    notifications.set('status', new Map());
+    return notifications;
+  });
+  const setNotification = s => {
+    const item = { id: s, status: s, text: `${s} text message !` };
+    lists.get('status').set(s, item);
+    const newLists = new Map(lists);
+    setLists(newLists);
+  }
+  const deleteNotification = id => {
+    lists.get('status').delete(id);
+    const newLists = new Map(lists);
+    setLists(newLists);
+  }
+  return (
+    <div>
+      <div>
+        {STATUS.map(s => (
+          <Button
+            key={s}
+            style={{ marginRight: '10px' }}
+            onClick={() => setNotification(s)}
+            disabled={lists.get('status').has(s)}
+          >
+            {s}
+          </Button>
+        ))}
+      </div>
+      <NotificationList
+        notifications={lists}
+        onDismiss={deleteNotification}
+      />
+    </div>
+  )
+}
+```
+### 列表带标题
+```jsx
+() => {
+  const STATUS = ['success', 'info', 'process', 'warning', 'danger'];
+  const [lists, setLists] = React.useState(() => {
+    const notifications = new Map();
+    notifications.set('status', new Map());
+    return notifications;
+  });
+  const setNotification = s => {
+    const key = `${s}-title`;
+    const item = { id: key, status: s, text: `${s} text message !`, title: <h3>{s} title</h3> };
+    lists.get('status').set(key, item);
+    const newLists = new Map(lists);
+    setLists(newLists);
+  }
+  const deleteNotification = id => {
+    lists.get('status').delete(id);
+    const newLists = new Map(lists);
+    setLists(newLists);
+  }
+  return (
+    <div>
+      <div>
+        {STATUS.map(s => (
+          <Button
+            key={s}
+            style={{ marginRight: '10px' }}
+            onClick={() => setNotification(s)}
+            disabled={lists.get('status').has(s)}
+          >
+            {s}
+          </Button>
+        ))}
+      </div>
+      <NotificationList
+        notifications={lists}
+        onDismiss={deleteNotification}
+      />
+    </div>
+  )
+}
+```
+
+## API
+### NotificationList API
+|参数|类型|默认值|说明|
+| ------- | ------------------------- | ------ | -------- |
+|onDismiss|func|-|操作移除单个通知栏|
+|format|func|-|统一格式化通知栏目的数据|
+|autoClose|bool|-|是否开启自动关闭|
+
+### Notification API

@@ -24,10 +24,12 @@
   "dependencies": {
     "@types/rc-time-picker": "^3.4.1",
     "@types/rc-tree": "^1.11.3",
+    "@types/react-addons-css-transition-group": "^15.0.5",
     "bootstrap-sass": "^3.4.1",
     "rc-calendar": "^9.15.4",
     "rc-time-picker": "^3.7.1",
     "rc-tree": "2.1.0",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-bootstrap": "^0.31.1",
     "react-dev-utils": "^9.0.2",
     "react-ios-switch": "^0.1.19",

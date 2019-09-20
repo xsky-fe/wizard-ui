@@ -1,0 +1,237 @@
+@import '../../style/variables.scss';
+
+.NotificationList {
+  position: fixed;
+  right: 20px;
+  top: 56px;
+  z-index: 9999;
+}
+
+.alert .icon {
+  margin-right: 12px;
+
+  &:before {
+    font-size: 16px;
+  }
+}
+
+.alert .close {
+  opacity: 1;
+}
+
+.alert-success {
+  background-color: $green-lighter-3;
+  border-color: $green-lighter-2;
+  color: $green-gray-3;
+
+  .close {
+    color: $green-gray-2;
+
+    &:hover {
+      color: $green-darker-1;
+    }
+
+    &:active {
+      color: $green-darker-2;
+    }
+  }
+
+  .icon {
+    color: $green-normal;
+  }
+}
+
+.alert-info {
+  background-color: $blue-lighter-3;
+  border-color: $blue-lighter-2;
+  color: $blue-gray-3;
+
+  .close {
+    color: $blue-gray-2;
+
+    &:hover {
+      color: $blue-darker-1;
+    }
+
+    &:active {
+      color: $blue-darker-2;
+    }
+  }
+
+  .icon {
+    color: $blue-normal;
+  }
+}
+
+.alert-warning {
+  background-color: $goldenrod-lighter-3;
+  border-color: $goldenrod-gray-1;
+  color: $goldenrod-gray-3;
+
+  .close {
+    color: $goldenrod-gray-2;
+
+    &:hover {
+      color: $goldenrod-darker-1;
+    }
+
+    &:active {
+      color: $goldenrod-darker-2;
+    }
+  }
+
+  .icon {
+    color: $goldenrod-normal;
+  }
+}
+
+.alert-danger {
+  background-color: $red-lighter-3;
+  border-color: $red-gray-1;
+  color: $red-gray-3;
+
+  .close {
+    color: $red-gray-2;
+
+    &:hover {
+      color: $red-darker-1;
+    }
+
+    &:active {
+      color: $red-darker-2;
+    }
+  }
+
+  .icon {
+    color: $red-normal;
+  }
+}
+
+.NotificationList__control-wrapper {
+  text-align: right;
+  cursor: pointer;
+
+  .NotificationList__control {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70px;
+    background: $white;
+    border: 1px solid $gray-medium-2;
+    text-align: left;
+    font-size: 12px;
+    border-radius: 3px;
+    padding: 5px;
+
+    .NotificationList__control-left {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .icon {
+      font-size: 12px;
+    }
+    .icon-list {
+      margin-right: 5px;
+    }
+
+    .NotificationList__indicator {
+      transition: 0.4s;
+      &--expanded {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+.Notification {
+  position: relative;
+  /* alert 'float: right' 在IE中导致通知变为一行排列，改为通过 'text-align: right' 实现 */
+  text-align: right;
+  line-height: 22px;
+  max-width: 500px;
+  word-break: break-all;
+
+  .alert {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: auto;
+    min-width: 260px;
+    max-width: 500px;
+    padding: 9px 35px 9px 16px;
+    margin-bottom: 0;
+    font-size: 14px;
+    overflow: hidden;
+    text-align: left;
+    .icon-loading {
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      border-top: 2px solid #c1c1c9;
+      border-right: 2px solid #cbcbd2;
+      animation: spin 1s linear infinite;
+      border-radius: 100%;
+      box-sizing: content-box;
+    }
+    .icon {
+      flex: 0 0 14px;
+      margin-right: 8px;
+      vertical-align: top;
+    }
+    .Notification__Text {
+      display: inline-block;
+    }
+  }
+  .alert-dismissable .close {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    margin-top: -12px;
+  }
+}
+
+.Notification-enter {
+  transform: translate3d(300px, 0, 0);
+  &.Notification-enter-active {
+    animation-name: bounceInRight;
+    animation-duration: .7s;
+  }
+}
+
+.Notification-leave-active {
+  animation-name: bounceOutRight;
+  animation-duration: .65s;
+}
+
+.Notification__faultMsg {
+  text-indent: 28px;
+}
+
+@keyframes bounceInRight {
+  from, 60%, 75%, to {
+    animation-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+  from {
+    opacity: 0;
+    transform: translate3d(300px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes bounceOutRight {
+  from, 60%, 75%, to {
+    animation-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(1000px, 0, 0);
+  }
+}

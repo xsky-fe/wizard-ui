@@ -20,6 +20,8 @@ import Panel from './Panel';
 import UsageBar from './UsageBar';
 import VirtualList from './VirtualList';
 import VirtualSelectBox from './VirtualSelectBox';
+import Notification from './/Notification/Notification';
+import NotificationList from './Notification/NotificationList';
 import {
   SplitButton,
   ToggleButtonGroup,
@@ -111,6 +113,8 @@ export {
   PanelGroup,
   VirtualList,
   VirtualSelectBox,
+  NotificationList,
+  Notification,
   Pagination,
   // form
   Form,

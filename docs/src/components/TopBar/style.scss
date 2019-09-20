@@ -6,6 +6,8 @@
   .Tooltip > a {
     padding: 15px 10px;
     display: block;
+    color: #777;
+    font-size: 16px;
     &:hover {
       color: #6b58c4;
     }
@@ -19,7 +21,7 @@
       color: #6b58c4;
     }
   }
-  .svg-icon {
+  .svg-icon, .icon {
     margin-right: 8px;
     display: inline-block;
     height: 16px;
