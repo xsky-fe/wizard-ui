@@ -1,15 +1,23 @@
 # docs: https://help.github.com/en/articles/workflow-syntax-for-github-actions
 
-name: Unit Test
+name: Deploy Storybook
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
-  unit-test:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Install Dependencies
-      run: yarn
+    - uses: actions/checkout@master
 
-    - name: Unit Testing
-      run: yarn test
+    - name: Build and Deploy Storybook
+      uses: JamesIves/github-pages-deploy-action@master
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BASE_BRANCH: master # The branch the action should deploy from.
+        BRANCH: gh-pages # The branch the action should deploy to.
+        FOLDER: build-stories # The folder the action should deploy.
+        BUILD_SCRIPT: yarn && yarn build-storybook # The build script the action should run prior to deploying.

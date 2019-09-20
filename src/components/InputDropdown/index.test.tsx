@@ -7,22 +7,25 @@ describe('InputDropdown', () => {
   it('should render corrent dropdown', () => {
     const Demo = () => {
       const [value, updateValue] = React.useState('MB');
-      return (<div style={{ width: '300px' }}>
-        <InputGroup>
-          <FormControl />
-          <InputDropdown
-            pullRight
-            defaultValue="GB"
-            onChange={(key: any) => updateValue(key)}
-            value={value}
-            options={[
-              { title: 'MB', value: 'MB' },
-              { title: 'GB', value: 'GB' },
-              { title: 'TB', value: 'TB' },
-            ]} />
-        </InputGroup>
-      </div>);
-    }
+      return (
+        <div style={{ width: '300px' }}>
+          <InputGroup>
+            <FormControl />
+            <InputDropdown
+              pullRight
+              defaultValue="GB"
+              onChange={(key: any) => updateValue(key)}
+              value={value}
+              options={[
+                { title: 'MB', value: 'MB' },
+                { title: 'GB', value: 'GB' },
+                { title: 'TB', value: 'TB' },
+              ]}
+            />
+          </InputGroup>
+        </div>
+      );
+    };
     const dropdown = mount(<Demo />);
     const button = dropdown.find('button');
     expect(dropdown.find('.dropdown.input-group-btn').length).toBe(1);
@@ -35,20 +38,23 @@ describe('InputDropdown', () => {
   it('should render corrent with input', () => {
     const Demo = () => {
       const [value, updateValue] = React.useState('MB');
-      return (<div style={{ width: '300px' }}>
-        <InputGroup>
-          <FormControl />
-          <InputDropdown
-            pullRight
-            input={{ value, onChange: updateValue }}
-            options={[
-              { title: 'MB', value: 'MB' },
-              { title: 'GB', value: 'GB' },
-              { title: 'TB', value: 'TB' },
-            ]} />
-        </InputGroup>
-      </div>);
-    }
+      return (
+        <div style={{ width: '300px' }}>
+          <InputGroup>
+            <FormControl />
+            <InputDropdown
+              pullRight
+              input={{ value, onChange: updateValue }}
+              options={[
+                { title: 'MB', value: 'MB' },
+                { title: 'GB', value: 'GB' },
+                { title: 'TB', value: 'TB' },
+              ]}
+            />
+          </InputGroup>
+        </div>
+      );
+    };
     const dropdown = mount(<Demo />);
     const button = dropdown.find('button');
     button.simulate('click');

@@ -1,9 +1,8 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import { Navbar, Tooltip } from 'wizard-ui';
+import { Navbar, Tooltip, Icon } from 'wizard-ui';
 import GitHubIcon from '../GitHubIcon';
-import IssueIcon from '../IssueIcon';
 import HeaderSearch from '../HeaderSearch';
 import logo from '../../images/logo.png';
 import './style.scss';
@@ -52,24 +51,47 @@ const TopBar = (props) => {
           </ul>
           <ul className="nav navbar-nav navbar-right">
             <li>
-              <a target="_blank" rel="noopener noreferrer"  href="https://github.com/xsky-fe/wizard-ui">
-                <span className="svg-icon">
-                  <GitHubIcon />
-                </span>
-                GITHUB
+              <Tooltip label={(
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/xsky-fe/wizard-ui">
+                  <span className="svg-icon">
+                    <GitHubIcon />
+                  </span>
               </a>
+              )}>
+                Github
+              </Tooltip>
             </li>
           </ul>
           <ul className="nav navbar-nav navbar-right">
             <li>
               <Tooltip label={(
                 <a target="_blank" rel="noopener noreferrer" href="https://github.com/xsky-fe/wizard-ui/issues/new">
-                  <span className="svg-icon">
-                    <IssueIcon />
-                  </span>
+                  <Icon type="dialog" />
                 </a>
               )} placement="bottom">
-                提交 Issue
+                Issue
+              </Tooltip>
+            </li>
+          </ul>
+          <ul className="nav navbar-nav navbar-right">
+            <li>
+              <Tooltip label={(
+                <a target="_blank" rel="noopener noreferrer" href="https://xsky-fe.github.io/wizard-ui">
+                  <Icon type="cache"/>
+                </a>
+              )}>
+                Storybook
+              </Tooltip>
+            </li>
+          </ul>
+          <ul className="nav navbar-nav navbar-right">
+            <li>
+              <Tooltip label={(
+                <a target="_blank" rel="noopener noreferrer" href="https://xsky-fe.github.io/icons/">
+                  <Icon type="workgroup" />
+                </a>
+              )}>
+                Icons
               </Tooltip>
             </li>
           </ul>

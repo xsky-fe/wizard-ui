@@ -4,7 +4,6 @@ import VirtualSelectBox from './index';
 import { sleep, getMockDatas } from '../../utils';
 import { Query } from '../../interface';
 import { get } from 'lodash';
-;
 const noOp = () => {};
 
 const resName = 'list';
@@ -30,8 +29,8 @@ const fetchEmptyDatas = async (isReloading: boolean, dQuery: Query = {}) => {
     query,
     items,
     totalCount,
-  }
-}
+  };
+};
 const fetchDatas = async (isReloading: boolean, dQuery: Query = {}) => {
   let resNamePlural = `${resName}s`;
   const query = {
@@ -46,14 +45,12 @@ const fetchDatas = async (isReloading: boolean, dQuery: Query = {}) => {
     query,
     items,
     totalCount,
-  }
-}
+  };
+};
 
 describe('VirtualSelectBox', () => {
   it('render with empty data', async () => {
-    const picker = mount(
-      <VirtualSelectBox item={{}} fetchData={fetchEmptyDatas} />,
-    );
+    const picker = mount(<VirtualSelectBox item={{}} fetchData={fetchEmptyDatas} />);
     const node = picker.find('.SelectBox');
     expect(node.length).toBe(1);
     node.find('Glyphicon').simulate('click');
@@ -88,7 +85,12 @@ describe('VirtualSelectBox', () => {
     await sleep(500);
     picker.update();
     // 存在 onClick 操作
-    expect(picker.find('.VirtualList > .SelectBox__item').at(1).props().onClick).not.toBeUndefined;
+    expect(
+      picker
+        .find('.VirtualList > .SelectBox__item')
+        .at(1)
+        .props().onClick,
+    ).not.toBeUndefined;
     // 默认第二个高亮
     expect(
       picker
