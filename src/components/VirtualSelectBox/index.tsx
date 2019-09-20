@@ -29,7 +29,7 @@ const defaultProps: VirtualSelectBoxDefaultProps<VirtualItem> = {
   defaultItem: {},
 };
 
-class VirtualSelectBox<T extends VirtualItem> extends React.Component<VirtualSelectBoxProps<T>, VirtualSelectBoxState<T>> {
+class VirtualSelectBox<T> extends React.Component<VirtualSelectBoxProps<T>, VirtualSelectBoxState<T>> {
   static propTypes = {
     /** 选中资源项 */
     item: PropTypes.object,
@@ -218,11 +218,13 @@ class VirtualSelectBox<T extends VirtualItem> extends React.Component<VirtualSel
     const { formatOption } = this.props;
     let option;
     if (formatOption) {
-      option = formatOption(item) as MultiVirtualSelectItem;
+      option = formatOption(item);
     } else {
       option = {
-        label: (item as SingleVirtualItem).name,
-        value: (item as SingleVirtualItem).id,
+        // @ts-ignore
+        label: item.name,
+        // @ts-ignore
+        value: item.id,
       }
     }
     return option;

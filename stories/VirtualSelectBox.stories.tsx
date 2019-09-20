@@ -101,7 +101,7 @@ storiesOf('DATA SHOW | VirtualSelectBox', module)
     />
   ))
   .add('empty string data', () => (
-    <VirtualSelectBox<string>
+    <VirtualSelectBox
       item=""
       defaultItem=""
       fetchData={fetchEmptyDatas}

@@ -20,7 +20,10 @@ import Panel from './Panel';
 import UsageBar from './UsageBar';
 import VirtualList from './VirtualList';
 import VirtualSelectBox from './VirtualSelectBox';
+import Notification from './/Notification/Notification';
+import NotificationList from './Notification/NotificationList';
 import {
+  SplitButton,
   ToggleButtonGroup,
   ToggleButton,
   ProgressBar,
@@ -38,6 +41,7 @@ import {
   ButtonGroup,
   ButtonToolbar,
   Tab,
+  Grid,
   Col,
   Clearfix,
   MenuItem,
@@ -59,6 +63,7 @@ import {
 } from 'react-bootstrap';
 
 export {
+  SplitButton,
   ToggleButtonGroup,
   ToggleButton,
   ProgressBar,
@@ -78,6 +83,7 @@ export {
   Tab,
   Alert,
   Badge,
+  Grid,
   Col,
   Clearfix,
   Dropdown,
@@ -107,6 +113,8 @@ export {
   PanelGroup,
   VirtualList,
   VirtualSelectBox,
+  NotificationList,
+  Notification,
   Pagination,
   // form
   Form,

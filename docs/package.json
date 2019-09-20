@@ -1,5 +1,5 @@
 {
-  "name": "wizard-ui",
+  "name": "wizard-ui-docs",
   "description": "Wizard UI Documentation",
   "version": "0.1.0",
   "author": "xsky-fe",
@@ -30,14 +30,15 @@
     "rc-calendar": "^9.15.4",
     "rc-time-picker": "^3.7.1",
     "rc-tree": "2.1.0",
-    "react": "^16.8.6",
+    "react": "16.8.6",
     "react-bootstrap": "^0.31.1",
-    "react-dom": "^16.8.6",
+    "react-dom": "16.8.6",
     "react-helmet": "^5.2.1",
     "react-ios-switch": "^0.1.19",
     "react-live": "^2.1.1",
     "react-router": "3.2.0",
     "ts-node": "^8.2.0",
+    "react-addons-css-transition-group": "^15.6.2",
     "wizard-icons": "0.0.1-beta.0"
   },
   "devDependencies": {

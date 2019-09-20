@@ -1,13 +1,10 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import { Navbar, Nav, Tooltip, OverlayTrigger } from 'react-bootstrap';
-import { SideNavItems } from '../SideNav';
+import { Navbar, Tooltip, Icon } from 'wizard-ui';
 import GitHubIcon from '../GitHubIcon';
-import IssueIcon from '../IssueIcon';
 import HeaderSearch from '../HeaderSearch';
 import logo from '../../images/logo.png';
-import useWindowWidth from '../../utils/hooks/get-window-width';
 import './style.scss';
 
 const HEADER_LINKS = [
@@ -17,11 +14,11 @@ const HEADER_LINKS = [
     exact: true,
   },
   {
-    link: '/get-started/introduction',
+    link: '/get-started/introduction/',
     title: '开始',
   },
   {
-    link: '/components/button',
+    link: '/components/button/',
     title: '组件',
   }
 ]
@@ -29,8 +26,7 @@ const HEADER_LINKS = [
 
 
 const TopBar = (props) => {
-  const { slug, location } = props;
-  const width = useWindowWidth();
+  const { slug } = props;
 
   return (
     <div className="TopBar">
@@ -44,53 +40,64 @@ const TopBar = (props) => {
           <Navbar.Toggle aria-controls="top-navbar-nav"/>
         </Navbar.Header>
         <Navbar.Collapse id="top-navbar-nav">
-          <Nav>
-            {HEADER_LINKS.map(({ link, title, partiallyActive }) => (
+          <ul className="nav navbar-nav">
+            {HEADER_LINKS.map(({ link, title }) => (
               <li key={link}>
-                {slug && slug.match(/components|layout/) && link.includes('components') ? (
-                  <a href={slug} className="active">
-                    {title}
-                  </a>
-                ) : (
-                  <Link to={link} activeClassName="active">
-                    {title}
-                  </Link>
-                )}
+                <Link to={slug && slug.match(/components|layout/) && link.includes('components') ? slug : link} activeClassName="active">
+                  {title}
+                </Link>
               </li>
             ))}
-          </Nav>
-          {width < 768 && <SideNavItems location={location}/>}
-          <Nav pullRight>
+          </ul>
+          <ul className="nav navbar-nav navbar-right">
             <li>
-              <a target="_blank" rel="noopener noreferrer"  href="https://github.com/xsky-fe/wizard-ui">
-                <span className="svg-icon">
-                  <GitHubIcon />
-                </span>
-                GITHUB
-              </a>
-            </li>
-          </Nav>
-          <Nav pullRight>
-            <li>
-              <OverlayTrigger
-                placement="left"
-                overlay={(
-                  <Tooltip id="tooltip">
-                    提交 Issue
-                  </Tooltip>
-                )}
-              >
-                <a target="_blank" rel="noopener noreferrer"  href="https://github.com/xsky-fe/wizard-ui/issues/new">
-                   <span className="svg-icon">
-                    <IssueIcon />
+              <Tooltip label={(
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/xsky-fe/wizard-ui">
+                  <span className="svg-icon">
+                    <GitHubIcon />
                   </span>
-                </a>
-              </OverlayTrigger>
+              </a>
+              )}>
+                Github
+              </Tooltip>
             </li>
-          </Nav>
-          <Nav pullRight>
+          </ul>
+          <ul className="nav navbar-nav navbar-right">
+            <li>
+              <Tooltip label={(
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/xsky-fe/wizard-ui/issues/new">
+                  <Icon type="dialog" />
+                </a>
+              )} placement="bottom">
+                Issue
+              </Tooltip>
+            </li>
+          </ul>
+          <ul className="nav navbar-nav navbar-right">
+            <li>
+              <Tooltip label={(
+                <a target="_blank" rel="noopener noreferrer" href="https://xsky-fe.github.io/wizard-ui">
+                  <Icon type="cache"/>
+                </a>
+              )}>
+                Storybook
+              </Tooltip>
+            </li>
+          </ul>
+          <ul className="nav navbar-nav navbar-right">
+            <li>
+              <Tooltip label={(
+                <a target="_blank" rel="noopener noreferrer" href="https://xsky-fe.github.io/icons/">
+                  <Icon type="workgroup" />
+                </a>
+              )}>
+                Icons
+              </Tooltip>
+            </li>
+          </ul>
+          <ul className="nav navbar-nav navbar-right">
             <HeaderSearch />
-          </Nav>
+          </ul>
         </Navbar.Collapse>
       </Navbar>
     </div>
