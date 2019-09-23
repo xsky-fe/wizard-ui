@@ -4,7 +4,7 @@
   "private": false,
   "main": "lib/index.js",
   "module": "esm/index.js",
-  "typings": "types.d.ts",
+  "typings": "types/index.d.ts",
   "author": "xsky-fe",
   "license": "MIT",
   "homepage": "https://xsky-fe.github.io/wizard-ui/",
@@ -13,6 +13,7 @@
     "lib",
     "esm",
     "dist",
+    "types",
     "src"
   ],
   "keywords": [
@@ -42,7 +43,7 @@
     "build-lib": "rm -rf lib && NODE_ENV=production babel src --out-dir lib --copy-file --extensions '.ts,.tsx' --env-name 'lib'",
     "build-dist": "rm -rf dist && NODE_ENV=production webpack",
     "dist-stats": "NODE_ENV=production webpack --profile --json > stats.json",
-    "tsc-types": "rm -rf types.d.ts && tsc --declaration -p ./ -t es2015 --emitDeclarationOnly --outFile types.d.ts",
+    "tsc-types": "rm -rf types && tsc --declaration -p ./ -t es2015 --emitDeclarationOnly --outDir types",
     "copy": "ts-node scripts/build-copy.ts",
     "build": "yarn build-dist && yarn build-esm && yarn build-lib && yarn copy",
     "storybook": "start-storybook -p 6006 -c .storybook",

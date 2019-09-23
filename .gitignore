@@ -30,7 +30,7 @@ package-lock.json
 /lib
 /esm
 /dist
-types.d.ts
+/types
 
 # dist analysis file
 stats.json
