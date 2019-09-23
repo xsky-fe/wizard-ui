@@ -3,7 +3,8 @@ title: VirtualSelectBox 滚动下拉
 date: 2019-08-28
 author: wangkailang
 ---
-在大量异步数据中选择需要的数据，支持滚动加载和搜索。
+- 在大量异步数据中选择需要的数据，支持滚动加载和搜索；
+- 支持单选和多选。
 
 ## 限制条件
 
@@ -80,7 +81,6 @@ const fetchData = () => new Promise((resolve, reject) => {
       totalCount,
     }
   }
-
   return (
     <VirtualSelectBox
       item={{}}
@@ -89,7 +89,7 @@ const fetchData = () => new Promise((resolve, reject) => {
   );
 }
 ```
-### 有数据
+### 有数据单选
 ```jsx
 () => {
   const limit = 30;
@@ -130,12 +130,10 @@ const fetchData = () => new Promise((resolve, reject) => {
     }
   }
   const [item, setItem] = React.useState({ id: 1, name: 'list-1' });
-  const onSelect = React.useCallback(async (item) => {
+  const onSelect = React.useCallback((item) => {
     setItem(item);
   }, [item, setItem]);
-
   const [clear, setClear] = React.useState(true);
-
   return (
     <div>
       <div>
@@ -154,10 +152,68 @@ const fetchData = () => new Promise((resolve, reject) => {
 }
 ```
 
-## API
-```jsx previewOnly
-<PropTable of="virtualSelectBox" />
+### 有数据多选
+```jsx
+() => {
+  const limit = 30;
+  const TOTAL = 180;
+  const getDatas = query => new Promise(resolve => {
+    setTimeout(() => {
+      const { limit = 0, offset = 0 } = query;
+      let rlt = [];
+      if (offset <= TOTAL) {
+        const len = Math.min(limit, TOTAL - offset);
+        for (let i = 0; len - i > 0; i++) {
+          rlt.push({ id: offset + i, name: `list-${offset + i}` });
+        }
+      }
+      resolve({
+        response: {
+          resNames: rlt,
+          paging: {
+            totalCount: TOTAL
+          }
+        }
+      });
+    }, 500);
+  });
+  async function fetchDatas(isReloading, dQuery = {}) {
+    const actionResult = await getDatas(dQuery);
+    const items = actionResult.response.resNames;
+    const totalCount = actionResult.response.paging.totalCount;
+    const query = {
+      ...dQuery,
+      limit,
+      offset: 0,
+    };
+    return {
+      query,
+      items,
+      totalCount,
+    }
+  }
+  const [value, setValue] = React.useState([]);
+  const onSelect = React.useCallback((item) => {
+    setValue(item);
+  }, [setValue]);
+
+  return (
+    <div>
+      <div>
+        选中资源 IDs：{value.join(',')}
+      </div>
+      <VirtualSelectBox
+        onSelect={onSelect}
+        fetchData={fetchDatas}
+        value={value}
+        multi
+      />
+    </div>
+  )
+}
 ```
+
+## API
 
 
 

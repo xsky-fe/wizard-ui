@@ -45,7 +45,7 @@ const InputDropdown = (props: InputDropdownProps) => {
         ))}
     </DropdownButton>
   );
-}
+};
 
 InputDropdown.propTypes = {
   /**

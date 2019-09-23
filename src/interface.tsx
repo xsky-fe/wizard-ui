@@ -3,13 +3,28 @@ import { SelectCallback, Sizes } from 'react-bootstrap';
 import { Moment } from 'moment';
 import CSS from 'csstype';
 
+export interface Map<K, V> {
+  clear(): void;
+  delete(key: K): boolean;
+  entries(): IterableIterator<[K, V]>;
+  forEach(callbackfn: (value: V, index: K, map: Map<K, V>) => void, thisArg?: any): void;
+  get(key: K): V;
+  has(key: K): boolean;
+  keys(): IterableIterator<K>;
+  set(key: K, value?: V): Map<K, V>;
+  size: number;
+  values(): IterableIterator<V>;
+  [Symbol.iterator](): IterableIterator<[K, V]>;
+  [Symbol.toStringTag]: string;
+}
+
 export interface Query {
   offset?: number;
   limit?: number;
   q?: string;
 }
 
-export interface FetchResponse <T = any> {
+export interface FetchResponse<T = any> {
   response?: {
     [res: string]: T | T[];
   };
@@ -81,10 +96,9 @@ export interface TabsProps {
 export interface StepsProps {
   steps: any[];
   currentStep: number;
-  stepIcon?: string;
-  stepIconSize?: string;
-  stepIconStatus?: string;
-  alternativeLabel?: boolean;
+  showIcon?: boolean;
+  iconSize?: string;
+  iconStatus?: string;
 }
 
 export interface ModalProps {
@@ -263,9 +277,22 @@ export interface InputDropdownProps {
   input?: any;
   meta?: any;
 }
-export type VirtualItem = {
-  id?: number;
-} | string | number
+export interface MultiVirtualSelectItem {
+  label: string;
+  value: number | string;
+}
+export type VirtualItem =
+  | MultiVirtualSelectItem
+  | object
+  | string
+  | number;
+export interface SelectCheckItemProps {
+  onSelect: Function;
+  selected: boolean;
+  option: MultiVirtualSelectItem;
+  className?: string;
+  style?: object;
+}
 export interface VirtualRowArgs<T> {
   index: number;
   item: T;
@@ -313,7 +340,11 @@ export interface VirtualSelectBoxDefaultProps<T> {
   defaultItem: T;
 }
 export interface VirtualSelectBoxProps<T> extends VirtualSelectBoxDefaultProps<T> {
-  fetchData: (isReloading: boolean, query: Query, search?: string) => Promise<{
+  fetchData: (
+    isReloading: boolean,
+    query: Query,
+    search?: string,
+  ) => Promise<{
     query: Query;
     items: T[];
     totalCount: number;
@@ -322,8 +353,11 @@ export interface VirtualSelectBoxProps<T> extends VirtualSelectBoxDefaultProps<T
   item?: T;
   className?: string;
   clear?: boolean;
-  onSelect?: (item: T) => void;
-  formatOption?: (item: T) => T;
+  onSelect?: Function;
+  // onSelect?: (item: T) => void;
+  formatOption?: (item: T) => any;
+  multi?: boolean;
+  value?: any[];
 }
 export interface VirtualSelectBoxState<T> {
   search: string;
@@ -334,4 +368,32 @@ export interface VirtualSelectBoxState<T> {
   isOpen: boolean;
   isReloading: boolean;
   error?: string;
+}
+
+export type NotificationItemStatus = 'success' | 'info' | 'process' | 'warning' | 'danger';
+export interface NotificationItem {
+  id: string;
+  status: NotificationItemStatus;
+  text: string;
+  title?: React.ReactNode | string;
+}
+export interface NotificationProps extends NotificationItem {
+  autoClose?: boolean;
+  counter: number;
+  intervalMap?: {
+    set: (key: string | number, func: () => void, time: number) => void;
+    clear: (key: string | number) => void;
+    has: (key: string | number) => boolean;
+  };
+  onDismiss?: Function;
+}
+export interface NotificationListProps {
+  notifications: Map<string, Map<string, NotificationItem>>;
+  onDismiss?: Function;
+  autoClose?: boolean;
+  format?: Function;
+}
+
+export interface NotificationListStates {
+  expanded?: boolean;
 }

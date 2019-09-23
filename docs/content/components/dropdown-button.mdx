@@ -13,7 +13,7 @@ date: 2019-06-19
 <DropdownButton
   id="a1"
   title="操作"
-  bsStyle="info" 
+  bsStyle="info"
   menu={[
     '操作-1',
     { key: 'menu2', title: '操作-2', children: ['操作-2-1', '操作-2-2'] },
@@ -30,7 +30,7 @@ date: 2019-06-19
   return (
     <div>
       <div>
-        <Checkbox checked={disabled} onClick={handleClick}>禁用</Checkbox>
+        <Checkbox checked={disabled} onChange={handleClick}>禁用</Checkbox>
       </div>
       <DropdownButton
         id="a1"
@@ -99,13 +99,13 @@ date: 2019-06-19
   sizes = [
     ['xs', '很小 sxmall'],
     ['sm', '小 small'],
-    ['medium', '默认 medium'],
+    [undefined, '默认 medium'],
     ['lg', '大 large'],
   ];
   return (
     <div>
-      {sizes.map(([size, title]) => (
-        <DropdownButton key={size} id={`${size}-size`} bsSize={size} title={title} menu={menu} />
+      {sizes.map(([size, title], idx) => (
+        <DropdownButton key={idx} id={`${size}-size`} bsSize={size} title={title} menu={menu} />
       ))}
     </div>
   );
@@ -119,7 +119,7 @@ date: 2019-06-19
   <DropdownButton
     id="a1"
     title="操作"
-    bsStyle="info" 
+    bsStyle="info"
     pullRight
     menu={['操作-1', '操作-2', '操作-3']}
   />
@@ -127,7 +127,4 @@ date: 2019-06-19
 ```
 
 ## API
-```jsx previewOnly
-<PropTable of="dropdownButton" />
-```
 

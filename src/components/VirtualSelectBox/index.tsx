@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Panel, FormControl, Glyphicon } from 'react-bootstrap';
+import { Panel, FormControl, Glyphicon, DropdownButton, Button } from 'react-bootstrap';
 import { get, debounce, isEmpty } from 'lodash';
 import classNames from 'classnames';
 import VirtualList from '../VirtualList';
+import SelectCheckItem from './SelectCheckItem';
 import {
   Query,
   VirtualRowArgs,
@@ -11,6 +12,7 @@ import {
   VirtualSelectBoxProps,
   VirtualSelectBoxState,
   VirtualItem,
+  MultiVirtualSelectItem,
 } from '../../interface';
 import Icon from '../Icon';
 import './style.scss';
@@ -26,64 +28,41 @@ const defaultProps: VirtualSelectBoxDefaultProps<VirtualItem> = {
   defaultItem: {},
 };
 
-class VirtualSelectBox<T extends VirtualItem> extends React.Component<VirtualSelectBoxProps<T>, VirtualSelectBoxState<T>> {
+class VirtualSelectBox<T> extends React.Component<VirtualSelectBoxProps<T>, VirtualSelectBoxState<T>> {
   static propTypes = {
-    /**
-     * 选中资源项
-     */
-    item: PropTypes.object.isRequired,
-    /**
-     * 	获取异步数据的函数
-     */
+    /** 选中资源项 */
+    item: PropTypes.object,
+    /** 获取异步数据的函数 */
     fetchData: PropTypes.func.isRequired,
-    /**
-     * 选择函数
-     */
+    /** 选择函数 */
     onSelect: PropTypes.func,
-    /**
-     * 是否禁用操作
-     */
+    /** 是否禁用操作 */
     disabled: PropTypes.bool,
-    /**
-     * 每项 select 的行高
-     */
+    /** 每项 select 的行高 */
     rowHeight: PropTypes.number,
-    /**
-     * 格式化 onSelect 输出数据
-     */
+    /** 格式化 onSelect 输出数据 */
     formatOption: PropTypes.func,
-    /**
-     * 是否使用 button 格式 UI
-     */
+    /** 是否使用 button 格式 UI */
     isBtn: PropTypes.bool,
-    /**
-     * 默认展示文案
-     */
+    /** 默认展示文案 */
     placeholder: PropTypes.string,
-    /**
-     * async query
-     */
+    /** 查询条件 */
     query: PropTypes.object,
-    /**
-     * 清除
-     */
+    /** 清除 */
     clear: PropTypes.bool,
   };
   static defaultProps = defaultProps;
   debounceFetch: () => Promise<void>;
   isMount: boolean;
+  cacheSelected: MultiVirtualSelectItem[];
   wrapper: React.RefObject<HTMLDivElement>;
   constructor(props: VirtualSelectBoxProps<T>) {
     super(props);
     this.debounceFetch = debounce(this.fetchResource, 200).bind(this);
-    this.toggleMenu = this.toggleMenu.bind(this);
-    this.handleSearchChange = this.handleSearchChange.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
-    this.handleClickOutside = this.handleClickOutside.bind(this);
-    this.renderItem = this.renderItem.bind(this);
-    this.renderLabel = this.renderLabel.bind(this);
     this.wrapper = React.createRef();
     this.isMount = true;
+    // 缓存已经选择的选项
+    this.cacheSelected = [];
     this.state = {
       search: '',
       items: [],
@@ -107,6 +86,14 @@ class VirtualSelectBox<T extends VirtualItem> extends React.Component<VirtualSel
   componentWillUnmount() {
     this.isMount = false;
     this.toggleClickOutsideEvent(false);
+  }
+
+  get selectValue() {
+    return this.props.value || [];
+  }
+
+  isOptionSelected(option: MultiVirtualSelectItem, selectValue: any[]) {
+    return selectValue.indexOf(option.value) > -1;
   }
 
   handleQueryChange = async (query: Query) => {
@@ -147,7 +134,7 @@ class VirtualSelectBox<T extends VirtualItem> extends React.Component<VirtualSel
     event.preventDefault();
   }
 
-  toggleMenu(isOpen?: boolean) {
+  toggleMenu = (isOpen?: boolean) => {
     this.setState(prevState => ({
       isOpen: typeof isOpen === 'boolean' ? isOpen : !prevState.isOpen,
     }));
@@ -169,18 +156,18 @@ class VirtualSelectBox<T extends VirtualItem> extends React.Component<VirtualSel
     }
   }
 
-  handleClickOutside(event: any) {
+  handleClickOutside = (event: any) => {
     // IE when component unmount, element already is null but event still triggered
     if (this.wrapper && this.wrapper.current && !this.wrapper.current.contains(event.target)) {
       this.toggleMenu(false);
     }
   }
 
-  handleSearchChange(event: any) {
+  handleSearchChange = (event: any) => {
     this.setState({ search: event.target.value }, this.debounceFetch);
   }
 
-  handleKeyDown(event: React.KeyboardEvent) {
+  handleKeyDown = (event: React.KeyboardEvent) => {
     switch (event.keyCode) {
       case 27: // escape
         this.toggleMenu(false);
@@ -196,8 +183,25 @@ class VirtualSelectBox<T extends VirtualItem> extends React.Component<VirtualSel
       onSelect(defaultItem);
     }
   };
+  handleChange = (newValue: any) => {
+    const { onSelect } = this.props;
+    const { items } = this.state;
+    this.cacheSelected = items.map(this.formatMultItem).filter(i => newValue.includes(i.value));
+    if (onSelect) {
+      onSelect(newValue);
+    }
+  }
 
-  renderLabel(item?: T) {
+  handleSelect = (option: MultiVirtualSelectItem) => {
+    const selectValue = this.selectValue;
+    const optionValue = option.value;
+    if (this.isOptionSelected(option, selectValue)) {
+      this.handleChange(selectValue.filter(v => v !== optionValue))
+    } else {
+      this.handleChange([...selectValue, optionValue]);
+    }
+  }
+  renderLabel = (item?: T) => {
     const { placeholder } = this.props;
     let nameKey = 'name';
     let title = get(item, nameKey) || placeholder;
@@ -209,43 +213,72 @@ class VirtualSelectBox<T extends VirtualItem> extends React.Component<VirtualSel
     );
   }
 
-  renderItem({ item, style, index }: VirtualRowArgs<T>) {
+  formatMultItem = (item: T): MultiVirtualSelectItem => {
+    const { formatOption } = this.props;
+    let option;
+    if (formatOption) {
+      option = formatOption(item);
+    } else {
+      option = {
+        // @ts-ignore
+        label: item.name,
+        // @ts-ignore
+        value: item.id,
+      }
+    }
+    return option;
+  }
+  renderItem = ({ item, style, index }: VirtualRowArgs<T>) => {
     if (!item) {
       return;
     }
-    const { onSelect, rowHeight, formatOption } = this.props;
-    const label = this.renderLabel(item);
-    const activeKey = typeof item === 'object' ? 'item.id' : 'item';
-    const activeItem = typeof item === 'object' ? get(item, 'id') : item;
-    const className = classNames('SelectBox__item text-truncate', {
-      active: get(this.props, activeKey) === activeItem,
-    });
-    if (onSelect) {
-      const onClick = (event: React.MouseEvent<HTMLDivElement>) => {
-        this.blockEvent(event);
-        let formatItem = item;
-        if (formatOption) {
-          formatItem = formatOption(item);
-        }
-        onSelect(formatItem);
-        this.setState({ isOpen: false });
-      };
+    const { onSelect, rowHeight, formatOption, multi } = this.props;
+    if (multi) {
+      const option = this.formatMultItem(item);
       return (
-        <div
+        <SelectCheckItem
           style={{ ...style, height: rowHeight }}
-          className={className}
-          key={index}
-          onClick={onClick}
-        >
+          className="SelectBox__item text-truncate"
+          key={option.value}
+          option={option}
+          selected={this.isOptionSelected(option, this.selectValue)}
+          onSelect={this.handleSelect}
+        />
+      );
+    } else {
+      const label = this.renderLabel(item);
+      const activeKey = typeof item === 'object' ? 'item.id' : 'item';
+      const activeItem = typeof item === 'object' ? get(item, 'id') : item;
+      const className = classNames('SelectBox__item text-truncate', {
+        active: get(this.props, activeKey) === activeItem,
+      });
+      if (onSelect) {
+        const onClick = (event: React.MouseEvent<HTMLDivElement>) => {
+          this.blockEvent(event);
+          let formatItem = item;
+          if (formatOption) {
+            formatItem = formatOption(item);
+          }
+          onSelect(formatItem);
+          this.setState({ isOpen: false });
+        };
+        return (
+          <div
+            style={{ ...style, height: rowHeight }}
+            className={className}
+            key={index}
+            onClick={onClick}
+          >
+            {label}
+          </div>
+        );
+      }
+      return (
+        <div style={{ ...style, height: rowHeight }} key={index} className={className}>
           {label}
         </div>
       );
     }
-    return (
-      <div style={{ ...style, height: rowHeight }} key={index} className={className}>
-        {label}
-      </div>
-    );
   }
 
   renderSearch() {
@@ -298,13 +331,39 @@ class VirtualSelectBox<T extends VirtualItem> extends React.Component<VirtualSel
         {/*
         // react-bootstrap 跟 @types/react-bootstrap 不兼容
         // @ts-ignore */}
-        <Panel header={this.renderSearch()}>{this.renderList()}</Panel>
+        <Panel header={this.renderSearch()}>{this.renderClear()}{this.renderList()}</Panel>
       </div>
     );
   }
 
+  renderClear() {
+    const { multi } = this.props;
+    if (this.selectValue.length <= 0 || !multi) {
+      return null;
+    }
+    return (
+      <Button bsStyle="link" onClick={(event: React.MouseEvent<Button, MouseEvent>) => { this.blockEvent(event); this.handleChange([])}}>
+        清除选择的内容
+      </Button>
+    )
+  }
+
+  renerMultiHeader() {
+    const { placeholder } = this.props;
+    const title = this.cacheSelected.map(s => s.label).join(', ');
+    const className = classNames('titleSpan', {
+      'placeholder': !title,
+    });
+    return (
+      <DropdownButton
+        title={<span className={className}>{title || placeholder}</span>}
+        id="select-dropdown"
+      />
+    );
+  }
+
   render() {
-    const { item, disabled, className, isBtn, clear } = this.props;
+    const { item, disabled, className, isBtn, clear, multi } = this.props;
     const { isOpen } = this.state;
     const btnClassName = classNames('SelectBox__btn text-truncate', {
       'is-open': isOpen,
@@ -317,14 +376,20 @@ class VirtualSelectBox<T extends VirtualItem> extends React.Component<VirtualSel
     return (
       <span
         className={selectBoxClass}
-        onKeyDown={this.handleKeyDown}
-        onClick={() => this.toggleMenu()}
+        onKeyDown={multi ? undefined : this.handleKeyDown}
+        onClick={multi ? undefined : () => this.toggleMenu()}
         ref={this.wrapper}
       >
-        <span className={btnClassName}>
-          {this.renderLabel(item)} {isBtn && <Glyphicon glyph="triangle-bottom" />}
-          {clear && !isEmpty(item) && <Icon type="close" onClick={this.clear} />}
-        </span>
+        {multi ? (
+          <div className="SelectBox__Header" onClick={() => this.toggleMenu()}>
+            {this.renerMultiHeader()}
+          </div>
+        ) : (
+          <span className={btnClassName}>
+            {this.renderLabel(item)} {isBtn && <Glyphicon glyph="triangle-bottom" />}
+            {clear && !isEmpty(item) && <Icon type="close" onClick={this.clear} />}
+          </span>
+        )}
         {isOpen && this.renderOuter()}
       </span>
     );

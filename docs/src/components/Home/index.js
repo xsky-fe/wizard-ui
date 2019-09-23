@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { Row, Col, Button } from 'react-bootstrap';
+import { Row, Col, Button } from 'wizard-ui';
 import homeImg from '../../images/home-right.jpg';
 import './style.scss';
 

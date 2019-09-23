@@ -1,6 +1,7 @@
 ---
 title: Steps 步骤条
 date: 2019-06-12
+author: shenghou
 ---
 
 引导用户按照流程完成任务的导航条。
@@ -23,7 +24,7 @@ date: 2019-06-12
 <Steps
   steps={['第一步', '第二步', '第三步', '确认']}
   currentStep={2}
-  stepIconSize="small"
+  iconSize="small"
 />
 ```
 
@@ -33,17 +34,17 @@ date: 2019-06-12
 <Steps
   steps={['第一步', '第二步', '第三步', '确认']}
   currentStep={2}
-  stepIconStatus="danger"
+  iconStatus="danger"
 />
 ```
 
 ### 图标变成数字
 
 ```jsx
-<Steps steps={['A', 'B', 'C', 'D']} currentStep={2} stepIcon="count" />
+<Steps steps={['A', 'B', 'C', 'D']} currentStep={2} showIcon={false} />
 ```
 
-### steps 内容可以是个对象（stepIcon 必须为 count 才可以是任意 count）
+### steps 内容可以是个对象,showIcon 需为 false
 
 ```jsx
 <Steps
@@ -53,7 +54,7 @@ date: 2019-06-12
     { label: '第三步', count: 'Z' },
   ]}
   currentStep={2}
-  stepIcon="count"
+  showIcon={false}
 />
 ```
 
@@ -68,20 +69,20 @@ date: 2019-06-12
     <div>
       <Steps steps={['A', 'B', 'C', 'D']} currentStep={step} />
       <p>第 {step} 步</p>
-      <Button bsStyle="info" onClick={prevStep}>
-        上一步
-      </Button>
+      {step > 1 && (
+        <Button bsStyle="info" onClick={prevStep}>
+          上一步
+        </Button>
+      )}
       <span style={{ paddingLeft: '40px' }} />
-      <Button bsStyle="primary" onClick={nextStep}>
-        下一步
-      </Button>
+      {step < 4 && (
+        <Button bsStyle="primary" onClick={nextStep}>
+          下一步
+        </Button>
+      )}
     </div>
   );
 };
 ```
 
 ## API
-
-```jsx previewOnly
-<PropTable of="steps" />
-```
