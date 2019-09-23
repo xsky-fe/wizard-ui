@@ -274,12 +274,22 @@ export interface InputDropdownProps {
   input?: any;
   meta?: any;
 }
+export interface MultiVirtualSelectItem {
+  label: string;
+  value: number | string;
+}
 export type VirtualItem =
-  | {
-      id?: number;
-    }
+  | MultiVirtualSelectItem
+  | object
   | string
   | number;
+export interface SelectCheckItemProps {
+  onSelect: Function;
+  selected: boolean;
+  option: MultiVirtualSelectItem;
+  className?: string;
+  style?: object;
+}
 export interface VirtualRowArgs<T> {
   index: number;
   item: T;
@@ -340,8 +350,11 @@ export interface VirtualSelectBoxProps<T> extends VirtualSelectBoxDefaultProps<T
   item?: T;
   className?: string;
   clear?: boolean;
-  onSelect?: (item: T) => void;
-  formatOption?: (item: T) => T;
+  onSelect?: Function;
+  // onSelect?: (item: T) => void;
+  formatOption?: (item: T) => any;
+  multi?: boolean;
+  value?: any[];
 }
 export interface VirtualSelectBoxState<T> {
   search: string;
