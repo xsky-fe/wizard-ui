@@ -10,10 +10,12 @@ import TopBar from '../components/TopBar';
 import { Grid } from 'wizard-ui';
 import './style.scss';
 
+const isClient = typeof window === 'object';
+
 const Layout = props => {
   const [cls, setCls] = React.useState(() => {
-    if (localStorage) {
-      return localStorage.getItem('theme') || 'light';
+    if (isClient) {
+      return window.localStorage.getItem('theme') || 'light';
     } else {
       return 'light';
     }
@@ -21,7 +23,7 @@ const Layout = props => {
   const toggle = React.useCallback(() => {
     const theme = cls === 'light' ? 'dark' : 'light';
     setCls(theme);
-    localStorage && localStorage.setItem('theme', theme);
+    isClient && window.localStorage.setItem('theme', theme);
   }, [cls, setCls]);
 
   return (
