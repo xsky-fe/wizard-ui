@@ -11,9 +11,22 @@ import { Grid } from 'wizard-ui';
 import './style.scss';
 
 const Layout = props => {
+  const [cls, setCls] = React.useState(() => {
+    if (localStorage) {
+      return localStorage.getItem('theme') || 'light';
+    } else {
+      return 'light';
+    }
+  });
+  const toggle = React.useCallback(() => {
+    const theme = cls === 'light' ? 'dark' : 'light';
+    setCls(theme);
+    localStorage && localStorage.setItem('theme', theme);
+  }, [cls, setCls]);
+
   return (
-    <div>
-      {<TopBar slug={props.slug} location={props.location} />}
+    <div className={`theme-${cls}`}>
+      {<TopBar cls={cls} toggle={toggle} slug={props.slug}/>}
       <Grid fluid className="Main">
         {props.children}
       </Grid>

@@ -1,3 +1,5 @@
+@import '../../Layout/theme.scss';
+
 .Playground {
   .pane {
     display: flex;
@@ -43,21 +45,30 @@
     }
   }
   &__View {
-    background-color: #fff;
+    @include themify($themes) {
+      background-color: themed('code-bg');
+      border: 1px solid themed('border-color');
+      color: themed('bd-color');
+    }
     border-radius: 3px;
-    color: #66788a;
     padding: 16px;
-    border: 1px solid #ccc;
     display: flex;
     justify-content: space-between;
     position: relative;
+    .Steps, .dropdown {
+      color: #777;
+    }
     .box {
-      border: 1px solid #ccc;
+      @include themify($themes) {
+        border: 1px solid themed('border-color');;
+      }
       overflow: scroll;
     }
     .list-item {
+      @include themify($themes) {
+        border-bottom: 1px dotted themed('border-color');;
+      }
       line-height: 34px;
-      border-bottom: 1px dotted #ccc;
       padding: 0 15px;
       display: flex;
       align-items: center;
