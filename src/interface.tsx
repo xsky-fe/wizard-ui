@@ -96,6 +96,9 @@ export interface TabsProps {
 export interface StepsProps {
   steps: any[];
   currentStep: number;
+  showIcon?: boolean;
+  iconSize?: string;
+  iconStatus?: string;
 }
 
 export interface ModalProps {
