@@ -1,6 +1,10 @@
+@import '../../Layout//theme.scss';
+
 .Header {
   .edit-button {
-    color: #777;
+    @include themify($themes) {
+      color: themed('bd-color');
+    }
     display: inline-block;
     margin-left: 8px;
     text-decoration: none;

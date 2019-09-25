@@ -26,7 +26,7 @@ const HEADER_LINKS = [
 
 
 const TopBar = (props) => {
-  const { slug } = props;
+  const { slug, cls, toggle } = props;
 
   return (
     <div className="TopBar">
@@ -92,6 +92,17 @@ const TopBar = (props) => {
                 </a>
               )}>
                 Icons
+              </Tooltip>
+            </li>
+          </ul>
+          <ul className="nav navbar-nav navbar-right">
+            <li>
+              <Tooltip label={(
+                <div onClick={toggle}>
+                  <Icon type={cls === 'light' ? 'light-dark' : 'light'} />
+                </div>
+              )}>
+                Toggle {cls === 'light'? 'dark' : 'light'}
               </Tooltip>
             </li>
           </ul>
