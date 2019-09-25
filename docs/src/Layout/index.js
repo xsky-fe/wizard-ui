@@ -14,11 +14,7 @@ const isClient = typeof window === 'object';
 
 const Layout = props => {
   const [cls, setCls] = React.useState(() => {
-    if (isClient) {
-      return window.localStorage.getItem('theme') || 'light';
-    } else {
-      return 'light';
-    }
+    return isClient ? window.localStorage.getItem('theme') : 'light';
   });
   const toggle = React.useCallback(() => {
     const theme = cls === 'light' ? 'dark' : 'light';
