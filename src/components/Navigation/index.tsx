@@ -1,40 +1,46 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import cn from 'classnames';
-import { getBemClass, uuid } from '../../utils';
-import { Tooltip, OverlayTrigger, Panel } from 'react-bootstrap';
+import { getBemClass } from '../../utils';
+import { Panel } from 'react-bootstrap';
 import { NavigationProps, NavigationGroup } from '../../interface';
+import Icon from '../Icon';
+import Tooltip from '../Tooltip';
 import { xor, toPairs } from 'lodash';
 import './style.scss';
 
 function NavItemText(props: NavigationGroup) {
-  const { title, icon, isFirst } = props;
+  const { toggled, title, icon, component, isFirst } = props;
+
+  const text = (
+    <>
+      {icon && <Icon type={icon} />}
+      {!toggled && title}
+    </>
+  )
 
   return (
     <div className={getBemClass('Navigation__item', isFirst && 'first')}>
       <div className="Navigation__link">
-        {icon && <span className={`icon icon-${icon}`} />}
-        <span className="Navigation__item__title">{title}</span>
+        {component ? (
+          React.createElement(component, {
+            children: text
+          })
+        ) : (
+          <div className="Navigation__item__title">
+            {text}
+          </div>
+        )}
       </div>
     </div>
   );
 }
 
 function NavItemNoText(props: any) {
-  const tooltip = (
-    <Tooltip id={`tooltip-${uuid()}`} className="Navigation__tooltip">
+  return (
+    <Tooltip placement="right" className="Navigation__tooltip" label={NavItemText({ ...props, toggled: true })}>
       {props.title}
     </Tooltip>
-  );
-  return (
-    <OverlayTrigger placement="right" overlay={tooltip}>
-      {/*
-        OverlayTrigger需要在children中找到确定的html标签做响应
-        JSX形式 写法无法满足要求
-        Wrong modal: <NavItemText {...props}/>
-      */}
-      {NavItemText(props)}
-    </OverlayTrigger>
   );
 }
 
@@ -51,7 +57,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
     /**
      * Logo子元素标签文本
      **/
-    logo: PropTypes.element,
+    logo: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   };
   constructor(props: NavigationProps) {
     super(props);
@@ -63,23 +69,20 @@ export default class Navigation extends React.Component<NavigationProps, any> {
   togglePanel(activeKey: any) {
     this.setState({ expanded: xor(this.state.expanded, [activeKey]) });
   }
-  renderPanelHeader(title: string, expanded: boolean) {
+  renderPanelHeader(title: | React.ReactNode, expanded: boolean) {
     const { toggled } = this.props;
-    const tooltip = (
-      <Tooltip id={`tooltip-${uuid()}`} className="Navigation__tooltip">
-        {title}
-      </Tooltip>
-    );
     const header = (
       <div>
         <span className="panel-title__title">{title}</span>
-        <span className={`panel-title__icon icon icon-${expanded ? 'minus' : 'plus'}`} />
+        <Icon type={expanded ? 'minus' : 'plus'} className="panel-title__icon"/>
       </div>
     );
     return toggled ? (
-      <OverlayTrigger placement="right" overlay={tooltip}>
-        {header}
-      </OverlayTrigger>
+      <div>
+        <Tooltip placement="right" className="Navigation__tooltip" icon={expanded ? 'minus' : 'plus'} iconClass="panel-title__icon">
+          {title}
+        </Tooltip>
+      </div>
     ) : (
       header
     );
@@ -99,7 +102,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
         <div className="Navigation__list">
           {toPairs(navGroups).map(([key, group]) => {
             if (!group.children) {
-              return <NavItem key={key} {...group} />;
+              return <NavItem key={key} {...group}/>;
             }
             return (
               // @ts-ignore
