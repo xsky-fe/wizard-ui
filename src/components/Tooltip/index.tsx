@@ -14,6 +14,7 @@ const Tooltip: React.FC<TooltipProps> = props => {
     onClick,
     label,
     contrast,
+    className,
     style,
     children,
     placement: defaultPlacement,
@@ -74,7 +75,7 @@ const Tooltip: React.FC<TooltipProps> = props => {
         <BaseTooltip
           id="tooltip"
           style={Object.assign({}, { maxWidth: 280 }, style)}
-          className={cn({ contrast })}
+          className={`${cn({ contrast })} ${className}`}
           onMouseEnter={handleShow}
           onMouseLeave={handleHide}
         >

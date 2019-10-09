@@ -3,26 +3,32 @@
 .Navigation {
   height: 100%;
 }
-.Navigation--logo {
-  padding-top: $height-topbar;
-}
 
 .Navigation__logo {
   background-color: $gray-darker-4;
   height: $height-topbar;
-  position: absolute;
-  top: 0;
-  left: 0;
+  line-height: $height-topbar;
+  text-align: center;
   width: 100%;
   z-index: 99;
   box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, .15);
 }
 
 .Navigation__list {
+  .Tooltip {
+    display: block;
+    color: $white;
+    text-align: center;
+    min-height : 36px;
+    line-height: 36px;
+  }
+  .panel-title .panel-title__icon {
+      float: right;
+      line-height: 36px;
+      padding-right: 17px;
+    }
   margin: 0;
-  padding: 15px 0 0;
   overflow-y: auto;
-  height: 100%;
   /* 折叠组样式覆盖 */
   .panel {
     margin-bottom: 0;
@@ -43,16 +49,8 @@
         cursor: pointer;
         text-decoration: none;
         position: relative;
-        .panel-title__icon {
-          position: absolute;
-          right: 15px;
-          top: 9px;
-        }
         .Navigation--toggled & {
           padding-left: 15px;
-          .panel-title__title {
-            display: none;
-          }
           .panel-title__icon {
             position: static;
           }
@@ -115,10 +113,6 @@
 
 .Navigation__link .icon {
   margin-right: 12px;
-}
-
-.Navigation--toggled .Navigation__item__title {
-  display: none;
 }
 
 /**

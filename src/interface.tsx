@@ -60,6 +60,7 @@ export interface TooltipProps {
   style?: string;
   placement?: string;
   children: React.ReactNode;
+  className?: string;
 }
 
 export interface UsageBarProps {
@@ -191,10 +192,12 @@ export interface DropdownButtonProps extends DefaultDropdownButtonProps {
 }
 
 export interface NavigationGroup {
-  title: string;
+  title: string | React.ReactNode;
   icon?: string;
   isFirst?: boolean;
   children?: any[];
+  component?: any;
+  toggled?: boolean;
 }
 
 export interface NavigationProps {
@@ -202,7 +205,7 @@ export interface NavigationProps {
     [key: string]: NavigationGroup;
   };
   toggled?: boolean;
-  logo?: boolean;
+  logo?: React.ReactNode | string;
 }
 
 export interface RangePickerProps {
