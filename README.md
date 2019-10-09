@@ -1,5 +1,6 @@
-## wizard-ui
-### A Design System with React
+# wizard-ui
+
+A Design System with React.
 
 [![Build Status](https://travis-ci.org/xsky-fe/wizard-ui.svg?branch=master)](https://travis-ci.org/xsky-fe/wizard-ui)
 [![Codecov](https://img.shields.io/codecov/c/github/xsky-fe/wizard-ui/master.svg?style=flat-square)](https://codecov.io/gh/xsky-fe/wizard-ui/branch/master) 
@@ -15,7 +16,9 @@
 ## Install and Usage
 
 ### Dev and webpack setting
+
 Add in package.json
+
 ```bash
 yarn add wizard-ui
 # sass dep && loader
@@ -23,7 +26,9 @@ yarn add --dev node-sass style-loader css-loader sass-loader
 # react bootstrap font dev
 yarn add --dev url-loader file-loader
 ```
+
 if you not use [create-react-app](https://github.com/facebook/create-react-app), you need set webpack config:
+
 ```js
 {
   test: /\.(css|scss)$/,
@@ -44,18 +49,23 @@ if you not use [create-react-app](https://github.com/facebook/create-react-app),
 ```
 
 ### Global style
-```
+
+```jsx
 import 'wizard-ui/lib/style/index.scss';
 ```
 
 ### Usage
+
 > UMD
+
 ```jsx
 import { Icon } from 'wizard-ui';
 
 export default () => <Icon type="os-search-role" />
 ```
+
 > ES
+
 ```jsx
 import { Icon } from 'wizard-ui/esm';
 
