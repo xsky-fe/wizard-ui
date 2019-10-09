@@ -1,6 +1,6 @@
 {
   "name": "wizard-ui",
-  "version": "0.3.0-beta.5",
+  "version": "0.4.0",
   "private": false,
   "main": "lib/index.js",
   "module": "esm/index.js",
@@ -110,7 +110,9 @@
   },
   "majestic": {
     "jestScriptPath": "./node_modules/jest/bin/jest.js",
-    "args": ["--config=./jest.config.js"],
+    "args": [
+      "--config=./jest.config.js"
+    ],
     "env": {
       "CI": "true"
     }

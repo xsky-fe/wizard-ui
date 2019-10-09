@@ -1,3 +1,23 @@
+# [0.4.0](https://github.com/xsky-fe/wizard-ui/compare/0.2.0...0.4.0) (2019-10-09)
+
+
+### Bug Fixes
+
+* Navigation support link logic ([#90](https://github.com/xsky-fe/wizard-ui/issues/90)) ([331ccd9](https://github.com/xsky-fe/wizard-ui/commit/331ccd9))
+* Panel add class name ([#70](https://github.com/xsky-fe/wizard-ui/issues/70)) ([1e588fe](https://github.com/xsky-fe/wizard-ui/commit/1e588fe))
+* Types define ([#88](https://github.com/xsky-fe/wizard-ui/issues/88)) ([be21a6e](https://github.com/xsky-fe/wizard-ui/commit/be21a6e))
+
+
+### Features
+
+* Add list group doc. ([#81](https://github.com/xsky-fe/wizard-ui/issues/81)) ([accd1cb](https://github.com/xsky-fe/wizard-ui/commit/accd1cb))
+* Github actions ([#76](https://github.com/xsky-fe/wizard-ui/issues/76)) ([0477764](https://github.com/xsky-fe/wizard-ui/commit/0477764))
+* SEO sitemap ([#68](https://github.com/xsky-fe/wizard-ui/issues/68)) ([32152bd](https://github.com/xsky-fe/wizard-ui/commit/32152bd))
+* Support dark mode ([#89](https://github.com/xsky-fe/wizard-ui/issues/89)) ([f666191](https://github.com/xsky-fe/wizard-ui/commit/f666191))
+* Test debug platform in development ([#85](https://github.com/xsky-fe/wizard-ui/issues/85)) ([ef05cf3](https://github.com/xsky-fe/wizard-ui/commit/ef05cf3))
+* VirtualSelectBox ([#65](https://github.com/xsky-fe/wizard-ui/issues/65)) ([c1b9940](https://github.com/xsky-fe/wizard-ui/commit/c1b9940))
+* VirtualSelectBox multi select ([#75](https://github.com/xsky-fe/wizard-ui/issues/75)) ([e30560e](https://github.com/xsky-fe/wizard-ui/commit/e30560e))
+
 # [0.3.0](https://github.com/xsky-fe/wizard-ui/compare/0.2.0...0.3.0) (2019-09-12)
 
 
