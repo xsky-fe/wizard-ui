@@ -9,19 +9,18 @@ Wizard UI 是基于 React 和 Typescript 开发的 UI 组件库。
 ```bash
 # install
 yarn add wizard-ui
-# sass dep && loader
-yarn add --dev node-sass style-loader css-loader sass-loader
+# css loader
+yarn add --dev style-loader css-loader
 # react bootstrap font dev
 yarn add --dev url-loader file-loader
 ```
 需要设置 `webpack config`:
 ```js
 {
-  test: /\.(css|scss)$/,
+  test: /\.css$/,
   use: [
     'style-loader',
     'css-loader',
-    'sass-loader'
   ]
 },
 {
@@ -47,7 +46,7 @@ ReactDOM.render(
 
 ### 全局样式
 ```jsx
-import 'wizard-ui/lib/style/index.scss';
+import 'wizard-ui/lib/style/index.css';
 ```
 
 ## 单元测试

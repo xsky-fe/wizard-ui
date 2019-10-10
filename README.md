@@ -21,8 +21,8 @@ Add in package.json
 
 ```bash
 yarn add wizard-ui
-# sass dep && loader
-yarn add --dev node-sass style-loader css-loader sass-loader
+# css loader
+yarn add --dev style-loader css-loader
 # react bootstrap font dev
 yarn add --dev url-loader file-loader
 ```
@@ -31,11 +31,10 @@ if you not use [create-react-app](https://github.com/facebook/create-react-app),
 
 ```js
 {
-  test: /\.(css|scss)$/,
+  test: /\.css$/,
   use: [
     'style-loader',
     'css-loader',
-    'sass-loader'
   ]
 },
 {
@@ -51,7 +50,7 @@ if you not use [create-react-app](https://github.com/facebook/create-react-app),
 ### Global style
 
 ```jsx
-import 'wizard-ui/lib/style/index.scss';
+import 'wizard-ui/lib/style/index.css';
 ```
 
 ### Usage

@@ -2,7 +2,8 @@ module.exports = api => {
   const env = api.env();
   console.log('env', env);
   const lib = env === 'lib';
-  return {
+  const esm = env === 'esm';
+  let result = {
     presets: [
       '@babel/preset-react',
       '@babel/preset-typescript',
@@ -25,17 +26,28 @@ module.exports = api => {
         {
           removeImport: true,
         },
-      ],
+      ]
     ],
     ignore: [
       '**/*.test.tsx',
       '**/types',
       '**/interface.tsx',
       '**/global.d.ts',
-      // '**/setupEnzyme.ts'
     ],
     // minified: true,
     // comments: false,
     // compact: true,
+  };
+
+  if (lib || esm) {
+    result.plugins.push([
+      'transform-rename-import',
+      {
+        "original": '^(.+?)\\.scss$',
+        "replacement": '$1.css'
+      }
+    ])
   }
+
+  return result;
 }
