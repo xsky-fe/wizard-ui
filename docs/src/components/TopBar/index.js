@@ -98,6 +98,17 @@ const TopBar = (props) => {
           <ul className="nav navbar-nav navbar-right">
             <li>
               <Tooltip label={(
+                <a target="_blank" rel="noopener noreferrer" href="https://xsky-fe.github.io/wizard-ui-pro/">
+                  <Icon type="grid" />
+                </a>
+              )}>
+                Wizard ui pro
+              </Tooltip>
+            </li>
+          </ul>
+          <ul className="nav navbar-nav navbar-right">
+            <li>
+              <Tooltip label={(
                 <div onClick={toggle}>
                   <Icon type={cls === 'light' ? 'light-dark' : 'light'} />
                 </div>
