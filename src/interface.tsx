@@ -1,5 +1,8 @@
 import * as React from 'react';
-import { SelectCallback, Sizes } from 'react-bootstrap';
+import {
+  SelectCallback,
+  Sizes,
+} from 'react-bootstrap';
 import { Moment } from 'moment';
 import CSS from 'csstype';
 
@@ -254,6 +257,9 @@ export interface PanelProps {
   bg?: string;
   text?: string;
   className?: string;
+  header?: React.ReactNode;
+  collapsible?: boolean;
+  expanded?: boolean;
 }
 
 export interface DropdownDefaultProps {

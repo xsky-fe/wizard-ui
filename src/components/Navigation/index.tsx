@@ -6,7 +6,8 @@ import { Panel } from 'react-bootstrap';
 import { NavigationProps, NavigationGroup } from '../../interface';
 import Icon from '../Icon';
 import Tooltip from '../Tooltip';
-import { xor, toPairs } from 'lodash';
+import xor from 'lodash/xor';
+import toPairs from 'lodash/toPairs';
 import './style.scss';
 
 function NavItemText(props: NavigationGroup) {

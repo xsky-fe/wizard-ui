@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types';
 import RCTimePicker from 'rc-time-picker';
 import { Glyphicon } from 'react-bootstrap';
 import { TimePickerProps } from '../../interface';
-import { range } from 'lodash';
+import range from 'lodash/range';
 
 import moment from 'moment';
 import 'rc-time-picker/assets/index.css';

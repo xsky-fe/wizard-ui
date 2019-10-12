@@ -2,7 +2,9 @@
  * this.intervals管理定时器maps，在hoc内部操作，不对外暴露
  */
 import React, { Component } from 'react';
-import { has, omit, values } from 'lodash';
+import has from 'lodash/has';
+import omit from 'lodash/omit';
+import values from 'lodash/values';
 
 export default () => (ComposedComponent: any) => {
   return class Interval extends Component {

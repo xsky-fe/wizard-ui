@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types';
 import RcTree, { TreeNode } from 'rc-tree';
 import { TreeData, TreeProps } from '../../interface';
 import './style.scss';
-import { pick } from 'lodash';
+import pick from 'lodash/pick';
 
 function renderTreeNodes(data: TreeData[]) {
   return data.map(item => {

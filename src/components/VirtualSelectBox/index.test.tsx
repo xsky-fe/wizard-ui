@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import VirtualSelectBox from './index';
 import { sleep, getMockDatas } from '../../utils';
 import { Query } from '../../interface';
-import { get } from 'lodash';
+import get from 'lodash/get';
 const noOp = () => { };
 
 const resName = 'list';

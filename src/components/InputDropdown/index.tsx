@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { find, get } from 'lodash';
+import find from 'lodash/find';
+import get from 'lodash/get';
 import { DropdownButton, MenuItem, InputGroup } from 'react-bootstrap';
 import { uuid } from '../../utils';
 import { InputDropdownProps } from '../../interface';
@@ -33,9 +34,9 @@ const InputDropdown = (props: InputDropdownProps) => {
     <DropdownButton
       id={uuid()}
       {...rest}
-      componentClass={InputGroup.Button}
+      componentClass={InputGroup.Button as any}
       onSelect={handleSelect}
-      title={getTitle()}
+      title={getTitle() as any}
     >
       {options &&
         options.map(option => (

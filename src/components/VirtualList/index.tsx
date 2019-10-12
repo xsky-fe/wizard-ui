@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { sum, isFunction } from 'lodash';
+import sum from 'lodash/sum';
+import isFunction from 'lodash/isFunction';
 import {
   VirtualListState,
   VirtualAnchorItem,

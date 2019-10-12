@@ -7,7 +7,7 @@ import {
   DropdownButtonProps,
   DefaultDropdownButtonProps,
 } from '../../interface';
-import { cloneDeep } from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
 import './style.scss';
 
 function randomId() {
@@ -67,7 +67,7 @@ const DropdownButton = (props: DropdownButtonProps) => {
       bsStyle={bsStyle}
       id={id}
       onSelect={onSelect}
-      title={title}
+      title={title as any}
       bsSize={bsSize}
       onToggle={onToggle}
       componentClass={componentClass}
