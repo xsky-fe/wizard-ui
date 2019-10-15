@@ -10,41 +10,6 @@ import xor from 'lodash/xor';
 import toPairs from 'lodash/toPairs';
 import './style.scss';
 
-function NavItemText(props: NavigationGroup) {
-  const { toggled, title, icon, component, isFirst } = props;
-
-  const text = (
-    <>
-      {icon && <Icon type={icon} />}
-      {!toggled && title}
-    </>
-  )
-
-  return (
-    <div className={getBemClass('Navigation__item', isFirst && 'first')}>
-      <div className="Navigation__link">
-        {component ? (
-          React.createElement(component, {
-            children: text
-          })
-        ) : (
-          <div className="Navigation__item__title">
-            {text}
-          </div>
-        )}
-      </div>
-    </div>
-  );
-}
-
-function NavItemNoText(props: any) {
-  return (
-    <Tooltip placement="right" className="Navigation__tooltip" label={NavItemText({ ...props, toggled: true })}>
-      {props.title}
-    </Tooltip>
-  );
-}
-
 export default class Navigation extends React.Component<NavigationProps, any> {
   static propTypes = {
     /**
@@ -59,18 +24,25 @@ export default class Navigation extends React.Component<NavigationProps, any> {
      * Logo子元素标签文本
      **/
     logo: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+    /**
+     * 默认展开项
+     **/
+    expandedKeys: PropTypes.array,
   };
+  static defaultProps = {
+    expandedKeys: [],
+  }
   constructor(props: NavigationProps) {
     super(props);
     this.togglePanel = this.togglePanel.bind(this);
     this.state = {
-      expanded: [],
+      expanded: props.expandedKeys || [],
     };
   }
   togglePanel(activeKey: any) {
     this.setState({ expanded: xor(this.state.expanded, [activeKey]) });
   }
-  renderPanelHeader(title: | React.ReactNode, expanded: boolean) {
+  renderPanelHeader(title: React.ReactNode, expanded: boolean) {
     const { toggled } = this.props;
     const header = (
       <div>
@@ -91,6 +63,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
   render() {
     const { navGroups, toggled, logo } = this.props;
     const { expanded } = this.state;
+    console.log('expanded', expanded);
     const NavItem = toggled ? NavItemNoText : NavItemText;
     return (
       <nav
@@ -125,4 +98,39 @@ export default class Navigation extends React.Component<NavigationProps, any> {
       </nav>
     );
   }
+}
+
+function NavItemText(props: NavigationGroup) {
+  const { toggled, title, icon, component, isFirst } = props;
+
+  const text = (
+    <>
+      {icon && <Icon type={icon} />}
+      {!toggled && title}
+    </>
+  )
+
+  return (
+    <div className={getBemClass('Navigation__item', isFirst && 'first')}>
+      <div className="Navigation__link">
+        {component ? (
+          React.createElement(component, {
+            children: text
+          })
+        ) : (
+            <div className="Navigation__item__title">
+              {text}
+            </div>
+          )}
+      </div>
+    </div>
+  );
+}
+
+function NavItemNoText(props: any) {
+  return (
+    <Tooltip placement="right" className="Navigation__tooltip" label={NavItemText({ ...props, toggled: true })}>
+      {props.title}
+    </Tooltip>
+  );
 }

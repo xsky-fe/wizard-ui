@@ -209,6 +209,7 @@ export interface NavigationProps {
   };
   toggled?: boolean;
   logo?: React.ReactNode | string;
+  expandedKeys?: string[];
 }
 
 export interface RangePickerProps {

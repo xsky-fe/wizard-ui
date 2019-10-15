@@ -67,7 +67,7 @@ const DropdownButton = (props: DropdownButtonProps) => {
       bsStyle={bsStyle}
       id={id}
       onSelect={onSelect}
-      title={title as any}
+      title={title}
       bsSize={bsSize}
       onToggle={onToggle}
       componentClass={componentClass}

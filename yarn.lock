@@ -12667,10 +12667,10 @@ windows-release@^3.1.0:
   dependencies:
     execa "^1.0.0"
 
-wizard-icons@0.0.1-beta.2:
-  version "0.0.1-beta.2"
-  resolved "https://registry.npmjs.org/wizard-icons/-/wizard-icons-0.0.1-beta.2.tgz#e688e7c29615be29ef5789f78aa76f943a5e569b"
-  integrity sha512-+7S57GkJAeoDPqTeBzDWNvOWoNgzMNynDPtQJxg2WxxUbi2hJjChiZr8Fhcd2OunLmsvOo9x8aTOCle4mjrzVg==
+wizard-icons@0.0.1-beta.3:
+  version "0.0.1-beta.3"
+  resolved "https://registry.npmjs.org/wizard-icons/-/wizard-icons-0.0.1-beta.3.tgz#ab17d9f8eea1bd2049d2570666fcbfd3c49ab8ff"
+  integrity sha512-+t1Hn7tLYAhPOlpCbZ0bSnGU5QXxD0bEy4dap89hMScFZa/eKC311nYNnPchqbv5WThOdMo4st0ln6mk5XZBww==
 
 wordwrap@~0.0.2:
   version "0.0.3"

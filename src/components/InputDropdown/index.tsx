@@ -34,9 +34,9 @@ const InputDropdown = (props: InputDropdownProps) => {
     <DropdownButton
       id={uuid()}
       {...rest}
-      componentClass={InputGroup.Button as any}
+      componentClass={InputGroup.Button}
       onSelect={handleSelect}
-      title={getTitle() as any}
+      title={getTitle()}
     >
       {options &&
         options.map(option => (
