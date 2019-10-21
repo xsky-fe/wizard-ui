@@ -1,6 +1,6 @@
 {
   "hooks": {
-    "before:init": ["yarn build"],
+    "before:init": ["yarn bundle"],
     "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
   },
   "plugins": {
