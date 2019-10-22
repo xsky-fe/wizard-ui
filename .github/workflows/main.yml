@@ -18,17 +18,12 @@ jobs:
         with:
           node-version: 10.x
 
-      - name: Show path
-        run: |
-          pwd
-          ls
-
       - name: Install dependencies
-        working-directory: docs
+        working-directory: wizard-ui/docs
         run: |
           npm install
 
       - name: Deploy Website
-        working-directory: docs
+        working-directory: wizard-ui/docs
         run: |
           npm run deploy
