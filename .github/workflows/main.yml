@@ -16,14 +16,14 @@ jobs:
       - name: Set Node.js 10.x
         uses: actions/setup-node@master
         with:
-          version: 10.x
+          node-version: 10.x
 
       - name: Install dependencies
-        working-directory: ./docs
+        working-directory: docs
         run: |
           npm install
 
       - name: Deploy Website
-        working-directory: ./docs
+        working-directory: docs
         run: |
           npm run deploy
