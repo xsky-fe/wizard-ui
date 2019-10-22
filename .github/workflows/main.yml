@@ -37,5 +37,5 @@ jobs:
       - name: Deploy
         working-directory: docs
         run: |
-          git config --global ${{ secrets.ACCESS_TOKEN }}
+          git config --global github.token ${{ secrets.ACCESS_TOKEN }}
           yarn run docs
