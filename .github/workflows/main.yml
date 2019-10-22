@@ -18,15 +18,16 @@ jobs:
         with:
           node-version: 10.x
 
+      - name: Build site assets
+        working-directory: ${{ github.workspace }}
+        run: ls -la
+
       - name: Install dependencies
+        working-directory: docs
         run: |
-          cd docs
           npm install
-          cd ..
 
       - name: Deploy Website
-        working-directory: wizard-ui/docs
+        working-directory: docs
         run: |
-          cd docs
           npm run deploy
-          cd ..
