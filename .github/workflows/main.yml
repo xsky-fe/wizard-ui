@@ -10,7 +10,7 @@ on: [push]
 #       - master
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Build and Deploy Website
