@@ -1,6 +1,6 @@
 # docs: https://help.github.com/en/articles/workflow-syntax-for-github-actions
 
-name: Deploy Storybook
+name: Deploy Website
 
 on:
   push:
@@ -13,11 +13,11 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
-    - name: Build and Deploy Storybook
+    - name: Build and Deploy Website
       uses: JamesIves/github-pages-deploy-action@master
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BASE_BRANCH: master # The branch the action should deploy from.
         BRANCH: gh-pages # The branch the action should deploy to.
-        FOLDER: build-stories # The folder the action should deploy.
-        BUILD_SCRIPT: yarn && yarn build-storybook # The build script the action should run prior to deploying.
+        FOLDER: public # The folder the action should deploy.
+        BUILD_SCRIPT: cd docs && yarn && yarn build # The build script the action should run prior to deploying.
