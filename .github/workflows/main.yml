@@ -35,9 +35,7 @@ jobs:
           yarn run build
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v2.5.0
         working-directory: docs
-        env:
-          ACTIONS_DEPLOY_KEY: ${{ secrets.ACCESS_TOKEN }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./public
+        run: |
+          git config --global ${{ secrets.ACCESS_TOKEN }}
+          yarn run docs
