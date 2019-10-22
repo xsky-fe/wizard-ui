@@ -21,7 +21,7 @@ jobs:
       - name: Show path
         run: |
           pwd
-          ll
+          ls
 
       - name: Install dependencies
         working-directory: docs
