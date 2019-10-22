@@ -37,6 +37,6 @@ jobs:
       - name: Deploy
         working-directory: docs
         run: |
-          git config --global user.name 'wangkailang'
-          git config --global user.email '2418904055@qq.com'
+          git config --global user.name "wangkailang"
+          git config --global user.email "2418904055@qq.com"
           yarn run docs
