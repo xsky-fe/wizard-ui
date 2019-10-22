@@ -19,11 +19,14 @@ jobs:
           node-version: 10.x
 
       - name: Install dependencies
-        working-directory: wizard-ui/docs
         run: |
+          cd docs
           npm install
+          cd ..
 
       - name: Deploy Website
         working-directory: wizard-ui/docs
         run: |
+          cd docs
           npm run deploy
+          cd ..
