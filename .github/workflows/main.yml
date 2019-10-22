@@ -15,6 +15,6 @@ jobs:
     steps:
       - name: Build and Deploy Website
         run: |
-          yarn
-          yarn deploy
-        working-directory: docs
+          npm install
+          npm run deploy
+        working-directory: ./temp/docs
