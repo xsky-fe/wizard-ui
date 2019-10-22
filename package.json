@@ -50,7 +50,7 @@
     "tsc-types": "rm -rf types && tsc --declaration -p ./ -t es2015 --emitDeclarationOnly --outDir types",
     "copy": "ts-node scripts/build-copy.ts",
     "bundle": "yarn build-dist && yarn build-esm && yarn build-lib && yarn copy && yarn tsc-types",
-    "build": "cd docs && yarn build",
+    "build": "cd docs && yarn && yarn build",
     "storybook": "start-storybook -p 6006 -c .storybook",
     "build-storybook": "build-storybook -s ./stories/public -c .storybook -o build-stories",
     "format": "prettier --config-precedence prefer-file '{src, stories}/**/*.tsx' --write",
