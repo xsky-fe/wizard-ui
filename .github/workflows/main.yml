@@ -13,8 +13,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Build and Deploy Website
+      - name: Set Node.js 10.x
+        uses: actions/setup-node@master
+        with:
+          version: 10.x
+
+      - name: Install dependencies
         working-directory: ./docs
         run: |
-          yarn install
-          yarn deploy
+          npm install
+
+      - name: Deploy Website
+        working-directory: ./docs
+        run: |
+          npm run deploy
