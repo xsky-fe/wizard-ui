@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build and Deploy Website
+        working-directory: ./docs
         run: |
-          npm install
-          npm run deploy
-        working-directory: ./temp/docs
+          yarn install
+          yarn deploy
