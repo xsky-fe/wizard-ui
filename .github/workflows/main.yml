@@ -2,22 +2,26 @@
 
 name: Deploy Website
 
-on:
-  push:
-    branches:
-      - master
+on: [push]
+
+# on:
+#   push:
+#     branches:
+#       - master
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+      - name: Build and Deploy Website
+        run: cd docs && yarn deploy
+    # - uses: actions/checkout@master
 
-    - name: Build and Deploy Website
-      uses: JamesIves/github-pages-deploy-action@master
-      env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BASE_BRANCH: master # The branch the action should deploy from.
-        BRANCH: gh-pages # The branch the action should deploy to.
-        FOLDER: docs/public # The folder the action should deploy.
-        BUILD_SCRIPT: cd docs && yarn && yarn build && cd .. # The build script the action should run prior to deploying.
+    # - name: Build and Deploy Website
+    #   uses: JamesIves/github-pages-deploy-action@master
+    #   env:
+    #     ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+    #     BASE_BRANCH: master # The branch the action should deploy from.
+    #     BRANCH: gh-pages # The branch the action should deploy to.
+    #     FOLDER: docs/public # The folder the action should deploy.
+    #     BUILD_SCRIPT: cd docs && yarn && yarn build && cd .. # The build script the action should run prior to deploying.
