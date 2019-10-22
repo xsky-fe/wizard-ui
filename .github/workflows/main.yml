@@ -18,6 +18,10 @@ jobs:
         with:
           node-version: 10.x
 
+      - name: Show path
+        run: |
+          pwd
+
       - name: Install dependencies
         working-directory: docs
         run: |
