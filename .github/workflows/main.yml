@@ -37,6 +37,7 @@ jobs:
       - name: Deploy
         working-directory: docs
         run: |
+          git remote add origin https://${{ secrets.ACCESS_TOKEN }}@github.com/wangkailang/xsky-fe/wizard-ui.git
           git config --global user.name "wangkailang"
           git config --global user.email "2418904055@qq.com"
           yarn run docs
