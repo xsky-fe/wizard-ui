@@ -7,7 +7,7 @@ import {
   DropdownButtonProps,
   DefaultDropdownButtonProps,
 } from '../../interface';
-import { cloneDeep } from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
 import './style.scss';
 
 function randomId() {

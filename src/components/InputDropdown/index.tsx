@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { find, get } from 'lodash';
+import find from 'lodash/find';
+import get from 'lodash/get';
 import { DropdownButton, MenuItem, InputGroup } from 'react-bootstrap';
 import { uuid } from '../../utils';
 import { InputDropdownProps } from '../../interface';

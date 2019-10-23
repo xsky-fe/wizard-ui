@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Panel, FormControl, Glyphicon, DropdownButton, Button } from 'react-bootstrap';
-import { get, debounce, isEmpty } from 'lodash';
+import get from 'lodash/get';
+import debounce from 'lodash/debounce';
+import isEmpty from 'lodash/isEmpty';
 import classNames from 'classnames';
 import VirtualList from '../VirtualList';
 import SelectCheckItem from './SelectCheckItem';

@@ -1,4 +1,6 @@
-import lodash from 'lodash';
+import compact from 'lodash/compact';
+import isEmpty from 'lodash/isEmpty';
+
 type ValueType = string | number;
 type ArrType = {
   type: string
@@ -44,13 +46,13 @@ function toStr(arr: ArrType[]) {
     } else {
       forward.push(`${type}:${value}`);
     }
-    // ts config noImplicitReturns true check
+    // ts config noImplicitReturns true scheck
     return false;
   });
-  const items = lodash.compact([
+  const items = compact([
     forward.join(' AND '),
-    lodash.isEmpty(forward) ? reverse.join(' OR ') :
-      lodash.isEmpty(reverse) ? '' : `(${reverse.join(' OR ')})`
+    isEmpty(forward) ? reverse.join(' OR ') :
+      isEmpty(reverse) ? '' : `(${reverse.join(' OR ')})`
   ])
   return items.join(' AND ');
 }

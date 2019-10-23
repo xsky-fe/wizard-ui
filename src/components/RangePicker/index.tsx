@@ -10,7 +10,7 @@ import CALENDAR_ZH from 'rc-calendar/lib/locale/zh_CN';
 import CALENDAR_EN from 'rc-calendar/lib/locale/en_US';
 import moment, { Moment, DurationInputArg1, DurationInputArg2 } from 'moment';
 import { RangePickerProps, RangePickerState } from '../../interface';
-import { isEmpty } from 'lodash';
+import isEmpty from 'lodash/isEmpty';
 import Icon from '../Icon';
 import './style.scss';
 const ranges = [

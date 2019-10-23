@@ -3,7 +3,8 @@ import * as PropTypes from 'prop-types';
 import { IconProps } from '../../interface';
 import cn from 'classnames';
 import icons from 'wizard-icons';
-import { upperFirst, camelCase } from 'lodash';
+import upperFirst from 'lodash/upperFirst';
+import camelCase from 'lodash/camelCase';
 import './style.scss';
 
 const Icon: React.FC<IconProps> = props => {
