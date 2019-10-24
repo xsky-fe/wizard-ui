@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Panel, FormControl, Glyphicon, DropdownButton, Button } from 'react-bootstrap';
+import { Card, Form, DropdownButton, Button } from 'react-bootstrap';
+import Icon from '../Icon';
 import get from 'lodash/get';
 import debounce from 'lodash/debounce';
 import isEmpty from 'lodash/isEmpty';
@@ -16,7 +17,6 @@ import {
   VirtualItem,
   MultiVirtualSelectItem,
 } from '../../interface';
-import Icon from '../Icon';
 import './style.scss';
 
 const limit = 30;
@@ -285,9 +285,9 @@ class VirtualSelectBox<T> extends React.Component<VirtualSelectBoxProps<T>, Virt
 
   renderSearch() {
     return (
-      <FormControl
+      <Form.Control
         className="SelectBox__search"
-        bsSize="sm"
+        size="sm"
         type="text"
         value={this.state.search}
         placeholder="请输入名称搜索"
@@ -333,7 +333,7 @@ class VirtualSelectBox<T> extends React.Component<VirtualSelectBoxProps<T>, Virt
         {/*
         // react-bootstrap 跟 @types/react-bootstrap 不兼容
         // @ts-ignore */}
-        <Panel header={this.renderSearch()}>{this.renderClear()}{this.renderList()}</Panel>
+        <Card header={this.renderSearch()}>{this.renderClear()}{this.renderList()}</Card>
       </div>
     );
   }
@@ -344,7 +344,7 @@ class VirtualSelectBox<T> extends React.Component<VirtualSelectBoxProps<T>, Virt
       return null;
     }
     return (
-      <Button bsStyle="link" onClick={(event: React.MouseEvent<Button, MouseEvent>) => { this.blockEvent(event); this.handleChange([])}}>
+      <Button variant="link" onClick={(event: any) => { this.blockEvent(event); this.handleChange([])}}>
         清除选择的内容
       </Button>
     )
@@ -388,7 +388,7 @@ class VirtualSelectBox<T> extends React.Component<VirtualSelectBoxProps<T>, Virt
           </div>
         ) : (
           <span className={btnClassName}>
-            {this.renderLabel(item)} {isBtn && <Glyphicon glyph="triangle-bottom" />}
+              {this.renderLabel(item)} {isBtn && <Icon type="triangle-down" />}
             {clear && !isEmpty(item) && <Icon type="close" onClick={this.clear} />}
           </span>
         )}

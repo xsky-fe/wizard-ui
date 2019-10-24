@@ -27,7 +27,7 @@ describe('Dropdown', () => {
       '.dropdown.btn-group.btn-group-danger',
     ];
     styles.forEach((style, index) => {
-      const dropdown = mount(<DropdownButton id="a1" bsStyle={style} title="style" />);
+      const dropdown = mount(<DropdownButton id="a1" variant={style} title="style" />);
       expect(dropdown.find(classNames[index]).length).toBe(1);
     });
   });

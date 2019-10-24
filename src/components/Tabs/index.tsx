@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { Tabs as BsTabs, Tab, Panel } from 'react-bootstrap';
+import { Tabs as BsTabs, Tab, Card } from 'react-bootstrap';
 import { getBemClass } from '../../utils';
 import { TabsProps } from '../../interface';
 import './style.scss';
@@ -15,7 +15,7 @@ const Tabs: React.FC<TabsProps> = props => {
           eventKey={eventKeyName ? tab[eventKeyName] : idx}
           title={tab.title}
         >
-          {tab.children && <Panel className="Tabs__Body">{tab.children}</Panel>}
+          {tab.children && <Card className="Tabs__Body">{tab.children}</Card>}
         </Tab>
       ))}
     </BsTabs>

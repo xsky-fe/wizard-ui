@@ -1,9 +1,10 @@
 import * as React from 'react';
-import {
-  SelectCallback,
-  Sizes,
-} from 'react-bootstrap';
 import { Moment } from 'moment';
+import {
+  AlertProps as BSAlertProps,
+  TabsProps as BSTabsProps,
+} from 'react-bootstrap';
+import { Placement } from 'react-bootstrap/Overlay'
 import CSS from 'csstype';
 
 export interface Map<K, V> {
@@ -20,6 +21,27 @@ export interface Map<K, V> {
   [Symbol.iterator](): IterableIterator<[K, V]>;
   [Symbol.toStringTag]: string;
 }
+
+export type Variant = "danger" | "info" | "warning" | "success" | "primary" | "secondary" | "dark" | "light";
+
+export type BtnVariant =
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'danger'
+  | 'warning'
+  | 'info'
+  | 'dark'
+  | 'light'
+  | 'link'
+  | 'outline-primary'
+  | 'outline-secondary'
+  | 'outline-success'
+  | 'outline-danger'
+  | 'outline-warning'
+  | 'outline-info'
+  | 'outline-dark'
+  | 'outline-light';
 
 export interface Query {
   offset?: number;
@@ -61,7 +83,7 @@ export interface TooltipProps {
   label?: React.ReactNode;
   contrast?: boolean;
   style?: string;
-  placement?: string;
+  placement?: Placement;
   children: React.ReactNode;
   className?: string;
 }
@@ -84,17 +106,15 @@ export interface UsageBarProps {
 
 export interface LoaderProps {
   bsSize?: string;
-  bsStyle?: string;
+  variant?: string;
   children?: React.ReactNode;
 }
 
-export interface TabsProps {
+export interface TabsProps extends BSTabsProps {
   tabs: any[];
   size?: 'small';
   eventKeyName?: string;
   direction?: 'right';
-  onSelect?: SelectCallback;
-  id?: string;
 }
 
 export interface StepsProps {
@@ -111,9 +131,9 @@ export interface ModalProps {
   onOk?: any;
   show?: boolean;
   style?: React.CSSProperties;
-  bsSize?: 'sm' | 'medium' | 'lg' | 'xlarge';
+  bsSize?: "sm" | "lg" | "xl";
   confirmText?: string;
-  okStyle?: string;
+  okStyle?: BtnVariant;
   loading?: boolean;
   hideFooter?: boolean;
 }
@@ -175,14 +195,14 @@ export type DropdownButtonMenuItem =
   | string;
 
 export interface DefaultDropdownButtonProps {
-  componentClass: any;
+  as: any;
 }
 export interface DropdownButtonProps extends DefaultDropdownButtonProps {
-  bsStyle?: string;
+  variant?: string;
   id: string;
-  onSelect?: SelectCallback;
+  onSelect?: Function;
   onToggle?: (isOpen: boolean) => void;
-  bsSize?: Sizes;
+  bsSize?: string;
   title?: string | React.ReactNode;
   menu?: DropdownButtonMenuItem[];
   children?: React.ReactNode;
@@ -228,13 +248,10 @@ export interface RangePickerState {
   value: Moment[] | string[];
   open: boolean;
 }
-export interface AlertProps {
+export interface AlertProps extends BSAlertProps {
   children: React.ReactNode;
-  bsStyle?: string;
   show?: boolean;
   showIcon?: boolean;
-  bsClass?: string;
-  onDismiss?: () => void;
   dismissDirection?: string;
 }
 
@@ -283,7 +300,7 @@ export interface InputDropdownProps {
   options?: MenuItemOptions[];
   defaultValue?: string;
   value?: string;
-  onChange?: SelectCallback;
+  onChange?: Function;
   input?: any;
   meta?: any;
 }
@@ -395,11 +412,11 @@ export interface NotificationProps extends NotificationItem {
     clear: (key: string | number) => void;
     has: (key: string | number) => boolean;
   };
-  onDismiss?: Function;
+  onClose?: Function;
 }
 export interface NotificationListProps {
   notifications: Map<string, Map<string, NotificationItem>>;
-  onDismiss?: Function;
+  onClose?: Function;
   autoClose?: boolean;
   format?: Function;
 }

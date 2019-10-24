@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import { DropdownButton as BootstrapDropdownButton, MenuItem, ButtonGroup } from 'react-bootstrap';
+import { DropdownButton as BootstrapDropdownButton, Dropdown, ButtonGroup } from 'react-bootstrap';
 import SubMenu from '../SubMenu';
 import {
   DropdownButtonMenuItem,
@@ -27,7 +27,7 @@ function renderMenu(menu: DropdownButtonMenuItem) {
     return null;
   }
   if (typeof item === 'string') {
-    return <MenuItem key={item}>{item}</MenuItem>;
+    return <Dropdown.Item key={item}>{item}</Dropdown.Item>;
   }
   if (!item.key) {
     item.key = randomId();
@@ -39,7 +39,7 @@ function renderMenu(menu: DropdownButtonMenuItem) {
       </SubMenu>
     );
   }
-  return <MenuItem {...item}>{item.title}</MenuItem>;
+  return <Dropdown.Item {...item}>{item.title}</Dropdown.Item>;
 }
 
 const DropdownButton = (props: DropdownButtonProps) => {
@@ -52,7 +52,7 @@ const DropdownButton = (props: DropdownButtonProps) => {
     return className;
   };
 
-  const { bsStyle, id, onSelect, onToggle, bsSize, title, menu, children, componentClass } = props;
+  const { variant, id, onSelect, onToggle, bsSize, title, menu, children, as } = props;
   const allBoolProps = ['disabled', 'dropup', 'noCaret', 'open', 'pullRight'];
   const boolProps = {};
   allBoolProps.forEach(prop => {
@@ -64,13 +64,13 @@ const DropdownButton = (props: DropdownButtonProps) => {
   return (
     <BootstrapDropdownButton
       {...boolProps}
-      bsStyle={bsStyle}
+      variant={variant}
       id={id}
       onSelect={onSelect}
       title={title}
       bsSize={bsSize}
       onToggle={onToggle}
-      componentClass={componentClass}
+      as={as}
       className={containerClassName}
     >
       {menu ? renderContent(menu) : children}
@@ -82,7 +82,7 @@ DropdownButton.propTypes = {
   /**
    * 样式 string，支持default，primary，success，info，warning，danger，默认为default
    **/
-  bsStyle: PropTypes.string,
+  variant: PropTypes.string,
   /**
    * 下拉框子元素 node，不能和menu同时使用
    **/
@@ -90,7 +90,7 @@ DropdownButton.propTypes = {
   /**
    * 元素类型 elementType
    **/
-  componentClass: PropTypes.any,
+  as: PropTypes.any,
   /**
    * 下拉框样式修改器 string，在一些场景中下拉框有些特殊样式，支持table-toolbar, list-toolbar, detail-toolbar
    **/
@@ -143,7 +143,7 @@ DropdownButton.propTypes = {
   title: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
 };
 
-const defaultProps: DefaultDropdownButtonProps = { componentClass: ButtonGroup };
+const defaultProps: DefaultDropdownButtonProps = { as: ButtonGroup };
 
 DropdownButton.defaultProps = defaultProps;
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Breadcrumb, BreadcrumbItem } from '../src';
 
-storiesOf('Panel', module)
+storiesOf('Card', module)
   .add('basic', () => (
     <Breadcrumb>
       <BreadcrumbItem href="#">资源列表1</BreadcrumbItem>

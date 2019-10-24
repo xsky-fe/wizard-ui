@@ -30,7 +30,7 @@ var propTypes = {
 };
 ```
 
-0.31 版本并没有以子组件形式来使用 `panel`, 而是以 `props` 形式导出，比如 0.32 可以直接用 `Panel.Header` ，而 0.31 则 只能使用 `<Panel header={code}>`， 并且没有 `title` 。
+0.31 版本并没有以子组件形式来使用 `panel`, 而是以 `props` 形式导出，比如 0.32 可以直接用 `Card.Header` ，而 0.31 则 只能使用 `<Card header={code}>`， 并且没有 `title` 。
 
 ### panel render
 
@@ -63,7 +63,7 @@ var propTypes = {
 ### render header
 
 ```js
-Panel.prototype.renderHeader = function renderHeader(collapsible, header, id, role, expanded, bsProps) {
+Card.prototype.renderHeader = function renderHeader(collapsible, header, id, role, expanded, bsProps) {
     var titleClassName = (0, _bootstrapUtils.prefix)(bsProps, 'title');
     if (!collapsible) {
       if (!_react2.default.isValidElement(header)) {

@@ -5,7 +5,7 @@ import { mount } from 'enzyme';
 describe('Alert', () => {
   it('could alter render classes right', () => {
     const alert = mount(
-      <Alert bsStyle="danger" dismissDirection="up">
+      <Alert variant="danger" dismissDirection="up">
         default text <a href="#">test link</a>
       </Alert>,
     );
@@ -15,7 +15,7 @@ describe('Alert', () => {
   });
   it('could alter show and hidden', () => {
     const alert = mount(
-      <Alert bsStyle="info" showIcon dismissDirection="right" onDismiss={()=>console.log(1)}>
+      <Alert variant="info" showIcon dismissDirection="right" onClose={()=>console.log(1)}>
         default text <a href="#">test link</a>
       </Alert>,
     );

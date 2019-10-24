@@ -1,10 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Panel } from '../src';
+import { Card } from '../src';
 
-storiesOf('Panel', module)
+storiesOf('Card', module)
   .add('basic', () => (
-    <Panel header="Head">
+    <Card header="Head">
       Content
-    </Panel>
+    </Card>
   ))

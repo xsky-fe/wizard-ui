@@ -8,11 +8,11 @@ describe('Loader', () => {
     expect(loader).toMatchSnapshot();
   });
   it('should render primary style ui', () => {
-    const loader = render(<Loader bsStyle="primary" />);
+    const loader = render(<Loader variant="primary" />);
     expect(loader).toMatchSnapshot();
   });
   it('should render p with text', () => {
-    const loader = render(<Loader bsStyle="primary">加载中...</Loader>);
+    const loader = render(<Loader variant="primary">加载中...</Loader>);
     expect(loader).toMatchSnapshot();
   });
 });

@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Alert } from 'react-bootstrap';
 import Icon from '../Icon';
-import { NotificationProps } from '../../interface';
+import { NotificationProps, Variant } from '../../interface';
 import './style.scss';
 
 const STATUS = {
@@ -20,7 +20,7 @@ export default class Notification extends PureComponent<NotificationProps> {
     /** 多少毫秒后关闭通知栏 */
     counter: PropTypes.number,
     /** 操作通知栏关闭 */
-    onDismiss: PropTypes.func,
+    onClose: PropTypes.func,
     /** 状态 */
     status: PropTypes.oneOf(['success', 'info', 'process', 'warning', 'danger']).isRequired,
     /** 是否开启默认关闭 */
@@ -64,10 +64,10 @@ export default class Notification extends PureComponent<NotificationProps> {
   }
   /** 关闭通知栏 */
   close() {
-    const { onDismiss, id } = this.props;
+    const { onClose, id } = this.props;
     this.clearTimer();
-    if (onDismiss) {
-      onDismiss(id);
+    if (onClose) {
+      onClose(id);
     }
   }
   mouseEnter() {
@@ -113,7 +113,7 @@ export default class Notification extends PureComponent<NotificationProps> {
   }
 
   render() {
-    const { status, id, onDismiss } = this.props;
+    const { status, id, onClose } = this.props;
     const style = (STATUS[status] && STATUS[status][1]) || status;
     return (
       <div
@@ -122,7 +122,7 @@ export default class Notification extends PureComponent<NotificationProps> {
         onMouseEnter={this.mouseEnter}
         onMouseLeave={this.mouseLeave}
       >
-        <Alert bsStyle={style} onDismiss={onDismiss && this.close}>
+        <Alert variant={style as Variant} onClose={onClose && this.close}>
           {this.renderIcon()}
           {this.renderText()}
         </Alert>

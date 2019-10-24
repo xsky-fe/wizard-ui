@@ -16,7 +16,7 @@ import TimePicker from './TimePicker';
 import Tooltip from './Tooltip';
 import Tree from './Tree';
 import DatePicker from './DatePicker';
-import Panel from './Panel';
+import Card from './Card';
 import UsageBar from './UsageBar';
 import VirtualList from './VirtualList';
 import VirtualSelectBox from './VirtualSelectBox';
@@ -36,31 +36,21 @@ import {
   BreadcrumbItem,
   ListGroupItem,
   OverlayTrigger,
-  HelpBlock,
-  Glyphicon,
   Button,
   ButtonGroup,
   ButtonToolbar,
   Tab,
-  Grid,
   Col,
-  Clearfix,
-  MenuItem,
   Navbar,
   NavDropdown,
   NavItem,
   Row,
-  Well,
-  PanelGroup,
   Pagination,
   // form
   Form,
   FormControl,
   FormGroup,
-  ControlLabel,
   InputGroup,
-  Checkbox,
-  Radio,
 } from 'react-bootstrap';
 
 export {
@@ -77,23 +67,18 @@ export {
   BreadcrumbItem,
   ListGroupItem,
   OverlayTrigger,
-  HelpBlock,
-  Glyphicon,
   Button,
   ButtonGroup,
   ButtonToolbar,
   Tab,
   Alert,
   Badge,
-  Grid,
   Col,
-  Clearfix,
   Dropdown,
   DropdownButton,
   Icon,
   InputDropdown,
   Loader,
-  MenuItem,
   Modal,
   Navbar,
   NavDropdown,
@@ -110,9 +95,7 @@ export {
   Tree,
   DatePicker,
   UsageBar,
-  Well,
-  Panel,
-  PanelGroup,
+  Card,
   VirtualList,
   VirtualSelectBox,
   NotificationList,
@@ -122,8 +105,5 @@ export {
   Form,
   FormControl,
   FormGroup,
-  ControlLabel,
   InputGroup,
-  Checkbox,
-  Radio,
 };

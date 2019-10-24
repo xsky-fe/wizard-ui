@@ -1,7 +1,8 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import { Modal as BaseModal, ModalHeader, ModalTitle, ModalBody, ModalFooter, Button } from 'react-bootstrap';
+import { Modal as BaseModal, Button } from 'react-bootstrap';
 import { ModalProps } from '../../interface';
+import { btnVariants } from '../../utils/constant';
 import Loader from '../Loader';
 import './style.scss';
 
@@ -20,32 +21,32 @@ const Modal: React.FC<ModalProps> = props => {
   } = props;
   let { bsSize } = props,
     dialogClassName = '';
-  if (bsSize === 'xlarge') {
-    dialogClassName = 'modal-xlg';
-    bsSize = undefined;
-  }
+  // if (bsSize === 'xlarge') {
+  //   dialogClassName = 'modal-xlg';
+  //   bsSize = undefined;
+  // }
 
   return (
     <BaseModal
-      bsSize={bsSize}
-      className="Modal"
+      size={bsSize}
+      className="BaseModal"
       dialogClassName={dialogClassName}
       style={style}
       backdrop="static"
       onHide={onHide}
       show={show}
     >
-      <ModalHeader key="header" closeButton>
-        <ModalTitle>{title}</ModalTitle>
-      </ModalHeader>
-      <ModalBody key="body">{children}</ModalBody>
+      <BaseModal.Header key="header" closeButton>
+        <BaseModal.Title>{title}</BaseModal.Title>
+      </BaseModal.Header>
+      <BaseModal.Body key="body">{children}</BaseModal.Body>
       {!hideFooter && (
-        <ModalFooter key="footer">
-          <Button type="submit" disabled={loading} bsStyle={okStyle} onClick={onOk}>
+        <BaseModal.Footer key="footer">
+          <Button type="submit" disabled={loading} variant={okStyle} onClick={onOk}>
             {loading && <Loader bsSize="xs" />}
             {confirmText}
           </Button>
-        </ModalFooter>
+        </BaseModal.Footer>
       )}
     </BaseModal>
   );
@@ -67,7 +68,7 @@ Modal.propTypes = {
   /** 确定、提交按钮文案 */
   confirmText: PropTypes.string,
   /** 确定、提交按钮样式 */
-  okStyle: PropTypes.string,
+  okStyle: PropTypes.oneOf(btnVariants),
   /** 是否展示加载 UI */
   loading: PropTypes.bool,
   /** 隐藏 footer */

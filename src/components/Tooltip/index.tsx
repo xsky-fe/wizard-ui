@@ -2,7 +2,9 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import cn from 'classnames';
 import { Overlay, Tooltip as BaseTooltip } from 'react-bootstrap';
+import { Placement } from 'react-bootstrap/Overlay';
 import { TooltipProps } from '../../interface';
+import { placements } from '../../utils/constant';
 import Icon from '../Icon';
 import './style.scss';
 
@@ -22,12 +24,12 @@ const Tooltip: React.FC<TooltipProps> = props => {
   } = props;
 
   const wrapper = React.useRef<HTMLInputElement>(null);
-  const [placement, setPlacement] = React.useState('top');
+  const [placement, setPlacement] = React.useState<Placement>('top');
   // 类似 componentDidMount。只会在 render 后执行一次
   React.useEffect(() => {
     const elem = wrapper.current;
     if (!elem) return;
-    let placement = 'top';
+    let newPlacement: Placement = 'top';
     const docElem = document.documentElement;
     const box = elem.getBoundingClientRect();
     const elemOffsetLeft = box.left + docElem.scrollLeft;
@@ -35,15 +37,15 @@ const Tooltip: React.FC<TooltipProps> = props => {
     const pageWidth = document.documentElement.clientWidth;
     const pageHeight = document.documentElement.clientHeight;
     if (elemOffsetLeft > pageWidth * 0.8) {
-      placement = 'left';
+      newPlacement = 'left';
     }
     if (elemOffsetLeft < pageWidth * 0.2) {
-      placement = 'right';
+      newPlacement = 'right';
     }
     if (elemOffsetTop < pageHeight * 0.2) {
-      placement = 'bottom';
+      newPlacement = 'bottom';
     }
-    setPlacement(placement);
+    setPlacement(newPlacement);
   }, []);
   const [show, setShow] = React.useState(false);
   const handleShow = () => setShow(true);
@@ -107,7 +109,7 @@ Tooltip.propTypes = {
    * 提示框的位置，可选'top'，'right'，'bottom'，'left'。
    * 若不传入这一属性，会根据 OverlayTrigger 的位置，自适应选取提示框的位置；
    **/
-  placement: PropTypes.string,
+  placement: PropTypes.oneOf(placements),
   /**
    * 提示框的颜色；
    **/

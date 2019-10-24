@@ -48,7 +48,7 @@ const UsageBar: React.FC<UsageBarProps> = props => {
   let maxSuffix = '';
   let left;
   let right;
-  let bsStyle;
+  let variant: 'success' | 'danger' | 'warning' | 'info' | undefined;
 
   // bar 左边为百分比形式， 右边默认设为百分形式
   if (isPercent || hasPercent) {
@@ -89,13 +89,13 @@ const UsageBar: React.FC<UsageBarProps> = props => {
 
   // 处理 bar 颜色
   if (percent && percent > PERCENT_WITH_STATUS.danger) {
-    bsStyle = 'danger';
+    variant = 'danger';
   } else if (
     percent &&
     percent < PERCENT_WITH_STATUS.danger &&
     percent > PERCENT_WITH_STATUS.warning
   ) {
-    bsStyle = 'warning';
+    variant = 'warning';
   }
 
   if (withPercent) {
@@ -120,11 +120,11 @@ const UsageBar: React.FC<UsageBarProps> = props => {
     <div className={`UsageBar ${inline ? 'inline' : ''}`}>
       {withUnavailable ? (
         <ProgressBar>
-          <ProgressBar bsStyle={bsStyle} now={percent} max={1} key={1} />
-          <ProgressBar bsStyle="info" now={errorPercent} max={1} key={2} />
+          <ProgressBar variant={variant} now={percent} max={1} key={1} />
+          <ProgressBar variant="info" now={errorPercent} max={1} key={2} />
         </ProgressBar>
       ) : (
-        <ProgressBar bsStyle={bsStyle} now={percent} max={1} />
+        <ProgressBar variant={variant} now={percent} max={1} />
       )}
       <div className="UsageBar__footer">
         <div className="UsageBar__footer--left">{left}</div>

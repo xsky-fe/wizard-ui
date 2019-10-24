@@ -51,7 +51,7 @@ const NotificationListDefault = (props: { showTitle?: boolean; autoClose?: boole
       </div>
       <NotificationList
         notifications={lists}
-        onDismiss={deleteNotification}
+        onClose={deleteNotification}
         autoClose={props.autoClose}
       />
     </div>

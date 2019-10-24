@@ -61,6 +61,6 @@ describe('InputDropdown', () => {
     const tb = dropdown.find('a').at(2);
     tb.simulate('click');
     // @ts-ignore
-    expect(dropdown.find('button').instance().textContent).toBe('TB ');
+    expect(dropdown.find('button').instance().textContent).toBe('TB');
   });
 });

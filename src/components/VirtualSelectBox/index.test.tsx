@@ -53,7 +53,7 @@ describe('VirtualSelectBox', () => {
     const picker = mount(<VirtualSelectBox item={{}} fetchData={fetchEmptyDatas} />);
     const node = picker.find('.SelectBox');
     expect(node.length).toBe(1);
-    node.find('Glyphicon').simulate('click');
+    node.find('.icon').simulate('click');
     expect(picker.find('.SelectBox__search').exists()).toBeTruthy();
     // 数据加载中
     expect(picker.find('.VirtualList__loader').exists()).toBeTruthy();
@@ -80,7 +80,7 @@ describe('VirtualSelectBox', () => {
         .props().children,
     ).toBe('list-1');
     expect(picker.find('.icon-close').exists()).toBeTruthy();
-    node.find('Glyphicon').simulate('click');
+    node.find('.icon').simulate('click');
     await sleep(500);
     picker.update();
     // 存在 onClick 操作

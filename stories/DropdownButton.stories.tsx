@@ -14,20 +14,20 @@ storiesOf('DropdownButton', module)
   ))
   .add('style', () => (
     <div>
-      <DropdownButton id="a1" bsStyle="default" title="default" menu={['menu1', 'menu2', 'menu3']} />
-      <DropdownButton id="a2" bsStyle="primary" title="primary" menu={['menu1', 'menu2', 'menu3']} />
-      <DropdownButton id="a3" bsStyle="success" title="success" menu={['menu1', 'menu2', 'menu3']} />
-      <DropdownButton id="a4" bsStyle="info" title="info" menu={['menu1', 'menu2', 'menu3']} />
-      <DropdownButton id="a5" bsStyle="warning" title="warning" menu={['menu1', 'menu2', 'menu3']} />
-      <DropdownButton id="a6" bsStyle="danger" title="danger" menu={['menu1', 'menu2', 'menu3']} />
+      <DropdownButton id="a1" variant="default" title="default" menu={['menu1', 'menu2', 'menu3']} />
+      <DropdownButton id="a2" variant="primary" title="primary" menu={['menu1', 'menu2', 'menu3']} />
+      <DropdownButton id="a3" variant="success" title="success" menu={['menu1', 'menu2', 'menu3']} />
+      <DropdownButton id="a4" variant="info" title="info" menu={['menu1', 'menu2', 'menu3']} />
+      <DropdownButton id="a5" variant="warning" title="warning" menu={['menu1', 'menu2', 'menu3']} />
+      <DropdownButton id="a6" variant="danger" title="danger" menu={['menu1', 'menu2', 'menu3']} />
     </div>
   ))
-  .add('componentClass', () => (
+  .add('as', () => (
     <div>
       <DropdownButton
         id="a1"
         title="input group"
-        componentClass={InputGroup.Button}
+        as={InputGroup.Prepend}
         menu={['menu1', 'menu2', 'menu3']}
       />
       <DropdownButton id="a2" title="normal" menu={['menu1', 'menu2', 'menu3']} />

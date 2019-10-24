@@ -1,14 +1,14 @@
 import React from 'react';
-import Panel from './index';
+import Card from './index';
 import { shallow } from 'enzyme';
 
-describe('Panel', () => {
+describe('Card', () => {
   it('panel showing primary bg', () => {
-    const panel = shallow(<Panel bg="primary" />);
+    const panel = shallow(<Card bg="primary" />);
     expect(panel.find('.panel-primary-bg').length).toBe(1);
   });
   it('panel showing danger color', () => {
-    const panel = shallow(<Panel text="danger" />);
+    const panel = shallow(<Card text="danger" />);
     expect(panel.find('.text-danger').length).toBe(1);
   });
 });

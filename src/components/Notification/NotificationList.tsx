@@ -13,7 +13,7 @@ export default class NotificationList extends PureComponent<
 > {
   static propTypes = {
     /** 操作移除单个通知栏 */
-    onDismiss: PropTypes.func,
+    onClose: PropTypes.func,
     /** 统一格式化通知栏目的数据 */
     format: PropTypes.func,
     /** 是否开启自动关闭 */
@@ -31,14 +31,14 @@ export default class NotificationList extends PureComponent<
   }
 
   renderNotification = (notification: NotificationItem) => {
-    const { onDismiss, autoClose, format } = this.props;
+    const { onClose, autoClose, format } = this.props;
     const formatNotification = format ? format(notification) : notification;
 
     return (
       <Notification
         key={notification.id}
         id={notification.id}
-        onDismiss={onDismiss}
+        onClose={onClose}
         autoClose={autoClose}
         {...formatNotification}
       />
