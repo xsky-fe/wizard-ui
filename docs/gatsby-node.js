@@ -91,11 +91,12 @@ exports.createPages = async ({ graphql, actions }) => {
       } else {
         const next = index === posts.length - 1 ? null : posts[index + 1].node
         const previous = index === 0 ? null : posts[index - 1].node
+        const parents = ['design-principles', 'layout', 'design-style', 'guide', 'navigation', 'data-entry', 'data-display', 'feedback', 'other'];
         // 组件 propTypes 解析
         const propTableDatas = propTables.filter(pt => {
           const pSlug = pt.node.fields.slug;
           const path = `/components/${snakeCase(pSlug).replace(/_/g, '-')}/`;
-          return slug === path;
+          return parents.some(i => `/${i}/${snakeCase(pSlug).replace(/_/g, '-')}/` === slug);
         });
         const propDatas = propTableDatas.length > 0 ? propTableDatas[0] : null;
         createPage({

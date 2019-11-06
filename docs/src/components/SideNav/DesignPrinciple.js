@@ -9,7 +9,7 @@ export default props => {
       query {
         allMdx(
           sort: { fields: [frontmatter___date], order: DESC },
-          filter: { fields : { slug: { regex: "/layout/" } } },
+          filter: { fields : { slug: { regex: "/design-principles/" } } },
           limit: 1000
         ) {
           edges {
@@ -29,7 +29,7 @@ export default props => {
 
   return (
     <NavSection
-      heading="框架布局"
+      heading="设计原则"
       items={edges}
     />
   )
