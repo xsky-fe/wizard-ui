@@ -31,7 +31,7 @@ date: 2019-06-20
   const [ per, setPer ] = React.useState(5);
   return (
     <div>
-      <Panel>
+      <Card>
         {[5, 8, 10].map(p => (
           <Radio
             key={p}
@@ -47,7 +47,7 @@ date: 2019-06-20
             展示 {p} 页
           </Radio>
         ))}
-      </Panel>
+      </Card>
       <p>总共 {totalPage} 页，当前是第 {activePage} 页。</p>
       <Pagination
         prev={activePage > 1}

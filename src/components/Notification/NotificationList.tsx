@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Notification from './index';
 import cn from 'classnames';
 import Icon from '../Icon';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+// import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { NotificationItem, NotificationListProps, NotificationListStates } from '../../interface';
 import './style.scss';
 
@@ -74,13 +74,7 @@ export default class NotificationList extends PureComponent<
         </div>
         {expanded && (
           <div>
-            <ReactCSSTransitionGroup
-              transitionName="Notification"
-              transitionEnterTimeout={700}
-              transitionLeaveTimeout={650}
-            >
-              {lists.map(this.renderNotification)}
-            </ReactCSSTransitionGroup>
+            {lists.map(this.renderNotification)}
           </div>
         )}
       </div>

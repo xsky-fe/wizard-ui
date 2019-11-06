@@ -11,19 +11,19 @@ author: lijianxin1202
 ## 基本用法
 不加 Clearfix 时，在 sm (768px ≤ width < 992px)。视图下显示不正确。
 ```jsx
-<Grid>
+<div>
   <Row className="show-grid">
     <Col sm={12} md={6}><code>&lt;{'Col sm={12} md={6}'} /&gt;</code><br/>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl, tincidunt et, mattis eget, </Col>
     <Col sm={12} md={6}><code>&lt;{'Col sm={12} md={6}'} /&gt;</code><br/>Lorem ipsum dolor sit amet, consectetuer </Col>
     <Col sm={12} md={6}><code>&lt;{'Col sm={12} md={6}'} /&gt;</code><br/>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus. Cum sociis natoque penatibus </Col>
     <Col sm={12} md={6}><code>&lt;{'Col sm={12} md={6}'} /&gt;</code><br/>Lorem ipsum dolor sit </Col>
   </Row>
-</Grid>
+</div>
 ```
 
 加上 Clearfix, 可修订问题，栏目清除正确。
 ```jsx
-<Grid>
+<div>
   <Row className="show-grid">
     <Col sm={12} md={6}><code>&lt;{'Col sm={12} md={6}'} /&gt;</code><br/>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl, tincidunt et, mattis eget, </Col>
     <Col sm={12} md={6}><code>&lt;{'Col sm={12} md={6}'} /&gt;</code><br/>Lorem ipsum dolor sit amet, consectetuer </Col>
@@ -31,16 +31,16 @@ author: lijianxin1202
     <Col sm={12} md={6}><code>&lt;{'Col sm={12} md={6}'} /&gt;</code><br/>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus. Cum sociis natoque penatibus </Col>
     <Col sm={12} md={6}><code>&lt;{'Col sm={12} md={6}'} /&gt;</code><br/>Lorem ipsum dolor sit </Col>
   </Row>
-</Grid>
+</div>
 ```
 
 ## API
 
 | 参数    | 类型                      | 默认值 | 说明     |
 | ------- | ------------------------- | ------ | -------- |
-| componentClass | elementType | 'div' | 使用一个此组件提供的定制化样式。 |
+| as | elementType | 'div' | 使用一个此组件提供的定制化样式。 |
 | visibleXsBlock | boolean | | 极小设备上使用 clearfix，相当于增加样式 visible-xs-block |
 | visibleSmBlock | boolean | | 小型设备上使用 clearfix，相当于增加样式 visible-sm-block |
 | visibleMdBlock | boolean | | 中型设备上使用 clearfix，相当于增加样式 visible-md-block |
 | visibleLgBlock | boolean | | 大型设备上使用 clearfix，相当于增加样式 visible-lg-block |
-| bsClass | string | 'row' | 定义组件基础 CSS 及前缀。通常改变 bsClass 目的是为组件提供新的、非 Bootstrap 自带样式。 |
+| bsPrefix | string | 'row' | 定义组件基础 CSS 及前缀。通常改变 bsPrefix 目的是为组件提供新的、非 Bootstrap 自带样式。 |

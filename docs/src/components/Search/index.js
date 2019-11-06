@@ -20,9 +20,9 @@ const Search = props => {
   return (
     <div className="HeaderSearch">
       <InputGroup>
-        <InputGroup.Addon>
+        <InputGroup.Append>
           <Icon type="search"/>
-        </InputGroup.Addon>
+        </InputGroup.Append>
         <FormControl
           value={query}
           onChange={handleChange}

@@ -14,12 +14,12 @@ author: shenghou
 
 ```jsx
 <PanelGroup defaultActiveKey="2">
-  <Panel header="Panel 1" eventKey="1">
-    Panel 1 content
-  </Panel>
-  <Panel header="Panel 2" eventKey="2">
-    Panel 2 content
-  </Panel>
+  <Card header="Card 1" eventKey="1">
+    Card 1 content
+  </Card>
+  <Card header="Card 2" eventKey="2">
+    Card 2 content
+  </Card>
 </PanelGroup>
 ```
 
@@ -32,12 +32,12 @@ author: shenghou
   return (
     <div>
       <PanelGroup activeKey={activeKey} onSelect={handleSelect} accordion>
-        <Panel header="Panel 1" eventKey="one">
-          Panel 1 content accordion by onSelect
-        </Panel>
-        <Panel header="Panel 2" eventKey="two">
-          Panel 2 content accordion by onSelect
-        </Panel>
+        <Card header="Card 1" eventKey="one">
+          Card 1 content accordion by onSelect
+        </Card>
+        <Card header="Card 2" eventKey="two">
+          Card 2 content accordion by onSelect
+        </Card>
       </PanelGroup>
     </div>
   );
@@ -46,12 +46,12 @@ author: shenghou
 
 ```jsx
 <PanelGroup defaultActiveKey="2" accordion>
-  <Panel header="Panel 1" eventKey="1">
-    Panel 1 content accordion by defaultActiveKey
-  </Panel>
-  <Panel header="Panel 2" eventKey="2">
-    Panel 2 content accordion by defaultActiveKey
-  </Panel>
+  <Card header="Card 1" eventKey="1">
+    Card 1 content accordion by defaultActiveKey
+  </Card>
+  <Card header="Card 2" eventKey="2">
+    Card 2 content accordion by defaultActiveKey
+  </Card>
 </PanelGroup>
 ```
 

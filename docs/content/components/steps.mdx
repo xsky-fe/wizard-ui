@@ -70,13 +70,13 @@ author: shenghou
       <Steps steps={['A', 'B', 'C', 'D']} currentStep={step} />
       <p>第 {step} 步</p>
       {step > 1 && (
-        <Button bsStyle="info" onClick={prevStep}>
+        <Button variant="info" onClick={prevStep}>
           上一步
         </Button>
       )}
       <span style={{ paddingLeft: '40px' }} />
       {step < 4 && (
-        <Button bsStyle="primary" onClick={nextStep}>
+        <Button variant="primary" onClick={nextStep}>
           下一步
         </Button>
       )}

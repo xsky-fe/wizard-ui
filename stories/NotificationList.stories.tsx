@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { NotificationList } from '../src';
 import { Button } from 'react-bootstrap';
-import { Map as MapType, NotificationItem, NotificationItemStatus } from '../src/interface';
+import { Map as MapType, NotificationItem, Variant } from '../src/interface';
 
 const STATUS = ['success', 'info', 'process', 'warning', 'danger'];
 
@@ -11,7 +11,7 @@ const NotificationListDefault = (props: { showTitle?: boolean; autoClose?: boole
     const dns = new Map() as MapType<string, any>;
     const sns = new Map() as MapType<string, any>;
     STATUS.forEach((s: string) => {
-      const item: NotificationItem = { id: s, status: s as NotificationItemStatus, text: `${s} text message !` };
+      const item: NotificationItem = { id: s, status: s as Variant, text: `${s} text message !` };
       if (props.showTitle) {
         item.title = <h3>{s} title</h3>;
       }
@@ -20,7 +20,7 @@ const NotificationListDefault = (props: { showTitle?: boolean; autoClose?: boole
     dns.set('status', sns);
     return dns;
   });
-  const setNotification = (s: NotificationItemStatus) => {
+  const setNotification = (s: Variant) => {
     const item: NotificationItem = { id: s, status: s, text: `${s} text message !` };
     if (props.showTitle) {
       item.title = <h3>{s} title</h3>;
@@ -29,7 +29,7 @@ const NotificationListDefault = (props: { showTitle?: boolean; autoClose?: boole
     const newLists = new Map(lists);
     setLists(newLists);
   }
-  const deleteNotification = (id: NotificationItemStatus) => {
+  const deleteNotification = (id: Variant) => {
     lists.get('status').delete(id);
     const newLists = new Map(lists);
     setLists(newLists);
@@ -42,7 +42,7 @@ const NotificationListDefault = (props: { showTitle?: boolean; autoClose?: boole
           <Button
             key={s}
             style={{ marginRight: '10px' }}
-            onClick={() => setNotification(s as NotificationItemStatus)}
+            onClick={() => setNotification(s as Variant)}
             disabled={lists.get('status').has(s)}
           >
             {s}

@@ -29,7 +29,7 @@ export default ({ isShow, children, previewOnly, noInline }) => {
               </div>
               <div className="Playground__View">
                 <LivePreview />
-                <Button className="toggle-code" bsStyle="link" onClick={toggle}>{show ? '隐藏代码' : '展开代码'}</Button>
+                <Button className="toggle-code" variant="link" onClick={toggle}>{show ? '隐藏代码' : '展开代码'}</Button>
               </div>
               {show && <LiveEditor />}
             </>

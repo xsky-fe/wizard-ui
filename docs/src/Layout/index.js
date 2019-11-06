@@ -6,8 +6,7 @@
  */
 
 import React from 'react';
-import TopBar from '../components/TopBar';
-import { Grid } from 'wizard-ui';
+// import TopBar from '../components/TopBar';
 import './style.scss';
 
 const isClient = typeof window === 'object';
@@ -24,10 +23,9 @@ const Layout = props => {
 
   return (
     <div className={`theme-${cls}`}>
-      {<TopBar cls={cls} toggle={toggle} slug={props.slug}/>}
-      <Grid fluid className="Main">
+      <div fluid className="Main">
         {props.children}
-      </Grid>
+      </div>
     </div>
   );
 };

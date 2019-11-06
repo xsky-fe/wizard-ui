@@ -397,10 +397,9 @@ export interface VirtualSelectBoxState<T> {
   error?: string;
 }
 
-export type NotificationItemStatus = 'success' | 'info' | 'process' | 'warning' | 'danger';
 export interface NotificationItem {
   id: string;
-  status: NotificationItemStatus;
+  status: Variant | 'process';
   text: string;
   title?: React.ReactNode | string;
 }

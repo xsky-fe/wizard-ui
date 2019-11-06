@@ -57,7 +57,7 @@ author: wangkailang
             status={STATUS[items[time]]}
             id={time}
             title={`${STATUS[items[time]]} text message at ${time} !`}
-            onDismiss={close}
+            onClose={close}
           />
       ))}
     </div>
@@ -101,7 +101,7 @@ author: wangkailang
       </div>
       <NotificationList
         notifications={lists}
-        onDismiss={deleteNotification}
+        onClose={deleteNotification}
       />
     </div>
   )
@@ -144,7 +144,7 @@ author: wangkailang
       </div>
       <NotificationList
         notifications={lists}
-        onDismiss={deleteNotification}
+        onClose={deleteNotification}
       />
     </div>
   )
@@ -155,7 +155,7 @@ author: wangkailang
 ### NotificationList API
 |参数|类型|默认值|说明|
 | ------- | ------------------------- | ------ | -------- |
-|onDismiss|func|-|操作移除单个通知栏|
+|onClose|func|-|操作移除单个通知栏|
 |format|func|-|统一格式化通知栏目的数据|
 |autoClose|bool|-|是否开启自动关闭|
 

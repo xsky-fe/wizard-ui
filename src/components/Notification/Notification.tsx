@@ -2,10 +2,14 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Alert } from 'react-bootstrap';
 import Icon from '../Icon';
-import { NotificationProps, Variant } from '../../interface';
+import { NotificationProps } from '../../interface';
 import './style.scss';
 
-const STATUS = {
+// interface Status {
+//   [key: string]: [string, Variant?]
+// }
+
+const STATUS: any = {
   success: ['check-circle'],
   info: ['info'],
   process: ['loading', 'info'],
@@ -114,7 +118,7 @@ export default class Notification extends PureComponent<NotificationProps> {
 
   render() {
     const { status, id, onClose } = this.props;
-    const style = (STATUS[status] && STATUS[status][1]) || status;
+    const style = (STATUS[status] && STATUS[status][1]) || (status !== 'process' ? status : undefined);
     return (
       <div
         className="Notification"
@@ -122,7 +126,7 @@ export default class Notification extends PureComponent<NotificationProps> {
         onMouseEnter={this.mouseEnter}
         onMouseLeave={this.mouseLeave}
       >
-        <Alert variant={style as Variant} onClose={onClose && this.close}>
+        <Alert variant={style} onClose={onClose && this.close}>
           {this.renderIcon()}
           {this.renderText()}
         </Alert>

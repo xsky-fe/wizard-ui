@@ -1,6 +1,6 @@
 import Alert from './Alert';
 import Badge from './Badge';
-import Dropdown from './Dropdown';
+// import Dropdown from './Dropdown';
 import DropdownButton from './DropdownButton';
 import Icon from './Icon';
 import InputDropdown from './InputDropdown';
@@ -74,7 +74,7 @@ export {
   Alert,
   Badge,
   Col,
-  Dropdown,
+  // Dropdown,
   DropdownButton,
   Icon,
   InputDropdown,

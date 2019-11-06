@@ -17,7 +17,7 @@ date: 2019-06-13
   const handleHide = () => setShow(false);
   return (
     <div>
-      <Button bsStyle="primary" onClick={handleClick}>打开对话框</Button>
+      <Button variant="primary" onClick={handleClick}>打开对话框</Button>
       <Modal
         title="基本对话框"
         show={show}
@@ -39,7 +39,7 @@ date: 2019-06-13
   const handleHide = () => setShow(false);
   return (
     <div>
-      <Button bsStyle="primary" onClick={handleClick}>打开对话框</Button>
+      <Button variant="primary" onClick={handleClick}>打开对话框</Button>
       <Modal
         title="基本对话框"
         show={show}
@@ -73,7 +73,7 @@ date: 2019-06-13
   }
   return (
     <div>
-      <Button bsStyle="primary" onClick={handleClick}>异步提交</Button>
+      <Button variant="primary" onClick={handleClick}>异步提交</Button>
       <Modal
         title="异步提交"
         show={show}
@@ -97,7 +97,7 @@ date: 2019-06-13
   const handleHide = () => setShow(false);
   return (
     <div>
-      <Button bsStyle="danger" onClick={handleClick}>删除操作</Button>
+      <Button variant="danger" onClick={handleClick}>删除操作</Button>
       <Modal
         title="删除 xxx"
         show={show}
@@ -123,7 +123,7 @@ date: 2019-06-13
   const [ size, setSize ] = React.useState(undefined);
   return (
     <div>
-      <Panel>
+      <Card>
         {SIZES.map(([val, text], idx) => (
           <Radio
             key={idx}
@@ -139,8 +139,8 @@ date: 2019-06-13
             {`${text}(${val})`}
           </Radio>
         ))}
-      </Panel>
-      <Button bsStyle="primary" onClick={handleClick}>打开对话框</Button>
+      </Card>
+      <Button variant="primary" onClick={handleClick}>打开对话框</Button>
       <Modal
         title="基本对话框"
         show={show}

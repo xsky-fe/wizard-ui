@@ -1,10 +1,10 @@
 ---
-title: Panel 面板
+title: Card 面板
 date: 2019-08-09
 author: shenghou
 ---
 
-将 Panel 用在元素上。
+将 Card 用在元素上。
 
 ## 何时使用
 
@@ -14,8 +14,8 @@ author: shenghou
 
 ```jsx
 <div>
-  <Panel>i am panel </Panel>
-  <Panel className="classname-test">i am panel and have className</Panel>
+  <Card>i am panel </Card>
+  <Card className="classname-test">i am panel and have className</Card>
 </div>
 ```
 
@@ -23,14 +23,14 @@ author: shenghou
 
 ```jsx
 <div>
-  <Panel bsStyle="warning">i am panel and warning style </Panel>
-  <Panel bsStyle="warning" header="i am header">
+  <Card variant="warning">i am panel and warning style </Card>
+  <Card variant="warning" header="i am header">
     i have header and warning style
-  </Panel>
-  <Panel bg="primary" text="white">
+  </Card>
+  <Card bg="primary" text="white">
     i am panel and have primary bg color
-  </Panel>
-  <Panel text="danger">i am panel and have danger text color </Panel>
+  </Card>
+  <Card text="danger">i am panel and have danger text color </Card>
 </div>
 ```
 
@@ -38,8 +38,8 @@ author: shenghou
 
 ```jsx
 <div>
-  <Panel header={<p>i am panel header</p>}>i am panel</Panel>
-  <Panel footer={<p>i am panel footer</p>}>i am panel</Panel>
+  <Card header={<p>i am panel header</p>}>i am panel</Card>
+  <Card footer={<p>i am panel footer</p>}>i am panel</Card>
 </div>
 ```
 
@@ -47,28 +47,28 @@ author: shenghou
 
 ```jsx
 <div>
-  <Panel collapsible header={<p>i am panel header</p>}>
+  <Card collapsible header={<p>i am panel header</p>}>
     i am panel and can collapsible(collapsible = true)
-  </Panel>
-  <Panel collapsible={false} header={<p>i am panel header</p>}>
+  </Card>
+  <Card collapsible={false} header={<p>i am panel header</p>}>
     i am panel and can not collapsible(collapsible = false)
-  </Panel>
-  <Panel defaultExpanded header={<p>i am panel header</p>}>
+  </Card>
+  <Card defaultExpanded header={<p>i am panel header</p>}>
     i am panel and default expand body
-  </Panel>
-  <Panel
+  </Card>
+  <Card
     expanded={false}
     collapsible
     header={<p>i am panel and collapsible but can not expand</p>}
   >
     i am panel and collapsible but can not expanded
-  </Panel>
-  <Panel expanded collapsible header={<p>i am panel header</p>}>
+  </Card>
+  <Card expanded collapsible header={<p>i am panel header</p>}>
     i am panel and and expanded but collapsible does not work
-  </Panel>
-  <Panel expanded header={<p>i am panel header</p>}>
+  </Card>
+  <Card expanded header={<p>i am panel header</p>}>
     i am panel and expand body
-  </Panel>
+  </Card>
 </div>
 ```
 
@@ -81,9 +81,9 @@ author: shenghou
       <h3>
         <p onClick={handleSelect}>i am onClick can expand body</p>
       </h3>
-      <Panel collapsible expanded={open}>
+      <Card collapsible expanded={open}>
         i am collaspe
-      </Panel>
+      </Card>
     </div>
   );
 };
@@ -95,14 +95,14 @@ author: shenghou
   const handleSelect = () => setCollapse(!open);
   return (
     <div>
-      <Panel
+      <Card
         collapsible
         expanded={open}
         onSelect={handleSelect}
         header="I am select header"
       >
         i am collaspe
-      </Panel>
+      </Card>
     </div>
   );
 };
@@ -112,12 +112,12 @@ author: shenghou
 
 ```jsx
 <div>
-  <Panel collapsible panelRole="collapse" header={<p>i am panel header</p>}>
+  <Card collapsible panelRole="collapse" header={<p>i am panel header</p>}>
     i am panel role in collapse
-  </Panel>
-  <Panel headerRole="collapse" header={<p>i am panel header</p>}>
+  </Card>
+  <Card headerRole="collapse" header={<p>i am panel header</p>}>
     i am panel role in header
-  </Panel>
+  </Card>
 </div>
 ```
 

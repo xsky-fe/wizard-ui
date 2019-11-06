@@ -1,6 +1,6 @@
 import React from 'react';
 import SEO from '../seo';
-import { Glyphicon, Tooltip } from 'wizard-ui';
+import { Icon, Tooltip } from 'wizard-ui';
 import lodash from 'lodash';
 import './style.scss';
 
@@ -21,7 +21,7 @@ export default ({ post }) => {
             rel="noopener noreferrer"
             href={`https://github.com/xsky-fe/wizard-ui/edit/master/docs/content${path}`}
           >
-            <Glyphicon glyph="pencil" />
+            <Icon type="edit-square" />
           </a>
         )}>
           在 GitHub 上编辑此页！
