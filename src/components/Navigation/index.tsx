@@ -63,7 +63,6 @@ export default class Navigation extends React.Component<NavigationProps, any> {
   render() {
     const { navGroups, toggled, logo } = this.props;
     const { expanded } = this.state;
-    console.log('expanded', expanded);
     const NavItem = toggled ? NavItemNoText : NavItemText;
     return (
       <nav
