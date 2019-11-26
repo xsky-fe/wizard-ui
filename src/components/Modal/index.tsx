@@ -17,6 +17,7 @@ const Modal: React.FC<ModalProps> = props => {
     okStyle,
     loading,
     hideFooter,
+    hideHeader,
   } = props;
   let { bsSize } = props,
     dialogClassName = '';
@@ -35,9 +36,11 @@ const Modal: React.FC<ModalProps> = props => {
       onHide={onHide}
       show={show}
     >
-      <ModalHeader key="header" closeButton>
-        <ModalTitle>{title}</ModalTitle>
-      </ModalHeader>
+      {!hideHeader &&(
+        <ModalHeader key="header" closeButton>
+          <ModalTitle>{title}</ModalTitle>
+        </ModalHeader>
+      )}
       <ModalBody key="body">{children}</ModalBody>
       {!hideFooter && (
         <ModalFooter key="footer">
@@ -72,6 +75,8 @@ Modal.propTypes = {
   loading: PropTypes.bool,
   /** 隐藏 footer */
   hideFooter: PropTypes.bool,
+  /** 隐藏 头部 */
+  hideHeader: PropTypes.bool,
 };
 
 Modal.defaultProps = {
