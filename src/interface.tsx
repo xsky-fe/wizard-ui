@@ -116,6 +116,7 @@ export interface ModalProps {
   okStyle?: string;
   loading?: boolean;
   hideFooter?: boolean;
+  hideHeader?: boolean;
 }
 
 interface SwitchInput {

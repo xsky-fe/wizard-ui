@@ -83,7 +83,7 @@ const UsageBar: React.FC<UsageBarProps> = props => {
   // isPercent，hasPercent 涉及到百分比展示，此时 max 不应该为无限制
   // showZeroMax 直接展示 max 为处理后的 0 + 单位
   if (!max && !hasPercent && !isPercent && !showZeroMax) {
-    maxValue = 'no limit';
+    maxValue = '无限制';
     maxSuffix = '';
   }
 

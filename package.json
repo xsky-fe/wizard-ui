@@ -1,6 +1,6 @@
 {
   "name": "wizard-ui",
-  "version": "0.4.1",
+  "version": "0.4.1-beta.4",
   "private": false,
   "main": "lib/index.js",
   "module": "esm/index.js",
@@ -45,8 +45,8 @@
     "build-lib": "rm -rf lib && NODE_ENV=production babel src --out-dir lib --copy-file --extensions '.ts,.tsx' --env-name 'lib' && yarn lib-css",
     "build-dist": "rm -rf dist && NODE_ENV=production webpack",
     "dist-stats": "NODE_ENV=production webpack --profile --json > stats.json",
-    "esm-css": "node-sass src -o esm -q --output-style=compressed --source-map=true",
-    "lib-css": "node-sass src -o lib -q --output-style=compressed --source-map=true",
+    "esm-css": "node-sass --precision=8 src -o esm -q --output-style=compressed --source-map=true",
+    "lib-css": "node-sass --precision=8 src -o lib -q --output-style=compressed --source-map=true",
     "esm-types": "rm -rf types && tsc --declaration -p ./ -t es2015 --emitDeclarationOnly --outDir esm/types",
     "tsc-types": "rm -rf types && tsc --declaration -p ./ -t es2015 --emitDeclarationOnly --outDir types",
     "copy": "ts-node scripts/build-copy.ts",
