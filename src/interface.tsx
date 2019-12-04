@@ -138,9 +138,10 @@ export interface TimePickerProps {
   placeholder?: string;
   hourStart?: boolean;
   hourEnd?: boolean;
+  showSecond?: boolean;
   allowEmpty?: boolean;
-  value?: any;
-  defaultValue?: string;
+  value?: Moment;
+  defaultValue?: Moment;
   onChange?: any;
 }
 
