@@ -13939,10 +13939,10 @@ with-open-file@^0.1.6:
     p-try "^2.1.0"
     pify "^4.0.1"
 
-wizard-icons@0.0.1-beta.0:
-  version "0.0.1-beta.0"
-  resolved "https://registry.npmjs.org/wizard-icons/-/wizard-icons-0.0.1-beta.0.tgz#aa8d43899c409a6eec89a92dd79e657a56dfa0d1"
-  integrity sha512-goA0q5lJqu7pQYsrVAXh7pIXM5lT23wqtx/oWP2WVGVIACMQOGSgU2jXK0N8MAoKENCbVDHZOgslMt7DnAWbJQ==
+wizard-icons@0.0.2-beta.1:
+  version "0.0.2-beta.1"
+  resolved "https://registry.npmjs.org/wizard-icons/-/wizard-icons-0.0.2-beta.1.tgz#6e0290594c8838b98f44d111b618fb4a711a6b5a"
+  integrity sha512-WevP3Er/YHD63qwAAqm+zzF3t31ETk1HKzZA5EgyAuemv285Y3C5bE0ye18VXOyjOGkH7R/Tp5Kzq5Le1mAj/Q==
   dependencies:
     "@types/lodash" "^4.14.136"
     "@types/node" "^12.6.2"
