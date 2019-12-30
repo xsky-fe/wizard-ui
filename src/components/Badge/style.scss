@@ -49,7 +49,10 @@
     background-color: $brand-success;
   }
   &--info {
-    background-color: $blue-royal-normal;
+    background-color: $brand-info;
+  }
+  &--state {
+    background-color: rgb(121, 136, 194);
   }
   &--critical {
     background-color: $brand-critical;
