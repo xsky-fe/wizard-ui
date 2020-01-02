@@ -1,14 +1,24 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import { Modal as BaseModal, Button } from 'react-bootstrap';
+import { Modal as BaseModal, ModalHeader, ModalTitle, ModalBody, ModalFooter, Button } from 'react-bootstrap';
 import { ModalProps } from '../../interface';
 import Loader from '../Loader';
 import './style.scss';
 
-const { Header, Title, Body, Footer } = BaseModal;
-
 const Modal: React.FC<ModalProps> = props => {
-  const { title, onHide, onOk, show, style, children, confirmText, okStyle, loading } = props;
+  const {
+    title,
+    onHide,
+    onOk,
+    show,
+    style,
+    children,
+    confirmText,
+    okStyle,
+    loading,
+    hideFooter,
+    hideHeader,
+  } = props;
   let { bsSize } = props,
     dialogClassName = '';
   if (bsSize === 'xlarge') {
@@ -26,16 +36,20 @@ const Modal: React.FC<ModalProps> = props => {
       onHide={onHide}
       show={show}
     >
-      <Header key="header" closeButton>
-        <Title>{title}</Title>
-      </Header>
-      <Body key="body">{children}</Body>
-      <Footer key="footer">
-        <Button type="submit" disabled={loading} bsStyle={okStyle} onClick={onOk}>
-          {loading && <Loader bsSize="xs" />}
-          {confirmText}
-        </Button>
-      </Footer>
+      {!hideHeader &&(
+        <ModalHeader key="header" closeButton>
+          <ModalTitle>{title}</ModalTitle>
+        </ModalHeader>
+      )}
+      <ModalBody key="body">{children}</ModalBody>
+      {!hideFooter && (
+        <ModalFooter key="footer">
+          <Button type="submit" disabled={loading} bsStyle={okStyle} onClick={onOk}>
+            {loading && <Loader bsSize="xs" />}
+            {confirmText}
+          </Button>
+        </ModalFooter>
+      )}
     </BaseModal>
   );
 };
@@ -52,13 +66,17 @@ Modal.propTypes = {
   /** 对话框附加行内样式 */
   style: PropTypes.object,
   /** 对话框大小 */
-  bsSize: PropTypes.oneOf(['sm', 'medium', 'lg', 'xlarge']),
+  bsSize: PropTypes.oneOf(['sm', 'lg']),
   /** 确定、提交按钮文案 */
   confirmText: PropTypes.string,
   /** 确定、提交按钮样式 */
   okStyle: PropTypes.string,
   /** 是否展示加载 UI */
   loading: PropTypes.bool,
+  /** 隐藏 footer */
+  hideFooter: PropTypes.bool,
+  /** 隐藏 头部 */
+  hideHeader: PropTypes.bool,
 };
 
 Modal.defaultProps = {

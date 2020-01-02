@@ -2,7 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { getBemClass } from '../../utils';
 import { LoaderProps } from '../../interface';
-import { compact } from 'lodash';
+import compact from 'lodash/compact';
 import './style.scss';
 
 const Loader: React.FC<LoaderProps> = props => {

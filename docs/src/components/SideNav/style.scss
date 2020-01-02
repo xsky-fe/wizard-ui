@@ -1,3 +1,5 @@
+@import '../../Layout/theme.scss';
+
 .Sidebar {
   margin: 0 -8px;
 }
@@ -9,14 +11,19 @@
       padding-bottom: 60px;
     }
     &.navbar-default {
-      background-color: transparent;
+      @include themify($themes) {
+        background-color: themed('bd-bg');
+        color: themed('bd-color');
+      }
     }
     &.navbar {
+      @include themify($themes) {
+        border-right: 1px solid themed('border-color');
+      }
       position: fixed;
       width: inherit;
       height: calc(100vh - 51px);
       border: 0;
-      border-right: 1px solid #ececec;
       border-radius: 0;
     }
     .navbar-nav > li {
@@ -24,6 +31,12 @@
       a {
         float: none;
         padding: 8px 0px 8px 10px;
+        @include themify($themes) {
+          color: themed('bd-color');
+        }
+        &.active {
+          color: #6b58c4;
+        }
       }
     }
     &__Header {
@@ -34,12 +47,6 @@
         display: block;
         cursor: pointer;
         text-decoration: none;
-      }
-      a {
-        color: #777;
-        &.active {
-          color: #6b58c4;
-        }
       }
     }
   }

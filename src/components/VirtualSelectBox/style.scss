@@ -1,0 +1,112 @@
+@import '../../style/variables.scss';
+
+.SelectBox {
+  position: relative;
+  &__Header {
+    .open > .dropdown-menu {
+      display: none;
+    }
+  }
+  &.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 0.65;
+  }
+}
+
+.SelectBox__btn {
+  transition: all 0.08s;
+  &,
+  &:focus {
+    border-color: transparent;
+    background-color: transparent;
+  }
+  &.is-open,
+  &:hover {
+    background-color: #fff;
+    border-color: #ccc;
+  }
+  max-width: 250px;
+  padding-right: 40px;
+  .glyphicon {
+    position: absolute;
+    color: $gray-medium-11;
+    right: 8px;
+    top: 5px;
+  }
+  .icon-close {
+    position: absolute;
+    right: 25px;
+    top: 2px;
+    color: $gray-medium-11;
+    &:hover {
+      color: $purple-normal;
+    }
+    cursor: pointer;
+    svg {
+      width: 10px;
+    }
+  }
+}
+
+.SelectBox__outer {
+  position: absolute;
+  z-index: 999;
+  left: 0;
+  width: 250px;
+  /* 仿Github的select-menu */
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 3px;
+  box-shadow: 0 3px 12px rgba(27, 31, 35, 0.15);
+  > .panel {
+    margin: 0;
+    border: none !important;
+    > .panel-body {
+      padding: 0;
+    }
+    > .panel-heading {
+      padding: 7px;
+      .panel-title {
+        font-size: inherit;
+      }
+    }
+  }
+}
+
+.SelectBox__list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.SelectBox__search {
+  font-size: 13px;
+}
+
+.SelectBox__item {
+  display: block;
+  padding: 5px 10px;
+  font-size: 13px;
+  &:hover {
+    cursor: pointer;
+    background-color: $gray-lighter-4;
+  }
+}
+
+.SelectBox__item.active,
+.SelectBox__item.active:hover,
+.SelectBox__item.active:focus {
+  color: $gray-darker-3;
+  background-color: $gray-lighter-4;
+}
+
+.VirtualList__placeholder,
+.VirtualList__loader {
+  padding-top: 5px;
+  padding-left: 10px;
+}
+
+form {
+  .SelectBox__outer {
+    top: 100%;
+  }
+}

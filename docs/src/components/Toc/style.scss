@@ -1,9 +1,13 @@
+@import '../../Layout/theme.scss';
+
 .Main__Toc {
   position: fixed;
   width: inherit;
   margin-top: 25px;
   padding-left: 20px;
-  border-left: 1px solid #ececec;
+  @include themify($themes) {
+    border-left: 1px solid themed('border-color');
+  }
   & > div {
     line-height: 2;
   }
@@ -17,7 +21,9 @@
     }
   }
   a {
-    color: #777;
+    @include themify($themes) {
+      color: themed('bd-color');
+    }
     text-decoration: none;
     &.current,
     &:hover {

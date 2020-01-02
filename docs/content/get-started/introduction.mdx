@@ -2,17 +2,39 @@
 title: 介绍
 ---
 
-Wizard UI 是基于 React 开发的 UI 组件库。
+Wizard UI 是基于 React 和 Typescript 开发的 UI 组件库。
 
 ### 安装和使用
-`wizard-ui` 提供了一系列的组件用于开发，仅仅只需要安装就可以使用
+
+`wizard-ui` 提供了一系列的组件用于开发，仅仅只需要安装就可以使用。
+
 ```bash
 # install
-npm install wizard-ui --save
-# or
 yarn add wizard-ui
-# sass dep && loader
-yarn add --dev node-sass style-loader css-loader sass-loader
+# css loader
+yarn add --dev style-loader css-loader
+# react bootstrap font dev
+yarn add --dev url-loader file-loader
+```
+
+需要设置 `webpack config`:
+
+```js
+{
+  test: /\.css$/,
+  use: [
+    'style-loader',
+    'css-loader',
+  ]
+},
+{
+  test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/,
+  use: ['file-loader']
+},
+{
+  test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+  use: 'url-loader?limit=100000'
+}
 ```
 
 在工作场景中，可以在使用 [Create React APP](https://github.com/facebook/create-react-app) 后直接引用：
@@ -26,14 +48,25 @@ ReactDOM.render(
 );
 ```
 
+### 全局样式
+```jsx
+import 'wizard-ui/lib/style/index.css';
+```
+
 ## 单元测试
 `jest + enzyme`
 
-### 依赖包
-`wizard-ui` 通过第三方组件库进行快速开发，目前依赖的组件库有：
+### 单元测试调试
+由 [majestic](https://github.com/Raathigesh/majestic) 提供可视化界面做单元测试的补充。
+```bash
+yarn test-dev
+```
 
-| 组件库                                                                   | 依赖组件 |
-|-------------------------------------------------------------------------|---------|
-| [React-bootstrap](https://github.com/react-bootstrap/react-bootstrap)   | Button ...|
-| [react-ios-switch](https://github.com/clari/react-ios-switch)           | Switch |
+### 打包文件分析
+```bash
+yarn dist-stats
+```
+upload to https://webpack.jakoblind.no/optimize/#
 
+### 待做
+- [ ] 移除 react-bootstrap 中图标字体的依赖

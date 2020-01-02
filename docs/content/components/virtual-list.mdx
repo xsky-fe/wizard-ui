@@ -33,7 +33,7 @@ const rowRenderer = ({
 <div className="box">
   <VirtualList
     rowHeight={35}
-    rowRenderer={({ index }) => <div key={i.index}>{i.index}</div>}
+    rowRenderer={({ style, index }) => <div className="list-item" style={style} key={index}>item-{index}</div>}
     data={[]}
     height={35}
     isFetching={false}
@@ -48,7 +48,7 @@ const rowRenderer = ({
 <div className="box">
   <VirtualList
     rowHeight={35}
-    rowRenderer={i => <div className="list-item" style={i.style} key={i.index}>item-1</div>}
+    rowRenderer={({ style, index }) => <div className="list-item" style={style} key={index}>item-{index}</div>}
     data={[1]}
     height={70}
     isFetching={true}
@@ -62,7 +62,7 @@ const rowRenderer = ({
 <div className="box">
   <VirtualList
     rowHeight={35}
-    rowRenderer={i => <div className="list-item" style={i.style} key={i.index}>item-1</div>}
+    rowRenderer={({ style, index }) => <div className="list-item" style={style} key={index}>item-{index}</div>}
     data={[]}
     height={35}
     isFetching={true}
@@ -77,7 +77,7 @@ const rowRenderer = ({
 <div className="box">
   <VirtualList
     rowHeight={35}
-    rowRenderer={i => <div className="list-item" style={i.style} key={i.index}>item-1</div>}
+    rowRenderer={({ style, index }) => <div className="list-item" style={style} key={index}>item-{index}</div>}
     data={[1]}
     height={70}
     isFetching={false}
@@ -90,7 +90,7 @@ const rowRenderer = ({
 ```jsx
 () => {
   const resName = "list";
-  const rowRenderer = i => <div className="list-item" style={i.style} key={i.index}>{resName}-{i.index + 1}</div>;
+  const rowRenderer = ({ style, index }) => <div className="list-item" style={style} key={index}>item-{index}</div>
   const listRef = React.useRef(null);
   const [fetching, setFetch] = React.useState(false);
   const [datas, setDatas] = React.useState([]);
@@ -217,6 +217,3 @@ const rowRenderer = ({
 warning: Index 1 estimate height is 16, real height is 18.
 ```
 ## API
-```jsx previewOnly
-<PropTable of="virtualList" />
-```

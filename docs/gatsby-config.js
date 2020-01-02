@@ -2,36 +2,45 @@ const Path = require('path')
 module.exports = {
   pathPrefix: `/wizard-ui`,
   siteMetadata: {
+    siteUrl: 'https://wizard-ui.netlify.com/',
     title: `Wizard UI Documentation`,
     description: `Wizard UI Documentation.`,
     author: `xsky contributors`,
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        precision: 8,
+      },
+    },
+    `gatsby-plugin-sitemap`,
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `wizard-ui`,
-        path:  Path.resolve(__dirname, `../src/components`)
+        path:  Path.resolve(__dirname, `../src/components`),
+        ignore: [`**/\*.test.*`, `**/\*.scss`, `**/\*.md`],
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content`,
         name: `content`,
+        path: `${__dirname}/content`,
       },
     },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
+        mediaTypes: [`text/markdown`, `text/x-markdown`],
       },
     },
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-react-docgen`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
@@ -58,12 +67,6 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/logo.png`, // This path is relative to the root of the site.
-      },
-    },
-    {
-      resolve: `gatsby-plugin-sass`,
-      cssLoaderOptions: {
-        camelCase: false,
       },
     },
   ],

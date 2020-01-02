@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types';
 import RCTimePicker from 'rc-time-picker';
 import { Glyphicon } from 'react-bootstrap';
 import { TimePickerProps } from '../../interface';
-import { range } from 'lodash';
+import range from 'lodash/range';
 
 import moment from 'moment';
 import 'rc-time-picker/assets/index.css';
@@ -18,7 +18,7 @@ function remove0() {
 }
 
 const TimePicker: React.FC<TimePickerProps> = props => {
-  const { hourStart, allowEmpty, hourEnd, placeholder, onChange } = props;
+  const { hourStart, allowEmpty, hourEnd, placeholder, onChange, ...rest } = props;
   const [value, setValue] = React.useState(props.value || props.defaultValue);
   // 使用时才调用
   const handleChange = React.useCallback(
@@ -51,6 +51,7 @@ const TimePicker: React.FC<TimePickerProps> = props => {
     <RCTimePicker
       allowEmpty={allowEmpty}
       inputIcon={allowEmpty && value ? undefined : <Glyphicon glyph="time" />}
+      {...rest}
       {...restProps}
       placeholder={placeholder}
       value={currentValue}

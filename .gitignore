@@ -21,7 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-yarn.lock
 package-lock.json
 
 # storybook
@@ -31,7 +30,7 @@ package-lock.json
 /lib
 /esm
 /dist
-types.d.ts
+/types
 
 # dist analysis file
 stats.json

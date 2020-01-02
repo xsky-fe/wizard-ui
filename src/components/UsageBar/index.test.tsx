@@ -57,6 +57,6 @@ describe('UsageBar', () => {
   it('should showing no limit', () => {
     const usagebar = shallow(<UsageBar now={0} isBulk />);
     const right = usagebar.find('.UsageBar__footer--right');
-    expect(right.text()).toBe('no limit');
+    expect(right.text()).toBe('无限制');
   });
 });

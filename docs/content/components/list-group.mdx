@@ -1,0 +1,125 @@
+---
+title: List-group 列表组
+date: 2019-09-16
+author: shenghou
+---
+
+列表组展示组件。
+
+## 何时使用
+
+- 常用于同类型列表信息展示
+
+### 常规
+
+```jsx
+<ListGroup>
+  <ListGroupItem>Item 1</ListGroupItem>
+  <ListGroupItem>Item 2</ListGroupItem>
+  <ListGroupItem>...</ListGroupItem>
+</ListGroup>
+```
+
+### 点击及链接
+
+```jsx
+() => {
+  function alertClicked() {
+    alert('You clicked the third ListGroupItem');
+  }
+
+  return (
+    <ListGroup>
+      <ListGroupItem href="#link1">Link to 1</ListGroupItem>
+      <ListGroupItem href="#link2">Link to 2</ListGroupItem>
+      <ListGroupItem onClick={alertClicked}>Trigger an alert</ListGroupItem>
+    </ListGroup>
+  );
+};
+```
+
+### 禁止点击
+
+```jsx
+<ListGroup>
+  <ListGroupItem href="#" active>
+    Link 1
+  </ListGroupItem>
+  <ListGroupItem href="#">Link 2</ListGroupItem>
+  <ListGroupItem href="#" disabled>
+    Link 3 disabled
+  </ListGroupItem>
+</ListGroup>
+```
+
+### 背景色
+
+```jsx
+<ListGroup>
+  <ListGroupItem bsStyle="success">Success</ListGroupItem>
+  <ListGroupItem bsStyle="info">Info</ListGroupItem>
+  <ListGroupItem bsStyle="warning">Warning</ListGroupItem>
+  <ListGroupItem bsStyle="danger">Danger</ListGroupItem>
+</ListGroup>
+```
+
+### 带头部
+
+```jsx
+<ListGroup>
+  <ListGroupItem header="Heading 1">Some body text</ListGroupItem>
+  <ListGroupItem header="Heading 2" href="#">
+    Linked item
+  </ListGroupItem>
+  <ListGroupItem header="Heading 3" bsStyle="danger">
+    Danger styling
+  </ListGroupItem>
+</ListGroup>
+```
+
+### 列表类型展示
+
+```jsx
+() => {
+  function CustomComponent({ children }) {
+    return (
+      <li className="list-group-item" onClick={() => {}}>
+        {children}
+      </li>
+    );
+  }
+
+  return (
+    <ListGroup componentClass="ul">
+      <CustomComponent>Custom Child 1</CustomComponent>
+      <CustomComponent>Custom Child 2</CustomComponent>
+      <CustomComponent>Custom Child 3</CustomComponent>
+    </ListGroup>
+  );
+};
+```
+
+## API
+
+### ListGroup
+
+| 参数           | 类型                | 默认值       | 说明         |
+| -------------- | ------------------- | ------------ | ------------ |
+| componentClass | elementType(li div) |              | 组件元素类型 |
+| bsClass        | string              | 'list-group' | 扩展类       |
+| children       | react node          | null         | 子内容       |
+
+### ListGroupItem
+
+| 参数     | 类型       | 默认值            | 说明           |
+| -------- | ---------- | ----------------- | -------------- |
+| active   | any        | null              | 活动           |
+| disabled | any        | null              | 禁止           |
+| header   | react node | null              | 头部           |
+| children | react node | null              | 子内容         |
+| listItem | boolean    | false             | 列表展示       |
+| onClick  | func       |                   | 点击时候的回调 |
+| href     | string     | null              | 链接           |
+| type     | string     | null              | 类型           |
+| bsStyle  | string     | null              | 颜色           |
+| bsClass  | string     | 'list-group-item' | 扩展类         |

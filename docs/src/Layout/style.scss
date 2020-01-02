@@ -1,4 +1,6 @@
+
 @import './bootstrap.scss';
+@import './theme.scss';
 
 @media(min-width: 768px) {
   table {
@@ -20,6 +22,13 @@
   }
 }
 
+svg {
+  display: inline-block;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+  pointer-events: none;
+}
 .pre {
   border-radius: 4px;
   margin-bottom: 10px;
@@ -32,11 +41,21 @@ table {
     font-weight: 500;
     white-space: nowrap;
     background: rgba(0,0,0,0.02);
-    border: 1px solid #ebedf0;
+    @include themify($themes) {
+      border: 1px solid themed('border-color');
+    }
   }
   td {
+    @include themify($themes) {
+      border: 1px solid themed('border-color');
+    }
     text-align: left;
-    border: 1px solid #ebedf0;
+  }
+}
+.Main {
+  @include themify($themes) {
+    background-color: themed('bd-bg');
+    color: themed('bd-color');
   }
 }
 .Main__Body {
@@ -54,7 +73,9 @@ table {
 .prev-next-nav {
   overflow: hidden;
   font-size: 14px;
-  border-top: 1px solid #ebedf0;
+  @include themify($themes) {
+    border-top: 1px solid themed('border-color');
+  }
   .prev-page,
   .next-page {
     display: block;

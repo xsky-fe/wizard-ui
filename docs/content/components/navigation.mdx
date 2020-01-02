@@ -98,7 +98,69 @@ date: 2019-06-20
         <Icon type={toggle ? 'slide-right' : 'slide-left'}/>
       </Button>
       <div style={{ width: toggle ? '50px' : '200px',   backgroundColor: '#2d3454' }}>
-        <Navigation navGroups={navs} toggled={toggle}/>
+        <Navigation navGroups={navs} toggled={toggle} logo="Logo"/>
+      </div>
+    </div>
+  )
+}
+```
+
+### 关联路由
+- 使用 `component` 属性可以定制组件内的结构，比如指定 a 标签
+- `expandedKeys` 默认展开面板
+```jsx
+() => {
+  const navs =  {
+    overview: {
+      title: '概览',
+      icon: 'overview',
+      component: props => <a href="#" {...props}/>,
+    },
+    nav1: {
+      title: '导航栏一',
+      children: [
+        {
+          title: '选项一',
+          icon: 'volume',
+          component: props => <a href="#" {...props}/>,
+        },
+        {
+          title: '选项二',
+          icon: 'consistency-group',
+          component: props => <a href="#" {...props}/>,
+        },
+        {
+          title: '选项三',
+          icon: 'access-target',
+          component: props => <a href="#" {...props}/>,
+        },
+      ],
+    },
+    nav2: {
+      title: '导航栏二',
+      children: [
+        {
+          title: '选项一',
+          icon: 'file-user',
+          component: props => <a href="#" {...props}/>,
+        },
+        {
+          title: '选项二',
+          icon: 'fs-client',
+          component: props => <a href="#" {...props}/>,
+        },
+      ],
+    },
+  };
+  const [ toggle, setToggle ] = React.useState(true);
+  const handleClick = () => setToggle(!toggle);
+  return (
+    <div>
+      <Button bsStyle="primary" onClick={handleClick} style={{ marginBottom: 8 }}>
+        <Icon type={toggle ? 'slide-right' : 'slide-left'}/>
+      </Button>
+      <div style={{ width: toggle ? '50px' : '200px',   backgroundColor: '#2d3454' }}>
+        <Navigation expandedKeys={['nav2']} navGroups={navs} toggled={toggle} logo="Logo"/>
       </div>
     </div>
   )
@@ -106,6 +168,3 @@ date: 2019-06-20
 ```
 
 ## API
-```jsx previewOnly
-<PropTable of="navigation" />
-```

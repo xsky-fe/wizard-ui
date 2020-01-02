@@ -2,8 +2,12 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import { DropdownButton as BootstrapDropdownButton, MenuItem, ButtonGroup } from 'react-bootstrap';
 import SubMenu from '../SubMenu';
-import { DropdownButtonMenuItem, DropdownButtonProps, DefaultDropdownButtonProps } from '../../interface';
-import { cloneDeep } from 'lodash';
+import {
+  DropdownButtonMenuItem,
+  DropdownButtonProps,
+  DefaultDropdownButtonProps,
+} from '../../interface';
+import cloneDeep from 'lodash/cloneDeep';
 import './style.scss';
 
 function randomId() {
@@ -139,7 +143,7 @@ DropdownButton.propTypes = {
   title: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
 };
 
-const defaultProps: DefaultDropdownButtonProps = { componentClass: ButtonGroup, }
+const defaultProps: DefaultDropdownButtonProps = { componentClass: ButtonGroup };
 
 DropdownButton.defaultProps = defaultProps;
 

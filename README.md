@@ -1,5 +1,6 @@
-## wizard-ui
-### A Design System with React
+# wizard-ui
+
+A Design System with React.
 
 [![Build Status](https://travis-ci.org/xsky-fe/wizard-ui.svg?branch=master)](https://travis-ci.org/xsky-fe/wizard-ui)
 [![Codecov](https://img.shields.io/codecov/c/github/xsky-fe/wizard-ui/master.svg?style=flat-square)](https://codecov.io/gh/xsky-fe/wizard-ui/branch/master) 
@@ -15,22 +16,25 @@
 ## Install and Usage
 
 ### Dev and webpack setting
+
 Add in package.json
+
 ```bash
 yarn add wizard-ui
-# sass dep && loader
-yarn add --dev node-sass style-loader css-loader sass-loader
+# css loader
+yarn add --dev style-loader css-loader
 # react bootstrap font dev
 yarn add --dev url-loader file-loader
 ```
+
 if you not use [create-react-app](https://github.com/facebook/create-react-app), you need set webpack config:
+
 ```js
 {
-  test: /\.(css|scss)$/,
+  test: /\.css$/,
   use: [
     'style-loader',
     'css-loader',
-    'sass-loader'
   ]
 },
 {
@@ -44,26 +48,25 @@ if you not use [create-react-app](https://github.com/facebook/create-react-app),
 ```
 
 ### Global style
-```
-import 'wizard-ui/lib/style/index.scss';
+
+```jsx
+import 'wizard-ui/lib/style/index.css';
 ```
 
 ### Usage
+
 > UMD
+
 ```jsx
 import { Icon } from 'wizard-ui';
 
 export default () => <Icon type="os-search-role" />
 ```
+
 > ES
+
 ```jsx
 import { Icon } from 'wizard-ui/esm';
 
 export default () => <Icon type="os-search-role" />
 ```
-
-### Dist file analysis
-```bash
-yarn dist-stats
-```
-upload to https://webpack.jakoblind.no/optimize/#

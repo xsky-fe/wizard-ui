@@ -1,7 +1,38 @@
 import * as React from 'react';
-import { SelectCallback, Sizes } from 'react-bootstrap';
+import {
+  SelectCallback,
+  Sizes,
+} from 'react-bootstrap';
 import { Moment } from 'moment';
 import CSS from 'csstype';
+
+export interface Map<K, V> {
+  clear(): void;
+  delete(key: K): boolean;
+  entries(): IterableIterator<[K, V]>;
+  forEach(callbackfn: (value: V, index: K, map: Map<K, V>) => void, thisArg?: any): void;
+  get(key: K): V;
+  has(key: K): boolean;
+  keys(): IterableIterator<K>;
+  set(key: K, value?: V): Map<K, V>;
+  size: number;
+  values(): IterableIterator<V>;
+  [Symbol.iterator](): IterableIterator<[K, V]>;
+  [Symbol.toStringTag]: string;
+}
+
+export interface Query {
+  offset?: number;
+  limit?: number;
+  q?: string;
+}
+
+export interface FetchResponse<T = any> {
+  response?: {
+    [res: string]: T | T[];
+  };
+  error?: string;
+}
 
 export interface BadgeProps {
   count?: number | string;
@@ -32,6 +63,7 @@ export interface TooltipProps {
   style?: string;
   placement?: string;
   children: React.ReactNode;
+  className?: string;
 }
 
 export interface PopoverProps {
@@ -72,11 +104,15 @@ export interface TabsProps {
   eventKeyName?: string;
   direction?: 'right';
   onSelect?: SelectCallback;
+  id?: string;
 }
 
 export interface StepsProps {
   steps: any[];
   currentStep: number;
+  showIcon?: boolean;
+  iconSize?: string;
+  iconStatus?: string;
 }
 
 export interface ModalProps {
@@ -89,6 +125,8 @@ export interface ModalProps {
   confirmText?: string;
   okStyle?: string;
   loading?: boolean;
+  hideFooter?: boolean;
+  hideHeader?: boolean;
 }
 
 interface SwitchInput {
@@ -110,9 +148,10 @@ export interface TimePickerProps {
   placeholder?: string;
   hourStart?: boolean;
   hourEnd?: boolean;
+  showSecond?: boolean;
   allowEmpty?: boolean;
-  value?: any;
-  defaultValue?: string;
+  value?: Moment;
+  defaultValue?: Moment;
   onChange?: any;
 }
 
@@ -137,13 +176,17 @@ export interface SubMenuProps {
   children: React.ReactNode;
 }
 
-export type DropdownButtonMenuItem = {
-  key?: string | number;
-  children?: DropdownButtonMenuItem[];
-  title: string;
-  eventKey?: string;
-  'data-action'?: string;
-} | string;
+export type DropdownButtonMenuItem =
+  | {
+      key?: string | number;
+      children?: DropdownButtonMenuItem[];
+      title: string;
+      eventKey?: string;
+      'data-action'?: string;
+      onClick?: React.MouseEventHandler;
+      disabled?: boolean;
+    }
+  | string;
 
 export interface DefaultDropdownButtonProps {
   componentClass: any;
@@ -166,10 +209,12 @@ export interface DropdownButtonProps extends DefaultDropdownButtonProps {
 }
 
 export interface NavigationGroup {
-  title: string;
+  title: string | React.ReactNode;
   icon?: string;
   isFirst?: boolean;
   children?: any[];
+  component?: any;
+  toggled?: boolean;
 }
 
 export interface NavigationProps {
@@ -177,7 +222,8 @@ export interface NavigationProps {
     [key: string]: NavigationGroup;
   };
   toggled?: boolean;
-  logo?: boolean;
+  logo?: React.ReactNode | string;
+  expandedKeys?: string[];
 }
 
 export interface RangePickerProps {
@@ -225,6 +271,10 @@ export interface PanelProps {
   children?: React.ReactNode;
   bg?: string;
   text?: string;
+  className?: string;
+  header?: React.ReactNode;
+  collapsible?: boolean;
+  expanded?: boolean;
 }
 
 export interface DropdownDefaultProps {
@@ -235,18 +285,44 @@ export interface DropdownProps extends DropdownDefaultProps {
   className?: string;
   title?: string;
   children?: React.ReactNode;
+  customToggle?: boolean;
+  pullRight?: boolean;
 }
 
-export interface Query {
-  offset: number;
-  limit: number;
+export interface MenuItemOptions {
+  title: string;
+  value: string;
 }
-export interface VirtualRowArgs {
+export interface InputDropdownProps {
+  options?: MenuItemOptions[];
+  defaultValue?: string;
+  value?: string;
+  onChange?: SelectCallback;
+  input?: any;
+  meta?: any;
+}
+export interface MultiVirtualSelectItem {
+  label: string;
+  value: number | string;
+}
+export type VirtualItem =
+  | MultiVirtualSelectItem
+  | object
+  | string
+  | number;
+export interface SelectCheckItemProps {
+  onSelect: Function;
+  selected: boolean;
+  option: MultiVirtualSelectItem;
+  className?: string;
+  style?: object;
+}
+export interface VirtualRowArgs<T> {
   index: number;
-  item: object;
-  prevItem: object | null;
-  nextItem: object | null;
-  style: CSS.Properties
+  item: T;
+  prevItem: T | null;
+  nextItem: T | null;
+  style: CSS.Properties;
 }
 export interface VirtualAnchorItem {
   index: number;
@@ -256,9 +332,9 @@ export interface VirtualListState {
   startIndex: number;
   endIndex: number;
 }
-export interface VirtualListDefaultProps {
+export interface VirtualListDefaultProps<T> {
   height?: number | string;
-  data: any[],
+  data: T[];
   runwayItems?: number;
   runwayItemsOppsite?: number;
   loader?: React.ReactNode;
@@ -266,15 +342,82 @@ export interface VirtualListDefaultProps {
   noMoreHint?: React.ReactNode | boolean;
   debug?: boolean;
 }
-export interface VirtualListProps extends VirtualListDefaultProps {
+export interface VirtualListProps<T> extends VirtualListDefaultProps<T> {
   query?: Query;
   onQueryChange?: (query: Query) => Promise<void>;
   rowHeight?: number | ((item: object) => number);
-  rowRenderer: (item: VirtualRowArgs) => React.ReactNode | Element;
+  rowRenderer: (item: VirtualRowArgs<T>) => React.ReactNode | Element;
   isFetching?: boolean;
   isReloading?: boolean;
   noMore?: boolean;
   totalCount?: number;
   className?: string;
   isEstimate?: boolean;
+}
+
+export interface VirtualSelectBoxDefaultProps<T> {
+  rowHeight: number;
+  isBtn: boolean;
+  disabled: boolean;
+  placeholder: string;
+  query: Query;
+  defaultItem: T;
+}
+export interface VirtualSelectBoxProps<T> extends VirtualSelectBoxDefaultProps<T> {
+  fetchData: (
+    isReloading: boolean,
+    query: Query,
+    search?: string,
+  ) => Promise<{
+    query: Query;
+    items: T[];
+    totalCount: number;
+    error?: string;
+  }>;
+  item?: T;
+  className?: string;
+  clear?: boolean;
+  onSelect?: Function;
+  // onSelect?: (item: T) => void;
+  formatOption?: (item: T) => any;
+  multi?: boolean;
+  value?: any[];
+}
+export interface VirtualSelectBoxState<T> {
+  search: string;
+  items: T[];
+  query: Query;
+  isFetching: boolean;
+  totalCount: number;
+  isOpen: boolean;
+  isReloading: boolean;
+  error?: string;
+}
+
+export type NotificationItemStatus = 'success' | 'info' | 'process' | 'warning' | 'danger';
+export interface NotificationItem {
+  id: string;
+  status: NotificationItemStatus;
+  text: string;
+  title?: React.ReactNode | string;
+}
+export interface NotificationProps extends NotificationItem {
+  autoClose?: boolean;
+  counter: number;
+  intervalMap?: {
+    set: (key: string | number, func: () => void, time: number) => void;
+    clear: (key: string | number) => void;
+    has: (key: string | number) => boolean;
+  };
+  onDismiss?: Function;
+}
+export interface NotificationListProps {
+  notifications: Map<string, Map<string, NotificationItem>>;
+  onDismiss?: Function;
+  autoClose?: boolean;
+  format?: Function;
+}
+
+export interface NotificationListStates {
+  expanded?: boolean;
 }

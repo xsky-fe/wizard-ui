@@ -1,18 +1,43 @@
+@import '../../Layout/theme.scss';
+
 .TopBar {
+  .navbar-default  {
+    @include themify($themes) {
+      background-color: themed('code-bg');
+      box-shadow: 0px 1px 2px 0 themed('shadow');
+    }
+    .navbar-nav > li > a,
+    .Tooltip > a,
+    .Tooltip > div {
+      @include themify($themes) {
+        color: themed('bd-color');
+      }
+      &.active {
+        color: #6b58c4;
+      }
+    }
+  }
   height: 51px;
   .navbar-brand {
     padding: 6px 15px;
   }
-  .navbar {
-    margin: 0;
-  }
-  .navbar-default .navbar-nav>li>a {
-    color: #777;
-    &.active {
+  .Tooltip > a,
+  .Tooltip > div {
+    cursor: pointer;
+    padding: 15px 10px;
+    display: block;
+    font-size: 16px;
+    &:hover {
       color: #6b58c4;
     }
   }
-  .svg-icon {
+  .navbar {
+    margin: 0;
+  }
+  .input-group-addon .icon {
+    font-size: 16px;
+  }
+  .svg-icon, .Tooltip .icon {
     margin-right: 8px;
     display: inline-block;
     height: 16px;
@@ -28,7 +53,6 @@
 @media(min-width: 768px) {
   .TopBar {
     .navbar-default {
-      background-color: #fff;
       border: 0;
       box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, .15);
     }

@@ -9,7 +9,9 @@
       "es2017",
       "dom"
     ],
-    "types":["jest"],
+    "types": [
+      "jest"
+    ],
     "sourceMap": true,
     "allowJs": false,
     "jsx": "react",
@@ -32,7 +34,8 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "strict": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "downlevelIteration": true
   },
   "include": [
     "src/**/*"
@@ -43,6 +46,8 @@
     "scripts",
     "stories",
     "lib",
-    "docs"
+    "docs",
+    "src/**/*.test.*",
+    "src/**/*.style.*"
   ]
 }
