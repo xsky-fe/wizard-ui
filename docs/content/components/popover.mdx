@@ -17,10 +17,8 @@ date: 2019-08-28
 浮层内可以是容器、标题、内容文本、各种类型信息、各种链接。
 ```
 <Popover
-  placement="left"
   rootClose
-  trigger='hover'
-  placement="top"
+  trigger="hover"
   content={
     <>
       <h4>你好👋！</h4>
@@ -52,11 +50,11 @@ date: 2019-08-28
   <Popover
     placement="top"
     content={
-    <>
-      <h4>你好👋！</h4>
-      <div>这是一段内容！这是一段内容！这是一段内容！</div>
-    </>
-  }
+      <>
+        <h4>你好👋！</h4>
+        <div>这是一段内容！这是一段内容！这是一段内容！</div>
+      </>
+    }
   >
     <Button>上 top</Button>
   </Popover>
