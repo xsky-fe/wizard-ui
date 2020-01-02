@@ -2,7 +2,7 @@
 
 .RangePicker {
   display: inline-block;
-  max-width: 366px;
+  min-width: 366px;
   width: auto;
   & > input {
     text-align: center;
