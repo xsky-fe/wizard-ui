@@ -1,3 +1,13 @@
+## [0.4.2](https://github.com/xsky-fe/wizard-ui/compare/0.4.0...0.4.2) (2020-01-06)
+
+
+### Bug Fixes
+
+* [DropdownButtonMenuItem] Add onclick and disable interface. ([#99](https://github.com/xsky-fe/wizard-ui/issues/99)) ([32ce7e1](https://github.com/xsky-fe/wizard-ui/commit/32ce7e1))
+* associate local storage to get correct current locale. ([#104](https://github.com/xsky-fe/wizard-ui/issues/104)) ([bdba1cb](https://github.com/xsky-fe/wizard-ui/commit/bdba1cb))
+* Badge info bgcolor ([#102](https://github.com/xsky-fe/wizard-ui/issues/102)) ([d1b64fa](https://github.com/xsky-fe/wizard-ui/commit/d1b64fa))
+* Bundle sass to css ([#91](https://github.com/xsky-fe/wizard-ui/issues/91)) ([d68347c](https://github.com/xsky-fe/wizard-ui/commit/d68347c))
+
 # [0.4.0](https://github.com/xsky-fe/wizard-ui/compare/0.2.0...0.4.0) (2019-10-09)
 
 
