@@ -3,6 +3,8 @@ interface OPTIONS {
   withScale?: boolean
 }
 
+const isClient = typeof window === 'object';
+
 export const BULK_MAP = {
   en: [[1, ''], [1e3, 'K'], [1e6, 'M'], [1e9, 'B'], [1e12, 'T']],
   zh: [
@@ -16,14 +18,16 @@ export const BULK_MAP = {
   ]
 }
 
+type LocaleType = keyof typeof BULK_MAP;
+
 /**
  * options 可选属性 ‘splitUnit’ & ‘withScale’；
  * splitUnit 为 true 时，可通过设置 withScale 为 true，将一同返回对应单位的换算比例；
  * 类似 [1, '万'， 1e4]。
  */
-export default function bulk(value: number, options: OPTIONS) {
-  const lang = localStorage.getItem('LOCALE') || 'zh';
-  const BULK = BULK_MAP[lang];
+export default function bulk(value: number, options: OPTIONS, locale?: LocaleType) {
+  const lang = isClient ? window.localStorage.getItem('LOCALE') : (locale || 'zh');
+  const BULK = BULK_MAP[lang as LocaleType];
   let unit = BULK[0][1];
   if (!value) {
     if (options && options.splitUnit) return [0, unit];
