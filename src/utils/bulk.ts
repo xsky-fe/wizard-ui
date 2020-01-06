@@ -4,8 +4,8 @@ interface OPTIONS {
 }
 
 export const BULK_MAP = {
-  zh: [[1, ''], [1e3, 'K'], [1e6, 'M'], [1e9, 'B'], [1e12, 'T']],
-  en: [
+  en: [[1, ''], [1e3, 'K'], [1e6, 'M'], [1e9, 'B'], [1e12, 'T']],
+  zh: [
     [1, ''],
     /* eslint-disable wizard/use-t-function */
     [1e4, '万'],
@@ -21,7 +21,8 @@ export const BULK_MAP = {
  * splitUnit 为 true 时，可通过设置 withScale 为 true，将一同返回对应单位的换算比例；
  * 类似 [1, '万'， 1e4]。
  */
-export default function bulk(value: number, options: OPTIONS, lang = 'zh') {
+export default function bulk(value: number, options: OPTIONS) {
+  const lang = localStorage.getItem('LOCALE') || 'zh';
   const BULK = BULK_MAP[lang];
   let unit = BULK[0][1];
   if (!value) {
