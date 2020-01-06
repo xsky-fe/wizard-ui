@@ -1,0 +1,72 @@
+@import '../../style/variables.scss';
+
+.Popover {
+  
+  &__wrapper {
+    display: inline-block;
+    position: relative;
+  }
+
+  &.space-between {
+    li {
+      display: flex;
+      justify-content:space-between;
+      width: 250px;
+      padding: 0 6px;
+      color: $gray-darker-3;
+      font-size: 12px;
+      height: 20px;
+      line-height: 20px;
+      white-space: nowrap;
+
+      > span:last-child {
+        flex-grow: 1;
+        text-align: right;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      
+      .Badge__count {
+        margin: 0;
+      }
+  
+      .btn {
+        padding: 0;
+      }
+    }
+  }
+
+  &.shadow {
+    &.top {
+      border-bottom: 3px solid $purple-normal;
+
+      .arrow::after {
+        border-top-color: $purple-normal !important;
+      }
+    }
+
+    &.bottom {
+      border-top: 3px solid $purple-normal;
+    
+      .arrow::after {
+        border-bottom-color: $purple-normal !important;
+      }
+    }
+
+    &.left {
+      border-right: 3px solid $purple-normal;
+    
+      .arrow::after {
+        border-left-color: $purple-normal !important;
+      }
+    }
+
+    &.right {
+      border-left: 3px solid $purple-normal;
+    
+      .arrow::after {
+        border-right-color: $purple-normal !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,160 @@
+---
+title: Popovers 气泡卡片
+date: 2019-08-28
+---
+弹出的气泡式卡片浮层。
+
+## 使用场景
+
+当目标元素有进一步的描述和相关操作时，可以收纳到卡片中，根据用户的操作行为进行展现，建议相关操作控件（不包含文字链）不超过3个。
+
+当只需要对相关元素补充文字描述说明时，请使用 tooltip 文字提示；
+
+当对相关元素有复杂的进一步操作时（3个以上的操作控件），请使用对话框；
+
+## 基本用法
+### 文本提示
+浮层内可以是容器、标题、内容文本、各种类型信息、各种链接。
+```
+<Popover
+  rootClose
+  trigger="hover"
+  content={
+    <>
+      <h4>你好👋！</h4>
+      <div>这是一段内容！这是一段内容！这是一段内容！</div>
+      <div><a>这是一个链接！</a></div>
+    </>
+  }
+>
+  <span>鼠标移入会展示提示或者节点元素。</span>
+</Popover>
+```
+### 提示方向
+- 可以指定提示展示的方向；
+- 如果不指定，默认是朝上 `top` 展示；
+- 不指定方向，根据 Popover 在浏览器中的位置，在初次渲染时会调整展示方向，避免提示信息超出窗口，同时可能方便用户查看提示信息。
+```
+<div className="flex-between">
+  <Popover
+    placement="right"
+    content={
+      <>
+        <h4>你好👋！</h4>
+        <div>这是一段内容！这是一段内容！这是一段内容！</div>
+      </>
+    }
+  >
+    <Button>右 right</Button>
+  </Popover>
+  <Popover
+    placement="top"
+    content={
+      <>
+        <h4>你好👋！</h4>
+        <div>这是一段内容！这是一段内容！这是一段内容！</div>
+      </>
+    }
+  >
+    <Button>上 top</Button>
+  </Popover>
+  <Popover
+    placement="bottom"
+    content={
+      <>
+        <h4>你好👋！</h4>
+        <div>这是一段内容！这是一段内容！这是一段内容！</div>
+      </>
+    }
+  >
+    <Button>底 bottom</Button>
+  </Popover>
+  <Popover
+    placement="left"
+    content={
+      <>
+        <h4>你好👋！</h4>
+        <div>这是一段内容！这是一段内容！这是一段内容！</div>
+      </>
+    }
+  >
+    <Button>左 left</Button>
+  </Popover>
+</div>
+```
+### 交互方式
+- 打开：鼠标移入（hover，默认），点击（click）；
+- 关闭：鼠标移出或点击空白处；
+```
+<div className="flex-around">
+  <Popover
+    placement="top"
+    content={
+      <>
+        <h4>你好👋！</h4>
+        <div>鼠标移开按钮关闭我！</div>
+      </>
+    }
+  >
+    <Button>鼠标移入（默认情况） hover</Button>
+  </Popover>
+  <Popover
+    placement="top"
+    content={
+      <>
+        <h4>你好👋！</h4>
+        <div>再次点击按钮关闭我！</div>
+      </>
+    }
+    trigger="click"
+  >
+    <Button>点击 click</Button>
+  </Popover>
+  <Popover
+    placement="top"
+    content={
+      <>
+        <h4>你好👋！</h4>
+        <div>再次点击按钮或点空白处关闭我！</div>
+      </>
+    }
+    trigger="click"
+    rootClose
+  >
+    <Button>点击 click</Button>
+  </Popover>
+</div>
+```
+### 箭头颜色
+- 默认是白色
+```
+<div className="flex-around">
+  <Popover
+    content={
+      <>
+        <h4>你好👋！</h4>
+        <div>这是默认颜色</div>
+      </>
+    }
+  >
+    <Button>默认白色</Button>
+  </Popover>
+  <Popover
+    shadow
+    content={
+    <>
+      <h4>你好👋！</h4>
+      <div>这是紫颜色</div>
+    </>
+  }
+  >
+    <Button>这是紫颜色</Button>
+  </Popover>
+ 
+</div>
+```
+
+## API
+```jsx previewOnly
+<PropTable of="popover" />
+```
