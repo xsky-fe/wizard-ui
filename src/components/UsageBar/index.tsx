@@ -44,7 +44,7 @@ const UsageBar: React.FC<UsageBarProps> = props => {
   const errorPercent = props.unavailableData && max && props.unavailableData / max;
   let nowValue: number | string | undefined = now;
   let maxValue: number | string | undefined = max;
-  let nowSuffix = '';
+  let nowSuffix: any = '';
   let maxSuffix = '';
   let left;
   let right;
