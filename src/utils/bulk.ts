@@ -26,7 +26,9 @@ type LocaleType = keyof typeof BULK_MAP;
  * 类似 [1, '万'， 1e4]。
  */
 export default function bulk(value: number, options: OPTIONS, locale?: LocaleType) {
-  const lang = isClient ? window.localStorage.getItem('LOCALE') : (locale || 'zh');
+  const lang = isClient ?
+    (window.localStorage.getItem('LOCALE') === 'en' ? 'en' : 'zh') :
+    (locale || 'zh');
   const BULK = BULK_MAP[lang as LocaleType];
   let unit = BULK[0][1];
   if (!value) {
