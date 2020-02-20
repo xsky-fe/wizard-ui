@@ -104,6 +104,7 @@ export interface TabsProps {
   eventKeyName?: string;
   direction?: 'right';
   onSelect?: SelectCallback;
+  activeKey?: string;
   id?: string;
 }
 
