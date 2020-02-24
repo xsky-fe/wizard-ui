@@ -105,6 +105,8 @@ export interface TabsProps {
   direction?: 'right';
   onSelect?: SelectCallback;
   id?: string;
+  limitNum?: number;
+  activeKey?: any;
 }
 
 export interface StepsProps {
