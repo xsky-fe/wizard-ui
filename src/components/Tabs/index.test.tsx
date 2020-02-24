@@ -34,6 +34,7 @@ describe('Tabs', () => {
 });
 
 describe('Tabs width Dropdown', () => {
+  // generateChildId 属性未引入TabContainer后发出警告
   // it('should render default tabs ui', () => {
   //   const tabs = render(<Tabs tabs={newTABS} />);
   //   expect(tabs).toMatchSnapshot();
@@ -55,35 +56,21 @@ describe('Tabs width Dropdown', () => {
   it('change title', () => {
     const tabs = mount(<Tabs tabs={newTABS} direction="right" />);
     const node = tabs.find('Nav');
+    //title 默认值
     expect(tabs.find('NavDropdown').props().title).toBe('更多');
     node.simulate('click');
+    // 下拉框中li标签个数
     expect(tabs.find('.dropdown-menu').find('li').length).toBe(2);
+    // 判断是否存在下拉框中第一个li标签中的a标签
     expect(tabs.find('.dropdown-menu').find('li').at(0).find('a').length).toBe(1);
+    // 模拟点击“标题6”选项
     tabs.find('.dropdown-menu').find('li').at(0).find('a').simulate('click');
+    // 判断title是否有改变
     expect(tabs.find('NavDropdown').props().title).not.toBe('更多');
     expect(tabs.find('NavDropdown').props().title).toBe('标题6');
 
   });
-  // it('change time', () => {
-  //   const picker = mount(<DatePicker />);
-  //   const node = picker.find('input');
-  //   node.simulate('click');
-  //   picker
-  //     .find('.rc-calendar-tbody > tr')
-  //     .at(4)
-  //     .find('td')
-  //     .at(3)
-  //     .simulate('click');
-  //   expect(
-  //     picker
-  //       .find('.rc-calendar-input')
-  //       .at(0)
-  //       .props().value,
-  //   ).not.toBe('');
-  // });
 
-
-  
 
 
 });
