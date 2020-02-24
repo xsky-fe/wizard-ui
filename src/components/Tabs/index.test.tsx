@@ -1,6 +1,6 @@
 import React from 'react';
 import Tabs from './index';
-import { render,shallow,mount} from 'enzyme';
+import { render, shallow, mount } from 'enzyme';
 
 const TABS = [
   { title: '标题1', key: '1', children: <div>第1个tab</div> },
@@ -46,19 +46,15 @@ describe('Tabs width Dropdown', () => {
   it('tabs should set right ', () => {
     const tabs = shallow(<Tabs tabs={newTABS} direction="right" />);
     expect(tabs.find('.Tabs--right').length).toBe(1);
-  
   });
   it('tabs dropdown content to the right', () => {
     const tabs = mount(<Tabs tabs={newTABS} direction="right" />);
     expect(tabs.find('.dropdown-menu').length).toBe(1);
-
   });
   it('change title', () => {
     const tabs = mount(<Tabs tabs={newTABS} direction="right" />);
-    const node = tabs.find('Nav');
     //title 默认值
     expect(tabs.find('NavDropdown').props().title).toBe('更多');
-    node.simulate('click');
     // 下拉框中li标签个数
     expect(tabs.find('.dropdown-menu').find('li').length).toBe(2);
     // 判断是否存在下拉框中第一个li标签中的a标签
@@ -68,9 +64,6 @@ describe('Tabs width Dropdown', () => {
     // 判断title是否有改变
     expect(tabs.find('NavDropdown').props().title).not.toBe('更多');
     expect(tabs.find('NavDropdown').props().title).toBe('标题6');
-
   });
-
-
 
 });
