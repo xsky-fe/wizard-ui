@@ -8,15 +8,17 @@ import camelCase from 'lodash/camelCase';
 import './style.scss';
 
 const Icon: React.FC<IconProps> = props => {
-  const { type, color, className, ...rest } = props;
+  const { type, color, className, cursor, ...rest } = props;
+  const cursorClsName = cursor? ' cursor' : '';
+  // const colorClsName = color ? ' color' : '';
   const cls = cn(`icon icon-${type}`, {
     [`${color}`]: Boolean(color),
     [`${className}`]: Boolean(className),
-  });
+  }) + cursorClsName ;
   const name = upperFirst(camelCase(type));
   const Icon = icons[name];
   return (
-    <span className={cls} {...rest}>
+    <span className={cls}  {...rest}>
       {Icon && <Icon aria-hidden />}
     </span>
   );
@@ -27,6 +29,11 @@ Icon.propTypes = {
   type: PropTypes.string.isRequired,
   /** 颜色 */
   color: PropTypes.string,
+  /** 图标交互 */
+  cursor: PropTypes.bool,
 };
 
+Icon.defaultProps = {
+  cursor: false,
+};
 export default Icon;

@@ -51,6 +51,7 @@ export interface IconProps {
   className?: string;
   onClick?: React.MouseEventHandler;
   style?: object;
+  cursor?: boolean;
 }
 
 export interface TooltipProps {
