@@ -9,7 +9,7 @@ export default props => {
       query {
         allMdx(
           sort: { fields: [frontmatter___date], order: DESC },
-          filter: { fields : { slug: { regex: "/components/" } } },
+          filter: { fields : { slug: { regex: "/navigation/" } } },
           limit: 1000
         ) {
           edges {
@@ -29,7 +29,7 @@ export default props => {
 
   return (
     <NavSection
-      heading="组件"
+      heading="导航"
       items={edges}
     />
   )

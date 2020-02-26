@@ -18,7 +18,7 @@ const HEADER_LINKS = [
     title: '开始',
   },
   {
-    link: '/components/button/',
+    link: '/design-style/color/',
     title: '组件',
   }
 ]
