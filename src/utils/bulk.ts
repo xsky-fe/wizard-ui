@@ -27,7 +27,7 @@ type LocaleType = keyof typeof BULK_MAP;
  */
 export default function bulk(value: number, options: OPTIONS, locale?: LocaleType) {
   const lang = isClient ?
-    (window.localStorage.getItem('LOCALE') === 'en' ? 'en' : 'zh') :
+    (window.localStorage.getItem('LOCALE') && /en/.test(window.localStorage.getItem('LOCALE') as string) ? 'en' : 'zh') :
     (locale || 'zh');
   const BULK = BULK_MAP[lang as LocaleType];
   let unit = BULK[0][1];
