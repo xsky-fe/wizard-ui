@@ -9,12 +9,11 @@ import './style.scss';
 
 const Icon: React.FC<IconProps> = props => {
   const { type, color, className, cursor, ...rest } = props;
-  const cursorClsName = cursor? ' cursor' : '';
-  // const colorClsName = color ? ' color' : '';
   const cls = cn(`icon icon-${type}`, {
     [`${color}`]: Boolean(color),
     [`${className}`]: Boolean(className),
-  }) + cursorClsName ;
+    ['cursor']: Boolean(cursor)
+  });
   const name = upperFirst(camelCase(type));
   const Icon = icons[name];
   return (

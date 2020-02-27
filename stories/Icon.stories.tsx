@@ -15,5 +15,5 @@ storiesOf('Icon', module)
         </div>
     ))
     .add('cursor', () => (
-        <Icon type="os-search-role" cursor color="primary"/>
+        <Icon type="os-search-role" cursor color="primary" />
     ))
