@@ -126,5 +126,32 @@ date: 2019-06-19
 </div>
 ```
 
+### 组件支持分割线
+在组件menu中设置 'divider' 占位符，即可渲染为分割线
+```
+() => {
+  const types = [
+    ['a1', 'simple menu', ['menu1', 'divider', 'menu2', 'menu3']],
+    ['a2', 'sub menu', [
+          { key: 'menu1', title: 'menu1' },
+          { key: 'divider', title: 'divider' },
+          { key: 'menu2', title: 'menu2', children: ['sub menu1', 'divider', 'sub menu2'] },
+          { key: 'menu3', title: 'menu3' },
+        ]],
+    ['a3', 'complex menu', [
+          { key: 'menu1', title: 'data-action', 'data-action': 'update' },
+          { title: 'divider' },
+          { key: 'menu2',title: 'eventKey', eventKey: 'delete' },
+        ]],
+  ];
+  return (
+    <div className="flex-between">
+      {types.map(([id, title, menu],idx) => (
+        <DropdownButton key={idx} id={id} title={title} menu={menu} />
+      ))}
+    </div>
+  );
+}
+```
 ## API
 

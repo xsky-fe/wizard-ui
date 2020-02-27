@@ -10,6 +10,12 @@ import {
 import cloneDeep from 'lodash/cloneDeep';
 import './style.scss';
 
+function divider(item: string) {
+  if (item == 'divider') {
+    return (<MenuItem divider />);
+  }
+  return null;
+}
 function randomId() {
   return Math.random()
     .toString(36)
@@ -27,19 +33,19 @@ function renderMenu(menu: DropdownButtonMenuItem) {
     return null;
   }
   if (typeof item === 'string') {
-    return <MenuItem key={item}>{item}</MenuItem>;
+    return divider(item) ? divider(item) : (<MenuItem key={item}>{item}</MenuItem>);
   }
   if (!item.key) {
     item.key = randomId();
   }
   if (item.children && item.children.length) {
-    return (
+    return divider(item.title) ? divider(item.title) : (
       <SubMenu key={item.key} title={item.title} name={item.children[0]['data-action']}>
         {renderContent(item.children)}
       </SubMenu>
     );
   }
-  return <MenuItem {...item}>{item.title}</MenuItem>;
+  return divider(item.title) ? divider(item.title) : <MenuItem {...item}>{item.title}</MenuItem>;
 }
 
 const DropdownButton = (props: DropdownButtonProps) => {

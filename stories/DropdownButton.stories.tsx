@@ -4,6 +4,31 @@ import { DropdownButton } from '../src';
 import { InputGroup } from 'react-bootstrap';
 
 storiesOf('DropdownButton', module)
+  .add('divider', () => (
+    <div>
+      <DropdownButton id="a1" title="simple menu" menu={['menu1', 'divider', 'menu2', 'menu3']} />
+      <DropdownButton
+        id="a2"
+        title="complex menu"
+        menu={[
+          { title: 'data-action', 'data-action': 'update' },
+          { title: 'divider' },
+          { title: 'eventKey', eventKey: 'delete' },
+        ]}
+      />
+      <DropdownButton
+        id="a3"
+        title="sub menu"
+        menu={[
+          { key: 'menu1', title: 'menu1' },
+          { title: 'divider' },
+          { key: 'menu2', title: 'menu2', children: ['sub menu1', 'divider', 'sub menu2'] },
+          { key: 'menu3', title: 'menu3' },
+        ]}
+      />
+      <DropdownButton id="a4" title="children" children={<div>customized dropdown menu</div>} />
+    </div>
+  ))
   .add('size', () => (
     <div>
       <DropdownButton id="a1" bsSize="large" title="large" menu={['menu1', 'menu2', 'menu3']} />
