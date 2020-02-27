@@ -12,7 +12,7 @@ import './style.scss';
 
 function divider(item: string) {
   if (item == 'divider') {
-    return (<MenuItem divider />);
+    return (<MenuItem divider key={randomId()} />);
   }
   return null;
 }
