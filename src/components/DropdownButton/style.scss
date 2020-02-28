@@ -47,6 +47,11 @@
   max-height: 300px;
   overflow-y: auto;
 }
-.dropdown-menu .SubMenu + .divider {
-  height: 2px;
+.dropdown-menu {
+  &>.divider{
+    margin: 8px 0!important;
+  }
+  .SubMenu .divider{
+    margin: 7px 0!important;
+  }
 }
