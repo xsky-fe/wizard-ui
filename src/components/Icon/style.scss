@@ -2,6 +2,9 @@
 
 .icon {
   line-height: 1;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   svg {
     display: inline-block;
     stroke-width: 0;
@@ -12,4 +15,14 @@
   &.primary {
     color: $purple-normal;
   }
+  &.cursor {
+    padding:6px;
+    cursor: pointer;
+    &:hover {
+      background-color: $gray-lighter-5;
+    }
+    &:active {
+      background-color: #E6E6E6;
+    }
+  } 
 }
