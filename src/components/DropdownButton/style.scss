@@ -47,3 +47,6 @@
   max-height: 300px;
   overflow-y: auto;
 }
+.dropdown-menu .SubMenu + .divider {
+  height: 2px;
+}
