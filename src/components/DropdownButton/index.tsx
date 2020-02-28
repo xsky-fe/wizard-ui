@@ -33,19 +33,19 @@ function renderMenu(menu: DropdownButtonMenuItem) {
     return null;
   }
   if (typeof item === 'string') {
-    return divider(item) ? divider(item) : (<MenuItem key={item}>{item}</MenuItem>);
+    return divider(item) || <MenuItem key={item}>{item}</MenuItem>;
   }
   if (!item.key) {
     item.key = randomId();
   }
   if (item.children && item.children.length) {
-    return divider(item.title) ? divider(item.title) : (
+    return divider(item.title) || (
       <SubMenu key={item.key} title={item.title} name={item.children[0]['data-action']}>
         {renderContent(item.children)}
       </SubMenu>
     );
   }
-  return divider(item.title) ? divider(item.title) : <MenuItem {...item}>{item.title}</MenuItem>;
+  return divider(item.title) || <MenuItem {...item}>{item.title}</MenuItem>;
 }
 
 const DropdownButton = (props: DropdownButtonProps) => {
