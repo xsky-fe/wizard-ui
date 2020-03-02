@@ -1,0 +1,474 @@
+---
+title: Forms 表单
+date: 2020-03-02
+---
+## 使用场景
+该组件使用Bootstrap和wizard-ui样式呈现表单控件，该FormGroup组件以适当的间距包装表单控件，并支持标签，帮助文本和验证状态。为确保可访问性，请在上设置并用于标签。在FormGroup设置 controlId 并使用 ControlLabel组件。
+
+## 基本用法
+### Forms
+验证FormControl输入长度示例
+```jsx
+() => {
+  const [ value, setValue ] = React.useState('');
+  function getValidationState() {
+    const length = value.length;
+    if (length > 10) return 'success';
+    if (length > 5) return 'warning';
+    if (length > 0) return 'error';
+    return null;
+  }
+  const handleChange = e =>{setValue(e.target.value)};
+  return (
+    <form>
+        <FormGroup
+            controlId="formBasicText"
+            validationState={getValidationState()}
+        >
+            <ControlLabel>简单验证例子</ControlLabel>
+            <FormControl
+                type="text"
+                value={value}
+                placeholder="Enter text"
+                onChange={handleChange}
+            />
+            <FormControl.Feedback />
+            <HelpBlock>Validation is based on string length.</HelpBlock>
+        </FormGroup>
+    </form>
+  )
+}
+```
+
+### API
+#### FormGroup
+| 参数    | 类型                      | 默认值 | 说明     |
+| ------- | ------------------------- | ------ | -------- |
+| controlld  | string | | 设置id |
+| validationState | one of: 'success', 'warning', 'error', null | | 
+| bsSize | one of: "lg", "large", "sm", "small" | | 组件尺寸 |
+| bsClass | string | 'form-group' | 使用非Bootstrap提供的组件样式 |
+
+#### FormControl
+| 参数    | 类型                      | 默认值 | 说明     |
+| ------- | ------------------------- | ------ | -------- |
+| componentClass | elementType | 'input' | 可以为组件自定义类型 |
+| type | string | | 当 conponentClass 为 'input' 对应的类型 |
+| id | string | | 如果未明确指定controlId，FormGroup则使用from 。 |
+| inputRef | function | |将ref附加到input元素，这里只能使用功能 |
+| bsSize | one of: "sm", "small", "lg", "large" | | 组件尺寸 |
+| bsClass | string| 'form-control' | 使用非Bootstrap提供的组件样式 |
+
+#### ControlLabel
+| 参数    | 类型                      | 默认值 | 说明     |
+| ------- | ------------------------- | ------ | -------- |
+| htmlFor | string | | 如果未明确指定controlId，FormGroup则使用from |
+| srOnly | boolean | false |  |
+| bsClass | string | 'control-label' | 使用非Bootstrap提供的组件样式 |
+
+
+### 支持的控件
+ (Checkbox，Radio，FormControl.Static，HelpBlock)
+使用自定义FieldGroup组件的示例表单布局中支持的标准表单控件的示例。使用了，和。分别使用和用于复选框和单选按钮，可以选择使用和在同一行上渲染多个。使用静态文本。
+```jsx
+() => {
+  function FieldGroup({ id, label, help, ...props }) {
+    return (
+        <FormGroup controlId={id}>
+         <ControlLabel>{label}</ControlLabel>
+         <FormControl {...props} />
+         {help && <HelpBlock>{help}</HelpBlock>}
+        </FormGroup> 
+    );
+  }
+  return (
+    <form>
+        <FieldGroup
+        id="formControlsText"
+        type="text"
+        label="Text"
+        placeholder="Enter text"
+        />
+        <FieldGroup
+        id="formControlsEmail"
+        type="email"
+        label="Email address"
+        placeholder="Enter email"
+        />
+        <FieldGroup id="formControlsPassword" label="Password" type="password" />
+        <FieldGroup
+        id="formControlsFile"
+        type="file"
+        label="File"
+        help="Example block-level help text here."
+        />
+
+        <Checkbox checked readOnly>
+        Checkbox
+        </Checkbox>
+        <Radio checked readOnly>
+        Radio
+        </Radio>
+
+        <FormGroup>
+        <Checkbox inline>1</Checkbox> <Checkbox inline>2</Checkbox>{' '}
+        <Checkbox inline>3</Checkbox>
+        </FormGroup>
+        <FormGroup>
+        <Radio name="radioGroup" inline>
+            1
+        </Radio>{' '}
+        <Radio name="radioGroup" inline>
+            2
+        </Radio>{' '}
+        <Radio name="radioGroup" inline>
+            3
+        </Radio>
+        </FormGroup>
+
+        <FormGroup controlId="formControlsSelect">
+        <ControlLabel>Select</ControlLabel>
+        <FormControl componentClass="select" placeholder="select">
+            <option value="select">select</option>
+            <option value="other">...</option>
+        </FormControl>
+        </FormGroup>
+        <FormGroup controlId="formControlsSelectMultiple">
+        <ControlLabel>Multiple select</ControlLabel>
+        <FormControl componentClass="select" multiple>
+            <option value="select">select (multiple)</option>
+            <option value="other">...</option>
+        </FormControl>
+        </FormGroup>
+
+        <FormGroup controlId="formControlsTextarea">
+        <ControlLabel>Textarea</ControlLabel>
+        <FormControl componentClass="textarea" placeholder="textarea" />
+        </FormGroup>
+
+        <FormGroup>
+        <ControlLabel>Static text</ControlLabel>
+        <FormControl.Static>email@example.com</FormControl.Static>
+        </FormGroup>
+
+        <Button type="submit">Submit</Button>
+    </form>
+  )
+}
+```
+### API
+#### Checkbox
+| 参数    | 类型                      | 默认值 | 说明     |
+| ------- | ------------------------- | ------ | -------- |
+| inline  | boolean | false |  |
+| disabled | boolean | false | |
+| title | string | '' |  |
+| validationState | one of: 'success', 'warning', 'error', null |  | 仅在inline未设置的情况下有效。 |
+| inputRef | function | | 将ref附加到input元素。在这里只能使用功能。 |
+| bsClass | string| 'checkbox' | 使用非Bootstrap提供的组件样式 |
+
+#### Radio
+| 参数    | 类型                      | 默认值 | 说明     |
+| ------- | ------------------------- | ------ | -------- |
+| inline | boolean | false | |
+| disabled | boolean | false |  |
+| title | string |'' |  |
+| validationState | one of: 'success', 'warning', 'error', null | |如果行内没有设置才有效 |
+| inputRef | function | |附加一个ref给input。只有功能都可以在这里使用。 |
+| bsClass | string| 'radio' | 使用非Bootstrap提供的组件样式 |
+
+#### FormControl.Static
+| 参数    | 类型                      | 默认值 | 说明     |
+| ------- | ------------------------- | ------ | -------- |
+| conponentClass | elementType | 'p'| 在组件中使用自定义元素 |
+| bsClass | string | 'form-control-static' | 组件样式 |
+
+#### HelpBlock
+| 参数    | 类型                      | 默认值 | 说明     |
+| ------- | ------------------------- | ------ | -------- |
+| bsClass | string | 'help-block' | 使用非Bootstrap提供的组件样式 |
+
+
+### Form layout 
+(Form)
+使用Form inline而不是form。 JSX剥离了空白字符线之间，所以你需要手动添加空格。默认情况下自动，所以你可能需要设置自定义宽度：此外，引导分配内嵌表单控件的宽度。
+```jsx
+<Form inline>
+  <FormGroup controlId="formInlineName">
+    <ControlLabel>Name</ControlLabel>{' '}
+    <FormControl type="text" placeholder="Jane Doe" />
+  </FormGroup>{' '}
+  <FormGroup controlId="formInlineEmail">
+    <ControlLabel>Email</ControlLabel>{' '}
+    <FormControl type="email" placeholder="jane.doe@example.com" />
+  </FormGroup>{' '}
+  <Button type="submit">Send invitation</Button>
+</Form>
+```
+
+### Horizontal forms
+使用Form horizontal 而不是form，然后用Col 到对准标签和控件。不要使用Roq这里，如FormGroup将已作为在水平状的网格行。
+```jsx
+<Form horizontal>
+  <FormGroup controlId="formHorizontalEmail">
+    <Col componentClass={ControlLabel} sm={2}>
+      Email
+    </Col>
+    <Col sm={10}>
+      <FormControl type="email" placeholder="Email" />
+    </Col>
+  </FormGroup>
+  <FormGroup controlId="formHorizontalPassword">
+    <Col componentClass={ControlLabel} sm={2}>
+      Password
+    </Col>
+    <Col sm={10}>
+      <FormControl type="password" placeholder="Password" />
+    </Col>
+  </FormGroup>
+  <FormGroup>
+    <Col smOffset={2} sm={10}>
+      <Checkbox>Remember me</Checkbox>
+    </Col>
+  </FormGroup>
+  <FormGroup>
+    <Col smOffset={2} sm={10}>
+      <Button type="submit">Sign in</Button>
+    </Col>
+  </FormGroup>
+</Form>
+```
+### API
+#### Form 仅仅需要水平或者内联样式
+| 参数    | 类型                      | 默认值 | 说明     |
+| ------- | ------------------------- | ------ | -------- |
+| horizontal | boolean | false |  |
+| inline | boolean | false | |
+| componentClass | elementType | 'form' | 可以使用自定义元素类型此组件 |
+| bsClass | string | 'help-block' | 使用非Bootstrap提供的组件样式 |
+
+## Input groups
+(InputGroup, InputGroup.Addon, InputGroup.Button)
+### Input add-ons
+输入加载项包裹表单控制在InputGroup，则使用正常的附加组件和用于按钮的附加组件。
+```jsx
+<form>
+  <FormGroup>
+    <InputGroup>
+      <InputGroup.Addon>@</InputGroup.Addon>
+      <FormControl type="text" />
+    </InputGroup>
+  </FormGroup>
+  <FormGroup>
+    <InputGroup>
+      <FormControl type="text" />
+      <InputGroup.Addon>.00</InputGroup.Addon>
+    </InputGroup>
+  </FormGroup>
+  <FormGroup>
+    <InputGroup>
+      <InputGroup.Addon>$</InputGroup.Addon>
+      <FormControl type="text" />
+      <InputGroup.Addon>.00</InputGroup.Addon>
+    </InputGroup>
+  </FormGroup>
+  <FormGroup>
+    <InputGroup>
+      <FormControl type="text" />
+      <InputGroup.Addon>
+        <Glyphicon glyph="music" />
+      </InputGroup.Addon>
+    </InputGroup>
+  </FormGroup>
+  <FormGroup>
+    <InputGroup>
+      <InputGroup.Button>
+        <Button>Before</Button>
+      </InputGroup.Button>
+      <FormControl type="text" />
+    </InputGroup>
+  </FormGroup>
+  <FormGroup>
+    <InputGroup>
+      <FormControl type="text" />
+      <DropdownButton
+        componentClass={InputGroup.Button}
+        id="input-dropdown-addon"
+        title="Action"
+      >
+        <MenuItem key="1">Item</MenuItem>
+      </DropdownButton>
+    </InputGroup>
+  </FormGroup>
+  <FormGroup>
+    <InputGroup>
+      <InputGroup.Addon>
+        <input type="radio" aria-label="..." />
+      </InputGroup.Addon>
+      <FormControl type="text" />
+    </InputGroup>
+  </FormGroup>
+  <FormGroup>
+    <InputGroup>
+      <InputGroup.Addon>
+        <input type="checkbox" aria-label="..." />
+      </InputGroup.Addon>
+      <FormControl type="text" />
+    </InputGroup>
+  </FormGroup>
+</form>
+```
+
+### Input sizes
+在FromGroup 或者 InputGroup 组件使用 bsSize 属性，可以调节输入框的大小
+```jsx
+<form>
+  <FormGroup bsSize="large">
+    <FormControl type="text" placeholder="Large text" />
+  </FormGroup>
+  <FormGroup>
+    <FormControl type="text" placeholder="Normal text" />
+  </FormGroup>
+  <FormGroup bsSize="small">
+    <FormControl type="text" placeholder="Small text" />
+  </FormGroup>
+</form>
+```
+
+### API
+#### InputGroup
+| 参数    | 类型                      | 默认值 | 说明     |
+| ------- | ------------------------- | ------ | -------- |
+| bsSize | one of: "lg", "large", "sm", "small" |  | 组件尺寸|
+| bsClass | string | 'input-group' | 使用非Bootstrap提供的组件样式 |
+
+#### InputGroup.Addon
+| 参数    | 类型                      | 默认值 | 说明     |
+| ------- | ------------------------- | ------ | -------- |
+| bsClass | string | 'input-group-addon' | 使用非Bootstrap提供的组件样式 |
+
+#### InputGroup.Button
+| 参数    | 类型                      | 默认值 | 说明     |
+| ------- | ------------------------- | ------ | -------- |
+| bsClass | string | 'input-group-btn' | 使用非Bootstrap提供的组件样式 |
+
+
+## Validation states
+(Checkbox，Radio，FormControl.Static，HelpBlock)
+设置validationState为“成功”，“警告”或“错误”的一个显示验证状态。设置validationState为空（或undefined）隐藏验证状态。当验证状态被设置添加FormControl.Feedback用于反馈图标。
+```jsx
+<form>
+  <FormGroup controlId="formValidationSuccess1" validationState="success">
+    <ControlLabel>Input with success</ControlLabel>
+    <FormControl type="text" />
+    <HelpBlock>Help text with validation state.</HelpBlock>
+  </FormGroup>
+
+  <FormGroup controlId="formValidationWarning1" validationState="warning">
+    <ControlLabel>Input with warning</ControlLabel>
+    <FormControl type="text" />
+  </FormGroup>
+
+  <FormGroup controlId="formValidationError1" validationState="error">
+    <ControlLabel>Input with error</ControlLabel>
+    <FormControl type="text" />
+  </FormGroup>
+
+  <FormGroup controlId="formValidationNull" validationState={null}>
+    <ControlLabel>Input with no validation state</ControlLabel>
+    <FormControl type="text" />
+  </FormGroup>
+
+  <FormGroup controlId="formValidationSuccess2" validationState="success">
+    <ControlLabel>Input with success and feedback icon</ControlLabel>
+    <FormControl type="text" />
+    <FormControl.Feedback />
+  </FormGroup>
+
+  <FormGroup controlId="formValidationWarning2" validationState="warning">
+    <ControlLabel>Input with warning and feedback icon</ControlLabel>
+    <FormControl type="text" />
+    <FormControl.Feedback />
+  </FormGroup>
+
+  <FormGroup controlId="formValidationError2" validationState="error">
+    <ControlLabel>Input with error and feedback icon</ControlLabel>
+    <FormControl type="text" />
+    <FormControl.Feedback />
+  </FormGroup>
+
+  <FormGroup controlId="formValidationSuccess3" validationState="success">
+    <ControlLabel>Input with success and custom feedback icon</ControlLabel>
+    <FormControl type="text" />
+    <FormControl.Feedback>
+      <Glyphicon glyph="music" />
+    </FormControl.Feedback>
+  </FormGroup>
+
+  <FormGroup controlId="formValidationWarning3" validationState="warning">
+    <ControlLabel>Input group with warning</ControlLabel>
+    <InputGroup>
+      <InputGroup.Addon>@</InputGroup.Addon>
+      <FormControl type="text" />
+    </InputGroup>
+    <FormControl.Feedback />
+  </FormGroup>
+
+  <Form componentClass="fieldset" horizontal>
+    <FormGroup controlId="formValidationError3" validationState="error">
+      <Col componentClass={ControlLabel} xs={3}>
+        Input with error
+      </Col>
+      <Col xs={9}>
+        <FormControl type="text" />
+        <FormControl.Feedback />
+      </Col>
+    </FormGroup>
+
+    <FormGroup controlId="formValidationSuccess4" validationState="success">
+      <Col componentClass={ControlLabel} xs={3}>
+        Input group with success
+      </Col>
+      <Col xs={9}>
+        <InputGroup>
+          <InputGroup.Addon>@</InputGroup.Addon>
+          <FormControl type="text" />
+        </InputGroup>
+        <FormControl.Feedback />
+      </Col>
+    </FormGroup>
+  </Form>
+
+  <Form componentClass="fieldset" inline>
+    <FormGroup controlId="formValidationWarning4" validationState="warning">
+      <ControlLabel>Input with warning</ControlLabel>{' '}
+      <FormControl type="text" />
+      <FormControl.Feedback />
+    </FormGroup>{' '}
+    <FormGroup controlId="formValidationError4" validationState="error">
+      <ControlLabel>Input group with error</ControlLabel>{' '}
+      <InputGroup>
+        <InputGroup.Addon>@</InputGroup.Addon>
+        <FormControl type="text" />
+      </InputGroup>
+      <FormControl.Feedback />
+    </FormGroup>
+  </Form>
+
+  <Checkbox validationState="success">Checkbox with success</Checkbox>
+  <Radio validationState="warning">Radio with warning</Radio>
+  <Checkbox validationState="error">Checkbox with error</Checkbox>
+
+  {/* This requires React 15's <span>-less spaces to be exactly correct. */}
+  <FormGroup validationState="success">
+    <Checkbox inline>Checkbox</Checkbox> <Checkbox inline>with</Checkbox>{' '}
+    <Checkbox inline>success</Checkbox>
+  </FormGroup>
+</form>
+```
+
+### API
+#### FormControl.Feedback
+| 参数    | 类型                      | 默认值 | 说明     |
+| ------- | ------------------------- | ------ | -------- |
+| bsClass | string | 'input-group' | 使用非Bootstrap提供的组件样式 |
