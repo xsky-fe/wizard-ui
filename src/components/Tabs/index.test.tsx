@@ -1,6 +1,6 @@
 import React from 'react';
 import Tabs from './index';
-import { render, shallow, mount } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 const TABS = [
   { title: '标题1', key: '1', children: <div>第1个tab</div> },
@@ -19,10 +19,10 @@ const newTABS = [
 ];
 
 describe('Tabs', () => {
-  it('should render default ui', () => {
-    const tabs = render(<Tabs tabs={TABS} />);
-    expect(tabs).toMatchSnapshot();
-  });
+  // it('should render default ui', () => {
+  //   const tabs = render(<Tabs tabs={TABS} />);
+  //   expect(tabs).toMatchSnapshot();
+  // });
   it('should set small', () => {
     const tabs = shallow(<Tabs tabs={TABS} size="small" />);
     expect(tabs.find('.Tabs--small').length).toBe(1);
@@ -34,11 +34,10 @@ describe('Tabs', () => {
 });
 
 describe('Tabs width Dropdown', () => {
-  // generateChildId 属性未引入TabContainer后发出警告
   // it('should render default tabs ui', () => {
   //   const tabs = render(<Tabs tabs={newTABS} />);
   //   expect(tabs).toMatchSnapshot();
-  //  });
+  // });
   it('tabs should set small', () => {
     const tabs = shallow(<Tabs tabs={newTABS} size="small" />);
     expect(tabs.find('.Tabs--small').length).toBe(1);
