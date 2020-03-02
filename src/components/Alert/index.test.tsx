@@ -15,7 +15,7 @@ describe('Alert', () => {
   });
   it('could alter show and hidden', () => {
     const alert = mount(
-      <Alert bsStyle="info" showIcon dismissDirection="right" onDismiss={()=>console.log(1)}>
+      <Alert bsStyle="info" showIcon dismissDirection="right" onDismiss={() => console.log(1)}>
         default text <a href="#">test link</a>
       </Alert>,
     );
