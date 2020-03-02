@@ -4,7 +4,7 @@ import { SelectCheckItemProps } from '../../interface';
 class SelectCheckItem extends React.PureComponent<SelectCheckItemProps> {
   handleSelect = () => {
     this.props.onSelect(this.props.option);
-  }
+  };
   render() {
     const { option, selected, className, style } = this.props;
     const { label } = option;
