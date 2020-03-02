@@ -57,12 +57,22 @@ describe('Tabs width Dropdown', () => {
     // 下拉框中li标签个数
     expect(tabs.find('.dropdown-menu').find('li').length).toBe(2);
     // 判断是否存在下拉框中第一个li标签中的a标签
-    expect(tabs.find('.dropdown-menu').find('li').at(0).find('a').length).toBe(1);
+    expect(
+      tabs
+        .find('.dropdown-menu')
+        .find('li')
+        .at(0)
+        .find('a').length,
+    ).toBe(1);
     // 模拟点击“标题6”选项
-    tabs.find('.dropdown-menu').find('li').at(0).find('a').simulate('click');
+    tabs
+      .find('.dropdown-menu')
+      .find('li')
+      .at(0)
+      .find('a')
+      .simulate('click');
     // 判断title是否有改变
     expect(tabs.find('NavDropdown').props().title).not.toBe('更多');
     expect(tabs.find('NavDropdown').props().title).toBe('标题6');
   });
-
 });

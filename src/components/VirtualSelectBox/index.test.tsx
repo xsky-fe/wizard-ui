@@ -4,7 +4,7 @@ import VirtualSelectBox from './index';
 import { sleep, getMockDatas } from '../../utils';
 import { Query } from '../../interface';
 import get from 'lodash/get';
-const noOp = () => { };
+const noOp = () => {};
 
 const resName = 'list';
 const limit = 30;

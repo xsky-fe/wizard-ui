@@ -1,8 +1,5 @@
 import * as React from 'react';
-import {
-  SelectCallback,
-  Sizes,
-} from 'react-bootstrap';
+import { SelectCallback, Sizes } from 'react-bootstrap';
 import { Moment } from 'moment';
 import CSS from 'csstype';
 
@@ -309,11 +306,7 @@ export interface MultiVirtualSelectItem {
   label: string;
   value: number | string;
 }
-export type VirtualItem =
-  | MultiVirtualSelectItem
-  | object
-  | string
-  | number;
+export type VirtualItem = MultiVirtualSelectItem | object | string | number;
 export interface SelectCheckItemProps {
   onSelect: Function;
   selected: boolean;
