@@ -12894,10 +12894,10 @@ windows-release@^3.1.0:
   dependencies:
     execa "^1.0.0"
 
-wizard-icons@0.0.2-beta.2:
-  version "0.0.2-beta.2"
-  resolved "https://registry.npmjs.org/wizard-icons/-/wizard-icons-0.0.2-beta.2.tgz#3184e4a756b77d293a558f717ccf3140fab5bfa3"
-  integrity sha512-66L6NKqVk33crVp8BMrXwEQndyqgPKfFOJaS2hKYoTpwCqJ3hblClIA4dYacQgvBMd6d3jUS0d0Ud3DyCNBisg==
+wizard-icons@0.0.2-beta.4:
+  version "0.0.2-beta.4"
+  resolved "https://registry.npmjs.org/wizard-icons/-/wizard-icons-0.0.2-beta.4.tgz#1d99d34c5feb489455ff3277cb35fe6c8377e320"
+  integrity sha512-4DLH63tTxEfIniIrVVkqYIJHEpjiyht+B1uLdCq6RnNzaTQXlV2YI+30CI6e+9dHblhj8vmA2uurbCK86VZfSQ==
   dependencies:
     "@types/lodash" "^4.14.136"
     "@types/node" "^12.6.2"
