@@ -26,10 +26,10 @@ const Tabs: React.FC<TabsProps> = props => {
       }
     })
   }, [tabKey])
-  
+
   return (
     <div className={getBemClass('Tabs', [size, direction])} >
-      <Tab.Container id="tabs-with-dropdown" onSelect={(activeKey: any) =>  setKeyValue(activeKey)} defaultActiveKey={tabs[0]['key']}  {...restProps}>
+      <Tab.Container id="tabs-with-dropdown" onSelect={(activeKey: any) => setKeyValue(activeKey)} defaultActiveKey={tabs[0]['key']}  {...restProps}>
         <div className="clearfix ">
           <Nav bsStyle="tabs" >
             {tabsFrontList.map((tab, idx) => (
