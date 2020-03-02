@@ -31,7 +31,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
   };
   static defaultProps = {
     expandedKeys: [],
-  }
+  };
   constructor(props: NavigationProps) {
     super(props);
     this.togglePanel = this.togglePanel.bind(this);
@@ -47,12 +47,17 @@ export default class Navigation extends React.Component<NavigationProps, any> {
     const header = (
       <div>
         <span className="panel-title__title">{title}</span>
-        <Icon type={expanded ? 'minus' : 'plus'} className="panel-title__icon"/>
+        <Icon type={expanded ? 'minus' : 'plus'} className="panel-title__icon" />
       </div>
     );
     return toggled ? (
       <div>
-        <Tooltip placement="right" className="Navigation__tooltip" icon={expanded ? 'minus' : 'plus'} iconClass="panel-title__icon">
+        <Tooltip
+          placement="right"
+          className="Navigation__tooltip"
+          icon={expanded ? 'minus' : 'plus'}
+          iconClass="panel-title__icon"
+        >
           {title}
         </Tooltip>
       </div>
@@ -75,7 +80,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
         <div className="Navigation__list">
           {toPairs(navGroups).map(([key, group]) => {
             if (!group.children) {
-              return <NavItem key={key} {...group}/>;
+              return <NavItem key={key} {...group} />;
             }
             return (
               // @ts-ignore
@@ -107,20 +112,18 @@ function NavItemText(props: NavigationGroup) {
       {icon && <Icon type={icon} />}
       {!toggled && title}
     </>
-  )
+  );
 
   return (
     <div className={getBemClass('Navigation__item', isFirst && 'first')}>
       <div className="Navigation__link">
         {component ? (
           React.createElement(component, {
-            children: text
+            children: text,
           })
         ) : (
-            <div className="Navigation__item__title">
-              {text}
-            </div>
-          )}
+          <div className="Navigation__item__title">{text}</div>
+        )}
       </div>
     </div>
   );
@@ -128,7 +131,11 @@ function NavItemText(props: NavigationGroup) {
 
 function NavItemNoText(props: any) {
   return (
-    <Tooltip placement="right" className="Navigation__tooltip" label={NavItemText({ ...props, toggled: true })}>
+    <Tooltip
+      placement="right"
+      className="Navigation__tooltip"
+      label={NavItemText({ ...props, toggled: true })}
+    >
       {props.title}
     </Tooltip>
   );
