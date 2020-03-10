@@ -2,9 +2,6 @@
 
 .icon {
   line-height: 1;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
   svg {
     display: inline-block;
     stroke-width: 0;
@@ -16,6 +13,9 @@
     color: $purple-normal;
   }
   &.cursor {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     padding:6px;
     cursor: pointer;
     &:hover {
