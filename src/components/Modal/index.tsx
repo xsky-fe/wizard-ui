@@ -1,13 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {
-  Modal as BaseModal,
-  ModalHeader,
-  ModalTitle,
-  ModalBody,
-  ModalFooter,
-  Button,
-} from 'react-bootstrap';
+import { Modal as BaseModal, ModalHeader, ModalTitle, ModalBody, ModalFooter, Button } from 'react-bootstrap';
 import { ModalProps } from '../../interface';
 import Loader from '../Loader';
 import './style.scss';
@@ -43,7 +36,7 @@ const Modal: React.FC<ModalProps> = props => {
       onHide={onHide}
       show={show}
     >
-      {!hideHeader && (
+      {!hideHeader &&(
         <ModalHeader key="header" closeButton>
           <ModalTitle>{title}</ModalTitle>
         </ModalHeader>

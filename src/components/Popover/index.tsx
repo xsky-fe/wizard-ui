@@ -7,10 +7,17 @@ import { PopoverProps } from '../../interface';
 import './style.scss';
 
 const Popover: React.FC<PopoverProps> = props => {
-  const { placement: defaultPlacement, children, content, shadow, modifer, ...extra } = props;
+  const {
+    placement: defaultPlacement,
+    children,
+    content,
+    shadow,
+    modifer,
+    ...extra
+  } = props;
   let { trigger } = props;
   const wrapper = React.useRef<HTMLInputElement>(null);
-  const [placement, setPlacement] = React.useState('top');
+  const [ placement, setPlacement ] = React.useState('top');
   // 类似 componentDidMount。只会在 render 后执行一次
   React.useEffect(() => {
     const elem = wrapper.current;
@@ -44,48 +51,49 @@ const Popover: React.FC<PopoverProps> = props => {
   const clickTrigger = lodash.includes(trigger, 'click');
   const focusTrigger = lodash.includes(trigger, 'focus');
 
-  const _placement = defaultPlacement ? defaultPlacement : placement;
-  let className = classNames('Popover', {
-    'space-between': true,
-    shadow: shadow,
-  });
-  if (modifer) {
-    className += ' ' + modifer;
-  }
+    const _placement = defaultPlacement ? defaultPlacement : placement;
+    let className = classNames('Popover', {
+      'space-between': true,
+      'shadow': shadow,
+    });
+    if (modifer) {
+      className += ' ' + modifer;
+    }
 
-  return (
-    <div
-      ref={wrapper}
-      className="Popover__wrapper"
-      onMouseEnter={hoverTrigger ? handleShow : undefined}
-      onMouseLeave={hoverTrigger ? handleHide : undefined}
-      onClick={clickTrigger ? handleClick : undefined}
-      onFocus={focusTrigger ? handleShow : undefined}
-      onBlur={focusTrigger ? handleHide : undefined}
-    >
-      {children}
-      <Overlay
-        {...extra}
-        placement={_placement}
-        target={wrapper.current || undefined}
-        show={show}
-        onHide={handleHide}
+    return (
+      <div
+        ref={wrapper}
+        className="Popover__wrapper"
+        onMouseEnter={hoverTrigger ? handleShow : undefined}
+        onMouseLeave={hoverTrigger ? handleHide : undefined}
+        onClick={clickTrigger ? handleClick : undefined}
+        onFocus={focusTrigger ? handleShow : undefined}
+        onBlur={focusTrigger ? handleHide : undefined}
       >
-        <BasePopover
-          id="popover"
-          className={className}
-          onMouseEnter={hoverTrigger ? handleShow : undefined}
-          onMouseLeave={hoverTrigger ? handleHide : undefined}
+        {children}
+        <Overlay
+          {...extra}
+          placement={_placement}
+          target={wrapper.current || undefined}
+          show={show}
+          onHide={handleHide}
         >
-          {content}
-        </BasePopover>
-      </Overlay>
-    </div>
-  );
-};
+          <BasePopover
+            id="popover"
+            className={className}
+            onMouseEnter={hoverTrigger ? handleShow : undefined}
+            onMouseLeave={hoverTrigger ? handleHide : undefined}
+          >
+            {content}
+          </BasePopover>
+        </Overlay>
+      </div>
+    );
+
+}
 
 Popover.defaultProps = {
-  trigger: 'hover',
+  trigger: 'hover'
 };
 
 Popover.propTypes = {

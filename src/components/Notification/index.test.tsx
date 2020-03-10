@@ -11,12 +11,7 @@ describe('Notification', () => {
     const node = mount(
       <div>
         {STATUS.map(s => (
-          <Notification
-            key={s}
-            status={s as NotificationItemStatus}
-            id={s}
-            text={`${s} text message !`}
-          />
+          <Notification key={s} status={s as NotificationItemStatus} id={s} text={`${s} text message !`} />
         ))}
       </div>,
     );
@@ -96,11 +91,7 @@ describe('NotificationList', () => {
     const notifications = new Map();
     const items = new Map();
     STATUS.forEach(s => {
-      const item: NotificationItem = {
-        id: s,
-        status: s as NotificationItemStatus,
-        text: `${s} text message !`,
-      };
+      const item: NotificationItem = { id: s, status: s as NotificationItemStatus, text: `${s} text message !` };
       items.set(s, item);
     });
     notifications.set('1', items);

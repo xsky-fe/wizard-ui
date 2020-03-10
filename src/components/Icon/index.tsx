@@ -12,12 +12,12 @@ const Icon: React.FC<IconProps> = props => {
   const cls = cn(`icon icon-${type}`, {
     [`${color}`]: Boolean(color),
     [`${className}`]: Boolean(className),
-    ['cursor']: Boolean(cursor),
+    ['cursor']: Boolean(cursor)
   });
   const name = upperFirst(camelCase(type));
   const Icon = icons[name];
   return (
-    <span className={cls} {...rest}>
+    <span className={cls}  {...rest}>
       {Icon && <Icon aria-hidden />}
     </span>
   );

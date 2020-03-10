@@ -30,10 +30,7 @@ const defaultProps: VirtualSelectBoxDefaultProps<VirtualItem> = {
   defaultItem: {},
 };
 
-class VirtualSelectBox<T> extends React.Component<
-  VirtualSelectBoxProps<T>,
-  VirtualSelectBoxState<T>
-> {
+class VirtualSelectBox<T> extends React.Component<VirtualSelectBoxProps<T>, VirtualSelectBoxState<T>> {
   static propTypes = {
     /** 选中资源项 */
     item: PropTypes.object,
@@ -143,7 +140,7 @@ class VirtualSelectBox<T> extends React.Component<
     this.setState(prevState => ({
       isOpen: typeof isOpen === 'boolean' ? isOpen : !prevState.isOpen,
     }));
-  };
+  }
 
   toggleClickOutsideEvent(enabled: boolean) {
     if (enabled) {
@@ -166,11 +163,11 @@ class VirtualSelectBox<T> extends React.Component<
     if (this.wrapper && this.wrapper.current && !this.wrapper.current.contains(event.target)) {
       this.toggleMenu(false);
     }
-  };
+  }
 
   handleSearchChange = (event: any) => {
     this.setState({ search: event.target.value }, this.debounceFetch);
-  };
+  }
 
   handleKeyDown = (event: React.KeyboardEvent) => {
     switch (event.keyCode) {
@@ -181,7 +178,7 @@ class VirtualSelectBox<T> extends React.Component<
         return;
     }
     this.blockEvent(event);
-  };
+  }
   clear = () => {
     const { onSelect, defaultItem } = this.props;
     if (onSelect) {
@@ -195,17 +192,17 @@ class VirtualSelectBox<T> extends React.Component<
     if (onSelect) {
       onSelect(newValue);
     }
-  };
+  }
 
   handleSelect = (option: MultiVirtualSelectItem) => {
     const selectValue = this.selectValue;
     const optionValue = option.value;
     if (this.isOptionSelected(option, selectValue)) {
-      this.handleChange(selectValue.filter(v => v !== optionValue));
+      this.handleChange(selectValue.filter(v => v !== optionValue))
     } else {
       this.handleChange([...selectValue, optionValue]);
     }
-  };
+  }
   renderLabel = (item?: T) => {
     const { placeholder } = this.props;
     let nameKey = 'name';
@@ -216,7 +213,7 @@ class VirtualSelectBox<T> extends React.Component<
         {title}
       </span>
     );
-  };
+  }
 
   formatMultItem = (item: T): MultiVirtualSelectItem => {
     const { formatOption } = this.props;
@@ -229,10 +226,10 @@ class VirtualSelectBox<T> extends React.Component<
         label: item.name,
         // @ts-ignore
         value: item.id,
-      };
+      }
     }
     return option;
-  };
+  }
   renderItem = ({ item, style, index }: VirtualRowArgs<T>) => {
     if (!item) {
       return;
@@ -284,7 +281,7 @@ class VirtualSelectBox<T> extends React.Component<
         </div>
       );
     }
-  };
+  }
 
   renderSearch() {
     return (
@@ -336,10 +333,7 @@ class VirtualSelectBox<T> extends React.Component<
         {/*
         // react-bootstrap 跟 @types/react-bootstrap 不兼容
         // @ts-ignore */}
-        <Panel header={this.renderSearch()}>
-          {this.renderClear()}
-          {this.renderList()}
-        </Panel>
+        <Panel header={this.renderSearch()}>{this.renderClear()}{this.renderList()}</Panel>
       </div>
     );
   }
@@ -350,23 +344,17 @@ class VirtualSelectBox<T> extends React.Component<
       return null;
     }
     return (
-      <Button
-        bsStyle="link"
-        onClick={(event: React.MouseEvent<Button, MouseEvent>) => {
-          this.blockEvent(event);
-          this.handleChange([]);
-        }}
-      >
+      <Button bsStyle="link" onClick={(event: React.MouseEvent<Button, MouseEvent>) => { this.blockEvent(event); this.handleChange([])}}>
         清除选择的内容
       </Button>
-    );
+    )
   }
 
   renerMultiHeader() {
     const { placeholder } = this.props;
     const title = this.cacheSelected.map(s => s.label).join(', ');
     const className = classNames('titleSpan', {
-      placeholder: !title,
+      'placeholder': !title,
     });
     return (
       <DropdownButton

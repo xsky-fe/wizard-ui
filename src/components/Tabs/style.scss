@@ -5,14 +5,6 @@
     display: flex;
     justify-content: flex-end;
   }
-  & > .clearfix > ul.nav-tabs {
-    display: flex;
-    justify-content: flex-end;
-  }
-  ul.dropdown-menu{
-    left:inherit;
-    right: 0;
-  }
 }
 .Tabs__Body {
   margin-bottom: 0;
@@ -40,20 +32,11 @@
     padding-left: 20px;
     padding-right: 20px;
     min-width: 67px;
-    max-width: 104px;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
     text-align: center;
 
     &:hover {
       background-color: $purple-lighter-3;
       color: $gray-darker-3;
-      width: auto;
-      text-overflow:inherit; 
-      overflow: visible; 
-      white-space: pre-line;  
-      max-width:inherit;
     }
 
     &:active {
@@ -86,7 +69,8 @@
       color: $gray-darker-3;
       border-bottom: 1px solid $white;
 
-      &:hover {     
+      &:hover {
+        border: none;
         border-bottom: 1px solid $white;
       }
     }
