@@ -65,9 +65,10 @@ const Tabs: React.FC<TabsProps> = props => {
               </NavItem>
             ))}
             {showMore && (
-              <NavDropdown title={keyTitle} id="nav-dropdown-within-tab">
+              <NavDropdown title={keyTitle} eventKey='Tabs-nav-dropdown-within-tab' id="nav-dropdown-within-tab">
                 {tabsLastList.map((tab, idx) => (
                   <MenuItem
+                    id={eventKeyName ? 'Tabs-tab-' + tab[eventKeyName] : 'Tabs-tab-' + idx + limitNum}
                     key={eventKeyName ? tab[eventKeyName] : idx}
                     eventKey={eventKeyName ? tab[eventKeyName] : idx + limitNum}
                   >
@@ -127,7 +128,7 @@ Tabs.propTypes = {
 Tabs.defaultProps = {
   eventKeyName: 'key',
   id: 'Tabs',
-  limitNum: 5,
+  limitNum: 100,
   useAnimation: false,
 };
 

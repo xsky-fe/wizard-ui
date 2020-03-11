@@ -66,6 +66,7 @@ date: 2019-06-12
 ```
 
 ### 监听选项卡切换
+limitNum 属性默认展示5个tab
 ```jsx
 () => {
   const TABS = [
@@ -85,6 +86,7 @@ date: 2019-06-12
       <Tabs
         tabs={TABS}
         activeKey={key}
+       
         onSelect={handleSelect}
       />
       <p>外部监听当前选中第 {key} 个。</p>
