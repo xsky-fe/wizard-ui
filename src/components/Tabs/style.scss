@@ -40,19 +40,11 @@
     padding-left: 20px;
     padding-right: 20px;
     min-width: 67px;
-    max-width: 104px;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
     text-align: center;
 
     &:hover {
       background-color: $purple-lighter-3;
       color: $gray-darker-3;
-      width: auto;
-      text-overflow:inherit; 
-      overflow: visible; 
-      max-width:inherit;
     }
 
     &:active {
