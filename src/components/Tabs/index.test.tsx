@@ -47,11 +47,11 @@ describe('Tabs width Dropdown', () => {
     expect(tabs.find('.Tabs--right').length).toBe(1);
   });
   it('tabs dropdown content to the right', () => {
-    const tabs = mount(<Tabs tabs={newTABS} direction="right" />);
+    const tabs = mount(<Tabs tabs={newTABS} limitNum={5} direction="right" />);
     expect(tabs.find('.dropdown-menu').length).toBe(1);
   });
   it('change title', () => {
-    const tabs = mount(<Tabs tabs={newTABS} direction="right" />);
+    const tabs = mount(<Tabs tabs={newTABS} limitNum={5} direction="right" />);
     //title 默认值
     expect(tabs.find('NavDropdown').props().title).toBe('更多');
     // 下拉框中li标签个数
