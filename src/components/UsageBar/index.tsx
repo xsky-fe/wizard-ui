@@ -12,7 +12,7 @@ const PERCENT_WITH_STATUS = {
 
 function calcPercent(p: number) {
   let percent: number | string = 100 * p;
-  if (percent < 0.0001 && percent > 0) {
+  if (percent < 0.01 && percent > 0) {
     percent = '0.01%';
   } else if (percent < 1) {
     percent = `${percent.toFixed(3)}%`;
