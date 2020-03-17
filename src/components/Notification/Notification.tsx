@@ -122,7 +122,7 @@ export default class Notification extends PureComponent<NotificationProps> {
         onMouseEnter={this.mouseEnter}
         onMouseLeave={this.mouseLeave}
       >
-        <Alert bsStyle={style} onDismiss={onDismiss && this.close} show-icon={true}>
+        <Alert bsStyle={style} onDismiss={onDismiss && this.close}>
           {this.renderIcon()}
           {this.renderText()}
         </Alert>

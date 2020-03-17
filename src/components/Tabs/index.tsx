@@ -15,11 +15,11 @@ const Tabs: React.FC<TabsProps> = props => {
     direction,
     limitNum = 5,
     onSelect,
-    useAnimation,
     ...restProps
   } = props;
 
   const [keyTitle, setKeyTitleValue] = React.useState<string>(MORE_TITLE);
+  const [TabsPan, TabsPanValue] = React.useState<any>(tabs[0]);
   const tabsFrontList = tabs.slice(0, limitNum);
   const tabsLastList = tabs.slice(limitNum, tabs.length);
   const showMore = tabsLastList.length !== 0;
@@ -29,19 +29,24 @@ const Tabs: React.FC<TabsProps> = props => {
       if (onSelect) {
         onSelect(activeKey);
       }
-      let k = 0;
-      let isFind = false;
-      while (k < tabs.length && !isFind) {
-        const cTab = tabs[k];
-        if (cTab[eventKeyName] === activeKey && k >= limitNum) {
-          isFind = true;
-          setKeyTitleValue(cTab.title);
+      if (showMore) {
+        let k = 0;
+        let isFind = false;
+        while (k < tabs.length && !isFind) {
+          const cTab = tabs[k];
+          if (cTab[eventKeyName] === activeKey && k >= limitNum) {
+            isFind = true;
+            setKeyTitleValue(cTab.title);
+          }
+          k++;
         }
-        k++;
+        if (!isFind && keyTitle !== MORE_TITLE) {
+          setKeyTitleValue(MORE_TITLE);
+        }
       }
-      if (!isFind && keyTitle !== MORE_TITLE) {
-        setKeyTitleValue(MORE_TITLE);
-      }
+      const TabActiveKey = activeKey
+      const ActiveTabs = tabs.filter(item => { return item[eventKeyName] == TabActiveKey })[0]
+      TabsPanValue(ActiveTabs);
     },
     [tabs],
   );
@@ -78,15 +83,8 @@ const Tabs: React.FC<TabsProps> = props => {
               </NavDropdown>
             )}
           </Nav>
-          <Tab.Content animation={useAnimation}>
-            {tabs.map((tab, idx) => (
-              <Tab.Pane
-                key={eventKeyName ? tab[eventKeyName] : idx}
-                eventKey={eventKeyName ? tab[eventKeyName] : idx}
-              >
-                {tab.children && <Panel className="Tabs__Body">{tab.children}</Panel>}
-              </Tab.Pane>
-            ))}
+          <Tab.Content >
+            {TabsPan.children && <Panel className="Tabs__Body" id={eventKeyName ? 'Tabs-tab-' + TabsPan[eventKeyName] : ''}>{TabsPan.children}</Panel>}
           </Tab.Content>
         </div>
       </Tab.Container>
@@ -119,17 +117,12 @@ Tabs.propTypes = {
    * 展示一行中可见的tab个数，其他tab数放到下拉栏目中
    **/
   limitNum: PropTypes.number,
-  /**
-   * 内容框是否使用动画过度效果
-   **/
-  useAnimation: PropTypes.bool,
 };
 
 Tabs.defaultProps = {
   eventKeyName: 'key',
   id: 'Tabs',
-  limitNum: 100,
-  useAnimation: false,
+  limitNum: 5,
 };
 
 export default Tabs;
