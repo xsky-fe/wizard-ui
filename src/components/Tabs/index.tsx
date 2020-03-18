@@ -26,9 +26,7 @@ const Tabs: React.FC<TabsProps> = props => {
   const showMore = tabsLastList.length !== 0;
 
   React.useEffect(() => {
-    console.log(`jjj`)
     if (showMore) {
-      
       let k = 0;
       let isFind = false;
       while (k < tabs.length && !isFind) {
@@ -36,13 +34,12 @@ const Tabs: React.FC<TabsProps> = props => {
         if (cTab[eventKeyName] === activeKey && k >= limitNum) {
           isFind = true;
           setKeyTitleValue(cTab.title);
-          console.log("修改")
           return;
         }
         k++;
       }
     }
-  },[])
+  }, [])
   const handleSelect = React.useCallback(
     (activeKey: any) => {
       if (onSelect) {
