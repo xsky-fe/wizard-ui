@@ -1,3 +1,10 @@
+## [0.4.5](https://github.com/xsky-fe/wizard-ui/compare/0.4.4...0.4.5) (2020-03-18)
+
+
+### Bug Fixes
+
+* abnormal percentage display. ([#120](https://github.com/xsky-fe/wizard-ui/issues/120)) ([be61deb](https://github.com/xsky-fe/wizard-ui/commit/be61deb0854532037763c239e0fc83e6eb7fb687))
+
 ## [0.4.4](https://github.com/xsky-fe/wizard-ui/compare/0.4.2...0.4.4) (2020-03-12)
 
 
