@@ -15,15 +15,34 @@ const Tabs: React.FC<TabsProps> = props => {
     direction,
     limitNum = 5,
     onSelect,
+    activeKey,
     ...restProps
   } = props;
 
   const [keyTitle, setKeyTitleValue] = React.useState<string>(MORE_TITLE);
-  const [TabsPan, TabsPanValue] = React.useState<any>(tabs[0]);
+  const TabsPan = activeKey ? tabs.filter(item => { return item[eventKeyName] === activeKey })[0] : tabs[0];
   const tabsFrontList = tabs.slice(0, limitNum);
   const tabsLastList = tabs.slice(limitNum, tabs.length);
   const showMore = tabsLastList.length !== 0;
 
+  React.useEffect(() => {
+    console.log(`jjj`)
+    if (showMore) {
+      
+      let k = 0;
+      let isFind = false;
+      while (k < tabs.length && !isFind) {
+        let cTab = tabs[k];
+        if (cTab[eventKeyName] === activeKey && k >= limitNum) {
+          isFind = true;
+          setKeyTitleValue(cTab.title);
+          console.log("修改")
+          return;
+        }
+        k++;
+      }
+    }
+  },[])
   const handleSelect = React.useCallback(
     (activeKey: any) => {
       if (onSelect) {
@@ -33,7 +52,7 @@ const Tabs: React.FC<TabsProps> = props => {
         let k = 0;
         let isFind = false;
         while (k < tabs.length && !isFind) {
-          const cTab = tabs[k];
+          let cTab = tabs[k];
           if (cTab[eventKeyName] === activeKey && k >= limitNum) {
             isFind = true;
             setKeyTitleValue(cTab.title);
@@ -44,9 +63,6 @@ const Tabs: React.FC<TabsProps> = props => {
           setKeyTitleValue(MORE_TITLE);
         }
       }
-      const TabActiveKey = activeKey
-      const ActiveTabs = tabs.filter(item => { return item[eventKeyName] == TabActiveKey })[0]
-      TabsPanValue(ActiveTabs);
     },
     [tabs],
   );
@@ -56,7 +72,7 @@ const Tabs: React.FC<TabsProps> = props => {
       <Tab.Container
         id="tabs-with-dropdown"
         onSelect={handleSelect}
-        defaultActiveKey={tabs[0]['key']}
+        defaultActiveKey={activeKey ? TabsPan['key'] : tabs[0]['key']}
         {...restProps}
       >
         <div className="clearfix ">
