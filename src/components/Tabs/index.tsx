@@ -14,62 +14,42 @@ const Tabs: React.FC<TabsProps> = props => {
     eventKeyName = 'key',
     direction,
     limitNum = 5,
-    onSelect,
-    activeKey,
+    unmountOnExit,
+    animation,
+    mountOnEnter,
     ...restProps
   } = props;
 
   const [keyTitle, setKeyTitleValue] = React.useState<string>(MORE_TITLE);
-  const TabsPan = activeKey ? tabs.filter(item => { return item[eventKeyName] === activeKey })[0] : tabs[0];
+  const TabsPan = restProps.activeKey ? tabs.filter(item => { return item[eventKeyName] === restProps.activeKey })[0] : tabs[0];
   const tabsFrontList = tabs.slice(0, limitNum);
   const tabsLastList = tabs.slice(limitNum, tabs.length);
   const showMore = tabsLastList.length !== 0;
 
   React.useEffect(() => {
-    if (showMore) {
-      let k = 0;
-      let isFind = false;
-      while (k < tabs.length && !isFind) {
-        let cTab = tabs[k];
-        if (cTab[eventKeyName] === activeKey && k >= limitNum) {
-          isFind = true;
-          setKeyTitleValue(cTab.title);
-          return;
-        }
-        k++;
+    let activeKey = restProps.activeKey ? restProps.activeKey : ''
+    let k = 0;
+    let isFind = false;
+    while (k < tabs.length && !isFind) {
+      let cTab = tabs[k];
+      if (cTab[eventKeyName] === activeKey && k >= limitNum) {
+        isFind = true;
+        setKeyTitleValue(cTab.title);
       }
+      k++;
     }
-  }, [])
-  const handleSelect = React.useCallback(
-    (activeKey: any) => {
-      if (onSelect) {
-        onSelect(activeKey);
-      }
-      if (showMore) {
-        let k = 0;
-        let isFind = false;
-        while (k < tabs.length && !isFind) {
-          let cTab = tabs[k];
-          if (cTab[eventKeyName] === activeKey && k >= limitNum) {
-            isFind = true;
-            setKeyTitleValue(cTab.title);
-          }
-          k++;
-        }
-        if (!isFind && keyTitle !== MORE_TITLE) {
-          setKeyTitleValue(MORE_TITLE);
-        }
-      }
-    },
-    [tabs],
-  );
+    if (!isFind && keyTitle !== MORE_TITLE) {
+      setKeyTitleValue(MORE_TITLE);
+    }
+  }, [restProps.activeKey ? restProps.activeKey : ''])
+
+
 
   return (
     <div className={getBemClass('Tabs', [size, direction])}>
       <Tab.Container
         id="tabs-with-dropdown"
-        onSelect={handleSelect}
-        defaultActiveKey={activeKey ? TabsPan['key'] : tabs[0]['key']}
+        defaultActiveKey={TabsPan[eventKeyName]}
         {...restProps}
       >
         <div className="clearfix ">
@@ -83,7 +63,7 @@ const Tabs: React.FC<TabsProps> = props => {
               </NavItem>
             ))}
             {showMore && (
-              <NavDropdown title={keyTitle} eventKey='Tabs-nav-dropdown-within-tab' id="nav-dropdown-within-tab">
+              <NavDropdown title={keyTitle} id="" className="Tabs-nav-dropdown-within-tab">
                 {tabsLastList.map((tab, idx) => (
                   <MenuItem
                     id={eventKeyName ? 'Tabs-tab-' + tab[eventKeyName] : 'Tabs-tab-' + idx + limitNum}
@@ -96,8 +76,15 @@ const Tabs: React.FC<TabsProps> = props => {
               </NavDropdown>
             )}
           </Nav>
-          <Tab.Content >
-            {TabsPan.children && <Panel className="Tabs__Body" id={eventKeyName ? 'Tabs-tab-' + TabsPan[eventKeyName] : ''}>{TabsPan.children}</Panel>}
+          <Tab.Content unmountOnExit={unmountOnExit} mountOnEnter={mountOnEnter} animation={animation}>
+            {tabs.map((tab, idx) => (
+              <Tab.Pane
+                key={eventKeyName ? tab[eventKeyName] : idx}
+                eventKey={eventKeyName ? tab[eventKeyName] : idx}
+              >
+                {tab.children && <Panel className="Tabs__Body">{tab.children}</Panel>}
+              </Tab.Pane>
+            ))}
           </Tab.Content>
         </div>
       </Tab.Container>
@@ -130,12 +117,23 @@ Tabs.propTypes = {
    * 展示一行中可见的tab个数，其他tab数放到下拉栏目中
    **/
   limitNum: PropTypes.number,
+  /**
+   * 其他没有被选中的tab-pan是否隐藏，默认隐藏，提升渲染性能
+   **/
+  unmountOnExit: PropTypes.bool,
+  /**
+   * 切换内容是否使用动画过度效果
+   **/
+  animation: PropTypes.bool,
 };
 
 Tabs.defaultProps = {
   eventKeyName: 'key',
   id: 'Tabs',
   limitNum: 5,
+  unmountOnExit: true,
+  animation: false,
+  mountOnEnter: false,
 };
 
 export default Tabs;
