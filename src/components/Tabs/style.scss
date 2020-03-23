@@ -77,7 +77,8 @@
       color: $gray-darker-3;
       border-bottom: 1px solid $white;
 
-      &:hover {     
+      &:hover {
+        border:none;     
         border-bottom: 1px solid $white;
       }
     }

@@ -105,6 +105,9 @@ export interface TabsProps {
   activeKey?: string;
   id?: string;
   limitNum?: number;
+  unmountOnExit?: boolean;
+  animation?: boolean;
+  mountOnEnter?: boolean;
 }
 
 export interface StepsProps {
