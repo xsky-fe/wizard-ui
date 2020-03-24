@@ -178,6 +178,9 @@
       flex: 0 0 14px;
       margin-right: 8px;
       vertical-align: top;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
     }
     .Notification__Text {
       display: inline-block;
