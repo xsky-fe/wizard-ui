@@ -56,7 +56,6 @@ const Tabs: React.FC<TabsProps> = props => {
           <Nav bsStyle="tabs">
             {tabsFrontList.map((tab, idx) => (
               <NavItem
-              title={tab['title'].length > 6 ? tab['title']: ''}
                 key={eventKeyName ? tab[eventKeyName] : idx}
                 eventKey={eventKeyName ? tab[eventKeyName] : idx}
               >
