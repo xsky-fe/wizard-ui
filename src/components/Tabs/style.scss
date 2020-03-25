@@ -41,6 +41,23 @@
     padding-right: 20px;
     min-width: 67px;
     text-align: center;
+    display: inline-block;
+    max-width: 120px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+
+    &.dropdown-toggle {
+      position: relative;
+      padding-right: 25px;
+      max-width: 150px;
+
+      & .caret {
+        position: absolute;
+        top:16px;
+        right: 15px;
+      }
+    }
 
     &:hover {
       background-color: $purple-lighter-3;
