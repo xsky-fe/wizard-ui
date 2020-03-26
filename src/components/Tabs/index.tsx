@@ -52,7 +52,7 @@ const Tabs: React.FC<TabsProps> = props => {
         defaultActiveKey={TabsPan[eventKeyName]}
         {...restProps}
       >
-        <div className="clearfix ">
+        <div>
           <Nav bsStyle="tabs">
             {tabsFrontList.map((tab, idx) => (
               <NavItem
