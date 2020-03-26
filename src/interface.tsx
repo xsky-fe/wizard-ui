@@ -88,6 +88,9 @@ export interface UsageBarProps {
   hideRight?: boolean;
   showZeroMax?: boolean;
   withUnavailable?: boolean;
+  isExcludeWarning?: boolean;
+  waterLine?: number;
+  isHideFooter?: boolean;
 }
 
 export interface LoaderProps {
