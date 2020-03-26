@@ -1,11 +1,7 @@
 @import '../../style/variables.scss';
 
-.Tabs--right {
+.Tabs--right #Tabs {
   & > ul.nav-tabs {
-    display: flex;
-    justify-content: flex-end;
-  }
-  & > .clearfix > ul.nav-tabs {
     display: flex;
     justify-content: flex-end;
   }
@@ -102,14 +98,20 @@
   }
 }
 
-.Tabs .tab-content {
-  background-color: $white;
-  border-radius: 4px;
-  height: calc(100% - 40px);
-  .panel-heading {
-    font: 16px/20px $PingFangFont;
+.Tabs {
+  height: inherit;
+  & #Tabs {
+    height: 100%;
+  }
+  & .tab-content {
     background-color: $white;
-    border: none;
+    border-radius: 4px;
+    height: calc(100% - 40px);
+    .panel-heading {
+      font: 16px/20px $PingFangFont;
+      background-color: $white;
+      border: none;
+    }
   }
 }
 
