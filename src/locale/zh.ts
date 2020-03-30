@@ -1,4 +1,4 @@
 export default {
     MORE_TITLE: '更多',
-    MaxValue: '无限制',
+    MAX_VALUE: '无限制',
 }
