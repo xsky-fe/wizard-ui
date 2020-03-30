@@ -10,7 +10,7 @@ author: wangkailang
 1. 开始时间小于结束时间。
 2. 支持选择日期同时支持选择时间，精确到秒级别。
 3. 选择日期默认当天后的日期禁止选择。
-4. 支持中文、英文。默认可以根据浏览器的 language 切换。也可以通过 lang 指定。
+4. 支持中文、英文。默认可以根据浏览器的本地存储变量LOCALE决定切换。
 5. 支持区间（3 小时内、1 天内、1 周内、1 月内、3 月内）选择，选择区间会立即关闭选择面板。
 
 ## 代码演示
@@ -31,22 +31,12 @@ author: wangkailang
 }
 ```
 
-2. 设置 `lang` 为 `en` 展示为英文
-```jsx
-() => {
-  function onChange(date, dateString) {
-    console.log(date, dateString);
-  }
-  return <RangePicker onChange={onChange} lang="en"  />;
-}
-```
-
-3. 设置默认时间区间
+2. 设置默认时间区间
 ```jsx
 <RangePicker defaultValue={[moment('2019-02-16 18:01:57'), moment('2019-02-20 18:01:57')]} />
 ```
 
-4. 设置 `showDuration` 为 `false` 隐藏直接选择区间
+3. 设置 `showDuration` 为 `false` 隐藏直接选择区间
 ```jsx
 <RangePicker showDuration={false} />
 ```

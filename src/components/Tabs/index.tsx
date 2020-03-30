@@ -4,8 +4,9 @@ import { Tab, Panel, NavItem, NavDropdown, MenuItem, Nav } from 'react-bootstrap
 import { getBemClass } from '../../utils';
 import { TabsProps } from '../../interface';
 import './style.scss';
+import lang from "../../locale/language";
 
-const MORE_TITLE = '更多';
+const MORE_TITLE = lang().MORE_TITLE;
 
 const Tabs: React.FC<TabsProps> = props => {
   const {
@@ -21,7 +22,7 @@ const Tabs: React.FC<TabsProps> = props => {
   } = props;
 
   const [keyTitle, setKeyTitleValue] = React.useState<string>(MORE_TITLE);
-  const TabsPan = restProps.activeKey ? tabs.filter(item => { return item[eventKeyName] === restProps.activeKey })[0] : tabs[0];
+  const TabsPan = restProps.activeKey ? tabs.filter(item => { return item[eventKeyName] === restProps.activeKey }) : tabs[0];
   const tabsFrontList = tabs.slice(0, limitNum);
   const tabsLastList = tabs.slice(limitNum, tabs.length);
   const showMore = tabsLastList.length !== 0;
