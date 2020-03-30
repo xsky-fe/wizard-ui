@@ -1,3 +1,13 @@
+## [0.4.8](https://github.com/xsky-fe/wizard-ui/compare/0.4.7...0.4.8) (2020-03-30)
+
+
+### Bug Fixes
+
+* [XEUS-1590] Change Notification icon color. ([#125](https://github.com/xsky-fe/wizard-ui/issues/125)) ([9ab9708](https://github.com/xsky-fe/wizard-ui/commit/9ab9708d65254617007ac0baa58faec2bc87aefa))
+* Add beta version ([13c89cc](https://github.com/xsky-fe/wizard-ui/commit/13c89cc0cec19a61b1ae8939d1119370b58758aa))
+
+
+
 ## [0.4.7](https://github.com/xsky-fe/wizard-ui/compare/0.4.6...0.4.7) (2020-03-23)
 
 ## [0.4.6](https://github.com/xsky-fe/wizard-ui/compare/0.4.5...0.4.6) (2020-03-18)
