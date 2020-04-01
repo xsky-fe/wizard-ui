@@ -88,6 +88,7 @@ export interface UsageBarProps {
   hideRight?: boolean;
   showZeroMax?: boolean;
   withUnavailable?: boolean;
+  formatType?: string;
 }
 
 export interface LoaderProps {

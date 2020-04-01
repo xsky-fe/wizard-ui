@@ -37,6 +37,7 @@ const UsageBar: React.FC<UsageBarProps> = props => {
     hideRight,
     showZeroMax,
     withUnavailable,
+    formatType,
   } = props;
   const hasNow = props.hasOwnProperty('now');
   const hasPercent = props.hasOwnProperty('percent');
@@ -45,8 +46,8 @@ const UsageBar: React.FC<UsageBarProps> = props => {
   const errorPercent = props.unavailableData && max && props.unavailableData / max;
   let nowValue: number | string | undefined = now;
   let maxValue: number | string | undefined = max;
-  let nowSuffix = '';
-  let maxSuffix = '';
+  let nowSuffix: any = '';
+  let maxSuffix: any = '';
   let left;
   let right;
   let bsStyle;
@@ -58,14 +59,19 @@ const UsageBar: React.FC<UsageBarProps> = props => {
     nowSuffix = maxSuffix = '%';
   }
 
-  if (isByte) {
+  if (isByte || formatType) {
     // hasPercent 表明左边数据设置完成（百分比形式），不需要再调整
+    let byteOptions: object = { splitUnit: true };
+    if (formatType) {
+      byteOptions = { splitUnit: true, formatType };
+    }
+
     if (!hasPercent && now) {
-      const nowArr: any = xbytes(now, { splitUnit: true });
+      const nowArr: any = xbytes(now, byteOptions);
       nowValue = nowArr[0];
       nowSuffix = nowArr[1];
     }
-    const maxArr: any = max && xbytes(max, { splitUnit: true });
+    const maxArr: any = max && xbytes(max, byteOptions);
     maxValue = maxArr[0];
     maxSuffix = maxArr[1];
   } else if (isBulk) {
@@ -156,6 +162,10 @@ UsageBar.propTypes = {
    * 数字以字节（B, KB, MB, GB...）为单位展示
    **/
   isByte: PropTypes.bool,
+  /**
+   * 格式化输出，可选[decimal|binary]
+   **/
+  formatType: PropTypes.string,
   /**
    * 数字以数量（万, 亿, 兆, 京...）为单位展示
    **/
