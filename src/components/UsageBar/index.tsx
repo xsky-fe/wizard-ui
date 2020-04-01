@@ -3,6 +3,7 @@ import * as PropTypes from 'prop-types';
 import { ProgressBar } from 'react-bootstrap';
 import { bulk, xbytes } from '../../utils';
 import { UsageBarProps } from '../../interface';
+import lang from "../../locale/language";
 import './style.scss';
 
 const PERCENT_WITH_STATUS = {
@@ -12,7 +13,7 @@ const PERCENT_WITH_STATUS = {
 
 function calcPercent(p: number) {
   let percent: number | string = 100 * p;
-  if (percent < 0.0001 && percent > 0) {
+  if (percent < 0.01 && percent > 0) {
     percent = '0.01%';
   } else if (percent < 1) {
     percent = `${percent.toFixed(3)}%`;
@@ -36,6 +37,7 @@ const UsageBar: React.FC<UsageBarProps> = props => {
     hideRight,
     showZeroMax,
     withUnavailable,
+    formatType,
   } = props;
   const hasNow = props.hasOwnProperty('now');
   const hasPercent = props.hasOwnProperty('percent');
@@ -45,7 +47,7 @@ const UsageBar: React.FC<UsageBarProps> = props => {
   let nowValue: number | string | undefined = now;
   let maxValue: number | string | undefined = max;
   let nowSuffix: any = '';
-  let maxSuffix = '';
+  let maxSuffix: any = '';
   let left;
   let right;
   let bsStyle;
@@ -57,14 +59,19 @@ const UsageBar: React.FC<UsageBarProps> = props => {
     nowSuffix = maxSuffix = '%';
   }
 
-  if (isByte) {
+  if (isByte || formatType) {
     // hasPercent 表明左边数据设置完成（百分比形式），不需要再调整
+    let byteOptions: object = { splitUnit: true };
+    if (formatType) {
+      byteOptions = { splitUnit: true, formatType };
+    }
+
     if (!hasPercent && now) {
-      const nowArr: any = xbytes(now, { splitUnit: true });
+      const nowArr: any = xbytes(now, byteOptions);
       nowValue = nowArr[0];
       nowSuffix = nowArr[1];
     }
-    const maxArr: any = max && xbytes(max, { splitUnit: true });
+    const maxArr: any = max && xbytes(max, byteOptions);
     maxValue = maxArr[0];
     maxSuffix = maxArr[1];
   } else if (isBulk) {
@@ -83,7 +90,7 @@ const UsageBar: React.FC<UsageBarProps> = props => {
   // isPercent，hasPercent 涉及到百分比展示，此时 max 不应该为无限制
   // showZeroMax 直接展示 max 为处理后的 0 + 单位
   if (!max && !hasPercent && !isPercent && !showZeroMax) {
-    maxValue = '无限制';
+    maxValue = lang().MAX_VALUE;
     maxSuffix = '';
   }
 
@@ -155,6 +162,10 @@ UsageBar.propTypes = {
    * 数字以字节（B, KB, MB, GB...）为单位展示
    **/
   isByte: PropTypes.bool,
+  /**
+   * 格式化输出，可选[decimal|binary]
+   **/
+  formatType: PropTypes.string,
   /**
    * 数字以数量（万, 亿, 兆, 京...）为单位展示
    **/

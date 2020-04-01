@@ -55,10 +55,6 @@ export default class RangePicker extends React.PureComponent<RangePickerProps, R
      */
     disabled: PropTypes.bool,
     /**
-     * 切换语言
-     */
-    lang: PropTypes.string,
-    /**
      * 改变时间区间会触发 onChange 执行
      */
     onChange: PropTypes.func,
@@ -85,7 +81,8 @@ export default class RangePicker extends React.PureComponent<RangePickerProps, R
     };
   }
   get lang() {
-    return this.props.lang;
+    const lang = window.localStorage.getItem('LOCALE')
+    return lang && /en/.test(lang) ? 'en' : 'zh';
   }
   get locale() {
     return this.lang === 'en' ? CALENDAR_EN : CALENDAR_ZH;

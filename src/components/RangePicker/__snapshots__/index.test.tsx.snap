@@ -41,16 +41,16 @@ exports[`RangePicker render show with en lang 1`] = `
     className="glyphicon glyphicon-calendar"
   />
   <input
-    placeholder="Start time"
+    placeholder="开始时间"
     readOnly={true}
     tabIndex={-1}
     value=""
   />
   <span>
-    To
+    至
   </span>
   <input
-    placeholder="End time"
+    placeholder="结束时间"
     readOnly={true}
     tabIndex={-1}
     value=""

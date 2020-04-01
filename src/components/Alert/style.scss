@@ -1,3 +1,4 @@
+@import '../../style/variables.scss';
 .alert {
   &.with-icon{
     position: relative;
@@ -11,7 +12,7 @@
   }
   &.alert-danger {
     & .icon path {
-      fill: #a94442;
+      fill: $red-normal;
     }
     & a{
       color: #491217;
@@ -19,7 +20,7 @@
   }
   &.alert-info {
     & .icon path {
-      fill: #31708f;
+      fill:$blue-normal;
     }
     & a{
       color: #002752;
@@ -27,7 +28,7 @@
   }
   &.alert-success {
     & .icon path {
-      fill: #3c763d;
+      fill:  $green-normal;
     }
     & a{
       color: #0b2e13;
@@ -35,7 +36,7 @@
   }
   &.alert-warning {
     & .icon path {
-      fill: #8a6d3b;
+      fill: $goldenrod-normal;
     }
     & a{
       color: #533f03;

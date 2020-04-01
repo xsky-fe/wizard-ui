@@ -207,11 +207,11 @@ export default class VirtualList<T> extends React.Component<VirtualListProps<T>,
       const nextItem = i < data.length - 1 ? data[i + 1] : null;
       const height = isFunction(rowHeight)
         ? rowHeight({
-          index: i,
-          item,
-          prevItem,
-          nextItem,
-        })
+            index: i,
+            item,
+            prevItem,
+            nextItem,
+          })
         : rowHeight;
       if (height) {
         this.heightCache.push(height);

@@ -1,3 +1,46 @@
+## [0.4.8](https://github.com/xsky-fe/wizard-ui/compare/0.4.7...0.4.8) (2020-03-30)
+
+
+### Bug Fixes
+
+* [XEUS-1590] Change Notification icon color. ([#125](https://github.com/xsky-fe/wizard-ui/issues/125)) ([9ab9708](https://github.com/xsky-fe/wizard-ui/commit/9ab9708d65254617007ac0baa58faec2bc87aefa))
+* Add beta version ([13c89cc](https://github.com/xsky-fe/wizard-ui/commit/13c89cc0cec19a61b1ae8939d1119370b58758aa))
+
+
+
+## [0.4.7](https://github.com/xsky-fe/wizard-ui/compare/0.4.6...0.4.7) (2020-03-23)
+
+## [0.4.6](https://github.com/xsky-fe/wizard-ui/compare/0.4.5...0.4.6) (2020-03-18)
+
+## [0.4.5](https://github.com/xsky-fe/wizard-ui/compare/0.4.4...0.4.5) (2020-03-18)
+
+
+### Bug Fixes
+
+* abnormal percentage display. ([#120](https://github.com/xsky-fe/wizard-ui/issues/120)) ([be61deb](https://github.com/xsky-fe/wizard-ui/commit/be61deb0854532037763c239e0fc83e6eb7fb687))
+
+## [0.4.4](https://github.com/xsky-fe/wizard-ui/compare/0.4.2...0.4.4) (2020-03-12)
+
+
+### Bug Fixes
+
+* [XEUS-1421] Limit UsageBar component min-width ([#110](https://github.com/xsky-fe/wizard-ui/issues/110)) ([d0c1031](https://github.com/xsky-fe/wizard-ui/commit/d0c1031cc04f768ffaf4de3b394e035c387c386c))
+* Meet store format ([#111](https://github.com/xsky-fe/wizard-ui/issues/111)) ([39871ec](https://github.com/xsky-fe/wizard-ui/commit/39871ec79493b87d3ef91a9d9dcad202001dab63))
+* Node not support localsSorage api ([1242836](https://github.com/xsky-fe/wizard-ui/commit/12428367461a24a1f77a633830c4d0cbbd746683))
+* Ts Error ([95c4955](https://github.com/xsky-fe/wizard-ui/commit/95c49559e04a326129a8df5078482787f4fc28a1))
+* Version to 0.4.3 ([35f4159](https://github.com/xsky-fe/wizard-ui/commit/35f415965da97fbb5b5a2d3aedb63c0b09052267))
+
+## [0.4.3](https://github.com/xsky-fe/wizard-ui/compare/0.4.2...0.4.3) (2020-03-12)
+
+
+### Bug Fixes
+
+* [XEUS-1421] Limit UsageBar component min-width ([#110](https://github.com/xsky-fe/wizard-ui/issues/110)) ([d0c1031](https://github.com/xsky-fe/wizard-ui/commit/d0c1031cc04f768ffaf4de3b394e035c387c386c))
+* Meet store format ([#111](https://github.com/xsky-fe/wizard-ui/issues/111)) ([39871ec](https://github.com/xsky-fe/wizard-ui/commit/39871ec79493b87d3ef91a9d9dcad202001dab63))
+* Node not support localsSorage api ([1242836](https://github.com/xsky-fe/wizard-ui/commit/12428367461a24a1f77a633830c4d0cbbd746683))
+* Ts Error ([95c4955](https://github.com/xsky-fe/wizard-ui/commit/95c49559e04a326129a8df5078482787f4fc28a1))
+* Version to 0.4.3 ([35f4159](https://github.com/xsky-fe/wizard-ui/commit/35f415965da97fbb5b5a2d3aedb63c0b09052267))
+
 ## [0.4.2](https://github.com/xsky-fe/wizard-ui/compare/0.4.0...0.4.2) (2020-01-06)
 
 
