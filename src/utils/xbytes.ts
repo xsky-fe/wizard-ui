@@ -94,12 +94,12 @@ function format(value: number, options: OPTIONS) {
   if (toUnit) {
     unit = toUnit;
   } else if (withoutFloat) {
-    const matchUnit = keys.find(k => (map[k] && mag >= map[k] && Math.round(mag/map[k]) === mag/map[k]));
+    const matchUnit = keys.find(k => (Boolean(map[k]) && mag >= map[k] && Math.round(mag/map[k]) === mag/map[k]));
     if (matchUnit) {
       unit = matchUnit.toUpperCase();
     }
   } else {
-    const matchUnit = keys.find(k => (map[k] && mag >= map[k]));
+    const matchUnit = keys.find(k => (Boolean(map[k]) && mag >= map[k]));
     if (matchUnit) {
       unit = matchUnit.toUpperCase();
     }
