@@ -72,8 +72,8 @@ const UsageBar: React.FC<UsageBarProps> = props => {
       nowSuffix = nowArr[1];
     }
     const maxArr: any = max && xbytes(max, byteOptions);
-    maxValue = maxArr[0];
-    maxSuffix = maxArr[1];
+    maxValue = maxArr[0] === undefined ? 0 : maxArr[0];
+    maxSuffix = maxArr[1] === undefined ? 'B' : maxArr[1];
   } else if (isBulk) {
     // hasPercent 表明左边数据设置完成（百分比形式），不需要再调整
     if (!hasPercent && now) {
@@ -82,8 +82,8 @@ const UsageBar: React.FC<UsageBarProps> = props => {
       nowSuffix = nowArr[1] as string;
     }
     const maxArr: any = max && bulk(max, { splitUnit: true });
-    maxValue = maxArr[0];
-    maxSuffix = maxArr[1];
+    maxValue = maxArr[0] === undefined ? 0 : maxArr[0];
+    maxSuffix = maxArr[1] === undefined ? '' : maxArr[1];
   }
 
   // max 为 0 时，设置为无限制
