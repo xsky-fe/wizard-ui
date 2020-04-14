@@ -15,19 +15,19 @@ function randomId() {
     .toString(36)
     .substring(2);
 }
-function renderContent(menu: DropdownButtonMenuItem[] = []) {
+function renderContent(menu: DropdownButtonMenuItem[] = [], setOpen:any) {
   if (menu instanceof Array) {
-    return menu.map(m => renderMenu(m));
+    return menu.map(m => renderMenu(m, setOpen));
   }
   return menu;
 }
-function renderMenu(menu: DropdownButtonMenuItem) {
+function renderMenu(menu: DropdownButtonMenuItem, setOpen:any) {
   const item = cloneDeep(menu);
   if (!item) {
     return null;
   }
   if (typeof item === 'string') {
-    return <MenuItem key={item}>{item}</MenuItem>;
+    return <MenuItem key={item} onClick={() => {setOpen(false)}}>{item}</MenuItem>;
   }
   if (!item.key) {
     item.key = randomId();
@@ -35,11 +35,11 @@ function renderMenu(menu: DropdownButtonMenuItem) {
   if (item.children && item.children.length) {
     return (
       <SubMenu key={item.key} title={item.title} name={item.children[0]['data-action']}>
-        {renderContent(item.children)}
+        {renderContent(item.children, setOpen)}
       </SubMenu>
     );
   }
-  return <MenuItem {...item}>{item.title}</MenuItem>;
+  return <MenuItem {...item} onClick={() => {setOpen(false)}}>{item.title}</MenuItem>;
 }
 
 const DropdownButton = (props: DropdownButtonProps) => {
@@ -55,6 +55,7 @@ const DropdownButton = (props: DropdownButtonProps) => {
   const { bsStyle, id, onSelect, onToggle, bsSize, title, menu, children, componentClass } = props;
   const allBoolProps = ['disabled', 'dropup', 'noCaret', 'open', 'pullRight'];
   const boolProps = {};
+  const [open, setOpen] = React.useState<boolean>(false)
   allBoolProps.forEach(prop => {
     if (props.hasOwnProperty(prop)) {
       boolProps[prop] = props[prop];
@@ -69,11 +70,12 @@ const DropdownButton = (props: DropdownButtonProps) => {
       onSelect={onSelect}
       title={title}
       bsSize={bsSize}
-      onToggle={onToggle}
+      onToggle={isOpen => {if(isOpen !== open){setOpen(isOpen)} if(onToggle){onToggle(isOpen)}}}
       componentClass={componentClass}
       className={containerClassName}
+      open={open}
     >
-      {menu ? renderContent(menu) : children}
+      {menu ? renderContent(menu, setOpen) : children}
     </BootstrapDropdownButton>
   );
 };
