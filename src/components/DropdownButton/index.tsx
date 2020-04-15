@@ -26,8 +26,9 @@ function renderMenu(menu: DropdownButtonMenuItem, setOpen:any) {
   if (!item) {
     return null;
   }
-  if (typeof item === 'string') {
-    return <MenuItem key={item} onClick={() => {setOpen(false)}}>{item}</MenuItem>;
+  if (typeof item === 'string') { 
+    return <MenuItem key={item} onSelect={() => {setOpen(false)}}	
+    >{item}</MenuItem>;
   }
   if (!item.key) {
     item.key = randomId();
@@ -39,7 +40,7 @@ function renderMenu(menu: DropdownButtonMenuItem, setOpen:any) {
       </SubMenu>
     );
   }
-  return <MenuItem {...item} onClick={() => {setOpen(false)}}>{item.title}</MenuItem>;
+  return <MenuItem {...item} onSelect={() => {setOpen(false)}}>{item.title}</MenuItem>;
 }
 
 const DropdownButton = (props: DropdownButtonProps) => {
