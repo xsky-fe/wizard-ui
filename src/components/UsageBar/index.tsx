@@ -37,6 +37,9 @@ const UsageBar: React.FC<UsageBarProps> = props => {
     hideRight,
     showZeroMax,
     withUnavailable,
+    isExcludeWarning,
+    waterLine,
+    isHideFooter,
     formatType,
   } = props;
   const hasNow = props.hasOwnProperty('now');
@@ -100,7 +103,7 @@ const UsageBar: React.FC<UsageBarProps> = props => {
   } else if (
     percent &&
     percent < PERCENT_WITH_STATUS.danger &&
-    percent > PERCENT_WITH_STATUS.warning
+    percent > PERCENT_WITH_STATUS.warning && !isExcludeWarning
   ) {
     bsStyle = 'warning';
   }
@@ -133,10 +136,15 @@ const UsageBar: React.FC<UsageBarProps> = props => {
       ) : (
         <ProgressBar bsStyle={bsStyle} now={percent} max={1} />
       )}
-      <div className="UsageBar__footer">
-        <div className="UsageBar__footer--left">{left}</div>
-        <div className="UsageBar__footer--right">{right}</div>
-      </div>
+      {waterLine && (
+        <div className="UsageBar__water-line" style={{ marginLeft: 100 * waterLine + '%' }} />
+      )}
+      {!isHideFooter && (
+        <div className="UsageBar__footer">
+          <div className="UsageBar__footer--left">{left}</div>
+          <div className="UsageBar__footer--right">{right}</div>
+        </div>
+      )}
     </div>
   );
 };
@@ -203,6 +211,18 @@ UsageBar.propTypes = {
    * 不可用数据量
    **/
   unavailableData: PropTypes.number,
+  /**
+   * 是否排除告警（黄色）状态，排除后按常态展示
+   **/
+  isExcludeWarning: PropTypes.bool,
+  /**
+   * 水位线
+   **/
+  waterLine: PropTypes.number,
+  /**
+   * 是否隐藏 footer 的展示
+   **/
+  isHideFooter: PropTypes.bool,
 };
 UsageBar.defaultProps = {
   max: 0,

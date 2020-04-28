@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import sum from 'lodash/sum';
 import isFunction from 'lodash/isFunction';
+import isEqual from 'lodash/isEqual';
 import {
   VirtualListState,
   VirtualAnchorItem,
@@ -128,7 +129,7 @@ export default class VirtualList<T> extends React.Component<VirtualListProps<T>,
     const { isEstimate, debug, data, isReloading } = this.props;
     const { startIndex } = this.state;
 
-    if (prevProps.data !== data) {
+    if (!isEqual(prevProps.data, data)) {
       this.handleResize(data, false);
     }
     if (!prevProps.isReloading && isReloading) {
