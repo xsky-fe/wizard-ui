@@ -1,11 +1,11 @@
 @import '../../style/variables.scss';
 
-.Tooltip__icon {
-  font-size: 14px;
-  color: $light-steel-blue-normal;
-}
 .Tooltip {
   display: inline-block;
+  & .Tooltip__icon {
+    font-size: 14px;
+    color: $light-steel-blue-normal;
+  }
 }
 .tooltip {
   &.contrast {

@@ -91,6 +91,7 @@ export interface UsageBarProps {
   isExcludeWarning?: boolean;
   waterLine?: number;
   isHideFooter?: boolean;
+  formatType?: string;
 }
 
 export interface LoaderProps {

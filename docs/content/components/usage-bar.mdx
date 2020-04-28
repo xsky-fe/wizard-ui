@@ -19,6 +19,8 @@ date: 2019-06-06
 ```
 <div>
   <UsageBar now={900000} max={7000000} isByte />
+  <UsageBar percent={900000/7000000} max={7000000} formatType="decimal" />
+  <UsageBar percent={900000/7000000} max={7000000} formatType="binary" />
   <UsageBar percent={900000/7000000} max={7000000} isByte />
   <UsageBar now={900000} max={7000000} isByte withPercent />
   <UsageBar now={900000} max={7000000} isByte withPercent hideNow/>
@@ -36,8 +38,6 @@ date: 2019-06-06
 ```
 
 ### 行内应用
-设置行内元素时，默认width为168px
-
 ```
  <div className="flex-between">
   <UsageBar now={900000} max={7000000} isPercent inline />
@@ -61,6 +61,8 @@ date: 2019-06-06
   <UsageBar now={0} isByte />
   <UsageBar now={0} isBulk />
   <UsageBar percent={0} />
+  <UsageBar isByte percent={0} max={0} />
+  <UsageBar isBulk percent={0} max={0} />
 </div>
 ```
 ### 水位线，阈值线

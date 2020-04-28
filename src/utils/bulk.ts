@@ -40,7 +40,7 @@ export default function bulk(value: number, options: OPTIONS, locale?: LocaleTyp
     i++;
   }
   unit = BULK[i - 1][1];
-  let resultValue: any = value / (BULK[i - 1][0] as number);
+  let resultValue: number = value / +BULK[i - 1][0];
   if (parseInt(String(resultValue), 10) !== resultValue) {
     resultValue = Number(resultValue.toFixed(2));
   }

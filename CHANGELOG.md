@@ -1,3 +1,26 @@
+# [0.5.0](https://github.com/xsky-fe/wizard-ui/compare/0.4.8...0.5.0) (2020-04-09)
+
+
+### Bug Fixes
+
+* [XEUS-1099] Change Tooltip sass ([#134](https://github.com/xsky-fe/wizard-ui/issues/134)) ([1924615](https://github.com/xsky-fe/wizard-ui/commit/1924615aef36021845dbcf79d478deffd86aa8fa))
+* UsageBar Remove min-width. ([#135](https://github.com/xsky-fe/wizard-ui/issues/135)) ([c386c59](https://github.com/xsky-fe/wizard-ui/commit/c386c59c54bca695ce629617fdfc8740aad65bda))
+
+
+### Features
+
+* Add format usage bar. ([#107](https://github.com/xsky-fe/wizard-ui/issues/107)) ([ab69028](https://github.com/xsky-fe/wizard-ui/commit/ab69028bcfdccb925d804c51d2e7612a89a65a87))
+
+## [0.4.8](https://github.com/xsky-fe/wizard-ui/compare/0.4.7...0.4.8) (2020-03-30)
+
+
+### Bug Fixes
+
+* [XEUS-1590] Change Notification icon color. ([#125](https://github.com/xsky-fe/wizard-ui/issues/125)) ([9ab9708](https://github.com/xsky-fe/wizard-ui/commit/9ab9708d65254617007ac0baa58faec2bc87aefa))
+* Add beta version ([13c89cc](https://github.com/xsky-fe/wizard-ui/commit/13c89cc0cec19a61b1ae8939d1119370b58758aa))
+
+
+
 ## [0.4.7](https://github.com/xsky-fe/wizard-ui/compare/0.4.6...0.4.7) (2020-03-23)
 
 ## [0.4.6](https://github.com/xsky-fe/wizard-ui/compare/0.4.5...0.4.6) (2020-03-18)
