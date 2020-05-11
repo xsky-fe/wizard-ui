@@ -57,7 +57,7 @@ const Tabs: React.FC<TabsProps> = props => {
           <Nav bsStyle="tabs">
             {tabsFrontList.map((tab, idx) => (
               <NavItem
-                title={tab['title']}
+                title={typeof tab['title'] === 'string' ? tab['title'] : undefined}
                 key={eventKeyName ? tab[eventKeyName] : idx}
                 eventKey={eventKeyName ? tab[eventKeyName] : idx}
               >
