@@ -5,7 +5,7 @@ import { UsageBar } from '../src';
 const NOW = 900000;
 const MAX = 7000000;
 const BYTESSERIES = [
-  { name: '已使用', value: 1024100 },
+  { name: '已使用（文案过长时省略文案过长时省略文案过长时省略文案过长时省略文案过长时省略文案过长时省略。。。）', value: 1024100 },
   { name: '恢复中', value: 1024280, bsStyle: 'success' },
   { name: '错误', value: 1024223, bsStyle: 'danger' },
   { name: '降级', value: 1024444, bsStyle: 'warning' },
