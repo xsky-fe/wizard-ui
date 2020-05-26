@@ -79,7 +79,7 @@ function format(value: number, options: OPTIONS) {
   const mag = Math.abs(value);
   const thousandsSeparator =
     options && options.thousandsSeparator ? options.thousandsSeparator : '';
-  const unitSeparator = options && options.unitSeparator !== undefined ? options.unitSeparator : '';
+  const unitSeparator = options && options.unitSeparator !== undefined ? options.unitSeparator : ' ';
   const decimalPlaces = options && options.decimalPlaces !== undefined ? options.decimalPlaces : 2;
   const fixedDecimals = Boolean(options && options.fixedDecimals);
   // The unit could be specify.

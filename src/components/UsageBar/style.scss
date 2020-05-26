@@ -30,10 +30,59 @@
     background-color: $red-normal;
     margin-top: -15px;
   }
+  &__legend {
+    line-height: 20px;
+    margin-top: 8px;
+    font-size: 12px;
+    .Legend {
+      display: flex;
+      justify-content: space-between;
+      &:nth-child(2n) {
+        padding-left: 16px;
+      }
+      &:nth-child(2n+1) {
+        padding-right: 16px;
+      }
+      span:nth-child(1) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin-right: 12px;
+        &::before {
+          content: '';
+          display: inline-block;
+          width: 8px;
+          height: 8px;
+          margin-right: 4px;
+          border-radius: 2px;
+          background-color: $purple-normal;
+        }
+      }
+      &.success span:nth-child(1)::before {
+        background-color: $brand-success;
+      }
+      &.danger span:nth-child(1)::before {
+        background-color: $brand-danger;
+      }
+      &.warning span:nth-child(1)::before {
+        background-color: $brand-warning;
+      }
+      &.info span:nth-child(1)::before {
+        background-color: $gray-medium-10;
+      }
+      &.critical span:nth-child(1)::before {
+        background-color: $brand-critical;
+      }
+    }
+  }
 }
 
 .progress-bar-info {
   background-color: $gray-medium-10;
+}
+
+.progress-bar-critical {
+  background-color: $brand-critical;
 }
 
 .PercentStack__tooltip-item {

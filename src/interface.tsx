@@ -74,6 +74,12 @@ export interface PopoverProps {
   rootClose?: boolean;
 }
 
+interface UsageBarSerie {
+  name: any;
+  value: number;
+  bsStyle?: string;
+}
+
 export interface UsageBarProps {
   max?: number;
   now?: number;
@@ -92,6 +98,8 @@ export interface UsageBarProps {
   waterLine?: number;
   isHideFooter?: boolean;
   formatType?: string;
+  series?: Array<UsageBarSerie>;
+  withLenged?: boolean;
 }
 
 export interface LoaderProps {
@@ -185,14 +193,14 @@ export interface SubMenuProps {
 
 export type DropdownButtonMenuItem =
   | {
-      key?: string | number;
-      children?: DropdownButtonMenuItem[];
-      title: string;
-      eventKey?: string;
-      'data-action'?: string;
-      onClick?: React.MouseEventHandler;
-      disabled?: boolean;
-    }
+    key?: string | number;
+    children?: DropdownButtonMenuItem[];
+    title: string;
+    eventKey?: string;
+    'data-action'?: string;
+    onClick?: React.MouseEventHandler;
+    disabled?: boolean;
+  }
   | string;
 
 export interface DefaultDropdownButtonProps {

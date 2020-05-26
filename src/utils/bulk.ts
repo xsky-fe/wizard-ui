@@ -48,6 +48,6 @@ export default function bulk(value: number, options: OPTIONS, locale?: LocaleTyp
     if (options.withScale) return [resultValue, unit, BULK[i - 1][0]];
     return [resultValue, unit];
   } else {
-    return `${resultValue}${unit}`;
+    return `${resultValue} ${unit}`;
   }
 }
