@@ -4,6 +4,21 @@ import { UsageBar } from '../src';
 
 const NOW = 900000;
 const MAX = 7000000;
+const BYTESSERIES = [
+  { name: '已使用（文案过长时省略文案过长时省略文案过长时省略文案过长时省略文案过长时省略文案过长时省略。。。）', value: 1024100 },
+  { name: '恢复中', value: 1024280, bsStyle: 'success' },
+  { name: '错误', value: 1024223, bsStyle: 'danger' },
+  { name: '降级', value: 1024444, bsStyle: 'warning' },
+  { name: '紧急', value: 1024444, bsStyle: 'critical' },
+  { name: '未使用', value: 2048000, bsStyle: 'info' }];
+
+const BULKSERIES = [
+  { name: '已使用', value: 1024100 },
+  { name: '恢复中', value: 1024, bsStyle: 'success' },
+  { name: '错误', value: 1024223, bsStyle: 'danger' },
+  { name: '降级', value: 1024444, bsStyle: 'warning' },
+  { name: '紧急', value: 1024444, bsStyle: 'critical' },
+  { name: '未使用', value: 20480000, bsStyle: 'info' }];
 
 storiesOf('DATA SHOW | UsageBar', module)
   .add('percent', () => (
@@ -52,5 +67,17 @@ storiesOf('DATA SHOW | UsageBar', module)
       <UsageBar percent={0} isByte />
       <UsageBar percent={0} isBulk />
       <UsageBar percent={0} />
+    </>
+  ))
+  .add('series', () => (
+    <>
+      <h4>SERIES 模式 isByte</h4>
+      <UsageBar series={BYTESSERIES} isByte />
+      <h4>SERIES 模式，isByte，附带图例</h4>
+      <UsageBar series={BYTESSERIES} isByte withLenged />
+      <h4>SERIES 模式，isBulk，附带图例</h4>
+      <UsageBar series={BULKSERIES} isBulk withLenged />
+      <h4>SERIES 模式，isPercent，附带图例</h4>
+      <UsageBar series={BYTESSERIES} isPercent withLenged />
     </>
   ))
