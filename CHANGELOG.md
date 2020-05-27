@@ -1,3 +1,10 @@
+## [0.5.4](https://github.com/xsky-fe/wizard-ui/compare/0.5.0...0.5.4) (2020-05-27)
+
+
+### Bug Fixes
+
+* Tabs only show string title. ([#138](https://github.com/xsky-fe/wizard-ui/issues/138)) ([70be711](https://github.com/xsky-fe/wizard-ui/commit/70be711312d78017cddf7a88b7e965d003da3455))
+
 # [0.5.0](https://github.com/xsky-fe/wizard-ui/compare/0.4.8...0.5.0) (2020-04-09)
 
 
