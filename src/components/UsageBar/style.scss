@@ -70,6 +70,10 @@
       &.critical span:nth-child(1)::before {
         background-color: $brand-critical;
       }
+      &.default span:nth-child(1)::before {
+        background-color: $gray-lighter-5;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+      }
     }
   }
 }
@@ -80,6 +84,11 @@
 
 .progress-bar-critical {
   background-color: $brand-critical;
+}
+
+.progress-bar-default {
+  background-color: $gray-lighter-5;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .PercentStack__tooltip-item {

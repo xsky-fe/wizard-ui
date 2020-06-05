@@ -10,7 +10,7 @@ const BYTESSERIES = [
   { name: '错误', value: 1024223, bsStyle: 'danger' },
   { name: '降级', value: 1024444, bsStyle: 'warning' },
   { name: '紧急', value: 1024444, bsStyle: 'critical' },
-  { name: '未使用', value: 2048000, bsStyle: 'info' }];
+  { name: '未使用', value: 2048000, bsStyle: 'default' }];
 
 const BULKSERIES = [
   { name: '已使用', value: 1024100 },
@@ -18,7 +18,7 @@ const BULKSERIES = [
   { name: '错误', value: 1024223, bsStyle: 'danger' },
   { name: '降级', value: 1024444, bsStyle: 'warning' },
   { name: '紧急', value: 1024444, bsStyle: 'critical' },
-  { name: '未使用', value: 20480000, bsStyle: 'info' }];
+  { name: '未使用', value: 20480000, bsStyle: 'default' }];
 
 storiesOf('DATA SHOW | UsageBar', module)
   .add('percent', () => (
