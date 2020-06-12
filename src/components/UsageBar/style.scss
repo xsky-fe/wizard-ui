@@ -52,6 +52,9 @@
           background-color: $purple-normal;
         }
       }
+      &.noVal span:nth-child(2) {
+        color: $gray-medium-6;
+      }
       span:nth-child(2) {
         flex: 0 0 auto;
       }
