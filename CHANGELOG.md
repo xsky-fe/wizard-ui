@@ -1,3 +1,5 @@
+* improve: UsageBar support default style. (#140) (7acacd7)
+
 ## [0.5.4](https://github.com/xsky-fe/wizard-ui/compare/0.5.0...0.5.4) (2020-05-27)
 
 

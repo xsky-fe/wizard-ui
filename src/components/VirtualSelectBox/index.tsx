@@ -352,7 +352,7 @@ class VirtualSelectBox<T> extends React.Component<
     return (
       <Button
         bsStyle="link"
-        onClick={(event: React.MouseEvent<Button, MouseEvent>) => {
+        onClick={(event) => {
           this.blockEvent(event);
           this.handleChange([]);
         }}

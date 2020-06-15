@@ -198,7 +198,7 @@ export type DropdownButtonMenuItem =
     title: string;
     eventKey?: string;
     'data-action'?: string;
-    onClick?: React.MouseEventHandler;
+    onClick?: any;
     disabled?: boolean;
   }
   | string;
