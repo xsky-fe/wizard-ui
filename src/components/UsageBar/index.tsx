@@ -44,6 +44,7 @@ const UsageBar: React.FC<UsageBarProps> = props => {
     formatType,
     series,
     withLenged,
+    unavailableData,
   } = props;
   const hasNow = props.hasOwnProperty('now');
   const hasPercent = props.hasOwnProperty('percent');
@@ -75,13 +76,14 @@ const UsageBar: React.FC<UsageBarProps> = props => {
           bsStyle,
           perc,
           legend,
+          value,
         }
       })
       break;
     default:
       const now = hasNow ? props.now : props.percent && max && props.percent * max;
       const percent = hasPercent ? props.percent : max ? props.now && props.now / max : 0;
-      const errorPercent = props.unavailableData && max && props.unavailableData / max;
+      const errorPercent = unavailableData && max && unavailableData / max;
       let nowValue: number | string | undefined = now;
       let maxValue: number | string | undefined = max;
       let nowSuffix: any = '';
@@ -160,10 +162,12 @@ const UsageBar: React.FC<UsageBarProps> = props => {
         {
           bsStyle: usedStyle,
           perc: percent,
+          value: now,
         },
         withUnavailable && {
           bsStyle: 'info',
           perc: errorPercent,
+          value: unavailableData,
         }
       ]);
   }
@@ -187,8 +191,8 @@ const UsageBar: React.FC<UsageBarProps> = props => {
       )}
       {hasSeries && withLenged && (
         <Row className="UsageBar__legend">
-          {lodash.map(finalSeries, ({ name, legend, bsStyle }, index) => (
-            <Col xs={12} className={`Legend ${bsStyle}`} key={index}>
+          {lodash.map(finalSeries, ({ name, legend, bsStyle, value }, index) => (
+            <Col xs={12} className={`Legend ${bsStyle} ${value ? '' : 'noVal'}`} key={index}>
               <span title={typeof name === 'string' ? name : undefined}>{name}</span>
               <span title={legend}>{legend}</span>
             </Col>
