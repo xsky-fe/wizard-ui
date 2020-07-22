@@ -29,7 +29,7 @@
     "@types/react-bootstrap": "^0.32.17",
     "bootstrap-sass": "^3.4.1",
     "cross-env": "^7.0.2",
-    "rc-calendar": "^9.15.4",
+    "rc-calendar": "9.12.4",
     "rc-time-picker": "^3.7.1",
     "rc-tree": "2.1.0",
     "react-addons-css-transition-group": "^15.6.2",
