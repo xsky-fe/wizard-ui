@@ -1,4 +1,7 @@
 @import '../../style/variables.scss';
+.rc-calendar-picker {
+  z-index: 1060;
+}
 .DatePicker {
   input {
     height: 34px;
