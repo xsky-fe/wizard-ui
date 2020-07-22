@@ -1,3 +1,6 @@
+* refactor: Modal picker (#141) (66159a6)
+* refactor: Add npmrc proxy (4363a58)
+
 * improve: UsageBar support default style. (#140) (7acacd7)
 
 ## [0.5.4](https://github.com/xsky-fe/wizard-ui/compare/0.5.0...0.5.4) (2020-05-27)
