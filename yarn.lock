@@ -13531,10 +13531,10 @@ windows-release@^3.1.0:
   dependencies:
     execa "^1.0.0"
 
-wizard-icons@0.0.3:
-  version "0.0.3"
-  resolved "https://registry.npm.taobao.org/wizard-icons/download/wizard-icons-0.0.3.tgz#83961e7ac40943cb53afcc571691cd67ba075edd"
-  integrity sha1-g5YeesQJQ8tTr8xXFpHNZ7oHXt0=
+wizard-icons@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.npm.taobao.org/wizard-icons/download/wizard-icons-0.0.4.tgz#f7a7c5aa6848b0b7653e0a8ea1ed38f34b4d86bf"
+  integrity sha1-96fFqmhIsLdlPgqOoe0480tNhr8=
   dependencies:
     "@types/lodash" "^4.14.136"
     "@types/node" "^12.6.2"

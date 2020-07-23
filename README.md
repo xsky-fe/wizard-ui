@@ -70,3 +70,9 @@ import { Icon } from 'wizard-ui/esm';
 
 export default () => <Icon type="os-search-role" />
 ```
+
+## Pubish
+
+```
+npm publish --registry=https://registry.npmjs.org/
+```
