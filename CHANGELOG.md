@@ -1,3 +1,5 @@
+* fix remove tab max-width. (#142) (1d5d9b4)
+
 
 
 * refactor: Modal picker (#141) (66159a6)
