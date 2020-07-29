@@ -115,7 +115,7 @@ const UsageBar: React.FC<UsageBarProps> = props => {
         if (!hasPercent && now) {
           const nowArr = bulk(now, { splitUnit: true });
           nowValue = nowArr[0];
-          nowSuffix = nowArr[1] as string;
+          nowSuffix = nowArr[1];
         }
         const maxArr: any = max && bulk(max, { splitUnit: true });
         maxValue = maxArr[0] === undefined ? 0 : maxArr[0];
