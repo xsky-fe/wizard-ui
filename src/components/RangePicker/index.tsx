@@ -13,6 +13,8 @@ import { RangePickerProps, RangePickerState } from '../../interface';
 import isEmpty from 'lodash/isEmpty';
 import Icon from '../Icon';
 import './style.scss';
+
+const isClient = typeof window === 'object';
 const ranges = [
   {
     title: '3 小时内',
@@ -81,7 +83,7 @@ export default class RangePicker extends React.PureComponent<RangePickerProps, R
     };
   }
   get lang() {
-    const lang = window.localStorage.getItem('LOCALE')
+    const lang = isClient && window.localStorage.getItem('LOCALE');
     return lang && /en/.test(lang) ? 'en' : 'zh';
   }
   get locale() {
