@@ -48,11 +48,11 @@ describe('UsageBar', () => {
   });
   it('should showing warning between 0.75 and 0.85', () => {
     const usagebar = mount(<UsageBar now={76} max={100} />);
-    expect(usagebar.find('.progress-bar-warning').length).toBe(1);
+    expect(usagebar.find('.progress-bar-warning').length).toBe(2);
   });
   it('should showing danger between 0.85 and 1', () => {
     const usagebar = mount(<UsageBar now={90} max={100} />);
-    expect(usagebar.find('.progress-bar-danger').length).toBe(1);
+    expect(usagebar.find('.progress-bar-danger').length).toBe(2);
   });
   it('should showing no limit', () => {
     const usagebar = shallow(<UsageBar now={0} isBulk />);
