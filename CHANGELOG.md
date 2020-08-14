@@ -1,3 +1,8 @@
+* refactor: Package add publish config (fbe2f6c)
+* fix: isclient check (f059b95)
+* fix: deploy build (5c0bf96)
+* fix: ut fail (a3e86bb)
+
 * fix remove tab max-width. (#142) (1d5d9b4)
 
 
