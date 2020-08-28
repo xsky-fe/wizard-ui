@@ -129,7 +129,7 @@ export default class VirtualList<T> extends React.Component<VirtualListProps<T>,
     const { isEstimate, debug, data, isReloading } = this.props;
     const { startIndex } = this.state;
 
-    if (!isEqual(prevProps.data, data)) {
+    if (prevProps.data !== data) {
       this.handleResize(data, false);
     }
     if (!prevProps.isReloading && isReloading) {
