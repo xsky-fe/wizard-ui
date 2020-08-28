@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import sum from 'lodash/sum';
 import isFunction from 'lodash/isFunction';
-import isEqual from 'lodash/isEqual';
 import {
   VirtualListState,
   VirtualAnchorItem,
