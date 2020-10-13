@@ -15,19 +15,19 @@ function randomId() {
     .toString(36)
     .substring(2);
 }
-function renderContent(menu: DropdownButtonMenuItem[] = []) {
+function renderContent(menu: DropdownButtonMenuItem[] = [], setButtonOpen: Function, open?: boolean) {
   if (menu instanceof Array) {
-    return menu.map(m => renderMenu(m));
+    return menu.map(m => renderMenu(m, setButtonOpen, open));
   }
   return menu;
 }
-function renderMenu(menu: DropdownButtonMenuItem) {
+function renderMenu(menu: DropdownButtonMenuItem, setButtonOpen: Function, open?: boolean) {
   const item = cloneDeep(menu);
   if (!item) {
     return null;
   }
   if (typeof item === 'string') {
-    return <MenuItem key={item}>{item}</MenuItem>;
+    return <MenuItem key={item} onSelect={() => { setButtonOpen(!!open) }} >{item}</MenuItem>;
   }
   if (!item.key) {
     item.key = randomId();
@@ -35,11 +35,11 @@ function renderMenu(menu: DropdownButtonMenuItem) {
   if (item.children && item.children.length) {
     return (
       <SubMenu key={item.key} title={item.title} name={item.children[0]['data-action']}>
-        {renderContent(item.children)}
+        {renderContent(item.children, setButtonOpen, open)}
       </SubMenu>
     );
   }
-  return <MenuItem {...item}>{item.title}</MenuItem>;
+  return <MenuItem {...item} onSelect={() => { setButtonOpen(!!open) }} >{item.title}</MenuItem>;
 }
 
 const DropdownButton = (props: DropdownButtonProps) => {
@@ -51,10 +51,21 @@ const DropdownButton = (props: DropdownButtonProps) => {
     }
     return className;
   };
+  const getOnToggle = (isOpen: boolean) => {
+    const { onToggle } = props;
+    // 没有传入 open 属性，下拉框点击 MenuItem 会合起；
+    if (!props.hasOwnProperty('open')) {
+      setButtonOpen(isOpen);
+    }
+    // 如果有传入 onToggle 回调函数，会继续执行传入的回调函数
+    if (onToggle) onToggle(isOpen);
+  };
 
-  const { bsStyle, id, onSelect, onToggle, bsSize, title, menu, children, componentClass } = props;
+  const { bsStyle, id, onSelect, bsSize, title, menu, children, componentClass, open } = props;
   const allBoolProps = ['disabled', 'dropup', 'noCaret', 'open', 'pullRight'];
   const boolProps = {};
+  const [buttonOpen, setButtonOpen] = React.useState<boolean>(!!open);
+
   allBoolProps.forEach(prop => {
     if (props.hasOwnProperty(prop)) {
       boolProps[prop] = props[prop];
@@ -69,11 +80,12 @@ const DropdownButton = (props: DropdownButtonProps) => {
       onSelect={onSelect}
       title={title}
       bsSize={bsSize}
-      onToggle={onToggle}
+      onToggle={isOpen => getOnToggle(isOpen)}
       componentClass={componentClass}
       className={containerClassName}
+      open={props.hasOwnProperty('open') ? open : buttonOpen}
     >
-      {menu ? renderContent(menu) : children}
+      {menu ? renderContent(menu, setButtonOpen, open) : children}
     </BootstrapDropdownButton>
   );
 };
@@ -122,7 +134,9 @@ DropdownButton.propTypes = {
    **/
   onSelect: PropTypes.func,
   /**
-   * 下拉框是否展开 bool
+   * 下拉框是否展开 bool；
+   * 使用组件如未传入open属性，点击任何一级的MenuItem都会默认关闭下拉框；
+   * 如有传入open属性，下拉框是否展开根据传入的open决定
    **/
   open: PropTypes.bool,
   /**
