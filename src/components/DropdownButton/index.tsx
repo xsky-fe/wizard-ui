@@ -52,10 +52,10 @@ const DropdownButton = (props: DropdownButtonProps) => {
     return className;
   };
   const getOnToggle = (isOpen: boolean) => {
-    const { onToggle, open } = props;
+    const { onToggle } = props;
     // 没有传入 open 属性，下拉框点击 MenuItem 会合起；
-    if (typeof (open) === 'undefined') {
-      if (isOpen !== open) setButtonOpen(isOpen);
+    if (!props.hasOwnProperty('open')) {
+      setButtonOpen(isOpen);
     }
     // 如果有传入 onToggle 回调函数，会继续执行传入的回调函数
     if (onToggle) onToggle(isOpen);
@@ -83,7 +83,7 @@ const DropdownButton = (props: DropdownButtonProps) => {
       onToggle={isOpen => getOnToggle(isOpen)}
       componentClass={componentClass}
       className={containerClassName}
-      open={typeof (open) === 'undefined' ? buttonOpen : open}
+      open={props.hasOwnProperty('open') ? open : buttonOpen}
     >
       {menu ? renderContent(menu, setButtonOpen, open) : children}
     </BootstrapDropdownButton>
