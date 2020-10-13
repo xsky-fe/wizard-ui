@@ -1,3 +1,7 @@
+* refactor: update version (aa1ae1a)
+* fix: Virtuallist update (#143) (045b427)
+* fix (a907ba1)
+
 * refactor: Package add publish config (fbe2f6c)
 * fix: isclient check (f059b95)
 * fix: deploy build (5c0bf96)
