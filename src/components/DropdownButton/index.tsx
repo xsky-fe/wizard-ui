@@ -10,20 +10,20 @@ import {
 import cloneDeep from 'lodash/cloneDeep';
 import './style.scss';
 
-type openProps = boolean | undefined;
+type OpenProps = boolean | undefined;
 
 function randomId() {
   return Math.random()
     .toString(36)
     .substring(2);
 }
-function renderContent(menu: DropdownButtonMenuItem[] = [], setButtonOpen: any, open: openProps) {
+function renderContent(menu: DropdownButtonMenuItem[] = [], setButtonOpen: any, open: OpenProps) {
   if (menu instanceof Array) {
     return menu.map(m => renderMenu(m, setButtonOpen, open));
   }
   return menu;
 }
-function renderMenu(menu: DropdownButtonMenuItem, setButtonOpen: any, open: openProps) {
+function renderMenu(menu: DropdownButtonMenuItem, setButtonOpen: any, open: OpenProps) {
   const item = cloneDeep(menu);
   if (!item) {
     return null;
