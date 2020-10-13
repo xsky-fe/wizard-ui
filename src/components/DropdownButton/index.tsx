@@ -10,26 +10,24 @@ import {
 import cloneDeep from 'lodash/cloneDeep';
 import './style.scss';
 
-type OpenProps = boolean | undefined;
-
 function randomId() {
   return Math.random()
     .toString(36)
     .substring(2);
 }
-function renderContent(menu: DropdownButtonMenuItem[] = [], setButtonOpen: any, open: OpenProps) {
+function renderContent(menu: DropdownButtonMenuItem[] = [], setButtonOpen: Function, open?: boolean) {
   if (menu instanceof Array) {
     return menu.map(m => renderMenu(m, setButtonOpen, open));
   }
   return menu;
 }
-function renderMenu(menu: DropdownButtonMenuItem, setButtonOpen: any, open: OpenProps) {
+function renderMenu(menu: DropdownButtonMenuItem, setButtonOpen: Function, open?: boolean) {
   const item = cloneDeep(menu);
   if (!item) {
     return null;
   }
   if (typeof item === 'string') {
-    return <MenuItem key={item} onSelect={() => { setButtonOpen(typeof (open) !== 'undefined' ? open : false) }} >{item}</MenuItem>;
+    return <MenuItem key={item} onSelect={() => { setButtonOpen(!!open) }} >{item}</MenuItem>;
   }
   if (!item.key) {
     item.key = randomId();
@@ -41,7 +39,7 @@ function renderMenu(menu: DropdownButtonMenuItem, setButtonOpen: any, open: Open
       </SubMenu>
     );
   }
-  return <MenuItem {...item} onSelect={() => { setButtonOpen(typeof (open) !== 'undefined' ? open : false) }} >{item.title}</MenuItem>;
+  return <MenuItem {...item} onSelect={() => { setButtonOpen(!!open) }} >{item.title}</MenuItem>;
 }
 
 const DropdownButton = (props: DropdownButtonProps) => {
@@ -53,12 +51,20 @@ const DropdownButton = (props: DropdownButtonProps) => {
     }
     return className;
   };
+  const getOnToggle = (isOpen: boolean) => {
+    const { onToggle, open } = props;
+    // 没有传入 open 属性，下拉框点击 MenuItem 会合起；
+    if (typeof (open) === 'undefined') {
+      if (isOpen !== open) setButtonOpen(isOpen);
+    }
+    // 如果有传入 onToggle 回调函数，会继续执行传入的回调函数
+    if (onToggle) onToggle(isOpen);
+  };
 
-  const { bsStyle, id, onSelect, onToggle, bsSize, title, menu, children, componentClass, open } = props;
+  const { bsStyle, id, onSelect, bsSize, title, menu, children, componentClass, open } = props;
   const allBoolProps = ['disabled', 'dropup', 'noCaret', 'open', 'pullRight'];
-
   const boolProps = {};
-  const [buttonOpen, setButtonOpen] = React.useState<boolean>(typeof (open) !== 'undefined' ? open : false);
+  const [buttonOpen, setButtonOpen] = React.useState<boolean>(!!open);
 
   allBoolProps.forEach(prop => {
     if (props.hasOwnProperty(prop)) {
@@ -74,7 +80,7 @@ const DropdownButton = (props: DropdownButtonProps) => {
       onSelect={onSelect}
       title={title}
       bsSize={bsSize}
-      onToggle={isOpen => { if (typeof (open) === 'undefined') { if (isOpen !== open) { setButtonOpen(isOpen) } } if (onToggle) { onToggle(isOpen) } }}
+      onToggle={isOpen => getOnToggle(isOpen)}
       componentClass={componentClass}
       className={containerClassName}
       open={typeof (open) === 'undefined' ? buttonOpen : open}
