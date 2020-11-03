@@ -199,6 +199,7 @@ export type DropdownButtonMenuItem =
     eventKey?: string;
     'data-action'?: string;
     onClick?: any;
+    onSelect?: Function;
     disabled?: boolean;
   }
   | string;
