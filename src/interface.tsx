@@ -432,3 +432,8 @@ export interface NotificationListProps {
 export interface NotificationListStates {
   expanded?: boolean;
 }
+
+export interface ButtonProps {
+  toolTip?: TooltipProps,
+  children: React.ReactNode;
+}
