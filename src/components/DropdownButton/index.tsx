@@ -39,13 +39,13 @@ function renderMenu(menu: DropdownButtonMenuItem, setButtonOpen: Function, open?
       </SubMenu>
     );
   }
-  const getOnSelect = (eventKey: any) => {
+  const handleItemSelect = (eventKey: any) => {
     const { onSelect } = item;
     setButtonOpen(!!open);
     // 如果有传入 onSelect 回调函数，会继续执行传入的回调函数
     if (onSelect) onSelect(eventKey);
   }
-  return <MenuItem {...item} onSelect={(eventKey: any) => getOnSelect(eventKey)} >{item.title}</MenuItem>;
+  return <MenuItem {...item} onSelect={(eventKey: any) => handleItemSelect(eventKey)} >{item.title}</MenuItem>;
 }
 
 const DropdownButton = (props: DropdownButtonProps) => {
