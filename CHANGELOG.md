@@ -1,3 +1,5 @@
+* fix dropdownbutton. (#145) (c7c5bfc)
+
 * update version (29baa7f)
 * Add menuItem click to control dropdownbutton open. (#144) (f5e84fb)
 * update (b609de5)
