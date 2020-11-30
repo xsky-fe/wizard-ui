@@ -57,7 +57,7 @@ class VirtualSelectBox<T> extends React.Component<
     clear: PropTypes.bool,
   };
   static defaultProps = defaultProps;
-  debounceFetch: () => Promise<void>;
+  debounceFetch: () => Promise<void> | undefined;
   isMount: boolean;
   cacheSelected: MultiVirtualSelectItem[];
   wrapper: React.RefObject<HTMLDivElement>;
