@@ -154,7 +154,6 @@ export interface SwitchProps {
   input?: SwitchInput;
   name?: string;
   disabled?: boolean;
-  handleChange: any;
   checked?: boolean;
   onChange?: any;
 }
