@@ -434,14 +434,5 @@ export interface NotificationListStates {
 }
 
 export interface ButtonProps {
-  toolTip?: TooltipProps,
-  children: React.ReactNode;
-  onClick?: any;
-  bsClass?: string;
-  active?: boolean;
-  block?: boolean;
-  bsStyle?: string | null;
-  bsSize?: Sizes;
-  componentClass?: React.ReactType;
-  disabled?: boolean;
+  toolTip?: TooltipProps;
 }
