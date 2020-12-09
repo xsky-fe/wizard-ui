@@ -1,0 +1,9 @@
+@import '../../style/variables.scss';
+
+.Button_Tooltip-Div {
+  display: inline-block;
+  cursor: not-allowed;
+  &-Button {
+    pointer-events: none;
+  }
+}
