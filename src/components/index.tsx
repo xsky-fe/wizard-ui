@@ -23,6 +23,7 @@ import VirtualList from './VirtualList';
 import VirtualSelectBox from './VirtualSelectBox';
 import Notification from './/Notification/Notification';
 import NotificationList from './Notification/NotificationList';
+import Button from './Button';
 import {
   SplitButton,
   ToggleButtonGroup,
@@ -38,7 +39,6 @@ import {
   OverlayTrigger,
   HelpBlock,
   Glyphicon,
-  Button,
   ButtonGroup,
   ButtonToolbar,
   Tab,
