@@ -39,7 +39,6 @@ import {
   OverlayTrigger,
   HelpBlock,
   Glyphicon,
-  // Button,
   ButtonGroup,
   ButtonToolbar,
   Tab,

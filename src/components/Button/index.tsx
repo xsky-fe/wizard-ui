@@ -11,16 +11,14 @@ function Button(props: ButtonProps & BsButtonProps) {
       <Tooltip
         label={
           <div className="Button_Tooltip-Div">
-            <BSButton {...restProps} className={restProps.disabled ? 'Button_Tooltip-Div-Button' : ''}>
+            <BSButton {...(restProps as any)} className={restProps.disabled ? 'Button_Tooltip-Div-Button' : ''}>
               {children}
             </BSButton>
           </div>
         }
         {...toolTip}
-      >
-        {toolTip.children}
-      </Tooltip>
-    ) : <BSButton {...restProps}>{children}</BSButton>
+      />
+    ) : <BSButton {...(restProps as any)}>{children}</BSButton>
   )
 }
 
