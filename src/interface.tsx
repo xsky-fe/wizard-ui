@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SelectCallback, Sizes } from 'react-bootstrap';
+import { SelectCallback, Sizes, ButtonProps as BsButtonProps } from 'react-bootstrap';
 import { Moment } from 'moment';
 import CSS from 'csstype';
 
@@ -433,6 +433,6 @@ export interface NotificationListStates {
   expanded?: boolean;
 }
 
-export interface ButtonProps {
+export interface ButtonProps extends BsButtonProps {
   toolTip?: TooltipProps;
 }

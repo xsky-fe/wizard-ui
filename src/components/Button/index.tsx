@@ -1,10 +1,12 @@
 import React from 'react';
-import * as PropTypes from 'prop-types';
-import { Button as BSButton, ButtonProps as BsButtonProps } from 'react-bootstrap';
+import { Button as BSButton } from 'react-bootstrap';
 import Tooltip from '../Tooltip'
 import { ButtonProps } from '../../interface';
 import './style.scss';
-function Button(props: ButtonProps & BsButtonProps) {
+
+interface Button extends ButtonProps {};
+
+const  Button:React.FC<ButtonProps>  = props => {
   const { toolTip, children, ...restProps } = props;
   return (
     toolTip ? (
@@ -20,23 +22,6 @@ function Button(props: ButtonProps & BsButtonProps) {
       />
     ) : <BSButton {...(restProps as any)}>{children}</BSButton>
   )
-}
-
-Button.propTypes = {
-  /**
-   * toolTip 即为 Tooltip 组件里的属性
-   */
-  toolTip: PropTypes.object,
-  /**
-   * Button 子节点内的具体内容；
-   */
-  children: PropTypes.node,
-  /**
-   * 
-   */
-  /**
-   * 剩余即为 BS-Button 里的属性
-   */
 }
 
 export default Button;
