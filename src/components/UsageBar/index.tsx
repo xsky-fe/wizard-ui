@@ -131,7 +131,7 @@ const UsageBar: React.FC<UsageBarProps> = props => {
       }
 
       // 处理 bar 颜色
-      if (percent && percent > PERCENT_WITH_STATUS.danger) {
+      if (percent && percent >= PERCENT_WITH_STATUS.danger) {
         usedStyle = 'danger';
       } else if (
         percent &&
