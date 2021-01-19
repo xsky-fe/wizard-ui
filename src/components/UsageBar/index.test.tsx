@@ -52,7 +52,7 @@ describe('UsageBar', () => {
   });
   it('should showing danger with 0.85', () => {
     const usagebar = mount(<UsageBar now={85} max={100} />);
-    expect(usagebar.find('.progress-bar-warning').length).toBe(2);
+    expect(usagebar.find('.progress-bar-danger').length).toBe(2);
   });
   it('should showing danger between 0.85 and 1', () => {
     const usagebar = mount(<UsageBar now={90} max={100} />);
