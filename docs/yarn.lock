@@ -14103,10 +14103,10 @@ with-open-file@^0.1.6:
     p-try "^2.1.0"
     pify "^4.0.1"
 
-wizard-icons@0.0.3:
-  version "0.0.3"
-  resolved "https://registry.npmjs.org/wizard-icons/-/wizard-icons-0.0.3.tgz#83961e7ac40943cb53afcc571691cd67ba075edd"
-  integrity sha512-/HEWozWvNXyRDm8tH41KYw8EYOdNlxYOP2/qF1O2M64SY0lOHSJfDZXqJbq31nHu/AG2lFFr85aB73hqcaRI9Q==
+wizard-icons@0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/wizard-icons/-/wizard-icons-0.1.0.tgz#2b5e456fa1eb76278faf62b3593faf03cd566f53"
+  integrity sha512-zNLXgTjMqXDI3ONimU1AjXT21h90sg4fjJXN4paYQ/ob0K8tbNwSm1p9XJxnsJ6NpYRQK97kqZqGgZ2dPYudVQ==
   dependencies:
     "@types/lodash" "^4.14.136"
     "@types/node" "^12.6.2"
