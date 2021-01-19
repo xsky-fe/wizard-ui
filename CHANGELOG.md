@@ -1,3 +1,7 @@
+* Merge branch 'master' of https://github.com/xsky-fe/wizard-ui (49b6833)
+* refactor: Update wizard-icons version (5302d93)
+* fix: UsageBar color display (#150) (cb869c3)
+
 
 
 * fix: Button with outer interface (#149) (31894cd)
