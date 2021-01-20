@@ -20,6 +20,11 @@ function remove0() {
 const TimePicker: React.FC<TimePickerProps> = props => {
   const { hourStart, allowEmpty, hourEnd, placeholder, onChange, ...rest } = props;
   const [value, setValue] = React.useState(props.value || props.defaultValue);
+
+  React.useEffect(() => {
+    setValue(props.value || props.defaultValue);
+  }, [props.value, props.defaultValue]);
+
   // 使用时才调用
   const handleChange = React.useCallback(
     (val: moment.Moment): void => {
