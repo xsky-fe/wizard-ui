@@ -8,12 +8,16 @@ interface Button extends ButtonProps {};
 
 const  Button:React.FC<ButtonProps>  = props => {
   const { toolTip, children, ...restProps } = props;
+  const { disabled, className } = restProps;
   return (
     toolTip ? (
       <Tooltip
         label={
           <div className="Button_Tooltip-Div">
-            <BSButton {...(restProps as any)} className={restProps.disabled ? 'Button_Tooltip-Div-Button' : ''}>
+            <BSButton 
+              {...(restProps as any)} 
+              className={disabled ? `Button_Tooltip-Div-Button ${className}` : `${className}` }
+            >
               {children}
             </BSButton>
           </div>
