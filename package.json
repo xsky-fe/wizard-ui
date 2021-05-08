@@ -34,7 +34,7 @@
     "rc-tree": "2.1.0",
     "react-addons-css-transition-group": "^15.6.2",
     "react-bootstrap": "^0.31.1",
-    "react-dev-utils": "^9.0.2",
+    "react-dev-utils": "^11.0.4",
     "react-ios-switch": "^0.1.19",
     "wizard-icons": "^0.1.7"
   },
