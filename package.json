@@ -1,6 +1,6 @@
 {
   "name": "wizard-ui",
-  "version": "0.6.15",
+  "version": "0.6.16",
   "private": false,
   "main": "lib/index.js",
   "module": "esm/index.js",
@@ -36,7 +36,7 @@
     "react-bootstrap": "^0.31.1",
     "react-dev-utils": "^9.0.2",
     "react-ios-switch": "^0.1.19",
-    "wizard-icons": "^0.1.6"
+    "wizard-icons": "^0.1.7"
   },
   "scripts": {
     "test": "jest --env=jsdom",
