@@ -1,3 +1,5 @@
+* modify deploy script. (1e9fa21)
+
 * update deploy script. (c019966)
 
 
