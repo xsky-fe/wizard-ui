@@ -13809,10 +13809,10 @@ windows-release@^4.0.0:
   dependencies:
     execa "^4.0.2"
 
-wizard-icons@^0.1.7:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/wizard-icons/-/wizard-icons-0.1.7.tgz#9057015a295bb9ca9c052f5339b203d3e40ea4ce"
-  integrity sha512-jnk6qgmn1IhGPIrd10++PnMlXSPXu/RIvWChsZSoXWNSdYYGoV06uLfrjhn7rvAKcvadRnptG+i1yyUwXFjOHw==
+wizard-icons@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/wizard-icons/-/wizard-icons-0.1.8.tgz#25a98531f32765f34bb7d7280d9e8395be5dda39"
+  integrity sha512-xEgZ9ZO/Y1TR2GLW/zA7opMSwyNU9RhmNi0lKZSuEM8a3QvXEAbSpnDZbzVOfn2e5Cjg7bouJUeYuyH2B9XOug==
   dependencies:
     "@types/lodash" "^4.14.136"
     "@types/node" "^12.6.2"
