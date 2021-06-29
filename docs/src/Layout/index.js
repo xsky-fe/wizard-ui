@@ -9,6 +9,7 @@ import React from 'react';
 import TopBar from '../components/TopBar';
 import { Grid } from 'wizard-ui';
 import './style.scss';
+import './forms.scss';
 
 const isClient = typeof window === 'object';
 
