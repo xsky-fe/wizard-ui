@@ -10,7 +10,7 @@ interface OPTIONS {
 }
 
 type Map = {
-  [key: string] : number;
+  [key: string]: number;
 }
 
 const formatThousandsRegExp = /\B(?=(\d{3})+(?!\d))/g;
@@ -27,7 +27,7 @@ const basicMap = {
   zb: (1 << 30) * Math.pow(1024, 4),
 };
 
-const binaryMap= {
+const binaryMap = {
   b: 1,
   kib: 1 << 10,
   mib: 1 << 20,
@@ -94,7 +94,7 @@ function format(value: number, options: OPTIONS) {
   if (toUnit) {
     unit = toUnit;
   } else if (withoutFloat) {
-    const matchUnit = keys.find(k => (Boolean(map[k]) && mag >= map[k] && Math.round(mag/map[k]) === mag/map[k]));
+    const matchUnit = keys.find(k => (Boolean(map[k]) && mag >= map[k] && Math.round(mag / map[k]) === mag / map[k]));
     if (matchUnit) {
       unit = matchUnit.toUpperCase();
     }
@@ -109,7 +109,7 @@ function format(value: number, options: OPTIONS) {
   if (!unitSize) return null;
 
   const val = value / unitSize;
-  let str: number|string = val.toFixed(decimalPlaces);
+  let str: number | string = val.toFixed(decimalPlaces);
 
   if (!fixedDecimals) {
     str = str.replace(formatDecimalsRegExp, '$1');
@@ -121,9 +121,9 @@ function format(value: number, options: OPTIONS) {
 
   if (splitUnit) {
     if (!isNaN(Number(str))) str = Number(str);
-    return [str, unit.toUpperCase()];
+    return [str, unit.toUpperCase().replace('I', 'i')];
   }
-  return str + unitSeparator + unit.toUpperCase().replace('I','i');
+  return str + unitSeparator + unit.toUpperCase().replace('I', 'i');
 }
 
 function parse(val: string, options: OPTIONS) {
