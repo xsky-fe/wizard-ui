@@ -21,7 +21,7 @@ const Layout = props => {
     setCls(theme);
     isClient && window.localStorage.setItem('theme', theme);
   }, [cls, setCls]);
-
+  const a = 1;
   return (
     <div className={`theme-${cls}`}>
       {<TopBar cls={cls} toggle={toggle} slug={props.slug}/>}
