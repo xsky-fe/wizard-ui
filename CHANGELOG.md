@@ -1,3 +1,9 @@
+* Merge pull request #156 from xsky-fe/fix/usageBar (2892b2a)
+* format. (9bf2c8c)
+* fix:[usageBar]add show limit for usageBar (2dab535)
+* fix:[usageBar]add show limit for usageBar (d1a7b79)
+* fix:[usageBar]add show limit for usageBar (ddcda29)
+
 
 
 
