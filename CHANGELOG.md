@@ -1,3 +1,10 @@
+## [0.6.26](https://github.com/xsky-fe/wizard-ui/compare/0.6.25...0.6.26) (2022-02-09)
+
+
+### Bug Fixes
+
+* update the version of the rc-calendar ([56e352c](https://github.com/xsky-fe/wizard-ui/commit/56e352ce6b35fe57c3f7884c6436096ece5a7a1d))
+
 * Merge pull request #156 from xsky-fe/fix/usageBar (2892b2a)
 * format. (9bf2c8c)
 * fix:[usageBar]add show limit for usageBar (2dab535)
