@@ -51,7 +51,7 @@ storiesOf('DropdownButton', module)
         id="a2"
         title="complex menu"
         menu={[
-          { title: 'data-action', 'data-action': 'update' },
+          { title: 'data-action', 'data-action': 'update', toolTip: 'Not allow to operate', disabled: true },
           { title: 'eventKey', eventKey: 'delete' },
         ]}
       />

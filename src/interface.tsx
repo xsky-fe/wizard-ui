@@ -200,6 +200,8 @@ export type DropdownButtonMenuItem =
     onClick?: any;
     onSelect?: Function;
     disabled?: boolean;
+    toolTip?: any;
+    placement?: string;
   }
   | string;
 
