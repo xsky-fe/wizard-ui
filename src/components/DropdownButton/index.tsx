@@ -47,7 +47,7 @@ function renderMenu(menu: DropdownButtonMenuItem, setButtonOpen: Function, open?
     if (onSelect) onSelect(eventKey);
   }
   return <MenuItem {...item} onSelect={handleItemSelect} >
-    { item.toolTip ? (<Tooltip label={item.title} placement={item.toolTip.placement || 'right'}>{item.toolTip.text}</Tooltip>)
+    { item.toolTip ? (<Tooltip  {...item.toolTip} label={item.title} placement={item.toolTip.placement || 'right'}>{item.toolTip.children}</Tooltip>)
     : item.title }
     </MenuItem>;
 }

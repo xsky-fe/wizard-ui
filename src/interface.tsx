@@ -201,7 +201,7 @@ export type DropdownButtonMenuItem =
     onSelect?: Function;
     disabled?: boolean;
     toolTip?: {
-      text: any;
+      children: React.ReactNode | string;
       placement?: string;
     }
   }
