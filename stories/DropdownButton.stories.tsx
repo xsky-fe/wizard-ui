@@ -51,7 +51,7 @@ storiesOf('DropdownButton', module)
         id="a2"
         title="complex menu"
         menu={[
-          { title: 'data-action', 'data-action': 'update', toolTip: 'Not allow to operate', disabled: true },
+          { title: 'data-action', 'data-action': 'update', disabled: true },
           { title: 'eventKey', eventKey: 'delete' },
         ]}
       />
@@ -65,6 +65,14 @@ storiesOf('DropdownButton', module)
         ]}
       />
       <DropdownButton id="a4" title="children" children={<div>customized dropdown menu</div>} />
+      <DropdownButton
+        id="a5"
+        title="menu"
+        menu={[
+          { key: 'menu1', title: 'menu1', toolTip: { text: 'Not allow to operate'} },
+          { key: 'menu2', title: 'menu2', toolTip: { text: 'Not allow to operate', placement: 'top'} },
+        ]}
+      />
     </div>
   ))
   .add('disabled', () => (
