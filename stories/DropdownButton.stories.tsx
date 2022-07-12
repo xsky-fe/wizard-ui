@@ -69,8 +69,8 @@ storiesOf('DropdownButton', module)
         id="a5"
         title="menu"
         menu={[
-          { key: 'menu1', title: 'menu1', disabled: true, toolTip: { children: 'Not allow to operate'} },
-          { key: 'menu2', title: 'menu2', disabled: true,  toolTip: { children: 'Not allow to operate', placement: 'top'} },
+          { key: 'menu1', title: 'menu1', disabled: true, toolTip: { label: 'menu1', children: 'Not allow to operate'} },
+          { key: 'menu2', title: 'menu2', disabled: true,  toolTip: { label: 'menu1', children: 'Not allow to operate', placement: 'top'} },
         ]}
       />
     </div>
