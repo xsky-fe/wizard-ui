@@ -8,6 +8,7 @@ import {
   DefaultDropdownButtonProps,
 } from '../../interface';
 import cloneDeep from 'lodash/cloneDeep';
+import Tooltip from '../Tooltip';
 import './style.scss';
 
 function randomId() {
@@ -45,7 +46,10 @@ function renderMenu(menu: DropdownButtonMenuItem, setButtonOpen: Function, open?
     // 如果有传入 onSelect 回调函数，会继续执行传入的回调函数
     if (onSelect) onSelect(eventKey);
   }
-  return <MenuItem {...item} onSelect={handleItemSelect} >{item.title}</MenuItem>;
+  return <MenuItem {...item} onSelect={handleItemSelect} >
+    { item.toolTip ? (<Tooltip  {...item.toolTip} placement={item.toolTip.placement || 'right'}>{item.toolTip.children}</Tooltip>)
+    : item.title }
+    </MenuItem>;
 }
 
 const DropdownButton = (props: DropdownButtonProps) => {

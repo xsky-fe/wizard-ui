@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { Popover } from '../src';
 
 const Button = (props: ButtonProps) => (
+  // @ts-ignore
   <BaseButton {...props} style={{ marginRight: '30px' }}></BaseButton>
 )
 
