@@ -34,6 +34,7 @@ const DatePicker: React.FC<DatePickerProps> = props => {
     lang,
   } = props;
   const [val, setVal] = React.useState();
+  const calendarContainerRef = React.useRef<HTMLDivElement>(null);
   const handleChange = React.useCallback(
     (value: Moment) => {
       setVal(value);
@@ -53,6 +54,7 @@ const DatePicker: React.FC<DatePickerProps> = props => {
       showToday={false}
     />
   );
+  const getCalendarContainer = () => calendarContainerRef.current;
 
   return (
     <RCDatePicker
@@ -61,6 +63,7 @@ const DatePicker: React.FC<DatePickerProps> = props => {
       calendar={calendar}
       value={reset ? null : val || (defaultValue && moment(defaultValue))}
       onChange={handleChange}
+      getCalendarContainer={getCalendarContainer}
     >
       {({ value }: any) => {
         return (
@@ -71,6 +74,7 @@ const DatePicker: React.FC<DatePickerProps> = props => {
               readOnly
               value={(value && value.format(getFormat(showTime))) || ''}
             />
+            <div ref={calendarContainerRef} />
           </span>
         );
       }}
