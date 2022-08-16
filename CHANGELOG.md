@@ -1,3 +1,5 @@
+## [0.6.31](https://github.com/xsky-fe/wizard-ui/compare/0.6.30...0.6.31) (2022-08-16)
+
 ## [0.6.29](https://github.com/xsky-fe/wizard-ui/compare/0.6.28...0.6.29) (2022-07-22)
 
 ## [0.6.28](https://github.com/xsky-fe/wizard-ui/compare/0.6.27...0.6.28) (2022-05-23)
