@@ -36,7 +36,7 @@
     "react-bootstrap": "^0.31.1",
     "react-dev-utils": "^11.0.4",
     "react-ios-switch": "^0.1.19",
-    "wizard-icons": "^0.1.15"
+    "wizard-icons": "^0.1.16"
   },
   "scripts": {
     "test": "jest --env=jsdom",
