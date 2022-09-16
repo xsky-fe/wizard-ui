@@ -142,6 +142,8 @@ export interface ModalProps {
   loading?: boolean;
   hideFooter?: boolean;
   hideHeader?: boolean;
+  draggable?: boolean;
+  preventDragByTitle?: boolean;
 }
 
 interface SwitchInput {

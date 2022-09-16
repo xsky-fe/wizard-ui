@@ -73,4 +73,20 @@ describe('Modal', () => {
     ).toBeTruthy();
     expect(node.find('Loader').length).toBe(1);
   });
+  it('draggable props', () => {
+    const draggableNode = mount(
+      <Modal title="Modal Title" onHide={noOp}>
+        <strong>Modal Content</strong>
+      </Modal>,
+    );
+    expect(draggableNode.find('.drag-handle').length).toBe(1);
+
+    const disDraggableNode = mount(
+      <Modal title="Modal Title" onHide={noOp} draggable={false}>
+        <strong>Modal Content</strong>
+      </Modal>,
+    );
+    expect(disDraggableNode.find('.drag-handle').length).toBe(0);
+  });
+
 });
