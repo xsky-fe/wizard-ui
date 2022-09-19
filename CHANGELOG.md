@@ -1,3 +1,10 @@
+# [0.7.0](https://github.com/xsky-fe/wizard-ui/compare/0.6.32...0.7.0) (2022-09-19)
+
+
+### Features
+
+* Draggable Modal ([43ad71c](https://github.com/xsky-fe/wizard-ui/commit/43ad71c6f5cd6fda22e6d50f1956178e46a6545a))
+
 
 
 ## [0.6.32](https://github.com/xsky-fe/wizard-ui/compare/0.6.31...0.6.32) (2022-08-26)
