@@ -1,4 +1,10 @@
 .Modal {
+  .modal-header{
+    .close {
+      // 添加定位属性，让 close 的 icon 在 drag-handle上层
+      position: relative;
+    }
+  }
   .modal-body {
     padding: 24px 50px 0 50px;
   }
