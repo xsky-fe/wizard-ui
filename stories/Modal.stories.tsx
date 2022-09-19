@@ -15,6 +15,7 @@ const ModalPicker = () => {
         onHide={handleHide}
         onOk={handleHide}
         hideFooter
+        preventDragByTitle
       >
         <DatePicker defaultValue="2019-08-13 12:02:53" />
       </Modal>
