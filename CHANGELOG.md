@@ -1,3 +1,10 @@
+## [0.7.1](https://github.com/xsky-fe/wizard-ui/compare/0.7.0...0.7.1) (2022-09-20)
+
+
+### Bug Fixes
+
+* Modal close icon can not click ([d914ecf](https://github.com/xsky-fe/wizard-ui/commit/d914ecfb15e177689657b2133bf72aca584af3c6))
+
 # [0.7.0](https://github.com/xsky-fe/wizard-ui/compare/0.6.32...0.7.0) (2022-09-19)
 
 
