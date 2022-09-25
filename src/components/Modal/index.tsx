@@ -1,20 +1,13 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {
-  Modal as BaseModal,
-  ModalHeader,
-  ModalTitle,
-  ModalBody,
-  ModalFooter,
-  Button,
-} from 'react-bootstrap';
+import { Modal as BaseModal, ModalHeader, ModalTitle, ModalBody, ModalFooter, Button } from 'react-bootstrap';
 import Draggable, { DraggableEvent, DraggableData } from 'react-draggable';
 import { ModalProps } from '../../interface';
 import Loader from '../Loader';
 
 import './style.scss';
 
-const useDrag = ()=>{
+const useDrag = () => {
   const [bounds, setBounds] = React.useState({ left: 0, top: 0, bottom: 0, right: 0 });
   const draggleRef = React.useRef<HTMLDivElement>(null);
   const onStart = (_event: DraggableEvent, uiData: DraggableData) => {
@@ -36,17 +29,17 @@ const useDrag = ()=>{
   return {
     draggleRef,
     onStart,
-    bounds
+    bounds,
   };
-}
+};
 
 // 保持容器高度不塌陷
 const draggableHiddenTitleStyle: React.CSSProperties = {
-  visibility: 'hidden'
+  visibility: 'hidden',
 };
 
-const Modal: React.FC<ModalProps> = props => {
-  const {onStart, bounds, draggleRef} = useDrag();
+const Modal: React.FC<ModalProps> = (props) => {
+  const { onStart, bounds, draggleRef } = useDrag();
 
   const {
     title,
@@ -61,7 +54,7 @@ const Modal: React.FC<ModalProps> = props => {
     hideFooter,
     hideHeader,
     draggable = true,
-    preventDragByTitle
+    preventDragByTitle,
   } = props;
   let { bsSize } = props,
     dialogClassName = '';
@@ -71,31 +64,36 @@ const Modal: React.FC<ModalProps> = props => {
   }
 
   // 让 title 在可拖动模块的上层，来使title区域的拖动效果失效
-  const modalTitleStyle = React.useMemo<React.CSSProperties>(() => (draggable && preventDragByTitle ? { position: 'absolute' } : {}), [draggable, preventDragByTitle]);
+  const modalTitleStyle = React.useMemo<React.CSSProperties>(
+    () => (draggable && preventDragByTitle ? { position: 'absolute' } : {}),
+    [draggable, preventDragByTitle],
+  );
 
   return (
-    <Draggable
-      disabled={!draggable}
-      bounds={bounds}
-      handle=".drag-handle"
-      onStart={(event, uiData) => onStart(event, uiData)}
+    <BaseModal
+      bsSize={bsSize}
+      className="Modal"
+      dialogClassName={dialogClassName}
+      style={style}
+      backdrop="static"
+      onHide={onHide}
+      show={show}
     >
-      <BaseModal
-        bsSize={bsSize}
-        className="Modal"
-        dialogClassName={dialogClassName}
-        style={style}
-        backdrop="static"
-        onHide={onHide}
-        show={show}
+      <Draggable
+        disabled={!draggable}
+        bounds={bounds}
+        handle=".drag-handle"
+        onStart={(event, uiData) => onStart(event, uiData)}
       >
-        <div ref={draggleRef}>
-          {draggable && <div className="drag-handle" ref={draggleRef}/>}
+        <div ref={draggleRef} className="modal-content">
+          {draggable && <div className="drag-handle" />}
           <div>
             {!hideHeader && (
               <ModalHeader key="header" closeButton>
                 <ModalTitle style={modalTitleStyle}>{title}</ModalTitle>
-                {draggable && preventDragByTitle ?  <ModalTitle style={draggableHiddenTitleStyle}>{title}</ModalTitle> : null}
+                {draggable && preventDragByTitle ? (
+                  <ModalTitle style={draggableHiddenTitleStyle}>{title}</ModalTitle>
+                ) : null}
               </ModalHeader>
             )}
           </div>
@@ -110,8 +108,8 @@ const Modal: React.FC<ModalProps> = props => {
             </ModalFooter>
           )}
         </div>
-      </BaseModal>
-    </Draggable>
+      </Draggable>
+    </BaseModal>
   );
 };
 
