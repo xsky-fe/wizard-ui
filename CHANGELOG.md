@@ -1,3 +1,5 @@
+## [0.7.4](https://github.com/xsky-fe/wizard-ui/compare/0.7.1...0.7.4) (2022-10-19)
+
 ## [0.7.3](https://github.com/xsky-fe/wizard-ui/compare/0.7.2...0.7.3) (2022-10-19)
 
 ## [0.7.3](https://github.com/xsky-fe/wizard-ui/compare/0.7.1...0.7.2) (2022-10-19)
