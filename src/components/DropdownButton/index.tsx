@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import { DropdownButton as BootstrapDropdownButton, MenuItem, ButtonGroup } from 'react-bootstrap';
+import {DropdownButton as BootstrapDropdownButton, MenuItem, ButtonGroup} from 'react-bootstrap';
 import SubMenu from '../SubMenu';
 import {
   DropdownButtonMenuItem,
@@ -17,22 +17,29 @@ function randomId() {
     .toString(36)
     .substring(2);
 }
+
 function renderContent(menu: DropdownButtonMenuItem[] = [], setButtonOpen: Function, open?: boolean) {
   if (menu instanceof Array) {
     return menu.map(m => renderMenu(m, setButtonOpen, open));
   }
   return menu;
 }
+
 function renderMenu(menu: DropdownButtonMenuItem, setButtonOpen: Function, open?: boolean) {
-  const item = cloneDeep(menu);
+  const item = React.useMemo(() => {
+    if (typeof menu === 'string') {
+      return menu
+    } else {
+      return cloneDeep({...menu, key: menu.key || randomId()})
+    }
+  }, [menu]);
   if (!item) {
     return null;
   }
   if (typeof item === 'string') {
-    return <MenuItem key={item} onSelect={() => { setButtonOpen(!!open) }} >{item}</MenuItem>;
-  }
-  if (!item.key) {
-    item.key = randomId();
+    return <MenuItem key={item} onSelect={() => {
+      setButtonOpen(!!open)
+    }}>{item}</MenuItem>;
   }
   if (item.children && item.children.length) {
     return (
@@ -42,21 +49,22 @@ function renderMenu(menu: DropdownButtonMenuItem, setButtonOpen: Function, open?
     );
   }
   const handleItemSelect = (eventKey: any) => {
-    const { onSelect } = item;
+    const {onSelect} = item;
     setButtonOpen(!!open);
     // 如果有传入 onSelect 回调函数，会继续执行传入的回调函数
     if (onSelect) onSelect(eventKey);
   }
   const menuProps = omit(item, 'toolTip');
-  return <MenuItem {...menuProps} onSelect={handleItemSelect} >
-    { item.toolTip ? (<Tooltip  {...item.toolTip} placement={item.toolTip.placement || 'right'}>{item.toolTip.children}</Tooltip>)
-    : item.title }
-    </MenuItem>;
+  return <MenuItem {...menuProps} onSelect={handleItemSelect}>
+    {item.toolTip ? (
+        <Tooltip  {...item.toolTip} placement={item.toolTip.placement || 'right'}>{item.toolTip.children}</Tooltip>)
+      : item.title}
+  </MenuItem>;
 }
 
 const DropdownButton = (props: DropdownButtonProps) => {
   const getContainerClass = () => {
-    const { modifer } = props;
+    const {modifer} = props;
     let className = 'dropdown-container';
     if (modifer) {
       className += ' ' + modifer;
@@ -64,7 +72,7 @@ const DropdownButton = (props: DropdownButtonProps) => {
     return className;
   };
   const getOnToggle = (isOpen: boolean) => {
-    const { onToggle } = props;
+    const {onToggle} = props;
     // 没有传入 open 属性，下拉框点击 MenuItem 会合起；
     if (!props.hasOwnProperty('open')) {
       setButtonOpen(isOpen);
@@ -73,7 +81,7 @@ const DropdownButton = (props: DropdownButtonProps) => {
     if (onToggle) onToggle(isOpen);
   };
 
-  const { bsStyle, id, onSelect, bsSize, title, menu, children, componentClass, open } = props;
+  const {bsStyle, id, onSelect, bsSize, title, menu, children, componentClass, open} = props;
   const allBoolProps = ['disabled', 'dropup', 'noCaret', 'open', 'pullRight'];
   const boolProps = {};
   const [buttonOpen, setButtonOpen] = React.useState<boolean>(!!open);
@@ -169,7 +177,7 @@ DropdownButton.propTypes = {
   title: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
 };
 
-const defaultProps: DefaultDropdownButtonProps = { componentClass: ButtonGroup };
+const defaultProps: DefaultDropdownButtonProps = {componentClass: ButtonGroup};
 
 DropdownButton.defaultProps = defaultProps;
 
