@@ -37,6 +37,7 @@
     "react-dev-utils": "^11.0.4",
     "react-draggable": "^4.4.5",
     "react-ios-switch": "^0.1.19",
+    "reselect": "^4.1.7",
     "wizard-icons": "^0.1.20"
   },
   "scripts": {
