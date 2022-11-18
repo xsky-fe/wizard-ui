@@ -1,3 +1,10 @@
+## [0.7.6](https://github.com/xsky-fe/wizard-ui/compare/0.7.5...0.7.6) (2022-11-18)
+
+
+### Bug Fixes
+
+* update DropdownButton item key ([fe07a1c](https://github.com/xsky-fe/wizard-ui/commit/fe07a1c7ec1c87d53a550aaaaf3ba5ab3b2175de))
+
 ## [0.7.4](https://github.com/xsky-fe/wizard-ui/compare/0.7.1...0.7.4) (2022-10-19)
 
 ## [0.7.3](https://github.com/xsky-fe/wizard-ui/compare/0.7.2...0.7.3) (2022-10-19)
