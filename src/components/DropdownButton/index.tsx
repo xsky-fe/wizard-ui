@@ -17,22 +17,29 @@ function randomId() {
     .toString(36)
     .substring(2);
 }
+
 function renderContent(menu: DropdownButtonMenuItem[] = [], setButtonOpen: Function, open?: boolean) {
   if (menu instanceof Array) {
     return menu.map(m => renderMenu(m, setButtonOpen, open));
   }
   return menu;
 }
+
 function renderMenu(menu: DropdownButtonMenuItem, setButtonOpen: Function, open?: boolean) {
-  const item = cloneDeep(menu);
+  const item = React.useMemo(() => {
+    if (typeof menu === 'string') {
+      return menu
+    } else {
+      return cloneDeep({...menu, key: menu.key || randomId()})
+    }
+  }, [menu]);
   if (!item) {
     return null;
   }
   if (typeof item === 'string') {
-    return <MenuItem key={item} onSelect={() => { setButtonOpen(!!open) }} >{item}</MenuItem>;
-  }
-  if (!item.key) {
-    item.key = randomId();
+    return <MenuItem key={item} onSelect={() => {
+      setButtonOpen(!!open)
+    }}>{item}</MenuItem>;
   }
   if (item.children && item.children.length) {
     return (
@@ -42,16 +49,17 @@ function renderMenu(menu: DropdownButtonMenuItem, setButtonOpen: Function, open?
     );
   }
   const handleItemSelect = (eventKey: any) => {
-    const { onSelect } = item;
+    const {onSelect} = item;
     setButtonOpen(!!open);
     // 如果有传入 onSelect 回调函数，会继续执行传入的回调函数
     if (onSelect) onSelect(eventKey);
   }
   const menuProps = omit(item, 'toolTip');
-  return <MenuItem {...menuProps} onSelect={handleItemSelect} >
-    { item.toolTip ? (<Tooltip  {...item.toolTip} placement={item.toolTip.placement || 'right'}>{item.toolTip.children}</Tooltip>)
-    : item.title }
-    </MenuItem>;
+  return <MenuItem {...menuProps} onSelect={handleItemSelect}>
+    {item.toolTip ? (
+        <Tooltip  {...item.toolTip} placement={item.toolTip.placement || 'right'}>{item.toolTip.children}</Tooltip>)
+      : item.title}
+  </MenuItem>;
 }
 
 const DropdownButton = (props: DropdownButtonProps) => {
