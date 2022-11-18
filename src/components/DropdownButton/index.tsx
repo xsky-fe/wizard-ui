@@ -1,6 +1,8 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import { DropdownButton as BootstrapDropdownButton, MenuItem, ButtonGroup } from 'react-bootstrap';
+import { createSelector } from 'reselect';
+
 import SubMenu from '../SubMenu';
 import {
   DropdownButtonMenuItem,
@@ -11,6 +13,17 @@ import cloneDeep from 'lodash/cloneDeep';
 import omit from 'lodash/omit';
 import Tooltip from '../Tooltip';
 import './style.scss';
+
+const getParseData = createSelector(
+  [(menu: DropdownButtonMenuItem) => menu],
+  (menu: DropdownButtonMenuItem) =>{
+    if (typeof menu === 'string') {
+      return menu
+    } else {
+      return cloneDeep({...menu, key: menu.key || randomId()})
+    }
+  }
+);
 
 function randomId() {
   return Math.random()
@@ -26,13 +39,8 @@ function renderContent(menu: DropdownButtonMenuItem[] = [], setButtonOpen: Funct
 }
 
 function renderMenu(menu: DropdownButtonMenuItem, setButtonOpen: Function, open?: boolean) {
-  const item = React.useMemo(() => {
-    if (typeof menu === 'string') {
-      return menu
-    } else {
-      return cloneDeep({...menu, key: menu.key || randomId()})
-    }
-  }, [menu]);
+  // 这里不是react组件，用 createSelector 代替
+  const item = getParseData(menu);
   if (!item) {
     return null;
   }
