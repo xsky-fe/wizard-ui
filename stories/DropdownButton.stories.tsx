@@ -1,11 +1,13 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { DropdownButton } from '../src';
+import DropdownButtonDemo from './demos/DropdownButtonDemo';
 import { InputGroup } from 'react-bootstrap';
 
 storiesOf('DropdownButton', module)
   .add('size', () => (
     <div>
+      <DropdownButtonDemo />
       <DropdownButton id="a1" bsSize="large" title="large" menu={['menu1', 'menu2', 'menu3']} />
       <DropdownButton id="a2" title="default" menu={['menu1', 'menu2', 'menu3']} />
       <DropdownButton id="a3" bsSize="small" title="small" menu={['menu1', 'menu2', 'menu3']} />
