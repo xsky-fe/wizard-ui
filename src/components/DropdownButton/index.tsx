@@ -19,14 +19,22 @@ function randomId() {
     .substring(2);
 }
 
-function renderContent(menu: DropdownButtonMenuItem[] = [], setButtonOpen: Function, open?: boolean) {
+function renderContent(menu: DropdownButtonMenuItem[] = [], setButtonOpen: Function, isDifferentMenu: boolean, open?: boolean) {
   if (menu instanceof Array) {
-    return menu.map(m => renderMenu(m, setButtonOpen, open));
+    return menu.map(m => renderMenu(m, setButtonOpen, isDifferentMenu, open));
   }
   return menu;
 }
 
-function renderMenu(menu: DropdownButtonMenuItem, setButtonOpen: Function, open?: boolean) {
+function usePrevious(value: any) {
+  const ref = React.useRef();
+  React.useEffect(() => {
+    ref.current = value;
+  });
+  return ref.current;
+}
+
+function renderMenu(menu: DropdownButtonMenuItem, setButtonOpen: Function, isDifferentMenu: boolean, open?: boolean) {
   const item = cloneDeep(menu);
   if (!item) {
     return null;
@@ -34,10 +42,13 @@ function renderMenu(menu: DropdownButtonMenuItem, setButtonOpen: Function, open?
   if (typeof item === 'string') {
     return <MenuItem key={item} onSelect={() => { setButtonOpen(!!open) }} >{item}</MenuItem>;
   }
+  if (!item.key  && !isDifferentMenu) {
+    item.key = randomId();
+  }
   if (item.children && item.children.length) {
     return (
       <SubMenu key={item.key} title={item.title} name={item.children[0]['data-action']}>
-        {renderContent(item.children, setButtonOpen, open)}
+        {renderContent(item.children, setButtonOpen, isDifferentMenu, open)}
       </SubMenu>
     );
   }
@@ -47,7 +58,6 @@ function renderMenu(menu: DropdownButtonMenuItem, setButtonOpen: Function, open?
     // 如果有传入 onSelect 回调函数，会继续执行传入的回调函数
     if (onSelect) onSelect(eventKey);
   }
-
   const menuProps = omit(item, 'toolTip');
   return <MenuItem {...menuProps} onSelect={handleItemSelect} >
     { item.toolTip ? (<Tooltip  {...item.toolTip} placement={item.toolTip.placement || 'right'}>{item.toolTip.children}</Tooltip>)
@@ -75,27 +85,9 @@ const DropdownButton = (props: DropdownButtonProps) => {
   };
 
   const { bsStyle, id, onSelect, bsSize, title, menu, children, componentClass, open } = props;
-  const parsedMenu = React.useMemo(() => {
-    const parseMenuData = (menu: DropdownButtonMenuItem[]): DropdownButtonMenuItem[] => {
-      return menu.map((val) => {
-        if (typeof val === 'string') {
-          return val;
-        }
-        if(val.children && val.children.length > 0){
-          return {
-            ...val,
-            key: val.key || randomId(),
-            children: parseMenuData(val.children),
-          };
-        }
-        return val;
-      });
-    };
-    if (menu) {
-      return parseMenuData(menu);
-    }
-    return [];
-  }, [menu]);
+
+  const prevMenu = usePrevious(menu);
+  const isDifferentMenu = prevMenu !== menu;
   const allBoolProps = ['disabled', 'dropup', 'noCaret', 'open', 'pullRight'];
   const boolProps = {};
   const [buttonOpen, setButtonOpen] = React.useState<boolean>(!!open);
@@ -119,7 +111,7 @@ const DropdownButton = (props: DropdownButtonProps) => {
       className={containerClassName}
       open={props.hasOwnProperty('open') ? open : buttonOpen}
     >
-      {parsedMenu ? renderContent(parsedMenu, setButtonOpen, open) : children}
+      {menu ? renderContent(menu, setButtonOpen, isDifferentMenu, open) : children}
     </BootstrapDropdownButton>
   );
 };
