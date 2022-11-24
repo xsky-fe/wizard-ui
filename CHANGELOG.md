@@ -1,3 +1,14 @@
+## [0.7.7](https://github.com/xsky-fe/wizard-ui/compare/0.7.6...0.7.7) (2022-11-24)
+
+
+### Bug Fixes
+
+* Draggable Modal moves the browser scroll bar ([d1d7e64](https://github.com/xsky-fe/wizard-ui/commit/d1d7e64eff77bdc0c67aa0683739213601792fe4))
+* dropdownButton useMemo error ([fc9296b](https://github.com/xsky-fe/wizard-ui/commit/fc9296b460223845f305174a0766097c643bebcb))
+* prefer code ([9467114](https://github.com/xsky-fe/wizard-ui/commit/9467114be8dc9e501b42ac7e706100475531e325))
+* prefer code ([ebb473b](https://github.com/xsky-fe/wizard-ui/commit/ebb473bcaaa63f7a4f508523c01c965de347ba2c))
+* update npmrc ([83ad286](https://github.com/xsky-fe/wizard-ui/commit/83ad2865825538e671ad4f9355ee28cb6e0d145b))
+
 ## [0.7.6](https://github.com/xsky-fe/wizard-ui/compare/0.7.5...0.7.6) (2022-11-18)
 
 
