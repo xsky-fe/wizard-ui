@@ -42,7 +42,7 @@ function renderMenu(menu: DropdownButtonMenuItem, setButtonOpen: Function, isDif
   if (typeof item === 'string') {
     return <MenuItem key={item} onSelect={() => { setButtonOpen(!!open) }} >{item}</MenuItem>;
   }
-  if (!item.key  && !isDifferentMenu) {
+  if (!item.key  && isDifferentMenu) {
     item.key = randomId();
   }
   if (item.children && item.children.length) {
