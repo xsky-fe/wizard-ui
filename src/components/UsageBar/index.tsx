@@ -178,9 +178,9 @@ const UsageBar: React.FC<UsageBarProps> = props => {
         {
           lodash.map(finalSeries, ({ bsStyle, perc }, index) => (
             // bs ProgressBar 只支持最多 5 种 style，索引摒弃 bsStyle 属性，改用组装 className
-            // style用于展示最小进度，不满1px时以1px展示，考虑以百分比展示时的最小展示进度，只要perc >= 0.00005，都会展示为0.01%，应展示最小进度；但如果展示的是0.00%，实际上是有很小的值，但从体验层面上，应该不展示进度，故需要对临界点做处理
+            // style用于展示最小进度，不满1px时以1px展示，只要perc > 0，最小进度就是1px
             <ProgressBar className={bsStyle && `progress-bar-${bsStyle}`} now={perc} max={1} key={index}
-              style={{ 'minWidth': (!hasPercent && !isPercent && perc > 0) ? '1px' : isPercent && perc >= 0.00005 ? '1px' : '0px' }} />
+              style={{ 'minWidth': perc > 0 ? '1px': '0px' }} />
           ))
         }
       </ProgressBar>
