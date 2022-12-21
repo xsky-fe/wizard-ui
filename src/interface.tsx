@@ -194,16 +194,16 @@ export interface SubMenuProps {
 
 export type DropdownButtonMenuItem =
   | {
-    key?: string | number;
-    children?: DropdownButtonMenuItem[];
-    title: string;
-    eventKey?: string;
-    'data-action'?: string;
-    onClick?: any;
-    onSelect?: Function;
-    disabled?: boolean;
-    toolTip?: TooltipProps;
-  }
+      key?: string | number;
+      children?: DropdownButtonMenuItem[];
+      title: string;
+      eventKey?: string;
+      'data-action'?: string;
+      onClick?: any;
+      onSelect?: Function;
+      disabled?: boolean;
+      toolTip?: TooltipProps;
+    }
   | string;
 
 export interface DefaultDropdownButtonProps {
