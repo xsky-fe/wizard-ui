@@ -71,10 +71,9 @@ const Modal: React.FC<ModalProps> = props => {
   }
 
   // 让 title 在可拖动模块的上层，来使title区域的拖动效果失效
-  const modalTitleStyle = React.useMemo<React.CSSProperties>(
-    () => (draggable && preventDragByTitle ? { position: 'absolute' } : {}),
-    [draggable, preventDragByTitle],
-  );
+  const modalTitleStyle = React.useMemo<React.CSSProperties>(() => {
+    return draggable && preventDragByTitle ? { position: 'absolute' } : {};
+  }, [draggable, preventDragByTitle]);
 
   return (
     <BaseModal
