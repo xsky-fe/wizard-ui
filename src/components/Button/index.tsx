@@ -12,8 +12,8 @@ const Button: React.FC<ButtonProps> = props => {
       label={
         <div className="Button_Tooltip-Div">
           <BSButton
-            {...(restProps as any)}
-            className={disabled ? `Button_Tooltip-Div-Button ${className}` : `${className}`}
+            {...restProps as any}
+            className={disabled ? `Button_Tooltip-Div-Button ${className}` : className}
           >
             {children}
           </BSButton>
@@ -22,7 +22,7 @@ const Button: React.FC<ButtonProps> = props => {
       {...toolTip}
     />
   ) : (
-    <BSButton {...(restProps as any)}>{children}</BSButton>
+    <BSButton {...restProps as any}>{children}</BSButton>
   );
 };
 
