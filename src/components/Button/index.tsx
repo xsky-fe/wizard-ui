@@ -4,8 +4,6 @@ import Tooltip from '../Tooltip';
 import { ButtonProps } from '../../interface';
 import './style.scss';
 
-interface Button extends ButtonProps {}
-
 const Button: React.FC<ButtonProps> = props => {
   const { toolTip, children, ...restProps } = props;
   const { disabled, className } = restProps;

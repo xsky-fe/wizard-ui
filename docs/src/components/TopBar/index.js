@@ -98,7 +98,7 @@ const TopBar = (props) => {
           <ul className="nav navbar-nav navbar-right">
             <li>
               <Tooltip label={(
-                <div onClick={toggle}>
+                <div onClick={() => {}} onKeyDown={toggle} role="button" tabIndex={0}>
                   <Icon type={cls === 'light' ? 'light-dark' : 'light'} />
                 </div>
               )}>

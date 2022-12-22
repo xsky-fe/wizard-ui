@@ -27,9 +27,6 @@ module.exports = api => {
           removeImport: true,
         },
       ],
-      "@babel/plugin-transform-react-jsx", {
-        "throwIfNamespace": false
-      }
     ],
     ignore: [
       '**/*.test.tsx',

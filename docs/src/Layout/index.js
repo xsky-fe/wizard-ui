@@ -24,7 +24,7 @@ const Layout = props => {
 
   return (
     <div className={`theme-${cls}`}>
-      {<TopBar cls={cls} toggle={toggle} slug={props.slug}/>}
+      {<TopBar cls={cls} toggle={toggle} slug={props.slug} />}
       <Grid fluid className="Main">
         {props.children}
       </Grid>
