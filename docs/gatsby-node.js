@@ -81,13 +81,17 @@ exports.createPages = ({ graphql, actions }) => {
     posts.forEach((post, index) => {
       const slug = post.node.fields.slug;
       if (slug.includes('get-started')) {
-        createPage({
-          path: slug,
-          component: defaultPage,
-          context: {
-            slug,
-          },
-        })
+        try {
+          createPage({
+            path: slug,
+            component: defaultPage,
+            context: {
+              slug,
+            },
+          })
+        } catch (e) {
+          console.log(e);
+        }
       } else {
         const next = index === posts.length - 1 ? null : posts[index + 1].node
         const previous = index === 0 ? null : posts[index - 1].node
@@ -98,16 +102,20 @@ exports.createPages = ({ graphql, actions }) => {
           return slug === path;
         });
         const propDatas = propTableDatas.length > 0 ? propTableDatas[0] : null;
-        createPage({
-          path: slug,
-          component: componentPage,
-          context: {
-            slug,
-            previous,
-            next,
-            propDatas,
-          },
-        })
+        try {
+          createPage({
+            path: slug,
+            component: componentPage,
+            context: {
+              slug,
+              previous,
+              next,
+              propDatas,
+            },
+          })
+        } catch (e) {
+          console.log(e);
+        }
       }
     })
 
@@ -120,10 +128,14 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
   if ([`Mdx`, 'ComponentMetadata'].includes(node.internal.type)) {
     const value = createFilePath({ node, getNode })
-    createNodeField({
-      name: `slug`,
-      node,
-      value,
-    })
+    try {
+      createNodeField({
+        name: `slug`,
+        node,
+        value,
+      })
+    } catch (e) {
+      console.log(e);
+    }
   }
 }
