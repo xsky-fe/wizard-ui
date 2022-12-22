@@ -26,7 +26,6 @@
     "gatsby-transformer-sharp": "^2.1.19",
     "lodash": "^4.17.11",
     "node-sass": "^4.12.0",
-    "plugin-transform-react-jsx": "^0.0.1-security",
     "prop-types": "^15.7.2",
     "rc-calendar": "9.12.4",
     "rc-time-picker": "^3.7.1",

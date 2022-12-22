@@ -10027,11 +10027,6 @@ pkg-up@3.1.0:
   dependencies:
     find-up "^3.0.0"
 
-plugin-transform-react-jsx@^0.0.1-security:
-  version "0.0.1-security"
-  resolved "https://registry.npmmirror.com/plugin-transform-react-jsx/-/plugin-transform-react-jsx-0.0.1-security.tgz#9479e00852d282e297b9c4b68369a83919192513"
-  integrity sha512-i4Yb0KEeylFRxvuXfflXvg0Y4rBt5v1XEZtt5Ly7V3zvCodCMJAiy/YGqKylcJxwfOVRrF2s/1l+av4Zs4aYmw==
-
 pn@^1.1.0:
   version "1.1.0"
   resolved "https://registry.npm.taobao.org/pn/download/pn-1.1.0.tgz#e2f4cef0e219f463c179ab37463e4e1ecdccbafb"
