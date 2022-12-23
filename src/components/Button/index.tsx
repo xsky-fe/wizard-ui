@@ -4,15 +4,15 @@ import Tooltip from '../Tooltip';
 import { ButtonProps } from '../../interface';
 import './style.scss';
 
-const Button: React.FC<ButtonProps> = props => {
+const Button: React.FC<ButtonProps> =  (props: any)  => {
   const { toolTip, children, ...restProps } = props;
-  const { disabled, className } = restProps;
+  const { disabled, className=null } = restProps;
   return toolTip ? (
     <Tooltip
       label={
         <div className="Button_Tooltip-Div">
           <BSButton
-            {...restProps as any}
+            {...restProps}
             className={disabled ? `Button_Tooltip-Div-Button ${className}` : `${className}`}
           >
             {children}
@@ -22,7 +22,7 @@ const Button: React.FC<ButtonProps> = props => {
       {...toolTip}
     />
   ) : (
-    <BSButton {...restProps as any}>{children}</BSButton>
+    <BSButton {...restProps}>{children}</BSButton>
   );
 };
 
