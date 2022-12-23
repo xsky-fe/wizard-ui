@@ -18,13 +18,13 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   })
 }
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const componentPage = path.resolve(`./src/templates/components-post.js`);
   const defaultPage = path.resolve(`./src/templates/default.js`);
 
-  graphql(
+  const result = await graphql(
     `
       {
         allMdx(
@@ -69,39 +69,40 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     `
-  ).then(result => {
-    if (result.errors) {
-      throw result.errors
-    }
+  );
+  if (result.errors) {
+    throw result.errors
+  }
 
-    // Create blog posts pages.
-    const posts = result.data.allMdx.edges
-    const propTables = result.data.allComponentMetadata.edges;
+  // Create blog posts pages.
+  const posts = result.data.allMdx.edges
+  const propTables = result.data.allComponentMetadata.edges;
 
-    posts.forEach((post, index) => {
-      const slug = post.node.fields.slug;
-      if (slug.includes('get-started')) {
-        try {
-          createPage({
-            path: slug,
-            component: defaultPage,
-            context: {
-              slug,
-            },
-          })
-        } catch (e) {
-          console.log(e);
-        }
-      } else {
-        const next = index === posts.length - 1 ? null : posts[index + 1].node
-        const previous = index === 0 ? null : posts[index - 1].node
-        // 组件 propTypes 解析
-        const propTableDatas = propTables.filter(pt => {
-          const pSlug = pt.node.fields.slug;
-          const path = `/components/${snakeCase(pSlug).replace(/_/g, '-')}/`;
-          return slug === path;
-        });
-        const propDatas = propTableDatas.length > 0 ? propTableDatas[0] : null;
+  posts.forEach((post, index) => {
+    const slug = post.node.fields.slug;
+    if (slug.includes('get-started')) {
+      try {
+        createPage({
+          path: slug,
+          component: defaultPage,
+          context: {
+            slug,
+          },
+        })
+      } catch (e) {
+        console.log(e);
+      }
+    } else {
+      const next = index === posts.length - 1 ? null : posts[index + 1].node
+      const previous = index === 0 ? null : posts[index - 1].node
+      // 组件 propTypes 解析
+      const propTableDatas = propTables.filter(pt => {
+        const pSlug = pt.node.fields.slug;
+        const path = `/components/${snakeCase(pSlug).replace(/_/g, '-')}/`;
+        return slug === path;
+      });
+      const propDatas = propTableDatas.length > 0 ? propTableDatas[0] : null;
+      if(propDatas) {
         try {
           createPage({
             path: slug,
@@ -117,10 +118,11 @@ exports.createPages = ({ graphql, actions }) => {
           console.log(e);
         }
       }
-    })
-
-    return null
+    }
   })
+
+  return null;
+  
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
