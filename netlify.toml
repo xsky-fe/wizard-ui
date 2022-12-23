@@ -10,4 +10,4 @@
 [build]
   base    = "docs/"
   publish = "docs/public"
-  command = "yarn build"
+  command = "rm -rf node_modules && rm -rf yarn.lock && yarn build"
