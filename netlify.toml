@@ -10,4 +10,4 @@
 [build]
   base    = "docs/"
   publish = "docs/public"
-  command = "yarn cache clean && rm -rf node_modules && rm -rf yarn.lock && yarn build"
+  command = "yarn build"
