@@ -4,7 +4,7 @@ import { Tab, Panel, NavItem, NavDropdown, MenuItem, Nav } from 'react-bootstrap
 import { getBemClass } from '../../utils';
 import { TabsProps } from '../../interface';
 import './style.scss';
-import lang from "../../locale/language";
+import lang from '../../locale/language';
 
 const MORE_TITLE = lang().MORE_TITLE;
 
@@ -22,13 +22,17 @@ const Tabs: React.FC<TabsProps> = props => {
   } = props;
 
   const [keyTitle, setKeyTitleValue] = React.useState<string>(MORE_TITLE);
-  const TabsPan = restProps.activeKey ? tabs.filter(item => { return item[eventKeyName] === restProps.activeKey }) : tabs[0];
+  const TabsPan = restProps.activeKey
+    ? tabs.filter(item => {
+        return item[eventKeyName] === restProps.activeKey;
+      })
+    : tabs[0];
   const tabsFrontList = tabs.slice(0, limitNum);
   const tabsLastList = tabs.slice(limitNum, tabs.length);
   const showMore = tabsLastList.length !== 0;
 
   React.useEffect(() => {
-    let activeKey = restProps.activeKey ? restProps.activeKey : ''
+    let activeKey = restProps.activeKey ? restProps.activeKey : '';
     let k = 0;
     let isFind = false;
     while (k < tabs.length && !isFind) {
@@ -42,9 +46,7 @@ const Tabs: React.FC<TabsProps> = props => {
     if (!isFind && keyTitle !== MORE_TITLE) {
       setKeyTitleValue(MORE_TITLE);
     }
-  }, [restProps.activeKey ? restProps.activeKey : ''])
-
-
+  }, [restProps.activeKey ? restProps.activeKey : '']);
 
   return (
     <div className={getBemClass('Tabs', [size, direction])}>
@@ -68,7 +70,9 @@ const Tabs: React.FC<TabsProps> = props => {
               <NavDropdown title={keyTitle} id="" className="Tabs-nav-dropdown-within-tab">
                 {tabsLastList.map((tab, idx) => (
                   <MenuItem
-                    id={eventKeyName ? 'Tabs-tab-' + tab[eventKeyName] : 'Tabs-tab-' + idx + limitNum}
+                    id={
+                      eventKeyName ? 'Tabs-tab-' + tab[eventKeyName] : 'Tabs-tab-' + idx + limitNum
+                    }
                     key={eventKeyName ? tab[eventKeyName] : idx}
                     eventKey={eventKeyName ? tab[eventKeyName] : idx + limitNum}
                   >
@@ -78,7 +82,11 @@ const Tabs: React.FC<TabsProps> = props => {
               </NavDropdown>
             )}
           </Nav>
-          <Tab.Content unmountOnExit={unmountOnExit} mountOnEnter={mountOnEnter} animation={animation}>
+          <Tab.Content
+            unmountOnExit={unmountOnExit}
+            mountOnEnter={mountOnEnter}
+            animation={animation}
+          >
             {tabs.map((tab, idx) => (
               <Tab.Pane
                 key={eventKeyName ? tab[eventKeyName] : idx}

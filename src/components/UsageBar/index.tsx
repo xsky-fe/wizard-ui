@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types';
 import { ProgressBar, Row, Col } from 'react-bootstrap';
 import { bulk, xbytes } from '../../utils';
 import { UsageBarProps } from '../../interface';
-import lang from "../../locale/language";
+import lang from '../../locale/language';
 import lodash from 'lodash';
 import './style.scss';
 
@@ -69,7 +69,7 @@ const UsageBar: React.FC<UsageBarProps> = props => {
           case isBulk:
             legend = bulk(value, {});
             break;
-          default: ;
+          default:
         }
         return {
           name,
@@ -77,8 +77,8 @@ const UsageBar: React.FC<UsageBarProps> = props => {
           perc,
           legend,
           value,
-        }
-      })
+        };
+      });
       break;
     default:
       const now = hasNow ? props.now : props.percent && max && props.percent * max;
@@ -136,7 +136,8 @@ const UsageBar: React.FC<UsageBarProps> = props => {
       } else if (
         percent &&
         percent < PERCENT_WITH_STATUS.danger &&
-        percent > PERCENT_WITH_STATUS.warning && !isExcludeWarning
+        percent > PERCENT_WITH_STATUS.warning &&
+        !isExcludeWarning
       ) {
         usedStyle = 'warning';
       }
@@ -168,21 +169,24 @@ const UsageBar: React.FC<UsageBarProps> = props => {
           bsStyle: 'info',
           perc: errorPercent,
           value: unavailableData,
-        }
+        },
       ]);
   }
 
   return (
     <div className={`UsageBar ${inline ? 'inline' : ''}`}>
       <ProgressBar>
-        {
-          lodash.map(finalSeries, ({ bsStyle, perc }, index) => (
-            // bs ProgressBar 只支持最多 5 种 style，索引摒弃 bsStyle 属性，改用组装 className
-            // style用于展示最小进度，不满1px时以1px展示，只要perc > 0，最小进度就是1px
-            <ProgressBar className={bsStyle && `progress-bar-${bsStyle}`} now={perc} max={1} key={index}
-              style={{ 'minWidth': perc > 0 ? '1px': '0px' }} />
-          ))
-        }
+        {lodash.map(finalSeries, ({ bsStyle, perc }, index) => (
+          // bs ProgressBar 只支持最多 5 种 style，索引摒弃 bsStyle 属性，改用组装 className
+          // style用于展示最小进度，不满1px时以1px展示，只要perc > 0，最小进度就是1px
+          <ProgressBar
+            className={bsStyle && `progress-bar-${bsStyle}`}
+            now={perc}
+            max={1}
+            key={index}
+            style={{ minWidth: perc > 0 ? '1px' : '0px' }}
+          />
+        ))}
       </ProgressBar>
       {waterLine && (
         <div className="UsageBar__water-line" style={{ marginLeft: 100 * waterLine + '%' }} />

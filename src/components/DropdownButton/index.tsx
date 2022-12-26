@@ -1,4 +1,4 @@
-import * as React  from 'react';
+import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import { DropdownButton as BootstrapDropdownButton, MenuItem, ButtonGroup } from 'react-bootstrap';
 
@@ -19,7 +19,12 @@ function randomId() {
     .substring(2);
 }
 
-function renderContent(menu: DropdownButtonMenuItem[] = [], setButtonOpen: Function, isDifferentMenu: boolean, open?: boolean) {
+function renderContent(
+  menu: DropdownButtonMenuItem[] = [],
+  setButtonOpen: Function,
+  isDifferentMenu: boolean,
+  open?: boolean,
+) {
   if (menu instanceof Array) {
     return menu.map(m => renderMenu(m, setButtonOpen, isDifferentMenu, open));
   }
@@ -34,15 +39,29 @@ function usePrevious(value: any) {
   return ref.current;
 }
 
-function renderMenu(menu: DropdownButtonMenuItem, setButtonOpen: Function, isDifferentMenu: boolean, open?: boolean) {
+function renderMenu(
+  menu: DropdownButtonMenuItem,
+  setButtonOpen: Function,
+  isDifferentMenu: boolean,
+  open?: boolean,
+) {
   const item = cloneDeep(menu);
   if (!item) {
     return null;
   }
   if (typeof item === 'string') {
-    return <MenuItem key={item} onSelect={() => { setButtonOpen(!!open) }} >{item}</MenuItem>;
+    return (
+      <MenuItem
+        key={item}
+        onSelect={() => {
+          setButtonOpen(!!open);
+        }}
+      >
+        {item}
+      </MenuItem>
+    );
   }
-  if (!item.key  && isDifferentMenu) {
+  if (!item.key && isDifferentMenu) {
     item.key = randomId();
   }
   if (item.children && item.children.length) {
@@ -57,12 +76,19 @@ function renderMenu(menu: DropdownButtonMenuItem, setButtonOpen: Function, isDif
     setButtonOpen(!!open);
     // 如果有传入 onSelect 回调函数，会继续执行传入的回调函数
     if (onSelect) onSelect(eventKey);
-  }
+  };
   const menuProps = omit(item, 'toolTip');
-  return <MenuItem {...menuProps} onSelect={handleItemSelect} >
-    { item.toolTip ? (<Tooltip  {...item.toolTip} placement={item.toolTip.placement || 'right'}>{item.toolTip.children}</Tooltip>)
-      : item.title }
-  </MenuItem>;
+  return (
+    <MenuItem {...menuProps} onSelect={handleItemSelect}>
+      {item.toolTip ? (
+        <Tooltip {...item.toolTip} placement={item.toolTip.placement || 'right'}>
+          {item.toolTip.children}
+        </Tooltip>
+      ) : (
+        item.title
+      )}
+    </MenuItem>
+  );
 }
 
 const DropdownButton = (props: DropdownButtonProps) => {

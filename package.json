@@ -129,5 +129,9 @@
   },
   "release": {
     "publishDir": "lib"
+  },
+  "engines": {
+    "node": ">=10.0.0 <15.0.0",
+    "npm": ">=6.0.0"
   }
 }

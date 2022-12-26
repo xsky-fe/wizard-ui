@@ -55,16 +55,15 @@ describe('Tabs width Dropdown', () => {
       const [key, setKey] = useState(newTABS[0].key);
       const handleSelect = (key: any) => setKey(key);
       return (
-        <Tabs tabs={newTABS}
+        <Tabs
+          tabs={newTABS}
           activeKey={key}
-          onSelect={
-            (key: any) => handleSelect(key)
-          }
+          onSelect={(key: any) => handleSelect(key)}
           limitNum={5}
           direction="right"
         />
       );
-    }
+    };
     const tabs = mount(<Xtab />);
     //title 默认值
     expect(tabs.find('NavDropdown').props().title).toBe('更多');

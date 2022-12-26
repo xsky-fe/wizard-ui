@@ -40,7 +40,7 @@ class BlogPostTemplate extends React.Component {
                 <MDXRenderer>{post.body}</MDXRenderer>
               </MDXProvider>
             </div>
-            <PropTable propDatas={propDatas}/>
+            <PropTable propDatas={propDatas} />
             <div className="prev-next-nav">
               {previous && (
                 <Link

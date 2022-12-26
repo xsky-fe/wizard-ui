@@ -1,6 +1,13 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import { Modal as BaseModal, ModalHeader, ModalTitle, ModalBody, ModalFooter, Button } from 'react-bootstrap';
+import {
+  Modal as BaseModal,
+  ModalHeader,
+  ModalTitle,
+  ModalBody,
+  ModalFooter,
+  Button,
+} from 'react-bootstrap';
 import Draggable, { DraggableEvent, DraggableData } from 'react-draggable';
 import { ModalProps } from '../../interface';
 import Loader from '../Loader';
@@ -38,7 +45,7 @@ const draggableHiddenTitleStyle: React.CSSProperties = {
   visibility: 'hidden',
 };
 
-const Modal: React.FC<ModalProps> = (props) => {
+const Modal: React.FC<ModalProps> = props => {
   const { onStart, bounds, draggleRef } = useDrag();
 
   const {
@@ -64,10 +71,9 @@ const Modal: React.FC<ModalProps> = (props) => {
   }
 
   // 让 title 在可拖动模块的上层，来使title区域的拖动效果失效
-  const modalTitleStyle = React.useMemo<React.CSSProperties>(
-    () => (draggable && preventDragByTitle ? { position: 'absolute' } : {}),
-    [draggable, preventDragByTitle],
-  );
+  const modalTitleStyle = React.useMemo<React.CSSProperties>(() => {
+    return draggable && preventDragByTitle ? { position: 'absolute' } : {};
+  }, [draggable, preventDragByTitle]);
 
   return (
     <BaseModal
@@ -125,7 +131,7 @@ Modal.propTypes = {
   /** 对话框附加行内样式 */
   style: PropTypes.object,
   /** 对话框大小 */
-  bsSize: PropTypes.oneOf(['sm', 'lg']),
+  bsSize: PropTypes.oneOf(['sm', 'lg', 'medium', 'xlarge', undefined, null]),
   /** 确定、提交按钮文案 */
   confirmText: PropTypes.string,
   /** 确定、提交按钮样式 */

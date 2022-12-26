@@ -18,13 +18,13 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   })
 }
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const componentPage = path.resolve(`./src/templates/components-post.js`);
   const defaultPage = path.resolve(`./src/templates/default.js`);
 
-  graphql(
+  const result = await graphql(
     `
       {
         allMdx(
@@ -69,18 +69,19 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     `
-  ).then(result => {
-    if (result.errors) {
-      throw result.errors
-    }
+  );
+  if (result.errors) {
+    throw result.errors
+  }
 
-    // Create blog posts pages.
-    const posts = result.data.allMdx.edges
-    const propTables = result.data.allComponentMetadata.edges;
+  // Create blog posts pages.
+  const posts = result.data.allMdx.edges
+  const propTables = result.data.allComponentMetadata.edges;
 
-    posts.forEach((post, index) => {
-      const slug = post.node.fields.slug;
-      if (slug.includes('get-started')) {
+  posts.forEach((post, index) => {
+    const slug = post.node.fields.slug;
+    if (slug.includes('get-started')) {
+      try {
         createPage({
           path: slug,
           component: defaultPage,
@@ -88,31 +89,40 @@ exports.createPages = ({ graphql, actions }) => {
             slug,
           },
         })
-      } else {
-        const next = index === posts.length - 1 ? null : posts[index + 1].node
-        const previous = index === 0 ? null : posts[index - 1].node
-        // 组件 propTypes 解析
-        const propTableDatas = propTables.filter(pt => {
-          const pSlug = pt.node.fields.slug;
-          const path = `/components/${snakeCase(pSlug).replace(/_/g, '-')}/`;
-          return slug === path;
-        });
-        const propDatas = propTableDatas.length > 0 ? propTableDatas[0] : null;
-        createPage({
-          path: slug,
-          component: componentPage,
-          context: {
-            slug,
-            previous,
-            next,
-            propDatas,
-          },
-        })
+      } catch (e) {
+        console.log(e);
       }
-    })
-
-    return null
+    } else {
+      const next = index === posts.length - 1 ? null : posts[index + 1].node
+      const previous = index === 0 ? null : posts[index - 1].node
+      // 组件 propTypes 解析
+      const propTableDatas = propTables.filter(pt => {
+        const pSlug = pt.node.fields.slug;
+        const path = `/components/${snakeCase(pSlug).replace(/_/g, '-')}/`;
+        return slug === path;
+      });
+      const propDatas = propTableDatas.length > 0 ? propTableDatas[0] : null;
+      if(propDatas) {
+        try {
+          createPage({
+            path: slug,
+            component: componentPage,
+            context: {
+              slug,
+              previous,
+              next,
+              propDatas,
+            },
+          })
+        } catch (e) {
+          console.log(e);
+        }
+      }
+    }
   })
+
+  return null;
+  
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -120,10 +130,14 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
   if ([`Mdx`, 'ComponentMetadata'].includes(node.internal.type)) {
     const value = createFilePath({ node, getNode })
-    createNodeField({
-      name: `slug`,
-      node,
-      value,
-    })
+    try {
+      createNodeField({
+        name: `slug`,
+        node,
+        value,
+      })
+    } catch (e) {
+      console.log(e);
+    }
   }
 }

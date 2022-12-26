@@ -9,5 +9,5 @@
 
 [build]
   base    = "docs/"
-  publish = "docs/public"
+  publish = "public"
   command = "yarn build"

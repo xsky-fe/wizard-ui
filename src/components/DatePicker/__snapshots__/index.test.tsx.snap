@@ -13,6 +13,7 @@ exports[`DatePicker get time 1`] = `
     readOnly={true}
     value=""
   />
+  <div />
 </span>
 `;
 
@@ -26,6 +27,7 @@ exports[`DatePicker render disable 1`] = `
     readOnly={true}
     value=""
   />
+  <div />
 </span>
 `;
 
@@ -42,5 +44,6 @@ exports[`DatePicker render show en lang 1`] = `
     readOnly={true}
     value=""
   />
+  <div />
 </span>
 `;

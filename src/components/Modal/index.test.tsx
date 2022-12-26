@@ -79,7 +79,9 @@ describe('Modal', () => {
         <strong>Modal Content</strong>
       </Modal>,
     );
-    expect(draggableNode.find('.drag-handle').length).toBe(1);
+    setTimeout(() => {
+      expect(draggableNode.find('.drag-handle').length).toBe(1);
+    }, 0);
 
     const disDraggableNode = mount(
       <Modal title="Modal Title" onHide={noOp} draggable={false}>
@@ -88,5 +90,4 @@ describe('Modal', () => {
     );
     expect(disDraggableNode.find('.drag-handle').length).toBe(0);
   });
-
 });
