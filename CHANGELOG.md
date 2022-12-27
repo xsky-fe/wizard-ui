@@ -1,3 +1,12 @@
+## [0.7.8](https://github.com/xsky-fe/wizard-ui/compare/0.7.7...0.7.8) (2022-12-27)
+
+
+### Bug Fixes
+
+* [XEOS-6821] update usage-bar component minWidth style ([9eb90b5](https://github.com/xsky-fe/wizard-ui/commit/9eb90b51c7fe7d9ee4400d82262392538700e5a6))
+* build misc ([f3ebf1c](https://github.com/xsky-fe/wizard-ui/commit/f3ebf1c81859e192351e0f7a71ea976e4a58fcd4))
+* update UsageBar to show percent when max is 0 and zero max shown ([#205](https://github.com/xsky-fe/wizard-ui/issues/205)) ([5ea5191](https://github.com/xsky-fe/wizard-ui/commit/5ea5191ecaefa854366d30ca9591b99acbe7af08))
+
 ## [0.7.7](https://github.com/xsky-fe/wizard-ui/compare/0.7.6...0.7.7) (2022-11-24)
 
 
