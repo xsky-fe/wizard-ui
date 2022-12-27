@@ -68,6 +68,8 @@ storiesOf('DATA SHOW | UsageBar', module)
       <UsageBar percent={0} isByte />
       <UsageBar percent={0} isBulk />
       <UsageBar percent={0} />
+      <UsageBar now={55} max={0} showZeroMax isByte />
+      <UsageBar now={1} max={0} showZeroMax isBulk />
     </>
   ))
   .add('series', () => (
