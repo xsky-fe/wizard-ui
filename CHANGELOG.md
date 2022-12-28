@@ -1,3 +1,10 @@
+## [0.7.9](https://github.com/xsky-fe/wizard-ui/compare/0.7.8...0.7.9) (2022-12-28)
+
+
+### Bug Fixes
+
+* remove engines limit in package.json ([ac0b1b2](https://github.com/xsky-fe/wizard-ui/commit/ac0b1b269bd949717da889cecbd8aad068cf0982))
+
 ## [0.7.8](https://github.com/xsky-fe/wizard-ui/compare/0.7.7...0.7.8) (2022-12-27)
 
 
