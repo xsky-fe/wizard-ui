@@ -2,19 +2,19 @@
 
 .Panel {
   .panel-primary-bg {
-    background-color: $purple-normal
+    background-color: $primary-normal
   }
   .panel-success-bg {
-    background-color: $green-normal
+    background-color: $success-normal
   }
   .panel-info-bg {
-    background-color: $blue-normal
+    background-color: $updating-normal
   }
   .panel-warning-bg {
-    background-color: $goldenrod-normal
+    background-color: $warning-normal
   }
   .panel-danger-bg {
-    background-color: $red-normal
+    background-color: $error-normal
   }
 
 }

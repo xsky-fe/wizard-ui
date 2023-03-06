@@ -40,28 +40,28 @@
     }
   }
   &--default {
-    background-color: $brand-muted;
+    background-color: $offline-normal;
   }
   &--primary {
-    background-color: $brand-primary;
+    background-color: $primary-normal;
   }
   &--success {
-    background-color: $brand-success;
+    background-color: $success-normal;
   }
   &--info {
-    background-color: $brand-info;
+    background-color: $updating-normal;
   }
   &--state {
-    background-color: rgb(121, 136, 194);
+    background-color: $white;
   }
   &--critical {
-    background-color: $brand-critical;
+    background-color: $critical-normal;
   }
   &--warning {
-    background-color: $brand-warning;
+    background-color: $warning-normal;
   }
   &--danger {
-    background-color: $brand-error;
+    background-color: $error-normal;
   }
 }
 

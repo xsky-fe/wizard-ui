@@ -12,7 +12,7 @@
     }
   }
   &__duration {
-    border-bottom: 1px solid #e9e9e9;
+    border-bottom: 1px solid $border-2;
     overflow: hidden;
     margin-bottom: 10px;
     button {
@@ -24,7 +24,7 @@
   }
   span.glyphicon-calendar{
     line-height: unset;
-    color: #ccc;
+    color: $icon-2;
   }
   span.icon-close {
     visibility: hidden;
@@ -34,10 +34,14 @@
   }
 }
 
+.rc-calendar {
+  border-color: $border-2;
+}
+
 .rc-calendar-year-panel-selected-cell .rc-calendar-year-panel-year,
 .rc-calendar-decade-panel-selected-cell .rc-calendar-decade-panel-decade,
 .rc-calendar-month-panel-selected-cell .rc-calendar-month-panel-month {
-  background: $purple-normal;
+  background: $primary-normal;
 }
 .rc-calendar-prev-month-btn:hover,
 .rc-calendar-next-month-btn:hover,
@@ -50,45 +54,47 @@
 .rc-calendar-month-panel-header > a:hover,
 .rc-calendar-year-panel-header > a:hover,
 li.rc-time-picker-panel-select-option-selected {
-  color: $purple-normal;
+  color: $primary-normal;
 }
 .rc-calendar-month-panel-cell .rc-calendar-month-panel-month:hover,
 .rc-calendar-year-panel-year:hover,
 .rc-calendar-decade-panel-decade:hover,
 .rc-time-picker-panel-select li:hover,
 .rc-calendar-date:hover {
-  background: $purple-lighter-2 !important;
+  background: $primary-bg !important;
 }
 .rc-calendar-range .rc-calendar-in-range-cell,
 li.rc-time-picker-panel-select-option-selected {
-  background: $purple-lighter-3;
+  background: $primary-bg;
 }
 
 .rc-calendar-date-panel {
-  border-top: 3px solid $purple-normal;
+  border-top: 3px solid $primary-normal;
 }
 .rc-calendar-today .rc-calendar-date {
-  border: 1px solid $purple-normal;
+  border: 1px solid $primary-normal;
 }
 .rc-calendar-selected-date .rc-calendar-date {
     background: transparent;
-    color: $gray-medium-13;
+    color: $text-2;
     &:hover {
-      background: $purple-lighter-2;
+      background: $primary-bg;
     }
 }
 .rc-calendar-ok-btn,
 .rc-calendar-selected-day .rc-calendar-date {
-  background: $purple-normal;
+  background: $primary-normal;
   color: $white;
 }
 .rc-calendar-time-picker-btn {
-  color: $purple-normal;
+  color: $primary-normal;
   &:hover {
-    color: $purple-normal;
+    color: $primary-normal;
   }
   &.rc-calendar-time-picker-btn-disabled {
-    color: #bbb;
+    color: rgba($primary-normal, 0.4);
+    cursor: not-allowed;
+    text-decoration: unset;
   }
 }
 .rc-calendar-ok-btn {
@@ -100,14 +106,14 @@ li.rc-time-picker-panel-select-option-selected {
   }
   &.rc-calendar-ok-btn-disabled {
     cursor: not-allowed;
-    background: $purple-darker-4
+    background: $primary-disable
   }
 }
 .rc-time-picker-panel-select ul {
   max-height: 216px;
 }
 .rc-calendar-time-picker {
-  border-bottom: 1px solid #e9e9e9;
+  border-bottom: 1px solid $border-2;
 }
 .rc-calendar-range .rc-calendar-footer-btn {
   padding: 10px 0;

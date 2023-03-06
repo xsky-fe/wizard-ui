@@ -5,7 +5,7 @@
 }
 
 .Navigation__logo {
-  background-color: $gray-darker-4;
+  /* background-color: $gray-darker-4; 组件废弃，变量废弃 */
   height: $height-topbar;
   line-height: $height-topbar;
   text-align: center;
@@ -35,14 +35,14 @@
     border-radius: 0;
     border: 0;
     background-color: inherit;
-    border-bottom: 1px solid $gray-darker-7;
+    /* border-bottom: 1px solid $gray-darker-7; 组件废弃，变量废弃 */
     .panel-heading {
       padding: 0;
-      background-color: $gray-darker-5;
+      /* background-color: $gray-darker-5; 组件废弃，变量废弃 */
       border-bottom: 0;
       a {
         display: block;
-        color: $gray-darker-1;
+        /* color: $gray-darker-1; 组件废弃，变量废弃 */
         font-size: 13px;
         padding-left: 20px;
         line-height: 36px;
@@ -61,7 +61,7 @@
       .panel-body {
         padding: 0;
         border-top: 0;
-        background-color: $gray-darker-7;
+       /* background-color: $gray-darker-7; 组件废弃，变量废弃 */
       }
     }
   }
@@ -79,7 +79,7 @@
 }
 
 .Navigation__link {
-  color: $gray-darker-1;
+  /* color: $gray-darker-1; 组件废弃，变量废弃 */
   font-size: 13px;
   line-height: 36px;
   display: block;
@@ -94,7 +94,7 @@
 .Navigation__link--active {
   color: $white;
   text-decoration: none;
-  background-color: $gray-darker-6;
+  /* background-color: $gray-darker-6; 组件废弃，变量废弃 */
 }
 
 .Navigation__link--active {
@@ -107,7 +107,7 @@
     top: 0;
     bottom: 0;
     width: 3px;
-    background-color: $brand-primary;
+    background-color: $primary-normal;
   }
 }
 
@@ -125,9 +125,9 @@
    .tooltip-inner {
     font-size: 13px;
     padding: 2px 8px;
-    background-color: $purple-normal;
+    background-color: $primary-normal;
   }
 }
 .Navigation__tooltip.tooltip.right .tooltip-arrow{
-  border-right-color: $purple-normal;
+  border-right-color: $primary-normal;
 }

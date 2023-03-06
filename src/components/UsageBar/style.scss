@@ -27,7 +27,7 @@
     height: 20px;
     width: 1px;
     position: relative;
-    background-color: $red-normal;
+    background-color: $error-normal;
     margin-top: -15px;
   }
   &__legend {
@@ -49,54 +49,54 @@
           height: 8px;
           margin-right: 4px;
           border-radius: 4px;
-          background-color: $purple-normal;
+          background-color: $primary-normal;
         }
       }
       &.noVal span:nth-child(2) {
-        color: $gray-medium-6;
+        color: $text-3;
       }
       span:nth-child(2) {
         flex: 0 0 auto;
       }
       &.success span:nth-child(1)::before {
-        background-color: $brand-success;
+        background-color: $success-normal;
       }
       &.danger span:nth-child(1)::before {
-        background-color: $brand-danger;
+        background-color: $error-normal;
       }
       &.warning span:nth-child(1)::before {
-        background-color: $brand-warning;
+        background-color: $warning-normal;
       }
       &.info span:nth-child(1)::before {
-        background-color: $gray-medium-10;
+        background-color: $grey-6;
       }
       &.critical span:nth-child(1)::before {
-        background-color: $brand-critical;
+        background-color: $critical-normal;
       }
       &.default span:nth-child(1)::before {
-        background-color: $gray-lighter-5;
+        background-color: $bg-2;
         box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
       }
       &.primary span:nth-child(1)::before {
-        background-color: $purple-normal;
+        background-color: $primary-normal;
       }
       &.chart1 span:nth-child(1)::before {
-        background-color: $blue-normal;
+        background-color: $updating-normal;
       }
       &.chart2 span:nth-child(1)::before {
-        background-color: $green-normal;
+        background-color: $success-normal;
       }
       &.chart3 span:nth-child(1)::before {
-        background-color: $blue-royal-gray-4;
+        background-color: $chart-11;
       }
       &.chart4 span:nth-child(1)::before {
-        background-color: $green-darker-4;
+        background-color: $chart-8;
       }
       &.chart5 span:nth-child(1)::before {
-        background-color: $purple-darker-5;
+        background-color: $chart-9;
       }
       &.chart6 span:nth-child(1)::before {
-        background-color: $blue-gray-4;
+        background-color: $chart-6;
       }
 
     }
@@ -104,14 +104,14 @@
 }
 
 .progress-bar-info {
-  background-color: $gray-medium-10;
+  background-color: $grey-6;
 }
 
 .progress-bar-critical {
-  background-color: $brand-critical;
+  background-color: $critical-normal;
 }
 
 .progress-bar-default {
-  background-color: $gray-lighter-5;
+  background-color: $bg-2;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 }

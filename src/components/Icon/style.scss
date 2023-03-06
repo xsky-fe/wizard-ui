@@ -10,7 +10,7 @@
     pointer-events: none;
   }
   &.primary {
-    color: $purple-normal;
+    color: $primary-normal;
   }
   &.cursor {
     display: inline-flex;
@@ -19,10 +19,10 @@
     padding:6px;
     cursor: pointer;
     &:hover {
-      background-color: $gray-lighter-5;
+      background-color: $bg-2;
     }
     &:active {
-      background-color: #E6E6E6;
+      background-color: $bg-2;
     }
   } 
 }

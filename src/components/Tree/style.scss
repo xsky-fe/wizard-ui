@@ -47,7 +47,7 @@
       display: block;
       width: 16px;
       height: 16px;
-      border: 1px solid $gray-medium-3;
+      border: 1px solid $border-1;
       border-radius: 2px;
       &:after {
         position: absolute;
@@ -65,8 +65,8 @@
     }
     &-checked {
       .Tree-checkbox-inner {
-        background-color: $brand-info;
-        border-color: $brand-info;
+        background-color: $updating-normal;
+        border-color: $updating-normal;
         &:after {
           transform: rotate(45deg) scale(1);
         }
@@ -74,8 +74,8 @@
     }
     &-indeterminate {
       .Tree-checkbox-inner {
-        background-color: $brand-info;
-        border-color: $brand-info;
+        background-color: $updating-normal;
+        border-color: $updating-normal;
         &:after {
           transform: rotate(0deg) scale(1);
           left: 2px;
@@ -87,15 +87,15 @@
     }
     &-disabled {
       .Tree-checkbox-inner {
-        border-color: $gray-medium-1;
-        background-color: $gray-medium-8;
+        border-color: $tab-bg;
+        background-color: $bg-2;
       }
     }
   }
   .Tree-treenode {
     &-disabled {
       .Tree-title {
-        color: $gray-medium-5;
+        color: $text-2;
       }
     }
   }
