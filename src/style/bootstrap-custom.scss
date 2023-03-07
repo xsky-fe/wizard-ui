@@ -21,7 +21,7 @@ $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-$body-bg:               #fff !default;
+$body-bg:               $white !default;
 //** Global text color on `<body>`.
 $text-color:            $text-2 !default;
 
@@ -130,11 +130,11 @@ $table-bg:                      transparent !default;
 //** Background color used for `.table-striped`.
 $table-bg-accent:               #f9f9f9 !default;
 //** Background color used for `.table-hover`.
-$table-bg-hover:                #f5f5f5 !default;
+$table-bg-hover:                $bg-2-hover !default;
 $table-bg-active:               $table-bg-hover !default;
 
 //** Border color for table and cell borders.
-$table-border-color:            #ddd !default;
+$table-border-color:            transparent !default;
 
 
 //== Buttons
@@ -167,7 +167,7 @@ $btn-danger-color:               $white !default;
 $btn-danger-bg:                  $error-normal !default;
 $btn-danger-border:              $btn-danger-bg !default;
 
-$btn-link-disabled-color:        $gray-light !default;
+$btn-link-disabled-color:        rgba($primary-normal, 0.4) !default;
 
 // Allows for customizing button radius independently from global border radius
 $btn-border-radius-base:         $border-radius-base !default;
@@ -214,7 +214,7 @@ $input-height-small:             (floor($font-size-small * $line-height-small) +
 //** `.form-group` margin
 $form-group-margin-bottom:       15px !default;
 
-$legend-color:                   $gray-dark !default;
+$legend-color:                   $text-2 !default;
 $legend-border-color:            $border-1 !default;
 
 //** Background color for textual input addons
@@ -235,9 +235,9 @@ $dropdown-bg:                    $white !default;
 //** Dropdown menu `border-color`.
 $dropdown-border:                $border-2 !default;
 //** Dropdown menu `border-color` **for IE8**.
-$dropdown-fallback-border:       #ccc !default;
+$dropdown-fallback-border:       $border-2 !default;
 //** Divider color for between dropdown items.
-$dropdown-divider-bg:            #e5e5e5 !default;
+$dropdown-divider-bg:            $border-2 !default;
 
 //** Dropdown link text color.
 $dropdown-link-color:            $text-2 !default;
@@ -643,7 +643,7 @@ $alert-danger-border:         $state-danger-border !default;
 //##
 
 //** Background color of the whole progress component
-$progress-bg:                 $bg-1 !default;
+$progress-bg:                 $grey-2 !default;
 //** Progress bar text color
 $progress-bar-color:          $white !default;
 //** Variable for setting rounded corners on progress bar.
