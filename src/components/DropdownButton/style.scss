@@ -9,7 +9,7 @@
   min-width: auto;
   border: 1px solid $border-2;
   border-top: 3px solid $primary-normal;
-  box-shadow: 0 1px 8px rgba(0,0,0,0.12);
+  box-shadow: 0 1px 8px rgba(black,0.12);
   &>li>a {
     color: $text-2;
     text-decoration: none;
@@ -17,14 +17,14 @@
   }
   /*------ hover状态样式--------*/
   &>li>a:hover {
-    background-color: $primary-bg;
-    color: $text-1;
+    background-color: $bg-2-hover;
+    color: $text-2;
   }
   /*------ disabled状态样式--------*/
   &>li.disabled>a,
   &>li.disabled>a:hover,
   &>li.disabled>a:focus {
-    color: $border-1;
+    color: rgba($text-2, 0.4);
     background-color: transparent;
   }
   /*------ 分割线状态样式--------*/

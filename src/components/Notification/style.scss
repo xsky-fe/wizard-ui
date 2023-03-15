@@ -20,13 +20,13 @@
 }
 
 .alert-success {
-  background-color: $warning-bg;
+  background-color: $success-bg;
   border-color: $green-2;
   color: $text-success;
 
   .close {
     &:hover {
-      color: $success-bg;
+      color: $success-hover;
     }
 
     &:active {
