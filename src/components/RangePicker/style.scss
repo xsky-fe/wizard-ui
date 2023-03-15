@@ -92,7 +92,7 @@ li.rc-time-picker-panel-select-option-selected {
     color: $primary-normal;
   }
   &.rc-calendar-time-picker-btn-disabled {
-    color: rgba($primary-normal, 0.4);
+    color: $primary-disable;
     cursor: not-allowed;
     text-decoration: unset;
   }

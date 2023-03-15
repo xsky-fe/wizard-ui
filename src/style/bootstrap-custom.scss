@@ -167,7 +167,7 @@ $btn-danger-color:               $white !default;
 $btn-danger-bg:                  $error-normal !default;
 $btn-danger-border:              $btn-danger-bg !default;
 
-$btn-link-disabled-color:        rgba($primary-normal, 0.4) !default;
+$btn-link-disabled-color:        $primary-disable !default;
 
 // Allows for customizing button radius independently from global border radius
 $btn-border-radius-base:         $border-radius-base !default;

@@ -20,12 +20,12 @@
   }
   &.alert-info {
     & .icon path {
-      fill:$updating-normal;
+      fill: $updating-normal;
     }
   }
   &.alert-success {
     & .icon path {
-      fill:  $success-normal;
+      fill: $success-normal;
     }
   }
   &.alert-warning {
