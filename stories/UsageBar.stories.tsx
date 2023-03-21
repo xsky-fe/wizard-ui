@@ -84,3 +84,19 @@ storiesOf('DATA SHOW | UsageBar', module)
       <UsageBar series={BYTESSERIES} isPercent withLenged />
     </>
   ))
+  .add('extra info', () => (
+    <>
+      <h4>附带额外信息</h4>
+      <UsageBar isByte now={NOW} max={MAX} extraFooterInfo='（压缩后 100 GB）' />
+      <UsageBar isByte now={NOW} max={MAX} extraFooterInfo='（压缩后 100 GB）' />
+      <UsageBar isBulk now={NOW} max={MAX} extraFooterInfo='（压缩后 100 GB）' />
+      <UsageBar isBulk percent={NOW / MAX} max={MAX} extraFooterInfo='（压缩后 100 GB）' />
+      <>
+        <UsageBar now={NOW} max={MAX} isPercent inline extraFooterInfo='（压缩后 100 GB）' />
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <UsageBar now={NOW} max={MAX} isByte inline extraFooterInfo='（压缩后 100 GB）' />
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <UsageBar now={NOW} max={MAX} isBulk inline extraFooterInfo='（压缩后 100 GB）' />
+      </>
+    </>
+  ))
