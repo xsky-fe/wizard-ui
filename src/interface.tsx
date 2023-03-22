@@ -97,6 +97,7 @@ export interface UsageBarProps {
   isExcludeWarning?: boolean;
   waterLine?: number;
   isHideFooter?: boolean;
+  extraFooterInfo?: string;
   formatType?: string;
   series?: Array<UsageBarSerie>;
   withLenged?: boolean;
