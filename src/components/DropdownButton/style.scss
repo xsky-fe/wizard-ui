@@ -11,21 +11,8 @@
   border-top: 3px solid $primary-normal;
   box-shadow: 0 1px 8px rgba(black,0.12);
   &>li>a {
-    color: $text-2;
     text-decoration: none;
     line-height: 24px;
-  }
-  /*------ hover状态样式--------*/
-  &>li>a:hover {
-    background-color: $bg-2-hover;
-    color: $text-2;
-  }
-  /*------ disabled状态样式--------*/
-  &>li.disabled>a,
-  &>li.disabled>a:hover,
-  &>li.disabled>a:focus {
-    color: rgba($text-2, 0.4);
-    background-color: transparent;
   }
   /*------ 分割线状态样式--------*/
   &>li.divider {
