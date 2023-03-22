@@ -198,7 +198,7 @@ const UsageBar: React.FC<UsageBarProps> = props => {
         <div className="UsageBar__footer">
           <div className="UsageBar__footer--left">
             {left}
-            <span className="UsageBar__footer--extra">{extraFooterInfo}</span>
+            {extraFooterInfo && <span className="UsageBar__footer--extra">{extraFooterInfo}</span>}
           </div>
           <div className="UsageBar__footer--right">{right}</div>
         </div>
