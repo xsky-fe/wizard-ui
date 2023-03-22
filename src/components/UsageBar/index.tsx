@@ -41,6 +41,7 @@ const UsageBar: React.FC<UsageBarProps> = props => {
     isExcludeWarning,
     waterLine,
     isHideFooter,
+    extraFooterInfo,
     formatType,
     series,
     withLenged,
@@ -176,7 +177,7 @@ const UsageBar: React.FC<UsageBarProps> = props => {
   }
 
   return (
-    <div className={`UsageBar ${inline ? 'inline' : ''}`}>
+    <div className={`UsageBar ${inline ? 'inline' : ''} ${extraFooterInfo ? 'hasExtraInfo' : ''}`}>
       <ProgressBar>
         {lodash.map(finalSeries, ({ bsStyle, perc }, index) => (
           // bs ProgressBar 只支持最多 5 种 style，索引摒弃 bsStyle 属性，改用组装 className
@@ -195,7 +196,10 @@ const UsageBar: React.FC<UsageBarProps> = props => {
       )}
       {!isHideFooter && !hasSeries && (
         <div className="UsageBar__footer">
-          <div className="UsageBar__footer--left">{left}</div>
+          <div className="UsageBar__footer--left">
+            {left}
+            {extraFooterInfo && <span className="UsageBar__footer--extra">{extraFooterInfo}</span>}
+          </div>
           <div className="UsageBar__footer--right">{right}</div>
         </div>
       )}
@@ -287,6 +291,10 @@ UsageBar.propTypes = {
    * 是否隐藏 footer 的展示
    **/
   isHideFooter: PropTypes.bool,
+  /**
+   * footer的额外信息
+   */
+  extraFooterInfo: PropTypes.string,
   /**
    * 2段以上 processbar 的数据集，该模式下支持（isPercent，isByte，isBulk，inline，withLenged）等属性
    * [{ name: 'pool1', value: 20, bsStyle: 'primary' }, { name: 'pool2', value: 40, bsStyle: 'success' }, { name: 'pool3', value: 20, bsStyle: 'error' }]
