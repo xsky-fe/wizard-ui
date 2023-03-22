@@ -1,3 +1,15 @@
+# [0.7.10](https://github.com/xsky-fe/wizard-ui/compare/0.7.9...0.7.10) (2023-03-22)
+
+
+### Bug Fixes
+
+* update the condition of extra info shown ([639c1b7](https://github.com/xsky-fe/wizard-ui/commit/639c1b7eb1c6f688630173d2db27075422edad91))
+
+
+### Features
+
+* enable extra info shown in UsageBar footer ([efe9130](https://github.com/xsky-fe/wizard-ui/commit/efe9130b2b6218997ecdcbb6e397c667915e4753))
+
 ## [0.7.9](https://github.com/xsky-fe/wizard-ui/compare/0.7.8...0.7.9) (2022-12-28)
 
 
