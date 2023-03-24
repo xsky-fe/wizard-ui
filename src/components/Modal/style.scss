@@ -1,3 +1,5 @@
+@import '../../style/variables.scss';
+
 .Modal {
   // 修复添加拖动功能后，滚动条跟随的bug
   // 覆盖原有 .modal-content的样式，让拖动的dom显示其样式
@@ -5,6 +7,9 @@
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
+  }
+  .modal-content.react-draggable {
+    border-radius: $radius-modal !important;
   }
   .modal-header{
     .close {

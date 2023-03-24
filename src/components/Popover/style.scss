@@ -1,7 +1,7 @@
 @import '../../style/variables.scss';
 
 .Popover {
-  
+  border-radius: $radius-popover;
   &__wrapper {
     display: inline-block;
     position: relative;
@@ -25,11 +25,11 @@
         overflow: hidden;
         text-overflow: ellipsis;
       }
-      
+
       .Badge__count {
         margin: 0;
       }
-  
+
       .btn {
         padding: 0;
       }
@@ -47,7 +47,7 @@
 
     &.bottom {
       border-top: 3px solid $purple-normal;
-    
+
       .arrow::after {
         border-bottom-color: $purple-normal !important;
       }
@@ -55,7 +55,7 @@
 
     &.left {
       border-right: 3px solid $purple-normal;
-    
+
       .arrow::after {
         border-left-color: $purple-normal !important;
       }
@@ -63,7 +63,7 @@
 
     &.right {
       border-left: 3px solid $purple-normal;
-    
+
       .arrow::after {
         border-right-color: $purple-normal !important;
       }

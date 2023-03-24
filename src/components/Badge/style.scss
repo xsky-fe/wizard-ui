@@ -21,7 +21,7 @@
   }
   &__dot {
     display: inline-block;
-    border-radius: 50%;
+    border-radius: $radius-badge;
     vertical-align: middle;
     &.small {
       width: $badge-dot-small-size;
