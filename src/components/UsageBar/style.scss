@@ -5,7 +5,8 @@
   flex-direction: column;
   .progress {
     margin-bottom: 0;
-    height: 8px;
+    height: $progress-height;
+    border-radius: $progress-height / 2;
   }
   &.inline {
     display: inline-block;
@@ -52,9 +53,9 @@
           content: '';
           display: inline-block;
           width: 8px;
-          height: 8px;
+          height: $progress-legend-height;
           margin-right: 4px;
-          border-radius: 4px;
+          border-radius: $progress-legend-height / 2;
           background-color: $purple-normal;
         }
       }
