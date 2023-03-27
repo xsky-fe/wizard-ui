@@ -1,83 +1,124 @@
 @import '../../style/variables.scss';
-.alert {
-  &.with-icon{
-    position: relative;
-    padding-left: 30px;
-    & .icon {
-      position: absolute;
-      display: inline-flex;
-      left: .75rem;
-      top: 1.45rem;
+
+.Alert {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  .Alert-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+
+    &.dismiss-container {
+      margin-right: 16px;
+    }
+
+    &.justify-center {
+      justify-content: center;
+    }
+
+    .icon {
+      font-size: 14px;
+      margin-right: 8px;
+      margin-bottom: 1px;
     }
   }
-  &.alert-danger {
-    & .icon path {
-      fill: $red-normal;
+
+  &.Alert-error {
+    color: $red-darker-4;
+    &.bg-bordered {
+      background: $red-gray-5;
+      border: 1px solid $red-gray-4;
     }
-    & a{
-      color: #491217;
-    }
-  }
-  &.alert-info {
-    & .icon path {
-      fill:$blue-normal;
-    }
-    & a{
-      color: #002752;
+    &.bg-solid {
+      background: $red-gray-5;
     }
   }
-  &.alert-success {
-    & .icon path {
-      fill:  $green-normal;
+
+  &.Alert-info {
+    color: $blue-darker-5;
+    &.bg-bordered {
+      background: $blue-gray-6;
+      border: 1px solid $blue-gray-5;
     }
-    & a{
-      color: #0b2e13;
-    }
-  }
-  &.alert-warning {
-    & .icon path {
-      fill: $goldenrod-normal;
-    }
-    & a{
-      color: #533f03;
+    &.bg-solid {
+      background: $blue-gray-6;
     }
   }
-  &.show-alert{
-    &.dismiss-up{
+
+  &.Alert-warning {
+    color: $goldenrod-darker-4;
+    &.bg-bordered {
+      background: $goldenrod-gray-4;
+      border: 1px solid $goldenrod-gray-5;
+    }
+    &.bg-solid {
+      background: $goldenrod-gray-4;
+    }
+  }
+
+  .icon-close {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    path {
+      color: $gray-medium-14;
+    }
+  }
+  &.show-alert {
+    &.dismiss-up {
       transform: rotateX(0deg);
       transform-origin: 0 0 0;
     }
-    &.dismiss-right{
+
+    &.dismiss-right {
       transform: rotateY(0deg);
       transform-origin: 100% 100% 0;
     }
-    &.dismiss-down{
+
+    &.dismiss-down {
       transform: rotateX(0deg);
       transform-origin: 100% 100% 0;
     }
-    &.dismiss-left{
+
+    &.dismiss-left {
       transform: rotateY(0deg);
       transform-origin: 0 100% 0;
     }
   }
-  &.hidden-alert{
-    &.dismiss-up{
+
+  &.hidden-alert {
+    &.dismiss-up {
       transform: rotateX(90deg);
       transform-origin: 0 0 0;
     }
-    &.dismiss-right{
+
+    &.dismiss-right {
       transform: rotateY(90deg);
       transform-origin: 100% 100% 0;
     }
-    &.dismiss-down{
+
+    &.dismiss-down {
       transform: rotateX(90deg);
       transform-origin: 100% 100% 0;
     }
-    &.dismiss-left{
+
+    &.dismiss-left {
       transform: rotateY(90deg);
       transform-origin: 0 100% 0;
     }
   }
-  
+
+  &.bg-plain {
+    padding: 8px 0;
+    margin-bottom: 0;
+  }
+
   transition: transform .35s ease;
 }

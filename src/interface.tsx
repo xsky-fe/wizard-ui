@@ -267,6 +267,8 @@ export interface AlertProps {
   show?: boolean;
   showIcon?: boolean;
   bsClass?: string;
+  textAlign?: string;
+  bgStyle?: string;
   onDismiss?: () => void;
   dismissDirection?: string;
 }
