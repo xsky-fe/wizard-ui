@@ -5,13 +5,13 @@ import { mount } from 'enzyme';
 describe('Alert', () => {
   it('could alter render classes right', () => {
     const alert = mount(
-      <Alert bsStyle="danger" dismissDirection="up">
+      <Alert bsStyle="error" dismissDirection="up">
         default text <a href="#">test link</a>
       </Alert>,
     );
     expect(alert.find('.alert').hasClass('with-icon')).toEqual(false);
     expect(alert.find('.alert').hasClass('dismiss-up')).toEqual(true);
-    expect(alert.find('.alert').hasClass('alert-danger')).toEqual(true);
+    expect(alert.find('.alert').hasClass('alert-error')).toEqual(true);
   });
   it('could alter show and hidden', () => {
     const alert = mount(
