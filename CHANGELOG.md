@@ -1,3 +1,12 @@
+## [0.7.11](https://github.com/xsky-fe/wizard-ui/compare/0.7.10...0.7.11) (2023-03-30)
+
+
+### Bug Fixes
+
+* fix the problem that some pages cannot be found ([#207](https://github.com/xsky-fe/wizard-ui/issues/207)) ([765a5fe](https://github.com/xsky-fe/wizard-ui/commit/765a5fe5c02d812ceb104efad3034e9d4b5f4f96))
+
+* style: color var ([#208](https://github.com/xsky-fe/wizard-ui/issues/208))([6912d17](https://github.com/xsky-fe/wizard-ui/commit/6912d17e92380c1b0ea5708bacfa599b514c58a7))
+
 # [0.7.10](https://github.com/xsky-fe/wizard-ui/compare/0.7.9...0.7.10) (2023-03-22)
 
 
