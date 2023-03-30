@@ -7,13 +7,15 @@ import lodash from 'lodash';
 const { basicColorMap } = getColors();
 const basicColorKeys = lodash.keys(basicColorMap);
 const colorMap = {
-  red: '红色系',
   purple: '紫色系',
   blue: '蓝色系',
+  azure: '天蓝色系',
   green: '绿色系',
-  goldenrod: '金色系',
-  gray: '灰色系',
+  olivine: '橄榄绿色系',
   yellow: '黄色系',
+  orange: '橘黄色系',
+  red: '红色系',
+  'deep-red': '暗红色系',
 }
 
 export default () => {

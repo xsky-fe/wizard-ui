@@ -1,126 +1,199 @@
-/* red */
-$red-lighter-4: #fcdddd;
-$red-lighter-3: #fde9e9;
-$red-lighter-2: #fdd2d2;
-$red-lighter-1: #fa6a68;
-$red-normal: #f24542;
-$red-darker-1: #f02e2a;
-$red-darker-2: #d11d00;
-$red-darker-3: #f46966;
-$red-gray-1: #edd3d7;
-$red-gray-2: #dcafb0;
-$red-gray-3: #b74b4b;
-$red-2-darker-2: #b90a38;
+$purple-1: #f0e8ff;
+$purple-2: #ddccff;
+$purple-3: #c7b1fc;
+$purple-4: #b297fc;
+$purple-5: #9a7dfa;
+$purple-6: #8264fa;
+$purple-7: #563ecf;
+$purple-8: #3221a3;
+$purple-9: #170c78;
+$purple-10: #05004d;
 
-/* purple */
-$purple-lighter-3: #f3f2f7;
-$purple-lighter-2: #dad6f7;
-$purple-lighter-1: #846ee0;
-$purple-normal: #6b58c4;
-$purple-darker-1: #614dc0;
-$purple-darker-2: #513dae;
-$purple-darker-3: #6B54C7;
-$purple-darker-4: #A795F1;
+$blue-1: #e8f5ff;
+$blue-2: #c7e6ff;
+$blue-3: #a8d5ff;
+$blue-4: #8ac2ff;
+$blue-5: #6baeff;
+$blue-6: #4d97ff;
+$blue-7: #2f6ed4;
+$blue-8: #194aa6;
+$blue-9: #092d7a;
+$blue-10: #00164d;
 
-/* blue */
-$blue-royal-normal: #5a6691;
-$blue-royal-darker-1: #545f88;
-$blue-royal-darker-2: #4c567b;
-$blue-royal-gray-1: #d9dbe9;
-$blue-royal-gray-2: #b4b9d7;
-$blue-royal-gray-3: #7988c2;
-$blue-lighter-3: #e0f3fb;
-$blue-lighter-2: #bee8f1;
-$blue-normal: #448aff;
-$blue-darker-1: #2979ff;
-$blue-darker-2: #2962ff;
-$blue-darker-3: #4F5FEF;
-$blue-darker-4: #3277EB;
-$blue-gray-2: #a7c9dc;
-$blue-gray-3: #3e88ab;
-$blue-green-normal: #00bfa5;
+$azure-1: #e8fdff;
+$azure-2: #c2f7ff;
+$azure-3: #9eefff;
+$azure-4: #7ae4ff;
+$azure-5: #57d8ff;
+$azure-6: #33c9ff;
+$azure-7: #209ed4;
+$azure-8: #1174a6;
+$azure-9: #06507a;
+$azure-10: #002e4d;
 
-/* green */
-$green-lighter-3: #eaf8ef;
-$green-lighter-2: #c2e9cf;
-$green-lighter-1: #41d074;
-$green-normal: #30b65f;
-$green-darker-1:#28ac57;
-$green-darker-2: #07a740;
-$green-darker-3: #0D8C07;
-$green-gray-2: #b1d0a8;
-$green-gray-3: #346c32;
+$green-1: #e8ffec;
+$green-2: #bdf2c8;
+$green-3: #97e6aa;
+$green-4: #75d990;
+$green-5: #56cc79;
+$green-6: #39bf66;
+$green-7: #24a353;
+$green-8: #148742;
+$green-9: #076931;
+$green-10: #004d24;
 
-/* goldenrod */
-$goldenrod-lighter-3: #fdf7e1;
-$goldenrod-lighter-2: #f7ecaf;
-$goldenrod-lighter-1: #ffd740;
-$goldenrod-normal: #ffb71c;
-$goldenrod-darker-1: #ffae00;
-$goldenrod-darker-2: #f2a501;
-$goldenrod-darker-3: #FFB800;
-$goldenrod-gray-1: #faedd6;
-$goldenrod-gray-2: #dccdaf;
-$goldenrod-gray-3: #bf9858;
+$olivine-1: #feffe8;
+$olivine-2: #eff2bd;
+$olivine-3: #dee697;
+$olivine-4: #cbd975;
+$olivine-5: #b8cc56;
+$olivine-6: #a4bf39;
+$olivine-7: #85a324;
+$olivine-8: #698714;
+$olivine-9: #4b6907;
+$olivine-10: #334d00;
 
-/* gray */
-$gray-lighter-1: #f9f9f9;
-$gray-lighter-2: #edeef2;
-$gray-lighter-3: #e5e7eb;
-$gray-lighter-4: #dbddec;
-$gray-lighter-5: #f5f5f5;
-$gray-lighter-6: #e4ebf1;
-$gray-lighter-7: #ededed;
-$gray-medium-1: #d7d8e0;
-$gray-medium-2: #dddde1;
-$gray-medium-3: #cbcbd2;
-$gray-medium-4: #d5d9dc;
-$gray-medium-5: #9ea4bd;
-$gray-medium-6: #a2a3a9;
-$gray-medium-7: #e5e5e5;
-$gray-medium-8: #f5f5f5;
-$gray-medium-9: #777777;
-$gray-medium-10: #bfbfbf;
-$gray-medium-11: #999999;
-$gray-medium-12: #cccccc;
-$gray-medium-13: #666666;
-$gray-darker-1: #737995;
-$gray-darker-2: #5a5f6f;
-$gray-darker-3: #3f3f44;
-$gray-darker-4: #383e5d;
-$gray-darker-5: #2d3454;
-$gray-darker-6: #1a203e;
-$gray-darker-7: #242a49;
-$gray-darker-8: #333333;
-$gray-darker-9: #273849;
+$yellow-1: #fffbe8;
+$yellow-2: #fff3c2;
+$yellow-3: #ffe89e;
+$yellow-4: #ffdc7a;
+$yellow-5: #ffcd57;
+$yellow-6: #ffbb33;
+$yellow-7: #d49220;
+$yellow-8: #a66a11;
+$yellow-9: #7a4806;
+$yellow-10: #4d2900;
 
-/* yellow */
-$yellow-normal: #f0ad4e;
-$yellow-red-1: #ffe379;
-$yellow-red-2: #ffc876;
-$yellow-red-3: #fead73;
-$yellow-red-4: #fd926b;
-$yellow-red-5: #fb655e;
+$orange-1: #fff6e8;
+$orange-2: #ffe4c2;
+$orange-3: #ffd29e;
+$orange-4: #ffbd7a;
+$orange-5: #ffa557;
+$orange-6: #ff8b33;
+$orange-7: #d46820;
+$orange-8: #a64711;
+$orange-9: #7a2d06;
+$orange-10: #4d1700;
 
+$red-1: #ffece8;
+$red-2: #ffcec7;
+$red-3: #ffb1a8;
+$red-4: #ff928a;
+$red-5: #ff706b;
+$red-6: #ff4d4d;
+$red-7: #d42f34;
+$red-8: #a61922;
+$red-9: #7a0914;
+$red-10: #4d000a;
+
+$deep-red-1: #ffe9e8;
+$deep-red-2: #f2b8b8;
+$deep-red-3: #e68e91;
+$deep-red-4: #d96870;
+$deep-red-5: #cc4553;
+$deep-red-6: #bf263b;
+$deep-red-7: #a31830;
+$deep-red-8: #870e26;
+$deep-red-9: #69051c;
+$deep-red-10: #4d0014;
+
+$grey-1: #f7f8fb;
+$grey-2: #f3f4f8;
+$grey-3: #ecedf3;
+$grey-4: #e2e4ed;
+$grey-5: #d7dae7;
+$grey-6: #c4c8d6;
+$grey-7: #abafc0;
+$grey-8: #808495;
+$grey-9: #555a6b;
+$grey-10: #404556;
+$grey-11: #2a2f40;
 
 $white: #fff;
-$dark:  #000;
+$black: #000;
 
-/* Color Use Case */
-$brand-primary: $purple-normal;
-$brand-success: $green-normal;
-$brand-danger: $red-normal;
-$brand-warning: $goldenrod-normal;
-$brand-info: $blue-normal;
-$brand-error: #f24542;
-$brand-critical: #b90a38;
-$brand-muted: $gray-medium-6;
+/********************************
+ *            业务颜色           *
+ ********************************/
+$primary-normal: $purple-6;
+$primary-hover: $purple-5;
+$primary-click: $purple-7;
+$primary-bg: $purple-1;
+$primary-disable: rgba($primary-normal, 0.4);
 
+$success-normal: $green-6;
+$success-hover: $green-5;
+$success-click: $green-7;
+$success-bg: $green-1;
+$success-disable: rgba($success-normal, 0.4);
 
-$light-steel-blue-lighter-3: #e8eaf6;
-$light-steel-blue-normal: #cbd0e3;
-$light-steel-blue-darker-1: #c4cadf;
-$light-steel-blue-darker-2: #b1b9d3;
+$warning-normal: $yellow-6;
+$warning-hover: $yellow-5;
+$warning-click: $yellow-7;
+$warning-bg: $yellow-1;
+$warning-disable: rgba($warning-normal, 0.4);
+
+$error-normal: $red-6;
+$error-hover: $red-5;
+$error-click: $red-7;
+$error-bg: $red-1;
+$error-disable: rgba($error-normal, 0.4);
+
+$critical-normal: $deep-red-6;
+$critical-hover: $deep-red-5;
+$critical-click: $deep-red-7;
+$critical-bg: $deep-red-1;
+$critical-disable: rgba($critical-normal, 0.4);
+
+$updating-normal: $blue-6;
+$updating-hover: $blue-5;
+$updating-click: $blue-7;
+$updating-bg: $blue-1;
+$updating-disable: rgba($updating-normal, 0.4);
+
+$offline-normal: $grey-7;
+$offline-hover: $grey-6;
+$offline-click: $grey-8;
+$offline-disabled: rgba($offline-normal, 0.4);
+
+$text-1: $grey-11;
+$text-2: $grey-9;
+$text-3: $grey-8;
+
+$text-success: $green-7;
+$text-warning: $yellow-7;
+$text-error: $red-7;
+$text-critical: $deep-red-7;
+$text-updating: $blue-7;
+
+$icon-1: $grey-8;
+$icon-2: $grey-7;
+
+/** 图表颜色 **/
+$chart-1: $purple-6;
+$chart-2: $blue-6;
+$chart-3: $yellow-6;
+$chart-4: $green-6;
+$chart-5: $orange-6;
+$chart-6: $azure-6;
+$chart-7: $red-5;
+$chart-8: $olivine-6;
+$chart-9: $purple-4;
+$chart-10: $blue-4;
+$chart-11: $grey-7;
+
+/** 背景颜色 **/
+$bg-1: $grey-3;
+$bg-2: $grey-1;
+$bg-2-hover: $grey-2;
+$bg-2-click: $grey-3;
+$tooltips-bg: $grey-10;
+$tab-bg: $grey-3;
+$tab-bg-hover: $grey-5;
+
+/** 边框、线条颜色 **/
+$border-1: $grey-5;
+$border-2: $grey-4;
 
 /* Badge */
 $badge-height: 20px;
@@ -130,17 +203,3 @@ $badge-dot-small-size: 6px;
 $PingFangFont: 'PingFangSC-Regular';
 
 $height-topbar: 50px;
-
-$text-lighter-2: $white;
-$text-lighter-1: $gray-medium-3;
-$text-lighter: #c1c1c9;
-$text: $gray-medium-6;
-$text-darker: $gray-darker-2;
-$text-darker-1: $gray-darker-3;
-
-$bg-top-level: $white;
-$bg-top-title: $gray-lighter-1;
-$bg-body: $gray-lighter-3;
-$bg-side-logo: $gray-darker-4;
-$bg-side: $gray-darker-5;
-$bg-side-nav: $gray-darker-6;

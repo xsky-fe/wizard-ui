@@ -4,13 +4,15 @@ import colorString from '!!raw-loader!../Layout/variables.scss';
 
 export default () => {
   const basicColorMap = {
-    red: {},
     purple: {},
     blue: {},
+    azure: {},
     green: {},
-    goldenrod: {},
-    gray: {},
+    olivine: {},
     yellow: {},
+    orange: {},
+    red: {},
+    'deep-red': {},
   };
   const useColorMap = {
     brand: {},

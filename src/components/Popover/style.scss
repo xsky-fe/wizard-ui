@@ -13,7 +13,7 @@
       justify-content:space-between;
       width: 250px;
       padding: 0 6px;
-      color: $gray-darker-3;
+      color: $text-2;
       font-size: 12px;
       height: 20px;
       line-height: 20px;
@@ -38,34 +38,34 @@
 
   &.shadow {
     &.top {
-      border-bottom: 3px solid $purple-normal;
+      border-bottom: 3px solid $primary-normal;
 
       .arrow::after {
-        border-top-color: $purple-normal !important;
+        border-top-color: $primary-normal !important;
       }
     }
 
     &.bottom {
-      border-top: 3px solid $purple-normal;
+      border-top: 3px solid $primary-normal;
     
       .arrow::after {
-        border-bottom-color: $purple-normal !important;
+        border-bottom-color: $primary-normal !important;
       }
     }
 
     &.left {
-      border-right: 3px solid $purple-normal;
+      border-right: 3px solid $primary-normal;
     
       .arrow::after {
-        border-left-color: $purple-normal !important;
+        border-left-color: $primary-normal !important;
       }
     }
 
     &.right {
-      border-left: 3px solid $purple-normal;
+      border-left: 3px solid $primary-normal;
     
       .arrow::after {
-        border-right-color: $purple-normal !important;
+        border-right-color: $primary-normal !important;
       }
     }
   }

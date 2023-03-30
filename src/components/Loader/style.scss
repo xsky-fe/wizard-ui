@@ -1,3 +1,4 @@
+@import '../../style/variables.scss';
 .Loader {
     position: relative;
     display: flex;
@@ -13,14 +14,14 @@
     width: 80px;
     height: 80px;
     border-radius: 100%;
-    border: 10px solid rgba(255, 255, 255, 0.2);
-    border-top-color: #FFF;
+    border: 10px solid rgba($white, 0.2);
+    border-top-color: $white;
     animation: spin 1s infinite linear;
     display: inline-block;
 }
 
 .Loader__text {
-    color: rgba(255, 255, 255, .9);
+    color: rgba($white, .9);
     text-align: center;
     padding-top: 10px;
 }
@@ -58,11 +59,11 @@
 }
 
 .Loader--primary .Loader__circle {
-    border-color: #ddd;
-    border-top-color: #6b58c4;
+    border-color: $border-2;
+    border-top-color: $primary-normal;
 }
 .Loader--primary .Loader__text {
-    color: #666;
+    color: $text-2;
 }
 
 

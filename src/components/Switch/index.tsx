@@ -3,6 +3,7 @@ import ReactIOSSwitch from 'react-ios-switch';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import { SwitchProps } from '../../interface';
+import variables from '../../style/variables.scss';
 import './style.scss';
 
 const Switch: React.FC<SwitchProps> = props => {
@@ -19,6 +20,10 @@ const Switch: React.FC<SwitchProps> = props => {
   const className = classNames('Switch', {
     'Switch--inline': inline,
   });
+  const styles = {
+    boxShadow: 'rgb(0 0 0) 0px 0px 0px 0px inset',
+    border: `1px solid ${variables.border1}`
+  }
   return (
     <div
       data-name={switchName} // 兼容e2e测试中的page-object选择器
@@ -29,6 +34,8 @@ const Switch: React.FC<SwitchProps> = props => {
         disabled={disabled}
         {...input}
         {...rest}
+        onColor={variables.successNormal}
+        style={styles}
         onChange={handleSwitchChange}
       />
     </div>

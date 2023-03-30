@@ -1,3 +1,4 @@
+@import '../../style/variables.scss';
 .rc-time-picker {
   position: relative;
 }
@@ -11,7 +12,7 @@
   line-height: 20px;
   top: 7px;
   margin: 0;
-  color: #ccc;
+  color: $icon-2;
 }
 .rc-time-picker-clear {
   top: 6px;

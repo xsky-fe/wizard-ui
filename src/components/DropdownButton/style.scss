@@ -7,40 +7,27 @@
 .list-toolbar + .dropdown-menu .dropdown-menu,
 .table-toolbar + .dropdown-menu .dropdown-menu {
   min-width: auto;
-  border: 1px solid $gray-medium-2;
-  border-top: 3px solid $purple-normal;
-  box-shadow: 0 1px 8px rgba(0,0,0,0.12);
+  border: 1px solid $border-2;
+  border-top: 3px solid $primary-normal;
+  box-shadow: 0 1px 8px rgba(black,0.12);
   &>li>a {
-    color: $gray-darker-2;
     text-decoration: none;
     line-height: 24px;
   }
-  /*------ hover状态样式--------*/
-  &>li>a:hover {
-    background-color: $purple-lighter-3;
-    color: $gray-darker-3;
-  }
-  /*------ disabled状态样式--------*/
-  &>li.disabled>a,
-  &>li.disabled>a:hover,
-  &>li.disabled>a:focus {
-    color: $gray-medium-3;
-    background-color: transparent;
-  }
   /*------ 分割线状态样式--------*/
   &>li.divider {
-    color: $gray-lighter-3;
+    color: $border-2;
     margin: 3px 20px;
   }
   .SubMenu li {
-    color: $gray-darker-2;
+    color: $text-2;
   }
 }
 .dropup .dropdown-menu {
   min-width: auto;
-  border: 1px solid $gray-medium-2;
-  border-top: 1px solid $gray-medium-2;
-  border-bottom: 3px solid $purple-normal;
+  border: 1px solid $border-2;
+  border-top: 1px solid $border-2;
+  border-bottom: 3px solid $primary-normal;
 }
 .scroll-toolbar + .dropdown-menu,
 .scroll-toolbar + .dropdown-menu .dropdown-menu {

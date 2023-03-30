@@ -23,14 +23,14 @@
   }
   &.is-open,
   &:hover {
-    background-color: #fff;
-    border-color: #ccc;
+    background-color: $white;
+    border-color: $border-2;
   }
   max-width: 250px;
   padding-right: 40px;
   .glyphicon {
     position: absolute;
-    color: $gray-medium-11;
+    color: $icon-1;
     right: 8px;
     top: 5px;
   }
@@ -38,9 +38,9 @@
     position: absolute;
     right: 25px;
     top: 2px;
-    color: $gray-medium-11;
+    color: $icon-1;
     &:hover {
-      color: $purple-normal;
+      color: $primary-normal;
     }
     cursor: pointer;
     svg {
@@ -55,9 +55,8 @@
   left: 0;
   width: 250px;
   /* 仿Github的select-menu */
-  border: 1px solid rgba(27, 31, 35, 0.15);
+  border: 1px solid $border-2;
   border-radius: 3px;
-  box-shadow: 0 3px 12px rgba(27, 31, 35, 0.15);
   > .panel {
     margin: 0;
     border: none !important;
@@ -88,15 +87,15 @@
   font-size: 13px;
   &:hover {
     cursor: pointer;
-    background-color: $gray-lighter-4;
+    background-color: $primary-bg;
   }
 }
 
 .SelectBox__item.active,
 .SelectBox__item.active:hover,
 .SelectBox__item.active:focus {
-  color: $gray-darker-3;
-  background-color: $gray-lighter-4;
+  color: $text-1;
+  background-color: $primary-bg;
 }
 
 .VirtualList__placeholder,

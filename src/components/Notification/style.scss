@@ -20,90 +20,82 @@
 }
 
 .alert-success {
-  background-color: $green-lighter-3;
-  border-color: $green-lighter-2;
-  color: $green-gray-3;
+  background-color: $success-bg;
+  border-color: $green-2;
+  color: $text-success;
 
   .close {
-    color: $green-gray-2;
-
     &:hover {
-      color: $green-darker-1;
+      color: $success-hover;
     }
 
     &:active {
-      color: $green-darker-2;
+      color: $success-click;
     }
   }
 
   .icon {
-    color: $green-normal;
+    color: $success-normal;
   }
 }
 
 .alert-info {
-  background-color: $blue-lighter-3;
-  border-color: $blue-lighter-2;
-  color: $blue-gray-3;
+  background-color: $updating-bg;
+  border-color: $blue-2;
+  color: $text-updating;
 
   .close {
-    color: $blue-gray-2;
-
     &:hover {
-      color: $blue-darker-1;
+      color: $updating-hover;
     }
 
     &:active {
-      color: $blue-darker-2;
+      color: $updating-click;
     }
   }
 
   .icon {
-    color: $blue-normal;
+    color: $updating-normal;
   }
 }
 
 .alert-warning {
-  background-color: $goldenrod-lighter-3;
-  border-color: $goldenrod-gray-1;
-  color: $goldenrod-gray-3;
+  background-color: $warning-bg;
+  border-color: $yellow-2;
+  color: $text-warning;
 
   .close {
-    color: $goldenrod-gray-2;
-
     &:hover {
-      color: $goldenrod-darker-1;
+      color: $warning-hover;
     }
 
     &:active {
-      color: $goldenrod-darker-2;
+      color: $warning-click;
     }
   }
 
   .icon {
-    color: $goldenrod-normal;
+    color: $warning-normal;
   }
 }
 
 .alert-danger {
-  background-color: $red-lighter-3;
-  border-color: $red-gray-1;
-  color: $red-gray-3;
+  background-color: $error-bg;
+  border-color: $red-2;
+  color: $text-error;
 
   .close {
-    color: $red-gray-2;
-
     &:hover {
-      color: $red-darker-1;
+      color: $error-hover;
     }
 
     &:active {
-      color: $red-darker-2;
+      color: $error-click;
     }
   }
 
   .icon {
-    color: $red-normal;
+    color: $error-normal;
   }
 }
 
@@ -117,7 +109,7 @@
     justify-content: space-between;
     width: 70px;
     background: $white;
-    border: 1px solid $gray-medium-2;
+    border: 1px solid $border-2;
     text-align: left;
     font-size: 12px;
     border-radius: 3px;
@@ -168,8 +160,8 @@
       width: 14px;
       height: 14px;
       display: inline-block;
-      border-top: 2px solid #c1c1c9;
-      border-right: 2px solid #cbcbd2;
+      border-top: 2px solid $updating-normal;
+      border-right: 2px solid $updating-normal;
       animation: spin 1s linear infinite;
       border-radius: 100%;
       box-sizing: content-box;

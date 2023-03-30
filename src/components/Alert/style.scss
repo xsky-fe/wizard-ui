@@ -10,36 +10,27 @@
       top: 1.45rem;
     }
   }
+  a {
+    color: $primary-normal;
+  }
   &.alert-danger {
     & .icon path {
-      fill: $red-normal;
-    }
-    & a{
-      color: #491217;
+      fill: $error-normal;
     }
   }
   &.alert-info {
     & .icon path {
-      fill:$blue-normal;
-    }
-    & a{
-      color: #002752;
+      fill: $updating-normal;
     }
   }
   &.alert-success {
     & .icon path {
-      fill:  $green-normal;
-    }
-    & a{
-      color: #0b2e13;
+      fill: $success-normal;
     }
   }
   &.alert-warning {
     & .icon path {
-      fill: $goldenrod-normal;
-    }
-    & a{
-      color: #533f03;
+      fill: $warning-normal;
     }
   }
   &.show-alert{
