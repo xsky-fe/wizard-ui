@@ -5,7 +5,7 @@
  */
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
-const { snakeCase } = require('lodash')
+const { snakeCase } = require('lodash');
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -13,13 +13,13 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       modules: [path.resolve(__dirname, 'node_modules')],
       alias: {
         'wizard-ui': path.resolve(__dirname, '../src'),
-      }
-    }
-  })
-}
+      },
+    },
+  });
+};
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
   const componentPage = path.resolve(`./src/templates/components-post.js`);
   const defaultPage = path.resolve(`./src/templates/default.js`);
@@ -28,7 +28,7 @@ exports.createPages = async ({ graphql, actions }) => {
     `
       {
         allMdx(
-          sort: { fields: [frontmatter___date], order: DESC },
+          sort: { fields: [frontmatter___date], order: DESC }
           filter: { frontmatter: { title: { ne: "" } } }
           limit: 1000
         ) {
@@ -71,11 +71,11 @@ exports.createPages = async ({ graphql, actions }) => {
     `
   );
   if (result.errors) {
-    throw result.errors
+    throw result.errors;
   }
 
   // Create blog posts pages.
-  const posts = result.data.allMdx.edges
+  const posts = result.data.allMdx.edges;
   const propTables = result.data.allComponentMetadata.edges;
 
   posts.forEach((post, index) => {
@@ -88,13 +88,13 @@ exports.createPages = async ({ graphql, actions }) => {
           context: {
             slug,
           },
-        })
+        });
       } catch (e) {
         console.log(e);
       }
     } else {
-      const next = index === posts.length - 1 ? null : posts[index + 1].node
-      const previous = index === 0 ? null : posts[index - 1].node
+      const next = index === posts.length - 1 ? null : posts[index + 1].node;
+      const previous = index === 0 ? null : posts[index - 1].node;
       // 组件 propTypes 解析
       const propTableDatas = propTables.filter(pt => {
         const pSlug = pt.node.fields.slug;
@@ -102,42 +102,39 @@ exports.createPages = async ({ graphql, actions }) => {
         return slug === path;
       });
       const propDatas = propTableDatas.length > 0 ? propTableDatas[0] : null;
-      if(propDatas) {
-        try {
-          createPage({
-            path: slug,
-            component: componentPage,
-            context: {
-              slug,
-              previous,
-              next,
-              propDatas,
-            },
-          })
-        } catch (e) {
-          console.log(e);
-        }
+      try {
+        createPage({
+          path: slug,
+          component: componentPage,
+          context: {
+            slug,
+            previous,
+            next,
+            propDatas,
+          },
+        });
+      } catch (e) {
+        console.log(e);
       }
     }
-  })
+  });
 
   return null;
-  
-}
+};
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
+  const { createNodeField } = actions;
 
   if ([`Mdx`, 'ComponentMetadata'].includes(node.internal.type)) {
-    const value = createFilePath({ node, getNode })
+    const value = createFilePath({ node, getNode });
     try {
       createNodeField({
         name: `slug`,
         node,
         value,
-      })
+      });
     } catch (e) {
       console.log(e);
     }
   }
-}
+};
