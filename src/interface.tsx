@@ -263,7 +263,8 @@ export interface RangePickerState {
 }
 export interface AlertProps {
   children: React.ReactNode;
-  bsStyle?: string;
+  bsStyle?: 'warning' | 'error' | 'info';
+  textAlign?: 'left' | 'center' | 'inline';
   show?: boolean;
   showIcon?: boolean;
   bsClass?: string;

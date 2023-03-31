@@ -22,7 +22,7 @@
 .Tabs .nav-tabs > li {
   background-color: $tab-bg;
   margin-right: 2px;
-  border-radius: 5px 5px 0 0;
+  border-radius: $radius-tab $radius-tab 0 0;
   box-sizing: border-box;
   height: 40px;
   border-top: 2px solid $tab-bg;
@@ -85,7 +85,7 @@
       border-bottom: 1px solid $white;
 
       &:hover {
-        border:none;     
+        border:none;
         border-bottom: 1px solid $white;
       }
     }
@@ -99,7 +99,7 @@
   }
   & .tab-content {
     background-color: $white;
-    border-radius: 4px;
+    border-radius: $radius-tab;
     height: calc(100% - 40px);
     .panel-heading {
       font: 16px/20px $PingFangFont;

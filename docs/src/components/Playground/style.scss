@@ -35,11 +35,11 @@
   &.show {
     background-color: #234361;
   }
-  border-radius: 4px;
+  border-radius: $radius-card;
   color: #fff;
   &__Error {
     background-color: #f24542;
-    border-radius: 4px;
+    border-radius: $radius-card;
     pre {
       padding: 15px;
       background-color: transparent;
@@ -54,7 +54,7 @@
       border: 1px solid themed('border-color');
       color: themed('bd-color');
     }
-    border-radius: 3px;
+    border-radius: $radius-card;
     padding: 16px;
     display: flex;
     justify-content: space-between;

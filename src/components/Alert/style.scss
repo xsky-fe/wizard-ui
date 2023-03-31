@@ -1,74 +1,124 @@
 @import '../../style/variables.scss';
-.alert {
-  &.with-icon{
-    position: relative;
-    padding-left: 30px;
-    & .icon {
-      position: absolute;
-      display: inline-flex;
-      left: .75rem;
-      top: 1.45rem;
+
+.Alert {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: $radius-card;
+
+  .Alert-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+
+    &.dismiss-container {
+      margin-right: 16px;
+    }
+
+    &.justify-center {
+      justify-content: center;
+    }
+
+    .icon {
+      font-size: 14px;
+      margin-right: 8px;
+      margin-bottom: 1px;
     }
   }
-  a {
-    color: $primary-normal;
-  }
-  &.alert-danger {
-    & .icon path {
-      fill: $error-normal;
+
+  &.Alert-error {
+    color: $text-error;
+    &.bg-bordered {
+      background: $error-bg;
+      border: 1px solid $error-border;
+    }
+    &.bg-solid {
+      background: $error-bg;
     }
   }
-  &.alert-info {
-    & .icon path {
-      fill: $updating-normal;
+
+  &.Alert-info {
+    color: $text-updating;
+    &.bg-bordered {
+      background: $updating-bg;
+      border: 1px solid $updating-border;
+    }
+    &.bg-solid {
+      background: $updating-bg;
     }
   }
-  &.alert-success {
-    & .icon path {
-      fill: $success-normal;
+
+  &.Alert-warning {
+    color: $text-warning;
+    &.bg-bordered {
+      background: $warning-bg;
+      border: 1px solid $warning-border;
+    }
+    &.bg-solid {
+      background: $warning-bg;
     }
   }
-  &.alert-warning {
-    & .icon path {
-      fill: $warning-normal;
+
+  .icon-close {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    path {
+      color: $icon-1;
     }
   }
-  &.show-alert{
-    &.dismiss-up{
+  &.show-alert {
+    &.dismiss-up {
       transform: rotateX(0deg);
       transform-origin: 0 0 0;
     }
-    &.dismiss-right{
+
+    &.dismiss-right {
       transform: rotateY(0deg);
       transform-origin: 100% 100% 0;
     }
-    &.dismiss-down{
+
+    &.dismiss-down {
       transform: rotateX(0deg);
       transform-origin: 100% 100% 0;
     }
-    &.dismiss-left{
+
+    &.dismiss-left {
       transform: rotateY(0deg);
       transform-origin: 0 100% 0;
     }
   }
-  &.hidden-alert{
-    &.dismiss-up{
+
+  &.hidden-alert {
+    &.dismiss-up {
       transform: rotateX(90deg);
       transform-origin: 0 0 0;
     }
-    &.dismiss-right{
+
+    &.dismiss-right {
       transform: rotateY(90deg);
       transform-origin: 100% 100% 0;
     }
-    &.dismiss-down{
+
+    &.dismiss-down {
       transform: rotateX(90deg);
       transform-origin: 100% 100% 0;
     }
-    &.dismiss-left{
+
+    &.dismiss-left {
       transform: rotateY(90deg);
       transform-origin: 0 100% 0;
     }
   }
-  
+
+  &.bg-plain {
+    padding: 8px 0;
+    margin-bottom: 0;
+  }
+
   transition: transform .35s ease;
 }

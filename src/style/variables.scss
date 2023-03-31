@@ -199,10 +199,35 @@ $border-2: $grey-4;
 $badge-height: 20px;
 $badge-dot-small-size: 6px;
 
+/* UsageBar */
+$progress-height: 8px;
+$progress-legend-height: 8px;
+
+$error-border: $red-2;     // TODO: 确认业务变量里是否加上 border
+$updating-border: $blue-2;  // TODO: 确认业务变量里是否加上 border
+$warning-border: $yellow-2;  // TODO: 确认业务变量里是否加上 border
+
 /* PingFang font */
 $PingFangFont: 'PingFangSC-Regular';
 
 $height-topbar: 50px;
+
+/** 圆角 **/
+$radius-none: 0;
+$radius-small: 2px;
+$radius-middle: 4px;
+$radius-large: 8px;
+$radius-full: 100%;
+/* 中圆角 */
+$radius-card: $radius-middle;
+$radius-modal: $radius-middle;
+$radius-input: $radius-middle;
+$radius-dropdown: $radius-middle;
+$radius-popover: $radius-middle;
+$radius-btn: $radius-middle;
+$radius-tab: $radius-middle;
+/* 全圆角 */
+$radius-load: $radius-full;
 
 :export {
     successNormal: $success-normal;
