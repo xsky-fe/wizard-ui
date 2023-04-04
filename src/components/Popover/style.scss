@@ -2,6 +2,7 @@
 
 .Popover {
   border-radius: $radius-4-popover;
+  box-shadow: $shadow-popover;
   &__wrapper {
     display: inline-block;
     position: relative;

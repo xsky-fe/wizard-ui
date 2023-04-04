@@ -20,6 +20,7 @@
 }
 
 .panel {
+  box-shadow: $shadow-panel;
   .panel-heading {
     border-top-left-radius: $radius-4-card;
     border-top-right-radius: $radius-4-card;
