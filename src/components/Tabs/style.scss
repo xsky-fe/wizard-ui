@@ -22,7 +22,7 @@
 .Tabs .nav-tabs > li {
   background-color: $tab-bg;
   margin-right: 2px;
-  border-radius: $radius-tab $radius-tab 0 0;
+  border-radius: $radius-4-tab $radius-4-tab 0 0;
   box-sizing: border-box;
   height: 40px;
   border-top: 2px solid $tab-bg;
@@ -99,7 +99,7 @@
   }
   & .tab-content {
     background-color: $white;
-    border-radius: $radius-tab;
+    border-radius: $radius-4-tab;
     height: calc(100% - 40px);
     .panel-heading {
       font: 16px/20px $PingFangFont;

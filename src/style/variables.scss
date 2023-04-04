@@ -215,15 +215,13 @@ $radius-middle: 4px;
 $radius-large: 8px;
 $radius-full: 100%;
 /* 中圆角 */
-$radius-card: $radius-middle;
-$radius-modal: $radius-middle;
-$radius-input: $radius-middle;
-$radius-dropdown: $radius-middle;
-$radius-popover: $radius-middle;
-$radius-btn: $radius-middle;
-$radius-tab: $radius-middle;
-/* 全圆角 */
-$radius-load: $radius-full;
+$radius-4-card: $radius-middle;
+$radius-4-modal: $radius-middle;
+$radius-4-input: $radius-middle;
+$radius-4-dropdown: $radius-middle;
+$radius-4-popover: $radius-middle;
+$radius-4-btn: $radius-middle;
+$radius-4-tab: $radius-middle;
 
 :export {
     successNormal: $success-normal;

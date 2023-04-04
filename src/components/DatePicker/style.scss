@@ -1,6 +1,6 @@
 @import '../../style/variables.scss';
 .rc-calendar {
-  border-radius: $radius-dropdown;
+  border-radius: $radius-4-dropdown;
 }
 .rc-calendar-picker {
   z-index: 1060;
@@ -12,7 +12,7 @@
     font-size: 14px;
     line-height: 1.42857;
     border: 1px solid $border-2;
-    border-radius: $radius-input;
+    border-radius: $radius-4-input;
     outline: none;
     &:focus {
       border-color: $primary-normal;

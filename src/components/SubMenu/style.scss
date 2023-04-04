@@ -20,9 +20,9 @@
       left: 100%;
       margin-top: -4px;
       margin-left: 0;
-      -webkit-border-radius: 0 $radius-dropdown $radius-dropdown $radius-dropdown;
-      -moz-border-radius: 0 $radius-dropdown $radius-dropdown;
-      border-radius: 0 $radius-dropdown $radius-dropdown $radius-dropdown;
+      -webkit-border-radius: 0 $radius-4-dropdown $radius-4-dropdown $radius-4-dropdown;
+      -moz-border-radius: 0 $radius-4-dropdown $radius-4-dropdown;
+      border-radius: 0 $radius-4-dropdown $radius-4-dropdown $radius-4-dropdown;
   }
 
   .dropdown-submenu-header:hover>.dropdown-menu {
@@ -50,8 +50,8 @@
   .dropdown-submenu-header.pull-left>.dropdown-menu {
       left: -100%;
       margin-left: 10px;
-      -webkit-border-radius: $radius-dropdown 0 $radius-dropdown $radius-dropdown;
-      -moz-border-radius: $radius-dropdown 0 $radius-dropdown $radius-dropdown;
-      border-radius: $radius-dropdown 0 $radius-dropdown $radius-dropdown;
+      -webkit-border-radius: $radius-4-dropdown 0 $radius-4-dropdown $radius-4-dropdown;
+      -moz-border-radius: $radius-4-dropdown 0 $radius-4-dropdown $radius-4-dropdown;
+      border-radius: $radius-4-dropdown 0 $radius-4-dropdown $radius-4-dropdown;
   }
 }
