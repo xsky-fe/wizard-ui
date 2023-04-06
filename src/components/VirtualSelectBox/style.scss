@@ -78,13 +78,13 @@
 }
 
 .SelectBox__search {
-  font-size: 13px;
+  font-size: $font-size-14;
 }
 
 .SelectBox__item {
   display: block;
   padding: 5px 10px;
-  font-size: 13px;
+  font-size: $font-size-14;
   &:hover {
     cursor: pointer;
     background-color: $primary-bg;
