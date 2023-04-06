@@ -41,7 +41,7 @@ $font-family-sans-serif:  "PingFang SC", sans-serif !default;
 $font-family-serif:       "PingFang SC", sans-serif !default;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 $font-family-monospace:   "PingFang SC", sans-serif !default;
-$font-family-base:        $font-family-sans-serif !default;
+$font-family-base:        $pingfang-font !default;
 
 $font-size-base:          14px !default;
 $font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
@@ -61,7 +61,7 @@ $line-height-computed:    floor(($font-size-base * $line-height-base)) !default;
 
 //** By default, this inherits from the `<body>`.
 $headings-font-family:    inherit !default;
-$headings-font-weight:    500 !default;
+$headings-font-weight:    $font-weight-medium !default;
 $headings-line-height:    1.1 !default;
 $headings-color:          inherit !default;
 
@@ -141,7 +141,7 @@ $table-border-color:            transparent !default;
 //
 //## For each of Bootstrap's buttons, define text, background and border color.
 
-$btn-font-weight:                normal !default;
+$btn-font-weight:                $font-weight-regular !default;
 
 $btn-default-color:              $text-2 !default;
 $btn-default-bg:                 $white !default;
@@ -621,7 +621,7 @@ $modal-sm:                    300px !default;
 
 $alert-padding:               15px !default;
 $alert-border-radius:         $border-radius-base !default;
-$alert-link-font-weight:      bold !default;
+$alert-link-font-weight:      $font-weight-medium !default;
 
 $alert-success-bg:            $state-success-bg !default;
 $alert-success-text:          $state-success-text !default;
@@ -781,7 +781,7 @@ $badge-active-color:          $link-color !default;
 //** Badge background color in active nav link
 $badge-active-bg:             #fff !default;
 
-$badge-font-weight:           bold !default;
+$badge-font-weight:           $font-weight-medium !default;
 $badge-line-height:           1 !default;
 $badge-border-radius:         10px !default;
 
@@ -823,7 +823,7 @@ $carousel-caption-color:                      #fff !default;
 //
 //##
 
-$close-font-weight:           bold !default;
+$close-font-weight:           $font-weight-medium !default;
 $close-color:                 #000 !default;
 $close-text-shadow:           0 1px 0 #fff !default;
 

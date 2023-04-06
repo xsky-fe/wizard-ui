@@ -200,7 +200,22 @@ $badge-height: 20px;
 $badge-dot-small-size: 6px;
 
 /* PingFang font */
-$PingFangFont: 'PingFangSC-Regular';
+$pingfang-font: "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Helvetica", "Arial", "PingFangSC-Regular", "San Francisco", "Noto Sans", "Roboto", "Microsoft Yahei", "微软雅黑", "Segoe UI", "sans-serif";
+
+/* Font weight */
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+
+/* Font size */
+$font-size-12: 12px;
+$font-size-14: 14px;
+$font-size-16: 16px;
+$font-size-18: 18px;
+$font-size-20: 20px;
+$font-size-24: 24px;
+$font-size-32: 32px;
+$font-size-40: 40px;
 
 $height-topbar: 50px;
 

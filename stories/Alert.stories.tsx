@@ -4,7 +4,7 @@ import { Alert } from '../src';
 
 storiesOf('Alert', module)
 .add('danger', () => (
-  <Alert bsStyle="error" dismissDirection="up">
+  <Alert bsStyle="danger" dismissDirection="up">
     default text <a href="#">test link</a>
   </Alert>
 ))
