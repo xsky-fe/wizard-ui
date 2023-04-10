@@ -3,13 +3,13 @@
 .SubMenu {
   .dropdown-submenu-header {
       position: relative;
-      font-size: 13px;
+      font-size: $font-size-14;
       cursor: default;
       color: initial;
       padding: 0;
       > span {
         padding: 3px 20px;
-        font-size: 14px;
+        font-size: $font-size-14;
         line-height: 1.42857143;
         display: block;
       }

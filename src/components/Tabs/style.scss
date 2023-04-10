@@ -26,7 +26,7 @@
   box-sizing: border-box;
   height: 40px;
   border-top: 2px solid $tab-bg;
-  font-size: 13px;
+  font-size: $font-size-14;
 
   & > a {
     color: $text-2;
@@ -102,7 +102,7 @@
     border-radius: $radius-4-tab;
     height: calc(100% - 40px);
     .panel-heading {
-      font: 16px/20px $PingFangFont;
+      font: $font-size-16/20px $pingfang-font;
       background-color: $white;
       border: none;
     }
@@ -111,7 +111,7 @@
 
 .Tabs--small .nav-tabs > li {
   height: 28px;
-  font-size: 12px;
+  font-size: $font-size-12;
 
   &.active {
     border-left: 1px solid $bg-2;

@@ -24,7 +24,7 @@
     .icon {
       display: inline-flex;
       align-items: center;
-      font-size: 14px;
+      font-size: $font-size-14;
       margin-right: 8px;
     }
   }
@@ -64,6 +64,7 @@
   }
 
   .icon-close {
+    font-size: $font-size-14;
     display: inline-flex;
     align-items: center;
     position: absolute;

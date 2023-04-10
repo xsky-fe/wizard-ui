@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Dropdown as BootstrapDropdown } from 'react-bootstrap';
 import { DropdownProps, DropdownDefaultProps } from '../../interface';
-import './style.scss';
 
 const defaultProps: DropdownDefaultProps = {
   id: 'CustomDropdown',

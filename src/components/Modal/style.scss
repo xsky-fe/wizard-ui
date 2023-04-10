@@ -7,10 +7,6 @@
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
-    .modal-content.react-draggable {
-      border-radius: $radius-4-modal !important;
-      box-shadow: $shadow-modal;
-    }
   }
   .modal-header{
     .close {

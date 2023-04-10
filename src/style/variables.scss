@@ -204,7 +204,22 @@ $progress-height: 8px;
 $progress-legend-height: 8px;
 
 /* PingFang font */
-$PingFangFont: 'PingFangSC-Regular';
+$pingfang-font: "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Helvetica", "Arial", "PingFangSC-Regular", "San Francisco", "Noto Sans", "Roboto", "Microsoft Yahei", "微软雅黑", "Segoe UI", "sans-serif";
+
+/* Font weight */
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+
+/* Font size */
+$font-size-12: 12px;
+$font-size-14: 14px;
+$font-size-16: 16px;
+$font-size-18: 18px;
+$font-size-20: 20px;
+$font-size-24: 24px;
+$font-size-32: 32px;
+$font-size-40: 40px;
 
 $height-topbar: 50px;
 
@@ -224,27 +239,6 @@ $radius-4-btn: $radius-middle;
 $radius-4-tab: $radius-middle;
 /* 全圆角 */
 $radius-100-load: $radius-full;
-
-/** 阴影 **/
-$shadow-1: rgba(0, 0, 0, 0.06);
-$shadow-2: rgba(0, 0, 0, 0.05);
-$shadow-3: rgba(0, 0, 0, 0.03);
-$shadow-1-bottom: 0px 1px 3px 0px $shadow-2, 0px 1px 4px 0px $shadow-3, 0px 1px 8px 0px $shadow-1;
-$shadow-2-bottom: 0px 2px 6px 0px $shadow-2, 0px 2px 8px 0px $shadow-3, 0px 4px 15px 0px $shadow-3;
-$shadow-2-top: 0px -2px 6px 0px $shadow-2, 0px -2px 8px 0px $shadow-3, 0px -4px 15px 0px $shadow-3;
-$shadow-2-left: -2px 0px 6px 0px $shadow-2, -2px 0px 8px 0px $shadow-3, -4px 0px 15px 0px $shadow-3;
-$shadow-2-right: 2px 0px 6px 0px $shadow-2, 2px 0px 8px 0px $shadow-3, 4px 0px 15px 0px $shadow-3;
-$shadow-3-bottom: 0px 4px 10px 2px $shadow-2, 0px 4px 15px 5px $shadow-3, 0px 6px 20px 0px $shadow-3;
-$shadow-3-right: 4px 0px 10px 2px $shadow-2, 4px 0px 15px 5px $shadow-3, 6px 0px 20px $shadow-3;
-/* 三级阴影 */
-$shadow-modal: $shadow-3-bottom;
-/* 二级阴影 */
-$shadow-dropdown: $shadow-2-bottom;
-$shadow-timePicker: $shadow-2-bottom;
-$shadow-popover: $shadow-2-bottom;
-$shadow-tooltip: $shadow-2-bottom;
-/* 一级阴影 */
-$shadow-panel: $shadow-1-bottom;
 
 :export {
     successNormal: $success-normal;

@@ -3,14 +3,11 @@
 .Tooltip {
   display: inline-block;
   & .Tooltip__icon {
-    font-size: 14px;
+    font-size: $font-size-14;
     color: $icon-2;
   }
 }
 .tooltip {
-  .tooltip-inner {
-    box-shadow: $shadow-tooltip;
-  }
   &.contrast {
     &.top > .tooltip-arrow {
       border-top-color: white;
@@ -27,6 +24,7 @@
     .tooltip-inner {
       color: black;
       background-color: white;
+      box-shadow: 0 0 20px rgba(black,.3);
     }
   }
 }

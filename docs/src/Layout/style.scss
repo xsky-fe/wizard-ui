@@ -12,7 +12,7 @@
 
 @media(max-width: 768px) {
   body {
-    font-size: 12px;
+    font-size: $font-size-12;
   }
   table {
     th, td {
@@ -38,7 +38,7 @@ table {
   margin: 8px 0 16px;
   th {
     color: #5c6b77;
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     white-space: nowrap;
     background: rgba(0,0,0,0.02);
     @include themify($themes) {
@@ -72,7 +72,7 @@ table {
 
 .prev-next-nav {
   overflow: hidden;
-  font-size: 14px;
+  font-size: $font-size-14;
   @include themify($themes) {
     border-top: 1px solid themed('border-color');
   }
