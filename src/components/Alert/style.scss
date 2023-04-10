@@ -22,9 +22,10 @@
     }
 
     .icon {
+      display: inline-flex;
+      align-items: center;
       font-size: 14px;
       margin-right: 8px;
-      margin-bottom: 1px;
     }
   }
 
@@ -63,6 +64,8 @@
   }
 
   .icon-close {
+    display: inline-flex;
+    align-items: center;
     position: absolute;
     top: 50%;
     right: 16px;
