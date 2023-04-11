@@ -1,3 +1,13 @@
+## [0.7.12](https://github.com/xsky-fe/wizard-ui/compare/0.7.11...0.7.12) (2023-04-11)
+
+### Features
+
+* feat: font-family and font-size update ([#213](https://github.com/xsky-fe/wizard-ui/issues/213)) ([8a21a76](https://github.com/xsky-fe/wizard-ui/commit/8a21a765105bbe766709fb3e1ede413a47b9979d))
+
+### Bug Fixes
+
+* style: change alert and border radius and box shadow ([212](https://github.com/xsky-fe/wizard-ui/commit/f42de7a7b262f6489afdb8c97a7a40049588a994))
+
 ## [0.7.11](https://github.com/xsky-fe/wizard-ui/compare/0.7.10...0.7.11) (2023-03-30)
 
 
