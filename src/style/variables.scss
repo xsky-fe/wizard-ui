@@ -199,6 +199,10 @@ $border-2: $grey-4;
 $badge-height: 20px;
 $badge-dot-small-size: 6px;
 
+/* UsageBar */
+$progress-height: 8px;
+$progress-legend-height: 8px;
+
 /* PingFang font */
 $pingfang-font: "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Helvetica", "Arial", "PingFangSC-Regular", "San Francisco", "Noto Sans", "Roboto", "Microsoft Yahei", "微软雅黑", "Segoe UI", "sans-serif";
 
@@ -218,6 +222,23 @@ $font-size-32: 32px;
 $font-size-40: 40px;
 
 $height-topbar: 50px;
+
+/** 圆角 **/
+$radius-none: 0;
+$radius-small: 2px;
+$radius-middle: 4px;
+$radius-large: 8px;
+$radius-full: 100%;
+/* 中圆角 */
+$radius-4-card: $radius-middle;
+$radius-4-modal: $radius-middle;
+$radius-4-input: $radius-middle;
+$radius-4-dropdown: $radius-middle;
+$radius-4-popover: $radius-middle;
+$radius-4-btn: $radius-middle;
+$radius-4-tab: $radius-middle;
+/* 全圆角 */
+$radius-100-load: $radius-full;
 
 :export {
     successNormal: $success-normal;

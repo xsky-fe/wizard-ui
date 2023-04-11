@@ -1,6 +1,7 @@
 @import '../../style/variables.scss';
 
 .Popover {
+  border-radius: $radius-4-popover;
   &__wrapper {
     display: inline-block;
     position: relative;
@@ -24,9 +25,11 @@
         overflow: hidden;
         text-overflow: ellipsis;
       }
+
       .Badge__count {
         margin: 0;
       }
+
       .btn {
         padding: 0;
       }

@@ -163,7 +163,7 @@
       border-top: 2px solid $updating-normal;
       border-right: 2px solid $updating-normal;
       animation: spin 1s linear infinite;
-      border-radius: 100%;
+      border-radius: $radius-100-load;
       box-sizing: content-box;
     }
     .icon {

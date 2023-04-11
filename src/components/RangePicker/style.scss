@@ -99,7 +99,7 @@ li.rc-time-picker-panel-select-option-selected {
 }
 .rc-calendar-ok-btn {
   padding: 5px 15px;
-  border-radius: 3px;
+  border-radius: $radius-4-btn;
   margin-right: 12px;
   &:hover {
     color: $white;
