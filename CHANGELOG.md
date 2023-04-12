@@ -1,3 +1,10 @@
+# [0.7.12](https://github.com/xsky-fe/wizard-ui/compare/0.7.11...0.7.12) (2023-04-12)
+
+
+### Features
+
+* font-family and font-size update ([#213](https://github.com/xsky-fe/wizard-ui/issues/213)) ([8a21a76](https://github.com/xsky-fe/wizard-ui/commit/8a21a765105bbe766709fb3e1ede413a47b9979d))
+
 ## [0.7.11](https://github.com/xsky-fe/wizard-ui/compare/0.7.10...0.7.11) (2023-03-30)
 
 
