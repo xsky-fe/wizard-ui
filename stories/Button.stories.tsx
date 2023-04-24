@@ -14,9 +14,28 @@ storiesOf('DATA SHOW | Button', module)
       placement: "top",
     }
     return (
-      <div style={{margin: "10px"}}>
-        <Button bsStyle="info"  toolTip={DisabledTooltip} disabled={true} onClick={() => {alert('clicked')}} style={{marginRight: "10px"}}>button</Button>
-        <Button bsStyle="info" toolTip={NormalTooltip} disabled={false} onClick={() => {alert('clicked')}}>button</Button>
+      <div style={{ margin: '10px' }}>
+        <Button
+          variant="info"
+          toolTip={DisabledTooltip}
+          disabled={true}
+          onClick={() => {
+            alert('clicked');
+          }}
+          style={{ marginRight: '10px' }}
+        >
+          button
+        </Button>
+        <Button
+          variant="info"
+          toolTip={NormalTooltip}
+          disabled={false}
+          onClick={() => {
+            alert('clicked');
+          }}
+        >
+          button
+        </Button>
       </div>
-    )
+    );
   })

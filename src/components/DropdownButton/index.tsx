@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import { DropdownButton as BootstrapDropdownButton, MenuItem, ButtonGroup } from 'react-bootstrap';
+import { DropdownButton as BootstrapDropdownButton, Dropdown, ButtonGroup } from 'react-bootstrap';
 
 import SubMenu from '../SubMenu';
 import {
@@ -51,14 +51,14 @@ function renderMenu(
   }
   if (typeof item === 'string') {
     return (
-      <MenuItem
+      <Dropdown.Item
         key={item}
         onSelect={() => {
           setButtonOpen(!!open);
         }}
       >
         {item}
-      </MenuItem>
+      </Dropdown.Item>
     );
   }
   if (!item.key && isDifferentMenu) {
@@ -79,7 +79,7 @@ function renderMenu(
   };
   const menuProps = omit(item, 'toolTip');
   return (
-    <MenuItem {...menuProps} onSelect={handleItemSelect}>
+    <Dropdown.Item {...menuProps} onSelect={handleItemSelect}>
       {item.toolTip ? (
         <Tooltip {...item.toolTip} placement={item.toolTip.placement || 'right'}>
           {item.toolTip.children}
@@ -87,7 +87,7 @@ function renderMenu(
       ) : (
         item.title
       )}
-    </MenuItem>
+    </Dropdown.Item>
   );
 }
 

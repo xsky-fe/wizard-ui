@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import { Panel as BootstrapPanel } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { PanelProps } from '../../interface';
 import classNames from 'classnames';
 import './index.scss';
@@ -10,9 +10,9 @@ const Panel: React.FC<PanelProps> = props => {
   const bgClass = bg ? `panel-${bg}-bg` : '';
   const textClass = text ? `text-${text}` : 'text-dark';
   return (
-    <BootstrapPanel {...restProps} className={classNames(bgClass, textClass, className)}>
+    <Card {...restProps} className={classNames(bgClass, textClass, className)}>
       {children && children}
-    </BootstrapPanel>
+    </Card>
   );
 };
 

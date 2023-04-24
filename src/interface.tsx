@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { SelectCallback, Sizes, ButtonProps as BsButtonProps } from 'react-bootstrap';
+// import { SelectCallback, Sizes } from 'react-bootstrap';
 import { Moment } from 'moment';
+import { ButtonProps as BsButtonProps } from 'react-bootstrap/Button';
 import CSS from 'csstype';
 
 export interface Map<K, V> {
@@ -114,7 +115,7 @@ export interface TabsProps {
   size?: 'small';
   eventKeyName?: string;
   direction?: 'right';
-  onSelect?: SelectCallback;
+  onSelect?: any;
   activeKey?: string;
   id?: string;
   limitNum?: number;
@@ -213,9 +214,9 @@ export interface DefaultDropdownButtonProps {
 export interface DropdownButtonProps extends DefaultDropdownButtonProps {
   bsStyle?: string;
   id: string;
-  onSelect?: SelectCallback;
+  onSelect?: any;
   onToggle?: (isOpen: boolean) => void;
-  bsSize?: Sizes;
+  bsSize?: any;
   title?: string | React.ReactNode;
   menu?: DropdownButtonMenuItem[];
   children?: React.ReactNode;
@@ -317,7 +318,7 @@ export interface InputDropdownProps {
   options?: MenuItemOptions[];
   defaultValue?: string;
   value?: string;
-  onChange?: SelectCallback;
+  onChange?: any;
   input?: any;
   meta?: any;
 }

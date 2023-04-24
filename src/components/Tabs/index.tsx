@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { Tab, Panel, NavItem, NavDropdown, MenuItem, Nav } from 'react-bootstrap';
+import { Tab, Card, NavItem, NavDropdown, Dropdown, Nav } from 'react-bootstrap';
 import { getBemClass } from '../../utils';
 import { TabsProps } from '../../interface';
 import './style.scss';
@@ -56,7 +56,7 @@ const Tabs: React.FC<TabsProps> = props => {
         {...restProps}
       >
         <div>
-          <Nav bsStyle="tabs">
+          <Nav variant="tabs">
             {tabsFrontList.map((tab, idx) => (
               <NavItem
                 title={typeof tab['title'] === 'string' ? tab['title'] : undefined}
@@ -69,7 +69,7 @@ const Tabs: React.FC<TabsProps> = props => {
             {showMore && (
               <NavDropdown title={keyTitle} id="" className="Tabs-nav-dropdown-within-tab">
                 {tabsLastList.map((tab, idx) => (
-                  <MenuItem
+                  <Dropdown.Item
                     id={
                       eventKeyName ? 'Tabs-tab-' + tab[eventKeyName] : 'Tabs-tab-' + idx + limitNum
                     }
@@ -77,7 +77,7 @@ const Tabs: React.FC<TabsProps> = props => {
                     eventKey={eventKeyName ? tab[eventKeyName] : idx + limitNum}
                   >
                     {tab.title}
-                  </MenuItem>
+                  </Dropdown.Item>
                 ))}
               </NavDropdown>
             )}
@@ -92,7 +92,7 @@ const Tabs: React.FC<TabsProps> = props => {
                 key={eventKeyName ? tab[eventKeyName] : idx}
                 eventKey={eventKeyName ? tab[eventKeyName] : idx}
               >
-                {tab.children && <Panel className="Tabs__Body">{tab.children}</Panel>}
+                {tab.children && <Card className="Tabs__Body">{tab.children}</Card>}
               </Tab.Pane>
             ))}
           </Tab.Content>

@@ -65,9 +65,9 @@ const Popover: React.FC<PopoverProps> = props => {
     >
       {children}
       <Overlay
-        {...extra}
-        placement={_placement}
-        target={wrapper.current || undefined}
+        {...(extra as any)}
+        placement={_placement as any}
+        target={(wrapper.current || {}) as any}
         show={show}
         onHide={handleHide}
       >
@@ -77,7 +77,7 @@ const Popover: React.FC<PopoverProps> = props => {
           onMouseEnter={hoverTrigger ? handleShow : undefined}
           onMouseLeave={hoverTrigger ? handleHide : undefined}
         >
-          {content}
+          <div>{content}</div>
         </BasePopover>
       </Overlay>
     </div>

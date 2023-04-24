@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Panel, FormControl, Glyphicon, DropdownButton, Button } from 'react-bootstrap';
+import { Card, FormControl, DropdownButton, Button } from 'react-bootstrap';
 import get from 'lodash/get';
 import debounce from 'lodash/debounce';
 import isEmpty from 'lodash/isEmpty';
@@ -336,10 +336,10 @@ class VirtualSelectBox<T> extends React.Component<
         {/*
         // react-bootstrap 跟 @types/react-bootstrap 不兼容
         // @ts-ignore */}
-        <Panel header={this.renderSearch()}>
+        <Card header={this.renderSearch()}>
           {this.renderClear()}
           {this.renderList()}
-        </Panel>
+        </Card>
       </div>
     );
   }
@@ -351,7 +351,7 @@ class VirtualSelectBox<T> extends React.Component<
     }
     return (
       <Button
-        bsStyle="link"
+        variant="link"
         onClick={event => {
           this.blockEvent(event);
           this.handleChange([]);
@@ -400,7 +400,7 @@ class VirtualSelectBox<T> extends React.Component<
           </div>
         ) : (
           <span className={btnClassName}>
-            {this.renderLabel(item)} {isBtn && <Glyphicon glyph="triangle-bottom" />}
+            {/* {this.renderLabel(item)} {isBtn && <Glyphicon glyph="triangle-bottom" />} */}
             {clear && !isEmpty(item) && <Icon type="close" onClick={this.clear} />}
           </span>
         )}

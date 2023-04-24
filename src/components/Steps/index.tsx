@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import { Well } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import Badge from '../Badge';
 import { getBemClass } from '../../utils';
 import { StepsProps } from '../../interface';
@@ -10,7 +10,7 @@ import './style.scss';
 const Steps: React.FC<StepsProps> = props => {
   const { steps, currentStep, showIcon, iconSize, iconStatus } = props;
   return (
-    <Well className="Steps">
+    <Container className="Steps">
       {steps.map((step, index) => {
         const stepLabel = typeof step === 'string' ? step : step.label;
         const stepCount = typeof step === 'string' ? false : step.count;
@@ -30,7 +30,7 @@ const Steps: React.FC<StepsProps> = props => {
           </div>
         );
       })}
-    </Well>
+    </Container>
   );
 };
 

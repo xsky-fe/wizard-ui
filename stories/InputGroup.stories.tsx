@@ -6,9 +6,9 @@ storiesOf('InputGroup', module)
   .add('default', () => (
     <InputGroup>
       <FormControl type="text" disabled />
-      <InputGroup.Button>
+      <InputGroup>
         <Button>选择文件</Button>
-      </InputGroup.Button>
+      </InputGroup>
     </InputGroup>
   ))
   .add('hasDropdownButton', () => {
@@ -17,21 +17,23 @@ storiesOf('InputGroup', module)
       const menu = [
         { eventKey: 'hour', onSelect: handleStepUnitChange, title: '小时' },
         { eventKey: 'minute', onSelect: handleStepUnitChange, title: '分钟' },
-      ]
+      ];
       function handleStepUnitChange(key: string) {
-        setIsHour(key === 'hour' ? true : false)
+        setIsHour(key === 'hour' ? true : false);
       }
-      return (<div style={{ width: '300px' }}>
-        <InputGroup>
-          <FormControl type="number" />
-          <DropdownButton
-            id="unit-dropdown"
-            componentClass={InputGroup.Button}
-            title={isHour ? '小时' : '分钟'}
-            menu={menu}
-          />
-        </InputGroup>
-      </div>);
-    }
+      return (
+        <div style={{ width: '300px' }}>
+          <InputGroup>
+            <FormControl type="number" />
+            <DropdownButton
+              id="unit-dropdown"
+              componentClass={InputGroup}
+              title={isHour ? '小时' : '分钟'}
+              menu={menu}
+            />
+          </InputGroup>
+        </div>
+      );
+    };
     return <Demo />;
-  })
+  });

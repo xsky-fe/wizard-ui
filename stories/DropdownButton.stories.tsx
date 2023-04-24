@@ -16,11 +16,31 @@ storiesOf('DropdownButton', module)
   ))
   .add('style', () => (
     <div>
-      <DropdownButton id="a1" bsStyle="default" title="default" menu={['menu1', 'menu2', 'menu3']} />
-      <DropdownButton id="a2" bsStyle="primary" title="primary" menu={['menu1', 'menu2', 'menu3']} />
-      <DropdownButton id="a3" bsStyle="success" title="success" menu={['menu1', 'menu2', 'menu3']} />
+      <DropdownButton
+        id="a1"
+        bsStyle="default"
+        title="default"
+        menu={['menu1', 'menu2', 'menu3']}
+      />
+      <DropdownButton
+        id="a2"
+        bsStyle="primary"
+        title="primary"
+        menu={['menu1', 'menu2', 'menu3']}
+      />
+      <DropdownButton
+        id="a3"
+        bsStyle="success"
+        title="success"
+        menu={['menu1', 'menu2', 'menu3']}
+      />
       <DropdownButton id="a4" bsStyle="info" title="info" menu={['menu1', 'menu2', 'menu3']} />
-      <DropdownButton id="a5" bsStyle="warning" title="warning" menu={['menu1', 'menu2', 'menu3']} />
+      <DropdownButton
+        id="a5"
+        bsStyle="warning"
+        title="warning"
+        menu={['menu1', 'menu2', 'menu3']}
+      />
       <DropdownButton id="a6" bsStyle="danger" title="danger" menu={['menu1', 'menu2', 'menu3']} />
     </div>
   ))
@@ -29,7 +49,7 @@ storiesOf('DropdownButton', module)
       <DropdownButton
         id="a1"
         title="input group"
-        componentClass={InputGroup.Button}
+        componentClass={InputGroup}
         menu={['menu1', 'menu2', 'menu3']}
       />
       <DropdownButton id="a2" title="normal" menu={['menu1', 'menu2', 'menu3']} />
@@ -71,8 +91,18 @@ storiesOf('DropdownButton', module)
         id="a5"
         title="menu"
         menu={[
-          { key: 'menu1', title: 'menu1', disabled: true, toolTip: { label: 'menu1', children: 'Not allow to operate'} },
-          { key: 'menu2', title: 'menu2', disabled: true,  toolTip: { label: 'menu1', children: 'Not allow to operate', placement: 'top'} },
+          {
+            key: 'menu1',
+            title: 'menu1',
+            disabled: true,
+            toolTip: { label: 'menu1', children: 'Not allow to operate' },
+          },
+          {
+            key: 'menu2',
+            title: 'menu2',
+            disabled: true,
+            toolTip: { label: 'menu1', children: 'Not allow to operate', placement: 'top' },
+          },
         ]}
       />
     </div>
@@ -115,7 +145,7 @@ storiesOf('DropdownButton', module)
         id="a1"
         title="open"
         open
-        onToggle={() => { }}
+        onToggle={() => {}}
         menu={['menu1', 'menu2', 'menu3']}
       />
       <DropdownButton id="a2" title="normal" menu={['menu1', 'menu2', 'menu3']} />
@@ -123,7 +153,7 @@ storiesOf('DropdownButton', module)
         id="a3"
         title="close"
         open={false}
-        onToggle={() => { }}
+        onToggle={() => {}}
         menu={['menu1', 'menu2', 'menu3']}
       />
     </div>
@@ -131,17 +161,19 @@ storiesOf('DropdownButton', module)
   .add('onToggle', () => {
     const ToggleDropdownButton = () => {
       const [visible, updateVisible] = React.useState(true);
-      return (<div>
-        <DropdownButton
-          id="a1"
-          title="onToggle"
-          open={visible}
-          onToggle={() => updateVisible(!visible)}
-          menu={['menu1', 'menu2', 'menu3']}
-        />
-      </div>)
-    }
-    return <ToggleDropdownButton />
+      return (
+        <div>
+          <DropdownButton
+            id="a1"
+            title="onToggle"
+            open={visible}
+            onToggle={() => updateVisible(!visible)}
+            menu={['menu1', 'menu2', 'menu3']}
+          />
+        </div>
+      );
+    };
+    return <ToggleDropdownButton />;
   })
   .add('pullRight', () => (
     <div>

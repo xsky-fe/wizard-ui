@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import cn from 'classnames';
 import { getBemClass } from '../../utils';
-import { Panel } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { NavigationProps, NavigationGroup } from '../../interface';
 import Icon from '../Icon';
 import Tooltip from '../Tooltip';
@@ -84,9 +84,9 @@ export default class Navigation extends React.Component<NavigationProps, any> {
             }
             return (
               // @ts-ignore
-              <Panel
+              <Card
                 key={key}
-                collapsible
+                // collapsible
                 header={this.renderPanelHeader(group.title, expanded.includes(key))}
                 eventKey={key}
                 onSelect={this.togglePanel}
@@ -95,7 +95,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
                 {group.children.map((item, index) => (
                   <NavItem key={index} {...item} />
                 ))}
-              </Panel>
+              </Card>
             );
           })}
         </div>

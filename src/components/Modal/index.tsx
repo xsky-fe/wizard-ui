@@ -2,8 +2,8 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {
   Modal as BaseModal,
-  ModalHeader,
-  ModalTitle,
+  // ModalHeader,
+  // ModalTitle,
   ModalBody,
   ModalFooter,
   Button,
@@ -95,19 +95,19 @@ const Modal: React.FC<ModalProps> = props => {
           {draggable && <div className="drag-handle" />}
           <div>
             {!hideHeader && (
-              <ModalHeader key="header" closeButton>
-                <ModalTitle style={modalTitleStyle}>{title}</ModalTitle>
+              <BaseModal.Header translate="" key="header" closeButton>
+                <BaseModal.Title style={modalTitleStyle}>{title}</BaseModal.Title>
                 {draggable && preventDragByTitle ? (
-                  <ModalTitle style={draggableHiddenTitleStyle}>{title}</ModalTitle>
+                  <BaseModal.Title style={draggableHiddenTitleStyle}>{title}</BaseModal.Title>
                 ) : null}
-              </ModalHeader>
+              </BaseModal.Header>
             )}
           </div>
 
           <ModalBody key="body">{children}</ModalBody>
           {!hideFooter && (
             <ModalFooter key="footer">
-              <Button type="submit" disabled={loading} bsStyle={okStyle} onClick={onOk}>
+              <Button type="submit" disabled={loading} variant={okStyle} onClick={onOk}>
                 {loading && <Loader bsSize="xs" />}
                 {confirmText}
               </Button>

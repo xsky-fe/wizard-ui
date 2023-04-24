@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import RCTimePicker from 'rc-time-picker';
-import { Glyphicon } from 'react-bootstrap';
+// import { Glyphicon } from 'react-bootstrap';
 import { TimePickerProps } from '../../interface';
 import range from 'lodash/range';
 
@@ -50,7 +50,7 @@ const TimePicker: React.FC<TimePickerProps> = props => {
   return (
     <RCTimePicker
       allowEmpty={allowEmpty}
-      inputIcon={allowEmpty && value ? undefined : <Glyphicon glyph="time" />}
+      // inputIcon={allowEmpty && value ? undefined : <Glyphicon glyph="time" />}
       {...rest}
       {...restProps}
       placeholder={placeholder}

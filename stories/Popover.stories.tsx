@@ -1,12 +1,13 @@
 import React from 'react';
-import { Button as BaseButton, ButtonProps } from 'react-bootstrap';
+import { Button as BaseButton } from 'react-bootstrap';
 import { storiesOf } from '@storybook/react';
 import { Popover } from '../src';
+import { ButtonProps } from 'react-bootstrap/Button';
 
 const Button = (props: ButtonProps) => (
   // @ts-ignore
   <BaseButton {...props} style={{ marginRight: '30px' }}></BaseButton>
-)
+);
 
 storiesOf('Popover', module)
   .add('placement', () => (

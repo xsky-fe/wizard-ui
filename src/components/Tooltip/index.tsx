@@ -67,9 +67,9 @@ const Tooltip: React.FC<TooltipProps> = props => {
     <div ref={wrapper} className="Tooltip" onMouseEnter={handleShow} onMouseLeave={handleHide}>
       {placeholder}
       <Overlay
-        {...extra}
-        placement={defaultPlacement || placement}
-        target={wrapper.current || undefined}
+        {...(extra as any)}
+        placement={(defaultPlacement || placement) as any}
+        target={wrapper.current || {}}
         show={show}
       >
         <BaseTooltip
