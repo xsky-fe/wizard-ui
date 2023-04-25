@@ -156,7 +156,7 @@ export default class RangePicker extends React.PureComponent<RangePickerProps, R
       <div className="RangePicker__duration">
         {ranges.map(({ title, value }) => {
           return (
-            <Button bsStyle="link" key={value} onClick={() => this.handleRangeClick(value)}>
+            <Button key={value} onClick={() => this.handleRangeClick(value)}>
               {this.lang === 'en' ? value : title}
             </Button>
           );

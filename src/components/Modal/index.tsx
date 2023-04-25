@@ -4,7 +4,7 @@ import {
   Modal as BaseModal,
   // ModalHeader,
   // ModalTitle,
-  ModalBody,
+  // ModalBody,
   ModalFooter,
   Button,
 } from 'react-bootstrap';
@@ -76,8 +76,21 @@ const Modal: React.FC<ModalProps> = props => {
   }, [draggable, preventDragByTitle]);
 
   return (
+    <BaseModal show={show}>
+      <BaseModal.Header closeButton>
+        <BaseModal.Title>Modal heading</BaseModal.Title>
+      </BaseModal.Header>
+      <BaseModal.Body>Woohoo, you're reading this text in a modal!</BaseModal.Body>
+      <BaseModal.Footer>
+        <Button variant="secondary">Close</Button>
+        <Button variant="primary">Save Changes</Button>
+      </BaseModal.Footer>
+    </BaseModal>
+  );
+
+  return (
     <BaseModal
-      bsSize={bsSize}
+      // bsSize={bsSize}
       className="Modal"
       dialogClassName={dialogClassName}
       style={style}
@@ -95,7 +108,7 @@ const Modal: React.FC<ModalProps> = props => {
           {draggable && <div className="drag-handle" />}
           <div>
             {!hideHeader && (
-              <BaseModal.Header translate="" key="header" closeButton>
+              <BaseModal.Header key="header" closeButton>
                 <BaseModal.Title style={modalTitleStyle}>{title}</BaseModal.Title>
                 {draggable && preventDragByTitle ? (
                   <BaseModal.Title style={draggableHiddenTitleStyle}>{title}</BaseModal.Title>
@@ -104,7 +117,9 @@ const Modal: React.FC<ModalProps> = props => {
             )}
           </div>
 
-          <ModalBody key="body">{children}</ModalBody>
+          <BaseModal.Body key="body">
+            <div>{children}</div>
+          </BaseModal.Body>
           {!hideFooter && (
             <ModalFooter key="footer">
               <Button type="submit" disabled={loading} variant={okStyle} onClick={onOk}>

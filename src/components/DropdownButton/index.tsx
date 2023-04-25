@@ -110,7 +110,7 @@ const DropdownButton = (props: DropdownButtonProps) => {
     if (onToggle) onToggle(isOpen);
   };
 
-  const { bsStyle, id, onSelect, bsSize, title, menu, children, componentClass, open } = props;
+  const { bsStyle, id, onSelect, title, menu, children, componentClass, open } = props;
 
   const prevMenu = usePrevious(menu);
   const isDifferentMenu = prevMenu !== menu;
@@ -126,13 +126,13 @@ const DropdownButton = (props: DropdownButtonProps) => {
   const containerClassName = getContainerClass();
   return (
     <BootstrapDropdownButton
-      {...boolProps}
-      bsStyle={bsStyle}
+      {...(boolProps as any)}
+      variant={bsStyle}
       id={id}
       onSelect={onSelect}
       title={title}
-      bsSize={bsSize}
-      onToggle={isOpen => getOnToggle(isOpen)}
+      // bsSize={bsSize}
+      onToggle={(isOpen: boolean) => getOnToggle(isOpen)}
       componentClass={componentClass}
       className={containerClassName}
       open={props.hasOwnProperty('open') ? open : buttonOpen}

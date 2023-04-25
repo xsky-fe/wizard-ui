@@ -8,9 +8,9 @@ const defaultProps: DropdownDefaultProps = {
 };
 
 const Dropdown = (props: DropdownProps) => {
-  const { customToggle, pullRight, className, id, title, children } = props;
+  const { customToggle, className, id, title, children } = props;
   return (
-    <BootstrapDropdown id={id} className={className} pullRight={pullRight}>
+    <BootstrapDropdown id={id} className={className}>
       {customToggle && title}
       {!customToggle && title && <BootstrapDropdown.Toggle>{title}</BootstrapDropdown.Toggle>}
       <BootstrapDropdown.Menu>{children}</BootstrapDropdown.Menu>

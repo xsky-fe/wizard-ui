@@ -33,7 +33,7 @@ const InputDropdown = (props: InputDropdownProps) => {
   return (
     <DropdownButton
       id={uuid()}
-      {...rest}
+      {...(rest as any)}
       componentClass={Button}
       onSelect={handleSelect}
       title={getTitle()}

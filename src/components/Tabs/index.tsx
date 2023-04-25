@@ -53,7 +53,8 @@ const Tabs: React.FC<TabsProps> = props => {
       <Tab.Container
         id="tabs-with-dropdown"
         defaultActiveKey={TabsPan[eventKeyName]}
-        {...restProps}
+        unmountOnExit={unmountOnExit}
+        {...(restProps as any)}
       >
         <div>
           <Nav variant="tabs">
@@ -61,7 +62,7 @@ const Tabs: React.FC<TabsProps> = props => {
               <NavItem
                 title={typeof tab['title'] === 'string' ? tab['title'] : undefined}
                 key={eventKeyName ? tab[eventKeyName] : idx}
-                eventKey={eventKeyName ? tab[eventKeyName] : idx}
+                // eventKey={eventKeyName ? tab[eventKeyName] : idx}
               >
                 {tab.title}
               </NavItem>
@@ -82,11 +83,7 @@ const Tabs: React.FC<TabsProps> = props => {
               </NavDropdown>
             )}
           </Nav>
-          <Tab.Content
-            unmountOnExit={unmountOnExit}
-            mountOnEnter={mountOnEnter}
-            animation={animation}
-          >
+          <Tab.Content>
             {tabs.map((tab, idx) => (
               <Tab.Pane
                 key={eventKeyName ? tab[eventKeyName] : idx}

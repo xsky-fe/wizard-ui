@@ -290,7 +290,7 @@ class VirtualSelectBox<T> extends React.Component<
     return (
       <FormControl
         className="SelectBox__search"
-        bsSize="sm"
+        // bsSize="sm"
         type="text"
         value={this.state.search}
         placeholder="请输入名称搜索"
