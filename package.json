@@ -27,7 +27,7 @@
     "@types/rc-tree": "^1.11.3",
     "@types/react-addons-css-transition-group": "^15.0.5",
     "@types/react-bootstrap": "^0.32.32",
-    "bootstrap-sass": "^3.4.1",
+    "bootstrap": "^5.2.3",
     "cross-env": "^7.0.2",
     "rc-calendar": "9.15.11",
     "rc-time-picker": "^3.7.1",
