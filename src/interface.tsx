@@ -138,7 +138,7 @@ export interface ModalProps {
   onOk?: any;
   show?: boolean;
   style?: React.CSSProperties;
-  bsSize?: 'sm' | 'medium' | 'lg' | 'xlarge';
+  bsSize?: 'sm' | 'lg' | 'xl';
   confirmText?: string;
   okStyle?: string;
   loading?: boolean;
