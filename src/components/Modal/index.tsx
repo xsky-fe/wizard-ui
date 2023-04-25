@@ -1,13 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {
-  Modal as BaseModal,
-  // ModalHeader,
-  // ModalTitle,
-  // ModalBody,
-  ModalFooter,
-  Button,
-} from 'react-bootstrap';
+import { Modal as BaseModal, ModalFooter, Button } from 'react-bootstrap';
 import Draggable, { DraggableEvent, DraggableData } from 'react-draggable';
 import { ModalProps } from '../../interface';
 import Loader from '../Loader';
@@ -76,21 +69,7 @@ const Modal: React.FC<ModalProps> = props => {
   }, [draggable, preventDragByTitle]);
 
   return (
-    <BaseModal show={show}>
-      <BaseModal.Header closeButton>
-        <BaseModal.Title>Modal heading</BaseModal.Title>
-      </BaseModal.Header>
-      <BaseModal.Body>Woohoo, you're reading this text in a modal!</BaseModal.Body>
-      <BaseModal.Footer>
-        <Button variant="secondary">Close</Button>
-        <Button variant="primary">Save Changes</Button>
-      </BaseModal.Footer>
-    </BaseModal>
-  );
-
-  return (
     <BaseModal
-      // bsSize={bsSize}
       className="Modal"
       dialogClassName={dialogClassName}
       style={style}
@@ -106,16 +85,14 @@ const Modal: React.FC<ModalProps> = props => {
       >
         <div ref={draggleRef} className="modal-content">
           {draggable && <div className="drag-handle" />}
-          <div>
-            {!hideHeader && (
-              <BaseModal.Header key="header" closeButton>
-                <BaseModal.Title style={modalTitleStyle}>{title}</BaseModal.Title>
-                {draggable && preventDragByTitle ? (
-                  <BaseModal.Title style={draggableHiddenTitleStyle}>{title}</BaseModal.Title>
-                ) : null}
-              </BaseModal.Header>
-            )}
-          </div>
+          {!hideHeader && (
+            <BaseModal.Header key="header" closeButton>
+              <BaseModal.Title style={modalTitleStyle}>{title}</BaseModal.Title>
+              {draggable && preventDragByTitle ? (
+                <BaseModal.Title style={draggableHiddenTitleStyle}>{title}</BaseModal.Title>
+              ) : null}
+            </BaseModal.Header>
+          )}
 
           <BaseModal.Body key="body">
             <div>{children}</div>
