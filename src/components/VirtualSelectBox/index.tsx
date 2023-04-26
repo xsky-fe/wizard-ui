@@ -370,6 +370,7 @@ class VirtualSelectBox<T> extends React.Component<
     });
     return (
       <DropdownButton
+        children={null}
         title={<span className={className}>{title || placeholder}</span>}
         id="select-dropdown"
       />

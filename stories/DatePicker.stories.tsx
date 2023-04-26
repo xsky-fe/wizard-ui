@@ -21,7 +21,7 @@ storiesOf('DATA ENTRY | DatePicker', module)
   ))
   .add('get time', () => React.createElement(() => {
     const [value, setValue] = React.useState();
-    const getTime = (val: string) => setValue(val);
+    const getTime = (val: string) => setValue(val as any);
     return (
       <>
         <p>change 值时获取时间：{value}</p>

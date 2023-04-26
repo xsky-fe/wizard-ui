@@ -33,7 +33,7 @@ const DatePicker: React.FC<DatePickerProps> = props => {
     disabledDate,
     lang,
   } = props;
-  const [val, setVal] = React.useState();
+  const [val, setVal] = React.useState<Moment>();
   const calendarContainerRef = React.useRef<HTMLDivElement>(null);
   const handleChange = React.useCallback(
     (value: Moment) => {
