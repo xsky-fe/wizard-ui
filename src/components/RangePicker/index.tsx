@@ -181,7 +181,7 @@ export default class RangePicker extends React.PureComponent<RangePickerProps, R
     );
   };
   renderClearIcon = () => {
-    if (this.state.value.every(isEmpty)) {
+    if ((this.state.value as any).every(isEmpty)) {
       return;
     }
     return <Icon type="close" onClick={this.clearSelection} />;
