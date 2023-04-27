@@ -1,5 +1,5 @@
 import * as React from 'react';
-// import * as PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import { Overlay, Popover as BasePopover } from 'react-bootstrap';
 import classNames from 'classnames';
 import lodash from 'lodash';
@@ -89,28 +89,29 @@ Popover.defaultProps = {
   trigger: 'hover',
 };
 
-// Popover.propTypes = {
-//   /**
-//    * 触发动作，字符串或数组，默认为‘hover’；
-//    **/
-//   trigger: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
-//   /**
-//    * 提示框的内容，子节点；
-//    **/
-//   content: PropTypes.node.isRequired,
-//   /**
-//    * 选定的元素
-//    **/
-//   children: PropTypes.node.isRequired,
-//   /**
-//    * 提示框的位置，可选'top'，'right'，'bottom'，'left'。
-//    * 若不传入这一属性，会根据 OverlayTrigger 的位置，自适应选取提示框的位置；
-//    **/
-//   placement: PropTypes.string,
-//   /**
-//    * 是否点击外部区域关闭popover；
-//    **/
-//   rootClose: PropTypes.bool,
-// };
+Popover.propTypes = {
+  /**
+   * 触发动作，字符串或数组，默认为‘hover’；
+   **/
+  trigger: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+  /**
+   * 提示框的内容，子节点；
+   **/
+  content: PropTypes.node.isRequired,
+  /**
+   * 选定的元素
+   **/
+  children: PropTypes.node.isRequired,
+  /**
+   * 提示框的位置，可选'top'，'right'，'bottom'，'left'。
+   * 若不传入这一属性，会根据 OverlayTrigger 的位置，自适应选取提示框的位置；
+   **/
+  //@ts-ignore
+  placement: PropTypes.string,
+  /**
+   * 是否点击外部区域关闭popover；
+   **/
+  rootClose: PropTypes.bool,
+};
 
 export default Popover;
