@@ -122,7 +122,12 @@ export default class Notification extends PureComponent<NotificationProps> {
         onMouseEnter={this.mouseEnter}
         onMouseLeave={this.mouseLeave}
       >
-        <Alert variant={style} onClose={onDismiss && this.close}>
+        <Alert
+          variant={style}
+          onClose={onDismiss && this.close}
+          dismissible
+          closeVariant="outline-success"
+        >
           {this.renderIcon()}
           {this.renderText()}
         </Alert>

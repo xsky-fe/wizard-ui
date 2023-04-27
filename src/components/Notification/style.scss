@@ -7,16 +7,21 @@
   z-index: 9999;
 }
 
-.alert .icon {
-  margin-right: 12px;
+.alert {
+  .icon {
+    margin-right: 12px;
 
-  &:before {
-    font-size: $font-size-16;
+    &:before {
+      font-size: $font-size-16;
+    }
   }
-}
+  .close {
+    opacity: 1;
 
-.alert .close {
-  opacity: 1;
+  }
+  .btn-close:focus {
+    box-shadow: none;
+  }
 }
 
 .alert-success {
@@ -24,7 +29,9 @@
   border-color: $green-2;
   color: $text-success;
 
-  .close {
+  .btn-close {
+    color: $text-success;
+
     &:hover {
       color: $success-hover;
     }
@@ -178,11 +185,11 @@
       display: inline-block;
     }
   }
-  .alert-dismissable .close {
+  .alert-dismissible .btn-close {
     position: absolute;
     top: 50%;
-    right: 16px;
-    margin-top: -12px;
+    transform: translateY(-50%);
+    padding: 15px 16px;
   }
 }
 
