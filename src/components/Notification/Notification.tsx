@@ -125,6 +125,11 @@ export default class Notification extends PureComponent<NotificationProps> {
         <Alert variant={style} onClose={onDismiss && this.close}>
           {this.renderIcon()}
           {this.renderText()}
+          <div className="alert-dismissible-close">
+            <span aria-hidden="true" className="close" onClick={onDismiss && this.close}>
+              ×
+            </span>
+          </div>
         </Alert>
       </div>
     );
