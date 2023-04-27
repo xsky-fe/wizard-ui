@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { Tab, Card, NavItem, NavDropdown, Dropdown, Nav } from 'react-bootstrap';
+import { Tab, Card, NavDropdown, Dropdown, Nav, NavItem, NavLink } from 'react-bootstrap';
 import { getBemClass } from '../../utils';
 import { TabsProps } from '../../interface';
 import './style.scss';
@@ -61,10 +61,10 @@ const Tabs: React.FC<TabsProps> = props => {
             {tabsFrontList.map((tab, idx) => (
               <NavItem
                 title={typeof tab['title'] === 'string' ? tab['title'] : undefined}
-                key={eventKeyName ? tab[eventKeyName] : idx}
+                // key={eventKeyName ? tab[eventKeyName] : idx}
                 // eventKey={eventKeyName ? tab[eventKeyName] : idx}
               >
-                {tab.title}
+                <NavLink eventKey={eventKeyName ? tab[eventKeyName] : idx}>{tab.title}</NavLink>
               </NavItem>
             ))}
             {showMore && (
@@ -89,7 +89,7 @@ const Tabs: React.FC<TabsProps> = props => {
                 key={eventKeyName ? tab[eventKeyName] : idx}
                 eventKey={eventKeyName ? tab[eventKeyName] : idx}
               >
-                {tab.children && <Card className="Tabs__Body">{tab.children}</Card>}
+                {tab.children && <Card body className="Tabs__Body">{tab.children}</Card>}
               </Tab.Pane>
             ))}
           </Tab.Content>

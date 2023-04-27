@@ -227,6 +227,9 @@ export interface DropdownButtonProps extends DefaultDropdownButtonProps {
   noCaret?: boolean;
   open?: boolean;
   pullRight?: boolean;
+  onClick?: any,
+  align?: string,
+  drop?: string,
 }
 
 export interface NavigationGroup {

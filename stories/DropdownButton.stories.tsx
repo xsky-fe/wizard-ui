@@ -8,9 +8,9 @@ storiesOf('DropdownButton', module)
   .add('size', () => (
     <div>
       <DropdownButtonDemo />
-      <DropdownButton id="a1" bsSize="large" title="large" menu={['menu1', 'menu2', 'menu3']} />
+      <DropdownButton id="a1" bsSize="lg" title="large" menu={['menu1', 'menu2', 'menu3']} />
       <DropdownButton id="a2" title="default" menu={['menu1', 'menu2', 'menu3']} />
-      <DropdownButton id="a3" bsSize="small" title="small" menu={['menu1', 'menu2', 'menu3']} />
+      <DropdownButton id="a3" bsSize="sm" title="small" menu={['menu1', 'menu2', 'menu3']} />
       <DropdownButton id="a4" bsSize="xsmall" title="xsmall" menu={['menu1', 'menu2', 'menu3']} />
     </div>
   ))
@@ -115,7 +115,7 @@ storiesOf('DropdownButton', module)
   ))
   .add('dropup', () => (
     <div style={{ paddingTop: '160px' }}>
-      <DropdownButton id="a1" title="dropup" dropup menu={['menu1', 'menu2', 'menu3']} />
+      <DropdownButton id="a1" title="dropup" drop='up-centered' menu={['menu1', 'menu2', 'menu3']} />
       <DropdownButton id="a2" title="normal" menu={['menu1', 'menu2', 'menu3']} />
     </div>
   ))
@@ -178,7 +178,7 @@ storiesOf('DropdownButton', module)
   .add('pullRight', () => (
     <div>
       <DropdownButton id="a2" title="normal" menu={['menu1', 'menu2', 'menu3']} />
-      <DropdownButton id="a1" title="pullRight" pullRight menu={['menu1', 'menu2', 'menu3']} />
+      <DropdownButton id="a1" title="pullRight" align='end' menu={['menu1', 'menu2', 'menu3']} />
     </div>
   ))
   .add('title', () => (

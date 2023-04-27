@@ -53,7 +53,7 @@ function renderMenu(
     return (
       <Dropdown.Item
         key={item}
-        onSelect={() => {
+        onClick={() => {
           setButtonOpen(!!open);
         }}
       >
@@ -79,7 +79,8 @@ function renderMenu(
   };
   const menuProps = omit(item, 'toolTip');
   return (
-    <Dropdown.Item {...menuProps} onSelect={handleItemSelect}>
+    //@ts-ignore
+    <Dropdown.Item {...menuProps} onClick={handleItemSelect} >
       {item.toolTip ? (
         <Tooltip {...item.toolTip} placement={item.toolTip.placement || 'right'}>
           {item.toolTip.children}
@@ -110,7 +111,7 @@ const DropdownButton = (props: DropdownButtonProps) => {
     if (onToggle) onToggle(isOpen);
   };
 
-  const { bsStyle, id, onSelect, title, menu, children, componentClass, open } = props;
+  const { bsStyle, id, onSelect, title, menu, children, componentClass, open, bsSize } = props;
 
   const prevMenu = usePrevious(menu);
   const isDifferentMenu = prevMenu !== menu;
@@ -131,11 +132,11 @@ const DropdownButton = (props: DropdownButtonProps) => {
       id={id}
       onSelect={onSelect}
       title={title}
-      // bsSize={bsSize}
+      size={bsSize}
       onToggle={(isOpen: boolean) => getOnToggle(isOpen)}
-      componentClass={componentClass}
+      as={componentClass}
       className={containerClassName}
-      open={props.hasOwnProperty('open') ? open : buttonOpen}
+      show={props.hasOwnProperty('open') ? open : buttonOpen}
     >
       {menu ? renderContent(menu, setButtonOpen, isDifferentMenu, open) : children}
     </BootstrapDropdownButton>
