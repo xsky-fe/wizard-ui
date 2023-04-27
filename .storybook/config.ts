@@ -1,11 +1,10 @@
 import { configure, addDecorator } from '@storybook/react';
 import { withOptions } from '@storybook/addon-options';
 import '../src/style/index.scss';
-import '../node_modules/bootstrap/scss/bootstrap.scss';
 import './style.scss';
 
-addDecorator (
-  withOptions ({
+addDecorator(
+  withOptions({
     name: 'WIZARD UI',
     url: 'https://github.com/xsky-fe/wizard-ui',
     sidebarAnimations: true,
@@ -17,11 +16,11 @@ addDecorator (
 );
 
 // automatically import all files ending in *.stories.js
-const srcReq = require.context ('../src', true, /.stories.tsx$/);
-const storiesReq = require.context ('../stories', true, /.stories.tsx$/);
-function loadStories () {
-  srcReq.keys().forEach (filename => srcReq (filename));
-  storiesReq.keys().forEach (filename => storiesReq (filename));
+const srcReq = require.context('../src', true, /.stories.tsx$/);
+const storiesReq = require.context('../stories', true, /.stories.tsx$/);
+function loadStories() {
+  srcReq.keys().forEach(filename => srcReq(filename));
+  storiesReq.keys().forEach(filename => storiesReq(filename));
 }
 
-configure (loadStories, module);
+configure(loadStories, module);
