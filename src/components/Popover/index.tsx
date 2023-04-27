@@ -1,21 +1,22 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
+// import * as PropTypes from 'prop-types';
 import { Overlay, Popover as BasePopover } from 'react-bootstrap';
 import classNames from 'classnames';
 import lodash from 'lodash';
 import { PopoverProps } from '../../interface';
 import './style.scss';
+import {Placement} from 'react-bootstrap/esm/types';
 
 const Popover: React.FC<PopoverProps> = props => {
   const { placement: defaultPlacement, children, content, shadow, modifer, ...extra } = props;
   let { trigger } = props;
   const wrapper = React.useRef<HTMLInputElement>(null);
-  const [placement, setPlacement] = React.useState('top');
+  const [placement, setPlacement] = React.useState<Placement>('top');
   // 类似 componentDidMount。只会在 render 后执行一次
   React.useEffect(() => {
     const elem = wrapper.current;
     if (!elem) return;
-    let placement = 'top';
+    let placement:Placement = 'top';
     const docElem = document.documentElement;
     const box = elem.getBoundingClientRect();
     const elemOffsetLeft = box.left + docElem.scrollLeft;
@@ -65,9 +66,9 @@ const Popover: React.FC<PopoverProps> = props => {
     >
       {children}
       <Overlay
-        {...(extra as any)}
-        placement={_placement as any}
-        target={(wrapper.current || {}) as any}
+        {...extra}
+        placement={_placement}
+        target={wrapper.current || null}
         show={show}
         onHide={handleHide}
       >
@@ -88,28 +89,28 @@ Popover.defaultProps = {
   trigger: 'hover',
 };
 
-Popover.propTypes = {
-  /**
-   * 触发动作，字符串或数组，默认为‘hover’；
-   **/
-  trigger: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
-  /**
-   * 提示框的内容，子节点；
-   **/
-  content: PropTypes.node.isRequired,
-  /**
-   * 选定的元素
-   **/
-  children: PropTypes.node.isRequired,
-  /**
-   * 提示框的位置，可选'top'，'right'，'bottom'，'left'。
-   * 若不传入这一属性，会根据 OverlayTrigger 的位置，自适应选取提示框的位置；
-   **/
-  placement: PropTypes.string,
-  /**
-   * 是否点击外部区域关闭popover；
-   **/
-  rootClose: PropTypes.bool,
-};
+// Popover.propTypes = {
+//   /**
+//    * 触发动作，字符串或数组，默认为‘hover’；
+//    **/
+//   trigger: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+//   /**
+//    * 提示框的内容，子节点；
+//    **/
+//   content: PropTypes.node.isRequired,
+//   /**
+//    * 选定的元素
+//    **/
+//   children: PropTypes.node.isRequired,
+//   /**
+//    * 提示框的位置，可选'top'，'right'，'bottom'，'left'。
+//    * 若不传入这一属性，会根据 OverlayTrigger 的位置，自适应选取提示框的位置；
+//    **/
+//   placement: PropTypes.string,
+//   /**
+//    * 是否点击外部区域关闭popover；
+//    **/
+//   rootClose: PropTypes.bool,
+// };
 
 export default Popover;
