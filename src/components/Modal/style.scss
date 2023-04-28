@@ -8,10 +8,25 @@
     border: none !important;
     box-shadow: none !important;
   }
+  .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba($black, .5);
+    box-shadow: 0 5px 15px rgba($black, .5);
+  }
   .modal-header{
+    .modal-title {
+      font-size: $font-size-16;
+    }
     .close {
       // 添加定位属性，让 close 的 icon 在 drag-handle上层
       position: relative;
+      height: 25px;
+      margin-top: -11px;
+      .close-icon {
+        font-size: 21px;
+        color: $black;
+        opacity: 0.2;
+        cursor: pointer;
+      }
     }
   }
   .modal-body {

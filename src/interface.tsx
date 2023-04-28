@@ -138,7 +138,7 @@ export interface ModalProps {
   onOk?: any;
   show?: boolean;
   style?: React.CSSProperties;
-  bsSize?: 'sm' | 'lg' | 'xl';
+  bsSize?: 'sm' | 'lg' | 'medium';
   confirmText?: string;
   okStyle?: string;
   loading?: boolean;
@@ -146,6 +146,7 @@ export interface ModalProps {
   hideHeader?: boolean;
   draggable?: boolean;
   preventDragByTitle?: boolean;
+  centered?: boolean;
 }
 
 interface SwitchInput {

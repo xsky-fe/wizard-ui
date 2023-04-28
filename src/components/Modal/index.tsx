@@ -55,11 +55,10 @@ const Modal: React.FC<ModalProps> = props => {
     hideHeader,
     draggable = true,
     preventDragByTitle,
+    centered,
   } = props;
-  let { bsSize } = props,
-    dialogClassName = '';
-  if (bsSize === 'xl') {
-    dialogClassName = 'modal-xlg';
+  let { bsSize } = props;
+  if (bsSize === 'medium') {
     bsSize = undefined;
   }
 
@@ -71,12 +70,12 @@ const Modal: React.FC<ModalProps> = props => {
   return (
     <BaseModal
       className="Modal"
-      dialogClassName={dialogClassName}
       style={style}
       size={bsSize}
       backdrop="static"
       onHide={onHide}
       show={show}
+      centered={centered}
     >
       <Draggable
         disabled={!draggable}
@@ -87,11 +86,16 @@ const Modal: React.FC<ModalProps> = props => {
         <div ref={draggleRef} className="modal-content">
           {draggable && <div className="drag-handle" />}
           {!hideHeader && (
-            <BaseModal.Header key="header" closeButton>
+            <BaseModal.Header key="header" closeButton={false}>
               <BaseModal.Title style={modalTitleStyle}>{title}</BaseModal.Title>
               {draggable && preventDragByTitle ? (
                 <BaseModal.Title style={draggableHiddenTitleStyle}>{title}</BaseModal.Title>
               ) : null}
+              <div className="close" onClick={onHide}>
+                <span aria-hidden="true" className="close-icon">
+                  ×
+                </span>
+              </div>
             </BaseModal.Header>
           )}
 
@@ -124,7 +128,7 @@ Modal.propTypes = {
   /** 对话框附加行内样式 */
   style: PropTypes.object,
   /** 对话框大小 */
-  bsSize: PropTypes.oneOf(['sm', 'lg', 'xl', undefined, null]),
+  bsSize: PropTypes.oneOf(['sm', 'lg', 'medium', undefined, null]),
   /** 确定、提交按钮文案 */
   confirmText: PropTypes.string,
   /** 确定、提交按钮样式 */
@@ -139,6 +143,8 @@ Modal.propTypes = {
   draggable: PropTypes.bool,
   /** 在title区域禁掉拖拽功能 */
   preventDragByTitle: PropTypes.bool,
+  /** 是否应垂直居中 */
+  centered: PropTypes.bool,
 };
 
 Modal.defaultProps = {
