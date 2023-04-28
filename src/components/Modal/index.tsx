@@ -58,8 +58,13 @@ const Modal: React.FC<ModalProps> = props => {
     centered,
   } = props;
   let { bsSize } = props;
+  let dialogClassName = '';
   if (bsSize === 'medium') {
     bsSize = undefined;
+  }
+  if (bsSize === 'xlarge') {
+    bsSize = undefined;
+    dialogClassName = 'modal-xlg';
   }
 
   // 让 title 在可拖动模块的上层，来使title区域的拖动效果失效
@@ -71,6 +76,7 @@ const Modal: React.FC<ModalProps> = props => {
     <BaseModal
       className="Modal"
       style={style}
+      dialogClassName={dialogClassName}
       size={bsSize}
       backdrop="static"
       onHide={onHide}
@@ -128,7 +134,7 @@ Modal.propTypes = {
   /** 对话框附加行内样式 */
   style: PropTypes.object,
   /** 对话框大小 */
-  bsSize: PropTypes.oneOf(['sm', 'lg', 'medium', undefined, null]),
+  bsSize: PropTypes.oneOf(['sm', 'lg', 'medium', 'xlarge', undefined, null]),
   /** 确定、提交按钮文案 */
   confirmText: PropTypes.string,
   /** 确定、提交按钮样式 */

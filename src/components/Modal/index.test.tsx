@@ -37,6 +37,20 @@ describe('Modal', () => {
         .props().style,
     ).toEqual({ color: 'red' });
   });
+  it('size is xlarge', () => {
+    const node = mount(
+      <Modal title="Modal Title" onHide={noOp} bsSize="xlarge" show>
+        <strong>Modal Content</strong>
+      </Modal>,
+    );
+    expect(
+      node
+        .find('ModalDialog')
+        .at(0)
+        // @ts-ignore
+        .props().dialogClassName,
+    ).toEqual('modal-xlg');
+  });
   it('hide footer', () => {
     const node = mount(
       <Modal title="Modal Title" onHide={noOp} hideFooter show>
