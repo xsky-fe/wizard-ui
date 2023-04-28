@@ -49,4 +49,16 @@
     top: -5px;
     cursor: move;
   }
+  @media (min-width: 1225px) {
+    .modal-xlg {
+      width: 1200px;
+      max-width: none;
+    }
+  }
+  @media (max-width: 1224px) and (min-width: 992px) {
+    .modal-xlg {
+      width: 900px;
+      max-width: none;
+    }
+  }
 }
