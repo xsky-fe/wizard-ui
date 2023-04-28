@@ -11,6 +11,7 @@ storiesOf('DATA SHOW | Button', module)
         <Button style={{marginLeft:'5px'}} bsStyle="danger">button</Button>
         <Button style={{marginLeft:'5px'}} bsStyle="success">button</Button>
         <Button style={{marginLeft:'5px'}} bsStyle="warning">button</Button>
+        <Button style={{marginLeft:'5px'}} bsStyle="link">button</Button>
       </div>
     );
   })

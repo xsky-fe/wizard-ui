@@ -81,6 +81,13 @@
   @include button-vary($white, $warning-normal , $warning-normal)
 }
 
+.btn-link{
+  text-decoration: none;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
 .btn:disabled {
   border-color: $border-2;
   color: $text-2;
