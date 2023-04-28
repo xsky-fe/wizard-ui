@@ -441,4 +441,5 @@ export interface NotificationListStates {
 
 export interface ButtonProps extends BsButtonProps {
   toolTip?: TooltipProps;
+  bsStyle?: string
 }

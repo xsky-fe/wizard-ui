@@ -16,7 +16,7 @@ storiesOf('DATA SHOW | Button', module)
     return (
       <div style={{ margin: '10px' }}>
         <Button
-          variant="info"
+          bsStyle="info"
           toolTip={DisabledTooltip}
           disabled={true}
           onClick={() => {
@@ -27,7 +27,7 @@ storiesOf('DATA SHOW | Button', module)
           button
         </Button>
         <Button
-          variant="info"
+          bsStyle="info"
           toolTip={NormalTooltip}
           disabled={false}
           onClick={() => {
