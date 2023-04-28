@@ -2,17 +2,27 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Button } from '../src';
 
-
 storiesOf('DATA SHOW | Button', module)
+  .add('default', () => {
+    return (
+      <div style={{ margin: '10px' }}>
+        <Button style={{marginLeft:'5px'}} bsStyle="info">button</Button>
+        <Button style={{marginLeft:'5px'}} bsStyle="primary">button</Button>
+        <Button style={{marginLeft:'5px'}} bsStyle="danger">button</Button>
+        <Button style={{marginLeft:'5px'}} bsStyle="success">button</Button>
+        <Button style={{marginLeft:'5px'}} bsStyle="warning">button</Button>
+      </div>
+    );
+  })
   .add('toolTipButton', () => {
     const DisabledTooltip = {
       children: <span>don't allowed to click</span>,
-      placement: "top",
-    }
+      placement: 'top',
+    };
     const NormalTooltip = {
       children: <span>allowed to click</span>,
-      placement: "top",
-    }
+      placement: 'top',
+    };
     return (
       <div style={{ margin: '10px' }}>
         <Button
@@ -38,4 +48,4 @@ storiesOf('DATA SHOW | Button', module)
         </Button>
       </div>
     );
-  })
+  });

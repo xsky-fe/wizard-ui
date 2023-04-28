@@ -302,7 +302,7 @@ $cyans: (
 $primary:       $primary-normal !default;
 $secondary:     $gray-600 !default;
 $success:       $success-normal !default;
-$info:          $updating-normal !default;
+$info:          $white !default;
 $warning:       $warning-normal !default;
 $danger:        $error-normal !default;
 $light:         $gray-100 !default;
@@ -563,7 +563,7 @@ $font-weight-bolder:          bolder !default;
 
 $font-weight-base:            $font-weight-normal !default;
 
-$line-height-base:            1.5 !default;
+$line-height-base:            1.42857143 !default;
 $line-height-sm:              1.25 !default;
 $line-height-lg:              2 !default;
 
@@ -716,8 +716,8 @@ $table-variants: (
 // Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
 
 // scss-docs-start input-btn-variables
-$input-btn-padding-y:         .375rem !default;
-$input-btn-padding-x:         .75rem !default;
+$input-btn-padding-y:         6px !default;
+$input-btn-padding-x:         12px !default;
 $input-btn-font-family:       null !default;
 $input-btn-font-size:         $font-size-base !default;
 $input-btn-line-height:       $line-height-base !default;

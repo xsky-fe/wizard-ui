@@ -1,9 +1,87 @@
 @import '../../style/variables.scss';
 
+@mixin button-vary($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  &:focus,
+  &.focus {
+    color: $color;
+    background-color: darken($background, 10%);
+    border-color: darken($border, 25%);
+  }
+
+  &:hover {
+    color: $color;
+    background-color: darken($background, 10%);
+    border-color: darken($border, 12%);
+  }
+
+  &:active,
+  &.active,
+  .open>&.dropdown-toggle {
+    color: $color;
+    background-color: darken($background, 10%);
+    background-image: none;
+    border-color: darken($border, 12%);
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: $color;
+      background-color: darken($background, 17%);
+      border-color: darken($border, 25%);
+    }
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: $background;
+      border-color: $border;
+    }
+  }
+
+  .badge {
+    color: $background;
+    background-color: $color;
+  }
+}
+
 .Button_Tooltip-Div {
   display: inline-block;
   cursor: not-allowed;
   &-Button {
     pointer-events: none;
   }
+}
+
+.btn-info {
+  @include button-vary($text-2, $white, $border-2)
+}
+
+.btn-primary {
+  @include button-vary($white, $primary-normal , $primary-normal)
+}
+
+.btn-danger {
+  @include button-vary($white, $error-normal , $error-normal)
+}
+
+.btn-success {
+  @include button-vary($white, $success-normal , $success-normal)
+}
+
+.btn-warning {
+  @include button-vary($white, $warning-normal , $warning-normal)
+}
+
+.btn:disabled {
+  border-color: $border-2;
+  color: $text-2;
 }
