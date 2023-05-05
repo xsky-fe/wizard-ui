@@ -28,16 +28,6 @@
   @include button-variant($warning-normal, $warning-normal, $white, $hover-color: $white, $active-color: $white)
 }
 
-
-
-.btn-link {
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
 .btn:disabled {
   border-color: $border-2;
   color: $text-2;
