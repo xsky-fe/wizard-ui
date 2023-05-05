@@ -1,7 +1,10 @@
 import * as React from 'react';
 // import { SelectCallback, Sizes } from 'react-bootstrap';
 import { Moment } from 'moment';
-import { ButtonProps as BsButtonProps } from 'react-bootstrap/Button';
+import {
+  ButtonProps as BsButtonProps,
+  DropdownButtonProps as BsDropdownButtonProps,
+} from 'react-bootstrap';
 import CSS from 'csstype';
 
 export interface Map<K, V> {
@@ -211,17 +214,17 @@ export type DropdownButtonMenuItem =
 export interface DefaultDropdownButtonProps {
   componentClass: any;
 }
-export interface DropdownButtonProps extends DefaultDropdownButtonProps {
+export interface DropdownButtonProps
+  extends DefaultDropdownButtonProps,
+    Omit<BsDropdownButtonProps, 'children' | 'title'> {
   bsStyle?: string;
-  id: string;
-  onSelect?: any;
   onToggle?: (isOpen: boolean) => void;
+  // TODO @fmw
   bsSize?: any;
   title?: string | React.ReactNode;
   menu?: DropdownButtonMenuItem[];
   children?: React.ReactNode;
   modifer?: string;
-  disabled?: boolean;
   dropup?: boolean;
   noCaret?: boolean;
   open?: boolean;

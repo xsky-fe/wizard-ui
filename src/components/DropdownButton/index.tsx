@@ -53,7 +53,7 @@ function renderMenu(
     return (
       <Dropdown.Item
         key={item}
-        onSelect={() => {
+        onClick={() => {
           setButtonOpen(!!open);
         }}
       >
@@ -93,10 +93,13 @@ function renderMenu(
 
 const DropdownButton = (props: DropdownButtonProps) => {
   const getContainerClass = () => {
-    const { modifer } = props;
+    const { modifer, noCaret } = props;
     let className = 'dropdown-container';
     if (modifer) {
       className += ' ' + modifer;
+    }
+    if (noCaret) {
+      className += ' ' + 'dropdown-noCaret';
     }
     return className;
   };
@@ -110,32 +113,43 @@ const DropdownButton = (props: DropdownButtonProps) => {
     if (onToggle) onToggle(isOpen);
   };
 
-  const { bsStyle, id, onSelect, title, menu, children, componentClass, open } = props;
+  const {
+    bsStyle,
+    id,
+    dropup,
+    onSelect,
+    title,
+    menu,
+    children,
+    componentClass,
+    open,
+    bsSize,
+    disabled,
+    pullRight,
+  } = props;
 
   const prevMenu = usePrevious(menu);
   const isDifferentMenu = prevMenu !== menu;
-  const allBoolProps = ['disabled', 'dropup', 'noCaret', 'open', 'pullRight'];
-  const boolProps = {};
   const [buttonOpen, setButtonOpen] = React.useState<boolean>(!!open);
 
-  allBoolProps.forEach(prop => {
-    if (props.hasOwnProperty(prop)) {
-      boolProps[prop] = props[prop];
-    }
-  });
   const containerClassName = getContainerClass();
+  const drop = dropup ? 'up' : 'down';
+  const align = pullRight ? 'end' : undefined;
+  const show = props.hasOwnProperty('open') ? open : buttonOpen;
   return (
     <BootstrapDropdownButton
-      {...(boolProps as any)}
       variant={bsStyle}
       id={id}
       onSelect={onSelect}
       title={title}
-      // bsSize={bsSize}
+      size={bsSize}
+      disabled={disabled}
+      drop={drop}
+      align={align}
       onToggle={(isOpen: boolean) => getOnToggle(isOpen)}
-      componentClass={componentClass}
+      as={componentClass}
       className={containerClassName}
-      open={props.hasOwnProperty('open') ? open : buttonOpen}
+      show={show}
     >
       {menu ? renderContent(menu, setButtonOpen, isDifferentMenu, open) : children}
     </BootstrapDropdownButton>
@@ -202,7 +216,7 @@ DropdownButton.propTypes = {
   /**
    * 大小 string，支持large，default，small，xsmall，默认为default
    **/
-  bsSize: PropTypes.oneOf(['xs', 'sm', 'medium', 'lg']),
+  bsSize: PropTypes.oneOf(['sm', 'lg']),
   /**
    * 下拉框显示内容 string|element
    **/

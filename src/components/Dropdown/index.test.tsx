@@ -8,6 +8,6 @@ describe('Dropdown', () => {
     const title = dropdown.find('button');
     expect(dropdown.find('div.dropdown').length).toBe(1);
     title.simulate('click');
-    expect(dropdown.find('div.dropdown.open').length).toBe(1);
+    expect(dropdown.find('div.dropdown.show').length).toBe(1);
   });
 });
