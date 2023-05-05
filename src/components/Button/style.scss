@@ -1,57 +1,4 @@
-@import '../../style/variables.scss';
-
-@mixin button-vary($color, $background, $border) {
-  color: $color;
-  background-color: $background;
-  border-color: $border;
-
-  &:focus,
-  &.focus {
-    color: $color;
-    background-color: darken($background, 10%);
-    border-color: darken($border, 25%);
-  }
-
-  &:hover {
-    color: $color;
-    background-color: darken($background, 10%);
-    border-color: darken($border, 12%);
-  }
-
-  &:active,
-  &.active,
-  .open>&.dropdown-toggle {
-    color: $color;
-    background-color: darken($background, 10%);
-    background-image: none;
-    border-color: darken($border, 12%);
-
-    &:hover,
-    &:focus,
-    &.focus {
-      color: $color;
-      background-color: darken($background, 17%);
-      border-color: darken($border, 25%);
-    }
-  }
-
-  &.disabled,
-  &[disabled],
-  fieldset[disabled] & {
-
-    &:hover,
-    &:focus,
-    &.focus {
-      background-color: $background;
-      border-color: $border;
-    }
-  }
-
-  .badge {
-    color: $background;
-    background-color: $color;
-  }
-}
+@import '../../style/index.scss';
 
 .Button_Tooltip-Div {
   display: inline-block;
@@ -62,28 +9,31 @@
 }
 
 .btn-info {
-  @include button-vary($text-2, $white, $border-2)
+  @include button-variant($white, $border-2, $text-2, shade-color($white, 10%), shade-color($border-2, 10%), $text-2, $active-color: $text-2, $active-background: shade-color($white, 10%),$active-border:shade-color($border-2,10%))
 }
 
 .btn-primary {
-  @include button-vary($white, $primary-normal , $primary-normal)
+  @include button-variant($primary-normal, $primary-normal, $white)
 }
 
 .btn-danger {
-  @include button-vary($white, $error-normal , $error-normal)
+  @include button-variant($error-normal, $error-normal, $white, $hover-color: $white)
 }
 
 .btn-success {
-  @include button-vary($white, $success-normal , $success-normal)
+  @include button-variant($success-normal, $success-normal, $white, $hover-color: $white, $active-color: $white)
 }
 
 .btn-warning {
-  @include button-vary($white, $warning-normal , $warning-normal)
+  @include button-variant($warning-normal, $warning-normal, $white, $hover-color: $white, $active-color: $white)
 }
 
-.btn-link{
+
+
+.btn-link {
   text-decoration: none;
-  &:hover{
+
+  &:hover {
     text-decoration: underline;
   }
 }
