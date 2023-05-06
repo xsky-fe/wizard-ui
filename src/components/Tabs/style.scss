@@ -19,7 +19,7 @@
   margin-left: 20px;
 }
 
-.Tabs .nav-tabs > li {
+.Tabs .nav-tabs > .nav-item {
   background-color: $tab-bg;
   margin-right: 2px;
   border-radius: $radius-4-tab $radius-4-tab 0 0;
@@ -67,7 +67,7 @@
     border-top: 2px solid $tab-bg-hover;
   }
 
-  &:active {
+  &:has(a.active) {
     border-top: 2px solid $white;
 
     & > a {
@@ -76,7 +76,7 @@
     }
   }
 
-  &.active {
+  &:has(a.active) {
     border-top: 2px solid $primary-normal;
 
     & > a {
@@ -109,7 +109,7 @@
   }
 }
 
-.Tabs--small .nav-tabs > li {
+.Tabs--small .nav-tabs > .nav-item {
   height: 28px;
   font-size: $font-size-12;
 
