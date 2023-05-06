@@ -337,7 +337,7 @@ $escaped-characters: (
 
 $enable-caret:                true !default;
 $enable-rounded:              true !default;
-$enable-shadows:              false !default;
+$enable-shadows:              true !default;
 $enable-gradients:            false !default;
 $enable-transitions:          true !default;
 $enable-reduced-motion:       true !default;
@@ -372,7 +372,7 @@ $gradient: linear-gradient(180deg, rgba($white, .15), rgba($white, 0)) !default;
 // You can add more entries to the $spacers map, should you need more variation.
 
 // scss-docs-start spacer-variables-maps
-$spacer: 1rem !default;
+$spacer: 16px !default;
 $spacers: (
   0: 0,
   1: $spacer * .25,
@@ -1233,16 +1233,16 @@ $placeholder-opacity-min:           .2 !default;
 // Cards
 
 // scss-docs-start card-variables
-$card-spacer-y:                     $spacer !default;
-$card-spacer-x:                     $spacer !default;
+$card-spacer-y:                     14px  !default;
+$card-spacer-x:                     22px  !default;
 $card-title-spacer-y:               $spacer * .5 !default;
 $card-border-width:                 $border-width !default;
-$card-border-color:                 var(--#{$prefix}border-color-translucent) !default;
+$card-border-color:                 #ddd !default;
 $card-border-radius:                $radius-4-card !default;
-$card-box-shadow:                   null !default;
+$card-box-shadow:                   0 1px 1px rgba(0, 0, 0, .05) !default;
 $card-inner-border-radius:          subtract($card-border-radius, $card-border-width) !default;
-$card-cap-padding-y:                $card-spacer-y * .5 !default;
-$card-cap-padding-x:                $card-spacer-x !default;
+$card-cap-padding-y:                12px !default;
+$card-cap-padding-x:                22px !default;
 $card-cap-bg:                       rgba($black, .03) !default;
 $card-cap-color:                    null !default;
 $card-height:                       null !default;
