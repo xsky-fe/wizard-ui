@@ -513,7 +513,7 @@ $component-active-bg:         $primary !default;
 
 // scss-docs-start caret-variables
 $caret-width:                 .3em !default;
-$caret-vertical-align:        $caret-width * .85 !default;
+$caret-vertical-align:        $caret-width * .5 !default;
 $caret-spacing:               $caret-width * .85 !default;
 // scss-docs-end caret-variables
 
@@ -1390,10 +1390,10 @@ $badge-border-radius:               $border-radius !default;
 // scss-docs-start modal-variables
 $modal-inner-padding:               $spacer !default;
 
-$modal-footer-margin-between:       .5rem !default;
+$modal-footer-margin-between:       0 !default;
 
 $modal-dialog-margin:               .5rem !default;
-$modal-dialog-margin-y-sm-up:       1.75rem !default;
+$modal-dialog-margin-y-sm-up:       30px !default;
 
 $modal-title-line-height:           $line-height-base !default;
 
@@ -1413,15 +1413,15 @@ $modal-header-border-color:         var(--#{$prefix}border-color) !default;
 $modal-header-border-width:         $modal-content-border-width !default;
 $modal-header-padding-y:            $modal-inner-padding !default;
 $modal-header-padding-x:            $modal-inner-padding !default;
-$modal-header-padding:              $modal-header-padding-y $modal-header-padding-x !default; // Keep this for backwards compatibility
+$modal-header-padding:              15px 18px 12px 50px !default; // Keep this for backwards compatibility
 
 $modal-footer-bg:                   null !default;
 $modal-footer-border-color:         $modal-header-border-color !default;
 $modal-footer-border-width:         $modal-header-border-width !default;
 
 $modal-sm:                          300px !default;
-$modal-md:                          500px !default;
-$modal-lg:                          800px !default;
+$modal-md:                          700px !default;
+$modal-lg:                          900px !default;
 $modal-xl:                          1140px !default;
 
 $modal-fade-transform:              translate(0, -50px) !default;
