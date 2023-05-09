@@ -61,4 +61,8 @@
       max-width: none;
     }
   }
+  /* 禁止点击 modal 外部区域的抖动动画 */
+  &.show.modal-static .modal-dialog {
+    transform: none !important;
+  }
 }
