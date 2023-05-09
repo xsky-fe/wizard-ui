@@ -1,11 +1,11 @@
 @import '../../style/variables.scss';
 
 .Tabs--right #Tabs {
-  & > ul.nav-tabs {
+  & > div.nav-tabs {
     display: flex;
     justify-content: flex-end;
   }
-  ul.dropdown-menu{
+  div.dropdown-menu{
     left:inherit;
     right: 0;
   }
@@ -22,6 +22,7 @@
 .Tabs .nav-tabs > .nav-item {
   background-color: $tab-bg;
   margin-right: 2px;
+  margin-bottom: -1px;
   border-radius: $radius-4-tab $radius-4-tab 0 0;
   box-sizing: border-box;
   height: 40px;
@@ -42,7 +43,7 @@
       position: relative;
       padding-right: 30px;
 
-      & .caret {
+      &::after {
         position: absolute;
         top:16px;
         right: 15px;

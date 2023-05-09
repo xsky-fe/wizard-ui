@@ -56,7 +56,7 @@ const Tabs: React.FC<TabsProps> = props => {
         unmountOnExit={unmountOnExit}
         {...(restProps as any)}
       >
-        <div>
+        <div id="Tabs">
           <Nav variant="tabs">
             {tabsFrontList.map((tab, idx) => (
               <NavItem
@@ -89,7 +89,11 @@ const Tabs: React.FC<TabsProps> = props => {
                 key={eventKeyName ? tab[eventKeyName] : idx}
                 eventKey={eventKeyName ? tab[eventKeyName] : idx}
               >
-                {tab.children && <Card body className="Tabs__Body">{tab.children}</Card>}
+                {tab.children && (
+                  <Card body className="Tabs__Body">
+                    {tab.children}
+                  </Card>
+                )}
               </Tab.Pane>
             ))}
           </Tab.Content>
