@@ -12,6 +12,7 @@ storiesOf('DATA SHOW | Button', module)
         <Button style={{marginLeft:'5px'}} bsStyle="success">button</Button>
         <Button style={{marginLeft:'5px'}} bsStyle="warning">button</Button>
         <Button style={{marginLeft:'6px'}} bsStyle="link">button</Button>
+        <Button style={{marginLeft:'6px'}}>button</Button>
       </div>
     );
   })
@@ -38,7 +39,6 @@ storiesOf('DATA SHOW | Button', module)
           button
         </Button>
         <Button
-          bsStyle="info"
           toolTip={NormalTooltip}
           disabled={false}
           onClick={() => {
