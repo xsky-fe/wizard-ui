@@ -115,7 +115,7 @@
   height: 28px;
   font-size: $font-size-12;
 
-  &.active {
+  &:has(.active) {
     border-left: 1px solid $bg-2;
     border-right: 1px solid $bg-2;
   }
