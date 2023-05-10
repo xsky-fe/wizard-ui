@@ -6,12 +6,13 @@ import './style.scss';
 
 const Button: React.FC<ButtonProps> =  (props: any)  => {
   const { toolTip, children, ...restProps } = props;
-  const { disabled, className=null } = restProps;
+  const { disabled, className=null, bsStyle } = restProps;
   return toolTip ? (
     <Tooltip
       label={
         <div className="Button_Tooltip-Div">
           <BSButton
+            variant={bsStyle}
             {...restProps}
             className={disabled ? `Button_Tooltip-Div-Button ${className}` : `${className}`}
           >
@@ -22,7 +23,7 @@ const Button: React.FC<ButtonProps> =  (props: any)  => {
       {...toolTip}
     />
   ) : (
-    <BSButton {...restProps}>{children}</BSButton>
+    <BSButton variant={bsStyle} {...restProps}>{children}</BSButton>
   );
 };
 
