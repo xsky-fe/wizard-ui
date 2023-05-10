@@ -183,6 +183,7 @@ const UsageBar: React.FC<UsageBarProps> = props => {
           // bs ProgressBar 只支持最多 5 种 style，索引摒弃 bsStyle 属性，改用组装 className
           // style用于展示最小进度，不满1px时以1px展示，只要perc > 0，最小进度就是1px
           <ProgressBar
+            variant={bsStyle}
             className={bsStyle && `progress-bar-${bsStyle}`}
             now={perc}
             max={1}
