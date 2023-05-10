@@ -12,39 +12,100 @@
   }
 }
 
+button[bsSize='lg']{
+  line-height: $line-height-lg;
+}
+
+button[bsSize='sm']{
+  line-height: $line-height-sm;
+}
+
+button[bsSize='xs']{
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: $line-height-sm;
+}
+
+.btn-block{
+  display: block;
+  width: 100%;
+}
+
+.btn-default {
+  background-color: $white  !important;
+  border: 1px solid $border-2  !important;
+  color: $text-2  !important;
+
+  &:hover {
+    background-color: $bg-2-hover  !important;
+    border-color: $grey-7  !important;
+  }
+
+  &:active {
+    background-color: shade-color($white, $btn-active-bg-shade-amount) !important;
+    box-shadow: $btn-active-box-shadow  !important;
+    border-color: shade-color($border-2, $btn-active-border-shade-amount) !important;
+  }
+}
+
 .btn-info {
   @include button-variant ($white,
     $border-2,
     $text-2,
-    $hover-border: shade-color($border-2, $btn-hover-border-shade-amount),
-    $hover-color: $text-1,
-    $active-color: $text-1,
-    $active-background: $white,
-    $active-border: $grey-7);
+    $white,
+    $grey-7,
+    $text-1,
+    $white,
+    $grey-7,
+    $text-1 );
 }
 
 .btn-primary {
   @include button-variant($primary-normal,
     $primary-normal,
     $white,
-    tint-color($primary-normal, $btn-hover-bg-tint-amount),
-    tint-color($primary-normal, $btn-hover-bg-tint-amount),
+    $primary-hover,
+    $primary-normal,
     $white,
-    shade-color($primary-normal, $btn-hover-bg-shade-amount),
-    shade-color($primary-normal, $btn-hover-bg-shade-amount),
+    $primary-click,
+    $primary-normal,
     $white)
 }
 
 .btn-danger {
-  @include button-variant($error-normal, $error-normal, $white, tint-color($error-normal, $btn-hover-bg-tint-amount), tint-color($error-normal, $btn-hover-bg-tint-amount), $white, shade-color($error-normal, $btn-hover-bg-shade-amount), shade-color($error-normal, $btn-hover-bg-shade-amount), $white)
+  @include button-variant($error-normal,
+    $error-normal,
+    $white,
+    $error-hover,
+    $error-normal,
+    $white,
+    $error-click,
+    $error-normal,
+    $white)
 }
 
 .btn-success {
-  @include button-variant($success-normal, $success-normal, $white, tint-color($success-normal, $btn-hover-bg-tint-amount), tint-color($success-normal, $btn-hover-bg-tint-amount), $white, shade-color($success-normal, $btn-hover-bg-shade-amount), shade-color($success-normal, $btn-hover-bg-shade-amount), $white)
+  @include button-variant($success-normal,
+    $success-normal,
+    $white,
+    $success-hover,
+    $success-normal,
+    $white,
+    $success-click,
+    $success-normal,
+    $white)
 }
 
 .btn-warning {
-  @include button-variant($warning-normal, $warning-normal, $white, tint-color($warning-normal, $btn-hover-bg-tint-amount), tint-color($warning-normal, $btn-hover-bg-tint-amount), $white, shade-color($warning-normal, $btn-hover-bg-shade-amount), shade-color($warning-normal, $btn-hover-bg-shade-amount), $white)
+  @include button-variant($warning-normal,
+    $warning-normal,
+    $white,
+    $warning-hover,
+    $warning-normal,
+    $white,
+    $warning-click,
+    $warning-normal,
+    $white)
 }
 
 .btn:disabled {
