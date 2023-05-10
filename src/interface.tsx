@@ -4,6 +4,7 @@ import { Moment } from 'moment';
 import {
   ButtonProps as BsButtonProps,
   DropdownButtonProps as BsDropdownButtonProps,
+  ModalProps as BsModalProps,
 } from 'react-bootstrap';
 import CSS from 'csstype';
 
@@ -135,13 +136,10 @@ export interface StepsProps {
   iconStatus?: string;
 }
 
-export interface ModalProps {
+export interface ModalProps extends BsModalProps {
   title: string;
-  onHide: any;
-  onOk?: any;
-  show?: boolean;
-  style?: React.CSSProperties;
-  bsSize?: 'sm' | 'lg' | 'xl';
+  onOk?: () => void;
+  bsSize?: 'sm' | 'medium' | 'lg' | 'xlarge';
   confirmText?: string;
   okStyle?: string;
   loading?: boolean;
@@ -444,4 +442,5 @@ export interface NotificationListStates {
 
 export interface ButtonProps extends BsButtonProps {
   toolTip?: TooltipProps;
+  bsStyle?: string;
 }
