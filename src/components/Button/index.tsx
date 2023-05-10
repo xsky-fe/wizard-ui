@@ -4,17 +4,22 @@ import Tooltip from '../Tooltip';
 import { ButtonProps } from '../../interface';
 import './style.scss';
 
-const Button: React.FC<ButtonProps> =  (props: any)  => {
+const Button: React.FC<ButtonProps> = (props: any) => {
   const { toolTip, children, ...restProps } = props;
-  const { disabled, className=null, bsStyle } = restProps;
+  const { disabled, className = null, bsStyle, bsSize, block } = restProps;
   return toolTip ? (
     <Tooltip
       label={
         <div className="Button_Tooltip-Div">
           <BSButton
             variant={bsStyle}
+            size={bsSize}
             {...restProps}
-            className={(disabled ? `Button_Tooltip-Div-Button ${className}` : `${className}`) + (bsStyle ? className : ' btn-default')}
+            className={
+              (disabled ? `Button_Tooltip-Div-Button ${className}` : `${className}`) +
+              (bsStyle == null || bsStyle == 'default' ? ' btn-default' : className) +
+              (block ? ' btn-block' : '')
+            }
           >
             {children}
           </BSButton>
@@ -23,7 +28,17 @@ const Button: React.FC<ButtonProps> =  (props: any)  => {
       {...toolTip}
     />
   ) : (
-    <BSButton variant={bsStyle} className={bsStyle ? className : 'btn-default'} {...restProps}>{children}</BSButton>
+    <BSButton
+      variant={bsStyle}
+      size={bsSize}
+      className={
+        (bsStyle == null || bsStyle == 'default' ? ' btn-default' : className) +
+        (block ? ' btn-block' : '')
+      }
+      {...restProps}
+    >
+      {children}
+    </BSButton>
   );
 };
 

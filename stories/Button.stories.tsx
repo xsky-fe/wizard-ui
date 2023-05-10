@@ -6,13 +6,46 @@ storiesOf('DATA SHOW | Button', module)
   .add('default', () => {
     return (
       <div style={{ margin: '10px' }}>
-        <Button style={{marginLeft:'5px'}} bsStyle="info">button</Button>
-        <Button style={{marginLeft:'5px'}} bsStyle="primary">button</Button>
-        <Button style={{marginLeft:'5px'}} bsStyle="danger">button</Button>
-        <Button style={{marginLeft:'5px'}} bsStyle="success">button</Button>
-        <Button style={{marginLeft:'5px'}} bsStyle="warning">button</Button>
-        <Button style={{marginLeft:'6px'}} bsStyle="link">button</Button>
-        <Button style={{marginLeft:'6px'}}>button</Button>
+        <Button style={{ marginLeft: '5px' }} bsStyle="info">
+          button
+        </Button>
+        <Button style={{ marginLeft: '5px' }} bsStyle="primary">
+          button
+        </Button>
+        <Button style={{ marginLeft: '5px' }} bsStyle="danger">
+          button
+        </Button>
+        <Button style={{ marginLeft: '5px' }} bsStyle="success">
+          button
+        </Button>
+        <Button style={{ marginLeft: '5px' }} bsStyle="warning">
+          button
+        </Button>
+        <Button style={{ marginLeft: '5px' }} bsStyle="link">
+          button
+        </Button>
+        <Button style={{ marginLeft: '5px' }} bsStyle="default">
+          button
+        </Button>
+        <br />
+        <br />
+        <Button style={{ marginLeft: '5px' }} bsStyle="default" bsSize="lg">
+          button
+        </Button>
+        <Button style={{ marginLeft: '5px' }} bsStyle="default">
+          button
+        </Button>
+        <Button style={{ marginLeft: '5px' }} bsStyle="default" bsSize="sm">
+          button
+        </Button>
+        <Button style={{ marginLeft: '5px' }} bsStyle="default" bsSize="xs">
+          button
+        </Button>
+        <br />
+        <br />
+        <Button variant="primary" block>
+          button
+        </Button>
       </div>
     );
   })
