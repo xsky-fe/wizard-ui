@@ -43,7 +43,7 @@ storiesOf('DATA SHOW | Button', module)
         </Button>
         <br />
         <br />
-        <Button variant="primary" block>
+        <Button block>
           button
         </Button>
       </div>
