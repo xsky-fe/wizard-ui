@@ -8,7 +8,7 @@ const SubMenu = (props: SubMenuProps) => {
   const { title, children, name } = props;
   return (
     <div className="SubMenu" data-name={`SubMenu-${name}`}>
-      <Dropdown.Item header bsClass="dropdown-header dropdown-submenu">
+      <Dropdown.Item bsPrefix="dropdown-header dropdown-submenu dropdown-submenu-header">
         <span>{title}</span>
         <ul className="dropdown-menu">{children}</ul>
       </Dropdown.Item>

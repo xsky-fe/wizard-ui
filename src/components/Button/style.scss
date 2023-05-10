@@ -1,9 +1,53 @@
-@import '../../style/variables.scss';
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../style/bootstrap-custom.scss';
+@import '../../../node_modules/bootstrap/scss/mixins/buttons';
+
 
 .Button_Tooltip-Div {
   display: inline-block;
   cursor: not-allowed;
+
   &-Button {
     pointer-events: none;
   }
+}
+
+.btn-info {
+  @include button-variant ($white,
+    $border-2,
+    $text-2,
+    $hover-border: shade-color($border-2, $btn-hover-border-shade-amount),
+    $hover-color: $text-1,
+    $active-color: $text-1,
+    $active-background: $white,
+    $active-border: $grey-7);
+}
+
+.btn-primary {
+  @include button-variant($primary-normal,
+    $primary-normal,
+    $white,
+    tint-color($primary-normal, $btn-hover-bg-tint-amount),
+    tint-color($primary-normal, $btn-hover-bg-tint-amount),
+    $white,
+    shade-color($primary-normal, $btn-hover-bg-shade-amount),
+    shade-color($primary-normal, $btn-hover-bg-shade-amount),
+    $white)
+}
+
+.btn-danger {
+  @include button-variant($error-normal, $error-normal, $white, tint-color($error-normal, $btn-hover-bg-tint-amount), tint-color($error-normal, $btn-hover-bg-tint-amount), $white, shade-color($error-normal, $btn-hover-bg-shade-amount), shade-color($error-normal, $btn-hover-bg-shade-amount), $white)
+}
+
+.btn-success {
+  @include button-variant($success-normal, $success-normal, $white, tint-color($success-normal, $btn-hover-bg-tint-amount), tint-color($success-normal, $btn-hover-bg-tint-amount), $white, shade-color($success-normal, $btn-hover-bg-shade-amount), shade-color($success-normal, $btn-hover-bg-shade-amount), $white)
+}
+
+.btn-warning {
+  @include button-variant($warning-normal, $warning-normal, $white, tint-color($warning-normal, $btn-hover-bg-tint-amount), tint-color($warning-normal, $btn-hover-bg-tint-amount), $white, shade-color($warning-normal, $btn-hover-bg-shade-amount), shade-color($warning-normal, $btn-hover-bg-shade-amount), $white)
+}
+
+.btn:disabled {
+  border-color: $border-2;
+  color: $text-2;
 }
