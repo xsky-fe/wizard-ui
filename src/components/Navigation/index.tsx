@@ -47,7 +47,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
     const header = (
       <div>
         <span className="panel-title__title">{title}</span>
-        <Icon type={expanded ? 'minus' : 'plus'} className="panel-title__icon" />
+        <Icon type={expanded ? 'minus-line' : 'plus-line'} className="panel-title__icon" />
       </div>
     );
     return toggled ? (
@@ -55,7 +55,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
         <Tooltip
           placement="right"
           className="Navigation__tooltip"
-          icon={expanded ? 'minus' : 'plus'}
+          icon={expanded ? 'minus-line' : 'plus-line'}
           iconClass="panel-title__icon"
         >
           {title}

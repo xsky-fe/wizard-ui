@@ -2,23 +2,24 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import { IconProps } from '../../interface';
 import cn from 'classnames';
-import icons from 'wizard-icons';
+import * as Icons from 'wizard-ui-icon';
 import upperFirst from 'lodash/upperFirst';
 import camelCase from 'lodash/camelCase';
 import './style.scss';
 
 const Icon: React.FC<IconProps> = props => {
-  const { type, color, className, cursor, ...rest } = props;
+  const { type, color, className, cursor = false, size = '1em', onClick, style } = props;
   const cls = cn(`icon icon-${type}`, {
     [`${color}`]: Boolean(color),
     [`${className}`]: Boolean(className),
-    ['cursor']: Boolean(cursor),
+    cursor: Boolean(cursor),
   });
   const name = upperFirst(camelCase(type));
-  const Icon = icons[name];
+  const IconComponent = Icons[name];
+
   return (
-    <span className={cls} {...rest}>
-      {Icon && <Icon aria-hidden />}
+    <span className={cls} onClick={onClick} style={style}>
+      {IconComponent && <IconComponent size={size} />}
     </span>
   );
 };

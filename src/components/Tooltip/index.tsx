@@ -119,7 +119,7 @@ Tooltip.propTypes = {
 };
 
 Tooltip.defaultProps = {
-  icon: 'info',
+  icon: 'info-line',
   iconAlign: 'text-bottom',
   contrast: false,
 };

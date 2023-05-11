@@ -9,6 +9,7 @@
 
 .alert .icon {
   margin-right: 12px;
+  margin-top: 3px;
 
   &:before {
     font-size: $font-size-16;
@@ -120,9 +121,6 @@
       align-items: center;
     }
 
-    .icon {
-      font-size: $font-size-12;
-    }
     .icon-list {
       margin-right: 5px;
     }

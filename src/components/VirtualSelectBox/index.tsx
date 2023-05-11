@@ -401,7 +401,7 @@ class VirtualSelectBox<T> extends React.Component<
         ) : (
           <span className={btnClassName}>
             {this.renderLabel(item)} {isBtn && <Glyphicon glyph="triangle-bottom" />}
-            {clear && !isEmpty(item) && <Icon type="close" onClick={this.clear} />}
+            {clear && !isEmpty(item) && <Icon type="close-line" onClick={this.clear} size={12} />}
           </span>
         )}
         {isOpen && this.renderOuter()}

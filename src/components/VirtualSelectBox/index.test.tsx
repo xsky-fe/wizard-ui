@@ -79,7 +79,7 @@ describe('VirtualSelectBox', () => {
         .at(0)
         .props().children,
     ).toBe('list-1');
-    expect(picker.find('.icon-close').exists()).toBeTruthy();
+    expect(picker.find('.icon-close-line').exists()).toBeTruthy();
     node.find('Glyphicon').simulate('click');
     await sleep(500);
     picker.update();

@@ -56,7 +56,7 @@ describe('RangePicker', () => {
     const node = picker.find('.RangePicker');
     node.simulate('mouseenter');
     picker
-      .find('.icon-close')
+      .find('.icon-close-line')
       .at(0)
       .simulate('click');
     const inputs = picker.find('input');

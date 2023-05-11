@@ -6,11 +6,11 @@ import { NotificationProps } from '../../interface';
 import './style.scss';
 
 const STATUS = {
-  success: ['check-circle'],
-  info: ['info'],
+  success: ['right-fill'],
+  info: ['info-line'],
   process: ['loading', 'info'],
-  warning: ['warning'],
-  danger: ['times-circle'],
+  warning: ['warning-fill'],
+  danger: ['times-circle-fill'],
 };
 
 export default class Notification extends PureComponent<NotificationProps> {
