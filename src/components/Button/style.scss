@@ -42,9 +42,9 @@
   }
 
   &:active {
-    background-color: shade-color($white, $btn-active-bg-shade-amount);
-    box-shadow: $btn-active-box-shadow ;
-    border-color: shade-color($border-2, $btn-active-border-shade-amount);
+    background-color: shade-color($white, $btn-active-bg-shade-amount) !important;
+    box-shadow: $btn-active-box-shadow  !important;
+    border-color: shade-color($border-2, $btn-active-border-shade-amount) !important;
   }
 }
 
