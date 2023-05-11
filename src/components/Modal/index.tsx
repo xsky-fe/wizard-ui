@@ -57,13 +57,10 @@ const Modal: React.FC<ModalProps> = props => {
     preventDragByTitle,
     centered,
   } = props;
-  let { bsSize } = props;
+  let { size } = props;
   let dialogClassName = '';
-  if (bsSize === 'medium') {
-    bsSize = undefined;
-  }
-  if (bsSize === 'xlarge') {
-    bsSize = undefined;
+  if (size === 'xlarge') {
+    size = undefined;
     dialogClassName = 'modal-xlg';
   }
 
@@ -77,7 +74,7 @@ const Modal: React.FC<ModalProps> = props => {
       className="Modal"
       style={style}
       dialogClassName={dialogClassName}
-      size={bsSize}
+      size={size}
       backdrop="static"
       onHide={onHide}
       show={show}
@@ -134,7 +131,7 @@ Modal.propTypes = {
   /** 对话框附加行内样式 */
   style: PropTypes.object,
   /** 对话框大小 */
-  bsSize: PropTypes.oneOf(['sm', 'lg', 'medium', 'xlarge', undefined, null]),
+  size: PropTypes.oneOf(['sm', 'lg', 'xl', 'xlarge']),
   /** 确定、提交按钮文案 */
   confirmText: PropTypes.string,
   /** 确定、提交按钮样式 */

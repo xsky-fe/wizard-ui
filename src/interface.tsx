@@ -1,7 +1,11 @@
 import * as React from 'react';
 // import { SelectCallback, Sizes } from 'react-bootstrap';
 import { Moment } from 'moment';
-import { ModalProps as BsModalProps, ButtonProps as BsButtonProps } from 'react-bootstrap';
+import {
+  ModalProps as BsModalProps,
+  ButtonProps as BsButtonProps,
+  DropdownProps as BsDropdownProps,
+} from 'react-bootstrap';
 import CSS from 'csstype';
 
 export interface Map<K, V> {
@@ -132,10 +136,9 @@ export interface StepsProps {
   iconStatus?: string;
 }
 
-export interface ModalProps extends BsModalProps {
+export interface ModalProps extends Omit<BsModalProps, 'size'> {
   title: string;
   onOk?: () => void;
-  bsSize?: 'sm' | 'medium' | 'lg' | 'xlarge';
   confirmText?: string;
   okStyle?: string;
   loading?: boolean;
@@ -143,6 +146,7 @@ export interface ModalProps extends BsModalProps {
   hideHeader?: boolean;
   draggable?: boolean;
   preventDragByTitle?: boolean;
+  size?: BsModalProps['size'] | 'xlarge';
 }
 
 interface SwitchInput {
@@ -299,7 +303,10 @@ export interface DropdownDefaultProps {
   id: string;
 }
 
-export interface DropdownProps extends DropdownDefaultProps {
+export interface DropdownAlignProps {
+  align?: BsDropdownProps['align'];
+}
+export interface DropdownProps extends DropdownDefaultProps, DropdownAlignProps {
   className?: string;
   title?: string;
   children?: React.ReactNode;
@@ -311,7 +318,7 @@ export interface MenuItemOptions {
   title: string;
   value: string;
 }
-export interface InputDropdownProps {
+export interface InputDropdownProps extends DropdownAlignProps {
   options?: MenuItemOptions[];
   defaultValue?: string;
   value?: string;
@@ -440,5 +447,5 @@ export interface ButtonProps extends BsButtonProps {
   toolTip?: TooltipProps;
   bsStyle?: string;
   bsSize?: string;
-  block?: boolean
+  block?: boolean;
 }
