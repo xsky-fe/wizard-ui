@@ -79,7 +79,7 @@ const Popover: React.FC<PopoverProps> = props => {
           onMouseLeave={hoverTrigger ? handleHide : undefined}
           body
         >
-          <div>{content}</div>
+          {content}
         </BasePopover>
       </Overlay>
     </div>
