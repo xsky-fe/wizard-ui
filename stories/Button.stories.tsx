@@ -6,39 +6,39 @@ storiesOf('DATA SHOW | Button', module)
   .add('default', () => {
     return (
       <div style={{ margin: '10px' }}>
-        <Button style={{ marginLeft: '5px' }} bsStyle="info">
+        <Button style={{ marginLeft: '5px' }} variant="info">
           button
         </Button>
-        <Button style={{ marginLeft: '5px' }} bsStyle="primary">
+        <Button style={{ marginLeft: '5px' }} variant="primary">
           button
         </Button>
-        <Button style={{ marginLeft: '5px' }} bsStyle="danger">
+        <Button style={{ marginLeft: '5px' }} variant="danger">
           button
         </Button>
-        <Button style={{ marginLeft: '5px' }} bsStyle="success">
+        <Button style={{ marginLeft: '5px' }} variant="success">
           button
         </Button>
-        <Button style={{ marginLeft: '5px' }} bsStyle="warning">
+        <Button style={{ marginLeft: '5px' }} variant="warning">
           button
         </Button>
-        <Button style={{ marginLeft: '5px' }} bsStyle="link">
+        <Button style={{ marginLeft: '5px' }} variant="link">
           button
         </Button>
-        <Button style={{ marginLeft: '5px' }} bsStyle="default">
+        <Button style={{ marginLeft: '5px' }} variant="default">
           button
         </Button>
         <br />
         <br />
-        <Button style={{ marginLeft: '5px' }} bsStyle="default" bsSize="lg">
+        <Button style={{ marginLeft: '5px' }} variant="default" size="lg">
           button
         </Button>
-        <Button style={{ marginLeft: '5px' }} bsStyle="default">
+        <Button style={{ marginLeft: '5px' }} variant="default">
           button
         </Button>
-        <Button style={{ marginLeft: '5px' }} bsStyle="default" bsSize="sm">
+        <Button style={{ marginLeft: '5px' }} variant="default" size="sm">
           button
         </Button>
-        <Button style={{ marginLeft: '5px' }} bsStyle="default" bsSize="xs">
+        <Button style={{ marginLeft: '5px' }} variant="default" size="xs">
           button
         </Button>
         <br />
@@ -61,7 +61,7 @@ storiesOf('DATA SHOW | Button', module)
     return (
       <div style={{ margin: '10px' }}>
         <Button
-          bsStyle="info"
+          variant="info"
           toolTip={DisabledTooltip}
           disabled={true}
           onClick={() => {

@@ -12,39 +12,39 @@
   }
 }
 
-button[bsSize='lg']{
+.btn-lg {
   line-height: $line-height-lg;
 }
 
-button[bsSize='sm']{
+.btn-sm {
   line-height: $line-height-sm;
 }
 
-button[bsSize='xs']{
+.btn-xs {
   padding: 1px 5px;
   font-size: 12px;
   line-height: $line-height-sm;
 }
 
-.btn-block{
+.btn-block {
   display: block;
   width: 100%;
 }
 
 .btn-default {
-  background-color: $white  !important;
-  border: 1px solid $border-2  !important;
-  color: $text-2  !important;
+  background-color: $white;
+  border: 1px solid $border-2;
+  color: $text-2;
 
   &:hover {
-    background-color: $bg-2-hover  !important;
-    border-color: $grey-7  !important;
+    background-color: $bg-2-hover;
+    border-color: $grey-7;
   }
 
   &:active {
-    background-color: shade-color($white, $btn-active-bg-shade-amount) !important;
-    box-shadow: $btn-active-box-shadow  !important;
-    border-color: shade-color($border-2, $btn-active-border-shade-amount) !important;
+    background-color: shade-color($white, $btn-active-bg-shade-amount);
+    box-shadow: $btn-active-box-shadow ;
+    border-color: shade-color($border-2, $btn-active-border-shade-amount);
   }
 }
 
