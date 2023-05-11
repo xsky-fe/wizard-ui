@@ -29,6 +29,29 @@ storiesOf('DATA SHOW | Button', module)
         </Button>
         <br />
         <br />
+        <Button style={{ marginLeft: '5px' }} disabled variant="info">
+          button
+        </Button>
+        <Button style={{ marginLeft: '5px' }} disabled variant="primary">
+          button
+        </Button>
+        <Button style={{ marginLeft: '5px' }} disabled variant="danger">
+          button
+        </Button>
+        <Button style={{ marginLeft: '5px' }} disabled variant="success">
+          button
+        </Button>
+        <Button style={{ marginLeft: '5px' }} disabled variant="warning">
+          button
+        </Button>
+        <Button style={{ marginLeft: '5px' }} disabled variant="link">
+          button
+        </Button>
+        <Button style={{ marginLeft: '5px' }} disabled variant="default">
+          button
+        </Button>
+        <br />
+        <br />
         <Button style={{ marginLeft: '5px' }} variant="default" size="lg">
           button
         </Button>
@@ -43,9 +66,7 @@ storiesOf('DATA SHOW | Button', module)
         </Button>
         <br />
         <br />
-        <Button block>
-          button
-        </Button>
+        <Button block>button</Button>
       </div>
     );
   })
