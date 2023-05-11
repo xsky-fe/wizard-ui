@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Moment } from 'moment';
 import { ModalProps as BsModalProps, ButtonProps as BsButtonProps } from 'react-bootstrap';
 import CSS from 'csstype';
+import { Placement } from 'react-bootstrap/esm/types';
 
 export interface Map<K, V> {
   clear(): void;
@@ -66,7 +67,7 @@ export interface TooltipProps {
 }
 
 export interface PopoverProps {
-  placement?: string;
+  placement?: Placement;
   trigger?: string | string[];
   content: React.ReactNode;
   children: React.ReactNode;

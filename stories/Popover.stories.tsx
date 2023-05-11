@@ -1,7 +1,6 @@
 import React from 'react';
-import { Button as BaseButton } from 'react-bootstrap';
 import { storiesOf } from '@storybook/react';
-import { Popover } from '../src';
+import { Popover,Button as BaseButton } from '../src';
 import { ButtonProps } from 'react-bootstrap/Button';
 
 const Button = (props: ButtonProps) => (
