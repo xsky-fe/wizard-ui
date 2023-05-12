@@ -121,7 +121,7 @@ export interface TabsProps {
   id?: string;
   limitNum?: number;
   unmountOnExit?: boolean;
-  animation?: boolean;
+  transition?: boolean;
   mountOnEnter?: boolean;
 }
 
