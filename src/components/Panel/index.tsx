@@ -8,7 +8,7 @@ import classNames from 'classnames';
 import './index.scss';
 
 const Panel: React.FC<PanelProps> = props => {
-  const { bg, children, text, className, collapsible, header, expanded, ...restProps } = props;
+  const { bg, children, text, className, collapsible, header, expanded = true, ...restProps } = props;
   const bgClass = bg ? `panel-${bg}-bg` : '';
   const textClass = text ? `text-${text}` : 'text-dark';
   const eventKey = uuid();
