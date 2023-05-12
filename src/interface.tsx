@@ -443,3 +443,7 @@ export interface ButtonProps extends BsButtonProps {
   bsSize?: string;
   block?: boolean
 }
+
+export interface HeaderToggleProps{
+  eventKey: string
+}

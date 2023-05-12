@@ -1,18 +1,40 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import { Card } from 'react-bootstrap';
-import { PanelProps } from '../../interface';
+import { Card, Accordion } from 'react-bootstrap';
+import { useAccordionButton } from 'react-bootstrap/AccordionButton';
+import { PanelProps, HeaderToggleProps } from '../../interface';
+import { uuid } from '../../utils';
 import classNames from 'classnames';
 import './index.scss';
 
 const Panel: React.FC<PanelProps> = props => {
-  const { bg, children, text, className, header, ...restProps } = props;
+  const { bg, children, text, className, collapsible, header, expanded, ...restProps } = props;
   const bgClass = bg ? `panel-${bg}-bg` : '';
   const textClass = text ? `text-${text}` : 'text-dark';
-  return (
+  const eventKey = uuid();
+
+  const HeaderToggle: React.FC<HeaderToggleProps> = ({ children, eventKey }) => {
+    const decoratedOnClick = useAccordionButton(eventKey);
+
+    return <span onClick={decoratedOnClick}>{children}</span>;
+  };
+  return collapsible ? (
+    <Accordion defaultActiveKey={eventKey}>
+      <Card {...restProps} className={classNames(bgClass, textClass, className)}>
+        {header && (
+          <Card.Header>
+            <HeaderToggle eventKey={eventKey}>{header}</HeaderToggle>
+          </Card.Header>
+        )}
+        <Accordion.Collapse eventKey={expanded ? eventKey : ''}>
+          <Card.Body>{children}</Card.Body>
+        </Accordion.Collapse>
+      </Card>
+    </Accordion>
+  ) : (
     <Card {...restProps} className={classNames(bgClass, textClass, className)}>
       {header && <Card.Header>{header}</Card.Header>}
-      {children && <Card.Body>{children}</Card.Body>}
+      <Card.Body>{children}</Card.Body>
     </Card>
   );
 };
