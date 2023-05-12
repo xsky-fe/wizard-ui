@@ -5,6 +5,7 @@ import { ModalProps as BsModalProps } from 'react-bootstrap';
 import { ButtonVariant } from '../node_modules/react-bootstrap/esm/types';
 import CSS from 'csstype';
 import { Placement } from 'react-bootstrap/esm/types';
+import { TreeProps as RCTreeProps } from 'rc-tree';
 
 export interface Map<K, V> {
   clear(): void;
@@ -179,7 +180,7 @@ export interface TreeData {
   children?: TreeData[];
 }
 
-export interface TreeProps {
+export interface TreeProps extends RCTreeProps {
   data: TreeData[];
   checkable?: boolean;
   prefixCls?: string;
