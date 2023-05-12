@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Moment } from 'moment';
 import { ButtonProps as BsButtonProps } from 'react-bootstrap/Button';
 import CSS from 'csstype';
+import { Placement } from 'react-bootstrap/esm/types';
 
 export interface Map<K, V> {
   clear(): void;
@@ -59,8 +60,8 @@ export interface TooltipProps {
   onClick?: any;
   label?: React.ReactNode;
   contrast?: boolean;
-  style?: string;
-  placement?: string;
+  style?: React.CSSProperties;
+  placement?: Placement;
   children: React.ReactNode;
   className?: string;
 }
