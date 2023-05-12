@@ -6,7 +6,12 @@ import {
   DropdownButtonProps as BsDropdownButtonProps,
   ModalProps as BsModalProps,
 } from 'react-bootstrap';
+import { ModalProps as BsModalProps } from 'react-bootstrap';
+import { ButtonProps as BaseButtonProps } from '@restart/ui/Button';
+import { ButtonVariant } from '../node_modules/react-bootstrap/esm/types';
 import CSS from 'csstype';
+import { Placement } from 'react-bootstrap/esm/types';
+import { TreeProps as RCTreeProps } from 'rc-tree';
 
 export interface Map<K, V> {
   clear(): void;
@@ -70,7 +75,7 @@ export interface TooltipProps {
 }
 
 export interface PopoverProps {
-  placement?: string;
+  placement?: Placement;
   trigger?: string | string[];
   content: React.ReactNode;
   children: React.ReactNode;
@@ -181,7 +186,7 @@ export interface TreeData {
   children?: TreeData[];
 }
 
-export interface TreeProps {
+export interface TreeProps extends RCTreeProps {
   data: TreeData[];
   checkable?: boolean;
   prefixCls?: string;
@@ -440,9 +445,10 @@ export interface NotificationListStates {
   expanded?: boolean;
 }
 
-export interface ButtonProps extends BsButtonProps {
+export interface ButtonProps extends BaseButtonProps {
   toolTip?: TooltipProps;
-  bsStyle?: string;
-  bsSize?: string;
   block?: boolean;
+  active?: boolean;
+  variant?: ButtonVariant;
+  size?: 'sm' | 'lg' | 'xs';
 }
