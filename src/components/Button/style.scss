@@ -1,9 +1,116 @@
-@import '../../style/variables.scss';
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../style/bootstrap-custom.scss';
+@import '../../../node_modules/bootstrap/scss/mixins/buttons';
+
 
 .Button_Tooltip-Div {
   display: inline-block;
   cursor: not-allowed;
+
   &-Button {
     pointer-events: none;
   }
+}
+
+.btn-lg {
+  line-height: $line-height-lg;
+}
+
+.btn-sm {
+  line-height: $line-height-sm;
+}
+
+.btn-xs {
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: $line-height-sm;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.btn-default {
+  @include button-variant($white,
+    $border-2,
+    $text-2,
+    $bg-2-hover,
+    $grey-7,
+    $text-2,
+    shade-color($white, $btn-active-bg-shade-amount),
+    shade-color($border-2, $btn-active-border-shade-amount),
+    $text-2,
+    $disabled-border: $border-2,
+    $disabled-color: $text-2)
+}
+
+.btn-info {
+  @include button-variant ($white,
+    $border-2,
+    $text-2,
+    $white,
+    $grey-7,
+    $text-1,
+    $white,
+    $grey-7,
+    $text-1,
+    $disabled-color: $text-2 );
+}
+
+.btn-primary {
+  @include button-variant($primary-normal,
+    $primary-normal,
+    $white,
+    $primary-hover,
+    $primary-normal,
+    $white,
+    $primary-click,
+    $primary-normal,
+    $white,
+    $disabled-color: $white)
+}
+
+.btn-danger {
+  @include button-variant($error-normal,
+    $error-normal,
+    $white,
+    $error-hover,
+    $error-normal,
+    $white,
+    $error-click,
+    $error-normal,
+    $white,
+    $disabled-color: $white)
+}
+
+.btn-success {
+  @include button-variant($success-normal,
+    $success-normal,
+    $white,
+    $success-hover,
+    $success-normal,
+    $white,
+    $success-click,
+    $success-normal,
+    $white,
+    $disabled-color: $white)
+}
+
+.btn-warning {
+  @include button-variant($warning-normal,
+    $warning-normal,
+    $white,
+    $warning-hover,
+    $warning-normal,
+    $white,
+    $warning-click,
+    $warning-normal,
+    $white,
+    $disabled-color: $white)
+}
+
+.btn[disabled] {
+  cursor: not-allowed;
+  pointer-events: auto;
 }
