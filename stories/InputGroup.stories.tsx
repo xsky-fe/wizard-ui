@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { FormControl, InputGroup, Button, DropdownButton } from '../src';
 
-storiesOf('InputGroup', module)
+storiesOf('Form | InputGroup', module)
   .add('default', () => (
     <InputGroup>
       <FormControl type="text" disabled />
