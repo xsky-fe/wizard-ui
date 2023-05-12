@@ -4,19 +4,27 @@
   .panel-primary-bg {
     background-color: $primary-normal
   }
+
   .panel-success-bg {
     background-color: $success-normal
   }
+
   .panel-info-bg {
     background-color: $updating-normal
   }
+
   .panel-warning-bg {
     background-color: $warning-normal
   }
+
   .panel-danger-bg {
     background-color: $error-normal
   }
 
 }
 
-
+.accordion {
+  .card-header>span {
+    cursor: pointer;
+  }
+}
