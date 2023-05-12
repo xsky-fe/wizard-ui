@@ -6,9 +6,8 @@
 }
 .show.btn-default.dropdown-toggle {
   color: $text-2;
-  background-color: #e6e5e5;
-  background-image: none;
-  border-color: #bcc1d6;
-  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  background-color: $bg-2-hover;
+  border-color: $grey-7;
+  -webkit-box-shadow: inset 0 3px 5px rgba($black, .125);
+  box-shadow: inset 0 3px 5px rgba($black, .125);
 }
