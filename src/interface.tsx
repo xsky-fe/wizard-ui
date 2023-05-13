@@ -447,3 +447,7 @@ export interface ButtonProps extends BaseButtonProps{
   variant?: ButtonVariant;
   size?: 'sm' | 'lg' | 'xs';
 }
+
+export interface HeaderToggleProps{
+  eventKey: string
+}
