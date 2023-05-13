@@ -3,6 +3,7 @@ import * as PropTypes from 'prop-types';
 import cn from 'classnames';
 import { Overlay, Tooltip as BaseTooltip } from 'react-bootstrap';
 import { TooltipProps } from '../../interface';
+import { Placement } from 'react-bootstrap/esm/types';
 import Icon from '../Icon';
 import './style.scss';
 
@@ -22,12 +23,12 @@ const Tooltip: React.FC<TooltipProps> = props => {
   } = props;
 
   const wrapper = React.useRef<HTMLInputElement>(null);
-  const [placement, setPlacement] = React.useState('top');
+  const [placement, setPlacement] = React.useState<Placement>('top');
   // 类似 componentDidMount。只会在 render 后执行一次
   React.useEffect(() => {
     const elem = wrapper.current;
     if (!elem) return;
-    let placement = 'top';
+    let placement: Placement = 'top';
     const docElem = document.documentElement;
     const box = elem.getBoundingClientRect();
     const elemOffsetLeft = box.left + docElem.scrollLeft;
@@ -67,9 +68,9 @@ const Tooltip: React.FC<TooltipProps> = props => {
     <div ref={wrapper} className="Tooltip" onMouseEnter={handleShow} onMouseLeave={handleHide}>
       {placeholder}
       <Overlay
-        {...(extra as any)}
-        placement={(defaultPlacement || placement) as any}
-        target={wrapper.current || {}}
+        {...extra}
+        placement={defaultPlacement || placement}
+        target={wrapper.current || null}
         show={show}
       >
         <BaseTooltip
@@ -107,7 +108,7 @@ Tooltip.propTypes = {
    * 提示框的位置，可选'top'，'right'，'bottom'，'left'。
    * 若不传入这一属性，会根据 OverlayTrigger 的位置，自适应选取提示框的位置；
    **/
-  placement: PropTypes.string,
+  placement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
   /**
    * 提示框的颜色；
    **/
@@ -116,6 +117,10 @@ Tooltip.propTypes = {
    * 给图标传入的其他 class；
    **/
   iconClass: PropTypes.string,
+  /**
+   * 样式
+   */
+  style: PropTypes.object,
 };
 
 Tooltip.defaultProps = {

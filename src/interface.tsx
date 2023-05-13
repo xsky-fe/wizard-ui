@@ -63,8 +63,8 @@ export interface TooltipProps {
   onClick?: any;
   label?: React.ReactNode;
   contrast?: boolean;
-  style?: string;
-  placement?: string;
+  style?: React.CSSProperties;
+  placement?: Placement;
   children: React.ReactNode;
   className?: string;
 }
