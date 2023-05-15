@@ -1,67 +1,89 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Button } from '../src';
+import { Placement } from 'react-bootstrap/esm/types';
 
 storiesOf('DATA SHOW | Button', module)
   .add('default', () => {
     return (
       <div style={{ margin: '10px' }}>
-        <Button style={{ marginLeft: '5px' }} bsStyle="info">
+        <Button style={{ marginLeft: '5px' }} variant="info">
           button
         </Button>
-        <Button style={{ marginLeft: '5px' }} bsStyle="primary">
+        <Button style={{ marginLeft: '5px' }} variant="primary">
           button
         </Button>
-        <Button style={{ marginLeft: '5px' }} bsStyle="danger">
+        <Button style={{ marginLeft: '5px' }} variant="danger">
           button
         </Button>
-        <Button style={{ marginLeft: '5px' }} bsStyle="success">
+        <Button style={{ marginLeft: '5px' }} variant="success">
           button
         </Button>
-        <Button style={{ marginLeft: '5px' }} bsStyle="warning">
+        <Button style={{ marginLeft: '5px' }} variant="warning">
           button
         </Button>
-        <Button style={{ marginLeft: '5px' }} bsStyle="link">
+        <Button style={{ marginLeft: '5px' }} variant="link">
           button
         </Button>
-        <Button style={{ marginLeft: '5px' }} bsStyle="default">
-          button
-        </Button>
-        <br />
-        <br />
-        <Button style={{ marginLeft: '5px' }} bsStyle="default" bsSize="lg">
-          button
-        </Button>
-        <Button style={{ marginLeft: '5px' }} bsStyle="default">
-          button
-        </Button>
-        <Button style={{ marginLeft: '5px' }} bsStyle="default" bsSize="sm">
-          button
-        </Button>
-        <Button style={{ marginLeft: '5px' }} bsStyle="default" bsSize="xs">
+        <Button style={{ marginLeft: '5px' }} variant="default">
           button
         </Button>
         <br />
         <br />
-        <Button block>
+        <Button style={{ marginLeft: '5px' }} disabled variant="info">
           button
         </Button>
+        <Button style={{ marginLeft: '5px' }} disabled variant="primary">
+          button
+        </Button>
+        <Button style={{ marginLeft: '5px' }} disabled variant="danger">
+          button
+        </Button>
+        <Button style={{ marginLeft: '5px' }} disabled variant="success">
+          button
+        </Button>
+        <Button style={{ marginLeft: '5px' }} disabled variant="warning">
+          button
+        </Button>
+        <Button style={{ marginLeft: '5px' }} disabled variant="link">
+          button
+        </Button>
+        <Button style={{ marginLeft: '5px' }} disabled variant="default">
+          button
+        </Button>
+        <br />
+        <br />
+        <Button style={{ marginLeft: '5px' }} variant="default" size="lg">
+          button
+        </Button>
+        <Button style={{ marginLeft: '5px' }} variant="default">
+          button
+        </Button>
+        <Button style={{ marginLeft: '5px' }} variant="default" size="sm">
+          button
+        </Button>
+        <Button style={{ marginLeft: '5px' }} variant="default" size="xs">
+          button
+        </Button>
+        <br />
+        <br />
+        <Button block>button</Button>
       </div>
     );
   })
   .add('toolTipButton', () => {
-    const DisabledTooltip = {
+    const DisabledTooltip: { children: React.ReactNode; placement: Placement } = {
       children: <span>don't allowed to click</span>,
       placement: 'top',
     };
-    const NormalTooltip = {
+    const NormalTooltip: { children: React.ReactNode; placement: Placement } = {
       children: <span>allowed to click</span>,
       placement: 'top',
     };
     return (
       <div style={{ margin: '10px' }}>
         <Button
-          bsStyle="info"
+          variant="info"
           toolTip={DisabledTooltip}
           disabled={true}
           onClick={() => {

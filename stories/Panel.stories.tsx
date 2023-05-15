@@ -7,4 +7,8 @@ storiesOf('Panel', module)
     <Panel header="Head">
       Content
     </Panel>
+  )).add('collapse', () => (
+    <Panel header="Head" collapsible>
+      Content
+    </Panel>
   ))

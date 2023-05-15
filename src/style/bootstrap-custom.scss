@@ -1,4 +1,5 @@
 @import './variables.scss';
+@import '../../node_modules/bootstrap/scss/functions';
 // Variables
 //
 // Variables should follow the `$component-state-property-size` formula for
@@ -1338,7 +1339,7 @@ $popover-header-padding-y:          .5rem !default;
 $popover-header-padding-x:          $spacer !default;
 
 $popover-body-color:                $body-color !default;
-$popover-body-padding-y:            $spacer !default;
+$popover-body-padding-y:            9px !default;
 $popover-body-padding-x:            $spacer !default;
 
 $popover-arrow-width:               1rem !default;

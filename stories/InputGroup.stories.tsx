@@ -2,14 +2,30 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { FormControl, InputGroup, Button, DropdownButton } from '../src';
 
-storiesOf('InputGroup', module)
+storiesOf('Form | InputGroup', module)
   .add('default', () => (
     <InputGroup>
       <FormControl type="text" disabled />
-      <InputGroup>
-        <Button>选择文件</Button>
-      </InputGroup>
+      <Button>选择文件</Button>
     </InputGroup>
+  ))
+  .add('hasAddonText', () => (
+    <div>
+      <p>
+        <div>后缀</div>
+        <InputGroup>
+          <FormControl type="text" />
+          <InputGroup.Text>.com</InputGroup.Text>
+        </InputGroup>
+      </p>
+      <p>
+        <div>前缀</div>
+        <InputGroup>
+          <InputGroup.Text>http://</InputGroup.Text>
+          <FormControl type="text" />
+        </InputGroup>
+      </p>
+    </div>
   ))
   .add('hasDropdownButton', () => {
     const Demo = () => {

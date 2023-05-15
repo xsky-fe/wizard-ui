@@ -1,12 +1,12 @@
 import * as React from 'react';
 // import { SelectCallback, Sizes } from 'react-bootstrap';
 import { Moment } from 'moment';
-import {
-  ModalProps as BsModalProps,
-  ButtonProps as BsButtonProps,
-  DropdownProps as BsDropdownProps,
-} from 'react-bootstrap';
+import { ModalProps as BsModalProps, DropdownProps as BsDropdownProps } from 'react-bootstrap';
+import { ButtonProps as BaseButtonProps } from '@restart/ui/Button';
+import { ButtonVariant } from '../node_modules/react-bootstrap/esm/types';
 import CSS from 'csstype';
+import { Placement } from 'react-bootstrap/esm/types';
+import { TreeProps as RCTreeProps } from 'rc-tree';
 
 export interface Map<K, V> {
   clear(): void;
@@ -63,14 +63,14 @@ export interface TooltipProps {
   onClick?: any;
   label?: React.ReactNode;
   contrast?: boolean;
-  style?: string;
-  placement?: string;
+  style?: React.CSSProperties;
+  placement?: Placement;
   children: React.ReactNode;
   className?: string;
 }
 
 export interface PopoverProps {
-  placement?: string;
+  placement?: Placement;
   trigger?: string | string[];
   content: React.ReactNode;
   children: React.ReactNode;
@@ -124,7 +124,7 @@ export interface TabsProps {
   id?: string;
   limitNum?: number;
   unmountOnExit?: boolean;
-  animation?: boolean;
+  transition?: boolean;
   mountOnEnter?: boolean;
 }
 
@@ -181,7 +181,7 @@ export interface TreeData {
   children?: TreeData[];
 }
 
-export interface TreeProps {
+export interface TreeProps extends RCTreeProps {
   data: TreeData[];
   checkable?: boolean;
   prefixCls?: string;
@@ -443,9 +443,14 @@ export interface NotificationListStates {
   expanded?: boolean;
 }
 
-export interface ButtonProps extends BsButtonProps {
+export interface ButtonProps extends BaseButtonProps {
   toolTip?: TooltipProps;
-  bsStyle?: string;
-  bsSize?: string;
   block?: boolean;
+  active?: boolean;
+  variant?: ButtonVariant;
+  size?: 'sm' | 'lg' | 'xs';
+}
+
+export interface HeaderToggleProps {
+  eventKey: string;
 }

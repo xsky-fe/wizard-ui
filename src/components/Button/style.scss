@@ -12,40 +12,37 @@
   }
 }
 
-button[bsSize='lg']{
+.btn-lg {
   line-height: $line-height-lg;
 }
 
-button[bsSize='sm']{
+.btn-sm {
   line-height: $line-height-sm;
 }
 
-button[bsSize='xs']{
+.btn-xs {
   padding: 1px 5px;
   font-size: 12px;
   line-height: $line-height-sm;
 }
 
-.btn-block{
+.btn-block {
   display: block;
   width: 100%;
 }
 
 .btn-default {
-  background-color: $white;
-  border: 1px solid $border-2;
-  color: $text-2;
-
-  &:hover {
-    background-color: $bg-2-hover;
-    border-color: $grey-7;
-  }
-
-  &:active {
-    background-color: shade-color($white, $btn-active-bg-shade-amount) !important;
-    box-shadow: $btn-active-box-shadow  !important;
-    border-color: shade-color($border-2, $btn-active-border-shade-amount) !important;
-  }
+  @include button-variant($white,
+    $border-2,
+    $text-2,
+    $bg-2-hover,
+    $grey-7,
+    $text-2,
+    shade-color($white, $btn-active-bg-shade-amount),
+    shade-color($border-2, $btn-active-border-shade-amount),
+    $text-2,
+    $disabled-border: $border-2,
+    $disabled-color: $text-2)
 }
 
 .btn-info {
@@ -57,7 +54,8 @@ button[bsSize='xs']{
     $text-1,
     $white,
     $grey-7,
-    $text-1 );
+    $text-1,
+    $disabled-color: $text-2 );
 }
 
 .btn-primary {
@@ -69,7 +67,8 @@ button[bsSize='xs']{
     $white,
     $primary-click,
     $primary-normal,
-    $white)
+    $white,
+    $disabled-color: $white)
 }
 
 .btn-danger {
@@ -81,7 +80,8 @@ button[bsSize='xs']{
     $white,
     $error-click,
     $error-normal,
-    $white)
+    $white,
+    $disabled-color: $white)
 }
 
 .btn-success {
@@ -93,7 +93,8 @@ button[bsSize='xs']{
     $white,
     $success-click,
     $success-normal,
-    $white)
+    $white,
+    $disabled-color: $white)
 }
 
 .btn-warning {
@@ -105,10 +106,11 @@ button[bsSize='xs']{
     $white,
     $warning-click,
     $warning-normal,
-    $white)
+    $white,
+    $disabled-color: $white)
 }
 
-.btn:disabled {
-  border-color: $border-2;
-  color: $text-2;
+.btn[disabled] {
+  cursor: not-allowed;
+  pointer-events: auto;
 }
