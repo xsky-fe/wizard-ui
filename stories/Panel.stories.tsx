@@ -8,6 +8,10 @@ storiesOf('Panel', module)
     <Panel header="Head">
       Content
     </Panel>
+  )).add('collapse', () => (
+    <Panel header="Head" collapsible>
+      Content
+    </Panel>
   )).add('group', () => (
     <CardGroup>
       <Panel header="1" >content1</Panel>

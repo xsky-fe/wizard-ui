@@ -24,6 +24,11 @@
   }
 
 }
+.accordion {
+  .card-header>span {
+    cursor: pointer;
+  }
+}
 
 .card-group {
   flex-direction: column;

@@ -16,7 +16,7 @@ const Tabs: React.FC<TabsProps> = props => {
     direction,
     limitNum = 5,
     unmountOnExit,
-    animation,
+    transition,
     mountOnEnter,
     ...restProps
   } = props;
@@ -53,7 +53,9 @@ const Tabs: React.FC<TabsProps> = props => {
       <Tab.Container
         id="tabs-with-dropdown"
         defaultActiveKey={TabsPan[eventKeyName]}
+        mountOnEnter={mountOnEnter}
         unmountOnExit={unmountOnExit}
+        transition={transition}
         {...(restProps as any)}
       >
         <div id="Tabs">
@@ -135,7 +137,7 @@ Tabs.propTypes = {
   /**
    * 切换内容是否使用动画过度效果
    **/
-  animation: PropTypes.bool,
+  transition: PropTypes.bool,
 };
 
 Tabs.defaultProps = {
@@ -143,7 +145,7 @@ Tabs.defaultProps = {
   id: 'Tabs',
   limitNum: 5,
   unmountOnExit: true,
-  animation: false,
+  transition: false,
   mountOnEnter: false,
 };
 
