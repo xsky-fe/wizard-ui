@@ -58,6 +58,12 @@
   /* 仿Github的select-menu */
   border: 1px solid $border-2;
   border-radius: $radius-4-dropdown;
+  &-header {
+    padding: 7px;
+  }
+  .SelectBox__clear {
+    text-align: left;
+  }
   > .panel {
     margin: 0;
     border: none !important;
