@@ -33,10 +33,11 @@ const InputDropdown = (props: InputDropdownProps) => {
   return (
     <DropdownButton
       id={uuid()}
-      {...(rest as any)}
-      componentClass={Button}
+      as={Button}
+      variant="default"
       onSelect={handleSelect}
       title={getTitle()}
+      {...rest}
     >
       {options &&
         options.map(option => (
@@ -56,7 +57,7 @@ InputDropdown.propTypes = {
   /**
    * 下拉框是否右对齐，默认为 true
    **/
-  pullRight: PropTypes.bool,
+  align: PropTypes.string,
   /**
    * 默认值
    **/
