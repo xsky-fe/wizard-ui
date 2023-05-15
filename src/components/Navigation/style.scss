@@ -128,6 +128,6 @@
     background-color: $primary-normal;
   }
 }
-.Navigation__tooltip.tooltip.right .tooltip-arrow{
+.Navigation__tooltip.tooltip[data-popper-placement^="right"] .tooltip-arrow:before{
   border-right-color: $primary-normal;
 }
