@@ -4,6 +4,7 @@ import { Moment } from 'moment';
 import {
   ModalProps as BsModalProps,
   DropdownButtonProps as BsDropdownButtonProps,
+  DropdownProps as BsDropdownProps,
 } from 'react-bootstrap';
 import { ButtonProps as BaseButtonProps } from '@restart/ui/Button';
 import { ButtonVariant } from '../node_modules/react-bootstrap/esm/types';
@@ -139,10 +140,9 @@ export interface StepsProps {
   iconStatus?: string;
 }
 
-export interface ModalProps extends BsModalProps {
+export interface ModalProps extends Omit<BsModalProps, 'size'> {
   title: string;
   onOk?: () => void;
-  bsSize?: 'sm' | 'medium' | 'lg' | 'xlarge';
   confirmText?: string;
   okStyle?: string;
   loading?: boolean;
@@ -150,6 +150,7 @@ export interface ModalProps extends BsModalProps {
   hideHeader?: boolean;
   draggable?: boolean;
   preventDragByTitle?: boolean;
+  size?: BsModalProps['size'] | 'xlarge';
 }
 
 interface SwitchInput {
@@ -297,7 +298,10 @@ export interface DropdownDefaultProps {
   id: string;
 }
 
-export interface DropdownProps extends DropdownDefaultProps {
+export interface DropdownAlignProps {
+  align?: BsDropdownProps['align'];
+}
+export interface DropdownProps extends DropdownDefaultProps, DropdownAlignProps {
   className?: string;
   title?: string;
   children?: React.ReactNode;
@@ -309,7 +313,7 @@ export interface MenuItemOptions {
   title: string;
   value: string;
 }
-export interface InputDropdownProps {
+export interface InputDropdownProps extends DropdownAlignProps {
   options?: MenuItemOptions[];
   defaultValue?: string;
   value?: string;
