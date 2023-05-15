@@ -24,9 +24,14 @@
   }
 
 }
+
 .accordion {
   .card-header>span {
     cursor: pointer;
+  }
+
+  + .accordion{
+    margin-top: 5px;
   }
 }
 
@@ -41,7 +46,7 @@
       border-bottom: none;
     }
 
-    +.card {
+    + .card {
       margin-top: 5px;
     }
   }
