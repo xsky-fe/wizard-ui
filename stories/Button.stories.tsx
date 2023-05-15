@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Button } from '../src';
+import { Placement } from 'react-bootstrap/esm/types';
 
 storiesOf('DATA SHOW | Button', module)
   .add('default', () => {
@@ -71,11 +72,11 @@ storiesOf('DATA SHOW | Button', module)
     );
   })
   .add('toolTipButton', () => {
-    const DisabledTooltip = {
+    const DisabledTooltip: { children: React.ReactNode; placement: Placement } = {
       children: <span>don't allowed to click</span>,
       placement: 'top',
     };
-    const NormalTooltip = {
+    const NormalTooltip: { children: React.ReactNode; placement: Placement } = {
       children: <span>allowed to click</span>,
       placement: 'top',
     };

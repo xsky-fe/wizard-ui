@@ -68,8 +68,8 @@ export interface TooltipProps {
   onClick?: any;
   label?: React.ReactNode;
   contrast?: boolean;
-  style?: string;
-  placement?: string;
+  style?: React.CSSProperties;
+  placement?: Placement;
   children: React.ReactNode;
   className?: string;
 }
@@ -129,7 +129,7 @@ export interface TabsProps {
   id?: string;
   limitNum?: number;
   unmountOnExit?: boolean;
-  animation?: boolean;
+  transition?: boolean;
   mountOnEnter?: boolean;
 }
 
@@ -451,4 +451,8 @@ export interface ButtonProps extends BaseButtonProps {
   active?: boolean;
   variant?: ButtonVariant;
   size?: 'sm' | 'lg' | 'xs';
+}
+
+export interface HeaderToggleProps{
+  eventKey: string
 }
