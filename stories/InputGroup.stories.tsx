@@ -43,7 +43,7 @@ storiesOf('Form | InputGroup', module)
             <FormControl type="number" />
             <DropdownButton
               id="unit-dropdown"
-              componentClass={InputGroup}
+              as={InputGroup}
               title={isHour ? '小时' : '分钟'}
               menu={menu}
             />

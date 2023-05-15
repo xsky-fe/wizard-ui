@@ -9,7 +9,7 @@
   min-width: auto;
   border: 1px solid $border-2;
   border-top: 3px solid $primary-normal;
-  box-shadow: 0 1px 8px rgba(black,0.12);
+  box-shadow: 0 1px 8px rgba(black, 0.12);
   &>a {
     text-decoration: none;
     line-height: 24px;
@@ -37,11 +37,10 @@
       cursor: not-allowed;
     }
     &:not(.disabled):hover {
-      color: #262626;
+      color: $text-1;
     }
     &:not(.disabled):focus {
-      color: #262626;
-      outline: 5px auto -webkit-focus-ring-color;
+      color: $text-1;
       outline-offset: -2px;
     }
   }

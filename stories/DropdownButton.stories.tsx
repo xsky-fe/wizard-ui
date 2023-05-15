@@ -8,48 +8,48 @@ storiesOf('DropdownButton', module)
   .add('size', () => (
     <div>
       <DropdownButtonDemo />
-      <DropdownButton id="a1" bsSize="large" title="large" menu={['menu1', 'menu2', 'menu3']} />
+      <DropdownButton id="a1" size="lg" title="lg" menu={['menu1', 'menu2', 'menu3']} />
       <DropdownButton id="a2" title="default" menu={['menu1', 'menu2', 'menu3']} />
-      <DropdownButton id="a3" bsSize="small" title="small" menu={['menu1', 'menu2', 'menu3']} />
-      <DropdownButton id="a4" bsSize="xsmall" title="xsmall" menu={['menu1', 'menu2', 'menu3']} />
+      <DropdownButton id="a3" size="sm" title="sm" menu={['menu1', 'menu2', 'menu3']} />
+      <DropdownButton id="a4" size="xs" title="xs" menu={['menu1', 'menu2', 'menu3']} />
     </div>
   ))
   .add('style', () => (
     <div>
       <DropdownButton
         id="a1"
-        bsStyle="default"
+        variant="default"
         title="default"
         menu={['menu1', 'menu2', 'menu3']}
       />
       <DropdownButton
         id="a2"
-        bsStyle="primary"
+        variant="primary"
         title="primary"
         menu={['menu1', 'menu2', 'menu3']}
       />
       <DropdownButton
         id="a3"
-        bsStyle="success"
+        variant="success"
         title="success"
         menu={['menu1', 'menu2', 'menu3']}
       />
-      <DropdownButton id="a4" bsStyle="info" title="info" menu={['menu1', 'menu2', 'menu3']} />
+      <DropdownButton id="a4" variant="info" title="info" menu={['menu1', 'menu2', 'menu3']} />
       <DropdownButton
         id="a5"
-        bsStyle="warning"
+        variant="warning"
         title="warning"
         menu={['menu1', 'menu2', 'menu3']}
       />
-      <DropdownButton id="a6" bsStyle="danger" title="danger" menu={['menu1', 'menu2', 'menu3']} />
+      <DropdownButton id="a6" variant="danger" title="danger" menu={['menu1', 'menu2', 'menu3']} />
     </div>
   ))
-  .add('componentClass', () => (
+  .add('as', () => (
     <div>
       <DropdownButton
         id="a1"
         title="input group"
-        componentClass={InputGroup}
+        as={InputGroup}
         menu={['menu1', 'menu2', 'menu3']}
       />
       <DropdownButton id="a2" title="normal" menu={['menu1', 'menu2', 'menu3']} />
@@ -115,7 +115,7 @@ storiesOf('DropdownButton', module)
   ))
   .add('dropup', () => (
     <div style={{ paddingTop: '160px' }}>
-      <DropdownButton id="a1" title="dropup" dropup menu={['menu1', 'menu2', 'menu3']} />
+      <DropdownButton id="a1" title="dropup" drop="up" menu={['menu1', 'menu2', 'menu3']} />
       <DropdownButton id="a2" title="normal" menu={['menu1', 'menu2', 'menu3']} />
     </div>
   ))
@@ -139,12 +139,12 @@ storiesOf('DropdownButton', module)
       />
     </div>
   ))
-  .add('open', () => (
+  .add('show', () => (
     <div>
       <DropdownButton
         id="a1"
-        title="open"
-        open
+        title="show"
+        show
         onToggle={() => {}}
         menu={['menu1', 'menu2', 'menu3']}
       />
@@ -152,7 +152,7 @@ storiesOf('DropdownButton', module)
       <DropdownButton
         id="a3"
         title="close"
-        open={false}
+        show={false}
         onToggle={() => {}}
         menu={['menu1', 'menu2', 'menu3']}
       />
@@ -166,7 +166,7 @@ storiesOf('DropdownButton', module)
           <DropdownButton
             id="a1"
             title="onToggle"
-            open={visible}
+            show={visible}
             onToggle={() => updateVisible(!visible)}
             menu={['menu1', 'menu2', 'menu3']}
           />
@@ -175,10 +175,10 @@ storiesOf('DropdownButton', module)
     };
     return <ToggleDropdownButton />;
   })
-  .add('pullRight', () => (
+  .add('align', () => (
     <div>
       <DropdownButton id="a2" title="normal" menu={['menu1', 'menu2', 'menu3']} />
-      <DropdownButton id="a1" title="pullRight" pullRight menu={['menu1', 'menu2', 'menu3']} />
+      <DropdownButton id="a1" title="align" align="end" menu={['menu1', 'menu2', 'menu3']} />
     </div>
   ))
   .add('title', () => (

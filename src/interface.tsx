@@ -2,11 +2,9 @@ import * as React from 'react';
 // import { SelectCallback, Sizes } from 'react-bootstrap';
 import { Moment } from 'moment';
 import {
-  ButtonProps as BsButtonProps,
-  DropdownButtonProps as BsDropdownButtonProps,
   ModalProps as BsModalProps,
+  DropdownButtonProps as BsDropdownButtonProps,
 } from 'react-bootstrap';
-import { ModalProps as BsModalProps } from 'react-bootstrap';
 import { ButtonProps as BaseButtonProps } from '@restart/ui/Button';
 import { ButtonVariant } from '../node_modules/react-bootstrap/esm/types';
 import CSS from 'csstype';
@@ -214,24 +212,15 @@ export type DropdownButtonMenuItem =
     }
   | string;
 
-export interface DefaultDropdownButtonProps {
-  componentClass: any;
-}
-export interface DropdownButtonProps
-  extends DefaultDropdownButtonProps,
-    Omit<BsDropdownButtonProps, 'children' | 'title'> {
-  bsStyle?: string;
-  onToggle?: (isOpen: boolean) => void;
-  // TODO @fmw
-  bsSize?: any;
-  title?: string | React.ReactNode;
+export type ButtonSizes = 'sm' | 'lg' | 'xs';
+
+export interface DropdownButtonProps extends Omit<BsDropdownButtonProps, 'children' | 'size'> {
+  onToggle?: (isShow: boolean) => void;
   menu?: DropdownButtonMenuItem[];
   children?: React.ReactNode;
   modifer?: string;
-  dropup?: boolean;
   noCaret?: boolean;
-  open?: boolean;
-  pullRight?: boolean;
+  size?: ButtonSizes;
 }
 
 export interface NavigationGroup {
@@ -450,9 +439,9 @@ export interface ButtonProps extends BaseButtonProps {
   block?: boolean;
   active?: boolean;
   variant?: ButtonVariant;
-  size?: 'sm' | 'lg' | 'xs';
+  size?: ButtonSizes;
 }
 
-export interface HeaderToggleProps{
-  eventKey: string
+export interface HeaderToggleProps {
+  eventKey: string;
 }

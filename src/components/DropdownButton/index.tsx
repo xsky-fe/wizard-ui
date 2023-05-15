@@ -1,16 +1,11 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import { DropdownButton as BootstrapDropdownButton, Dropdown, ButtonGroup } from 'react-bootstrap';
-
-import SubMenu from '../SubMenu';
-import {
-  DropdownButtonMenuItem,
-  DropdownButtonProps,
-  DefaultDropdownButtonProps,
-} from '../../interface';
+import { DropdownButtonMenuItem, DropdownButtonProps } from '../../interface';
 import cloneDeep from 'lodash/cloneDeep';
 import omit from 'lodash/omit';
 import Tooltip from '../Tooltip';
+import SubMenu from '../SubMenu';
 import './style.scss';
 
 function randomId() {
@@ -21,12 +16,12 @@ function randomId() {
 
 function renderContent(
   menu: DropdownButtonMenuItem[] = [],
-  setButtonOpen: Function,
+  setButtonShow: Function,
   isDifferentMenu: boolean,
-  open?: boolean,
+  show?: boolean,
 ) {
   if (menu instanceof Array) {
-    return menu.map(m => renderMenu(m, setButtonOpen, isDifferentMenu, open));
+    return menu.map(m => renderMenu(m, setButtonShow, isDifferentMenu, show));
   }
   return menu;
 }
@@ -41,9 +36,9 @@ function usePrevious(value: any) {
 
 function renderMenu(
   menu: DropdownButtonMenuItem,
-  setButtonOpen: Function,
+  setButtonShow: Function,
   isDifferentMenu: boolean,
-  open?: boolean,
+  show?: boolean,
 ) {
   const item = cloneDeep(menu);
   if (!item) {
@@ -54,7 +49,7 @@ function renderMenu(
       <Dropdown.Item
         key={item}
         onClick={() => {
-          setButtonOpen(!!open);
+          setButtonShow(!!show);
         }}
       >
         {item}
@@ -67,13 +62,13 @@ function renderMenu(
   if (item.children && item.children.length) {
     return (
       <SubMenu key={item.key} title={item.title} name={item.children[0]['data-action']}>
-        {renderContent(item.children, setButtonOpen, isDifferentMenu, open)}
+        {renderContent(item.children, setButtonShow, isDifferentMenu, show)}
       </SubMenu>
     );
   }
   const handleItemSelect = (eventKey: any) => {
     const { onSelect } = item;
-    setButtonOpen(!!open);
+    setButtonShow(!!show);
     // 如果有传入 onSelect 回调函数，会继续执行传入的回调函数
     if (onSelect) onSelect(eventKey);
   };
@@ -103,55 +98,35 @@ const DropdownButton = (props: DropdownButtonProps) => {
     }
     return className;
   };
-  const getOnToggle = (isOpen: boolean) => {
+  const getOnToggle = (isShow: boolean) => {
     const { onToggle } = props;
-    // 没有传入 open 属性，下拉框点击 MenuItem 会合起；
-    if (!props.hasOwnProperty('open')) {
-      setButtonOpen(isOpen);
+    // 没有传入 show 属性，下拉框点击 MenuItem 会合起；
+    if (!props.hasOwnProperty('show')) {
+      setButtonShow(isShow);
     }
     // 如果有传入 onToggle 回调函数，会继续执行传入的回调函数
-    if (onToggle) onToggle(isOpen);
+    if (onToggle) onToggle(isShow);
   };
 
-  const {
-    bsStyle,
-    id,
-    dropup,
-    onSelect,
-    title,
-    menu,
-    children,
-    componentClass,
-    open,
-    bsSize,
-    disabled,
-    pullRight,
-  } = props;
-
+  const { id, variant, menu, children, show, title, size, ...rest } = props;
   const prevMenu = usePrevious(menu);
   const isDifferentMenu = prevMenu !== menu;
-  const [buttonOpen, setButtonOpen] = React.useState<boolean>(!!open);
 
+  const [buttonShow, setButtonShow] = React.useState<boolean>(!!show);
   const containerClassName = getContainerClass();
-  const drop = dropup ? 'up' : 'down';
-  const align = pullRight ? 'end' : undefined;
-  const show = props.hasOwnProperty('open') ? open : buttonOpen;
   return (
     <BootstrapDropdownButton
-      variant={bsStyle}
+      variant={variant || 'default'}
       id={id}
-      onSelect={onSelect}
       title={title}
-      size={bsSize}
-      disabled={disabled}
-      drop={drop}
-      align={align}
-      onToggle={(isOpen: boolean) => getOnToggle(isOpen)}
-      as={componentClass}
+      onToggle={(isShow: boolean) => getOnToggle(isShow)}
       className={containerClassName}
-      show={show}
+      show={props.hasOwnProperty('show') ? show : buttonShow}
+      /* @ts-ignore */
+      size={size}
+      {...rest}
     >
-      {menu ? renderContent(menu, setButtonOpen, isDifferentMenu, open) : children}
+      {menu ? renderContent(menu, setButtonShow, isDifferentMenu, show) : children}
     </BootstrapDropdownButton>
   );
 };
@@ -160,7 +135,7 @@ DropdownButton.propTypes = {
   /**
    * 样式 string，支持default，primary，success，info，warning，danger，默认为default
    **/
-  bsStyle: PropTypes.string,
+  variant: PropTypes.string,
   /**
    * 下拉框子元素 node，不能和menu同时使用
    **/
@@ -168,7 +143,7 @@ DropdownButton.propTypes = {
   /**
    * 元素类型 elementType
    **/
-  componentClass: PropTypes.any,
+  as: PropTypes.element,
   /**
    * 下拉框样式修改器 string，在一些场景中下拉框有些特殊样式，支持table-toolbar, list-toolbar, detail-toolbar
    **/
@@ -178,9 +153,9 @@ DropdownButton.propTypes = {
    **/
   disabled: PropTypes.bool,
   /**
-   * 下拉框是否向上弹出 bool
+   * 下拉框弹出方向
    **/
-  dropup: PropTypes.bool,
+  drop: PropTypes.oneOf(['up', 'up-centered', 'start', 'end', 'down', 'down-centered']),
   /**
    * html id属性 string
    **/
@@ -201,30 +176,28 @@ DropdownButton.propTypes = {
   onSelect: PropTypes.func,
   /**
    * 下拉框是否展开 bool；
-   * 使用组件如未传入open属性，点击任何一级的MenuItem都会默认关闭下拉框；
-   * 如有传入open属性，下拉框是否展开根据传入的open决定
+   * 使用组件如未传入show属性，点击任何一级的MenuItem都会默认关闭下拉框；
+   * 如有传入show属性，下拉框是否展开根据传入的show决定
    **/
-  open: PropTypes.bool,
+  show: PropTypes.bool,
   /**
-   * 下拉框展开状态更改时回调 function function(Boolean isOpen, Object event, { String source }) {}
+   * 下拉框展开状态更改时回调 function function(Boolean isShow, Object event, { String source }) {}
    **/
   onToggle: PropTypes.func,
   /**
-   * 下拉框是否右对齐 bool
+   * 下拉框对齐方向
    **/
-  pullRight: PropTypes.bool,
+  align: PropTypes.string,
   /**
    * 大小 string，支持large，default，small，xsmall，默认为default
    **/
-  bsSize: PropTypes.oneOf(['sm', 'lg']),
+  size: PropTypes.string,
   /**
    * 下拉框显示内容 string|element
    **/
   title: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
 };
 
-const defaultProps: DefaultDropdownButtonProps = { componentClass: ButtonGroup };
-
-DropdownButton.defaultProps = defaultProps;
+DropdownButton.defaultProps = { as: ButtonGroup };
 
 export default DropdownButton;
