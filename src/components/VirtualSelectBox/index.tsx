@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, FormControl, DropdownButton, Button } from 'react-bootstrap';
+import { Card, FormControl, Dropdown, Button } from 'react-bootstrap';
 import get from 'lodash/get';
 import debounce from 'lodash/debounce';
 import isEmpty from 'lodash/isEmpty';
@@ -191,7 +191,7 @@ class VirtualSelectBox<T> extends React.Component<
   handleChange = (newValue: any) => {
     const { onSelect } = this.props;
     const { items } = this.state;
-    this.cacheSelected = items.map(this.formatMultItem).filter(i => newValue.includes(i.value));
+    this.cacheSelected = items.map(this.formatMultiItem).filter(i => newValue.includes(i.value));
     if (onSelect) {
       onSelect(newValue);
     }
@@ -218,7 +218,7 @@ class VirtualSelectBox<T> extends React.Component<
     );
   };
 
-  formatMultItem = (item: T): MultiVirtualSelectItem => {
+  formatMultiItem = (item: T): MultiVirtualSelectItem => {
     const { formatOption } = this.props;
     let option;
     if (formatOption) {
@@ -239,7 +239,7 @@ class VirtualSelectBox<T> extends React.Component<
     }
     const { onSelect, rowHeight, formatOption, multi } = this.props;
     if (multi) {
-      const option = this.formatMultItem(item);
+      const option = this.formatMultiItem(item);
       return (
         <SelectCheckItem
           style={{ ...style, height: rowHeight }}
@@ -290,7 +290,7 @@ class VirtualSelectBox<T> extends React.Component<
     return (
       <FormControl
         className="SelectBox__search"
-        // bsSize="sm"
+        size="sm"
         type="text"
         value={this.state.search}
         placeholder="请输入名称搜索"
@@ -333,10 +333,8 @@ class VirtualSelectBox<T> extends React.Component<
   renderOuter() {
     return (
       <div className="SelectBox__outer">
-        {/*
-        // react-bootstrap 跟 @types/react-bootstrap 不兼容
-        // @ts-ignore */}
-        <Card header={this.renderSearch()}>
+        <Card>
+          <Card.Header className="SelectBox__outer-header">{this.renderSearch()}</Card.Header>
           {this.renderClear()}
           {this.renderList()}
         </Card>
@@ -351,6 +349,7 @@ class VirtualSelectBox<T> extends React.Component<
     }
     return (
       <Button
+        className="SelectBox__clear"
         variant="link"
         onClick={event => {
           this.blockEvent(event);
@@ -362,28 +361,29 @@ class VirtualSelectBox<T> extends React.Component<
     );
   }
 
-  renerMultiHeader() {
-    const { placeholder } = this.props;
-    const title = this.cacheSelected.map(s => s.label).join(', ');
-    const className = classNames('titleSpan', {
-      placeholder: !title,
-    });
+  renderHeader(type: 'single' | 'multi', item?: T) {
+    const { placeholder, clear } = this.props;
+    let title = '';
+    if (type === 'single') {
+      let nameKey = 'name';
+      title = get(item, nameKey) || placeholder;
+    } else {
+      title = this.cacheSelected.map(s => s.label).join(', ') || placeholder;
+    }
+
     return (
-      <DropdownButton
-        children={null}
-        title={<span className={className}>{title || placeholder}</span>}
-        id="select-dropdown"
-      />
+      <Dropdown>
+        <Dropdown.Toggle variant="default">
+          <span className="titleSpan">{title}</span>
+          {clear && !isEmpty(item) && <Icon type="close" onClick={this.clear} />}
+        </Dropdown.Toggle>
+      </Dropdown>
     );
   }
 
   render() {
-    const { item, disabled, className, isBtn, clear, multi } = this.props;
+    const { item, disabled, className, multi } = this.props;
     const { isOpen } = this.state;
-    const btnClassName = classNames('SelectBox__btn text-truncate', {
-      'is-open': isOpen,
-      'btn btn-sm btn-default': isBtn,
-    });
     const selectBoxClass = classNames('SelectBox', {
       disabled: disabled,
       [`${className || ''}`]: true,
@@ -397,13 +397,10 @@ class VirtualSelectBox<T> extends React.Component<
       >
         {multi ? (
           <div className="SelectBox__Header" onClick={() => this.toggleMenu()}>
-            {this.renerMultiHeader()}
+            {this.renderHeader('multi')}
           </div>
         ) : (
-          <span className={btnClassName}>
-            {/* {this.renderLabel(item)} {isBtn && <Glyphicon glyph="triangle-bottom" />} */}
-            {clear && !isEmpty(item) && <Icon type="close" onClick={this.clear} />}
-          </span>
+          this.renderHeader('single', item)
         )}
         {isOpen && this.renderOuter()}
       </span>

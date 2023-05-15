@@ -1,18 +1,17 @@
 import React from 'react';
 import DropdownButton from './index';
 import { mount } from 'enzyme';
-import { Sizes } from 'react-bootstrap';
-
+import { ButtonSizes } from '../../interface';
 describe('Dropdown', () => {
   it('should render corrent size', () => {
-    const sizes: Sizes[] = ['lg', 'sm', 'xs'];
+    const sizes: ButtonSizes[] = ['lg', 'sm', 'xs'];
     const classNames = [
       '.dropdown.btn-group.btn-group-lg',
       '.dropdown.btn-group.btn-group-sm',
       '.dropdown.btn-group.btn-group-xs',
     ];
     sizes.forEach((size, index) => {
-      const dropdown = mount(<DropdownButton id="a1" bsSize={size} title="size" />);
+      const dropdown = mount(<DropdownButton id="a1" size={size} title="size" />);
       expect(dropdown.find(classNames[index]).length).toBe(1);
     });
   });
@@ -27,7 +26,7 @@ describe('Dropdown', () => {
       '.dropdown.btn-group.btn-group-danger',
     ];
     styles.forEach((style, index) => {
-      const dropdown = mount(<DropdownButton id="a1" bsStyle={style} title="style" />);
+      const dropdown = mount(<DropdownButton id="a1" variant={style} title="style" />);
       expect(dropdown.find(classNames[index]).length).toBe(1);
     });
   });
@@ -45,7 +44,7 @@ describe('Dropdown', () => {
     expect(dropdown.find('span.caret').length).toBe(0);
   });
   it('should render corrent pullRight', () => {
-    const dropdown = mount(<DropdownButton id="a1" pullRight title="pullRight" />);
+    const dropdown = mount(<DropdownButton id="a1" align="end" title="pullRight" />);
     expect(dropdown.find('.dropdown-menu.dropdown-menu-right').length).toBe(1);
   });
 });

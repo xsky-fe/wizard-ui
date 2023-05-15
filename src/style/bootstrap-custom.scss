@@ -503,7 +503,7 @@ $border-radius-pill:          50rem !default;
 // scss-docs-end border-radius-variables
 
 // scss-docs-start box-shadow-variables
-$box-shadow:                  0 .5rem 1rem rgba($black, .15) !default;
+$box-shadow:                  0 5px 15px rgba($black, .5) !default;
 $box-shadow-sm:               0 .125rem .25rem rgba($black, .075) !default;
 $box-shadow-lg:               0 1rem 3rem rgba($black, .175) !default;
 $box-shadow-inset:            inset 0 1px 2px rgba($black, .075) !default;
@@ -1149,8 +1149,8 @@ $dropdown-link-color:               $text-2 !default;
 $dropdown-link-hover-color:         shade-color($dropdown-link-color, 10%) !default;
 $dropdown-link-hover-bg:            $bg-2-hover !default;
 
-$dropdown-link-active-color:        $component-active-color !default;
-$dropdown-link-active-bg:           $component-active-bg !default;
+$dropdown-link-active-color:        shade-color($dropdown-link-color, 10%) !default;
+$dropdown-link-active-bg:           $bg-2-hover !default;
 
 $dropdown-link-disabled-color:      rgba($text-2, 0.4) !default;
 

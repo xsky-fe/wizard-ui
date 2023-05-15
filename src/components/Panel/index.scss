@@ -1,4 +1,6 @@
+@import '../../../node_modules/bootstrap/scss/functions';
 @import '../../style/variables.scss';
+@import '../../style/bootstrap-custom.scss';
 
 .Panel {
   .panel-primary-bg {
@@ -26,5 +28,26 @@
 .accordion {
   .card-header>span {
     cursor: pointer;
+  }
+
+  + .accordion{
+    margin-top: 5px;
+  }
+}
+
+.card-group {
+  flex-direction: column;
+
+  .card {
+    border-left: 1px solid $card-border-color !important;
+    border-radius: $radius-4-card !important;
+
+    .card-header{
+      border-bottom: none;
+    }
+
+    + .card {
+      margin-top: 5px;
+    }
   }
 }
