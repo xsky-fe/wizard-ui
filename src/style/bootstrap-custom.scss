@@ -1272,7 +1272,7 @@ $accordion-button-padding-y:              $accordion-padding-y !default;
 $accordion-button-padding-x:              $accordion-padding-x !default;
 $accordion-button-color:                  $accordion-color !default;
 $accordion-button-bg:                     #f5f5f5 !default;
-$accordion-transition:                    none !default;
+$accordion-transition:                    $btn-transition, border-radius .15s ease !default;
 $accordion-button-active-bg:              #f5f5f5 !default;
 $accordion-button-active-color:           $accordion-color !default;
 
