@@ -22,10 +22,12 @@
     min-height : 36px;
     line-height: 36px;
   }
-  .panel-title .panel-title__icon {
+  .accordion-header .panel-title__icon {
       float: right;
       line-height: 36px;
       padding-right: 17px;
+      position: relative;
+      top: -3px;
     }
   margin: 0;
   overflow-y: auto;
@@ -36,11 +38,23 @@
     border: 0;
     background-color: inherit;
     /* border-bottom: 1px solid $gray-darker-7; 组件废弃，变量废弃 */
-    .accordion-header {
-      padding: 0;
-      /* background-color: $gray-darker-5; 组件废弃，变量废弃 */
+    .accordion-item{
+      background-color: inherit;
+      color: inherit !important;
+      border: 0;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    .accordion-header{
       border-bottom: 0;
-      a {
+    }
+    .accordion-button {
+      padding: 0;
+      border-bottom-left-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+      /* background-color: $gray-darker-5; 组件废弃，变量废弃 */
+      // border-bottom: 0;
+      & {
         display: block;
         /* color: $gray-darker-1; 组件废弃，变量废弃 */
         font-size: $font-size-14;
@@ -113,6 +127,7 @@
 
 .Navigation__link .icon {
   margin-right: 12px;
+  vertical-align: text-top;
 }
 
 /**

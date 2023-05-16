@@ -13,7 +13,7 @@ const Panel: React.FC<PanelProps> = props => {
     <Accordion defaultActiveKey={defaultActive ? eventKey : null} onSelect={onSelect}>
       <Accordion.Item eventKey={eventKey} {...restProps} className={classNames(bgClass, textClass, className)}>
         {header && (
-          <Accordion.Header>
+          <Accordion.Header as={'div'}>
             {header}
           </Accordion.Header>
         )}
