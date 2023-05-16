@@ -8,7 +8,6 @@ import Icon from '../Icon';
 import Tooltip from '../Tooltip';
 import xor from 'lodash/xor';
 import toPairs from 'lodash/toPairs';
-import compact from 'lodash/compact'
 import './style.scss';
 
 export default class Navigation extends React.Component<NavigationProps, any> {
@@ -41,7 +40,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
     };
   }
   togglePanel(activeKey: any) {
-    this.setState({ expanded: compact(xor(this.state.expanded, [activeKey])) });
+    this.setState({ expanded: xor(this.state.expanded, [activeKey]) });
   }
   renderPanelHeader(title: React.ReactNode, expanded: boolean) {
     const { toggled } = this.props;

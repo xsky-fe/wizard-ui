@@ -123,6 +123,7 @@ const DropdownButton = (props: DropdownButtonProps) => {
       className={containerClassName}
       show={props.hasOwnProperty('show') ? show : buttonShow}
       /* @ts-ignore */
+      size={size}
       {...rest}
     >
       {menu ? renderContent(menu, setButtonShow, isDifferentMenu, show) : children}
