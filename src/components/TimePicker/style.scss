@@ -1,19 +1,23 @@
 @import '../../style/variables.scss';
 .rc-time-picker {
   position: relative;
+
+  .icon.icon-time-line {
+    position: absolute;
+    right: 6px;
+    align-items: center;
+    overflow: hidden;
+    display: flex;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    top: 7px;
+    margin: 0;
+    color: $icon-2;
+  }
 }
-.glyphicon.glyphicon-time {
-  position: absolute;
-  right: 6px;
-  overflow: hidden;
-  width: 20px;
-  height: 20px;
-  text-align: center;
-  line-height: 20px;
-  top: 7px;
-  margin: 0;
-  color: $icon-2;
-}
+
 .rc-time-picker-clear {
   top: 6px;
 }

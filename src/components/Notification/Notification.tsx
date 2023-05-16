@@ -7,10 +7,10 @@ import './style.scss';
 
 const STATUS = {
   success: ['right-fill'],
-  info: ['info-line'],
+  info: ['tip-line'],
   process: ['loading', 'info'],
-  warning: ['warning-fill'],
-  danger: ['times-circle-fill'],
+  warning: ['info-fill'],
+  danger: ['close-fill'],
 };
 
 export default class Notification extends PureComponent<NotificationProps> {

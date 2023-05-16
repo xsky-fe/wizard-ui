@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Panel, FormControl, Glyphicon, DropdownButton, Button } from 'react-bootstrap';
+import { Panel, FormControl, DropdownButton, Button } from 'react-bootstrap';
 import get from 'lodash/get';
 import debounce from 'lodash/debounce';
 import isEmpty from 'lodash/isEmpty';
@@ -400,7 +400,7 @@ class VirtualSelectBox<T> extends React.Component<
           </div>
         ) : (
           <span className={btnClassName}>
-            {this.renderLabel(item)} {isBtn && <Glyphicon glyph="triangle-bottom" />}
+            {this.renderLabel(item)} {isBtn && <Icon type="arrow-down-fill" />}
             {clear && !isEmpty(item) && <Icon type="close-line" onClick={this.clear} size={12} />}
           </span>
         )}

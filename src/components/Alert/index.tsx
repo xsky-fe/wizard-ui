@@ -6,9 +6,9 @@ import { AlertProps } from '../../interface';
 import './style.scss';
 
 const icons = {
-  warning: 'warning-triangle-fill',
-  info: 'warning-fill',
-  error: 'times-circle-fill',
+  warning: 'warning-fill',
+  info: 'info-fill',
+  error: 'close-fill',
 };
 
 // 不同样式的对齐方式

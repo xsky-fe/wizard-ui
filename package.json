@@ -1,6 +1,6 @@
 {
   "name": "wizard-ui",
-  "version": "0.7.13-beta.0",
+  "version": "0.7.12",
   "private": false,
   "main": "lib/index.js",
   "module": "esm/index.js",
@@ -37,7 +37,7 @@
     "react-dev-utils": "^11.0.4",
     "react-draggable": "^4.4.5",
     "react-ios-switch": "^0.1.19",
-    "wizard-ui-icon": "^0.2.1"
+    "wizard-ui-icon": "^1.0.0"
   },
   "scripts": {
     "test": "jest --env=jsdom",

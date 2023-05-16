@@ -13647,10 +13647,10 @@ windows-release@^4.0.0:
   dependencies:
     execa "^4.0.2"
 
-wizard-ui-icon@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.npmjs.org/wizard-ui-icon/-/wizard-ui-icon-0.2.1.tgz#f127be45355795d918bd6a4483ae46e431e5d054"
-  integrity sha512-Zjm2OEzX9ylajGk6XgBJnC0hm8X4jAXHP344YqH2ql0rm/lXRuydnDRQfovbOfITrhbNEBamFYi/Bf9tfTYirg==
+wizard-ui-icon@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmmirror.com/wizard-ui-icon/-/wizard-ui-icon-1.0.0.tgz#c255ddab4eb62fb543f24c977d15c982b7f4cdc1"
+  integrity sha512-ntSkEl0SSz2/cT8Dlfc6ThJw38z72hUO9dm2zFQCMShfZEVtknmVqXxRuRWT5V6jBIVKpuahU48D+qI5EVue+w==
   dependencies:
     normalize.css "^8.0.1"
     react "^16.13.1"
