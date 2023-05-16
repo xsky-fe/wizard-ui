@@ -14,9 +14,9 @@ storiesOf('Panel', module)
     </Panel>
   )).add('group', () => (
     <CardGroup>
-      <Panel header="1" >content1</Panel>
-      <Panel header="2" >content2</Panel>
-      <Panel header="3" >content3</Panel>
-      <Panel header="4" >content4</Panel>
+      <Panel header="1" collapsible>content1</Panel>
+      <Panel header="2" collapsible>content2</Panel>
+      <Panel header="3" collapsible>content3</Panel>
+      <Panel header="4" collapsible>content4</Panel>
     </CardGroup>
   ));

@@ -2,12 +2,13 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import cn from 'classnames';
 import { getBemClass } from '../../utils';
-import { Card } from 'react-bootstrap';
+import Panel from '../Panel';
 import { NavigationProps, NavigationGroup } from '../../interface';
 import Icon from '../Icon';
 import Tooltip from '../Tooltip';
 import xor from 'lodash/xor';
 import toPairs from 'lodash/toPairs';
+import compact from 'lodash/compact'
 import './style.scss';
 
 export default class Navigation extends React.Component<NavigationProps, any> {
@@ -40,7 +41,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
     };
   }
   togglePanel(activeKey: any) {
-    this.setState({ expanded: xor(this.state.expanded, [activeKey]) });
+    this.setState({ expanded: compact(xor(this.state.expanded, [activeKey])) });
   }
   renderPanelHeader(title: React.ReactNode, expanded: boolean) {
     const { toggled } = this.props;
@@ -84,20 +85,18 @@ export default class Navigation extends React.Component<NavigationProps, any> {
             }
             return (
               // @ts-ignore
-              <Card
+              <Panel
                 key={key}
-                // collapsible
-                // eventKey={key}
+                collapsible
+                header={this.renderPanelHeader(group.title, expanded.includes(key))}
+                eventKey={key}
                 onSelect={this.togglePanel}
                 // expanded={expanded.includes(key)}
               >
-                <Card.Header>
-                  {this.renderPanelHeader(group.title, expanded.includes(key))}
-                </Card.Header>
                 {group.children.map((item, index) => (
                   <NavItem key={index} {...item} />
                 ))}
-              </Card>
+              </Panel>
             );
           })}
         </div>
