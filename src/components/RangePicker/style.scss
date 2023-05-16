@@ -19,12 +19,12 @@
       float: left;
     }
   }
+  &-calendar{
+    vertical-align: text-top;
+    fill: $icon-2;
+  }
   &:hover span.icon-close-line {
     visibility: visible;
-  }
-  span.glyphicon-calendar{
-    line-height: unset;
-    color: $icon-2;
   }
   span.icon-close-line {
     font-size: $font-size-12;
