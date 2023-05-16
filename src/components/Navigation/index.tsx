@@ -90,7 +90,6 @@ export default class Navigation extends React.Component<NavigationProps, any> {
                 header={this.renderPanelHeader(group.title, expanded.includes(key))}
                 eventKey={key}
                 onSelect={this.togglePanel}
-                // expanded={expanded.includes(key)}
               >
                 {group.children.map((item, index) => (
                   <NavItem key={index} {...item} />

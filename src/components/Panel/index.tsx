@@ -6,20 +6,29 @@ import classNames from 'classnames';
 import './index.scss';
 
 const Panel: React.FC<PanelProps> = props => {
-  const { bg, children, text, className, collapsible, header, eventKey, onSelect,defaultActive, ...restProps } = props;
+  const {
+    bg,
+    children,
+    text,
+    className,
+    collapsible,
+    header,
+    eventKey,
+    onSelect,
+    defaultActive,
+    ...restProps
+  } = props;
   const bgClass = bg ? `panel-${bg}-bg` : '';
   const textClass = text ? `text-${text}` : 'text-dark';
   return collapsible ? (
-    <Accordion defaultActiveKey={defaultActive ? eventKey : null} onSelect={onSelect}>
-      <Accordion.Item eventKey={eventKey} {...restProps} className={classNames(bgClass, textClass, className)}>
-        {header && (
-          <Accordion.Header as={'div'}>
-            {header}
-          </Accordion.Header>
-        )}
-        <Accordion.Body >
-          {children}
-        </Accordion.Body>
+    <Accordion defaultActiveKey={defaultActive ? eventKey : null} onSelect={(evkey,event) => {onSelect?.(eventKey,event)}}>
+      <Accordion.Item
+        eventKey={eventKey}
+        {...restProps}
+        className={classNames(bgClass, textClass, className)}
+      >
+        {header && <Accordion.Header as={'div'}>{header}</Accordion.Header>}
+        <Accordion.Body>{children}</Accordion.Body>
       </Accordion.Item>
     </Accordion>
   ) : (
