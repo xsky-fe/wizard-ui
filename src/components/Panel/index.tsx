@@ -15,16 +15,14 @@ const Panel: React.FC<PanelProps> = props => {
     header,
     eventKey,
     onSelect,
-    defaultActive,
     ...restProps
   } = props;
   const bgClass = bg ? `panel-${bg}-bg` : '';
   const textClass = text ? `text-${text}` : 'text-dark';
   return collapsible ? (
-    <Accordion defaultActiveKey={defaultActive ? eventKey : null} onSelect={(evkey,event) => {onSelect?.(eventKey,event)}}>
+    <Accordion defaultActiveKey={eventKey} onSelect={(evkey,event) => {onSelect?.(eventKey,event)}} {...restProps}>
       <Accordion.Item
         eventKey={eventKey}
-        {...restProps}
         className={classNames(bgClass, textClass, className)}
       >
         {header && <Accordion.Header as={'div'}>{header}</Accordion.Header>}
