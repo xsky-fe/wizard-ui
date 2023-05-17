@@ -292,11 +292,9 @@ export interface PanelProps {
   className?: string;
   header?: React.ReactNode;
   collapsible?: boolean;
-  expanded?: boolean;
   onSelect?: AccordionSelectCallback;
-  key?: string;
   eventKey?: string | any;
-  defaultActive?: boolean
+  defaultActiveKey?: string | string[] | null | undefined;
 }
 
 export interface DropdownDefaultProps {
