@@ -1,9 +1,4 @@
 @import '../../style/variables.scss';
-
-.dropdown-menu {
-  -webkit-box-shadow: 0 6px 12px rgba($black, .18);
-  box-shadow: 0 6px 12px rgba($black, .18);
-}
 .show.dropdown-toggle::after {
   transform: rotate(180deg);
 }

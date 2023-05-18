@@ -3,16 +3,12 @@
 .Modal {
   // 修复添加拖动功能后，滚动条跟随的bug
   // 覆盖原有 .modal-content的样式，让拖动的dom显示其样式
-  .modal-dialog > .modal-content{
+  .modal-dialog > .modal-content {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
   }
-  .modal-content {
-    -webkit-box-shadow: 0 5px 15px rgba($black, .5);
-    box-shadow: 0 5px 15px rgba($black, .5);
-  }
-  .modal-header{
+  .modal-header {
     .modal-title {
       font-size: $font-size-16;
     }
