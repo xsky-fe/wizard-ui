@@ -25,18 +25,18 @@
 
 }
 
-.accordion {
-  .card-header>span {
-    cursor: pointer;
-  }
-
-  + .accordion{
-    margin-top: 5px;
-  }
+.card-header>span {
+  cursor: pointer;
 }
 
 .card-group {
   flex-direction: column;
+
+  .accordion {
+    + .accordion{
+      margin-top: 5px;
+    }
+  }
 
   .card {
     border-left: 1px solid $card-border-color !important;
@@ -49,5 +49,20 @@
     + .card {
       margin-top: 5px;
     }
+  }
+}
+
+.accordion{
+  box-shadow: $card-box-shadow;
+  border-radius: $radius-middle;
+  .accordion-button{
+    &:not(.collapsed){
+      box-shadow: none;
+    }
+  }
+
+  .accordion-header{
+    line-height: inherit;
+    border-bottom: 1px solid $border-2;
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "wizard-ui",
+  "name": "wizard-ui-pro",
   "version": "0.7.12",
   "private": false,
   "main": "lib/index.js",
@@ -53,6 +53,7 @@
     "tsc-types": "rm -rf types && tsc --declaration -p ./ -t es2015 --emitDeclarationOnly --outDir types",
     "copy": "ts-node scripts/build-copy.ts",
     "build": "npm run build-dist && npm run build-esm && npm run build-lib && npm run copy && npm run tsc-types",
+    "watch:build": "nodemon --watch src --exec \"npm run build\" --ext ts,tsx,js,jsx,json,scss",
     "storybook": "start-storybook -p 6006 -c .storybook",
     "build-storybook": "build-storybook -s ./stories/public -c .storybook -o build-stories",
     "format": "prettier --config-precedence prefer-file '{src, stories}/**/*.tsx' --write",
@@ -99,6 +100,7 @@
     "lodash-webpack-plugin": "^0.11.5",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
+    "nodemon": "^2.0.22",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
     "prettier": "1.18.2",
