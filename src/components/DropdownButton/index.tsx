@@ -66,13 +66,17 @@ function renderMenu(
       </SubMenu>
     );
   }
+  if (item.divider) {
+    return <Dropdown.Divider key={item.key} />;
+  }
   const handleItemSelect = (eventKey: any) => {
     const { onSelect } = item;
     setButtonShow(!!show);
     // 如果有传入 onSelect 回调函数，会继续执行传入的回调函数
     if (onSelect) onSelect(eventKey);
   };
-  const menuProps = omit(item, 'toolTip');
+  const menuProps = omit(item, ['toolTip', 'divider']);
+
   return (
     <Dropdown.Item {...menuProps} onSelect={handleItemSelect}>
       {item.toolTip ? (

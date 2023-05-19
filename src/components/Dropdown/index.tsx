@@ -9,10 +9,12 @@ const defaultProps: DropdownDefaultProps = {
 };
 
 const Dropdown = (props: DropdownProps) => {
-  const { customToggle, align, className, id, title, children } = props;
+  const { customToggle, className, id, title, children, align } = props;
   return (
     <BootstrapDropdown id={id} className={className} align={align}>
-      {customToggle && title}
+      {customToggle && title && (
+        <BootstrapDropdown.Toggle variant="default" as={title as React.ElementType} />
+      )}
       {!customToggle && title && (
         <BootstrapDropdown.Toggle variant="default">{title}</BootstrapDropdown.Toggle>
       )}
@@ -27,9 +29,9 @@ Dropdown.propTypes = {
    **/
   className: PropTypes.string,
   /**
-   * 下拉框收起时展示内容 string
+   * 下拉框收起时展示内容 node
    **/
-  title: PropTypes.string,
+  title: PropTypes.node,
   /**
    * 元素 id，默认为 CustomDropdown string
    **/
@@ -42,4 +44,11 @@ Dropdown.propTypes = {
 
 Dropdown.defaultProps = defaultProps;
 
-export default Dropdown;
+export default Object.assign(Dropdown, {
+  Toggle: BootstrapDropdown.Toggle,
+  Menu: BootstrapDropdown.Menu,
+  Item: BootstrapDropdown.Item,
+  ItemText: BootstrapDropdown.ItemText,
+  Divider: BootstrapDropdown.Divider,
+  Header: BootstrapDropdown.Header,
+});
