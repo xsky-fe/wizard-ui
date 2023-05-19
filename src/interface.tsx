@@ -211,6 +211,7 @@ export type DropdownButtonMenuItem =
       onSelect?: Function;
       disabled?: boolean;
       toolTip?: TooltipProps;
+      divider?: boolean;
     }
   | string;
 
@@ -306,7 +307,7 @@ export interface DropdownAlignProps {
 }
 export interface DropdownProps extends DropdownDefaultProps, DropdownAlignProps {
   className?: string;
-  title?: string;
+  title?: React.ReactNode;
   children?: React.ReactNode;
   customToggle?: boolean;
   pullRight?: boolean;
