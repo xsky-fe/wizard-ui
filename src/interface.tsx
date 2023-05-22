@@ -196,7 +196,7 @@ export interface TreeProps extends RCTreeProps {
 
 export interface SubMenuProps {
   name?: string;
-  title: string;
+  title?: string;
   children: React.ReactNode;
 }
 
@@ -204,7 +204,7 @@ export type DropdownButtonMenuItem =
   | {
       key?: string | number;
       children?: DropdownButtonMenuItem[];
-      title: string;
+      title?: string;
       eventKey?: string;
       'data-action'?: string;
       onClick?: any;
