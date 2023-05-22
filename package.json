@@ -1,6 +1,6 @@
 {
-  "name": "wizard-ui-pro",
-  "version": "0.7.12",
+  "name": "wizard-ui",
+  "version": "1.0.0-beta.0",
   "private": false,
   "main": "lib/index.js",
   "module": "esm/index.js",
