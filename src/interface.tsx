@@ -196,7 +196,7 @@ export interface TreeProps extends RCTreeProps {
 
 export interface SubMenuProps {
   name?: string;
-  title: string;
+  title?: string;
   children: React.ReactNode;
 }
 
@@ -204,7 +204,7 @@ export type DropdownButtonMenuItem =
   | {
       key?: string | number;
       children?: DropdownButtonMenuItem[];
-      title: string;
+      title?: string;
       eventKey?: string;
       'data-action'?: string;
       onClick?: any;
@@ -317,13 +317,25 @@ export interface MenuItemOptions {
   title: string;
   value: string;
 }
+export interface InputMeta {
+  touched: boolean;
+  error: string;
+  warning: string;
+  valid: boolean;
+  invalid: boolean;
+  asyncValidating: boolean;
+  submitFailed: boolean;
+}
 export interface InputDropdownProps extends DropdownAlignProps {
   options?: MenuItemOptions[];
   defaultValue?: string;
   value?: string;
-  onChange?: any;
-  input?: any;
-  meta?: any;
+  onChange?: Function;
+  input?: {
+    [key: string]: any;
+    value: string;
+  };
+  meta?: InputMeta;
 }
 export interface MultiVirtualSelectItem {
   label: string;

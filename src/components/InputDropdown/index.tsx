@@ -21,7 +21,7 @@ const InputDropdown = (props: InputDropdownProps) => {
     return get(option, 'title');
   }
 
-  function handleSelect(eventKey: any) {
+  function handleSelect(eventKey: unknown) {
     const { input, onChange } = props;
     if (onChange) {
       onChange(eventKey);
@@ -29,7 +29,7 @@ const InputDropdown = (props: InputDropdownProps) => {
       input.onChange(eventKey);
     }
   }
-  const { input, meta, options, ...rest } = props;
+  const { input, meta, options, onChange, ...rest } = props;
   return (
     <DropdownButton
       id={uuid()}
