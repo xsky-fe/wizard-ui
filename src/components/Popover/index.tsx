@@ -5,18 +5,17 @@ import classNames from 'classnames';
 import lodash from 'lodash';
 import { PopoverProps } from '../../interface';
 import './style.scss';
-import {Placement} from 'react-bootstrap/esm/types';
 
 const Popover: React.FC<PopoverProps> = props => {
   const { placement: defaultPlacement, children, content, shadow, modifer, ...extra } = props;
   let { trigger } = props;
   const wrapper = React.useRef<HTMLInputElement>(null);
-  const [placement, setPlacement] = React.useState<Placement>('top');
+  const [placement, setPlacement] = React.useState('top');
   // 类似 componentDidMount。只会在 render 后执行一次
   React.useEffect(() => {
     const elem = wrapper.current;
     if (!elem) return;
-    let placement:Placement = 'top';
+    let placement = 'top';
     const docElem = document.documentElement;
     const box = elem.getBoundingClientRect();
     const elemOffsetLeft = box.left + docElem.scrollLeft;
@@ -44,8 +43,7 @@ const Popover: React.FC<PopoverProps> = props => {
   const hoverTrigger = lodash.includes(trigger, 'hover');
   const clickTrigger = lodash.includes(trigger, 'click');
   const focusTrigger = lodash.includes(trigger, 'focus');
-
-  const _placement = defaultPlacement ? defaultPlacement : placement;
+  const _placement:any = defaultPlacement ? defaultPlacement : placement;
   let className = classNames('Popover', {
     'space-between': true,
     shadow: shadow,
@@ -107,7 +105,6 @@ Popover.propTypes = {
    * 提示框的位置，可选'top'，'right'，'bottom'，'left'。
    * 若不传入这一属性，会根据 OverlayTrigger 的位置，自适应选取提示框的位置；
    **/
-  //@ts-ignore
   placement: PropTypes.string,
   /**
    * 是否点击外部区域关闭popover；
