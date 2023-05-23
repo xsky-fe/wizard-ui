@@ -88,8 +88,8 @@ export default class Navigation extends React.Component<NavigationProps, any> {
                 key={key}
                 collapsible
                 header={this.renderPanelHeader(group.title, expanded.includes(key))}
-                eventKey={key}
-                onSelect={this.togglePanel}
+                // eventKey={key}
+                // onSelect={this.togglePanel}
               >
                 {group.children.map((item, index) => (
                   <NavItem key={index} {...item} />

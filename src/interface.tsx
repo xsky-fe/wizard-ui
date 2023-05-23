@@ -7,10 +7,9 @@ import {
   DropdownProps as BsDropdownProps,
 } from 'react-bootstrap';
 import { ButtonProps as BaseButtonProps } from '@restart/ui/Button';
-import { ButtonVariant } from '../node_modules/react-bootstrap/esm/types';
+import { ButtonVariant } from 'react-bootstrap/esm/types';
 import CSS from 'csstype';
 import { Placement } from 'react-bootstrap/esm/types';
-import { AccordionSelectCallback } from 'react-bootstrap/esm/AccordionContext';
 import { TreeProps as RCTreeProps } from 'rc-tree';
 
 export interface Map<K, V> {
@@ -293,9 +292,7 @@ export interface PanelProps {
   className?: string;
   header?: React.ReactNode;
   collapsible?: boolean;
-  onSelect?: AccordionSelectCallback;
-  eventKey?: string | any;
-  defaultActiveKey?: string | string[] | null | undefined;
+  expanded?: boolean
 }
 
 export interface DropdownDefaultProps {
