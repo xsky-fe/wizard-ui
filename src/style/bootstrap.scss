@@ -1,1 +1,9 @@
 @import 'bootstrap-custom';
+
+.btn-toolbar {
+  &>.btn,
+  &>.btn-group,
+  &.input-group {
+    margin-left: 5px;
+  }
+}

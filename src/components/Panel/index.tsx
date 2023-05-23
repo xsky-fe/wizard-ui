@@ -21,18 +21,24 @@ const Panel: React.FC<PanelProps> = props => {
   const textClass = text ? `text-${text}` : 'text-dark';
   const [open, setOpen] = useState(expanded);
   return collapsible ? (
-    <Card>
-      <Card.Header onClick={() => setOpen(!open)} style={{cursor:'pointer'}}>{header}</Card.Header>
+    <Card className="panel">
+      <Card.Header
+        className="panel-heading"
+        onClick={() => setOpen(!open)}
+        style={{ cursor: 'pointer' }}
+      >
+        {header}
+      </Card.Header>
       <Collapse in={open}>
         <div>
-          <Card.Body>{children}</Card.Body>
+          <Card.Body className="panel-body">{children}</Card.Body>
         </div>
       </Collapse>
     </Card>
   ) : (
-    <Card {...restProps} className={classNames(bgClass, textClass, className)}>
-      {header && <Card.Header>{header}</Card.Header>}
-      <Card.Body>{children}</Card.Body>
+    <Card {...restProps} className={classNames('panel', bgClass, textClass, className)}>
+      {header && <Card.Header className="panel-heading">{header}</Card.Header>}
+      <Card.Body className="panel-body">{children}</Card.Body>
     </Card>
   );
 };
