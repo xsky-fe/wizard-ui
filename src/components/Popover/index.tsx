@@ -105,6 +105,7 @@ Popover.propTypes = {
    * 提示框的位置，可选'top'，'right'，'bottom'，'left'。
    * 若不传入这一属性，会根据 OverlayTrigger 的位置，自适应选取提示框的位置；
    **/
+  //@ts-ignore
   placement: PropTypes.string,
   /**
    * 是否点击外部区域关闭popover；
