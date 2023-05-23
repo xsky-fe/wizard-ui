@@ -1,6 +1,7 @@
 import * as React from 'react';
+import { useState } from 'react';
 import * as PropTypes from 'prop-types';
-import { Card, Accordion } from 'react-bootstrap';
+import { Card, Collapse } from 'react-bootstrap';
 import { PanelProps } from '../../interface';
 import classNames from 'classnames';
 import './index.scss';
@@ -13,22 +14,21 @@ const Panel: React.FC<PanelProps> = props => {
     className,
     collapsible,
     header,
-    eventKey,
-    onSelect,
+    expanded,
     ...restProps
   } = props;
   const bgClass = bg ? `panel-${bg}-bg` : '';
   const textClass = text ? `text-${text}` : 'text-dark';
+  const [open, setOpen] = useState(expanded);
   return collapsible ? (
-    <Accordion defaultActiveKey={eventKey} onSelect={(evkey,event) => {onSelect?.(eventKey,event)}} {...restProps}>
-      <Accordion.Item
-        eventKey={eventKey}
-        className={classNames(bgClass, textClass, className)}
-      >
-        {header && <Accordion.Header as={'div'}>{header}</Accordion.Header>}
-        <Accordion.Body>{children}</Accordion.Body>
-      </Accordion.Item>
-    </Accordion>
+    <Card>
+      <Card.Header onClick={() => setOpen(!open)} style={{cursor:'pointer'}}>{header}</Card.Header>
+      <Collapse in={open}>
+        <div>
+          <Card.Body>{children}</Card.Body>
+        </div>
+      </Collapse>
+    </Card>
   ) : (
     <Card {...restProps} className={classNames(bgClass, textClass, className)}>
       {header && <Card.Header>{header}</Card.Header>}

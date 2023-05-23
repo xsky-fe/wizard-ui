@@ -64,13 +64,13 @@
   .SelectBox__clear {
     text-align: left;
   }
-  > .panel {
+  > .card {
     margin: 0;
     border: none !important;
-    > .panel-body {
+    > .card-body {
       padding: 0;
     }
-    > .panel-heading {
+    > .card-header {
       padding: 7px;
       .panel-title {
         font-size: inherit;
