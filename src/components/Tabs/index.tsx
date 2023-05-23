@@ -59,11 +59,12 @@ const Tabs: React.FC<TabsProps> = props => {
         {...(restProps as any)}
       >
         <div id="Tabs">
-          <Nav variant="tabs">
+          <Nav variant="tabs" as='ul'>
             {tabsFrontList.map((tab, idx) => (
               <NavItem
                 title={typeof tab['title'] === 'string' ? tab['title'] : undefined}
                 key={eventKeyName ? tab[eventKeyName] : idx}
+                as='li'
                 // eventKey={eventKeyName ? tab[eventKeyName] : idx}
               >
                 <NavLink eventKey={eventKeyName ? tab[eventKeyName] : idx}>{tab.title}</NavLink>
