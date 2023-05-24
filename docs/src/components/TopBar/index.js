@@ -1,6 +1,6 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Navbar, Tooltip, Icon } from 'wizard-ui';
 import GitHubIcon from '../GitHubIcon';
 import HeaderSearch from '../HeaderSearch';
@@ -20,12 +20,10 @@ const HEADER_LINKS = [
   {
     link: '/components/button/',
     title: '组件',
-  }
-]
+  },
+];
 
-
-
-const TopBar = (props) => {
+const TopBar = props => {
   const { slug, cls, toggle } = props;
 
   return (
@@ -37,13 +35,22 @@ const TopBar = (props) => {
               <img src={logo} alt="wizard-ui" height={40} />
             </Link>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="top-navbar-nav"/>
+          <Navbar.Toggle aria-controls="top-navbar-nav" />
         </Navbar.Header>
         <Navbar.Collapse id="top-navbar-nav">
           <ul className="nav navbar-nav">
             {HEADER_LINKS.map(({ link, title }) => (
               <li key={link}>
-                <Link to={slug && slug.match(/components|layout/) && link.includes('components') ? slug : link} activeClassName="active">
+                <Link
+                  to={
+                    slug &&
+                    slug.match(/components|layout/) &&
+                    link.includes('components')
+                      ? slug
+                      : link
+                  }
+                  activeClassName="active"
+                >
                   {title}
                 </Link>
               </li>
@@ -51,58 +58,92 @@ const TopBar = (props) => {
           </ul>
           <ul className="nav navbar-nav navbar-right">
             <li>
-              <Tooltip label={(
-                <a target="_blank" rel="noopener noreferrer" href="https://github.com/xsky-fe/wizard-ui">
-                  <span className="svg-icon">
-                    <GitHubIcon />
-                  </span>
-              </a>
-              )}>
+              <Tooltip
+                label={
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://github.com/xsky-fe/wizard-ui"
+                  >
+                    <span className="svg-icon">
+                      <GitHubIcon />
+                    </span>
+                  </a>
+                }
+              >
                 Github
               </Tooltip>
             </li>
           </ul>
           <ul className="nav navbar-nav navbar-right">
             <li>
-              <Tooltip label={(
-                <a target="_blank" rel="noopener noreferrer" href="https://github.com/xsky-fe/wizard-ui/issues/new">
-                  <Icon type="dialog" />
-                </a>
-              )} placement="bottom">
+              <Tooltip
+                label={
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://github.com/xsky-fe/wizard-ui/issues/new"
+                  >
+                    <Icon type="dialog-line" />
+                  </a>
+                }
+                placement="bottom"
+              >
                 Issue
               </Tooltip>
             </li>
           </ul>
           <ul className="nav navbar-nav navbar-right">
             <li>
-              <Tooltip label={(
-                <a target="_blank" rel="noopener noreferrer" href="https://xsky-fe.github.io/icons/">
-                  <Icon type="workgroup" />
-                </a>
-              )}>
+              <Tooltip
+                label={
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://xsky-fe.github.io/icons/"
+                  >
+                    <Icon type="workgroup-line" />
+                  </a>
+                }
+              >
                 Icons
               </Tooltip>
             </li>
           </ul>
           <ul className="nav navbar-nav navbar-right">
             <li>
-              <Tooltip label={(
-                <a target="_blank" rel="noopener noreferrer" href="https://xsky-fe.github.io/wizard-ui-pro/">
-                  <Icon type="grid" />
-                </a>
-              )}>
+              <Tooltip
+                label={
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://xsky-fe.github.io/wizard-ui-pro/"
+                  >
+                    <Icon type="view-line" />
+                  </a>
+                }
+              >
                 Wizard ui pro
               </Tooltip>
             </li>
           </ul>
           <ul className="nav navbar-nav navbar-right">
             <li>
-              <Tooltip label={(
-                <div onClick={() => {}} onKeyDown={toggle} role="button" tabIndex={0}>
-                  <Icon type={cls === 'light' ? 'light-dark' : 'light'} />
-                </div>
-              )}>
-                Toggle {cls === 'light'? 'dark' : 'light'}
+              <Tooltip
+                label={
+                  <div
+                    onClick={() => {}}
+                    onKeyDown={toggle}
+                    role="button"
+                    tabIndex={0}
+                  >
+                    <Icon
+                      type={cls === 'light' ? 'light-dark-fill' : 'light-line'}
+                    />
+                  </div>
+                }
+              >
+                Toggle {cls === 'light' ? 'dark' : 'light'}
               </Tooltip>
             </li>
           </ul>
@@ -112,15 +153,15 @@ const TopBar = (props) => {
         </Navbar.Collapse>
       </Navbar>
     </div>
-  )
-}
+  );
+};
 
 TopBar.propTypes = {
   siteTitle: PropTypes.string,
-}
+};
 
 TopBar.defaultProps = {
   siteTitle: ``,
-}
+};
 
-export default TopBar
+export default TopBar;

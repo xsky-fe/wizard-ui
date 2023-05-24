@@ -1,6 +1,6 @@
 import React from 'react';
 import SEO from '../seo';
-import { Glyphicon, Tooltip } from 'wizard-ui';
+import { Tooltip, Icon } from 'wizard-ui';
 import lodash from 'lodash';
 import './style.scss';
 
@@ -14,16 +14,18 @@ export default ({ post }) => {
       <SEO title={title} />
       <h2>
         {title}
-        <Tooltip label={(
-          <a
-            className="edit-button"
-            target="_blank"
-            rel="noopener noreferrer"
-            href={`https://github.com/xsky-fe/wizard-ui/edit/master/docs/content${path}`}
-          >
-            <Glyphicon glyph="pencil" />
-          </a>
-        )}>
+        <Tooltip
+          label={
+            <a
+              className="edit-button"
+              target="_blank"
+              rel="noopener noreferrer"
+              href={`https://github.com/xsky-fe/wizard-ui/edit/master/docs/content${path}`}
+            >
+              <Icon type="edit-fill" />
+            </a>
+          }
+        >
           在 GitHub 上编辑此页！
         </Tooltip>
       </h2>
@@ -37,8 +39,8 @@ export default ({ post }) => {
           >
             {author}
           </a>
-          )}
+        )}
       </div>
     </div>
-  )
-}
+  );
+};

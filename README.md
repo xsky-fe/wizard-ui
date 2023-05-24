@@ -60,7 +60,7 @@ import 'wizard-ui/lib/style/index.css';
 ```jsx
 import { Icon } from 'wizard-ui';
 
-export default () => <Icon type="os-search-role" />
+export default () => <Icon type="os-search-role-fill" />
 ```
 
 > ES
@@ -68,7 +68,7 @@ export default () => <Icon type="os-search-role" />
 ```jsx
 import { Icon } from 'wizard-ui/esm';
 
-export default () => <Icon type="os-search-role" />
+export default () => <Icon type="os-search-role-fill" />
 ```
 
 ## Pubish
