@@ -25,7 +25,7 @@ const Steps: React.FC<StepsProps> = props => {
               status={iconStatus}
             />
             {stepLabel}
-            {index !== steps.length - 1 && <Icon type="angle-left" />}
+            {index !== steps.length - 1 && <Icon type="arrow-right-line" size={12} />}
           </div>
         );
       })}

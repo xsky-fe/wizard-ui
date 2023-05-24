@@ -6,9 +6,9 @@ import { AlertProps } from '../../interface';
 import './style.scss';
 
 const icons = {
-  warning: 'warning-triangle',
-  info: 'warning',
-  error: 'times-circle',
+  warning: 'warning-triangle-fill',
+  info: 'warning-fill',
+  error: 'times-circle-fill',
 };
 
 // 不同样式的对齐方式
@@ -21,7 +21,7 @@ const bgStyleMap = {
 const Alert: React.FC<AlertProps> = props => {
   const {
     children,
-    bsStyle,
+    bsStyle = 'info',
     show,
     showIcon,
     onDismiss,
@@ -35,7 +35,7 @@ const Alert: React.FC<AlertProps> = props => {
     `bg-${bgStyleMap[textAlign]}`,
     show ? 'show-alert' : 'hidden-alert',
     showIcon ? 'with-icon' : '',
-    dismissDirection ? `dismiss-${dismissDirection}` : ''
+    dismissDirection ? `dismiss-${dismissDirection}` : '',
   ]);
 
   function onClose() {
@@ -50,13 +50,19 @@ const Alert: React.FC<AlertProps> = props => {
   }
 
   return (
-      <div role="alert" className={cn('Alert', classes.join(' '))}>
-        <div className={cn('Alert-container', textAlign === 'center' && 'justify-center', dismissable && 'dismiss-container')}>
-          {showIcon && <Icon type={icons[bsStyle ? bsStyle : 'info']} />}
-          <div className="Alert-text">{children}</div>
-        </div>
-        {dismissable && <Icon type="close" onClick={onClose} />}
+    <div role="alert" className={cn('Alert', classes.join(' '))}>
+      <div
+        className={cn(
+          'Alert-container',
+          textAlign === 'center' && 'justify-center',
+          dismissable && 'dismiss-container',
+        )}
+      >
+        {showIcon && <Icon type={icons[bsStyle]} />}
+        <div className="Alert-text">{children}</div>
       </div>
+      {dismissable && <Icon type="close-line" onClick={onClose} />}
+    </div>
   );
 };
 
