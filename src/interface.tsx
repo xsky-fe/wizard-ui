@@ -9,7 +9,6 @@ import {
 import { ButtonProps as BaseButtonProps } from '@restart/ui/Button';
 import { ButtonVariant } from 'react-bootstrap/esm/types';
 import CSS from 'csstype';
-import { Placement } from 'react-bootstrap/esm/types';
 import { TreeProps as RCTreeProps } from 'rc-tree';
 
 export interface Map<K, V> {
@@ -68,7 +67,7 @@ export interface TooltipProps {
   label?: React.ReactNode;
   contrast?: boolean;
   style?: React.CSSProperties;
-  placement?: Placement;
+  placement?: string;
   children: React.ReactNode;
   className?: string;
 }
