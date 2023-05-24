@@ -74,7 +74,7 @@ export interface TooltipProps {
 }
 
 export interface PopoverProps {
-  placement?: Placement;
+  placement?: string;
   trigger?: string | string[];
   content: React.ReactNode;
   children: React.ReactNode;
