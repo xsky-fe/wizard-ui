@@ -15,13 +15,25 @@ const Panel: React.FC<PanelProps> = props => {
     collapsible,
     header,
     expanded,
+    embedded = false,
+    innerPaddingSize = 'default',
     ...restProps
   } = props;
   const bgClass = bg ? `panel-${bg}-bg` : '';
   const textClass = text ? `text-${text}` : 'text-dark';
+  const embeddedClass = embedded && 'panel-embedded';
+  const cardClassName = classNames(
+    'panel',
+    `panel-${innerPaddingSize}`,
+    bgClass,
+    textClass,
+    className,
+    embeddedClass,
+  );
   const [open, setOpen] = useState(expanded);
+
   return collapsible ? (
-    <Card className="panel">
+    <Card className={cardClassName}>
       <Card.Header
         className="panel-heading"
         onClick={() => setOpen(!open)}
@@ -36,9 +48,9 @@ const Panel: React.FC<PanelProps> = props => {
       </Collapse>
     </Card>
   ) : (
-    <Card {...restProps} className={classNames('panel', bgClass, textClass, className)}>
+    <Card {...restProps} className={cardClassName}>
       {header && <Card.Header className="panel-heading">{header}</Card.Header>}
-      <Card.Body className="panel-body">{children}</Card.Body>
+      {children && <Card.Body className="panel-body">{children}</Card.Body>}
     </Card>
   );
 };
@@ -56,6 +68,14 @@ Panel.propTypes = {
    * 面板文字颜色；
    **/
   text: PropTypes.string,
+  /**
+   * 是否是内嵌面板
+   **/
+  embedded: PropTypes.bool,
+  /**
+   * 卡片内边距的大小
+   **/
+  innerPaddingSize: PropTypes.oneOf(['default', 'sm', 'xs']),
 };
 
 export default Panel;
