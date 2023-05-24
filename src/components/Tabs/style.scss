@@ -1,11 +1,11 @@
 @import '../../style/variables.scss';
 
 .Tabs--right #Tabs {
-  & > div.nav-tabs {
+  & > ul.nav-tabs {
     display: flex;
     justify-content: flex-end;
   }
-  div.dropdown-menu{
+  ul.dropdown-menu{
     left:inherit;
     right: 0;
   }

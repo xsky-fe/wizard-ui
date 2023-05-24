@@ -3,7 +3,6 @@ import * as PropTypes from 'prop-types';
 import cn from 'classnames';
 import { Overlay, Tooltip as BaseTooltip } from 'react-bootstrap';
 import { TooltipProps } from '../../interface';
-import { Placement } from 'react-bootstrap/esm/types';
 import Icon from '../Icon';
 import './style.scss';
 
@@ -23,12 +22,12 @@ const Tooltip: React.FC<TooltipProps> = props => {
   } = props;
 
   const wrapper = React.useRef<HTMLInputElement>(null);
-  const [placement, setPlacement] = React.useState<Placement>('top');
+  const [placement, setPlacement] = React.useState<any>('top');
   // 类似 componentDidMount。只会在 render 后执行一次
   React.useEffect(() => {
     const elem = wrapper.current;
     if (!elem) return;
-    let placement: Placement = 'top';
+    let placement = 'top';
     const docElem = document.documentElement;
     const box = elem.getBoundingClientRect();
     const elemOffsetLeft = box.left + docElem.scrollLeft;
