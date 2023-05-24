@@ -85,7 +85,11 @@ const UsageBar: React.FC<UsageBarProps> = props => {
       const now = hasNow ? props.now : props.percent && max && props.percent * max;
       // 当展示右侧 max 为 0+单位时(showZeroMax为true), 如果 now 大于 max 时，percent 应为 100%
       const defaultPercent = showZeroMax && Number(now) > Number(max) ? 1 : 0;
-      const percent = hasPercent ? props.percent : max ? props.now && props.now / max : defaultPercent;
+      const percent = hasPercent
+        ? props.percent
+        : max
+        ? props.now && props.now / max
+        : defaultPercent;
       const errorPercent = unavailableData && max && unavailableData / max;
       let nowValue: number | string | undefined = now;
       let maxValue: number | string | undefined = max;
@@ -207,7 +211,7 @@ const UsageBar: React.FC<UsageBarProps> = props => {
       {hasSeries && withLenged && (
         <Row className="UsageBar__legend">
           {lodash.map(finalSeries, ({ name, legend, bsStyle, value }, index) => (
-            <Col xs={12} className={`Legend ${bsStyle} ${value ? '' : 'noVal'}`} key={index}>
+            <Col xs={6} className={`Legend ${bsStyle} ${value ? '' : 'noVal'}`} key={index}>
               <span title={typeof name === 'string' ? name : undefined}>{name}</span>
               <span title={legend}>{legend}</span>
             </Col>

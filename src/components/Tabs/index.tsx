@@ -93,8 +93,8 @@ const Tabs: React.FC<TabsProps> = props => {
                 eventKey={eventKeyName ? tab[eventKeyName] : idx}
               >
                 {tab.children && (
-                  <Card body className="Tabs__Body">
-                    {tab.children}
+                  <Card className="Tabs__Body panel">
+                    <Card.Body className="panel-body"> {tab.children}</Card.Body>
                   </Card>
                 )}
               </Tab.Pane>

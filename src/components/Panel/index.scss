@@ -29,11 +29,60 @@
   cursor: pointer;
 }
 
+.panel-embedded {
+  box-shadow: none;
+  border: 1px solid $border-2;
+}
+
+.panel-default {
+  .panel-heading {
+    font-size: $font-size-16;
+    color: $text-1;
+    line-height: 24px;
+    padding: 16px 24px;
+  }
+
+  .panel-body {
+    padding: 0 24px 24px;
+  }
+}
+
+.panel-sm {
+  .panel-heading {
+    color: $text-1;
+    font-size: $font-size-14;
+    line-height: 22px;
+    font-weight: $font-weight-medium;
+    padding: 8px 16px;
+  }
+
+  .panel-body {
+    padding: 0 16px 16px;
+  }
+}
+
+.panel-xs {
+  .panel-heading {
+    color: $text-1;
+    font-size: $font-size-14;
+    line-height: 22px;
+    padding: 8px 8px;
+  }
+
+  .panel-body {
+    padding: 0 8px 8px;
+  }
+}
+
+.accordion-span {
+  cursor: pointer;
+}
+
 .card-group {
   flex-direction: column;
 
   .accordion {
-    + .accordion{
+    +.accordion {
       margin-top: 5px;
     }
   }
@@ -42,26 +91,27 @@
     border-left: 1px solid $card-border-color !important;
     border-radius: $radius-4-card !important;
 
-    .card-header{
+    .card-header {
       border-bottom: none;
     }
 
-    + .card {
+    +.card {
       margin-top: 5px;
     }
   }
 }
 
-.accordion{
+.accordion {
   box-shadow: $card-box-shadow;
   border-radius: $radius-middle;
-  .accordion-button{
-    &:not(.collapsed){
+
+  .accordion-button {
+    &:not(.collapsed) {
       box-shadow: none;
     }
   }
 
-  .accordion-header{
+  .accordion-header {
     line-height: inherit;
     border-bottom: 1px solid $border-2;
   }

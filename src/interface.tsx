@@ -178,7 +178,7 @@ export interface TimePickerProps {
 }
 
 export interface TreeData {
-  title: string;
+  title?: string;
   disabled?: boolean;
   key: string;
   children?: TreeData[];
@@ -291,7 +291,9 @@ export interface PanelProps {
   className?: string;
   header?: React.ReactNode;
   collapsible?: boolean;
-  expanded?: boolean
+  expanded?: boolean;
+  embedded?: boolean;
+  innerPaddingSize?: string;
 }
 
 export interface DropdownDefaultProps {
