@@ -71,7 +71,7 @@ const Tabs: React.FC<TabsProps> = props => {
               </NavItem>
             ))}
             {showMore && (
-              <NavDropdown title={keyTitle} id="" className="Tabs-nav-dropdown-within-tab">
+              <NavDropdown as='li' title={keyTitle} id="" className="Tabs-nav-dropdown-within-tab">
                 {tabsLastList.map((tab, idx) => (
                   <Dropdown.Item
                     id={
