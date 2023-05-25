@@ -5,6 +5,7 @@ import { getBemClass } from '../../utils';
 import { TabsProps } from '../../interface';
 import './style.scss';
 import lang from '../../locale/language';
+import classNames from 'classnames';
 
 const MORE_TITLE = lang().MORE_TITLE;
 
@@ -18,6 +19,7 @@ const Tabs: React.FC<TabsProps> = props => {
     unmountOnExit,
     transition,
     mountOnEnter,
+    className,
     ...restProps
   } = props;
 
@@ -49,7 +51,7 @@ const Tabs: React.FC<TabsProps> = props => {
   }, [restProps.activeKey ? restProps.activeKey : '']);
 
   return (
-    <div className={getBemClass('Tabs', [size, direction])}>
+    <div className={classNames(className,getBemClass('Tabs', [size, direction]))}>
       <Tab.Container
         id="tabs-with-dropdown"
         defaultActiveKey={TabsPan[eventKeyName]}

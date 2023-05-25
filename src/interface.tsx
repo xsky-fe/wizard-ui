@@ -130,6 +130,7 @@ export interface TabsProps {
   unmountOnExit?: boolean;
   transition?: boolean;
   mountOnEnter?: boolean;
+  className?: string
 }
 
 export interface StepsProps {
