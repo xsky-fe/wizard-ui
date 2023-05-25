@@ -189,7 +189,6 @@ export interface TreeData {
 export interface TreeProps extends RCTreeProps {
   data: TreeData[];
   checkable?: boolean;
-  prefixCls?: string;
   showIcon?: boolean;
   selectable?: boolean;
 }
