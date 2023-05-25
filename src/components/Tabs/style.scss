@@ -1,13 +1,16 @@
 @import '../../style/variables.scss';
 
-.Tabs--right #Tabs {
-  & > ul.nav-tabs {
-    display: flex;
-    justify-content: flex-end;
-  }
-  ul.dropdown-menu{
-    left:inherit;
-    right: 0;
+.Tabs--right {
+  flex-grow: 1;
+  & > #Tabs{
+    & > ul.nav-tabs {
+      display: flex;
+      justify-content: flex-end;
+    }
+    ul.dropdown-menu{
+      left:inherit;
+      right: 0;
+    }
   }
 }
 .Tabs__Body {
@@ -19,16 +22,16 @@
   margin-left: 20px;
 }
 
-.Tabs .nav-tabs > .nav-item {
+.Tabs .nav-tabs > li {
+  position: relative;
+  z-index: 1;
   background-color: $tab-bg;
   margin-right: 2px;
-  margin-bottom: -1px;
   border-radius: $radius-4-tab $radius-4-tab 0 0;
   box-sizing: border-box;
   height: 40px;
   border-top: 2px solid $tab-bg;
   font-size: $font-size-14;
-  z-index: 2;
 
   & > a {
     color: $text-2;
@@ -39,6 +42,7 @@
     padding-right: 20px;
     min-width: 67px;
     text-align: center;
+    line-height: 20px;
 
     &.dropdown-toggle {
       position: relative;
@@ -85,11 +89,6 @@
       background-color: $white;
       color: $text-1;
       border-bottom: 1px solid $white;
-
-      &:hover {
-        border:none;
-        border-bottom: 1px solid $white;
-      }
     }
   }
 }
@@ -103,7 +102,7 @@
     background-color: $white;
     border-radius: $radius-4-tab;
     height: calc(100% - 40px);
-    .card-header {
+    .panel-heading {
       font: $font-size-16/20px $pingfang-font;
       background-color: $white;
       border: none;
@@ -111,11 +110,11 @@
   }
 }
 
-.Tabs--small .nav-tabs > .nav-item {
+.Tabs--small .nav-tabs > li {
   height: 28px;
   font-size: $font-size-12;
 
-  &:has(.active) {
+  &:has(a.active) {
     border-left: 1px solid $bg-2;
     border-right: 1px solid $bg-2;
   }
