@@ -9,10 +9,14 @@
   min-width: auto;
   border: 1px solid $border-2;
   border-top: 3px solid $primary-normal;
+  .SubMenu div {
+    color: $text-2;
+  }
   &>a {
     text-decoration: none;
     line-height: 24px;
   }
+
   /*------ 分割线状态样式--------*/
   &>hr.dropdown-divider {
     color: $border-2;
