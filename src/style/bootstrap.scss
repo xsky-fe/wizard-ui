@@ -11,3 +11,12 @@
 .form-check + .form-check{
   margin-top: -5px;
 }
+
+.breadcrumb{
+  align-items: center;
+  .breadcrumb-item{
+    + .breadcrumb-item::before{
+      float: none;
+     }
+  }
+}
