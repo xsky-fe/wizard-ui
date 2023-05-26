@@ -5,6 +5,7 @@ import {
   ModalProps as BsModalProps,
   DropdownButtonProps as BsDropdownButtonProps,
   DropdownProps as BsDropdownProps,
+  PaginationProps as BsPaginationProps,
 } from 'react-bootstrap';
 import { ButtonProps as BaseButtonProps } from '@restart/ui/Button';
 import { ButtonVariant } from 'react-bootstrap/esm/types';
@@ -130,7 +131,7 @@ export interface TabsProps {
   unmountOnExit?: boolean;
   transition?: boolean;
   mountOnEnter?: boolean;
-  className?: string
+  className?: string;
 }
 
 export interface StepsProps {
@@ -463,4 +464,15 @@ export interface ButtonProps extends BaseButtonProps {
 
 export interface HeaderToggleProps {
   eventKey: string | any;
+}
+
+export interface PaginationProps extends BsPaginationProps {
+  prev?: boolean;
+  next?: boolean;
+  first?: boolean;
+  last?: boolean;
+  maxButtons?: number;
+  items: number;
+  activePage: number;
+  onSelectChange: (activePage: number) => void;
 }
