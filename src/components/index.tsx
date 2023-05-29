@@ -7,6 +7,7 @@ export { default as Dropdown } from './Dropdown';
 export { default as DropdownButton } from './DropdownButton';
 export { default as Icon } from './Icon';
 export { default as InputDropdown } from './InputDropdown';
+export { default as FormCheck } from './FormCheck';
 export { default as Loader } from './Loader';
 export { default as Navigation } from './Navigation';
 export { default as Notification } from './/Notification/Notification';
