@@ -17,12 +17,10 @@
       position: relative;
       height: 25px;
       margin-top: -11px;
-      .close-icon {
-        font-size: 21px;
-        color: $black;
-        opacity: 0.2;
-        cursor: pointer;
-      }
+      font-size: $font-size-20;
+      color: $icon-1;
+      opacity: 1;
+      cursor: pointer;
     }
   }
   .modal-body {
