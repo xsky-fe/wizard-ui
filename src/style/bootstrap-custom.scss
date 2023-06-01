@@ -568,12 +568,12 @@ $line-height-base:            1.42857143 !default;
 $line-height-sm:              1.5 !default;
 $line-height-lg:              1.3333333 !default;
 
-$h1-font-size:                $font-size-base * 2.5 !default;
-$h2-font-size:                $font-size-base * 2 !default;
-$h3-font-size:                $font-size-base * 1.75 !default;
-$h4-font-size:                $font-size-base * 1.5 !default;
-$h5-font-size:                $font-size-base * 1.25 !default;
-$h6-font-size:                $font-size-base !default;
+$h1-font-size:                $font-size-base * 2.43 !default; // ~34px
+$h2-font-size:                $font-size-base * 1.86 !default; // ~26px
+$h3-font-size:                $font-size-base * 1.29 !default; // ~18px
+$h4-font-size:                $font-size-base * 1.14 !default; // ~16px
+$h5-font-size:                $font-size-base !default; // ~14px
+$h6-font-size:                $font-size-base * 0.85 !default; // ~12px
 // scss-docs-end font-variables
 
 // scss-docs-start font-sizes
