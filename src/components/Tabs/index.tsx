@@ -25,12 +25,14 @@ const Tabs: React.FC<TabsProps> = props => {
 
   const [keyTitle, setKeyTitleValue] = React.useState<string>(MORE_TITLE);
   const TabsPan = restProps.activeKey
-    ? tabs.filter(item => {
+    ? tabs.find(item => {
         return item[eventKeyName] === restProps.activeKey;
       })
     : tabs[0];
   const tabsFrontList = tabs.slice(0, limitNum);
   const tabsLastList = tabs.slice(limitNum, tabs.length);
+  const lastActiveKeys = tabsLastList.map((list: any) => list[eventKeyName]);
+  const isActiveLastTab = lastActiveKeys.includes(restProps.activeKey);
   const showMore = tabsLastList.length !== 0;
 
   React.useEffect(() => {
@@ -51,7 +53,7 @@ const Tabs: React.FC<TabsProps> = props => {
   }, [restProps.activeKey ? restProps.activeKey : '']);
 
   return (
-    <div className={classNames(className,getBemClass('Tabs', [size, direction]))}>
+    <div className={classNames(className, getBemClass('Tabs', [size, direction]))}>
       <Tab.Container
         id="tabs-with-dropdown"
         defaultActiveKey={TabsPan[eventKeyName]}
@@ -61,7 +63,7 @@ const Tabs: React.FC<TabsProps> = props => {
         {...(restProps as any)}
       >
         <div id="Tabs">
-          <Nav variant="tabs" as='ul'>
+          <Nav variant="tabs" as="ul">
             {tabsFrontList.map((tab, idx) => (
               <NavItem
                 title={typeof tab['title'] === 'string' ? tab['title'] : undefined}
@@ -73,7 +75,12 @@ const Tabs: React.FC<TabsProps> = props => {
               </NavItem>
             ))}
             {showMore && (
-              <NavDropdown as='li' title={keyTitle} id="" className="Tabs-nav-dropdown-within-tab">
+              <NavDropdown
+                as="li"
+                title={keyTitle}
+                id=""
+                className={`Tabs-nav-dropdown-within-tab ${isActiveLastTab ? 'active' : ''}`}
+              >
                 {tabsLastList.map((tab, idx) => (
                   <Dropdown.Item
                     id={
