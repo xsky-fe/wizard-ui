@@ -7,22 +7,22 @@ storiesOf('Navigation', module)
     const navs = {
       overview: {
         title: '概览',
-        icon: 'overview',
+        icon: 'overview-line',
       },
       nav1: {
         title: '导航栏一',
         children: [
           {
             title: '选项一',
-            icon: 'volume',
+            icon: 'volume-line',
           },
           {
             title: '选项二',
-            icon: 'consistency-group',
+            icon: 'consistency-group-line',
           },
           {
             title: '选项三',
-            icon: 'access-target',
+            icon: 'access-target-line',
           },
         ],
       },
@@ -50,19 +50,19 @@ storiesOf('Navigation', module)
     const navs = {
       overview: {
         title: '概览',
-        icon: 'overview',
+        icon: 'overview-line',
       },
       nav1: {
         title: '选项一',
-        icon: 'volume',
+        icon: 'volume-line',
       },
       nav2: {
         title: '选项二',
-        icon: 'consistency-group',
+        icon: 'consistency-group-line',
       },
       nav3: {
         title: '选项三',
-        icon: 'access-target',
+        icon: 'access-target-line',
       },
     };
     const [toggle, setToggle] = React.useState(true);
@@ -70,7 +70,7 @@ storiesOf('Navigation', module)
     return (
       <div>
         <Button variant="primary" onClick={handleClick} style={{ marginBottom: 8 }}>
-          <Icon type={toggle ? 'slide-right' : 'slide-left'} />
+          <Icon type={toggle ? 'menu-fold-line' : 'menu-unfold-line'} />
         </Button>
         <div style={{ width: toggle ? '50px' : '200px', backgroundColor: '#2d3454' }}>
           <Navigation navGroups={navs} toggled={toggle} logo="Logo" />

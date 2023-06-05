@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Dropdown, SplitButton } from 'react-bootstrap';
 
-storiesOf('SplitButton', module).add('default', () => (
+storiesOf('Components | SplitButton', module).add('default', () => (
   <>
     {['Primary', 'Secondary', 'Success', 'Info', 'Warning', 'Danger'].map(variant => (
       <SplitButton

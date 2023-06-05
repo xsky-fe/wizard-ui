@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
 
-storiesOf('ToggleButtonGroup', module)
+storiesOf('Form | ToggleButtonGroup', module)
   .add('checkout', () => {
     const [value, setValue] = useState([1]);
     return (

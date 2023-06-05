@@ -9,7 +9,7 @@ storiesOf('Form | InputGroup', module)
       <Button>选择文件</Button>
     </InputGroup>
   ))
-  .add('hasAddonText', () => (
+  .add('has addon', () => (
     <div>
       <p>
         <div>后缀</div>
@@ -27,7 +27,7 @@ storiesOf('Form | InputGroup', module)
       </p>
     </div>
   ))
-  .add('hasDropdownButton', () => {
+  .add('has dropdown', () => {
     const Demo = () => {
       const [isHour, setIsHour] = React.useState(true);
       const menu = [

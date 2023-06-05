@@ -1,14 +1,17 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Popover,Button as BaseButton } from '../src';
+import { Popover, Button as BaseButton } from '../src';
 import { ButtonProps } from 'react-bootstrap/Button';
 
 const Button = (props: ButtonProps) => (
   // @ts-ignore
-  <BaseButton {...props} style={{ marginRight: '30px' }}></BaseButton>
+  <>
+    <BaseButton {...props}></BaseButton>
+    <span style={{ margin: 25 }} />
+  </>
 );
 
-storiesOf('Popover', module)
+storiesOf('DATA DISPLAY | Popover', module)
   .add('placement', () => (
     <div style={{ paddingTop: '160px' }}>
       <Popover
@@ -123,4 +126,4 @@ storiesOf('Popover', module)
         <Button>这是紫颜色</Button>
       </Popover>
     </div>
-  ))
+  ));

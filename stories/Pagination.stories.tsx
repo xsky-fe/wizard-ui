@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
+import { Pagination as BsPagination } from '../src';
 import { Pagination } from 'react-bootstrap';
 
-storiesOf('Pagination', module).add('default', () => {
-  const Demo = ({ size }: { size: 'sm' | 'lg'}) => {
+storiesOf('COMPONENTS | Pagination', module).add('default', () => {
+  const Demo = ({ size }: { size: 'sm' | 'lg' }) => {
     const items: number[] = Array.from({ length: 10 }, (_, i) => i + 1);
     const firstPage = 1;
     const lastPage = 10;
@@ -50,6 +51,20 @@ storiesOf('Pagination', module).add('default', () => {
       <p>
         <h3>size: lg</h3>
         <Demo size="lg" />
+      </p>
+      <p>
+        <BsPagination
+          prev={false}
+          next={true}
+          first={false}
+          last={false}
+          maxButtons={5}
+          items={2}
+          activePage={1}
+          onSelectChange={() => {}}
+          size="sm"
+          className="Table__pagination-pagination"
+        />
       </p>
     </>
   );
