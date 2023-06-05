@@ -9,10 +9,11 @@ import classNames from 'classnames';
 
 const MORE_TITLE = lang().MORE_TITLE;
 
-const Tabs: React.FC<TabsProps> = props => {
+const Tabs: React.FC<TabsProps & { type?: 'secondary'}> = props => {
   const {
     tabs,
     size,
+    type,
     eventKeyName = 'key',
     direction,
     limitNum = 5,
@@ -53,7 +54,7 @@ const Tabs: React.FC<TabsProps> = props => {
   }, [restProps.activeKey ? restProps.activeKey : '']);
 
   return (
-    <div className={classNames(className, getBemClass('Tabs', [size, direction]))}>
+    <div className={classNames(className, getBemClass('Tabs', [size, direction, type]))}>
       <Tab.Container
         id="tabs-with-dropdown"
         defaultActiveKey={TabsPan[eventKeyName]}
@@ -68,7 +69,7 @@ const Tabs: React.FC<TabsProps> = props => {
               <NavItem
                 title={typeof tab['title'] === 'string' ? tab['title'] : undefined}
                 key={eventKeyName ? tab[eventKeyName] : idx}
-                as='li'
+                as="li"
                 // eventKey={eventKeyName ? tab[eventKeyName] : idx}
               >
                 <NavLink eventKey={eventKeyName ? tab[eventKeyName] : idx}>{tab.title}</NavLink>
@@ -132,6 +133,10 @@ Tabs.propTypes = {
    * tab位置，默认靠左，提供默认和 right 两种位置
    **/
   direction: PropTypes.oneOf(['right']),
+  /**
+   * tab类型，提供默认和 二级 两种
+   */
+  type: PropTypes.oneOf(['secondary']),
   /**
    * key的名称可自定义
    **/
