@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { InputDropdown } from '../src';
 import { FormControl, InputGroup } from 'react-bootstrap';
 
-storiesOf('InputDropdown', module).add('default', () => {
+storiesOf('Form | InputDropdown', module).add('default', () => {
   const Demo = () => {
     const [value, updateValue] = React.useState('MB');
     return (

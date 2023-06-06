@@ -1,36 +1,47 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Alert } from '../src';
+import { Alert as BsAlert } from '../src';
+import { AlertProps } from '../src/interface';
 
-storiesOf('Alert', module)
-  .add('error', () => (
-    <div>
-      <h3>对齐方式</h3>
-      <p>居左对齐</p>
-      <Alert bsStyle="error"  showIcon>
-      这里是 error 级别
-      </Alert>
-      <p>居中对齐</p>
-      <Alert bsStyle="error"  textAlign='center' showIcon>
-      这里是 error 级别
-      </Alert>
-      <p>内置提示</p>
-      <Alert bsStyle="error"  textAlign='inline' showIcon>
-      这里是 error 级别
-      </Alert>
-      <h3>关闭功能</h3>
-      <Alert bsStyle="error" showIcon dismissDirection="right" onDismiss={() =>{}}>
-      这里是 error 级别 <a href="#">点击操作</a>
-      </Alert>
-    </div>
+const STATUS = ['warning', 'info', 'error'];
+const Alert = (props: Partial<AlertProps>) => {
+  return (
+    <>
+      {STATUS.map(variant => (
+        <BsAlert bsStyle={variant as AlertProps['bsStyle']} {...props}>
+          This is a {variant} alert!
+        </BsAlert>
+      ))}
+    </>
+  );
+};
+
+storiesOf('DATA SHOW | Alert', module)
+  .add('default', () => <Alert />)
+  .add('icon', () => <Alert showIcon />)
+  .add('align', () => (
+    <>
+      <p>
+        <h3>left</h3>
+        <Alert textAlign="left" showIcon />
+      </p>
+      <p>
+        <h3>center</h3>
+        <Alert textAlign="center" showIcon />
+      </p>
+      <p>
+        <h3>inline</h3>
+        <Alert textAlign="inline" showIcon />
+      </p>
+    </>
   ))
-  .add('info', () => (
-    <Alert bsStyle="info" showIcon>
-      这里是 info 级别 <a href="#">点击操作</a>
-    </Alert>
-  ))
-  .add('warning', () => (
-    <Alert bsStyle="warning">
-      这里是 warning 级别 <a href="#">点击操作</a>
-    </Alert>
+  .add('operation', () => (
+    <>
+      <Alert bsStyle="warning" showIcon dismissDirection="right" onDismiss={() => {}}>
+        This is a warning alert with close and click!
+        <a href="#" style={{ paddingLeft: 8 }}>
+          click here
+        </a>
+      </Alert>
+    </>
   ));

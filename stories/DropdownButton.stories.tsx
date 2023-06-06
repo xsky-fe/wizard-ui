@@ -4,7 +4,7 @@ import { DropdownButton } from '../src';
 import DropdownButtonDemo from './demos/DropdownButtonDemo';
 import { InputGroup } from 'react-bootstrap';
 
-storiesOf('DropdownButton', module)
+storiesOf('Components | DropdownButton', module)
   .add('size', () => (
     <div>
       <DropdownButtonDemo />

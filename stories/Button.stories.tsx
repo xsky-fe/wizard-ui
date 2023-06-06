@@ -2,6 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Button } from '../src';
 import { Placement } from 'react-bootstrap/esm/types';
+import { ButtonToolbar } from 'react-bootstrap';
+import { DropdownButton, Icon } from '../src';
 
 storiesOf('DATA SHOW | Button', module)
   .add('default', () => {
@@ -71,7 +73,7 @@ storiesOf('DATA SHOW | Button', module)
       </div>
     );
   })
-  .add('toolTipButton', () => {
+  .add('toolTip button', () => {
     const DisabledTooltip: { children: React.ReactNode; placement: Placement } = {
       children: <span>don't allowed to click</span>,
       placement: 'top',
@@ -102,6 +104,28 @@ storiesOf('DATA SHOW | Button', module)
         >
           button
         </Button>
+      </div>
+    );
+  })
+  .add('group button', () => {
+    return (
+      <div style={{ margin: '10px' }}>
+        <ButtonToolbar>
+          <Button data-action="CreateOsd" variant="primary">
+            创建
+          </Button>
+          <DropdownButton
+            title="操作"
+            id="dropdown-operations"
+            variant="info"
+            modifer="table-toolbar"
+            menu={['操作-1', '操作-2', '操作-3']}
+          />
+
+          <Button data-action="RefreshOsd" variant="info">
+            <Icon type="plus-line" />
+          </Button>
+        </ButtonToolbar>
       </div>
     );
   });
