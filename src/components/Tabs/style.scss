@@ -23,8 +23,6 @@
 }
 
 .Tabs .nav-tabs > li {
-  position: relative;
-  z-index: 1;
   background-color: $tab-bg;
   margin-right: 1px;
   border-radius: $radius-4-tab $radius-4-tab 0 0;
@@ -98,6 +96,8 @@
 }
 
 .Tabs:not(.Tabs--secondary) >#Tabs >.nav-tabs > li {
+  position: relative;
+  z-index: 1;
   &:has(a:active),
   &:has(a.active) {
     border-top: 2px solid $primary-normal;
