@@ -19,23 +19,23 @@ const tabLists = [
   { title: '标题8', key: 'key-8', children: <div>第8个tab</div> },
 ];
 
-const XtabRight = () => {
-  const [key, setKey] = useState(tabLists[7].key);
+const Xtab = (props: any) => {
+  const [key, setKey] = useState(tabLists[0].key);
   const handleSelect = (key: any) => setKey(key);
   return (
     <Tabs
+      {...props}
       tabs={tabLists}
       activeKey={key}
       onSelect={(key: any) => handleSelect(key)}
       limitNum={5}
-      direction="right"
     />
   );
 };
 
-storiesOf('DATA DISPLAY | Tabs', module)
+storiesOf('DATA Display | Tabs', module)
   .add('default', () => <Tabs tabs={tabs} />)
   .add('small', () => <Tabs tabs={tabs} size="small" />)
+  .add('secondary', () => <Tabs tabs={tabs} type="secondary" />)
   .add('right', () => <Tabs tabs={tabs} direction="right" />)
-
-  .add('Item>5', () => <XtabRight />);
+  .add('Item>5', () => <Xtab />);
