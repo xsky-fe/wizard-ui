@@ -296,6 +296,7 @@ export interface PanelProps {
   expanded?: boolean;
   embedded?: boolean;
   innerPaddingSize?: string;
+  onSelect?: () => void;
 }
 
 export interface DropdownDefaultProps {

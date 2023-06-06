@@ -16,6 +16,7 @@ const Panel: React.FC<PanelProps> = props => {
     expanded,
     embedded = false,
     innerPaddingSize = 'default',
+    onSelect,
     ...restProps
   } = props;
   const bgClass = bg ? `panel-${bg}-bg` : '';
@@ -35,11 +36,16 @@ const Panel: React.FC<PanelProps> = props => {
     setOpen(expanded);
   }, [expanded]);
 
+  const handleHeaderClick = () => {
+    setOpen(!open);
+    onSelect && onSelect();
+  };
+
   return collapsible ? (
     <Card className={cardClassName}>
       <Card.Header
         className="panel-heading"
-        onClick={() => setOpen(!open)}
+        onClick={handleHeaderClick}
         style={{ cursor: 'pointer' }}
       >
         {header}
