@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as PropTypes from 'prop-types';
 import { Card, Collapse } from 'react-bootstrap';
 import { PanelProps } from '../../interface';
@@ -31,6 +30,10 @@ const Panel: React.FC<PanelProps> = props => {
     embeddedClass,
   );
   const [open, setOpen] = useState(expanded);
+
+  useEffect(() => {
+    setOpen(expanded);
+  }, [expanded]);
 
   return collapsible ? (
     <Card className={cardClassName}>
