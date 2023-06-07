@@ -79,7 +79,7 @@ const Tooltip: React.FC<TooltipProps> = props => {
           onMouseEnter={handleShow}
           onMouseLeave={handleHide}
         >
-          <div>{children}</div>
+          {children}
         </BaseTooltip>
       </Overlay>
     </div>
