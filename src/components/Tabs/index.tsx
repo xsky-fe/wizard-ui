@@ -1,11 +1,12 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import lodash from 'lodash';
 import { Tab, Card, NavDropdown, Dropdown, Nav, NavItem, NavLink } from 'react-bootstrap';
 import { getBemClass } from '../../utils';
 import { TabsProps } from '../../interface';
 import './style.scss';
 import lang from '../../locale/language';
-import classNames from 'classnames';
 
 const MORE_TITLE = lang().MORE_TITLE;
 
@@ -25,11 +26,6 @@ const Tabs: React.FC<TabsProps & { type?: 'secondary'}> = props => {
   } = props;
 
   const [keyTitle, setKeyTitleValue] = React.useState<string>(MORE_TITLE);
-  const TabsPan = restProps.activeKey
-    ? tabs.find(item => {
-        return item[eventKeyName] === restProps.activeKey;
-      })
-    : tabs[0];
   const tabsFrontList = tabs.slice(0, limitNum);
   const tabsLastList = tabs.slice(limitNum, tabs.length);
   const lastActiveKeys = tabsLastList.map((list: any) => list[eventKeyName]);
@@ -57,7 +53,7 @@ const Tabs: React.FC<TabsProps & { type?: 'secondary'}> = props => {
     <div className={classNames(className, getBemClass('Tabs', [size, direction, type]))}>
       <Tab.Container
         id="tabs-with-dropdown"
-        defaultActiveKey={TabsPan[eventKeyName]}
+        defaultActiveKey={lodash.get(tabs, `0.${eventKeyName}`, '')}
         mountOnEnter={mountOnEnter}
         unmountOnExit={unmountOnExit}
         transition={transition}
