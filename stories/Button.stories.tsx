@@ -13,7 +13,7 @@ const NormalTooltip: { children: React.ReactNode; placement: Placement } = {
 };
 
 const meta: Meta<typeof Button> = {
-  title: '组件/Button 按钮',
+  title: 'DATA SHOW/Button',
   component: Button,
   args: {
     variant: 'primary',

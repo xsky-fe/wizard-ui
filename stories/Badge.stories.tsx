@@ -3,7 +3,7 @@ import React from 'react';
 import { Badge } from '../src';
 
 const meta: Meta<typeof Badge> = {
-  title: '组件/Badge 徽章',
+  title: 'DATA SHOW/Badge',
   component: Badge,
   args: { count: '关闭', status: 'default' },
 };

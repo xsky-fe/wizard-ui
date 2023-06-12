@@ -5,7 +5,7 @@ import React from 'react';
 type Story = StoryObj<typeof Alert>;
 
 const meta: Meta<typeof Alert> = {
-  title: '组件/Alert 警告',
+  title: 'DATA SHOW/Alert',
   component: Alert,
   args: {
     bsStyle: 'info',

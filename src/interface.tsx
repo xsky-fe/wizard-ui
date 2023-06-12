@@ -128,18 +128,30 @@ export interface LoaderProps {
 }
 
 export interface TabsProps {
+  /**包含选项卡的title、key、面板内容 */
   tabs: any[];
+  /**大小，提供默认和 small 两种大小 */
   size?: 'small';
+  /**key的名称可自定义 */
   eventKeyName?: string;
+  /**tab位置，默认靠左，提供默认和 right 两种位置 */
   direction?: 'right';
-  onSelect?: any;
+  /**切换面板回调 */
+  onSelect?: () => void;
+  /**状态为active的选项的key */
   activeKey?: string;
-  id?: string;
+  /**展示一行中可见的tab个数，其他tab数放到下拉栏目中 */
   limitNum?: number;
-  unmountOnExit?: boolean;
+  /**切换内容是否使用动画过渡效果 */
   transition?: boolean;
+  /**切换到一个新的选项卡时，仅挂载该选项卡的内容到 DOM 中 */
   mountOnEnter?: boolean;
+  /**离开一个选项卡时在dom中卸载该选项卡的内容，默认隐藏，提升渲染性能 */
+  unmountOnExit?: boolean;
+  /**类名 */
   className?: string;
+  /**可切换至secondary样式 */
+  type?:'secondary'
 }
 
 export interface StepsProps {
@@ -316,6 +328,8 @@ export interface PanelProps {
   embedded?: boolean;
   /**卡片内边距的大小 */
   innerPaddingSize?: 'default' | 'sm' | 'xs';
+  /**点击的回调 */
+  onSelect?: () => void;
 }
 
 export interface DropdownDefaultProps {
