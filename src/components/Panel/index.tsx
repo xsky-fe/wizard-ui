@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as PropTypes from 'prop-types';
 import { Card, Collapse } from 'react-bootstrap';
 import { PanelProps } from '../../interface';
@@ -15,6 +14,7 @@ const Panel: React.FC<PanelProps> = props => {
     expanded,
     embedded = false,
     innerPaddingSize = 'default',
+    onSelect,
     ...restProps
   } = props;
   const embeddedClass = embedded && 'panel-embedded';
@@ -26,11 +26,20 @@ const Panel: React.FC<PanelProps> = props => {
   );
   const [open, setOpen] = useState(expanded);
 
+  useEffect(() => {
+    setOpen(expanded);
+  }, [expanded]);
+
+  const handleHeaderClick = () => {
+    setOpen(!open);
+    onSelect && onSelect();
+  };
+
   return collapsible ? (
     <Card className={cardClassName}>
       <Card.Header
         className="panel-heading"
-        onClick={() => setOpen(!open)}
+        onClick={handleHeaderClick}
         style={{ cursor: 'pointer' }}
       >
         {header}

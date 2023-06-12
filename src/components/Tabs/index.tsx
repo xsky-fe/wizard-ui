@@ -1,18 +1,20 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import lodash from 'lodash';
 import { Tab, Card, NavDropdown, Dropdown, Nav, NavItem, NavLink } from 'react-bootstrap';
 import { getBemClass } from '../../utils';
 import { TabsProps } from '../../interface';
 import './style.scss';
 import lang from '../../locale/language';
-import classNames from 'classnames';
 
 const MORE_TITLE = lang().MORE_TITLE;
 
-const Tabs: React.FC<TabsProps> = props => {
+const Tabs: React.FC<TabsProps & { type?: 'secondary'}> = props => {
   const {
     tabs,
     size,
+    type,
     eventKeyName = 'key',
     direction,
     limitNum = 5,
@@ -24,13 +26,10 @@ const Tabs: React.FC<TabsProps> = props => {
   } = props;
 
   const [keyTitle, setKeyTitleValue] = React.useState<string>(MORE_TITLE);
-  const TabsPan = restProps.activeKey
-    ? tabs.filter(item => {
-        return item[eventKeyName] === restProps.activeKey;
-      })
-    : tabs[0];
   const tabsFrontList = tabs.slice(0, limitNum);
   const tabsLastList = tabs.slice(limitNum, tabs.length);
+  const lastActiveKeys = tabsLastList.map((list: any) => list[eventKeyName]);
+  const isActiveLastTab = lastActiveKeys.includes(restProps.activeKey);
   const showMore = tabsLastList.length !== 0;
 
   React.useEffect(() => {
@@ -51,29 +50,34 @@ const Tabs: React.FC<TabsProps> = props => {
   }, [restProps.activeKey ? restProps.activeKey : '']);
 
   return (
-    <div className={classNames(className,getBemClass('Tabs', [size, direction]))}>
+    <div className={classNames(className, getBemClass('Tabs', [size, direction, type]))}>
       <Tab.Container
         id="tabs-with-dropdown"
-        defaultActiveKey={TabsPan[eventKeyName]}
+        defaultActiveKey={lodash.get(tabs, `0.${eventKeyName}`, '')}
         mountOnEnter={mountOnEnter}
         unmountOnExit={unmountOnExit}
         transition={transition}
         {...(restProps as any)}
       >
         <div id="Tabs">
-          <Nav variant="tabs" as='ul'>
+          <Nav variant="tabs" as="ul">
             {tabsFrontList.map((tab, idx) => (
               <NavItem
                 title={typeof tab['title'] === 'string' ? tab['title'] : undefined}
                 key={eventKeyName ? tab[eventKeyName] : idx}
-                as='li'
+                as="li"
                 // eventKey={eventKeyName ? tab[eventKeyName] : idx}
               >
                 <NavLink eventKey={eventKeyName ? tab[eventKeyName] : idx}>{tab.title}</NavLink>
               </NavItem>
             ))}
             {showMore && (
-              <NavDropdown as='li' title={keyTitle} id="" className="Tabs-nav-dropdown-within-tab">
+              <NavDropdown
+                as="li"
+                title={keyTitle}
+                id=""
+                className={`Tabs-nav-dropdown-within-tab ${isActiveLastTab ? 'active' : ''}`}
+              >
                 {tabsLastList.map((tab, idx) => (
                   <Dropdown.Item
                     id={
@@ -125,6 +129,10 @@ Tabs.propTypes = {
    * tab位置，默认靠左，提供默认和 right 两种位置
    **/
   direction: PropTypes.oneOf(['right']),
+  /**
+   * tab类型，提供默认和 二级 两种
+   */
+  type: PropTypes.oneOf(['secondary']),
   /**
    * key的名称可自定义
    **/

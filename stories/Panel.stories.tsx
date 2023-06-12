@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Panel } from '../src';
-import { CardGroup } from 'react-bootstrap';
+import {  CardGroup  } from 'react-bootstrap';;
 
 const meta: Meta<typeof Panel> = {
   title: '组件/Panel 面板',
@@ -54,16 +54,24 @@ export const Group: Story = {
   render: () => (
     <CardGroup>
       <Panel header="1" collapsible>
+
         content1
+
       </Panel>
       <Panel header="2" collapsible>
+
         content2
+
       </Panel>
       <Panel header="3" collapsible>
+
         content3
+
       </Panel>
       <Panel header="4" collapsible>
+
         content4
+
       </Panel>
     </CardGroup>
   ),
