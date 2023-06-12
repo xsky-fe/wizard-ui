@@ -41,13 +41,21 @@ export interface FetchResponse<T = any> {
 }
 
 export interface BadgeProps {
+  /**数值 */
   count?: number | string;
+  /**数值为0时，是否展示 Badge */
   showZero?: boolean;
+  /**展示一个小点 */
   dot?: boolean;
+  /**点的大小，只在dot为true的时候生效 */
   size?: string;
+  /**设置状态颜色 ['default', 'primary', 'success', 'info', 'critical', 'warning', 'danger'] */
   status?: string;
+  /**封顶数值 */
   overflowCount?: number;
+  /**状态点对应的文本 */
   text?: string;
+  /**鼠标hover在点上展现的文字, 默认为count */
   title?: string;
 }
 
@@ -261,13 +269,20 @@ export interface RangePickerState {
   open: boolean;
 }
 export interface AlertProps {
+  /**配置alert内容 */
   children: React.ReactNode;
+  /**配置alert样式（主题） */
   bsStyle?: 'warning' | 'error' | 'info';
+  /**配置alert文字的位置, 居中、靠左、无 */
   textAlign?: 'left' | 'center' | 'inline';
+  /**配置alert是否显示 */
   show?: boolean;
+  /**配置是否显示图标 */
   showIcon?: boolean;
   bsClass?: string;
+  /**配置关闭alert时触发的事件 */
   onDismiss?: () => void;
+  /**配置alert关闭时消失方向 */
   dismissDirection?: string;
 }
 
@@ -287,15 +302,20 @@ export interface DatePickerProps extends DatePickerDefaultProps {
 }
 
 export interface PanelProps {
-  children?: React.ReactNode;
-  bg?: string;
-  text?: string;
+  /**展示卡片内容 */
+  children: React.ReactNode;
+  /**类名 */
   className?: string;
+  /**面板头部内容 */
   header?: React.ReactNode;
+  /**是否折叠 */
   collapsible?: boolean;
+  /**是否展开(需要和collapsible配合使用) */
   expanded?: boolean;
+  /**是否是内嵌面板 */
   embedded?: boolean;
-  innerPaddingSize?: string;
+  /**卡片内边距的大小 */
+  innerPaddingSize?: 'default' | 'sm' | 'xs';
 }
 
 export interface DropdownDefaultProps {
@@ -455,11 +475,18 @@ export interface NotificationListStates {
 }
 
 export interface ButtonProps extends BaseButtonProps {
+  /**按钮文字提示 */
   toolTip?: TooltipProps;
+  /**按钮占据整行 */
   block?: boolean;
+  /**按钮的状态 */
   active?: boolean;
+  /**按钮的背景颜色 */
   variant?: ButtonVariant;
+  /**按钮的大小 */
   size?: ButtonSizes;
+  /**按钮禁用 */
+  disabled?: boolean;
 }
 
 export interface HeaderToggleProps {

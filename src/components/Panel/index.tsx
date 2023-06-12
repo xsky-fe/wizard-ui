@@ -8,9 +8,7 @@ import './index.scss';
 
 const Panel: React.FC<PanelProps> = props => {
   const {
-    bg,
     children,
-    text,
     className,
     collapsible,
     header,
@@ -19,14 +17,10 @@ const Panel: React.FC<PanelProps> = props => {
     innerPaddingSize = 'default',
     ...restProps
   } = props;
-  const bgClass = bg ? `panel-${bg}-bg` : '';
-  const textClass = text ? `text-${text}` : 'text-dark';
   const embeddedClass = embedded && 'panel-embedded';
   const cardClassName = classNames(
     'panel',
     `panel-${innerPaddingSize}`,
-    bgClass,
-    textClass,
     className,
     embeddedClass,
   );
@@ -61,14 +55,6 @@ Panel.propTypes = {
    **/
   children: PropTypes.node,
   /**
-   * 面板背景色；
-   **/
-  bg: PropTypes.string,
-  /**
-   * 面板文字颜色；
-   **/
-  text: PropTypes.string,
-  /**
    * 是否是内嵌面板
    **/
   embedded: PropTypes.bool,
@@ -76,6 +62,12 @@ Panel.propTypes = {
    * 卡片内边距的大小
    **/
   innerPaddingSize: PropTypes.oneOf(['default', 'sm', 'xs']),
+};
+
+Panel.defaultProps = {
+  collapsible: false,
+  embedded: false,
+  innerPaddingSize: 'default',
 };
 
 export default Panel;

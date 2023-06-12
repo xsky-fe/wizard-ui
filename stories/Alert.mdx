@@ -1,0 +1,40 @@
+{/* Alert.mdx */}
+
+import { Canvas, Meta, ArgTypes } from '@storybook/blocks';
+
+import * as AlertStories from './Alert.stories.tsx';
+
+<Meta of={AlertStories} />
+
+# Alert
+
+警告提示，展现需要关注的信息。
+
+## 使用场景
+当某个页面需要向用户显示警告的信息时，通过Alert展示，用户可以点击关闭
+
+## 基本用法
+
+### 常规
+<Canvas of={AlertStories.Basic} />
+
+### 状态
+根据操作类型的场景可以选择三种状态：
+<Canvas of={AlertStories.Variant} />
+
+### 显示Icon
+<Canvas of={AlertStories.Info} />
+
+### 对齐方式
+1. 居左对齐(默认)
+<Canvas of={AlertStories.Basic} />
+2. 居中对齐
+<Canvas of={AlertStories.Center} />
+3. 内置对齐
+<Canvas of={AlertStories.Inline} />
+
+### 操控
+<Canvas of={AlertStories.Operation} />
+
+## API
+<ArgTypes of={AlertStories.Basic}/>

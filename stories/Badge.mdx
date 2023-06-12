@@ -1,0 +1,47 @@
+import { Canvas, Meta,ArgTypes } from '@storybook/blocks';
+
+import * as BadgeStories from './Badge.stories.tsx';
+
+<Meta of={BadgeStories} />
+
+# Badge
+
+出现在按钮、图标、文字旁的数字或状态标记。
+
+## 使用场景
+- 与其他元素结合使用，用于显示该元素需要处理的消息条数、状态、新功能、数量等。
+- 不与其他元素相关联，独立展示状态时，请使用 tag 标签。
+- 展示某元素的补充信息或提示信息时，请使用 tooltip 文字提示。
+
+## 使用原则
+- 若用于提醒用户处理信息，使用包裹在元素上的红色徽标，信息处理完后，徽标消失。
+- 若用于展示状态，使用独立存在于元素左侧或右侧的徽标，用颜色表示状态，数字为零时也不消失。
+- 若只用于展示相关元素的数量信息，无吸引用户视觉的需求时，不使用醒目的样式。
+- 展示数字时需设置封顶数字，超过则显示（封顶数字+），默认值为99。
+- 不建议在一个元素上同时使用两种及以上的徽标。
+
+## 代码演示
+
+### 资源/数据状态
+
+1. 状态颜色围绕文本展示
+<Canvas of={BadgeStories.Basic} />
+
+2. 状态颜色与文本分离展示:
+<Canvas of={BadgeStories.Dot} />
+3. 当 count 为 0 时，默认不展示，可以设置为展示：
+<Canvas of={BadgeStories.NoCount} />
+
+### 尺寸大小
+可以结合 dot 属性设置展示大小。默认为 small。
+<Canvas of={BadgeStories.Size} />
+
+### 封顶数值
+数字展示可以设定最大的数，默认为 99。
+<Canvas of={BadgeStories.MaxCount} />
+
+### 消息展示
+<Canvas of={BadgeStories.MessageShow} />
+
+## API
+<ArgTypes of={BadgeStories.Basic}/>

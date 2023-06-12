@@ -1,0 +1,29 @@
+import { Canvas, Meta,ArgTypes } from '@storybook/blocks';
+
+import * as PanelStories from './Panel.stories.tsx';
+
+<Meta of={PanelStories} />
+
+# Panel
+
+将 Panel 用在元素上。
+
+## 何时使用
+
+增强文案显示
+
+### 常规
+
+<Canvas of={PanelStories.Basic}/>
+
+### 大小
+面板可以设置为三种大小:默认、sm、xs
+<Canvas of={PanelStories.Size}/>
+
+### 带折叠
+<Canvas of={PanelStories.Collapse}/>
+
+### 卡片组
+<Canvas of={PanelStories.Group}/>
+
+<ArgTypes/>
