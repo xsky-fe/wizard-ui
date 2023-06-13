@@ -1,13 +1,24 @@
-import * as React from 'react';
+import React from 'react';
 import ReactIOSSwitch from 'react-ios-switch';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import { SwitchProps } from '../../interface';
-import variables from '../../style/variables.scss';
 import './style.scss';
 
 const Switch: React.FC<SwitchProps> = props => {
-  const { inline, input, name, disabled, onChange, ...rest } = props;
+  const {
+    inline,
+    input,
+    name,
+    disabled,
+    onChange,
+    checked,
+    loading,
+    size = 'lg',
+    colorIndex = 'default',
+    ...rest
+  } = props;
+
   const switchName = (input && input.name) || name;
   const handleSwitchChange = (checked: boolean) => {
     if (!disabled) {
@@ -17,32 +28,36 @@ const Switch: React.FC<SwitchProps> = props => {
       input && input.onChange(checked);
     }
   };
-  const className = classNames('Switch', {
-    'Switch--inline': inline,
-  });
-  const styles = {
-    boxShadow: 'rgb(0 0 0) 0px 0px 0px 0px inset',
-    border: `1px solid ${variables.border1}`
-  }
+  const switchClassName = classNames(
+    `Switch Switch__${size} Switch__${colorIndex} Switch__${checked ? 'checked' : 'unchecked'}`,
+    {
+      Switch__inline: inline,
+      Switch__disabled: disabled,
+      Switch__loading: loading,
+    },
+  );
   return (
     <div
       data-name={switchName} // 兼容e2e测试中的page-object选择器
-      className={className}
+      className={switchClassName}
     >
       <ReactIOSSwitch
         className="react-ios-switch-Switch-switch"
         disabled={disabled}
         {...input}
         {...rest}
-        onColor={variables.successNormal}
-        style={styles}
-        onChange={handleSwitchChange}
+        checked={checked}
+        onChange={!loading ? handleSwitchChange : undefined}
       />
     </div>
   );
 };
 
 Switch.propTypes = {
+  /**
+   * 是否加载中；
+   **/
+  loading: PropTypes.bool,
   /**
    * 是否禁用；
    **/

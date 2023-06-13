@@ -166,7 +166,10 @@ export interface SwitchProps {
   name?: string;
   disabled?: boolean;
   checked?: boolean;
+  loading?: boolean;
   onChange?: any;
+  colorIndex?: number | string;
+  size?: string;
 }
 
 export interface TimePickerProps {
