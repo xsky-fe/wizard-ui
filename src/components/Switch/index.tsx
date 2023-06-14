@@ -55,6 +55,14 @@ const Switch: React.FC<SwitchProps> = props => {
 
 Switch.propTypes = {
   /**
+   * 颜色序号
+   **/
+  colorIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /**
+   * 开关大小,lg:大，sm:小
+   **/
+  size: PropTypes.string,
+  /**
    * 是否加载中；
    **/
   loading: PropTypes.bool,
