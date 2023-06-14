@@ -151,7 +151,7 @@ export interface TabsProps {
   /**类名 */
   className?: string;
   /**可切换至secondary样式 */
-  type?:'secondary'
+  type?: 'secondary';
 }
 
 export interface StepsProps {
@@ -163,16 +163,28 @@ export interface StepsProps {
 }
 
 export interface ModalProps extends Omit<BsModalProps, 'size'> {
-  title: string;
+  /**标题 */
+  title?: string;
+  /**确定、提交操作 */
   onOk?: () => void;
+  /**确定、提交按钮文案 */
   confirmText?: string;
+  /**确定、提交按钮样式 */
   okStyle?: string;
+  /**是否展示加载 UI */
   loading?: boolean;
+  /**隐藏 footer */
   hideFooter?: boolean;
+  /**隐藏 头部 */
   hideHeader?: boolean;
+  /**开启拖拽功能（默认为true） */
   draggable?: boolean;
+  /**在title区域禁掉拖拽功能 */
   preventDragByTitle?: boolean;
+  /**对话框大小 */
   size?: BsModalProps['size'] | 'xlarge';
+  /**点击close按钮时触发的回调 */
+  onHide?: () => void;
 }
 
 interface SwitchInput {
@@ -208,9 +220,13 @@ export interface TreeData {
 }
 
 export interface TreeProps extends RCTreeProps {
+  /**tree 数据  */
   data: TreeData[];
+  /**是否展示 checkbox 勾选框 */
   checkable?: boolean;
+  /**是否展示收缩图标 */
   showIcon?: boolean;
+  /**title 部分是否单独可选 */
   selectable?: boolean;
 }
 
@@ -399,25 +415,41 @@ export interface VirtualListState {
   endIndex: number;
 }
 export interface VirtualListDefaultProps<T> {
+  /**虚拟列表的高度 */
   height?: number | string;
+  /**列表数据 */
   data: T[];
+  /** 行高 */
   runwayItems?: number;
+  /** 行高 */
   runwayItemsOppsite?: number;
+  /** 数据加载中时展示 */
   loader?: React.ReactNode;
+  /** 默认展示文本 */
   placeholder?: React.ReactNode | string;
+  /** 没有需要加载的数据时的展示 */
   noMoreHint?: React.ReactNode | boolean;
+  /** Debug */
   debug?: boolean;
 }
 export interface VirtualListProps<T> extends VirtualListDefaultProps<T> {
+  /** 确定异步数据的 offset 和 limit */
   query?: Query;
+  /** 监听 query 改变 */
   onQueryChange?: (query: Query) => Promise<void>;
+  /** 行高 */
   rowHeight?: number | ((item: object) => number);
+  /** 渲染 row UI */
   rowRenderer: (item: VirtualRowArgs<T>) => React.ReactNode | Element;
+  /** 是否在获取数据 */
   isFetching?: boolean;
   isReloading?: boolean;
+  /** 是否展示没有多余的数据 */
   noMore?: boolean;
+  /** 总数 */
   totalCount?: number;
   className?: string;
+  /** 是否开启计算 */
   isEstimate?: boolean;
 }
 
@@ -478,9 +510,13 @@ export interface NotificationProps extends NotificationItem {
   onDismiss?: Function;
 }
 export interface NotificationListProps {
+  /**通知栏信息 */
   notifications: Map<string, Map<string, NotificationItem>>;
+  /**操作移除单个通知栏时的回调 */
   onDismiss?: Function;
+  /**2s后自动关闭 */
   autoClose?: boolean;
+  /**统一格式化通知栏目的数据 */
   format?: Function;
 }
 

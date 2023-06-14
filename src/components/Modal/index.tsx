@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
+// import * as PropTypes from 'prop-types';
 import { Modal as BaseModal, ModalFooter, Button } from 'react-bootstrap';
 import Draggable, { DraggableEvent, DraggableData } from 'react-draggable';
 import { ModalProps } from '../../interface';
@@ -119,40 +119,44 @@ const Modal: React.FC<ModalProps> = props => {
   );
 };
 
-Modal.propTypes = {
-  /** 标题 */
-  title: PropTypes.string.isRequired,
-  /** 隐藏对话框操作 */
-  onHide: PropTypes.func.isRequired,
-  /** 确定、提交操作 */
-  onOk: PropTypes.func,
-  /** 是否展示对话框 */
-  show: PropTypes.bool,
-  /** 对话框附加行内样式 */
-  style: PropTypes.object,
-  /** 对话框大小 */
-  size: PropTypes.oneOf(['sm', 'lg', 'xl', 'xlarge']),
-  /** 确定、提交按钮文案 */
-  confirmText: PropTypes.string,
-  /** 确定、提交按钮样式 */
-  okStyle: PropTypes.string,
-  /** 是否展示加载 UI */
-  loading: PropTypes.bool,
-  /** 隐藏 footer */
-  hideFooter: PropTypes.bool,
-  /** 隐藏 头部 */
-  hideHeader: PropTypes.bool,
-  /** 开启拖拽功能（默认为true） */
-  draggable: PropTypes.bool,
-  /** 在title区域禁掉拖拽功能 */
-  preventDragByTitle: PropTypes.bool,
-  /** 是否应垂直居中 */
-  centered: PropTypes.bool,
-};
+// Modal.propTypes = {
+//   /** 标题 */
+//   title: PropTypes.string.isRequired,
+//   /** 隐藏对话框操作 */
+//   onHide: PropTypes.func.isRequired,
+//   /** 确定、提交操作 */
+//   onOk: PropTypes.func,
+//   /** 是否展示对话框 */
+//   show: PropTypes.bool,
+//   /** 对话框附加行内样式 */
+//   style: PropTypes.object,
+//   /** 对话框大小 */
+//   size: PropTypes.oneOf(['sm', 'lg', 'xl', 'xlarge']),
+//   /** 确定、提交按钮文案 */
+//   confirmText: PropTypes.string,
+//   /** 确定、提交按钮样式 */
+//   okStyle: PropTypes.string,
+//   /** 是否展示加载 UI */
+//   loading: PropTypes.bool,
+//   /** 隐藏 footer */
+//   hideFooter: PropTypes.bool,
+//   /** 隐藏 头部 */
+//   hideHeader: PropTypes.bool,
+//   /** 开启拖拽功能（默认为true） */
+//   draggable: PropTypes.bool,
+//   /** 在title区域禁掉拖拽功能 */
+//   preventDragByTitle: PropTypes.bool,
+//   /** 是否应垂直居中 */
+//   centered: PropTypes.bool,
+// };
 
 Modal.defaultProps = {
   confirmText: '确定',
   okStyle: 'primary',
+  draggable: true,
+  hideFooter: false,
+  hideHeader: false,
+  loading: false,
 };
 
 export default Modal;

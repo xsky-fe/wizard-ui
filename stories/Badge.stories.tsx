@@ -13,7 +13,7 @@ export default meta;
 type Story = StoryObj<typeof Badge>;
 
 export const Basic: Story = {
-  render: () => (
+  render: (props) => (
     <>
       <Badge count="关闭" status="default" />
       <Badge count="健康" status="success" />
@@ -28,7 +28,7 @@ export const Basic: Story = {
 };
 
 export const Dot: Story = {
-  render: () => (
+  render: (props) => (
     <>
       <Badge dot text="关闭" status="default" />
       <span style={{ paddingLeft: '40px' }} />
@@ -46,7 +46,7 @@ export const Dot: Story = {
 };
 
 export const NoCount: Story = {
-  render: () => (
+  render: (props) => (
     <>
       <Badge count={0} showZero />
       <Badge count={0} />
@@ -55,7 +55,7 @@ export const NoCount: Story = {
 };
 
 export const Size: Story = {
-  render: () => (
+  render: (props) => (
     <>
       <Badge dot size="small" text="健康" status="success" />
       <span style={{ paddingLeft: '40px' }} />
@@ -67,7 +67,7 @@ export const Size: Story = {
 };
 
 export const MaxCount: Story = {
-  render: () => (
+  render: (props) => (
     <>
       <Badge count={10000} />
       <Badge count={10000} overflowCount={999} />
@@ -77,7 +77,7 @@ export const MaxCount: Story = {
 };
 
 export const MessageShow: Story = {
-  render: () => (
+  render: (props) => (
     <>
       <Badge count={2000}>UI</Badge>
       <span style={{ paddingLeft: '40px' }} />

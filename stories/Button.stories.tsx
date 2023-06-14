@@ -31,7 +31,7 @@ type Story = StoryObj<typeof Button>;
 export const Basic: Story = {};
 
 export const Variant: Story = {
-  render: () => (
+  render: (props) => (
     <div className="flex-between">
       <Button variant="default">默认default</Button>
       <Button variant="primary">通用primary</Button>
@@ -45,7 +45,7 @@ export const Variant: Story = {
 };
 
 export const Size: Story = {
-  render: () => (
+  render: (props) => (
     <>
       <Button size="lg">button</Button>
       <Button>button</Button>
@@ -56,7 +56,7 @@ export const Size: Story = {
 };
 
 export const Active: Story = {
-  render: () => (
+  render: (props) => (
     <>
       <Button active variant="primary">
         button
@@ -76,7 +76,7 @@ export const Block: Story = {
 };
 
 export const Tooltip: Story = {
-  render: () => (
+  render: (props) => (
     <div style={{ margin: '10px' }}>
       <Button
         variant="info"

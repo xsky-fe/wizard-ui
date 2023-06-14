@@ -28,7 +28,7 @@ const meta: Meta<typeof Alert> = {
 export const Basic: Story = {};
 
 export const Variant: Story = {
-  render: () => (
+  render: (props) => (
     <>
       <Alert bsStyle="info" showIcon>
         这里是 info 级别

@@ -1,0 +1,51 @@
+import { Canvas, Meta, ArgTypes, Source } from '@storybook/blocks';
+
+import * as ModalStories from './Modal.stories.tsx';
+
+<Meta of={ModalStories} />
+# Modal
+对话弹出框。
+
+## 何时使用
+在处理某个事务，不希望跳转到其他页面导致当前工作被打断。可以使用`对话框`在当前页面打开一个浮层，承载对应的操作。
+
+## 基本用法
+### 默认展示
+<Source code={`const ModalPicker = (props?: Partial<ModalProps>) => {
+  const [show, setShow] = React.useState(false);
+  const handleClick = () => setShow(true);
+  const handleHide = () => setShow(false);
+  return (
+    <div>
+      <Button variant="primary" onClick={handleClick}>
+        <span>打开对话框</span>
+      </Button>
+      <Modal
+        title="弹出框时间选择器"
+        show={show}
+        onHide={handleHide}
+        onOk={handleHide}
+        preventDragByTitle
+        {...props}
+      >
+        <DatePicker defaultValue="2019-08-13 12:02:53" />
+      </Modal>
+    </div>
+  );
+};`} />
+<Canvas of={ModalStories.Basic} />
+
+### 大小
+对话框可以设置成四种大小：小(sm)、中(默认)、大(lg)、最大(xl)
+<Canvas of={ModalStories.Size} />
+
+### 垂直居中
+<Canvas of={ModalStories.Center} />
+
+### 隐藏 footer
+<Canvas of={ModalStories.HideFooter} />
+
+
+
+## API
+<ArgTypes />

@@ -1,0 +1,69 @@
+import { Canvas, Meta, ArgTypes } from '@storybook/blocks';
+
+import * as NotificationListStories from './NotificationList.stories.tsx';
+
+<Meta of={NotificationListStories} />
+
+# NotificationList
+
+全局显示通知提醒信息，用于以下情况：
+- 系统性消息推送；
+- 异步结果信息返回。
+
+## 基本用法
+- 消息提示支持 5 种状态： 成功（success）、通知（info）、进行中（process）、告警（warning）、危险（danger）。每一种默认配对图标，背景颜色和文字颜色；
+<Canvas of={NotificationListStories.Basic} />
+```tsx
+const NotificationListDefault = (props: { showTitle?: boolean; autoClose?: boolean }) => {
+  const [lists, setLists] = React.useState(() => {
+    const dns = new Map() as MapType<string, any>;
+    const sns = new Map() as MapType<string, any>;
+    dns.set('status', sns);
+    return dns;
+  });
+  const setNotification = (s: NotificationItemStatus) => {
+    const item: NotificationItem = { id: s, status: s, text: `${s} text message !` };
+    if (props.showTitle) {
+      item.title = <h3>{s} title</h3>;
+    }
+    lists.get('status').set(s, item);
+    const newLists = new Map(lists);
+    setLists(newLists);
+  };
+  const deleteNotification = (id: NotificationItemStatus) => {
+    lists.get('status').delete(id);
+    const newLists = new Map(lists);
+    setLists(newLists);
+  };
+  return (
+    <div>
+      <div>
+        {STATUS.map((s: string) => (
+          <Button
+            key={s}
+            style={{ marginRight: '10px' }}
+            onClick={() => setNotification(s as NotificationItemStatus)}
+            disabled={lists.get('status').has(s)}
+          >
+            {s}
+          </Button>
+        ))}
+      </div>
+      <NotificationList
+        notifications={lists}
+        onDismiss={deleteNotification}
+        autoClose={props.autoClose}
+      />
+    </div>
+  );
+};
+```
+
+### 列表带标题
+<Canvas of={NotificationListStories.WithTitle} />
+### 自动关闭
+2秒(默认)后关闭通知栏
+
+<Canvas of={NotificationListStories.AutoClose} />
+## API
+<ArgTypes />
