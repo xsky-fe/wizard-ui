@@ -31,7 +31,6 @@ package-lock.json
 /esm
 /dist
 /types
-/storybook-static
 
 # dist analysis file
 stats.json
