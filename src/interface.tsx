@@ -254,11 +254,21 @@ export type DropdownButtonMenuItem =
 export type ButtonSizes = 'sm' | 'lg' | 'xs';
 
 export interface DropdownButtonProps extends Omit<BsDropdownButtonProps, 'children' | 'size'> {
+  /**下拉框展开状态更改时回调 */
   onToggle?: (isShow: boolean) => void;
+  /**
+    * 下拉菜单配置 array<string|object>, 会根据传入参数生成菜单。如果item是string，会把item作为MenuItem的key和children；
+    * 如果是object，会把title属性作为MenuItem的children，其他属性作为MenuItem对应的属性，如果没有key属性，会把title作为key；
+    * 如果有children属性，会根据children生成对应的SubItem
+    **/
   menu?: DropdownButtonMenuItem[];
+  /**下拉框子元素 node，不能和menu同时使用 */
   children?: React.ReactNode;
+  /**下拉框样式修改器 在一些场景中下拉框有些特殊样式，支持table-toolbar, list-toolbar, detail-toolbar*/
   modifer?: string;
+  /**是否取消插入符号 */
   noCaret?: boolean;
+  /**大小 */
   size?: ButtonSizes;
 }
 
@@ -349,18 +359,23 @@ export interface PanelProps {
 }
 
 export interface DropdownDefaultProps {
+  /**元素 id，默认为 CustomDropdown */
   id: string;
 }
 
 export interface DropdownAlignProps {
+  /**下拉框的位置 */
   align?: BsDropdownProps['align'];
 }
 export interface DropdownProps extends DropdownDefaultProps, DropdownAlignProps {
+  /**元素 class 名称 */
   className?: string;
+  /**下拉框收起时展示内容;启用customToggle时在此传入自定义内容,不传默认为三角 */
   title?: React.ReactNode;
+  /**下拉框展开时详细内容 */
   children?: React.ReactNode;
+  /**启用自定义toggle */
   customToggle?: boolean;
-  pullRight?: boolean;
 }
 
 export interface MenuItemOptions {
@@ -454,14 +469,20 @@ export interface VirtualListProps<T> extends VirtualListDefaultProps<T> {
 }
 
 export interface VirtualSelectBoxDefaultProps<T> {
+  /** 每项 select 的行高 */
   rowHeight: number;
+  /** 是否使用 button 格式 UI */
   isBtn: boolean;
+  /** 是否禁用操作 */
   disabled: boolean;
+  /**默认展示文案 */
   placeholder: string;
+  /**查询条件 */
   query: Query;
   defaultItem: T;
 }
 export interface VirtualSelectBoxProps<T> extends VirtualSelectBoxDefaultProps<T> {
+  /**获取异步数据的函数 */
   fetchData: (
     isReloading: boolean,
     query: Query,
@@ -472,12 +493,17 @@ export interface VirtualSelectBoxProps<T> extends VirtualSelectBoxDefaultProps<T
     totalCount: number;
     error?: string;
   }>;
+  /**选中资源项 */
   item?: T;
   className?: string;
+  /**是否有清除按钮 */
   clear?: boolean;
+  /**选中时的回调 */
   onSelect?: Function;
   // onSelect?: (item: T) => void;
+  /**格式化 onSelect 输出数据 */
   formatOption?: (item: T) => any;
+  /**多选 */
   multi?: boolean;
   value?: any[];
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { Dropdown as BootstrapDropdown } from 'react-bootstrap';
 import { DropdownProps, DropdownDefaultProps } from '../../interface';
 import './style.scss';
@@ -23,24 +23,24 @@ const Dropdown = (props: DropdownProps) => {
   );
 };
 
-Dropdown.propTypes = {
-  /**
-   * 元素 class 名称 string
-   **/
-  className: PropTypes.string,
-  /**
-   * 下拉框收起时展示内容 node
-   **/
-  title: PropTypes.node,
-  /**
-   * 元素 id，默认为 CustomDropdown string
-   **/
-  id: PropTypes.string,
-  /**
-   * 下拉框展开时详细内容 React.ReactNode
-   **/
-  children: PropTypes.node,
-};
+// Dropdown.propTypes = {
+//   /**
+//    * 元素 class 名称 string
+//    **/
+//   className: PropTypes.string,
+//   /**
+//    * 下拉框收起时展示内容 node
+//    **/
+//   title: PropTypes.node,
+//   /**
+//    * 元素 id，默认为 CustomDropdown string
+//    **/
+//   id: PropTypes.string,
+//   /**
+//    * 下拉框展开时详细内容 React.ReactNode
+//    **/
+//   children: PropTypes.node,
+// };
 
 Dropdown.defaultProps = defaultProps;
 

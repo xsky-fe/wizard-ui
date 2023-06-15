@@ -1,0 +1,21 @@
+import { Canvas, Meta, ArgTypes } from '@storybook/blocks';
+
+import * as DropdownStories from './Dropdown.stories.tsx';
+
+<Meta of={DropdownStories} />
+
+# Dropdown
+在用户点击标题后展示详细内容供用户操作
+
+## 使用方式
+点击标题后弹出详细内容，再次点击隐藏详细内容
+
+### 基本用法
+点击标题后弹出内容：
+<Canvas of={DropdownStories.Basic}/>
+
+### 自定义Toggle
+<Canvas of={DropdownStories.CustomToggle}/>
+
+## API
+<ArgTypes />

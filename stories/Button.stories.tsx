@@ -31,8 +31,15 @@ type Story = StoryObj<typeof Button>;
 export const Basic: Story = {};
 
 export const Variant: Story = {
+  decorators: [
+    (Story) => (
+      <div style={{display:'flex',justifyContent:'space-between'}}>
+        <Story />
+      </div>
+    ),
+  ],
   render: (props) => (
-    <div className="flex-between">
+    <>
       <Button variant="default">默认default</Button>
       <Button variant="primary">通用primary</Button>
       <Button variant="info">通知info</Button>
@@ -40,7 +47,7 @@ export const Variant: Story = {
       <Button variant="danger">危险danger</Button>
       <Button variant="warning">警告warning</Button>
       <Button variant="link">链接link</Button>
-    </div>
+    </>
   ),
 };
 

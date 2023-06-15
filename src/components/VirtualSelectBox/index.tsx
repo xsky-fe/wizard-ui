@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { Card, FormControl, Dropdown, Button } from 'react-bootstrap';
 import get from 'lodash/get';
 import debounce from 'lodash/debounce';
@@ -34,28 +34,28 @@ class VirtualSelectBox<T> extends React.Component<
   VirtualSelectBoxProps<T>,
   VirtualSelectBoxState<T>
 > {
-  static propTypes = {
-    /** 选中资源项 */
-    item: PropTypes.object,
-    /** 获取异步数据的函数 */
-    fetchData: PropTypes.func.isRequired,
-    /** 选择函数 */
-    onSelect: PropTypes.func,
-    /** 是否禁用操作 */
-    disabled: PropTypes.bool,
-    /** 每项 select 的行高 */
-    rowHeight: PropTypes.number,
-    /** 格式化 onSelect 输出数据 */
-    formatOption: PropTypes.func,
-    /** 是否使用 button 格式 UI */
-    isBtn: PropTypes.bool,
-    /** 默认展示文案 */
-    placeholder: PropTypes.string,
-    /** 查询条件 */
-    query: PropTypes.object,
-    /** 清除 */
-    clear: PropTypes.bool,
-  };
+  // static propTypes = {
+  //   /** 选中资源项 */
+  //   item: PropTypes.object,
+  //   /** 获取异步数据的函数 */
+  //   fetchData: PropTypes.func.isRequired,
+  //   /** 选择函数 */
+  //   onSelect: PropTypes.func,
+  //   /** 是否禁用操作 */
+  //   disabled: PropTypes.bool,
+  //   /** 每项 select 的行高 */
+  //   rowHeight: PropTypes.number,
+  //   /** 格式化 onSelect 输出数据 */
+  //   formatOption: PropTypes.func,
+  //   /** 是否使用 button 格式 UI */
+  //   isBtn: PropTypes.bool,
+  //   /** 默认展示文案 */
+  //   placeholder: PropTypes.string,
+  //   /** 查询条件 */
+  //   query: PropTypes.object,
+  //   /** 清除 */
+  //   clear: PropTypes.bool,
+  // };
   static defaultProps = defaultProps;
   debounceFetch: () => Promise<void> | undefined;
   isMount: boolean;
@@ -375,7 +375,7 @@ class VirtualSelectBox<T> extends React.Component<
       <Dropdown>
         <Dropdown.Toggle variant="default">
           <span className="titleSpan">{title}</span>
-          {clear && !isEmpty(item) && <Icon type="close" onClick={this.clear} />}
+          {clear && !isEmpty(item) && <Icon type="close-line" onClick={this.clear} />}
         </Dropdown.Toggle>
       </Dropdown>
     );
