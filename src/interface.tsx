@@ -570,12 +570,20 @@ export interface HeaderToggleProps {
 }
 
 export interface PaginationProps extends BsPaginationProps {
+  /**显示上一页 */
   prev?: boolean;
+  /**显示下一页 */
   next?: boolean;
+  /**显示第一页 */
   first?: boolean;
+  /**显示最后页 */
   last?: boolean;
+  /**可显示的最多页码数 */
   maxButtons?: number;
+  /**页码数 */
   items: number;
+  /**active状态的页码 */
   activePage: number;
+  /**页码改变的回调 */
   onSelectChange: (activePage: number) => void;
 }

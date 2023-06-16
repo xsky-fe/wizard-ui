@@ -3,9 +3,16 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Pagination as BsPagination } from '../src';
 import { Pagination } from 'react-bootstrap';
 
-const meta: Meta<typeof Pagination> = {
-  title: 'Pagination',
-  component: Pagination,
+const meta: Meta = {
+  title: 'COMPONENTS/Pagination',
+  component: BsPagination,
+  argTypes: {
+    maxButtons: {
+      table: {
+        defaultValue: { summary: 5 },
+      },
+    },
+  },
 };
 
 export default meta;
@@ -42,6 +49,23 @@ const Demo = ({ size }: { size: 'sm' | 'lg' }) => {
   );
 };
 
+export const Basic: Story = {
+  render: props => (
+    <BsPagination
+      prev={false}
+      next={true}
+      first={false}
+      last={false}
+      maxButtons={6}
+      items={6}
+      activePage={1}
+      onSelectChange={() => {}}
+      size="sm"
+      className="Table__pagination-pagination"
+    />
+  ),
+};
+
 type Story = StoryObj<typeof Pagination>;
 
 export const Size: Story = {
@@ -50,22 +74,5 @@ export const Size: Story = {
       <Demo size="sm" />
       <Demo size="lg" />
     </>
-  ),
-};
-
-export const Basic: Story = {
-  render: props => (
-    <BsPagination
-      prev={false}
-      next={true}
-      first={false}
-      last={false}
-      maxButtons={5}
-      items={2}
-      activePage={1}
-      onSelectChange={() => {}}
-      size="sm"
-      className="Table__pagination-pagination"
-    />
   ),
 };

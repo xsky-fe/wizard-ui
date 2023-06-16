@@ -32,13 +32,13 @@ export const Basic: Story = {};
 
 export const Variant: Story = {
   decorators: [
-    (Story) => (
-      <div style={{display:'flex',justifyContent:'space-between'}}>
+    Story => (
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <Story />
       </div>
     ),
   ],
-  render: (props) => (
+  render: props => (
     <>
       <Button variant="default">默认default</Button>
       <Button variant="primary">通用primary</Button>
@@ -52,7 +52,7 @@ export const Variant: Story = {
 };
 
 export const Size: Story = {
-  render: (props) => (
+  render: props => (
     <>
       <Button size="lg">button</Button>
       <Button>button</Button>
@@ -63,7 +63,7 @@ export const Size: Story = {
 };
 
 export const Active: Story = {
-  render: (props) => (
+  render: props => (
     <>
       <Button active variant="primary">
         button
@@ -83,7 +83,7 @@ export const Block: Story = {
 };
 
 export const Tooltip: Story = {
-  render: (props) => (
+  render: props => (
     <div style={{ margin: '10px' }}>
       <Button
         variant="info"
