@@ -1,5 +1,4 @@
 import * as React from 'react';
-// import * as PropTypes from 'prop-types';
 import { DropdownButton as BootstrapDropdownButton, Dropdown, ButtonGroup } from 'react-bootstrap';
 import { DropdownButtonMenuItem, DropdownButtonProps } from '../../interface';
 import cloneDeep from 'lodash/cloneDeep';

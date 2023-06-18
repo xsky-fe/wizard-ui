@@ -155,10 +155,15 @@ export interface TabsProps {
 }
 
 export interface StepsProps {
+  /**步骤条title的集合传入`string`时候显示内容，传入对象时显示`label`，当`showIcon=false`显示count内容 */
   steps: any[];
+  /**当前步骤，从 1 开始计数 */
   currentStep: number;
+  /**步骤的图标 `true`代表圆点，`false`代表数字 */
   showIcon?: boolean;
+  /**步骤图标大小，stepIcon为`dot`时候生效 */
   iconSize?: string;
+  /**步骤图标状态 */
   iconStatus?: string;
 }
 
@@ -193,11 +198,17 @@ interface SwitchInput {
 }
 
 export interface SwitchProps {
+  /**是否同行显示 */
   inline?: boolean;
+  /** */
   input?: SwitchInput;
+  /**为了兼容 e2e 测试中的 page-object 选择器 */
   name?: string;
+  /**是否禁用 */
   disabled?: boolean;
+  /**指定当前是否选中 */
   checked?: boolean;
+  /**	值变化时候的回调函数 */
   onChange?: any;
 }
 
@@ -330,12 +341,19 @@ export interface DatePickerDefaultProps {
 }
 
 export interface DatePickerProps extends DatePickerDefaultProps {
+  /**获取时间的回调 */
   getTime?: (time: string) => void;
+  /**占位文本 */
   placeholder?: string;
+  /**是否重置 */
   reset?: boolean;
+  /**默认值 */
   defaultValue?: string;
+  /**是否禁用当前日期的选择 */
   disabledDate?: (mtime: Moment | undefined) => boolean;
+  /**语言选择:中文/英文 */
   lang?: 'en' | 'zh';
+  /**是否禁用 */
   disabled?: boolean;
 }
 
@@ -392,9 +410,13 @@ export interface InputMeta {
   submitFailed: boolean;
 }
 export interface InputDropdownProps extends DropdownAlignProps {
+  /**下拉选项 */
   options?: MenuItemOptions[];
+  /**默认值 */
   defaultValue?: string;
+  /**传入 value 时变为受控组件 */
   value?: string;
+  /**value 变化后回调 */
   onChange?: Function;
   input?: {
     [key: string]: any;

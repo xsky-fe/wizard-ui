@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import find from 'lodash/find';
 import get from 'lodash/get';
 import { DropdownButton, Dropdown, Button } from 'react-bootstrap';
@@ -49,31 +48,27 @@ const InputDropdown = (props: InputDropdownProps) => {
   );
 };
 
-InputDropdown.propTypes = {
-  /**
-   * 下拉选项
-   **/
-  options: PropTypes.array,
-  /**
-   * 下拉框是否右对齐，默认为 true
-   **/
-  align: PropTypes.string,
-  /**
-   * 默认值
-   **/
-  defaultValue: PropTypes.string,
-  /**
-   * value 变化后回调
-   **/
-  onChange: PropTypes.func,
-  /**
-   * value，传入 value 时变为受控组件
-   **/
-  value: PropTypes.string,
-};
-
-InputDropdown.defaultProps = {
-  pullRight: true,
-};
+// InputDropdown.propTypes = {
+//   /**
+//    * 下拉选项
+//    **/
+//   options: PropTypes.array,
+//   /**
+//    * 下拉框是否右对齐，默认为 true
+//    **/
+//   align: PropTypes.string,
+//   /**
+//    * 默认值
+//    **/
+//   defaultValue: PropTypes.string,
+//   /**
+//    * value 变化后回调
+//    **/
+//   onChange: PropTypes.func,
+//   /**
+//    * value，传入 value 时变为受控组件
+//    **/
+//   value: PropTypes.string,
+// };
 
 export default InputDropdown;

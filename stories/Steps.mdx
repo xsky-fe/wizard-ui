@@ -1,0 +1,29 @@
+import { Canvas, Meta, ArgTypes } from '@storybook/blocks';
+
+import * as StepsStories from './Steps.stories.tsx';
+
+<Meta of={StepsStories} />
+
+# Steps
+引导用户按照流程完成任务的导航条。
+
+## 何时使用
+
+当任务复杂或者存在先后关系时，将其分解成一系列步骤，从而简化任务。
+
+## 基本用法
+### 默认展示
+<Canvas of={StepsStories.Basic}/>
+### 图标变换大小
+<Canvas of={StepsStories.Size}/>
+### 图标颜色变化
+<Canvas of={StepsStories.Color}/>
+### 图标变成数字
+<Canvas of={StepsStories.IconNumber}/>
+### steps 内容可以是个对象,showIcon 需为 false
+<Canvas of={StepsStories.StepsObject}/>
+### 交互
+<Canvas of={StepsStories.Interaction}/>
+
+## API
+<ArgTypes />

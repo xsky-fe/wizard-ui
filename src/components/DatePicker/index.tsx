@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import Calendar from 'rc-calendar';
 import RCDatePicker from 'rc-calendar/lib/Picker';
 import TimePickerPanel from 'rc-time-picker/lib/Panel';
@@ -82,15 +81,15 @@ const DatePicker: React.FC<DatePickerProps> = props => {
   );
 };
 
-DatePicker.propTypes = {
-  disabled: PropTypes.bool,
-  showTime: PropTypes.bool,
-  placeholder: PropTypes.string,
-  getTime: PropTypes.func,
-  reset: PropTypes.bool,
-  defaultValue: PropTypes.string,
-  disabledDate: PropTypes.func,
-};
+// DatePicker.propTypes = {
+//   disabled: PropTypes.bool,
+//   showTime: PropTypes.bool,
+//   placeholder: PropTypes.string,
+//   getTime: PropTypes.func,
+//   reset: PropTypes.bool,
+//   defaultValue: PropTypes.string,
+//   disabledDate: PropTypes.func,
+// };
 
 DatePicker.defaultProps = defaultProps;
 
