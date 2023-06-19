@@ -1,0 +1,26 @@
+import { Canvas, Meta, ArgTypes } from '@storybook/blocks';
+
+import * as RangePickerStories from './RangePicker.stories.tsx';
+
+<Meta of={RangePickerStories} />
+
+# RangePicker
+选定开始时间和结束时间输出时间区间。基于 [rc-calendar](https://github.com/react-component/calendar) 和[rc-time-picker](https://github.com/react-component/time-picker)开发。
+
+## 基本用法
+1. 开始时间小于结束时间。
+2. 支持选择日期同时支持选择时间，精确到秒级别。
+3. 选择日期默认当天后的日期禁止选择。
+4. 支持中文、英文。默认可以根据浏览器的本地存储变量LOCALE决定切换。
+5. 支持区间（3 小时内、1 天内、1 周内、1 月内、3 月内）选择，选择区间会立即关闭选择面板。
+
+## 代码演示
+### 默认展示
+<Canvas of={RangePickerStories.Basic}/>
+### 设置默认时间区间
+<Canvas of={RangePickerStories.DefaultTimes}/>
+### 设置 `showDuration` 为 `false` 隐藏直接选择区间
+<Canvas of={RangePickerStories.HideDuration}/>
+
+## API
+<ArgTypes />

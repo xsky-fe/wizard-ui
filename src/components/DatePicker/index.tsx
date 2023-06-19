@@ -81,16 +81,6 @@ const DatePicker: React.FC<DatePickerProps> = props => {
   );
 };
 
-// DatePicker.propTypes = {
-//   disabled: PropTypes.bool,
-//   showTime: PropTypes.bool,
-//   placeholder: PropTypes.string,
-//   getTime: PropTypes.func,
-//   reset: PropTypes.bool,
-//   defaultValue: PropTypes.string,
-//   disabledDate: PropTypes.func,
-// };
-
 DatePicker.defaultProps = defaultProps;
 
 export default DatePicker;

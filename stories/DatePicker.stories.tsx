@@ -4,7 +4,7 @@ import { DatePicker } from '../src';
 import moment, { Moment } from 'moment';
 
 const meta: Meta<typeof DatePicker> = {
-  title: 'DatePicker',
+  title: 'DATA ENTRY/DatePicker',
   component: DatePicker,
   decorators:[
     Story => (

@@ -83,12 +83,19 @@ export interface TooltipProps {
 }
 
 export interface PopoverProps {
+  /**提示框的位置，可选'top'，'right'，'bottom'，'left'。若不传入这一属性，会根据 OverlayTrigger 的位置，自适应选取提示框的位置； */
   placement?: string;
-  trigger?: string | string[];
+  /**触发动作，字符串或数组，默认为`hover`； */
+  trigger?: 'hover' | 'click' | 'focus' | Array<'hover' | 'click' | 'focus'>;
+  /**提示框的内容，子节点； */
   content: React.ReactNode;
+  /**选定的元素 */
   children: React.ReactNode;
+  /**箭头颜色,默认白色,为true时为紫色 */
   shadow?: boolean;
+  /**自定义添加的类名className */
   modifer?: string;
+  /**是否点击外部区域关闭popover； */
   rootClose?: boolean;
 }
 
@@ -213,13 +220,21 @@ export interface SwitchProps {
 }
 
 export interface TimePickerProps {
+  /**默认展示文本 */
   placeholder?: string;
+  /**分钟固定为 0 的小时选择 */
   hourStart?: boolean;
+  /**分钟固定为 59 的小时选择 */
   hourEnd?: boolean;
+  /**是否显示秒 */
   showSecond?: boolean;
+  /**是否允许为空 */
   allowEmpty?: boolean;
+  /**当前值 */
   value?: Moment;
+  /**默认值 */
   defaultValue?: Moment;
+  /**改变时间会触发 onChange 执行 */
   onChange?: any;
 }
 
@@ -268,10 +283,10 @@ export interface DropdownButtonProps extends Omit<BsDropdownButtonProps, 'childr
   /**下拉框展开状态更改时回调 */
   onToggle?: (isShow: boolean) => void;
   /**
-    * 下拉菜单配置 array<string|object>, 会根据传入参数生成菜单。如果item是string，会把item作为MenuItem的key和children；
-    * 如果是object，会把title属性作为MenuItem的children，其他属性作为MenuItem对应的属性，如果没有key属性，会把title作为key；
-    * 如果有children属性，会根据children生成对应的SubItem
-    **/
+   * 下拉菜单配置 array<string|object>, 会根据传入参数生成菜单。如果item是string，会把item作为MenuItem的key和children；
+   * 如果是object，会把title属性作为MenuItem的children，其他属性作为MenuItem对应的属性，如果没有key属性，会把title作为key；
+   * 如果有children属性，会根据children生成对应的SubItem
+   **/
   menu?: DropdownButtonMenuItem[];
   /**下拉框子元素 node，不能和menu同时使用 */
   children?: React.ReactNode;
@@ -302,14 +317,23 @@ export interface NavigationProps {
 }
 
 export interface RangePickerProps {
+  /**当前值 */
   value?: string[];
+  /**是否禁用 */
   disabled?: boolean;
+  /**语言,可选中文/英文,根据浏览器的本地存储变量LOCALE决定切换。 */
   lang?: string;
+  /**格式化日期 */
   format?: string;
+  /**改变时间区间时触发的回调 */
   onChange?: (data: Moment[], dataString: string[]) => void;
+  /**点击确定触发的回调 */
   onOk?: (date: Moment[]) => void;
+  /**打开/关闭选择器时调用 */
   onOpenChange?: (open: boolean) => void;
+  /**是否展示直接选择区间 */
   showDuration?: boolean;
+  /**默认时间区间 */
   defaultValue?: Moment[];
 }
 
