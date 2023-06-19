@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import lodash from 'lodash';
 import { Tab, Card, NavDropdown, Dropdown, Nav, NavItem, NavLink } from 'react-bootstrap';
@@ -111,44 +112,44 @@ const Tabs: React.FC<TabsProps> = props => {
   );
 };
 
-// Tabs.propTypes = {
-//   /**
-//    * 切换面板回调
-//    **/
-//   onSelect: PropTypes.func,
-//   /**
-//    * 包含选项卡的title、key、面板内容
-//    **/
-//   tabs: PropTypes.array.isRequired,
-//   /**
-//    * 大小，提供默认和 small 两种大小
-//    **/
-//   size: PropTypes.oneOf(['small']),
-//   /**
-//    * tab位置，默认靠左，提供默认和 right 两种位置
-//    **/
-//   direction: PropTypes.oneOf(['right']),
-//   /**
-//    * tab类型，提供默认和 二级 两种
-//    */
-//   type: PropTypes.oneOf(['secondary']),
-//   /**
-//    * key的名称可自定义
-//    **/
-//   eventKeyName: PropTypes.string,
-//   /**
-//    * 展示一行中可见的tab个数，其他tab数放到下拉栏目中
-//    **/
-//   limitNum: PropTypes.number,
-//   /**
-//    * 其他没有被选中的tab-pan是否隐藏，默认隐藏，提升渲染性能
-//    **/
-//   unmountOnExit: PropTypes.bool,
-//   /**
-//    * 切换内容是否使用动画过度效果
-//    **/
-//   transition: PropTypes.bool,
-// };
+Tabs.propTypes = {
+  /**
+   * 切换面板回调
+   **/
+  onSelect: PropTypes.func,
+  /**
+   * 包含选项卡的title、key、面板内容
+   **/
+  tabs: PropTypes.array.isRequired,
+  /**
+   * 大小，提供默认和 small 两种大小
+   **/
+  size: PropTypes.oneOf(['small']),
+  /**
+   * tab位置，默认靠左，提供默认和 right 两种位置
+   **/
+  direction: PropTypes.oneOf(['right']),
+  /**
+   * tab类型，提供默认和 二级 两种
+   */
+  type: PropTypes.oneOf(['secondary']),
+  /**
+   * key的名称可自定义
+   **/
+  eventKeyName: PropTypes.string,
+  /**
+   * 展示一行中可见的tab个数，其他tab数放到下拉栏目中
+   **/
+  limitNum: PropTypes.number,
+  /**
+   * 其他没有被选中的tab-pan是否隐藏，默认隐藏，提升渲染性能
+   **/
+  unmountOnExit: PropTypes.bool,
+  /**
+   * 切换内容是否使用动画过度效果
+   **/
+  transition: PropTypes.bool,
+};
 
 Tabs.defaultProps = {
   eventKeyName: 'key',

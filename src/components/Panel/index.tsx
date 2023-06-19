@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import * as PropTypes from 'prop-types';
 import { Card, Collapse } from 'react-bootstrap';
 import { PanelProps } from '../../interface';
 import classNames from 'classnames';
@@ -56,6 +57,21 @@ const Panel: React.FC<PanelProps> = props => {
     </Card>
   );
 };
+
+Panel.propTypes = {
+  /**
+   * 子节点panel内的具体内容；
+   **/
+  children: PropTypes.node,
+  /**
+   * 是否是内嵌面板
+   **/
+  embedded: PropTypes.bool,
+  /**
+   * 卡片内边距的大小
+   **/
+  innerPaddingSize: PropTypes.oneOf(['default', 'sm', 'xs']),
+}
 
 Panel.defaultProps = {
   collapsible: false,

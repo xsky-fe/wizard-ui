@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Button } from 'react-bootstrap';
+import * as PropTypes from 'prop-types';
 import { CalendarFill } from 'wizard-ui-icon';
 import Picker from 'rc-calendar/lib/Picker';
 import RangeCalendar from 'rc-calendar/lib/RangeCalendar';
@@ -51,6 +52,29 @@ export default class RangePicker extends React.PureComponent<RangePickerProps, R
     showDuration: true,
     format: 'YYYY-MM-DD HH:mm:ss',
     defaultValue: [],
+  };
+  static propTypes = {
+    /**
+     * 禁用
+     */
+    disabled: PropTypes.bool,
+    /**
+     * 改变时间区间会触发 onChange 执行
+     */
+    onChange: PropTypes.func,
+    /**
+     * 点击确定会触发
+     */
+    onOk: PropTypes.func,
+    /**
+     * moment 格式化
+     */
+    format: PropTypes.string,
+    /**
+     * 是否展示直接选择区间
+     */
+    showDuration: PropTypes.bool,
+    defaultValue: PropTypes.array,
   };
   constructor(props: RangePickerProps) {
     super(props);

@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import sum from 'lodash/sum';
 import isFunction from 'lodash/isFunction';
@@ -40,40 +40,40 @@ const defaultProps: VirtualListDefaultProps<VirtualItem> = {
 };
 
 export default class VirtualList<T> extends React.Component<VirtualListProps<T>, VirtualListState> {
-  // static propTypes = {
-  //   /** 行高 */
-  //   rowHeight: PropTypes.oneOfType([PropTypes.func, PropTypes.number]).isRequired,
-  //   /** 渲染 row UI */
-  //   rowRenderer: PropTypes.func.isRequired,
-  //   /** 可见高度 */
-  //   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  //   /** 数据 */
-  //   data: PropTypes.array,
-  //   /** 是否开启计算 */
-  //   isEstimate: PropTypes.bool,
-  //   /** 监听 query 改变 */
-  //   onQueryChange: PropTypes.func,
-  //   /** 确定异步数据的 offset 和 limit */
-  //   query: PropTypes.object,
-  //   /** 总数 */
-  //   totalCount: PropTypes.number,
-  //   /** 是否在获取数据 */
-  //   isFetching: PropTypes.bool,
-  //   /** 行高 */
-  //   runwayItems: PropTypes.number,
-  //   /** 行高 */
-  //   runwayItemsOppsite: PropTypes.number,
-  //   /** 数据加载中时展示 */
-  //   loader: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
-  //   /** 默认展示文本 */
-  //   placeholder: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
-  //   /** 是否展示没有多余的数据 */
-  //   noMore: PropTypes.bool,
-  //   /** 没有需要加载的数据时展示 */
-  //   noMoreHint: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
-  //   /** Debug */
-  //   debug: PropTypes.bool,
-  // };
+  static propTypes = {
+    /** 行高 */
+    rowHeight: PropTypes.oneOfType([PropTypes.func, PropTypes.number]).isRequired,
+    /** 渲染 row UI */
+    rowRenderer: PropTypes.func.isRequired,
+    /** 可见高度 */
+    height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    /** 数据 */
+    data: PropTypes.array,
+    /** 是否开启计算 */
+    isEstimate: PropTypes.bool,
+    /** 监听 query 改变 */
+    onQueryChange: PropTypes.func,
+    /** 确定异步数据的 offset 和 limit */
+    query: PropTypes.object,
+    /** 总数 */
+    totalCount: PropTypes.number,
+    /** 是否在获取数据 */
+    isFetching: PropTypes.bool,
+    /** 行高 */
+    runwayItems: PropTypes.number,
+    /** 行高 */
+    runwayItemsOppsite: PropTypes.number,
+    /** 数据加载中时展示 */
+    loader: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
+    /** 默认展示文本 */
+    placeholder: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
+    /** 是否展示没有多余的数据 */
+    noMore: PropTypes.bool,
+    /** 没有需要加载的数据时展示 */
+    noMoreHint: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
+    /** Debug */
+    debug: PropTypes.bool,
+  };
   static defaultProps = defaultProps;
   holder: React.RefObject<HTMLDivElement>;
   list: React.RefObject<HTMLDivElement>;
