@@ -1,0 +1,33 @@
+import { Canvas, Meta, ArgTypes } from '@storybook/blocks';
+
+import * as TooltipStories from './Tooltip.stories.tsx';
+
+<Meta of={TooltipStories} />
+
+# Tooltip
+文字提示气泡框。
+
+## 使用方式
+
+鼠标移入显示提示，移出消失，气泡浮层不承载复杂文本和操作。
+
+用来替换默认 `title` 提示，提供解释文案。
+## 基本用法
+
+### 文本提示
+
+给文本提供说明文案。
+ <Canvas of={TooltipStories.Basic}/>
+ ### 提示方向
+
+- 可以指定提示展示的方向；
+- 如果不指定，默认是朝上 `top` 展示；
+- 不指定方向，根据 tooltip 在浏览器中的位置，在初次渲染时会调整展示方向，避免提示信息超出窗口，同时可能方便用户查看提示信息。
+<Canvas of={TooltipStories.Placement}/>
+
+### 图标提示
+部分场景布局紧凑，无法完全展示信息内容，这时可以配合图标给出提示文案。默认是`提示 info`图标。
+<Canvas of={TooltipStories.icon}/>
+
+## API
+<ArgTypes />

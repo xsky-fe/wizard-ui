@@ -1,0 +1,29 @@
+import { Canvas, Meta, ArgTypes } from '@storybook/blocks';
+
+import * as IconStories from './Icon.stories.tsx';
+
+<Meta of={IconStories} />
+
+# Icon
+wizard-ui 内部维护的 [wizard-ui-icons](https://github.xsky.com/front-end/wizard-ui-icon) 图标库, 直观展示某个资源或者某种状态。
+## 使用场景
+
+
+## 代码演示
+
+### 常规
+<Canvas of={IconStories.Basic}/>
+### 颜色
+通过color设置
+<Canvas of={IconStories.Color}/>
+### 默认继承外部字体大小
+默认继承父级字体大小和颜色。
+<Canvas of={IconStories.inheritColorSize}/>
+### 交互
+添加 cursor 属性，实现鼠标 hover 和 active 交互效果，padding 大小为 6px;
+<Canvas of={IconStories.Cursor}/>
+## 所有图标
+<Canvas of={IconStories.allIcons}/>
+
+## API
+<ArgTypes />

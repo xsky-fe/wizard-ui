@@ -60,25 +60,42 @@ export interface BadgeProps {
 }
 
 export interface IconProps {
+  /**图标类型 */
   type: string;
+  /**颜色 */
   color?: string;
+  /**类名 */
   className?: string;
+  /**点击图标的回调 */
   onClick?: React.MouseEventHandler;
+  /**样式 */
   style?: object;
+  /**图标交互 */
   cursor?: boolean;
+  /**大小 */
   size?: number | string;
 }
 
 export interface TooltipProps {
+  /**给图标传入的其他 class； */
   iconClass?: string;
+  /**icon的type,用于图标提示 */
   icon?: string;
+  /**设置图标的垂直对齐方式，具体参见 vertical-align 的可选值； */
   iconAlign?: string;
+  /**图标点击的回调 */
   onClick?: any;
+  /**选定的元素 */
   label?: React.ReactNode;
+  /**提示框的颜色 */
   contrast?: boolean;
+  /**样式 */
   style?: React.CSSProperties;
+  /**提示框的位置，可选'top'，'right'，'bottom'，'left'。 若不传入这一属性，会根据 OverlayTrigger 的位置，自适应选取提示框的位置； */
   placement?: string;
+  /**提示框的内容，子节点 */
   children: React.ReactNode;
+  /**类名 */
   className?: string;
 }
 
@@ -129,8 +146,11 @@ export interface UsageBarProps {
 }
 
 export interface LoaderProps {
+  /**大小 */
   bsSize?: string;
+  /**颜色,可以设置为primary */
   bsStyle?: string;
+  /**子元素 */
   children?: React.ReactNode;
 }
 
@@ -308,11 +328,15 @@ export interface NavigationGroup {
 }
 
 export interface NavigationProps {
+  /**导航栏渲染数据 */
   navGroups: {
     [key: string]: NavigationGroup;
   };
+  /**是否折叠 */
   toggled?: boolean;
+  /**Logo子元素标签文本 */
   logo?: React.ReactNode | string;
+  /**默认展开项 */
   expandedKeys?: string[];
 }
 

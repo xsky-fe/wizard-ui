@@ -12,7 +12,7 @@ const Button = (props: ButtonProps) => (
 );
 
 const meta: Meta<typeof Popover> = {
-  title: 'Popover',
+  title: 'DATA DISPLAY/Popover',
   component: Popover,
 };
 
