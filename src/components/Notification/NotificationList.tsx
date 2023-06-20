@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import Notification from './index';
 import cn from 'classnames';
 import Icon from '../Icon';
@@ -11,14 +11,14 @@ export default class NotificationList extends PureComponent<
   NotificationListProps,
   NotificationListStates
 > {
-  // static propTypes = {
-  //   /** 操作移除单个通知栏 */
-  //   onDismiss: PropTypes.func,
-  //   /** 统一格式化通知栏目的数据 */
-  //   format: PropTypes.func,
-  //   /** 是否开启自动关闭 */
-  //   autoClose: PropTypes.bool,
-  // };
+  static propTypes = {
+    /** 操作移除单个通知栏 */
+    onDismiss: PropTypes.func,
+    /** 统一格式化通知栏目的数据 */
+    format: PropTypes.func,
+    /** 是否开启自动关闭 */
+    autoClose: PropTypes.bool,
+  };
   constructor(props: NotificationListProps) {
     super(props);
     this.handleToggle = this.handleToggle.bind(this);

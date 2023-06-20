@@ -8,6 +8,13 @@ import { get, isEmpty, concat } from 'lodash';
 const meta: Meta = {
   title: 'DATA SHOW/VirtualSelectBox',
   component: VirtualSelectBox,
+  decorators: [
+    Story => (
+      <div style={{marginBottom:80}}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export default meta;
@@ -121,5 +128,5 @@ export const AsyncDatasWithClear: Story = {
 };
 
 export const MultiWithAsyncDatas: Story = {
-  render: props => <AsyncWithES multi/>
+  render: props => <AsyncWithES multi />,
 };

@@ -1,0 +1,27 @@
+import { Canvas, Meta,ArgTypes } from '@storybook/blocks';
+
+import * as PanelStories from '../Panel.stories.tsx';
+
+<Meta of={PanelStories} />
+
+# Panel
+<em><strong>(react-bootstrap扩展组件)</strong></em>
+<p>2023-6-19 [hanchuyou](https://github.xsky.com/han-chuyou)</p>
+
+将 Panel 用在元素上，增强文案显示。
+## 基本用法
+### 常规
+
+<Canvas of={PanelStories.Basic}/>
+
+### 大小
+面板可以设置为三种大小:默认、sm、xs
+<Canvas of={PanelStories.Size}/>
+
+### 带折叠
+<Canvas of={PanelStories.Collapse}/>
+
+### 卡片组
+<Canvas of={PanelStories.Group}/>
+
+<ArgTypes/>

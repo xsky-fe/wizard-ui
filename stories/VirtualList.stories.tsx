@@ -8,7 +8,9 @@ const meta: Meta = {
   component: VirtualList,
   argTypes:{
     rowRenderer: {
-      type: 'function'
+      table:{
+        type: {summary: 'function'}
+      }
     }
   }
 };

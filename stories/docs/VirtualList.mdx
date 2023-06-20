@@ -1,0 +1,26 @@
+import { Canvas, Meta, ArgTypes } from '@storybook/blocks';
+
+import * as VirtualListStories from '../VirtualList.stories.tsx';
+
+<Meta of={VirtualListStories} />
+
+# VirtualList
+<em><strong>(wizard-ui自定义组件)</strong></em>
+<p>2023-6-14 [chensheng](https://github.xsky.com/chen-sheng)</p>
+  当一个资源数据量很大时，一次加载数据会导致浏览器页面卡顿甚至崩溃，VirtualList 支持根据鼠标滚动加载数据，同时销毁超出数据的 `DOM` 结构，保证页面的流畅性。
+
+## 基本用法
+- `rowRenderer` 对列表中每行元素进行渲染，可做到动态布局（每列不等高时重新计算并重新渲染）;
+- `data` 指要渲染资源数据，可结合 `onQueryChange` 做异步加载
+### 空数组
+<Canvas of={VirtualListStories.EmptyData} />
+
+### 加载新数据
+真实场景中鼠标滚动，页面下滑过程中会加载新的数据。
+<Canvas of={VirtualListStories.AsyncEqualHeight} />
+
+### 随机高度
+<Canvas of={VirtualListStories.AsyncDynamicHeight} />
+
+## API
+<ArgTypes />

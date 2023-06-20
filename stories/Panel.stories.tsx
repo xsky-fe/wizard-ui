@@ -11,6 +11,12 @@ const meta: Meta<typeof Panel> = {
     children: {
       type: { required: true } as any,
     },
+    header: {
+      table: {
+        type: { summary: 'ReactNode' },
+      },
+      description: '面板头部内容',
+    },
   },
 };
 

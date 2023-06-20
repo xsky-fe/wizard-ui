@@ -1,0 +1,31 @@
+import { Canvas, Meta,ArgTypes } from '@storybook/blocks';
+import * as TabsStories from '../Tabs.stories.tsx';
+
+<Meta of={TabsStories} />
+
+# Tabs
+<em><strong>(react-bootstrap扩展组件)</strong></em>
+<p>2023-6-19 [hanchuyou](https://github.xsky.com/han-chuyou)</p>
+
+在一组内容之间快速切换。
+
+## 基本用法
+
+### 默认展示
+选项卡样式分为两种
+#### 默认
+<Canvas of={TabsStories.Basic}/>
+#### Secondary
+<Canvas of={TabsStories.Secondary}/>
+
+### 大小
+选项卡大小可以设置为small
+<Canvas of={TabsStories.Small}/>
+
+### 选项卡靠右
+<Canvas of={TabsStories.Right}/>
+
+###  选项数量大于limitNum时
+<Canvas of={TabsStories.ItemOverLimitNum}/>
+
+<ArgTypes/>

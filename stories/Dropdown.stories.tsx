@@ -5,24 +5,31 @@ import { Dropdown } from '../src';
 const meta: Meta = {
   title: 'COMPONENTS/Dropdown',
   component: Dropdown,
+  decorators: [
+    Story => (
+      <div style={{marginBottom:50}}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export default meta;
 
 type Story = StoryObj;
 
-const CustomToggler: React.FC<{ onClick: (e: React.MouseEvent<HTMLAnchorElement>) => void }> = props => (
+const CustomToggler: React.FC<{
+  onClick: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+}> = props => (
   <a
     onClick={e => {
       e.preventDefault();
       props.onClick(e);
     }}
   >
-    点我
-    &#x25bc;
+    点我 &#x25bc;
   </a>
 );
-
 
 export const Basic: Story = {
   args: {

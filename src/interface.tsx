@@ -123,25 +123,45 @@ interface UsageBarSerie {
 }
 
 export interface UsageBarProps {
+  /**最大量 */
   max?: number;
+  /**当前量 */
   now?: number;
+  /**百分比 */
   percent?: number;
+  /**不可用数据量 */
   unavailableData?: number;
+  /**数字以字节（B, KB, MB, GB...）为单位展示 */
   isByte?: boolean;
+  /**数字以百分比为单位展示 */
   isPercent?: boolean;
+  /**数字以数量（万, 亿, 兆, 京...）为单位展示 */
   isBulk?: boolean;
+  /**左边数值百分比展示 */
   withPercent?: boolean;
+  /**设置组件行内展示，width 为 120px */
   inline?: boolean;
+  /**是否隐藏 now 的展示 */
   hideNow?: boolean;
+  /**是否隐藏 right 的展示 */
   hideRight?: boolean;
+  /**当 max 为 0 时，展示为 0+单位 或者无限制 */
   showZeroMax?: boolean;
+  /**带有不可用数据量 */
   withUnavailable?: boolean;
+  /**是否排除告警（黄色）状态，排除后按常态展示 */
   isExcludeWarning?: boolean;
+  /**水位线 */
   waterLine?: number;
+  /**是否隐藏 footer 的展示 */
   isHideFooter?: boolean;
+  /**footer的额外信息 */
   extraFooterInfo?: string;
+  /**格式化输出，可选[decimal|binary] */
   formatType?: string;
+  /**2段以上 processbar 的数据集，该模式下支持（isPercent，isByte，isBulk，inline，withLenged）等属性 */
   series?: Array<UsageBarSerie>;
+  /**series 模式下是否显示图例 */
   withLenged?: boolean;
 }
 
@@ -277,8 +297,11 @@ export interface TreeProps extends RCTreeProps {
 }
 
 export interface SubMenuProps {
+  /**级联节点添加 data-name */
   name?: string;
+  /**文本标题 */
   title?: string;
+  /**子元素 */
   children: React.ReactNode;
 }
 

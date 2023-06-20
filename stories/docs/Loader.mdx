@@ -1,0 +1,24 @@
+import { Canvas, Meta, ArgTypes } from '@storybook/blocks';
+
+import * as LoaderStories from '../Loader.stories.tsx';
+
+<Meta of={LoaderStories} />
+
+# Loader
+<em><strong>(wizard-ui自定义组件)</strong></em>
+<p>2023-6-19 [hanchuyou](https://github.xsky.com/han-chuyou)</p>
+
+用于页面和区块的加载中状态。
+
+## 基本用法
+
+### 默认展示
+<Canvas of={LoaderStories.Basic}/>
+### 改变颜色
+<Canvas of={LoaderStories.Primary}/>
+### 改变大小
+<Canvas of={LoaderStories.Size}/>
+
+
+## API
+<ArgTypes />
