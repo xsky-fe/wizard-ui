@@ -14,6 +14,6 @@ type Story = StoryObj<typeof Switch>;
 export const Basic: Story = {
   render: props => {
     const [value, updateValue] = React.useState(false);
-    return <Switch {...props} checked={!!value} onChange={() => updateValue(!value)} />;
+    return <Switch checked={!!value} onChange={() => updateValue(!value)} {...props} />;
   },
 };

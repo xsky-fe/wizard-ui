@@ -14,6 +14,12 @@ const Button = (props: ButtonProps) => (
 const meta: Meta<typeof Popover> = {
   title: 'DATA DISPLAY/Popover',
   component: Popover,
+  argTypes: {
+    trigger: {
+      control: 'check',
+      options: ['hover','click','focus']
+    }
+  }
 };
 
 export default meta;

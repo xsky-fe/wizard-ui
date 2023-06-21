@@ -6,6 +6,15 @@ import { ModalProps } from '../src/interface';
 const meta: Meta<typeof Modal> = {
   title: 'DATA SHOW/Modal',
   component: Modal,
+  argTypes: {
+    centered: {
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+      description: '是否应垂直居中',
+    },
+  },
 };
 
 const ModalPicker = (props?: Partial<ModalProps>) => {
@@ -36,11 +45,11 @@ export default meta;
 type Story = StoryObj<typeof Modal>;
 
 export const Basic: Story = {
-  render: (props) => <ModalPicker/>,
+  render: props => <ModalPicker {...props} />,
 };
 
 export const Size: Story = {
-  render: (props) => (
+  render: props => (
     <>
       <ModalPicker size="sm" />
       <br />
@@ -50,13 +59,13 @@ export const Size: Story = {
       <br />
       <ModalPicker size="xl" />
     </>
-  )
+  ),
 };
 
 export const Center: Story = {
-  render: (props) => <ModalPicker centered/>,
+  render: props => <ModalPicker centered {...props} />,
 };
 
 export const HideFooter: Story = {
-  render: (props) => <ModalPicker hideFooter/>,
+  render: props => <ModalPicker hideFooter />,
 };

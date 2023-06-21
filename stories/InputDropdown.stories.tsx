@@ -36,6 +36,7 @@ export const Basic: Story = {
               { title: 'GB', value: 'GB' },
               { title: 'TB', value: 'TB' },
             ]}
+            {...props}
           />
         </InputGroup>
       </div>

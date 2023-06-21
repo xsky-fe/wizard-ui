@@ -50,18 +50,19 @@ const Demo = ({ size }: { size: 'sm' | 'lg' }) => {
 };
 
 export const Basic: Story = {
-  render: props => (
+  render: (props:any) => (
     <BsPagination
-      prev={false}
-      next={true}
-      first={false}
-      last={false}
-      maxButtons={6}
-      items={6}
-      activePage={1}
-      onSelectChange={() => {}}
-      size="sm"
-      className="Table__pagination-pagination"
+    prev={false}
+    next={true}
+    first={false}
+    last={false}
+    maxButtons={6}
+    items={6}
+    activePage={1}
+    onSelectChange={() => {}}
+    size="sm"
+    className="Table__pagination-pagination"
+    {...props}
     />
   ),
 };

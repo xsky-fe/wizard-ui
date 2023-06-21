@@ -22,6 +22,7 @@ const meta: Meta = {
         },
         defaultValue: { summary: 'default' },
       },
+      control: 'text'
     },
     as: {
       description: '元素类型',
@@ -91,6 +92,7 @@ export const Basic: Story = {
         { key: 'menu2', title: '操作-2', children: ['操作-2-1', '操作-2-2'] },
         '操作-3',
       ]}
+      {...props}
     />
   ),
 };
