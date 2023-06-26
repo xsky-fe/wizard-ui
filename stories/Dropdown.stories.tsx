@@ -7,7 +7,7 @@ const meta: Meta = {
   component: Dropdown,
   decorators: [
     Story => (
-      <div style={{marginBottom:50}}>
+      <div style={{ marginBottom: 50 }}>
         <Story />
       </div>
     ),
@@ -18,9 +18,7 @@ export default meta;
 
 type Story = StoryObj;
 
-const CustomToggler: React.FC<{
-  onClick: (e: React.MouseEvent<HTMLAnchorElement>) => void;
-}> = props => (
+const CustomToggler = (props: any) => (
   <a
     onClick={e => {
       e.preventDefault();
@@ -43,6 +41,30 @@ export const Basic: Story = {
 };
 
 export const CustomToggle: Story = {
+  parameters: {
+    docs: {
+      source: {
+        code: `<Dropdown
+       customToggle
+       title={(props) => (
+        <a
+          onClick={e => {
+            e.preventDefault();
+            props.onClick(e);
+          }}
+        >
+          点我 &#x25bc;
+        </a>
+      )}
+       children={
+        <div style={{ padding: '5px 10px' }} id="dropdown">
+          内容
+        </div>
+       }
+     />`,
+      },
+    },
+  },
   render: props => (
     <Dropdown
       customToggle

@@ -6,13 +6,13 @@ import AsyncVirtualList, { rowRenderer } from './demos/AsyncVirtualList';
 const meta: Meta = {
   title: 'DATA SHOW/VirtualList',
   component: VirtualList,
-  argTypes:{
+  argTypes: {
     rowRenderer: {
-      table:{
-        type: {summary: 'function'}
-      }
-    }
-  }
+      table: {
+        type: { summary: 'function' },
+      },
+    },
+  },
 };
 
 export default meta;
@@ -35,5 +35,5 @@ export const AsyncEqualHeight: Story = {
 };
 
 export const AsyncDynamicHeight: Story = {
-  render: props => <AsyncVirtualList random/>,
+  render: props => <AsyncVirtualList random />,
 };
