@@ -118,6 +118,14 @@
 .Switch__loading * {
   cursor: not-allowed !important
 }
+.Switch:not(.Switch__disabled):not(.Switch__loading) {
+  &>span {
+    cursor: pointer;
+    &>span {
+      cursor: pointer !important; // 替换自带的 grap 样式
+    }
+  }
+}
 
 @keyframes loading-animation {
   0% {
