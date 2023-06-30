@@ -1,19 +1,198 @@
-.Switch {
-  & > span {
-    height: 18px !important;
-    width: 38px !important;
-    top: 7px;
-    margin-bottom: 4px;
-    & > span {
-      width: 16px !important;
-      height: 16px !important;
+@import '../../style/variables.scss';
+
+/* size */
+.Switch__lg {
+  &>span {
+    border: none !important;
+    height: 16px !important;
+    width: 32px !important;
+    box-shadow: none !important;
+    &>span {
+      width: 12px !important;
+      height: 12px !important;
+      top: 2px !important;
+      box-shadow: $shadow-switch !important;
+    }
+  }
+  &.Switch__unchecked>span >span {
+    left: 2px !important;
+  }
+  &.Switch__checked>span >span {
+    left: 18px !important;
+  }
+}
+.Switch__sm {
+  &>span {
+    height: 10px !important;
+    width: 16px !important;
+    box-shadow: none !important;
+
+    &>span {
+      width: 8px !important;
+      height: 8px !important;
+      box-shadow: $shadow-switch !important;
+    }
+  }
+  &.Switch__unchecked>span >span {
+    left: 0 !important;
+  }
+  &.Switch__checked>span >span {
+    left: 6px !important;
+  }
+}
+
+/* status */
+.Switch__default {
+  &.Switch__unchecked {
+    &>span {
+      background-color: $grey-6 !important;
+    }
+    &:not(.Switch__disabled):not(.Switch__loading)>span {
+      &:hover {
+        background-color: $grey-5 !important;
+      }
+      &:active {
+        background-color: $grey-7 !important;
+      }
+    }
+    &.Switch__loading>span>span::before  {
+      border: 1px solid $grey-6;
+      border-color: $grey-6 transparent transparent transparent;
+    }
+  }
+
+  &.Switch__checked {
+    &>span {
+      background-color: $green-6 !important;
+    }
+    &:not(.Switch__disabled):not(.Switch__loading)>span {
+      &:hover {
+        background-color: $success-hover !important;
+      }
+      &:active {
+        background-color: $success-click !important;
+      }
+    }
+    &.Switch__loading>span>span::before {
+      border: 1px solid $success-normal;
+      border-color: $success-normal transparent transparent transparent;
     }
   }
 }
 
-.Switch--inline {
+.Switch__inline {
   display: inline;
-  & > span {
+
+  &>span {
     margin-bottom: 0;
+  }
+}
+
+/* loading */
+.Switch__loading {
+  &.Switch__lg>span>span::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 1.5px;
+    left: 1.5px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    animation: loading-animation 1s linear infinite;
+  }
+  &.Switch__sm>span>span::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    animation: loading-animation 1s linear infinite;
+  }
+}
+
+.Switch__disabled *,
+.Switch__loading * {
+  cursor: not-allowed !important
+}
+.Switch:not(.Switch__disabled):not(.Switch__loading) {
+  &>span {
+    cursor: pointer;
+    &>span {
+      cursor: pointer !important; // 替换自带的 grap 样式
+    }
+  }
+}
+
+@keyframes loading-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 图表色 */
+$charts: $chart-1 $chart-1-bg $chart-1-hover $chart-1-bg-hover $chart-1-click $chart-1-bg-click,
+         $chart-2 $chart-2-bg $chart-2-hover $chart-2-bg-hover $chart-2-click $chart-2-bg-click,
+         $chart-3 $chart-3-bg $chart-3-hover $chart-3-bg-hover $chart-3-click $chart-3-bg-click,
+         $chart-4 $chart-4-bg $chart-4-hover $chart-4-bg-hover $chart-4-click $chart-4-bg-click,
+         $chart-5 $chart-5-bg $chart-5-hover $chart-5-bg-hover $chart-5-click $chart-5-bg-click,
+         $chart-6 $chart-6-bg $chart-6-hover $chart-6-bg-hover $chart-6-click $chart-6-bg-click,
+         $chart-7 $chart-7-bg $chart-7-hover $chart-7-bg-hover $chart-7-click $chart-7-bg-click,
+         $chart-8 $chart-8-bg $chart-8-hover $chart-8-bg-hover $chart-8-click $chart-8-bg-click,
+         $chart-9 $chart-9-bg $chart-9-hover $chart-9-bg-hover $chart-9-click $chart-9-bg-click,
+         $chart-10 $chart-10-bg $chart-10-hover $chart-10-bg-hover $chart-10-click $chart-10-bg-click,
+         $chart-11 $chart-11-bg $chart-11-hover $chart-11-bg-hover $chart-11-click $chart-11-bg-click;
+
+@for $i from 1 through 11 {
+  $chart: nth($charts, $i);
+
+  .Switch__#{$i} {
+    &.Switch__checked {
+      & > span {
+        border-color: nth($chart, 1) !important;
+        background-color: nth($chart, 2) !important;
+      }
+      &:not(.Switch__disabled):not(.Switch__loading)> span:hover {
+        border-color: nth($chart, 3) !important;
+        background-color: nth($chart, 4) !important;
+      }
+      &:not(.Switch__disabled):not(.Switch__loading)> span:active {
+        border-color: nth($chart, 5) !important;
+        background-color: nth($chart, 6) !important;
+      }
+      &.Switch__loading>span>span::before {
+        border: 1px solid nth($chart, 1);
+        border-color: nth($chart, 1) transparent transparent transparent;
+      }
+    }
+  }
+}
+.Switch__1,.Switch__2,.Switch__3, .Switch__4, .Switch__5, .Switch__6, .Switch__7, .Switch__8, .Switch__9, .Switch__10, .Switch__11 {
+  &.Switch__unchecked {
+    &>span {
+      border-color:$grey-7  !important;
+      background-color: $grey-5 !important;
+    }
+    &:not(.Switch__disabled):not(.Switch__loading)>span {
+      &:hover {
+        border-color: $grey-6 !important;
+        background-color: $grey-5 !important;
+      }
+      &:active {
+        border-color: $grey-8 !important;
+        background-color: $grey-6 !important;
+      }
+    }
+    &.Switch__loading>span>span::before  {
+      border: 1px solid $grey-7;
+      border-color: $grey-7 transparent transparent transparent;
+    }
   }
 }
