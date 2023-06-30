@@ -103,6 +103,12 @@ storiesOf('Components | DropdownButton', module)
             disabled: true,
             toolTip: { label: 'menu1', children: 'Not allow to operate', placement: 'top' },
           },
+          {
+            key: 'menu3',
+            title: 'menu3',
+            disabled: true,
+            toolTip: { children: 'Not allow to operate' },
+          },
         ]}
       />
     </div>
