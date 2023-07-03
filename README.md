@@ -71,7 +71,16 @@ import { Icon } from 'wizard-ui/esm';
 export default () => <Icon type="os-search-role-fill" />
 ```
 
-## Pubish
+### Storybook
+
+```
+//启动
+npm run storybook / yarn storybook
+//打包
+npm run build-storybook / yarn build-storybook
+```
+
+## Publish
 
 ```
 npm publish --registry=https://registry.npmjs.org/
