@@ -255,8 +255,12 @@ export interface SwitchProps {
   disabled?: boolean;
   /**指定当前是否选中 */
   checked?: boolean;
+  /**加载中 */
+  loading?: boolean;
   /**	值变化时候的回调函数 */
   onChange?: any;
+  colorIndex?: number | string;
+  size?: string;
 }
 
 export interface TimePickerProps {

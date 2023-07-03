@@ -80,7 +80,7 @@ function renderMenu(
   return (
     <Dropdown.Item {...menuProps} onSelect={handleItemSelect}>
       {item.toolTip ? (
-        <Tooltip {...item.toolTip} placement={item.toolTip.placement || 'right'}>
+        <Tooltip {...item.toolTip} label={item?.toolTip?.label || item.title} placement={item?.toolTip?.placement || 'right'}>
           {item.toolTip.children}
         </Tooltip>
       ) : (
