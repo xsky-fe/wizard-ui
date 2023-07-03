@@ -1,6 +1,5 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import { SwitchProps } from '../src/interface';
 import { Switch } from '../src';
 
 const meta: Meta<typeof Switch> = {
@@ -19,8 +18,24 @@ export const Basic: Story = {
   },
 };
 
-export const Legend:Story ={
-  render: () => {
+export const Status: Story = {
+  render: props => {
+    const [value, updateValue] = React.useState(false);
+    return (
+      <>
+        <span style={{ marginRight: 10, marginTop: -2 }}>Normal</span>
+        <Switch checked={!!value} onChange={() => updateValue(!value)} {...props} />
+        <span style={{ marginRight: 10, marginTop: -2 }}>Disabled</span>
+        <Switch disabled checked={!!value} onChange={() => updateValue(!value)} {...props} />
+        <span style={{ marginRight: 10, marginTop: -2 }}>Loading</span>
+        <Switch loading checked={!!value} onChange={() => updateValue(!value)} {...props} />
+      </>
+    );
+  },
+};
+
+export const Legend: Story = {
+  render: props => {
     function generateSwitches() {
       const switches: any = [];
       for (let colorIndex = 1; colorIndex <= 11; colorIndex++) {
@@ -36,8 +51,8 @@ export const Legend:Story ={
         Normal:
         {generateSwitches()}
         disabled:
-        <Switch checked={false} disabled colorIndex={1} size="sm" />,
+        <Switch checked={false} disabled colorIndex={1} size="sm" />
       </>
     );
-  }
-}
+  },
+};

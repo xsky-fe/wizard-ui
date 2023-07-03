@@ -259,7 +259,9 @@ export interface SwitchProps {
   loading?: boolean;
   /**	值变化时候的回调函数 */
   onChange?: any;
+  /**颜色序号 */
   colorIndex?: number | string;
+  /**开关大小,lg:大，sm:小 */
   size?: string;
 }
 
