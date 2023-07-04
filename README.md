@@ -73,11 +73,15 @@ export default () => <Icon type="os-search-role-fill" />
 
 ### Storybook
 
+- nvm
+- node@v16.15.0
+
 ```
-//启动
-npm run storybook / yarn storybook
-//打包
-npm run build-storybook / yarn build-storybook
+# run storybook dev
+npm run storybook
+
+# build storybook dist
+npm run build-storybook 
 ```
 
 ## Publish
@@ -85,3 +89,6 @@ npm run build-storybook / yarn build-storybook
 ```
 npm publish --registry=https://registry.npmjs.org/
 ```
+
+## TODO
+- [ ] remove node-sass, add sass
