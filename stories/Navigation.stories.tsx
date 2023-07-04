@@ -1,70 +1,75 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { Button, Icon, Navigation } from '../src';
 
-storiesOf('Navigation', module)
-  .add('default', () => {
-    const navs = {
-      overview: {
-        title: '概览',
-        icon: 'overview-line',
-      },
-      nav1: {
-        title: '导航栏一',
-        children: [
-          {
-            title: '选项一',
-            icon: 'volume-line',
-          },
-          {
-            title: '选项二',
-            icon: 'consistency-group-line',
-          },
-          {
-            title: '选项三',
-            icon: 'access-target-line',
-          },
-        ],
-      },
-      nav2: {
-        title: '导航栏二',
-        children: [
-          {
-            title: '选项一',
-            icon: 'file-user',
-          },
-          {
-            title: '选项二',
-            icon: 'fs-client',
-          },
-        ],
-      },
-    };
-    return (
-      <div style={{ width: '200px', backgroundColor: '#2d3454' }}>
-        <Navigation navGroups={navs} />
-      </div>
-    );
-  })
-  .add('toggled', () => {
-    const navs = {
-      overview: {
-        title: '概览',
-        icon: 'overview-line',
-      },
-      nav1: {
+const navs = {
+  overview: {
+    title: '概览',
+    icon: 'overview-line',
+  },
+  nav1: {
+    title: '导航栏一',
+    children: [
+      {
         title: '选项一',
         icon: 'volume-line',
       },
-      nav2: {
+      {
         title: '选项二',
         icon: 'consistency-group-line',
       },
-      nav3: {
+      {
         title: '选项三',
         icon: 'access-target-line',
       },
-    };
+    ],
+  },
+  nav2: {
+    title: '导航栏二',
+    children: [
+      {
+        title: '选项一',
+        icon: 'file-user',
+      },
+      {
+        title: '选项二',
+        icon: 'fs-client',
+      },
+    ],
+  },
+};
+
+const meta: Meta<typeof Navigation> = {
+  title: 'OTHERS/Navigation',
+  component: Navigation as any,
+  argTypes: {
+    navGroups: {
+      table: {
+        type: { summary: 'object' },
+      },
+    },
+  },
+};
+
+export default meta;
+
+type Story = StoryObj<typeof Navigation>;
+
+export const Basic: Story = {
+  args: {
+    navGroups: navs,
+  },
+  decorators: [
+    Story => (
+      <div style={{ width: '200px', backgroundColor: '#2d3454' }}>
+        <Story />
+      </div>
+    ),
+  ],
+};
+
+export const Toggled: Story = {
+  render: props => {
     const [toggle, setToggle] = React.useState(true);
     const handleClick = () => setToggle(!toggle);
     return (
@@ -77,4 +82,5 @@ storiesOf('Navigation', module)
         </div>
       </div>
     );
-  });
+  },
+};

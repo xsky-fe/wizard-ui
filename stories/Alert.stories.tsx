@@ -1,47 +1,62 @@
+import { Meta, StoryObj } from '@storybook/react';
+import { Alert } from '../src';
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { Alert as BsAlert } from '../src';
-import { AlertProps } from '../src/interface';
 
-const STATUS = ['warning', 'info', 'error'];
-const Alert = (props: Partial<AlertProps>) => {
-  return (
-    <>
-      {STATUS.map(variant => (
-        <BsAlert bsStyle={variant as AlertProps['bsStyle']} {...props}>
-          This is a {variant} alert!
-        </BsAlert>
-      ))}
-    </>
-  );
+type Story = StoryObj<typeof Alert>;
+
+const meta: Meta<typeof Alert> = {
+  title: 'DATA SHOW/Alert',
+  component: Alert,
+  args: {
+    bsStyle: 'info',
+    children: '警告',
+    onDismiss: undefined,
+  },
+  argTypes: {
+    bsStyle: {
+      control: 'radio',
+      options: ['warning', 'info', 'error'],
+    },
+    dismissDirection: {
+      control: 'radio',
+      options: ['up', 'right', 'down', 'left'],
+    },
+    children: { type: { required: true } as any },
+  },
 };
 
-storiesOf('DATA SHOW | Alert', module)
-  .add('default', () => <Alert />)
-  .add('icon', () => <Alert showIcon />)
-  .add('align', () => (
+export const Basic: Story = {};
+
+export const Variant: Story = {
+  render: (props) => (
     <>
-      <p>
-        <h3>left</h3>
-        <Alert textAlign="left" showIcon />
-      </p>
-      <p>
-        <h3>center</h3>
-        <Alert textAlign="center" showIcon />
-      </p>
-      <p>
-        <h3>inline</h3>
-        <Alert textAlign="inline" showIcon />
-      </p>
-    </>
-  ))
-  .add('operation', () => (
-    <>
-      <Alert bsStyle="warning" showIcon dismissDirection="right" onDismiss={() => {}}>
-        This is a warning alert with close and click!
-        <a href="#" style={{ paddingLeft: 8 }}>
-          click here
-        </a>
+      <Alert bsStyle="info" showIcon>
+        这里是 info 级别
+      </Alert>
+      <Alert bsStyle="warning" showIcon>
+        这里是 warning 级别
+      </Alert>
+      <Alert bsStyle="error" showIcon>
+        这里是 error 级别
       </Alert>
     </>
-  ));
+  ),
+};
+
+export const Info: Story = {
+  args: { bsStyle: 'info', showIcon: true },
+};
+
+export const Center: Story = {
+  args: { textAlign: 'center', showIcon: true },
+};
+
+export const Inline: Story = {
+  args: { textAlign: 'inline', showIcon: true },
+};
+
+export const Operation: Story = {
+  args: { onDismiss: () => {} },
+};
+
+export default meta;

@@ -1,9 +1,17 @@
 import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 import { Col, Form, Row } from 'react-bootstrap';
-import { storiesOf } from '@storybook/react';
 
-storiesOf('Form | Radio', module)
-  .add('inline', () => (
+const meta: Meta = {
+  title: 'FORM/Radio',
+};
+
+export default meta;
+
+type Story = StoryObj;
+
+export const Basic: Story = {
+  render: props => (
     <Form>
       <Form.Group as={Row}>
         <Form.Label column xs="auto">
@@ -22,8 +30,11 @@ storiesOf('Form | Radio', module)
         </Col>
       </Form.Group>
     </Form>
-  ))
-  .add('with help text', () => (
+  ),
+};
+
+export const WithHelpText: Story = {
+  render: props => (
     <Form>
       <Form.Group as={Row}>
         <Form.Label column xs="auto">
@@ -45,4 +56,6 @@ storiesOf('Form | Radio', module)
         </Col>
       </Form.Group>
     </Form>
-  ));
+  ),
+};
+

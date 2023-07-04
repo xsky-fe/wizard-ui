@@ -1,9 +1,32 @@
-import * as React from 'react';
-import { storiesOf } from '@storybook/react';
+import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 import { DatePicker } from '../src';
 import moment, { Moment } from 'moment';
 
-// 今天以后的 disable
+const meta: Meta<typeof DatePicker> = {
+  title: 'DATA ENTRY/DatePicker',
+  component: DatePicker,
+  decorators:[
+    Story => (
+      <div style={{ height:360 }}>
+        <Story />
+      </div>
+    ),
+  ],
+  argTypes:{
+    showTime:{
+      description:'是否显示时间',
+      table:{
+        type:{summary:'boolean'}
+      }
+    }
+  }
+};
+
+export default meta;
+
+type Story = StoryObj<typeof DatePicker>;
+
 function disabledDate(val: Moment | undefined) {
   if (!val) {
     return false;
@@ -12,14 +35,20 @@ function disabledDate(val: Moment | undefined) {
   return val.diff(today, 'seconds') > 0;
 }
 
-storiesOf('DATA ENTRY | DatePicker', module)
-  .add('default', () => (
-    <DatePicker placeholder="请选择时间"/>
-  ))
-  .add('default value', () => (
-    <DatePicker defaultValue="2019-08-13 12:02:53" />
-  ))
-  .add('get time', () => React.createElement(() => {
+export const Basic: Story = {
+  args: {
+    placeholder: '请选择时间',
+  },
+};
+
+export const DefaultValue: Story = {
+  args: {
+    defaultValue: '2019-08-13 12:02:53',
+  },
+};
+
+export const GetTime: Story = {
+  render: props => {
     const [value, setValue] = React.useState();
     const getTime = (val: string) => setValue(val as any);
     return (
@@ -27,23 +56,31 @@ storiesOf('DATA ENTRY | DatePicker', module)
         <p>change 值时获取时间：{value}</p>
         <DatePicker getTime={getTime} placeholder="请选择时间" />
       </>
-    )
-  }))
-  .add('disable', () => (
-    <DatePicker disabled />
-  ))
-  .add('en', () => (
-    <DatePicker lang="en" placeholder="Please select time"/>
-  ))
-  .add('disable date', () => (
-    <>
-      <h3>今天之后的 disable</h3>
-      <DatePicker disabledDate={disabledDate} />
-    </>
-  ))
-  .add('no time select', () => (
-    <>
-      <h3>只选择日期</h3>
-      <DatePicker showTime={false}/>
-    </>
-  ))
+    );
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+  },
+};
+
+export const en: Story = {
+  args: {
+    lang: 'en',
+    placeholder: 'Please select time',
+  },
+};
+
+export const DisabledDate: Story = {
+  args: {
+    disabledDate,
+  },
+};
+
+export const NoTimeSelect: Story = {
+  args: {
+    showTime: false,
+  },
+};

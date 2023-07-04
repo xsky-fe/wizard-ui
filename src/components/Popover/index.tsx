@@ -84,10 +84,6 @@ const Popover: React.FC<PopoverProps> = props => {
   );
 };
 
-Popover.defaultProps = {
-  trigger: 'hover',
-};
-
 Popover.propTypes = {
   /**
    * 触发动作，字符串或数组，默认为‘hover’；
@@ -111,6 +107,10 @@ Popover.propTypes = {
    * 是否点击外部区域关闭popover；
    **/
   rootClose: PropTypes.bool,
+};
+
+Popover.defaultProps = {
+  trigger: 'hover',
 };
 
 export default Popover;

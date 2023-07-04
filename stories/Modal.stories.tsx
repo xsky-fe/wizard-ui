@@ -1,8 +1,21 @@
-import * as React from 'react';
-import { storiesOf } from '@storybook/react';
+import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 import { Button, Modal, DatePicker } from '../src';
 import { ModalProps } from '../src/interface';
-import { Form } from 'react-bootstrap';
+
+const meta: Meta<typeof Modal> = {
+  title: 'DATA SHOW/Modal',
+  component: Modal,
+  argTypes: {
+    centered: {
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+      description: '是否应垂直居中',
+    },
+  },
+};
 
 const ModalPicker = (props?: Partial<ModalProps>) => {
   const [show, setShow] = React.useState(false);
@@ -27,34 +40,32 @@ const ModalPicker = (props?: Partial<ModalProps>) => {
   );
 };
 
-const ModalSizePicker = () => {
-  const SIZES = [['sm', '小'], ['', '中'], ['lg', '大'], ['xl', '最大']];
-  const [size, setSize] = React.useState('lg');
-  return (
-    <div>
-      <div>
-        {SIZES.map(([val, text]) => (
-          <Form.Check
-            inline
-            name="size"
-            type="radio"
-            id={text}
-            label={text}
-            value={val}
-            onClick={() => {
-              if (val !== size) {
-                setSize(val);
-              }
-            }}
-          />
-        ))}
-      </div>
-      <ModalPicker size={size as ModalProps['size']} />
-    </div>
-  );
+export default meta;
+
+type Story = StoryObj<typeof Modal>;
+
+export const Basic: Story = {
+  render: props => <ModalPicker {...props} />,
 };
-storiesOf('DATA SHOW | Modal', module)
-  .add('default', () => <ModalPicker />)
-  .add('size', () => <ModalSizePicker />)
-  .add('center', () => <ModalPicker centered />)
-  .add('hide footer', () => <ModalPicker hideFooter />);
+
+export const Size: Story = {
+  render: props => (
+    <>
+      <ModalPicker size="sm" />
+      <br />
+      <ModalPicker />
+      <br />
+      <ModalPicker size="lg" />
+      <br />
+      <ModalPicker size="xl" />
+    </>
+  ),
+};
+
+export const Center: Story = {
+  render: props => <ModalPicker centered {...props} />,
+};
+
+export const HideFooter: Story = {
+  render: props => <ModalPicker hideFooter />,
+};

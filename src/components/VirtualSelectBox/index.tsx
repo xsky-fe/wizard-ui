@@ -375,7 +375,7 @@ class VirtualSelectBox<T> extends React.Component<
       <Dropdown>
         <Dropdown.Toggle variant="default">
           <span className="titleSpan">{title}</span>
-          {clear && !isEmpty(item) && <Icon type="close" onClick={this.clear} />}
+          {clear && !isEmpty(item) && <Icon type="close-line" onClick={this.clear} />}
         </Dropdown.Toggle>
       </Dropdown>
     );

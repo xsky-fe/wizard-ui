@@ -1,131 +1,116 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { Button } from '../src';
 import { Placement } from 'react-bootstrap/esm/types';
-import { ButtonToolbar } from 'react-bootstrap';
-import { DropdownButton, Icon } from '../src';
 
-storiesOf('DATA SHOW | Button', module)
-  .add('default', () => {
-    return (
-      <div style={{ margin: '10px' }}>
-        <Button style={{ marginLeft: '5px' }} variant="info">
-          button
-        </Button>
-        <Button style={{ marginLeft: '5px' }} variant="primary">
-          button
-        </Button>
-        <Button style={{ marginLeft: '5px' }} variant="danger">
-          button
-        </Button>
-        <Button style={{ marginLeft: '5px' }} variant="success">
-          button
-        </Button>
-        <Button style={{ marginLeft: '5px' }} variant="warning">
-          button
-        </Button>
-        <Button style={{ marginLeft: '5px' }} variant="link">
-          button
-        </Button>
-        <Button style={{ marginLeft: '5px' }} variant="default">
-          button
-        </Button>
-        <br />
-        <br />
-        <Button style={{ marginLeft: '5px' }} disabled variant="info">
-          button
-        </Button>
-        <Button style={{ marginLeft: '5px' }} disabled variant="primary">
-          button
-        </Button>
-        <Button style={{ marginLeft: '5px' }} disabled variant="danger">
-          button
-        </Button>
-        <Button style={{ marginLeft: '5px' }} disabled variant="success">
-          button
-        </Button>
-        <Button style={{ marginLeft: '5px' }} disabled variant="warning">
-          button
-        </Button>
-        <Button style={{ marginLeft: '5px' }} disabled variant="link">
-          button
-        </Button>
-        <Button style={{ marginLeft: '5px' }} disabled variant="default">
-          button
-        </Button>
-        <br />
-        <br />
-        <Button style={{ marginLeft: '5px' }} variant="default" size="lg">
-          button
-        </Button>
-        <Button style={{ marginLeft: '5px' }} variant="default">
-          button
-        </Button>
-        <Button style={{ marginLeft: '5px' }} variant="default" size="sm">
-          button
-        </Button>
-        <Button style={{ marginLeft: '5px' }} variant="default" size="xs">
-          button
-        </Button>
-        <br />
-        <br />
-        <Button block>button</Button>
-      </div>
-    );
-  })
-  .add('toolTip button', () => {
-    const DisabledTooltip: { children: React.ReactNode; placement: Placement } = {
-      children: <span>don't allowed to click</span>,
-      placement: 'top',
-    };
-    const NormalTooltip: { children: React.ReactNode; placement: Placement } = {
-      children: <span>allowed to click</span>,
-      placement: 'top',
-    };
-    return (
-      <div style={{ margin: '10px' }}>
-        <Button
-          variant="info"
-          toolTip={DisabledTooltip}
-          disabled={true}
-          onClick={() => {
-            alert('clicked');
-          }}
-          style={{ marginRight: '10px' }}
-        >
-          button
-        </Button>
-        <Button
-          toolTip={NormalTooltip}
-          disabled={false}
-          onClick={() => {
-            alert('clicked');
-          }}
-        >
-          button
-        </Button>
-      </div>
-    );
-  })
-  .add('group button', () => {
-    return (
-      <div style={{ margin: '10px' }}>
-        <ButtonToolbar>
-          <Button data-action="CreateOsd" variant="primary">
-            创建
-          </Button>
-          <DropdownButton
-            title="操作"
-            id="dropdown-operations"
-            variant="info"
-            modifer="table-toolbar"
-            menu={['操作-1', '操作-2', '操作-3']}
-          />
+const DisabledTooltip: { children: React.ReactNode; placement: Placement } = {
+  children: <span>don't allowed to click</span>,
+  placement: 'top',
+};
+const NormalTooltip: { children: React.ReactNode; placement: Placement } = {
+  children: <span>allowed to click</span>,
+  placement: 'top',
+};
 
-          <Button data-action="RefreshOsd" variant="info">
-            <Icon type="plus-line" />
-          </Button>
-        </ButtonToolbar>
+const meta: Meta<typeof Button> = {
+  title: 'DATA SHOW/Button',
+  component: Button,
+  args: {
+    variant: 'primary',
+    children: 'button',
+  },
+  argTypes: {
+    children: { description: '按钮中的内容' },
+  },
+};
+
+export default meta;
+
+type Story = StoryObj<typeof Button>;
+
+export const Basic: Story = {};
+
+export const Variant: Story = {
+  decorators: [
+    Story => (
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Story />
       </div>
-    );
-  });
+    ),
+  ],
+  render: props => (
+    <>
+      <Button variant="default">默认default</Button>
+      <Button variant="primary">通用primary</Button>
+      <Button variant="info">通知info</Button>
+      <Button variant="success">成功success</Button>
+      <Button variant="danger">危险danger</Button>
+      <Button variant="warning">警告warning</Button>
+      <Button variant="link">链接link</Button>
+    </>
+  ),
+};
+
+export const Size: Story = {
+  render: props => (
+    <>
+      <Button size="lg">button</Button>
+      <Button>button</Button>
+      <Button size="sm">button</Button>
+      <Button size="xs">button</Button>
+    </>
+  ),
+};
+
+export const Active: Story = {
+  render: props => (
+    <>
+      <Button active variant="primary">
+        button
+      </Button>
+      &nbsp;&nbsp;
+      <Button disabled variant="primary">
+        button
+      </Button>
+    </>
+  ),
+};
+
+export const Block: Story = {
+  args: {
+    block: true,
+  },
+};
+
+export const Tooltip: Story = {
+  render: props => (
+    <div style={{ margin: '10px' }}>
+      <Button
+        variant="info"
+        toolTip={DisabledTooltip}
+        disabled={true}
+        onClick={() => {
+          alert('clicked');
+        }}
+        style={{ marginRight: '10px' }}
+      >
+        button
+      </Button>
+      <Button
+        toolTip={NormalTooltip}
+        disabled={false}
+        onClick={() => {
+          alert('clicked');
+        }}
+      >
+        button
+      </Button>
+    </div>
+  ),
+};
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+  },
+};

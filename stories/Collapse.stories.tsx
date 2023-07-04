@@ -1,11 +1,20 @@
-import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react';
+import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 import { Collapse, Card } from 'react-bootstrap';
 import { Button } from '../src';
 
-storiesOf('Transitions | Collapse', module).add('default', () =>
-  React.createElement(() => {
-    const [open, setOpen] = useState(false);
+const meta: Meta<typeof Collapse> = {
+  title: 'TRANSITIONS/Collapse',
+  component: Collapse,
+};
+
+export default meta;
+
+type Story = StoryObj<typeof Collapse>;
+
+export const Basic: Story = {
+  render: props => {
+    const [open, setOpen] = React.useState(false);
     return (
       <>
         <Button onClick={() => setOpen(!open)}>click</Button>
@@ -20,5 +29,5 @@ storiesOf('Transitions | Collapse', module).add('default', () =>
         </Collapse>
       </>
     );
-  }),
-);
+  },
+};

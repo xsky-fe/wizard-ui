@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import Icon from '../Icon';
@@ -37,6 +37,18 @@ const Alert: React.FC<AlertProps> = props => {
     showIcon ? 'with-icon' : '',
     dismissDirection ? `dismiss-${dismissDirection}` : '',
   ]);
+
+  useEffect(() => {
+    const tempClass = [
+      `Alert-${bsStyle}`,
+      `bg-${bgStyleMap[textAlign]}`,
+      show ? 'show-alert' : 'hidden-alert',
+      showIcon ? 'with-icon' : '',
+      dismissDirection ? `dismiss-${dismissDirection}` : '',
+    ];
+    setClasses([...tempClass]);
+  }, [bsStyle,textAlign,show,showIcon,dismissDirection]);
+
 
   function onClose() {
     const index = classes.indexOf('show-alert');

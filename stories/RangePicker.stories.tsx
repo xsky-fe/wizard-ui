@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { storiesOf } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { RangePicker } from '../src';
 import moment, { Moment } from 'moment';
 
@@ -10,16 +9,30 @@ function onOk(date: Moment[]) {
   console.log(date);
 }
 
-storiesOf('DATA ENTRY | RangePicker', module)
-  .add('default', () => (
-    <RangePicker onChange={onChange} onOk={onOk} />
-  ))
-  .add('en', () => (
-    <RangePicker onChange={onChange} lang="en" />
-  ))
-  .add('default times', () => (
-    <RangePicker defaultValue={[moment('2019-02-16 18:01:57'), moment('2019-02-20 18:01:57')]} />
-  ))
-  .add('hide duration', () => (
-    <RangePicker showDuration={false} />
-  ))
+const meta: Meta<typeof RangePicker> = {
+  title: 'DATA ENTRY/RangePicker',
+  component: RangePicker,
+};
+
+export default meta;
+
+type Story = StoryObj<typeof RangePicker>;
+
+export const Basic: Story = {
+  args: {
+    onChange,
+    onOk,
+  },
+};
+
+export const DefaultTimes: Story = {
+  args: {
+    defaultValue: [moment('2019-02-16 18:01:57'), moment('2019-02-20 18:01:57')],
+  },
+};
+
+export const HideDuration: Story = {
+  args: {
+    showDuration: false,
+  },
+};

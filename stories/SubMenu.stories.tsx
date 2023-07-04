@@ -1,16 +1,25 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { SubMenu } from '../src';
 
-const menuStyle = {
-  width: '100px',
-};
 const title = '第一层';
 const children = <div style={{ padding: '4px' }}>下一层</div>;
-storiesOf('COMPONENTS | SubMenu', module).add('default', () => (
-  <div>
-    <div style={menuStyle}>
-      <SubMenu title={title}>{children}</SubMenu>
-    </div>
-  </div>
-));
+
+const meta: Meta<typeof SubMenu> = {
+  title: 'COMPONENTS/SubMenu',
+  component: SubMenu,
+  args: { title, children },
+  decorators: [
+    Story => (
+      <div style={{ width: '100px' }}>
+        <Story />
+      </div>
+    ),
+  ],
+};
+
+export default meta;
+
+type Story = StoryObj<typeof SubMenu>;
+
+export const Basic: Story = {};

@@ -1,36 +1,41 @@
-import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react';
-import { SwitchProps } from '../src/interface';
+import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 import { Switch } from '../src';
 
-const Demo = (props: SwitchProps) => {
-  const [value, updateValue] = useState(false);
-  return (
-    <>
-      <div>
-        <span style={{ marginRight: 10, marginTop: -2 }}>Normal</span>
-        <Switch checked={!!value} onChange={() => updateValue(!value)} {...props} />
-      </div>
-      <div>
-        <span style={{ marginRight: 10, marginTop: -2 }}>Disabled</span>
-        <Switch disabled checked={!!value} onChange={() => updateValue(!value)} {...props} />
-      </div>
-      <div>
-        <span style={{ marginRight: 10, marginTop: -2 }}>Loading</span>
-        <Switch loading checked={!!value} onChange={() => updateValue(!value)} {...props} />
-      </div>
-    </>
-  );
+const meta: Meta<typeof Switch> = {
+  title: 'FORM/Switch',
+  component: Switch,
 };
-storiesOf('Form |Switch', module)
-  .add('default', () => {
+
+export default meta;
+
+type Story = StoryObj<typeof Switch>;
+
+export const Basic: Story = {
+  render: props => {
+    const [value, updateValue] = React.useState(false);
+    return <Switch checked={!!value} onChange={() => updateValue(!value)} {...props} />;
+  },
+};
+
+export const Status: Story = {
+  render: props => {
+    const [value, updateValue] = React.useState(false);
     return (
       <>
-        <Demo />
+        <span style={{ marginRight: 10, marginTop: -2 }}>Normal</span>
+        <Switch checked={!!value} onChange={() => updateValue(!value)} {...props} />
+        <span style={{ marginRight: 10, marginTop: -2 }}>Disabled</span>
+        <Switch disabled checked={!!value} onChange={() => updateValue(!value)} {...props} />
+        <span style={{ marginRight: 10, marginTop: -2 }}>Loading</span>
+        <Switch loading checked={!!value} onChange={() => updateValue(!value)} {...props} />
       </>
     );
-  })
-  .add('legend', () => {
+  },
+};
+
+export const Legend: Story = {
+  render: props => {
     function generateSwitches() {
       const switches: any = [];
       for (let colorIndex = 1; colorIndex <= 11; colorIndex++) {
@@ -46,7 +51,8 @@ storiesOf('Form |Switch', module)
         Normal:
         {generateSwitches()}
         disabled:
-        <Switch checked={false} disabled colorIndex={1} size="sm" />,
+        <Switch checked={false} disabled colorIndex={1} size="sm" />
       </>
     );
-  });
+  },
+};

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { Tabs } from '../src';
 
 const tabs = [
@@ -33,9 +33,34 @@ const Xtab = (props: any) => {
   );
 };
 
-storiesOf('DATA Display | Tabs', module)
-  .add('default', () => <Tabs tabs={tabs} />)
-  .add('small', () => <Tabs tabs={tabs} size="small" />)
-  .add('secondary', () => <Tabs tabs={tabs} type="secondary" />)
-  .add('right', () => <Tabs tabs={tabs} direction="right" />)
-  .add('Item>5', () => <Xtab />);
+const meta: Meta<typeof Tabs> = {
+  title: 'DATA DISPLAY/Tabs',
+  component: Tabs,
+  args: {
+    tabs: tabs,
+  },
+  argTypes: {},
+};
+
+export default meta;
+
+type Story = StoryObj<typeof Tabs>;
+
+export const Basic: Story = {
+};
+
+export const Secondary: Story = {
+  args: { type: 'secondary' },
+};
+
+export const Small: Story = {
+  args: { size: 'small' },
+};
+
+export const Right: Story = {
+  args: { direction: 'right' },
+};
+
+export const ItemOverLimitNum: Story = {
+  render: () => <Xtab />,
+};

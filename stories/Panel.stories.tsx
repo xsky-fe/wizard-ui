@@ -1,21 +1,33 @@
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { Panel } from '../src';
 import { CardGroup } from 'react-bootstrap';
 
-storiesOf('DATA DISPLAY | Panel', module)
-  .add('basic', () => (
-    <>
-      <h5>底层卡片</h5>
-      <Panel header="Head">Content</Panel>
-      <br />
-      <h5>嵌套卡片</h5>
-      <Panel header="Head" embedded>
-        Content
-      </Panel>
-    </>
-  ))
-  .add('size', () => (
+const meta: Meta<typeof Panel> = {
+  title: 'DATA DISPLAY/Panel',
+  component: Panel,
+  args: { children: 'i am panel', header: 'header' },
+  argTypes: {
+    children: {
+      type: { required: true } as any,
+    },
+    header: {
+      table: {
+        type: { summary: 'ReactNode' },
+      },
+      description: '面板头部内容',
+    },
+  },
+};
+
+export default meta;
+
+type Story = StoryObj<typeof Panel>;
+
+export const Basic: Story = {};
+
+export const Size: Story = {
+  render: () => (
     <>
       <p>
         内边距 16px 24px, 标题字号 16px
@@ -34,13 +46,18 @@ storiesOf('DATA DISPLAY | Panel', module)
         </Panel>
       </p>
     </>
-  ))
-  .add('collapse', () => (
-    <Panel header="Head" collapsible>
-      Content
-    </Panel>
-  ))
-  .add('group', () => (
+  ),
+};
+
+export const Collapse: Story = {
+  args: {
+    collapsible: true,
+    expanded: true,
+  },
+};
+
+export const Group: Story = {
+  render: () => (
     <CardGroup>
       <Panel header="1" collapsible>
         content1
@@ -55,4 +72,5 @@ storiesOf('DATA DISPLAY | Panel', module)
         content4
       </Panel>
     </CardGroup>
-  ));
+  ),
+};

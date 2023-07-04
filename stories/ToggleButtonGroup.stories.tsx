@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react';
+import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 import { ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
 
-storiesOf('Form | ToggleButtonGroup', module)
-  .add('checkout', () => {
-    const [value, setValue] = useState([1]);
+const meta: Meta<typeof ToggleButtonGroup> = {
+  title: 'FORM/ToggleButtonGroup',
+  component: ToggleButtonGroup,
+};
+
+export default meta;
+
+type Story = StoryObj<typeof ToggleButtonGroup>;
+
+export const Checkout: Story = {
+  render: props => {
+    const [value, setValue] = React.useState([1]);
     return (
       <ToggleButtonGroup type="checkbox" value={value} onChange={val => setValue(val)}>
         <ToggleButton
@@ -30,9 +39,12 @@ storiesOf('Form | ToggleButtonGroup', module)
         </ToggleButton>
       </ToggleButtonGroup>
     );
-  })
-  .add('radio', () => {
-    const [value, setValue] = useState(1);
+  },
+};
+
+export const Radio: Story = {
+  render: props => {
+    const [value, setValue] = React.useState(1);
     return (
       <ToggleButtonGroup type="radio" name="option" value={value} onChange={val => setValue(val)}>
         <ToggleButton id="tbg-radio-1" value={1} variant={value === 1 ? 'primary' : 'default'}>
@@ -46,4 +58,5 @@ storiesOf('Form | ToggleButtonGroup', module)
         </ToggleButton>
       </ToggleButtonGroup>
     );
-  });
+  },
+};

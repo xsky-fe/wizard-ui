@@ -1,13 +1,27 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { VirtualSelectBox } from '../src';
 import { Query } from '../src/interface';
 import { elasticQuery, getMockDatas } from '../src/utils';
 import { get, isEmpty, concat } from 'lodash';
 
-const resName = "list";
+const meta: Meta = {
+  title: 'DATA SHOW/VirtualSelectBox',
+  component: VirtualSelectBox,
+  decorators: [
+    Story => (
+      <div style={{marginBottom:80}}>
+        <Story />
+      </div>
+    ),
+  ],
+};
+
+export default meta;
+
+const resName = 'list';
 const limit = 30;
-function getEmptyDatas(query: Query){
+function getEmptyDatas(query: Query) {
   return getMockDatas(query, 0, resName);
 }
 
@@ -15,16 +29,36 @@ function getDatas(query: Query) {
   return getMockDatas(query, 180, resName);
 }
 
-const AsyncWithES = ({ clear, multi }: { clear?: boolean; multi?: boolean; }) => {
+const fetchEmptyDatas = async (isReloading: boolean, dQuery: Query = {}) => {
+  let resNamePlural = `${resName}s`;
+  const query = {
+    ...dQuery,
+    limit,
+    offset: 0,
+  };
+  const actionResult = await getEmptyDatas(query);
+  const items = get(actionResult, `response.${resNamePlural}`, []);
+  const totalCount = get(actionResult, 'response.paging.totalCount');
+  return {
+    query,
+    items,
+    totalCount,
+  };
+};
+
+const AsyncWithES = ({ clear, multi }: { clear?: boolean; multi?: boolean }) => {
   const [item, setItem] = React.useState({ id: 1, name: `${resName}-1` } as object);
   const [value, setValue] = React.useState([]);
-  const onSelect = React.useCallback((i: any) => {
-    if (multi) {
-      setValue(i);
-    } else {
-      setItem(i);
-    }
-  }, [setItem, setValue]);
+  const onSelect = React.useCallback(
+    (i: any) => {
+      if (multi) {
+        setValue(i);
+      } else {
+        setItem(i);
+      }
+    },
+    [setItem, setValue],
+  );
   const fetchFormatDatas = async (isReloading: boolean, dQuery: Query = {}, search?: string) => {
     let nameKey = 'name';
     let extraQuery: Query = {};
@@ -61,9 +95,9 @@ const AsyncWithES = ({ clear, multi }: { clear?: boolean; multi?: boolean; }) =>
       query,
       items,
       totalCount,
-      error
-    }
-  }
+      error,
+    };
+  };
   return (
     <VirtualSelectBox
       onSelect={onSelect}
@@ -73,40 +107,26 @@ const AsyncWithES = ({ clear, multi }: { clear?: boolean; multi?: boolean; }) =>
       multi={!!multi}
       value={value}
     />
-  )
-}
+  );
+};
 
-const fetchEmptyDatas = async (isReloading: boolean, dQuery: Query = {}) => {
-  let resNamePlural = `${resName}s`;
-  const query = {
-    ...dQuery,
-    limit,
-    offset: 0,
-  };
-  const actionResult = await getEmptyDatas(query);
-  const items = get(actionResult, `response.${resNamePlural}`, []);
-  const totalCount = get(actionResult, 'response.paging.totalCount');
-  return {
-    query,
-    items,
-    totalCount,
-  }
-}
+type Story = StoryObj;
 
-storiesOf('DATA SHOW | VirtualSelectBox', module)
-  .add('empty object data', () => (
-    <VirtualSelectBox
-      item={{}}
-      fetchData={fetchEmptyDatas}
-    />
-  ))
-  .add('empty string data', () => (
-    <VirtualSelectBox
-      item=""
-      defaultItem=""
-      fetchData={fetchEmptyDatas}
-    />
-  ))
-  .add('async datas', () => <AsyncWithES />)
-  .add('async datas with clear', () => <AsyncWithES clear/>)
-  .add('multi with async datas', () => <AsyncWithES multi/>)
+export const EmptyData: Story = {
+  args: {
+    item: {},
+    fetchData: fetchEmptyDatas,
+  },
+};
+
+export const AsyncDatas: Story = {
+  render: props => <AsyncWithES />,
+};
+
+export const AsyncDatasWithClear: Story = {
+  render: props => <AsyncWithES clear />,
+};
+
+export const MultiWithAsyncDatas: Story = {
+  render: props => <AsyncWithES multi />,
+};

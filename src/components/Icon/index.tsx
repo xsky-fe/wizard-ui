@@ -8,7 +8,7 @@ import camelCase from 'lodash/camelCase';
 import './style.scss';
 
 const Icon: React.FC<IconProps> = props => {
-  const { type, color, className, cursor = false, size = '1em', onClick, style } = props;
+  const { type, color, className, cursor, size, onClick, style } = props;
   const cls = cn(`icon icon-${type}`, {
     [`${color}`]: Boolean(color),
     [`${className}`]: Boolean(className),
@@ -35,5 +35,6 @@ Icon.propTypes = {
 
 Icon.defaultProps = {
   cursor: false,
+  size: '1em'
 };
 export default Icon;

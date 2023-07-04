@@ -56,7 +56,7 @@ module.exports = {
           {
             loader: require.resolve('sass-loader'),
             options: {
-              precision: 8,
+                precision: 8,
             }
           },
         ],

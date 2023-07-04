@@ -37,4 +37,11 @@ const Button: React.FC<ButtonProps> = (props: any) => {
   );
 };
 
+Button.defaultProps = {
+  variant:'info',
+  active: false,
+  disabled: false,
+  block: false
+}
+
 export default Button;

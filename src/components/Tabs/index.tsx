@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import lodash from 'lodash';
 import { Tab, Card, NavDropdown, Dropdown, Nav, NavItem, NavLink } from 'react-bootstrap';
@@ -10,7 +10,7 @@ import lang from '../../locale/language';
 
 const MORE_TITLE = lang().MORE_TITLE;
 
-const Tabs: React.FC<TabsProps & { type?: 'secondary'}> = props => {
+const Tabs: React.FC<TabsProps> = props => {
   const {
     tabs,
     size,
@@ -153,11 +153,10 @@ Tabs.propTypes = {
 
 Tabs.defaultProps = {
   eventKeyName: 'key',
-  id: 'Tabs',
   limitNum: 5,
-  unmountOnExit: true,
   transition: false,
   mountOnEnter: false,
+  unmountOnExit: true,
 };
 
 export default Tabs;

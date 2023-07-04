@@ -71,8 +71,26 @@ import { Icon } from 'wizard-ui/esm';
 export default () => <Icon type="os-search-role-fill" />
 ```
 
-## Pubish
+### Storybook
+
+- nvm
+- node@v16.15.0
+
+```
+# run storybook dev
+npm run storybook
+
+# build storybook dist
+npm run build-storybook 
+```
+
+## Publish
 
 ```
 npm publish --registry=https://registry.npmjs.org/
 ```
+
+## TODO
+- [ ] remove node-sass, add sass
+- [ ] upgrade rc-tree
+- [ ] add rc-pagination, refactor the Pagination Component

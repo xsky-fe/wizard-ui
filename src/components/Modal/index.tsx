@@ -153,6 +153,10 @@ Modal.propTypes = {
 Modal.defaultProps = {
   confirmText: '确定',
   okStyle: 'primary',
+  draggable: true,
+  hideFooter: false,
+  hideHeader: false,
+  loading: false,
 };
 
 export default Modal;

@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import find from 'lodash/find';
 import get from 'lodash/get';
 import { DropdownButton, Dropdown, Button } from 'react-bootstrap';
@@ -70,10 +70,6 @@ InputDropdown.propTypes = {
    * value，传入 value 时变为受控组件
    **/
   value: PropTypes.string,
-};
-
-InputDropdown.defaultProps = {
-  pullRight: true,
 };
 
 export default InputDropdown;
