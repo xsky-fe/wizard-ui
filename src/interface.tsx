@@ -235,8 +235,6 @@ export interface ModalProps extends Omit<BsModalProps, 'size'> {
   preventDragByTitle?: boolean;
   /**对话框大小 */
   size?: BsModalProps['size'] | 'xlarge';
-  /**点击close按钮时触发的回调 */
-  onHide?: () => void;
 }
 
 interface SwitchInput {
@@ -436,7 +434,7 @@ export interface DatePickerProps extends DatePickerDefaultProps {
 
 export interface PanelProps {
   /**展示卡片内容 */
-  children: React.ReactNode;
+  children?: React.ReactNode;
   /**类名 */
   className?: string;
   /**面板头部内容 */
