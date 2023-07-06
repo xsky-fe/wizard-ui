@@ -258,7 +258,7 @@ class VirtualSelectBox<T> extends React.Component<
         active: get(this.props, activeKey) === activeItem,
       });
       if (onSelect) {
-        const onClick = (event: React.MouseEvent<HTMLDivElement>) => {
+        const onClick = (event: any) => {
           this.blockEvent(event);
           let formatItem = item;
           if (formatOption) {

@@ -35,6 +35,6 @@ Icon.propTypes = {
 
 Icon.defaultProps = {
   cursor: false,
-  size: '1em'
+  size: '1em',
 };
 export default Icon;

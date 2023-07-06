@@ -67,7 +67,7 @@ export interface IconProps {
   /**类名 */
   className?: string;
   /**点击图标的回调 */
-  onClick?: React.MouseEventHandler;
+  onClick?: any;
   /**样式 */
   style?: object;
   /**图标交互 */

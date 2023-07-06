@@ -32,12 +32,7 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
-          {
-            loader: require.resolve('sass-loader'),
-            options: {
-              precision: 8,
-            }
-          },
+          'sass-loader',
         ],
       },
       {
@@ -53,12 +48,7 @@ module.exports = {
               },
             },
           },
-          {
-            loader: require.resolve('sass-loader'),
-            options: {
-                precision: 8,
-            }
-          },
+          'sass-loader'
         ],
       },
     ]

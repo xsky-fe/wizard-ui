@@ -1,6 +1,6 @@
 {
   "name": "wizard-ui",
-  "version": "1.0.0-beta.14",
+  "version": "1.0.0-beta.17",
   "private": false,
   "main": "lib/index.js",
   "module": "esm/index.js",
@@ -25,18 +25,18 @@
   "dependencies": {
     "@types/rc-time-picker": "^3.4.1",
     "@types/rc-tree": "^1.11.3",
-    "@types/react-addons-css-transition-group": "^15.0.5",
     "@types/react-bootstrap": "^0.32.32",
+    "@types/react-transition-group": "^4.4.6",
     "bootstrap": "^5.2.3",
     "cross-env": "^7.0.2",
     "rc-calendar": "9.15.11",
     "rc-time-picker": "^3.7.1",
     "rc-tree": "2.1.0",
-    "react-addons-css-transition-group": "^15.6.2",
     "react-bootstrap": "^2.7.4",
     "react-dev-utils": "^11.0.4",
     "react-draggable": "^4.4.5",
     "react-ios-switch": "^0.1.19",
+    "react-transition-group": "^4.4.5",
     "wizard-ui-icon": "^1.0.0"
   },
   "scripts": {
