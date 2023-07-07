@@ -2,45 +2,57 @@
 title: Icon 图标
 date: 2019-07-12
 ---
+
 由 [wizard icons](https://github.com/xsky-fe/icons) 通过 react svg 组件方式提供。
 
 ## 使用场景
-直观展示某个资源或者某种状态。
+
+wizard-ui 内部维护的 wizard-ui-icon 图标库, 直观展示某个资源或者某种状态。
 
 ## 代码演示
 
 ### 常规
+
 ```jsx
-<Icon type="os-search-role"/>
+<Icon type="os-search-role-fill" />
 ```
 
 ### 颜色
+
 ```jsx
-<Icon type="os-search-role" color="primary" />
+<Icon type="os-search-role-fill" color="primary" />
 ```
+
 ### 默认继承外部字体大小
+
 默认继承父级字体大小和颜色。
+
 ```jsx
 <div style={{ fontSize: '40px', color: '#6b58c4' }}>
   <Icon type="os-search-role" />
 </div>
 ```
+
 ### 交互
-添加cursor属性，实现鼠标hover和active交互效果，padding大小为6px;
+
+添加 cursor 属性，实现鼠标 hover 和 active 交互效果，padding 大小为 6px;
+
 ```jsx
 <Icon type="close" color="primary" cursor />
 ```
-### cursor也可以继承父级字体大小和颜色
+
+### cursor 也可以继承父级字体大小和颜色
+
 ```jsx
 <div style={{ fontSize: '40px', color: '#6b58c4' }}>
-  <Icon type="os-search-role" cursor/>
+  <Icon type="os-search-role" cursor />
 </div>
 ```
 
-
 ## 所有图标
+
 ```jsx previewOnly
-<AllIcon/>
+<AllIcon />
 ```
 
 ## API

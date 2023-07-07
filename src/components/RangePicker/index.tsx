@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Button } from 'react-bootstrap';
 import * as PropTypes from 'prop-types';
+import { CalendarFill } from 'wizard-ui-icon';
 import Picker from 'rc-calendar/lib/Picker';
 import RangeCalendar from 'rc-calendar/lib/RangeCalendar';
 import TimePickerPanel from 'rc-time-picker/lib/Panel';
@@ -12,6 +13,7 @@ import moment, { Moment, DurationInputArg1, DurationInputArg2 } from 'moment';
 import { RangePickerProps, RangePickerState } from '../../interface';
 import isEmpty from 'lodash/isEmpty';
 import Icon from '../Icon';
+
 import './style.scss';
 
 const isClient = typeof window === 'object';
@@ -156,7 +158,7 @@ export default class RangePicker extends React.PureComponent<RangePickerProps, R
       <div className="RangePicker__duration">
         {ranges.map(({ title, value }) => {
           return (
-            <Button bsStyle="link" key={value} onClick={() => this.handleRangeClick(value)}>
+            <Button variant="link" key={value} onClick={() => this.handleRangeClick(value)}>
               {this.lang === 'en' ? value : title}
             </Button>
           );
@@ -181,10 +183,10 @@ export default class RangePicker extends React.PureComponent<RangePickerProps, R
     );
   };
   renderClearIcon = () => {
-    if (this.state.value.every(isEmpty)) {
+    if ((this.state.value as any).every(isEmpty)) {
       return;
     }
-    return <Icon type="close" onClick={this.clearSelection} />;
+    return <Icon type="close-line" onClick={this.clearSelection} />;
   };
   render() {
     const { disabled } = this.props;
@@ -202,7 +204,7 @@ export default class RangePicker extends React.PureComponent<RangePickerProps, R
           const [start, end] = value;
           return (
             <span className="RangePicker form-control">
-              <span className="glyphicon glyphicon-calendar" />
+              <CalendarFill fontSize={16} className="RangePicker-calendar" />
               <input
                 placeholder={this.startPlaceholder}
                 readOnly

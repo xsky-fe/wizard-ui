@@ -64,7 +64,7 @@ const DropdownButtonDemoDemo = () => {
     setInterval(() => {
       const dataList = [data1, data2];
       i += 1;
-      setMenu(dataList[i % 2]);
+      setMenu(dataList[i % 2] as any);
     }, 1000);
   }, []);
   return (

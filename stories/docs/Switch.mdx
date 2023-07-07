@@ -1,0 +1,25 @@
+import { Canvas, Meta, ArgTypes } from '@storybook/blocks';
+
+import * as SwitchStories from '../Switch.stories.tsx';
+
+<Meta of={SwitchStories} />
+
+# Switch
+<em><strong>(wizard-ui自定义组件)</strong></em>
+<p>2023-6-18 [fanmengwen](https://github.xsky.com/fan-mengwen)</p>
+开关选择器。
+
+## 何时使用
+表示两种相互对立的状态间的切换，多用于触发「开/关」。选中时的内容支持响应式。
+
+## 基本用法
+### 默认展示
+<Canvas of={SwitchStories.Basic}/>
+### 状态
+<Canvas of={SwitchStories.Status}/>
+### 颜色
+<Canvas of={SwitchStories.Legend}/>
+
+
+## API
+<ArgTypes />

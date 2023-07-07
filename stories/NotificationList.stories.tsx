@@ -1,8 +1,15 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { NotificationList } from '../src';
 import { Button } from 'react-bootstrap';
 import { Map as MapType, NotificationItem, NotificationItemStatus } from '../src/interface';
+
+const meta: Meta<typeof NotificationList> = {
+  title: 'DATA SHOW/NotificationList',
+  component: NotificationList,
+};
+
+export default meta;
 
 const STATUS = ['success', 'info', 'process', 'warning', 'danger'];
 
@@ -10,13 +17,6 @@ const NotificationListDefault = (props: { showTitle?: boolean; autoClose?: boole
   const [lists, setLists] = React.useState(() => {
     const dns = new Map() as MapType<string, any>;
     const sns = new Map() as MapType<string, any>;
-    STATUS.forEach((s: string) => {
-      const item: NotificationItem = { id: s, status: s as NotificationItemStatus, text: `${s} text message !` };
-      if (props.showTitle) {
-        item.title = <h3>{s} title</h3>;
-      }
-      sns.set(s, item);
-    });
     dns.set('status', sns);
     return dns;
   });
@@ -28,15 +28,14 @@ const NotificationListDefault = (props: { showTitle?: boolean; autoClose?: boole
     lists.get('status').set(s, item);
     const newLists = new Map(lists);
     setLists(newLists);
-  }
+  };
   const deleteNotification = (id: NotificationItemStatus) => {
     lists.get('status').delete(id);
     const newLists = new Map(lists);
     setLists(newLists);
-  }
+  };
   return (
     <div>
-      {props.autoClose && <div>默认 2s 自动关闭</div>}
       <div>
         {STATUS.map((s: string) => (
           <Button
@@ -55,12 +54,19 @@ const NotificationListDefault = (props: { showTitle?: boolean; autoClose?: boole
         autoClose={props.autoClose}
       />
     </div>
-  )
-}
+  );
+};
 
+type Story = StoryObj<typeof NotificationList>;
 
+export const Basic: Story = {
+  render: props => <NotificationListDefault/>
+};
 
-storiesOf('DATA SHOW | NotificationList', module)
-  .add('default', () => <NotificationListDefault />)
-  .add('with title', () => <NotificationListDefault showTitle/>)
-  .add('auto close', () => <NotificationListDefault autoClose/>)
+export const WithTitle: Story = {
+  render: props => <NotificationListDefault showTitle />,
+};
+
+export const AutoClose: Story = {
+  render: props => <NotificationListDefault autoClose />,
+};

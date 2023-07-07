@@ -19,16 +19,16 @@
       float: left;
     }
   }
-  &:hover span.icon-close {
+  &-calendar{
+    vertical-align: text-top;
+    fill: $icon-2;
+  }
+  &:hover span.icon-close-line {
     visibility: visible;
   }
-  span.glyphicon-calendar{
-    line-height: unset;
-    color: $icon-2;
-  }
-  span.icon-close {
-    visibility: hidden;
+  span.icon-close-line {
     font-size: $font-size-12;
+    visibility: hidden;
     cursor: pointer;
     vertical-align: inherit;
   }
@@ -36,6 +36,7 @@
 
 .rc-calendar {
   border-color: $border-2;
+  box-shadow: $shadow-timePicker;
 }
 
 .rc-calendar-year-panel-selected-cell .rc-calendar-year-panel-year,

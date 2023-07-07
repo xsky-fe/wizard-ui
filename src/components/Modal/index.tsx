@@ -1,13 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {
-  Modal as BaseModal,
-  ModalHeader,
-  ModalTitle,
-  ModalBody,
-  ModalFooter,
-  Button,
-} from 'react-bootstrap';
+import { Modal as BaseModal, ModalFooter, Button } from 'react-bootstrap';
 import Draggable, { DraggableEvent, DraggableData } from 'react-draggable';
 import { ModalProps } from '../../interface';
 import Loader from '../Loader';
@@ -62,12 +55,13 @@ const Modal: React.FC<ModalProps> = props => {
     hideHeader,
     draggable = true,
     preventDragByTitle,
+    centered,
   } = props;
-  let { bsSize } = props,
-    dialogClassName = '';
-  if (bsSize === 'xlarge') {
+  let { size } = props;
+  let dialogClassName = '';
+  if (size === 'xlarge') {
+    size = undefined;
     dialogClassName = 'modal-xlg';
-    bsSize = undefined;
   }
 
   // 让 title 在可拖动模块的上层，来使title区域的拖动效果失效
@@ -77,13 +71,14 @@ const Modal: React.FC<ModalProps> = props => {
 
   return (
     <BaseModal
-      bsSize={bsSize}
       className="Modal"
-      dialogClassName={dialogClassName}
       style={style}
+      dialogClassName={dialogClassName}
+      size={size}
       backdrop="static"
       onHide={onHide}
       show={show}
+      centered={centered}
     >
       <Draggable
         disabled={!draggable}
@@ -93,21 +88,26 @@ const Modal: React.FC<ModalProps> = props => {
       >
         <div ref={draggleRef} className="modal-content">
           {draggable && <div className="drag-handle" />}
-          <div>
-            {!hideHeader && (
-              <ModalHeader key="header" closeButton>
-                <ModalTitle style={modalTitleStyle}>{title}</ModalTitle>
-                {draggable && preventDragByTitle ? (
-                  <ModalTitle style={draggableHiddenTitleStyle}>{title}</ModalTitle>
-                ) : null}
-              </ModalHeader>
-            )}
-          </div>
+          {!hideHeader && (
+            <BaseModal.Header key="header" closeButton={false}>
+              <BaseModal.Title style={modalTitleStyle}>{title}</BaseModal.Title>
+              {draggable && preventDragByTitle ? (
+                <BaseModal.Title style={draggableHiddenTitleStyle}>{title}</BaseModal.Title>
+              ) : null}
+              <div className="close" onClick={onHide}>
+                <span aria-hidden="true" className="close-icon">
+                  ×
+                </span>
+              </div>
+            </BaseModal.Header>
+          )}
 
-          <ModalBody key="body">{children}</ModalBody>
+          <BaseModal.Body key="body">
+            <div>{children}</div>
+          </BaseModal.Body>
           {!hideFooter && (
             <ModalFooter key="footer">
-              <Button type="submit" disabled={loading} bsStyle={okStyle} onClick={onOk}>
+              <Button type="submit" disabled={loading} variant={okStyle} onClick={onOk}>
                 {loading && <Loader bsSize="xs" />}
                 {confirmText}
               </Button>
@@ -131,7 +131,7 @@ Modal.propTypes = {
   /** 对话框附加行内样式 */
   style: PropTypes.object,
   /** 对话框大小 */
-  bsSize: PropTypes.oneOf(['sm', 'lg', 'medium', 'xlarge', undefined, null]),
+  size: PropTypes.oneOf(['sm', 'lg', 'xl', 'xlarge']),
   /** 确定、提交按钮文案 */
   confirmText: PropTypes.string,
   /** 确定、提交按钮样式 */
@@ -146,11 +146,17 @@ Modal.propTypes = {
   draggable: PropTypes.bool,
   /** 在title区域禁掉拖拽功能 */
   preventDragByTitle: PropTypes.bool,
+  /** 是否应垂直居中 */
+  centered: PropTypes.bool,
 };
 
 Modal.defaultProps = {
   confirmText: '确定',
   okStyle: 'primary',
+  draggable: true,
+  hideFooter: false,
+  hideHeader: false,
+  loading: false,
 };
 
 export default Modal;

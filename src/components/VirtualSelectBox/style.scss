@@ -29,13 +29,13 @@
   }
   max-width: 250px;
   padding-right: 40px;
-  .glyphicon {
+  .icon {
     position: absolute;
     color: $icon-1;
     right: 8px;
     top: 5px;
   }
-  .icon-close {
+  .icon-close-line {
     position: absolute;
     right: 25px;
     top: 2px;
@@ -58,13 +58,19 @@
   /* 仿Github的select-menu */
   border: 1px solid $border-2;
   border-radius: $radius-4-dropdown;
-  > .panel {
+  &-header {
+    padding: 7px;
+  }
+  .SelectBox__clear {
+    text-align: left;
+  }
+  > .card {
     margin: 0;
     border: none !important;
-    > .panel-body {
+    > .card-body {
       padding: 0;
     }
-    > .panel-heading {
+    > .card-header {
       padding: 7px;
       .panel-title {
         font-size: inherit;

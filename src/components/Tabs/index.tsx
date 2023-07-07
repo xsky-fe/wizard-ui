@@ -1,6 +1,8 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
-import { Tab, Panel, NavItem, NavDropdown, MenuItem, Nav } from 'react-bootstrap';
+import * as PropTypes from 'prop-types';
+import classNames from 'classnames';
+import lodash from 'lodash';
+import { Tab, Card, NavDropdown, Dropdown, Nav, NavItem, NavLink } from 'react-bootstrap';
 import { getBemClass } from '../../utils';
 import { TabsProps } from '../../interface';
 import './style.scss';
@@ -12,23 +14,22 @@ const Tabs: React.FC<TabsProps> = props => {
   const {
     tabs,
     size,
+    type,
     eventKeyName = 'key',
     direction,
     limitNum = 5,
     unmountOnExit,
-    animation,
+    transition,
     mountOnEnter,
+    className,
     ...restProps
   } = props;
 
   const [keyTitle, setKeyTitleValue] = React.useState<string>(MORE_TITLE);
-  const TabsPan = restProps.activeKey
-    ? tabs.filter(item => {
-        return item[eventKeyName] === restProps.activeKey;
-      })
-    : tabs[0];
   const tabsFrontList = tabs.slice(0, limitNum);
   const tabsLastList = tabs.slice(limitNum, tabs.length);
+  const lastActiveKeys = tabsLastList.map((list: any) => list[eventKeyName]);
+  const isActiveLastTab = lastActiveKeys.includes(restProps.activeKey);
   const showMore = tabsLastList.length !== 0;
 
   React.useEffect(() => {
@@ -49,27 +50,36 @@ const Tabs: React.FC<TabsProps> = props => {
   }, [restProps.activeKey ? restProps.activeKey : '']);
 
   return (
-    <div className={getBemClass('Tabs', [size, direction])}>
+    <div className={classNames(className, getBemClass('Tabs', [size, direction, type]))}>
       <Tab.Container
         id="tabs-with-dropdown"
-        defaultActiveKey={TabsPan[eventKeyName]}
-        {...restProps}
+        defaultActiveKey={lodash.get(tabs, `0.${eventKeyName}`, '')}
+        mountOnEnter={mountOnEnter}
+        unmountOnExit={unmountOnExit}
+        transition={transition}
+        {...(restProps as any)}
       >
-        <div>
-          <Nav bsStyle="tabs">
+        <div id="Tabs">
+          <Nav variant="tabs" as="ul">
             {tabsFrontList.map((tab, idx) => (
               <NavItem
                 title={typeof tab['title'] === 'string' ? tab['title'] : undefined}
                 key={eventKeyName ? tab[eventKeyName] : idx}
-                eventKey={eventKeyName ? tab[eventKeyName] : idx}
+                as="li"
+                // eventKey={eventKeyName ? tab[eventKeyName] : idx}
               >
-                {tab.title}
+                <NavLink eventKey={eventKeyName ? tab[eventKeyName] : idx}>{tab.title}</NavLink>
               </NavItem>
             ))}
             {showMore && (
-              <NavDropdown title={keyTitle} id="" className="Tabs-nav-dropdown-within-tab">
+              <NavDropdown
+                as="li"
+                title={keyTitle}
+                id=""
+                className={`Tabs-nav-dropdown-within-tab ${isActiveLastTab ? 'active' : ''}`}
+              >
                 {tabsLastList.map((tab, idx) => (
-                  <MenuItem
+                  <Dropdown.Item
                     id={
                       eventKeyName ? 'Tabs-tab-' + tab[eventKeyName] : 'Tabs-tab-' + idx + limitNum
                     }
@@ -77,22 +87,22 @@ const Tabs: React.FC<TabsProps> = props => {
                     eventKey={eventKeyName ? tab[eventKeyName] : idx + limitNum}
                   >
                     {tab.title}
-                  </MenuItem>
+                  </Dropdown.Item>
                 ))}
               </NavDropdown>
             )}
           </Nav>
-          <Tab.Content
-            unmountOnExit={unmountOnExit}
-            mountOnEnter={mountOnEnter}
-            animation={animation}
-          >
+          <Tab.Content>
             {tabs.map((tab, idx) => (
               <Tab.Pane
                 key={eventKeyName ? tab[eventKeyName] : idx}
                 eventKey={eventKeyName ? tab[eventKeyName] : idx}
               >
-                {tab.children && <Panel className="Tabs__Body">{tab.children}</Panel>}
+                {tab.children && (
+                  <Card className="Tabs__Body panel">
+                    <Card.Body className="panel-body"> {tab.children}</Card.Body>
+                  </Card>
+                )}
               </Tab.Pane>
             ))}
           </Tab.Content>
@@ -120,6 +130,10 @@ Tabs.propTypes = {
    **/
   direction: PropTypes.oneOf(['right']),
   /**
+   * tab类型，提供默认和 二级 两种
+   */
+  type: PropTypes.oneOf(['secondary']),
+  /**
    * key的名称可自定义
    **/
   eventKeyName: PropTypes.string,
@@ -134,16 +148,15 @@ Tabs.propTypes = {
   /**
    * 切换内容是否使用动画过度效果
    **/
-  animation: PropTypes.bool,
+  transition: PropTypes.bool,
 };
 
 Tabs.defaultProps = {
   eventKeyName: 'key',
-  id: 'Tabs',
   limitNum: 5,
-  unmountOnExit: true,
-  animation: false,
+  transition: false,
   mountOnEnter: false,
+  unmountOnExit: true,
 };
 
 export default Tabs;

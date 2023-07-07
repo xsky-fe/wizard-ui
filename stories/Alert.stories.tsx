@@ -1,36 +1,62 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { Alert } from '../src';
+import React from 'react';
 
-storiesOf('Alert', module)
-  .add('error', () => (
-    <div>
-      <h3>对齐方式</h3>
-      <p>居左对齐</p>
-      <Alert bsStyle="error"  showIcon>
-      这里是 error 级别
+type Story = StoryObj<typeof Alert>;
+
+const meta: Meta<typeof Alert> = {
+  title: 'DATA SHOW/Alert',
+  component: Alert,
+  args: {
+    bsStyle: 'info',
+    children: '警告',
+    onDismiss: undefined,
+  },
+  argTypes: {
+    bsStyle: {
+      control: 'radio',
+      options: ['warning', 'info', 'error'],
+    },
+    dismissDirection: {
+      control: 'radio',
+      options: ['up', 'right', 'down', 'left'],
+    },
+    children: { type: { required: true } as any },
+  },
+};
+
+export const Basic: Story = {};
+
+export const Variant: Story = {
+  render: (props) => (
+    <>
+      <Alert bsStyle="info" showIcon>
+        这里是 info 级别
       </Alert>
-      <p>居中对齐</p>
-      <Alert bsStyle="error"  textAlign='center' showIcon>
-      这里是 error 级别
+      <Alert bsStyle="warning" showIcon>
+        这里是 warning 级别
       </Alert>
-      <p>内置提示</p>
-      <Alert bsStyle="error"  textAlign='inline' showIcon>
-      这里是 error 级别
+      <Alert bsStyle="error" showIcon>
+        这里是 error 级别
       </Alert>
-      <h3>关闭功能</h3>
-      <Alert bsStyle="error" showIcon dismissDirection="right" onDismiss={() =>{}}>
-      这里是 error 级别 <a href="#">点击操作</a>
-      </Alert>
-    </div>
-  ))
-  .add('info', () => (
-    <Alert bsStyle="info" showIcon>
-      这里是 info 级别 <a href="#">点击操作</a>
-    </Alert>
-  ))
-  .add('warning', () => (
-    <Alert bsStyle="warning">
-      这里是 warning 级别 <a href="#">点击操作</a>
-    </Alert>
-  ));
+    </>
+  ),
+};
+
+export const Info: Story = {
+  args: { bsStyle: 'info', showIcon: true },
+};
+
+export const Center: Story = {
+  args: { textAlign: 'center', showIcon: true },
+};
+
+export const Inline: Story = {
+  args: { textAlign: 'inline', showIcon: true },
+};
+
+export const Operation: Story = {
+  args: { onDismiss: () => {} },
+};
+
+export default meta;

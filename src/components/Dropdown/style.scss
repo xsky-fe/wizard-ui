@@ -1,0 +1,8 @@
+@import '../../style/variables.scss';
+.show.dropdown-toggle::after {
+  transform: rotate(180deg);
+}
+
+#CustomDropdown{
+  cursor: pointer;
+}

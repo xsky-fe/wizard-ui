@@ -22,7 +22,7 @@ const Tooltip: React.FC<TooltipProps> = props => {
   } = props;
 
   const wrapper = React.useRef<HTMLInputElement>(null);
-  const [placement, setPlacement] = React.useState('top');
+  const [placement, setPlacement] = React.useState<any>('top');
   // 类似 componentDidMount。只会在 render 后执行一次
   React.useEffect(() => {
     const elem = wrapper.current;
@@ -69,7 +69,7 @@ const Tooltip: React.FC<TooltipProps> = props => {
       <Overlay
         {...extra}
         placement={defaultPlacement || placement}
-        target={wrapper.current || undefined}
+        target={wrapper.current || null}
         show={show}
       >
         <BaseTooltip
@@ -107,7 +107,7 @@ Tooltip.propTypes = {
    * 提示框的位置，可选'top'，'right'，'bottom'，'left'。
    * 若不传入这一属性，会根据 OverlayTrigger 的位置，自适应选取提示框的位置；
    **/
-  placement: PropTypes.string,
+  placement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
   /**
    * 提示框的颜色；
    **/
@@ -116,10 +116,14 @@ Tooltip.propTypes = {
    * 给图标传入的其他 class；
    **/
   iconClass: PropTypes.string,
+  /**
+   * 样式
+   */
+  style: PropTypes.object,
 };
 
 Tooltip.defaultProps = {
-  icon: 'info',
+  icon: 'tip-line',
   iconAlign: 'text-bottom',
   contrast: false,
 };

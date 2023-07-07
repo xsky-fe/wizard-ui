@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import cn from 'classnames';
 import { getBemClass } from '../../utils';
-import { Panel } from 'react-bootstrap';
+import Panel from '../Panel';
 import { NavigationProps, NavigationGroup } from '../../interface';
 import Icon from '../Icon';
 import Tooltip from '../Tooltip';
@@ -47,7 +47,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
     const header = (
       <div>
         <span className="panel-title__title">{title}</span>
-        <Icon type={expanded ? 'minus' : 'plus'} className="panel-title__icon" />
+        <Icon type={expanded ? 'minus-line' : 'plus-line'} className="panel-title__icon" />
       </div>
     );
     return toggled ? (
@@ -55,7 +55,7 @@ export default class Navigation extends React.Component<NavigationProps, any> {
         <Tooltip
           placement="right"
           className="Navigation__tooltip"
-          icon={expanded ? 'minus' : 'plus'}
+          icon={expanded ? 'minus-line' : 'plus-line'}
           iconClass="panel-title__icon"
         >
           {title}
@@ -88,9 +88,8 @@ export default class Navigation extends React.Component<NavigationProps, any> {
                 key={key}
                 collapsible
                 header={this.renderPanelHeader(group.title, expanded.includes(key))}
-                eventKey={key}
-                onSelect={this.togglePanel}
-                expanded={expanded.includes(key)}
+                // eventKey={key}
+                // onSelect={this.togglePanel}
               >
                 {group.children.map((item, index) => (
                   <NavItem key={index} {...item} />

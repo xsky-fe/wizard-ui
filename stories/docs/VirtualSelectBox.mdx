@@ -1,0 +1,69 @@
+import { Canvas, Meta, ArgTypes } from '@storybook/blocks';
+
+import * as VirtualSelectBoxStories from '../VirtualSelectBox.stories.tsx';
+
+<Meta of={VirtualSelectBoxStories} />
+
+# VirtualSelectBox
+<em><strong>(wizard-ui自定义组件)</strong></em>
+<p>2023-6-14 [chensheng](https://github.xsky.com/chen-sheng)</p>
+
+- 在大量异步数据中选择需要的数据，支持滚动加载和搜索；
+- 支持单选和多选。
+
+## 限制条件
+
+异步 `API` 支持获取部分数据（分页），query 的格式如下：
+表示从第 20 条数据开始取10 条数据。
+```javascript
+{
+  // 取 10 条数据
+  limit: 10,
+  // 从第 20 条数据开始取
+  offset: 20
+}
+```
+
+`fetchData` 异步数据 `API`, `Promise` 返回数据结构没有严格要求，通用模拟结构如下：
+
+```javascript
+const fetchData = () => new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve({
+      response: {
+        resNames: [xxx],
+        paging: {
+          totalCount: xxx
+        }
+      }
+    });
+    reject({
+      error: xxx,
+    });
+  }, time);
+});
+```
+`item` 选中项，允许为空对象 `{}` 或者 `""`，具体使用：
+
+```javascript
+<VirtualSelectBox
+  item={item}
+  fetchData={getDatas}
+/>
+```
+
+## 基本用法
+
+### 空数据
+<Canvas of={VirtualSelectBoxStories.EmptyData}/>
+
+### 有数据单选
+<Canvas of={VirtualSelectBoxStories.AsyncDatas}/>
+
+### 有数据单选(带清除)
+<Canvas of={VirtualSelectBoxStories.AsyncDatasWithClear}/>
+
+### 有数据多选
+<Canvas of={VirtualSelectBoxStories.MultiWithAsyncDatas}/>
+## API
+<ArgTypes />

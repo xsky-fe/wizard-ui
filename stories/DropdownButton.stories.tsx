@@ -1,53 +1,181 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { DropdownButton } from '../src';
-import DropdownButtonDemo from './demos/DropdownButtonDemo';
 import { InputGroup } from 'react-bootstrap';
 
-storiesOf('DropdownButton', module)
-  .add('size', () => (
-    <div>
-      <DropdownButtonDemo />
-      <DropdownButton id="a1" bsSize="large" title="large" menu={['menu1', 'menu2', 'menu3']} />
+const meta: Meta = {
+  title: 'COMPONENTS/DropdownButton',
+  component: DropdownButton,
+  decorators: [
+    Story => (
+      <div style={{ marginBottom: '60px' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  argTypes: {
+    variant: {
+      description: '样式支持default，primary，success，info，warning，danger，默认为default',
+      table: {
+        type: {
+          summary: 'string',
+        },
+        defaultValue: { summary: 'default' },
+      },
+      control: 'text'
+    },
+    as: {
+      description: '元素类型',
+      table: {
+        type: {
+          summary: 'elementType',
+        },
+      },
+    },
+    disabled: {
+      description: '是否禁用',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+    },
+    drop: {
+      description: '下拉框弹出方向',
+      table: {
+        type: {
+          summary: 'string',
+          detail: "'up' | 'up-centered' | 'start' | 'end' | 'down' | 'down-centered'",
+        },
+      },
+    },
+    onSelect: {
+      description: '下拉菜单选中时回调',
+      table: {
+        type: {
+          summary: 'function',
+        },
+      },
+    },
+    show: {
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+      description:
+        '下拉框是否展开;使用组件如未传入show属性，点击任何一级的MenuItem都会默认关闭下拉框;如有传入show属性，下拉框是否展开根据传入的show决定',
+    },
+    align: {
+      description: '下拉框对齐方向',
+      table: {
+        type: {
+          summary: 'string',
+          detail:
+            '"start" | "end" | { sm: "start" | "end" } | { md: "start" | "end" } | { lg: "start" | "end" } | { xl: "start" | "end"} | { xxl: "start" | "end"}',
+        },
+      },
+    },
+  },
+};
+
+export default meta;
+
+type Story = StoryObj<typeof DropdownButton>;
+
+export const Basic: Story = {
+  render: props => (
+    <DropdownButton
+      title="标题"
+      menu={[
+        '操作-1',
+        { key: 'menu2', title: '操作-2', children: ['操作-2-1', '操作-2-2'] },
+        '操作-3',
+      ]}
+      {...props}
+    />
+  ),
+};
+
+export const Size: Story = {
+  render: props => (
+    <>
+      <DropdownButton id="a1" size="lg" title="lg" menu={['menu1', 'menu2', 'menu3']} />
       <DropdownButton id="a2" title="default" menu={['menu1', 'menu2', 'menu3']} />
-      <DropdownButton id="a3" bsSize="small" title="small" menu={['menu1', 'menu2', 'menu3']} />
-      <DropdownButton id="a4" bsSize="xsmall" title="xsmall" menu={['menu1', 'menu2', 'menu3']} />
-    </div>
-  ))
-  .add('style', () => (
-    <div>
-      <DropdownButton id="a1" bsStyle="default" title="default" menu={['menu1', 'menu2', 'menu3']} />
-      <DropdownButton id="a2" bsStyle="primary" title="primary" menu={['menu1', 'menu2', 'menu3']} />
-      <DropdownButton id="a3" bsStyle="success" title="success" menu={['menu1', 'menu2', 'menu3']} />
-      <DropdownButton id="a4" bsStyle="info" title="info" menu={['menu1', 'menu2', 'menu3']} />
-      <DropdownButton id="a5" bsStyle="warning" title="warning" menu={['menu1', 'menu2', 'menu3']} />
-      <DropdownButton id="a6" bsStyle="danger" title="danger" menu={['menu1', 'menu2', 'menu3']} />
-    </div>
-  ))
-  .add('componentClass', () => (
-    <div>
+      <DropdownButton id="a3" size="sm" title="sm" menu={['menu1', 'menu2', 'menu3']} />
+      <DropdownButton id="a4" size="xs" title="xs" menu={['menu1', 'menu2', 'menu3']} />
+    </>
+  ),
+};
+
+export const Style: Story = {
+  decorators: [
+    Story => (
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  render: props => (
+    <>
+      <DropdownButton
+        id="a1"
+        variant="default"
+        title="default"
+        menu={['menu1', 'menu2', 'menu3']}
+      />
+      <DropdownButton
+        id="a2"
+        variant="primary"
+        title="primary"
+        menu={['menu1', 'menu2', 'menu3']}
+      />
+      <DropdownButton
+        id="a3"
+        variant="success"
+        title="success"
+        menu={['menu1', 'menu2', 'menu3']}
+      />
+      <DropdownButton id="a4" variant="info" title="info" menu={['menu1', 'menu2', 'menu3']} />
+      <DropdownButton
+        id="a5"
+        variant="warning"
+        title="warning"
+        menu={['menu1', 'menu2', 'menu3']}
+      />
+      <DropdownButton id="a6" variant="danger" title="danger" menu={['menu1', 'menu2', 'menu3']} />
+    </>
+  ),
+};
+
+export const As: Story = {
+  render: props => (
+    <>
       <DropdownButton
         id="a1"
         title="input group"
-        componentClass={InputGroup.Button}
+        as={InputGroup}
         menu={['menu1', 'menu2', 'menu3']}
       />
       <DropdownButton id="a2" title="normal" menu={['menu1', 'menu2', 'menu3']} />
-    </div>
-  ))
-  .add('modifer', () => (
-    <div>
-      <DropdownButton
-        id="a1"
-        title="table toolbar"
-        modifer="table-toolbar"
-        menu={['menu1', 'menu2', 'menu3']}
-      />
-      <DropdownButton id="a2" title="normal" menu={['menu1', 'menu2', 'menu3']} />
-    </div>
-  ))
-  .add('menu', () => (
-    <div>
+    </>
+  ),
+};
+
+export const Modifier: Story = {
+  render: props => (
+    <DropdownButton
+      id="a1"
+      title="table toolbar"
+      modifer="table-toolbar"
+      menu={['menu1', 'menu2', 'menu3']}
+    />
+  ),
+};
+
+export const Menu: Story = {
+  render: props => (
+    <>
       <DropdownButton id="a1" title="simple menu" menu={['menu1', 'menu2', 'menu3']} />
       <DropdownButton
         id="a2"
@@ -71,87 +199,82 @@ storiesOf('DropdownButton', module)
         id="a5"
         title="menu"
         menu={[
-          { key: 'menu1', title: 'menu1', disabled: true, toolTip: { label: 'menu1', children: 'Not allow to operate'} },
-          { key: 'menu2', title: 'menu2', disabled: true,  toolTip: { label: 'menu1', children: 'Not allow to operate', placement: 'top'} },
+          {
+            key: 'menu1',
+            title: 'menu1',
+            disabled: true,
+            toolTip: { label: 'menu1', children: 'Not allow to operate' },
+          },
+          {
+            key: 'menu2',
+            title: 'menu2',
+            disabled: true,
+            toolTip: { label: 'menu1', children: 'Not allow to operate', placement: 'top' },
+          },
+          {
+            key: 'menu3',
+            title: 'menu3',
+            disabled: true,
+            toolTip: { children: 'Not allow to operate' },
+          },
         ]}
       />
-    </div>
-  ))
-  .add('disabled', () => (
-    <div>
-      <DropdownButton id="a1" title="disabled" disabled menu={['menu1', 'menu2', 'menu3']} />
-      <DropdownButton id="a2" title="normal" menu={['menu1', 'menu2', 'menu3']} />
-    </div>
-  ))
-  .add('dropup', () => (
-    <div style={{ paddingTop: '160px' }}>
-      <DropdownButton id="a1" title="dropup" dropup menu={['menu1', 'menu2', 'menu3']} />
-      <DropdownButton id="a2" title="normal" menu={['menu1', 'menu2', 'menu3']} />
-    </div>
-  ))
-  .add('noCaret', () => (
-    <div>
-      <DropdownButton id="a1" title="noCaret" noCaret menu={['menu1', 'menu2', 'menu3']} />
-      <DropdownButton id="a2" title="normal" menu={['menu1', 'menu2', 'menu3']} />
-    </div>
-  ))
-  .add('onSelect', () => (
-    <div>
+    </>
+  ),
+};
+
+export const Disabled: Story = {
+  render: props => (
+    <DropdownButton id="a1" title="disabled" disabled menu={['menu1', 'menu2', 'menu3']} />
+  ),
+};
+
+export const DropUp: Story = {
+  decorators: [
+    Story => (
+      <div style={{ margin: '80px 0 0 0' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  render: props => (
+    <DropdownButton id="a1" title="dropup" drop="up" menu={['menu1', 'menu2', 'menu3']} />
+  ),
+};
+
+export const NoCaret: Story = {
+  render: props => (
+    <DropdownButton id="a1" title="noCaret" noCaret menu={['menu1', 'menu2', 'menu3']} />
+  ),
+};
+
+export const Show: Story = {
+  render: props => (
+    <>
       <DropdownButton
         id="a1"
-        title="onSelect"
-        onSelect={(eventKey: any) => alert(`${eventKey} clicked`)}
-        menu={[
-          { title: 'menu1', eventKey: 'event1' },
-          { title: 'menu2', eventKey: 'event2' },
-          { title: 'menu3', eventKey: 'event3' },
-        ]}
-      />
-    </div>
-  ))
-  .add('open', () => (
-    <div>
-      <DropdownButton
-        id="a1"
-        title="open"
-        open
-        onToggle={() => { }}
-        menu={['menu1', 'menu2', 'menu3']}
+        title="show"
+        show
+        onToggle={() => {}}
+        menu={['menu1', 'menu2', '  menu3']}
       />
       <DropdownButton id="a2" title="normal" menu={['menu1', 'menu2', 'menu3']} />
       <DropdownButton
         id="a3"
         title="close"
-        open={false}
-        onToggle={() => { }}
+        show={false}
+        onToggle={() => {}}
         menu={['menu1', 'menu2', 'menu3']}
       />
-    </div>
-  ))
-  .add('onToggle', () => {
-    const ToggleDropdownButton = () => {
-      const [visible, updateVisible] = React.useState(true);
-      return (<div>
-        <DropdownButton
-          id="a1"
-          title="onToggle"
-          open={visible}
-          onToggle={() => updateVisible(!visible)}
-          menu={['menu1', 'menu2', 'menu3']}
-        />
-      </div>)
-    }
-    return <ToggleDropdownButton />
-  })
-  .add('pullRight', () => (
-    <div>
+    </>
+  ),
+};
+
+export const Align: Story = {
+  render: props => (
+    <>
       <DropdownButton id="a2" title="normal" menu={['menu1', 'menu2', 'menu3']} />
-      <DropdownButton id="a1" title="pullRight" pullRight menu={['menu1', 'menu2', 'menu3']} />
-    </div>
-  ))
-  .add('title', () => (
-    <div>
-      <DropdownButton id="a1" title="title1" menu={['menu1', 'menu2', 'menu3']} />
-      <DropdownButton id="a2" title="title2" menu={['menu1', 'menu2', 'menu3']} />
-    </div>
-  ));
+      <DropdownButton id="a1" title="align" align="end" menu={['menu1', 'menu2', 'menu3']} />
+    </>
+  ),
+};

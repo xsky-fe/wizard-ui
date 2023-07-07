@@ -43,8 +43,7 @@ const Popover: React.FC<PopoverProps> = props => {
   const hoverTrigger = lodash.includes(trigger, 'hover');
   const clickTrigger = lodash.includes(trigger, 'click');
   const focusTrigger = lodash.includes(trigger, 'focus');
-
-  const _placement = defaultPlacement ? defaultPlacement : placement;
+  const _placement:any = defaultPlacement ? defaultPlacement : placement;
   let className = classNames('Popover', {
     'space-between': true,
     shadow: shadow,
@@ -67,7 +66,7 @@ const Popover: React.FC<PopoverProps> = props => {
       <Overlay
         {...extra}
         placement={_placement}
-        target={wrapper.current || undefined}
+        target={wrapper.current || null}
         show={show}
         onHide={handleHide}
       >
@@ -76,16 +75,13 @@ const Popover: React.FC<PopoverProps> = props => {
           className={className}
           onMouseEnter={hoverTrigger ? handleShow : undefined}
           onMouseLeave={hoverTrigger ? handleHide : undefined}
+          body
         >
           {content}
         </BasePopover>
       </Overlay>
     </div>
   );
-};
-
-Popover.defaultProps = {
-  trigger: 'hover',
 };
 
 Popover.propTypes = {
@@ -105,11 +101,16 @@ Popover.propTypes = {
    * 提示框的位置，可选'top'，'right'，'bottom'，'left'。
    * 若不传入这一属性，会根据 OverlayTrigger 的位置，自适应选取提示框的位置；
    **/
+  //@ts-ignore
   placement: PropTypes.string,
   /**
    * 是否点击外部区域关闭popover；
    **/
   rootClose: PropTypes.bool,
+};
+
+Popover.defaultProps = {
+  trigger: 'hover',
 };
 
 export default Popover;

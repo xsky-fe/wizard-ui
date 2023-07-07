@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import { Well } from 'react-bootstrap';
 import Badge from '../Badge';
 import { getBemClass } from '../../utils';
 import { StepsProps } from '../../interface';
@@ -10,7 +9,7 @@ import './style.scss';
 const Steps: React.FC<StepsProps> = props => {
   const { steps, currentStep, showIcon, iconSize, iconStatus } = props;
   return (
-    <Well className="Steps">
+    <div className="Steps">
       {steps.map((step, index) => {
         const stepLabel = typeof step === 'string' ? step : step.label;
         const stepCount = typeof step === 'string' ? false : step.count;
@@ -26,11 +25,11 @@ const Steps: React.FC<StepsProps> = props => {
               status={iconStatus}
             />
             {stepLabel}
-            {index !== steps.length - 1 && <Icon type="angle-left" />}
+            {index !== steps.length - 1 && <Icon type="arrow-right-line" size={12} />}
           </div>
         );
       })}
-    </Well>
+    </div>
   );
 };
 

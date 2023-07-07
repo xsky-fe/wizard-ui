@@ -1,22 +1,73 @@
+@import '../../../node_modules/bootstrap/scss/functions';
 @import '../../style/variables.scss';
+@import '../../style/bootstrap-custom.scss';
 
-.Panel {
-  .panel-primary-bg {
-    background-color: $primary-normal
-  }
-  .panel-success-bg {
-    background-color: $success-normal
-  }
-  .panel-info-bg {
-    background-color: $updating-normal
-  }
-  .panel-warning-bg {
-    background-color: $warning-normal
-  }
-  .panel-danger-bg {
-    background-color: $error-normal
-  }
-
+.card-header>span {
+  cursor: pointer;
 }
 
+.panel-embedded {
+  box-shadow: none;
+  border: 1px solid $border-2;
+}
 
+.panel-default {
+  .panel-heading {
+    font-size: $font-size-16;
+    color: $text-1;
+    line-height: 24px;
+    padding: 16px 24px;
+  }
+
+  .panel-body {
+    padding: 0 24px 24px;
+  }
+}
+
+.panel-sm {
+  .panel-heading {
+    color: $text-1;
+    font-size: $font-size-14;
+    line-height: 22px;
+    font-weight: $font-weight-medium;
+    padding: 8px 16px;
+  }
+
+  .panel-body {
+    padding: 0 16px 16px;
+  }
+}
+
+.panel-xs {
+  .panel-heading {
+    color: $text-1;
+    font-size: $font-size-14;
+    line-height: 22px;
+    padding: 8px 8px;
+  }
+
+  .panel-body {
+    padding: 0 8px 8px;
+  }
+}
+
+.accordion-span {
+  cursor: pointer;
+}
+
+.card-group {
+  flex-direction: column;
+
+  .card {
+    border-left: 1px solid $card-border-color !important;
+    border-radius: $radius-4-card !important;
+
+    .card-header {
+      border-bottom: none;
+    }
+
+    +.card {
+      margin-top: 5px;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 declare module 'react-ios-switch';
-declare module 'wizard-icons';
+declare module 'wizard-ui-icon';
 declare module 'rc-calendar/lib/Picker';
 declare module 'rc-calendar/lib/RangeCalendar';
 declare module 'rc-calendar/lib/locale/zh_CN';

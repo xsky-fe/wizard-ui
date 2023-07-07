@@ -2,16 +2,26 @@ import React from 'react';
 import { VirtualList } from '../../src';
 import { getMockDatas } from '../../src/utils';
 import { get } from 'lodash';
-import { Query, VirtualRowArgs, VirtualItem } from '../../src/interface'
+import { Query, VirtualRowArgs, VirtualItem } from '../../src/interface';
 
-const resName = "list";
+const resName = 'list';
 function getDatas(query: Query) {
   return getMockDatas(query, 180, resName);
 }
 
-export const rowRenderer = (i: VirtualRowArgs<VirtualItem>) => <div className="list-item" style={i.style} key={i.index}>{resName}-{i.index + 1}</div>;
+export const rowRenderer = (i: VirtualRowArgs<VirtualItem>) => (
+  <div className="list-item" style={i.style} key={i.index}>
+    {resName}-{i.index + 1}
+  </div>
+);
 
-const rowRendererRandomHeight = (i: VirtualRowArgs<VirtualItem>) => <div className="list-item" style={i.style} key={i.index}><div style={{ height: `${35 + (i.index % 5 * 4)}px` }}>{resName}-{i.index + 1}</div></div>;
+const rowRendererRandomHeight = (i: VirtualRowArgs<VirtualItem>) => (
+  <div className="list-item" style={i.style} key={i.index}>
+    <div style={{ height: `${35 + (i.index % 5) * 4}px` }}>
+      {resName}-{i.index + 1}
+    </div>
+  </div>
+);
 
 export default (props: { random?: boolean }) => {
   const [fetching, setFetch] = React.useState(false);
@@ -22,7 +32,7 @@ export default (props: { random?: boolean }) => {
     handleQueryChange({
       limit: 30,
       offset: 0,
-    })
+    });
   }, []);
   React.useEffect(() => {
     const existLists = document.querySelectorAll('.VirtualList > *');
@@ -35,12 +45,16 @@ export default (props: { random?: boolean }) => {
     const totalCount = get(actionResult, 'response.paging.totalCount');
     const lists = actionResult.response.lists;
     setTotalCount(totalCount);
-    setDatas(datas.concat(lists))
-  }
+    setDatas(datas.concat(lists));
+  };
   return (
     <div>
-      <p>总共 {totalCount}, 获取了 {datas.length} 条数据。</p>
-      <p>VirtualList 会在增加 list 条数的同时，销毁超出的 UI，目前渲染出来的 list 条数是： {count}</p>
+      <p>
+        总共 {totalCount}, 获取了 {datas.length} 条数据。
+      </p>
+      <p>
+        VirtualList 会在增加 list 条数的同时，销毁超出的 UI，目前渲染出来的 list 条数是： {count}
+      </p>
       <div className="box">
         <VirtualList
           rowHeight={35}
@@ -59,5 +73,5 @@ export default (props: { random?: boolean }) => {
         />
       </div>
     </div>
-  )
-}
+  );
+};

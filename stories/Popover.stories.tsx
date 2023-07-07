@@ -1,16 +1,49 @@
 import React from 'react';
-import { Button as BaseButton, ButtonProps } from 'react-bootstrap';
-import { storiesOf } from '@storybook/react';
-import { Popover } from '../src';
+import { Meta, StoryObj } from '@storybook/react';
+import { Popover, Button as BaseButton } from '../src';
+import { ButtonProps } from 'react-bootstrap/Button';
 
 const Button = (props: ButtonProps) => (
   // @ts-ignore
-  <BaseButton {...props} style={{ marginRight: '30px' }}></BaseButton>
-)
+  <>
+    <BaseButton {...props}></BaseButton>
+    <span style={{ margin: 25 }} />
+  </>
+);
 
-storiesOf('Popover', module)
-  .add('placement', () => (
-    <div style={{ paddingTop: '160px' }}>
+const meta: Meta<typeof Popover> = {
+  title: 'DATA DISPLAY/Popover',
+  component: Popover,
+  argTypes: {
+    trigger: {
+      control: 'check',
+      options: ['hover','click','focus']
+    }
+  }
+};
+
+export default meta;
+
+type Story = StoryObj<typeof Popover>;
+
+export const Basic: Story = {
+  args: {
+    children: <span>鼠标移入会展示提示或者节点元素。</span>,
+    content: (
+      <>
+        <h4>你好👋！</h4>
+        <div>这是一段内容！这是一段内容！这是一段内容！</div>
+        <div>
+          <a>这是一个链接！</a>
+        </div>
+      </>
+    ),
+  },
+};
+
+export const Placement: Story = {
+  render: props => (
+    <>
       <Popover
         placement="right"
         content={
@@ -55,10 +88,13 @@ storiesOf('Popover', module)
       >
         <Button>左 left</Button>
       </Popover>
-    </div>
-  ))
-  .add('trigger', () => (
-    <div style={{ paddingTop: '160px' }}>
+    </>
+  ),
+};
+
+export const Trigger: Story = {
+  render: props => (
+    <>
       <Popover
         placement="top"
         content={
@@ -95,10 +131,13 @@ storiesOf('Popover', module)
       >
         <Button>点击 click</Button>
       </Popover>
-    </div>
-  ))
-  .add('arrow-shadow', () => (
-    <div style={{ paddingTop: '160px' }}>
+    </>
+  ),
+};
+
+export const ArrowShow: Story = {
+  render: props => (
+    <>
       <Popover
         placement="top"
         content={
@@ -122,5 +161,6 @@ storiesOf('Popover', module)
       >
         <Button>这是紫颜色</Button>
       </Popover>
-    </div>
-  ))
+    </>
+  ),
+};

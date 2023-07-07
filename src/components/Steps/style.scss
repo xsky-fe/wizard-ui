@@ -1,13 +1,21 @@
+@import '../../style/variables.scss';
+
 .Steps {
+  color: $text-1;
   text-align: center;
+  background-color: $bg-2;
+  line-height: 20px;
+  font-size: $font-size-14;
+  padding: 8px 16px;
+  margin-bottom: 20px;
+  border-radius: $radius-middle;
 }
 .Steps__Step {
   display: inline-block;
   opacity: .4;
 
-  .icon-angle-left {
+  .icon-arrow-right-line{
     display: inline-block;
-    transform: rotate(180deg);
     margin: 0 10px;
     font-size: 1rem;
     vertical-align: 0;

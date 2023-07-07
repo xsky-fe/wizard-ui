@@ -4,28 +4,30 @@ date: 2019-06-20
 ---
 
 ## 基本用法
+
 ### 默认展示
+
 ```jsx
 () => {
-  const navs =  {
+  const navs = {
     overview: {
       title: '概览',
-      icon: 'overview',
+      icon: 'overview-line',
     },
     nav1: {
       title: '导航栏一',
       children: [
         {
           title: '选项一',
-          icon: 'volume',
+          icon: 'volume-line',
         },
         {
           title: '选项二',
-          icon: 'consistency-group',
+          icon: 'consistency-group-line',
         },
         {
           title: '选项三',
-          icon: 'access-target',
+          icon: 'access-target-line',
         },
       ],
     },
@@ -34,27 +36,28 @@ date: 2019-06-20
       children: [
         {
           title: '选项一',
-          icon: 'file-user',
+          icon: 'file-user-line',
         },
         {
           title: '选项二',
-          icon: 'fs-client',
+          icon: 'fs-client-line',
         },
       ],
     },
   };
   return (
-    <div style={{ width: '200px',   backgroundColor: '#2d3454' }}>
+    <div style={{ width: '200px', backgroundColor: '#2d3454' }}>
       <Navigation navGroups={navs} />
     </div>
-  )
-}
+  );
+};
 ```
 
 ### 交互
+
 ```jsx
 () => {
-  const navs =  {
+  const navs = {
     overview: {
       title: '概览',
       icon: 'overview',
@@ -64,15 +67,15 @@ date: 2019-06-20
       children: [
         {
           title: '选项一',
-          icon: 'volume',
+          icon: 'volume-line',
         },
         {
           title: '选项二',
-          icon: 'consistency-group',
+          icon: 'consistency-group-line',
         },
         {
           title: '选项三',
-          icon: 'access-target',
+          icon: 'access-target-line',
         },
       ],
     },
@@ -81,58 +84,66 @@ date: 2019-06-20
       children: [
         {
           title: '选项一',
-          icon: 'file-user',
+          icon: 'file-user-line',
         },
         {
           title: '选项二',
-          icon: 'fs-client',
+          icon: 'fs-client-line',
         },
       ],
     },
   };
-  const [ toggle, setToggle ] = React.useState(true);
+  const [toggle, setToggle] = React.useState(true);
   const handleClick = () => setToggle(!toggle);
   return (
     <div>
-      <Button bsStyle="primary" onClick={handleClick} style={{ marginBottom: 8 }}>
-        <Icon type={toggle ? 'slide-right' : 'slide-left'}/>
+      <Button
+        bsStyle="primary"
+        onClick={handleClick}
+        style={{ marginBottom: 8 }}
+      >
+        <Icon type={toggle ? 'menu-unfold-line' : 'menu-fold-line'} />
       </Button>
-      <div style={{ width: toggle ? '50px' : '200px',   backgroundColor: '#2d3454' }}>
-        <Navigation navGroups={navs} toggled={toggle} logo="Logo"/>
+      <div
+        style={{ width: toggle ? '50px' : '200px', backgroundColor: '#2d3454' }}
+      >
+        <Navigation navGroups={navs} toggled={toggle} logo="Logo" />
       </div>
     </div>
-  )
-}
+  );
+};
 ```
 
 ### 关联路由
+
 - 使用 `component` 属性可以定制组件内的结构，比如指定 a 标签
 - `expandedKeys` 默认展开面板
+
 ```jsx
 () => {
-  const navs =  {
+  const navs = {
     overview: {
       title: '概览',
-      icon: 'overview',
-      component: props => <a href="#" {...props}/>,
+      icon: 'overview-line',
+      component: props => <a href="#" {...props} />,
     },
     nav1: {
       title: '导航栏一',
       children: [
         {
           title: '选项一',
-          icon: 'volume',
-          component: props => <a href="#" {...props}/>,
+          icon: 'volume-line',
+          component: props => <a href="#" {...props} />,
         },
         {
           title: '选项二',
-          icon: 'consistency-group',
-          component: props => <a href="#" {...props}/>,
+          icon: 'consistency-group-line',
+          component: props => <a href="#" {...props} />,
         },
         {
           title: '选项三',
-          icon: 'access-target',
-          component: props => <a href="#" {...props}/>,
+          icon: 'access-target-line',
+          component: props => <a href="#" {...props} />,
         },
       ],
     },
@@ -141,30 +152,41 @@ date: 2019-06-20
       children: [
         {
           title: '选项一',
-          icon: 'file-user',
-          component: props => <a href="#" {...props}/>,
+          icon: 'file-user-line',
+          component: props => <a href="#" {...props} />,
         },
         {
           title: '选项二',
-          icon: 'fs-client',
-          component: props => <a href="#" {...props}/>,
+          icon: 'fs-client-line',
+          component: props => <a href="#" {...props} />,
         },
       ],
     },
   };
-  const [ toggle, setToggle ] = React.useState(true);
+  const [toggle, setToggle] = React.useState(true);
   const handleClick = () => setToggle(!toggle);
   return (
     <div>
-      <Button bsStyle="primary" onClick={handleClick} style={{ marginBottom: 8 }}>
-        <Icon type={toggle ? 'slide-right' : 'slide-left'}/>
+      <Button
+        bsStyle="primary"
+        onClick={handleClick}
+        style={{ marginBottom: 8 }}
+      >
+        <Icon type={toggle ? 'menu-unfold-line' : 'menu-fold-line'} />
       </Button>
-      <div style={{ width: toggle ? '50px' : '200px',   backgroundColor: '#2d3454' }}>
-        <Navigation expandedKeys={['nav2']} navGroups={navs} toggled={toggle} logo="Logo"/>
+      <div
+        style={{ width: toggle ? '50px' : '200px', backgroundColor: '#2d3454' }}
+      >
+        <Navigation
+          expandedKeys={['nav2']}
+          navGroups={navs}
+          toggled={toggle}
+          logo="Logo"
+        />
       </div>
     </div>
-  )
-}
+  );
+};
 ```
 
 ## API

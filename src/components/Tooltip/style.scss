@@ -3,28 +3,30 @@
 .Tooltip {
   display: inline-block;
   & .Tooltip__icon {
-    font-size: $font-size-14;
+    font-size: $font-size-16;
     color: $icon-2;
   }
 }
 .tooltip {
+  .tooltip-inner {
+    box-shadow: $shadow-tooltip;
+  }
   &.contrast {
-    &.top > .tooltip-arrow {
+    &.bs-tooltip-top .tooltip-arrow::before {
       border-top-color: white;
     }
-    &.right > .tooltip-arrow {
+    &.bs-tooltip-end .tooltip-arrow::before {
       border-right-color: white;
     }
-    &.bottom > .tooltip-arrow {
+    &.bs-tooltip-bottom > .tooltip-arrow::before {
       border-bottom-color: white;
     }
-    &.left > .tooltip-arrow {
+    &.bs-tooltip-start > .tooltip-arrow::before {
       border-left-color: white;
     }
     .tooltip-inner {
       color: black;
       background-color: white;
-      box-shadow: 0 0 20px rgba(black,.3);
     }
   }
 }

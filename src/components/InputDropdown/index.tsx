@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import find from 'lodash/find';
 import get from 'lodash/get';
-import { DropdownButton, MenuItem, InputGroup } from 'react-bootstrap';
+import { DropdownButton, Dropdown, Button } from 'react-bootstrap';
 import { uuid } from '../../utils';
 import { InputDropdownProps } from '../../interface';
 
@@ -21,7 +21,7 @@ const InputDropdown = (props: InputDropdownProps) => {
     return get(option, 'title');
   }
 
-  function handleSelect(eventKey: any) {
+  function handleSelect(eventKey: unknown) {
     const { input, onChange } = props;
     if (onChange) {
       onChange(eventKey);
@@ -29,20 +29,21 @@ const InputDropdown = (props: InputDropdownProps) => {
       input.onChange(eventKey);
     }
   }
-  const { input, meta, options, ...rest } = props;
+  const { input, meta, options, onChange, ...rest } = props;
   return (
     <DropdownButton
       id={uuid()}
-      {...rest}
-      componentClass={InputGroup.Button}
+      as={Button}
+      variant="default"
       onSelect={handleSelect}
       title={getTitle()}
+      {...rest}
     >
       {options &&
         options.map(option => (
-          <MenuItem key={option.value} eventKey={option.value}>
+          <Dropdown.Item key={option.value} eventKey={option.value}>
             {option.title}
-          </MenuItem>
+          </Dropdown.Item>
         ))}
     </DropdownButton>
   );
@@ -56,7 +57,7 @@ InputDropdown.propTypes = {
   /**
    * 下拉框是否右对齐，默认为 true
    **/
-  pullRight: PropTypes.bool,
+  align: PropTypes.string,
   /**
    * 默认值
    **/
@@ -69,10 +70,6 @@ InputDropdown.propTypes = {
    * value，传入 value 时变为受控组件
    **/
   value: PropTypes.string,
-};
-
-InputDropdown.defaultProps = {
-  pullRight: true,
 };
 
 export default InputDropdown;

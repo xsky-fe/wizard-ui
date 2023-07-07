@@ -1,2 +1,18 @@
 @import 'bootstrap-custom';
-@import '../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap';
+
+.btn-toolbar {
+  &>.btn,
+  &>.btn-group,
+  &.input-group {
+    margin-left: 5px;
+  }
+}
+
+.breadcrumb{
+  align-items: center;
+  .breadcrumb-item{
+    + .breadcrumb-item::before{
+      float: none;
+     }
+  }
+}

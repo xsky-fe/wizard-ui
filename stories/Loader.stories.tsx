@@ -1,19 +1,42 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { Loader } from '../src';
 
-const LoaderDefault = () => {
-  return <div style={{ background: 'rgba(0, 0, 0, 0.85)', paddingTop: '20px' }}><Loader>正在加载中...</Loader></div>;
+const meta: Meta<typeof Loader> = {
+  title: 'OTHERS/Loader',
+  component: Loader,
+  args: {
+    children: '正在加载中...',
+  },
 };
 
-const LoaderPrimary = () => {
-  return <Loader bsStyle="primary">正在加载中...</Loader>;
+export default meta;
+
+type Story = StoryObj<typeof Loader>;
+
+export const Basic: Story = {
+  decorators: [
+    Story => (
+      <div style={{ background: 'rgba(0, 0, 0, 0.85)', paddingTop: '20px' }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
-storiesOf('Loader', module)
-  .add('default', () => {
-    return <LoaderDefault />;
-  })
-  .add('primary', () => {
-    return <LoaderPrimary />;
-  });
+export const Primary: Story = {
+  args: {
+    bsStyle: 'primary',
+  },
+};
+
+export const Size: Story = {
+  render: props => (
+    <>
+      <Loader bsStyle="primary" />
+      <Loader bsStyle="primary" bsSize="mi" />
+      <Loader bsStyle="primary" bsSize="sm" />
+      <Loader bsStyle="primary" bsSize="xs" />
+    </>
+  ),
+};

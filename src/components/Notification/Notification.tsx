@@ -6,11 +6,11 @@ import { NotificationProps } from '../../interface';
 import './style.scss';
 
 const STATUS = {
-  success: ['check-circle'],
-  info: ['info'],
+  success: ['right-fill'],
+  info: ['tip-line'],
   process: ['loading', 'info'],
-  warning: ['warning'],
-  danger: ['times-circle'],
+  warning: ['info-fill'],
+  danger: ['close-fill'],
 };
 
 export default class Notification extends PureComponent<NotificationProps> {
@@ -122,9 +122,14 @@ export default class Notification extends PureComponent<NotificationProps> {
         onMouseEnter={this.mouseEnter}
         onMouseLeave={this.mouseLeave}
       >
-        <Alert bsStyle={style} onDismiss={onDismiss && this.close}>
+        <Alert variant={style} onClose={onDismiss && this.close}>
           {this.renderIcon()}
           {this.renderText()}
+          <div className="alert-dismissible-close">
+            <span aria-hidden="true" className="close" onClick={onDismiss && this.close}>
+              ×
+            </span>
+          </div>
         </Alert>
       </div>
     );

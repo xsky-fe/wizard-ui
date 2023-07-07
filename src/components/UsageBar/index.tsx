@@ -85,7 +85,11 @@ const UsageBar: React.FC<UsageBarProps> = props => {
       const now = hasNow ? props.now : props.percent && max && props.percent * max;
       // 当展示右侧 max 为 0+单位时(showZeroMax为true), 如果 now 大于 max 时，percent 应为 100%
       const defaultPercent = showZeroMax && Number(now) > Number(max) ? 1 : 0;
-      const percent = hasPercent ? props.percent : max ? props.now && props.now / max : defaultPercent;
+      const percent = hasPercent
+        ? props.percent
+        : max
+        ? props.now && props.now / max
+        : defaultPercent;
       const errorPercent = unavailableData && max && unavailableData / max;
       let nowValue: number | string | undefined = now;
       let maxValue: number | string | undefined = max;
@@ -183,6 +187,7 @@ const UsageBar: React.FC<UsageBarProps> = props => {
           // bs ProgressBar 只支持最多 5 种 style，索引摒弃 bsStyle 属性，改用组装 className
           // style用于展示最小进度，不满1px时以1px展示，只要perc > 0，最小进度就是1px
           <ProgressBar
+            variant={bsStyle}
             className={bsStyle && `progress-bar-${bsStyle}`}
             now={perc}
             max={1}

@@ -1,12 +1,43 @@
 .sb-show-main {
   padding: 25px;
 }
+
 .box {
   border: 1px solid #ccc;
   overflow: scroll;
 }
+
 .list-item {
   line-height: 34px;
   border-bottom: 1px dotted #ccc;
   padding-left: 10px;
+}
+
+.Icon {
+  &__ul {
+    background-color: #edeef2;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 20px;
+  }
+
+  &__li {
+    width: 20%;
+    text-align: center;
+    padding: 25px 10px;
+
+    &:hover {
+      background-color: #dbddec;
+    }
+
+    p {
+      font-size: 12px;
+    }
+
+    .icon {
+      font-size: 20px;
+      display: block;
+      margin-bottom: 10px;
+    }
+  }
 }

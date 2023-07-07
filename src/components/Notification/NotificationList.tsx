@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Notification from './index';
 import cn from 'classnames';
 import Icon from '../Icon';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import ReactCSSTransitionGroup from 'react-transition-group/TransitionGroup';
 import { NotificationItem, NotificationListProps, NotificationListStates } from '../../interface';
 import './style.scss';
 
@@ -66,10 +66,10 @@ export default class NotificationList extends PureComponent<
         <div className="NotificationList__control-wrapper" onClick={this.handleToggle}>
           <span className="NotificationList__control">
             <span className="NotificationList__control-left">
-              <Icon type="dialog" />
+              <Icon type="dialog-line" size={12} />
               {lists.length}
             </span>
-            <Icon type="triangle-down" className={indicatorClass} />
+            <Icon type="arrow-down-fill" className={indicatorClass} />
           </span>
         </div>
         {expanded && (

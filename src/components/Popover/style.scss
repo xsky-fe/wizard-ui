@@ -1,7 +1,6 @@
 @import '../../style/variables.scss';
 
 .Popover {
-  border-radius: $radius-4-popover;
   &__wrapper {
     display: inline-block;
     position: relative;
@@ -37,31 +36,31 @@
   }
 
   &.shadow {
-    &.top {
+    &.bs-popover-top {
       border-bottom: 3px solid $primary-normal;
 
-      .arrow::after {
+      .popover-arrow::after {
         border-top-color: $primary-normal !important;
       }
     }
 
-    &.bottom {
+    &.bs-popover-bottom {
       border-top: 3px solid $primary-normal;
-      .arrow::after {
+      .popover-arrow::after {
         border-bottom-color: $primary-normal !important;
       }
     }
 
-    &.left {
+    &.bs-popover-start {
       border-right: 3px solid $primary-normal;
-      .arrow::after {
+      .popover-arrow::after {
         border-left-color: $primary-normal !important;
       }
     }
 
-    &.right {
+    &.bs-popover-end {
       border-left: 3px solid $primary-normal;
-      .arrow::after {
+      .popover-arrow::after {
         border-right-color: $primary-normal !important;
       }
     }

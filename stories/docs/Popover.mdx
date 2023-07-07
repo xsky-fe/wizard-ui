@@ -1,0 +1,38 @@
+import { Canvas, Meta, ArgTypes } from '@storybook/blocks';
+
+import * as PopoverStories from '../Popover.stories.tsx';
+
+<Meta of={PopoverStories} />
+
+# Popover
+<em><strong>(react-bootstrap扩展组件)</strong></em>
+<p>2023-6-19 [hanchuyou](https://github.xsky.com/han-chuyou)</p>
+弹出的气泡式卡片浮层。
+
+## 使用场景
+
+当目标元素有进一步的描述和相关操作时，可以收纳到卡片中，根据用户的操作行为进行展现，建议相关操作控件（不包含文字链）不超过3个。
+
+当只需要对相关元素补充文字描述说明时，请使用 tooltip 文字提示；
+
+当对相关元素有复杂的进一步操作时（3个以上的操作控件），请使用对话框；
+
+## 基本用法
+### 文本提示
+浮层内可以是容器、标题、内容文本、各种类型信息、各种链接。
+<Canvas of={PopoverStories.Basic}/>
+### 提示方向
+- 可以指定提示展示的方向；
+- 如果不指定，默认是朝上 `top` 展示；
+- 不指定方向，根据 Popover 在浏览器中的位置，在初次渲染时会调整展示方向，避免提示信息超出窗口，同时可能方便用户查看提示信息。
+<Canvas of={PopoverStories.Placement}/>
+### 交互方式
+- 打开：鼠标移入（hover，默认），点击（click）；
+- 关闭：鼠标移出或点击空白处；
+<Canvas of={PopoverStories.Trigger}/>
+### 箭头颜色
+- 默认是白色
+<Canvas of={PopoverStories.ArrowShow}/>
+
+## API
+<ArgTypes />
