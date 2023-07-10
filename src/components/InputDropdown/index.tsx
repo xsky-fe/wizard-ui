@@ -72,4 +72,8 @@ InputDropdown.propTypes = {
   value: PropTypes.string,
 };
 
+InputDropdown.defaultProps = {
+  pullRight: true,
+};
+
 export default InputDropdown;
