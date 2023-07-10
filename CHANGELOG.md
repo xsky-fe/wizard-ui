@@ -1,3 +1,15 @@
+## [1.0.1](https://github.com/xsky-fe/wizard-ui/compare/1.0.0...1.0.1) (2023-07-10)
+
+
+### Bug Fixes
+
+* fix component type error ([8a1cfff](https://github.com/xsky-fe/wizard-ui/commit/8a1cfff0e412294fe91d98769513ac9b1927fb7d))
+
+
+### Features
+
+* upgrade version ([807d28b](https://github.com/xsky-fe/wizard-ui/commit/807d28b8656494570b5841fa8a1490e6d0c8a1d6))
+
 # [1.0.0](https://github.com/xsky-fe/wizard-ui/compare/0.7.11...1.0.0) (2023-07-07)
 
 
