@@ -175,6 +175,7 @@ export interface LoaderProps {
 }
 
 export interface TabsProps {
+  id?: string;
   /**包含选项卡的title、key、面板内容 */
   tabs: any[];
   /**大小，提供默认和 small 两种大小 */

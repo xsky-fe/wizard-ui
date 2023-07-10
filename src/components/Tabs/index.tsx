@@ -153,6 +153,7 @@ Tabs.propTypes = {
 
 Tabs.defaultProps = {
   eventKeyName: 'key',
+  id: 'Tabs',
   limitNum: 5,
   transition: false,
   mountOnEnter: false,
