@@ -20,6 +20,7 @@ const bgStyleMap = {
 
 const Alert: React.FC<AlertProps> = props => {
   const {
+    className = '',
     children,
     bsStyle = 'info',
     show,
@@ -47,8 +48,7 @@ const Alert: React.FC<AlertProps> = props => {
       dismissDirection ? `dismiss-${dismissDirection}` : '',
     ];
     setClasses([...tempClass]);
-  }, [bsStyle,textAlign,show,showIcon,dismissDirection]);
-
+  }, [bsStyle, textAlign, show, showIcon, dismissDirection]);
 
   function onClose() {
     const index = classes.indexOf('show-alert');
@@ -62,7 +62,7 @@ const Alert: React.FC<AlertProps> = props => {
   }
 
   return (
-    <div role="alert" className={cn('Alert', classes.join(' '))}>
+    <div role="alert" className={cn('Alert', className, classes.join(' '))}>
       <div
         className={cn(
           'Alert-container',
