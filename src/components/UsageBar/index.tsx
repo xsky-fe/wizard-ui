@@ -12,18 +12,32 @@ const PERCENT_WITH_STATUS = {
   danger: 0.85,
 };
 
-function calcPercent(p: number) {
-  let percent: number | string = 100 * p;
-  if (percent < 0.01 && percent > 0) {
-    percent = '0.01%';
-  } else if (percent < 1) {
-    percent = `${percent.toFixed(3)}%`;
-  } else if (isNaN(percent)) {
-    percent = 'NO';
-  } else {
-    percent = `${percent.toFixed(2)}%`;
+const spacer = (unit: string) => (unit === '%' ? '' : ' ');
+
+function numericalConvert(num: string | number) {
+  if (typeof num !== 'number' || isNaN(num) || num === 0) return num;
+  let n;
+  switch (true) {
+    case num >= 1:
+      n = num.toFixed(2);
+      break;
+    case num < 0.001:
+      n = 0.001;
+      break;
+    case num < 1:
+      n = num.toFixed(3);
+      break;
+    default:
+      n = num;
   }
-  return percent;
+  return n;
+}
+
+function calcPercent(p: number) {
+  if (isNaN(p)) return '--';
+  const num = 100 * p;
+  const percent = numericalConvert(num);
+  return `${percent}%`;
 }
 
 const UsageBar: React.FC<UsageBarProps> = props => {
@@ -44,140 +58,150 @@ const UsageBar: React.FC<UsageBarProps> = props => {
     extraFooterInfo,
     formatType,
     series,
-    withLenged,
+    withLegend,
     unavailableData,
+    handleCustomFooter,
   } = props;
   const hasNow = props.hasOwnProperty('now');
   const hasPercent = props.hasOwnProperty('percent');
   const hasSeries = props.hasOwnProperty('series');
   let left;
   let right;
-  let usedStyle;
+  let usedStyle: string | undefined;
   let finalSeries: Array<any>;
-  switch (true) {
-    case hasSeries:
-      const total = lodash.sumBy(series, 'value');
-      finalSeries = lodash.map(series, ({ name, value, bsStyle }) => {
-        const perc = value / total;
-        let legend: any = perc;
-        switch (true) {
-          case isPercent:
-            legend = calcPercent(perc);
-            break;
-          case isByte:
-            legend = xbytes(value, {});
-            break;
-          case isBulk:
-            legend = bulk(value, {});
-            break;
-          default:
-        }
-        return {
-          name,
-          bsStyle,
-          perc,
-          legend,
-          value,
-        };
-      });
-      break;
-    default:
-      const now = hasNow ? props.now : props.percent && max && props.percent * max;
-      // 当展示右侧 max 为 0+单位时(showZeroMax为true), 如果 now 大于 max 时，percent 应为 100%
-      const defaultPercent = showZeroMax && Number(now) > Number(max) ? 1 : 0;
-      const percent = hasPercent
-        ? props.percent
-        : max
-        ? props.now && props.now / max
-        : defaultPercent;
-      const errorPercent = unavailableData && max && unavailableData / max;
-      let nowValue: number | string | undefined = now;
-      let maxValue: number | string | undefined = max;
-      let nowSuffix: any = '';
-      let maxSuffix: any = '';
-      // bar 左边为百分比形式， 右边默认设为百分形式
-      if (isPercent || hasPercent) {
-        nowValue = percent && (percent * 100).toFixed(2);
-        maxValue = 100;
-        nowSuffix = maxSuffix = '%';
-      }
+  const now = hasNow ? props.now : props.percent && max && props.percent * max;
+  // 当展示右侧 max 为 0+单位时(showZeroMax为true), 如果 now 大于 max 时，percent 应为 100%
+  const defaultPercent = showZeroMax && Number(now) > Number(max) ? 1 : 0;
+  const percent = hasPercent
+    ? props.percent
+    : max && !lodash.isUndefined(props.now)
+    ? props.now / max
+    : defaultPercent;
+  const errorPercent = unavailableData && max && unavailableData / max;
+  let nowValue: number | string | undefined = now;
+  let maxValue: number | string | undefined = max;
+  let nowSuffix: any = '';
+  let maxSuffix: any = '';
+  // bar 左边为百分比形式， 右边默认设为百分形式
+  if (isPercent || hasPercent) {
+    nowValue = percent && (percent * 100).toFixed(2);
+    maxValue = 100;
+    nowSuffix = maxSuffix = '%';
+  }
 
-      if (isByte || formatType) {
-        // hasPercent 表明左边数据设置完成（百分比形式），不需要再调整
-        let byteOptions: object = { splitUnit: true };
-        if (formatType) {
-          byteOptions = { splitUnit: true, formatType };
-        }
+  if (isByte || formatType) {
+    // hasPercent 表明左边数据设置完成（百分比形式），不需要再调整
+    let byteOptions: object = { splitUnit: true };
+    if (formatType) {
+      byteOptions = { splitUnit: true, formatType };
+    }
 
-        if (!hasPercent && now) {
-          const nowArr: any = xbytes(now, byteOptions);
-          nowValue = nowArr[0];
-          nowSuffix = nowArr[1];
-        }
-        const maxArr: any = max && xbytes(max, byteOptions);
-        maxValue = maxArr[0] === undefined ? 0 : maxArr[0];
-        maxSuffix = maxArr[1] === undefined ? 'B' : maxArr[1];
-      } else if (isBulk) {
-        // hasPercent 表明左边数据设置完成（百分比形式），不需要再调整
-        if (!hasPercent && now) {
-          const nowArr = bulk(now, { splitUnit: true });
-          nowValue = nowArr[0];
-          nowSuffix = nowArr[1];
-        }
-        const maxArr: any = max && bulk(max, { splitUnit: true });
-        maxValue = maxArr[0] === undefined ? 0 : maxArr[0];
-        maxSuffix = maxArr[1] === undefined ? '' : maxArr[1];
-      }
+    if (!hasPercent && hasNow) {
+      const nowArr: any = xbytes(now || 0, byteOptions);
+      nowValue = nowArr[0];
+      nowSuffix = nowArr[1];
+    }
+    const maxArr: any = max && xbytes(max, byteOptions);
+    maxValue = maxArr[0] === undefined ? 0 : maxArr[0];
+    maxSuffix = maxArr[1] === undefined ? 'B' : maxArr[1];
+  } else if (isBulk) {
+    // hasPercent 表明左边数据设置完成（百分比形式），不需要再调整
+    if (!hasPercent && hasNow) {
+      const nowArr = bulk(now || 0, { splitUnit: true });
+      nowValue = nowArr[0];
+      nowSuffix = nowArr[1];
+    }
+    const maxArr: any = max && bulk(max, { splitUnit: true });
+    maxValue = maxArr[0] === undefined ? 0 : maxArr[0];
+    maxSuffix = maxArr[1] === undefined ? '' : maxArr[1];
+  }
 
-      // max 为 0 时，设置为无限制
-      // isPercent，hasPercent 涉及到百分比展示，此时 max 不应该为无限制
-      // showZeroMax 直接展示 max 为处理后的 0 + 单位
-      if (!max && !hasPercent && !isPercent && !showZeroMax) {
-        maxValue = lang().MAX_VALUE;
-        maxSuffix = '';
-      }
+  // max 为 0 时，设置为无限制
+  // isPercent，hasPercent 涉及到百分比展示，此时 max 不应该为无限制
+  // showZeroMax 直接展示 max 为处理后的 0 + 单位
+  if (!max && !hasPercent && !isPercent && !showZeroMax) {
+    maxValue = lang().MAX_VALUE;
+    maxSuffix = '';
+  }
 
-      // 处理 bar 颜色
-      if (percent && percent >= PERCENT_WITH_STATUS.danger) {
-        usedStyle = 'danger';
-      } else if (
-        percent &&
-        percent < PERCENT_WITH_STATUS.danger &&
-        percent > PERCENT_WITH_STATUS.warning &&
-        !isExcludeWarning
-      ) {
-        usedStyle = 'warning';
-      }
+  console.log('props.hasOwnProperty(bsStyle)', props.hasOwnProperty('bsStyle'));
+  
+  // 处理 bar 颜色
+  if (props.hasOwnProperty('bsStyle')) {
+    usedStyle = props.bsStyle;
+  } else {
+    if (percent && percent >= PERCENT_WITH_STATUS.danger) {
+      usedStyle = 'danger';
+    } else if (
+      percent &&
+      percent < PERCENT_WITH_STATUS.danger &&
+      percent > PERCENT_WITH_STATUS.warning &&
+      !isExcludeWarning
+    ) {
+      usedStyle = 'warning';
+    }
+  }
 
-      if (withPercent) {
-        // 左边百分比形式，右边展示数值
-        left = percent && calcPercent(percent);
-        // 右边只展示 max 数值
-        if (hideNow) {
-          right = maxValue + maxSuffix;
-        } else {
-          right = `${nowValue + nowSuffix}/${maxValue + maxSuffix}`;
-        }
-      } else {
-        left = nowValue + nowSuffix;
-        right = maxValue + maxSuffix;
+  if (withPercent) {
+    // 左边百分比形式，右边展示数值
+    left = percent ? calcPercent(percent) : '0%';
+    // 右边只展示 max 数值
+    if (hideNow) {
+      // 数值与单位之间需要空格
+      right = maxValue + spacer(maxSuffix) + maxSuffix;
+    } else {
+      // 数值与单位之间需要空格
+      right = `${nowValue + spacer(nowSuffix) + nowSuffix} / ${maxValue +
+        spacer(maxSuffix) +
+        maxSuffix}`;
+    }
+  } else {
+    left = nowValue + spacer(nowSuffix) + nowSuffix;
+    right = maxValue + spacer(maxSuffix) + maxSuffix;
+  }
+  //纯数字的进度条屏蔽右侧显示
+  if (hideRight) {
+    right = '';
+  }
+
+  if (hasSeries) {
+    const total = lodash.sumBy(series, 'value');
+    finalSeries = lodash.map(series, ({ name, value, bsStyle }) => {
+      const perc = value / total;
+      let legend: any = perc;
+      switch (true) {
+        case isPercent:
+          legend = calcPercent(perc);
+          break;
+        case isByte:
+          legend = xbytes(value, {});
+          break;
+        case isBulk:
+          legend = bulk(value, {});
+          break;
+        default:
       }
-      //纯数字的进度条屏蔽右侧显示
-      if (hideRight) {
-        right = '';
-      }
-      finalSeries = lodash.compact([
-        {
-          bsStyle: usedStyle,
-          perc: percent,
-          value: now,
-        },
-        withUnavailable && {
-          bsStyle: 'info',
-          perc: errorPercent,
-          value: unavailableData,
-        },
-      ]);
+      return {
+        name,
+        bsStyle: bsStyle || usedStyle,
+        perc,
+        legend,
+        value,
+      };
+    });
+  } else {
+    finalSeries = lodash.compact([
+      {
+        bsStyle: usedStyle,
+        perc: percent,
+        value: now,
+      },
+      withUnavailable && {
+        bsStyle: 'info',
+        perc: errorPercent,
+        value: unavailableData,
+      },
+    ]);
   }
 
   return (
@@ -199,16 +223,22 @@ const UsageBar: React.FC<UsageBarProps> = props => {
       {waterLine && (
         <div className="UsageBar__water-line" style={{ marginLeft: 100 * waterLine + '%' }} />
       )}
-      {!isHideFooter && !hasSeries && (
-        <div className="UsageBar__footer">
-          <div className="UsageBar__footer--left">
-            {left}
-            {extraFooterInfo && <span className="UsageBar__footer--extra">{extraFooterInfo}</span>}
+      {!isHideFooter &&
+        !withLegend &&
+        (handleCustomFooter ? (
+          handleCustomFooter(left, right)
+        ) : (
+          <div className="UsageBar__footer">
+            <div className="UsageBar__footer--left">
+              {left}
+              {extraFooterInfo && (
+                <span className="UsageBar__footer--extra">{extraFooterInfo}</span>
+              )}
+            </div>
+            <div className="UsageBar__footer--right">{right}</div>
           </div>
-          <div className="UsageBar__footer--right">{right}</div>
-        </div>
-      )}
-      {hasSeries && withLenged && (
+        ))}
+      {hasSeries && withLegend && (
         <Row className="UsageBar__legend">
           {lodash.map(finalSeries, ({ name, legend, bsStyle, value }, index) => (
             <Col xs={12} className={`Legend ${bsStyle} ${value ? '' : 'noVal'}`} key={index}>
@@ -301,14 +331,14 @@ UsageBar.propTypes = {
    */
   extraFooterInfo: PropTypes.string,
   /**
-   * 2段以上 processbar 的数据集，该模式下支持（isPercent，isByte，isBulk，inline，withLenged）等属性
+   * 2段以上 processbar 的数据集，该模式下支持（isPercent，isByte，isBulk，inline，withLegend）等属性
    * [{ name: 'pool1', value: 20, bsStyle: 'primary' }, { name: 'pool2', value: 40, bsStyle: 'success' }, { name: 'pool3', value: 20, bsStyle: 'error' }]
    **/
   series: PropTypes.array,
   /**
    * series 模式下是否显示图例
    **/
-  withLenged: PropTypes.bool,
+  withLegend: PropTypes.bool,
 };
 UsageBar.defaultProps = {
   max: 0,

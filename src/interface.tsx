@@ -159,10 +159,14 @@ export interface UsageBarProps {
   extraFooterInfo?: string;
   /**格式化输出，可选[decimal|binary] */
   formatType?: string;
-  /**2段以上 processbar 的数据集，该模式下支持（isPercent，isByte，isBulk，inline，withLenged）等属性 */
+  /**指定 bar 颜色 */
+  bsStyle?: string;
+  /**2段以上 processbar 的数据集，该模式下支持（isPercent，isByte，isBulk，inline，withLegend）等属性 */
   series?: Array<UsageBarSerie>;
   /**series 模式下是否显示图例 */
-  withLenged?: boolean;
+  withLegend?: boolean;
+  /** 自定义底部容量展示 */
+  handleCustomFooter?: (left?: string | 0, right?: string) => JSX.Element | string;
 }
 
 export interface LoaderProps {
