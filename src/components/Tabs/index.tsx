@@ -26,8 +26,13 @@ const Tabs: React.FC<TabsProps> = props => {
   } = props;
 
   const [keyTitle, setKeyTitleValue] = React.useState<string>(MORE_TITLE);
-  const tabsFrontList = tabs.slice(0, limitNum);
-  const tabsLastList = tabs.slice(limitNum, tabs.length);
+
+  // 如果当前tab的个数比limitNum大于2个，需要展示更多
+  const moreLimitNum = limitNum + 2;
+  const splitIndex = tabs.length >= moreLimitNum ? limitNum : tabs.length;
+
+  const tabsFrontList = tabs.slice(0, splitIndex);
+  const tabsLastList = tabs.slice(splitIndex, tabs.length);
   const lastActiveKeys = tabsLastList.map((list: any) => list[eventKeyName]);
   const isActiveLastTab = lastActiveKeys.includes(restProps.activeKey);
   const showMore = tabsLastList.length !== 0;

@@ -394,6 +394,8 @@ export interface RangePickerState {
   open: boolean;
 }
 export interface AlertProps {
+  /** 类名 */
+  className?: string;
   /**配置alert内容 */
   children: React.ReactNode;
   /**配置alert样式（主题） */

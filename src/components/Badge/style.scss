@@ -7,7 +7,7 @@
     margin: 0 5px;
     color: $white;
     display: inline-block;
-    border-radius: $badge-height / 2;
+    border-radius: calc($badge-height / 2);
     height: $badge-height;
     min-width: $badge-height;
     text-align: center;
@@ -26,7 +26,7 @@
       width: $badge-dot-small-size;
       height: $badge-dot-small-size;
       margin-right: $badge-dot-small-size;
-      border-radius: $badge-dot-small-size / 2;
+      border-radius: calc($badge-dot-small-size / 2);
     }
     &.middle {
       width: $badge-dot-small-size * 2;
@@ -72,20 +72,20 @@
   & > .Badge__count{
     position: absolute;
     transform: translateX(-50%);
-    top: $badge-height / (-2);
+    top: calc($badge-height / (-2));
     font-size: $font-size-12;
   }
   & > .Badge__dot {
     position: absolute;
     transform: translateX(-50%);
     &.small {
-      top: $badge-dot-small-size / (-2);
+      top: calc($badge-dot-small-size / (-2));
     }
     &.middle {
-      top: $badge-dot-small-size * (-1);
+      top: calc($badge-dot-small-size * (-1));
     }
     &.large {
-       top: $badge-dot-small-size * (-1.5);
+       top: calc($badge-dot-small-size * (-1.5));
     }
   }
 }

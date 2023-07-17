@@ -6,7 +6,7 @@
   .progress {
     margin-bottom: 0;
     height: $progress-height;
-    border-radius: $progress-height / 2;
+    border-radius: calc($progress-height / 2);
     box-shadow: inset 0 1px 2px rgba($black, 0.1);
   }
   &.inline {
@@ -56,7 +56,7 @@
           width: 8px;
           height: $progress-legend-height;
           margin-right: 4px;
-          border-radius: $progress-legend-height / 2;
+          border-radius: calc($progress-legend-height / 2);
           background-color: $primary-normal;
         }
       }
