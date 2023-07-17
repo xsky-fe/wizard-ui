@@ -116,13 +116,13 @@ export const Series: Story = {
   render: props => (
     <>
       <h4>SERIES 模式 isByte</h4>
-      <UsageBar series={BYTESSERIES} isByte />
+      <UsageBar series={BYTESSERIES} isHideFooter isByte />
       <h4>SERIES 模式，isByte，附带图例</h4>
-      <UsageBar series={BYTESSERIES} isByte withLenged />
+      <UsageBar series={BYTESSERIES} isByte withLegend />
       <h4>SERIES 模式，isBulk，附带图例</h4>
-      <UsageBar series={BULKSERIES} isBulk withLenged />
+      <UsageBar series={BULKSERIES} isBulk withLegend />
       <h4>SERIES 模式，isPercent，附带图例</h4>
-      <UsageBar series={BYTESSERIES} isPercent withLenged />
+      <UsageBar series={BYTESSERIES} isPercent withLegend />
     </>
   ),
 };
@@ -136,11 +136,22 @@ export const ExtraInfo: Story = {
       <UsageBar isBulk percent={NOW / MAX} max={MAX} extraFooterInfo="（压缩后 100 GB）" />
       <>
         <UsageBar now={NOW} max={MAX} isPercent inline extraFooterInfo="（压缩后 100 GB）" />
-        &nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <UsageBar now={NOW} max={MAX} isByte inline extraFooterInfo="（压缩后 100 GB）" />
-        &nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <UsageBar now={NOW} max={MAX} isBulk inline extraFooterInfo="（压缩后 100 GB）" />
       </>
     </>
   ),
+};
+
+export const CustomFooter: Story = {
+  render: props => {
+    const handleCustomFooter = (left?: string | 0, right?: string) => {
+      return <div style={{ color: 'red' }}>{`容量即将耗尽，请尽快扩容（已使用 ${left}，${right}）`}</div>;
+    };
+    return (
+      <UsageBar now={6000000} max={MAX} isBulk withPercent handleCustomFooter={handleCustomFooter} />
+    );
+  },
 };
