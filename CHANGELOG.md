@@ -1,3 +1,16 @@
+## [1.0.2](https://github.com/xsky-fe/wizard-ui/compare/1.0.1...1.0.2) (2023-07-17)
+
+
+### Bug Fixes
+
+* change config ([0fa4bdc](https://github.com/xsky-fe/wizard-ui/commit/0fa4bdc686144c42e1b9a64b8189d2f01000e576))
+* modify Tab Component more data calculate ([888002d](https://github.com/xsky-fe/wizard-ui/commit/888002d4df134dcb86d0e6abc1e520488af6295e))
+
+
+### Features
+
+* Alert Comp add className field ([e459494](https://github.com/xsky-fe/wizard-ui/commit/e459494a2da96b51487e618e829f693363bad021))
+
 ## [1.0.1](https://github.com/xsky-fe/wizard-ui/compare/1.0.0...1.0.1) (2023-07-10)
 
 
