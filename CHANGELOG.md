@@ -1,3 +1,9 @@
+# [1.0.3](https://github.com/xsky-fe/wizard-ui/compare/1.0.2...1.0.3) (2023-07-17)
+
+### Features
+
+* support custom color and footer ([5e467b7](https://github.com/xsky-fe/wizard-ui/commit/5e467b7b2e14f668c5e4e63e053410c260d4c6d8))
+
 ## [1.0.2](https://github.com/xsky-fe/wizard-ui/compare/1.0.1...1.0.2) (2023-07-17)
 
 
