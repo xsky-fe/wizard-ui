@@ -118,11 +118,11 @@ export const Series: Story = {
       <h4>SERIES 模式 isByte</h4>
       <UsageBar series={BYTESSERIES} isHideFooter isByte />
       <h4>SERIES 模式，isByte，附带图例</h4>
-      <UsageBar series={BYTESSERIES} isHideFooter isByte withLegend />
+      <UsageBar series={BYTESSERIES} isByte withLegend />
       <h4>SERIES 模式，isBulk，附带图例</h4>
-      <UsageBar series={BULKSERIES} isHideFooter isBulk withLegend />
+      <UsageBar series={BULKSERIES} isBulk withLegend />
       <h4>SERIES 模式，isPercent，附带图例</h4>
-      <UsageBar series={BYTESSERIES} isHideFooter isPercent withLegend />
+      <UsageBar series={BYTESSERIES} isPercent withLegend />
     </>
   ),
 };

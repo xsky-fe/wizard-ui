@@ -12,6 +12,7 @@ const PERCENT_WITH_STATUS = {
   danger: 0.85,
 };
 
+// 数值与单位之间需要空格
 const spacer = (unit: string) => (unit === '%' ? '' : ' ');
 
 function numericalConvert(num: string | number) {
@@ -90,14 +91,13 @@ const UsageBar: React.FC<UsageBarProps> = props => {
   }
 
   if (isByte || formatType) {
-    // hasPercent 表明左边数据设置完成（百分比形式），不需要再调整
     let byteOptions: object = { splitUnit: true };
     if (formatType) {
       byteOptions = { splitUnit: true, formatType };
     }
-
-    if (!hasPercent && hasNow) {
-      const nowArr: any = xbytes(now || 0, byteOptions);
+    // hasPercent 表明左边数据设置完成（百分比形式），不需要再调整
+    if (!hasPercent && props.now) {
+      const nowArr: any = xbytes(props.now, byteOptions);
       nowValue = nowArr[0];
       nowSuffix = nowArr[1];
     }
@@ -106,8 +106,8 @@ const UsageBar: React.FC<UsageBarProps> = props => {
     maxSuffix = maxArr[1] === undefined ? 'B' : maxArr[1];
   } else if (isBulk) {
     // hasPercent 表明左边数据设置完成（百分比形式），不需要再调整
-    if (!hasPercent && hasNow) {
-      const nowArr = bulk(now || 0, { splitUnit: true });
+    if (!hasPercent && props.now) {
+      const nowArr = bulk(props.now, { splitUnit: true });
       nowValue = nowArr[0];
       nowSuffix = nowArr[1];
     }
@@ -124,22 +124,18 @@ const UsageBar: React.FC<UsageBarProps> = props => {
     maxSuffix = '';
   }
 
-  console.log('props.hasOwnProperty(bsStyle)', props.hasOwnProperty('bsStyle'));
-  
   // 处理 bar 颜色
   if (props.hasOwnProperty('bsStyle')) {
     usedStyle = props.bsStyle;
-  } else {
-    if (percent && percent >= PERCENT_WITH_STATUS.danger) {
-      usedStyle = 'danger';
-    } else if (
-      percent &&
-      percent < PERCENT_WITH_STATUS.danger &&
-      percent > PERCENT_WITH_STATUS.warning &&
-      !isExcludeWarning
-    ) {
-      usedStyle = 'warning';
-    }
+  } else if (percent && percent >= PERCENT_WITH_STATUS.danger) {
+    usedStyle = 'danger';
+  } else if (
+    percent &&
+    percent < PERCENT_WITH_STATUS.danger &&
+    percent > PERCENT_WITH_STATUS.warning &&
+    !isExcludeWarning
+  ) {
+    usedStyle = 'warning';
   }
 
   if (withPercent) {
@@ -147,10 +143,8 @@ const UsageBar: React.FC<UsageBarProps> = props => {
     left = percent ? calcPercent(percent) : '0%';
     // 右边只展示 max 数值
     if (hideNow) {
-      // 数值与单位之间需要空格
       right = maxValue + spacer(maxSuffix) + maxSuffix;
     } else {
-      // 数值与单位之间需要空格
       right = `${nowValue + spacer(nowSuffix) + nowSuffix} / ${maxValue +
         spacer(maxSuffix) +
         maxSuffix}`;
