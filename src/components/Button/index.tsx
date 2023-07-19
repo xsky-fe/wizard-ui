@@ -6,8 +6,8 @@ import classNames from 'classnames';
 import './style.scss';
 
 const Button: React.FC<ButtonProps> = (props: any) => {
-  const { toolTip, children, ...restProps } = props;
-  const { disabled, className = null, block, variant } = restProps;
+  const { toolTip, children, block, ...restProps } = props;
+  const { disabled, className = null, variant } = restProps;
   const toolTipClassName = disabled ? `Button_Tooltip-Div-Button ${className}` : '';
   const blockClassName = block ? 'btn-block' : '';
 
