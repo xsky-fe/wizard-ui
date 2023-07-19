@@ -16,9 +16,6 @@
     padding: 0 6px;
     white-space: nowrap;
   }
-  &__text {
-    margin-left: 8px;
-  }
   &__dot {
     display: inline-block;
     vertical-align: middle;
@@ -37,7 +34,7 @@
     &.large {
       width: $badge-dot-small-size * 3;
       height: $badge-dot-small-size * 3;
-      margin-right: $badge-dot-small-size * 1.5;
+      margin-right: $badge-dot-small-size;
       border-radius: $badge-dot-small-size * 1.5;
     }
   }
