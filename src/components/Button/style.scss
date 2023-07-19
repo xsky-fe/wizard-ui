@@ -1,6 +1,7 @@
 @import '../../../node_modules/bootstrap/scss/functions';
 @import '../../style/bootstrap-custom.scss';
 @import '../../../node_modules/bootstrap/scss/mixins/buttons';
+@import '../../../node_modules/bootstrap/scss/mixins/box-shadow';
 
 
 .Button_Tooltip-Div {
@@ -112,5 +113,16 @@
 
 .btn[disabled] {
   cursor: not-allowed;
-  pointer-events: auto;
+  pointer-events: unset;
+  &:hover,
+  &:active
+  {
+    color: var(--#{$prefix}btn-disabled-color);
+    background-color: var(--#{$prefix}btn-disabled-bg);
+    background-image: if($enable-gradients, none, null);
+    border-color: var(--#{$prefix}btn-disabled-border-color);
+    opacity: var(--#{$prefix}btn-disabled-opacity);
+    @include box-shadow(none);
+  }
 }
+
