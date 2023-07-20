@@ -1,4 +1,5 @@
 @import 'bootstrap-custom';
+@import './variables.scss';
 
 .btn-toolbar {
   &>.btn,
@@ -15,4 +16,12 @@
       float: none;
      }
   }
+}
+
+.form-check-input{
+  appearance: auto !important;
+}
+
+:root {
+  accent-color: $primary-normal;
 }
