@@ -44,6 +44,7 @@ const Switch: React.FC<SwitchProps> = props => {
       <ReactIOSSwitch
         className="react-ios-switch-Switch-switch"
         disabled={disabled}
+        style={{ opacity: disabled ? 0.3 : 1 }}
         {...input}
         {...rest}
         checked={checked}
