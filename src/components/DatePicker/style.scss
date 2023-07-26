@@ -1,6 +1,7 @@
 @import '../../style/variables.scss';
 .rc-calendar {
   border-radius: $radius-4-dropdown;
+  top: 34px;
 }
 .rc-calendar-picker {
   z-index: 1060;
