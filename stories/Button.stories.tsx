@@ -102,10 +102,17 @@ export const Tooltip: Story = {
         onClick={() => {
           alert('clicked');
         }}
+        style={{ marginRight: '10px' }}
       >
         button
       </Button>
-    </div>
+      <Button
+        toolTip={false}
+        disabled={true}
+      >
+        disabled but no toolTip
+      </Button>
+    </div >
   ),
 };
 
