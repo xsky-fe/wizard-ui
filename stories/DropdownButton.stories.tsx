@@ -203,19 +203,19 @@ export const Menu: Story = {
             key: 'menu1',
             title: 'menu1',
             disabled: true,
-            toolTip: { label: 'menu1', children: 'Not allow to operate' },
+            tooltip: { label: 'menu1', children: 'Not allow to operate' },
           },
           {
             key: 'menu2',
             title: 'menu2',
             disabled: true,
-            toolTip: { label: 'menu1', children: 'Not allow to operate', placement: 'top' },
+            tooltip: { label: 'menu1', children: 'Not allow to operate', placement: 'top' },
           },
           {
             key: 'menu3',
             title: 'menu3',
             disabled: true,
-            toolTip: { children: 'Not allow to operate' },
+            tooltip: { children: 'Not allow to operate' },
           },
         ]}
       />
