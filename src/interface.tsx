@@ -324,7 +324,7 @@ export type DropdownButtonMenuItem =
       onClick?: any;
       onSelect?: Function;
       disabled?: boolean;
-      toolTip?: TooltipProps;
+      tooltip?: TooltipProps;
       divider?: boolean;
     }
   | string;
@@ -656,7 +656,7 @@ export interface NotificationListStates {
 
 export interface ButtonProps extends BaseButtonProps {
   /**按钮文字提示 */
-  toolTip?: TooltipProps;
+  tooltip?: TooltipProps | false;
   /**按钮占据整行 */
   block?: boolean;
   /**按钮的状态 */

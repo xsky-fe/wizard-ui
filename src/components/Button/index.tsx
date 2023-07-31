@@ -6,25 +6,25 @@ import classNames from 'classnames';
 import './style.scss';
 
 const Button: React.FC<ButtonProps> = (props: any) => {
-  const { toolTip, children, block, ...restProps } = props;
+  const { tooltip, children, block, ...restProps } = props;
   const { disabled, className = null, variant } = restProps;
-  const toolTipClassName = disabled ? `Button_Tooltip-Div-Button ${className}` : '';
+  const tooltipClassName = disabled ? `Button_Tooltip-Div-Button ${className}` : '';
   const blockClassName = block ? 'btn-block' : '';
 
-  return toolTip ? (
+  return tooltip ? (
     <Tooltip
       label={
         <div className="Button_Tooltip-Div">
           <BSButton
             variant={variant ? variant : 'default'}
             {...restProps}
-            className={classNames(toolTipClassName, blockClassName, className)}
+            className={classNames(tooltipClassName, blockClassName, className)}
           >
             {children}
           </BSButton>
         </div>
       }
-      {...toolTip}
+      {...tooltip}
     />
   ) : (
     <BSButton
@@ -38,7 +38,7 @@ const Button: React.FC<ButtonProps> = (props: any) => {
 };
 
 Button.defaultProps = {
-  variant:'info',
+  variant: 'info',
   active: false,
   disabled: false,
   block: false

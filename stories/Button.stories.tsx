@@ -87,7 +87,7 @@ export const Tooltip: Story = {
     <div style={{ margin: '10px' }}>
       <Button
         variant="info"
-        toolTip={DisabledTooltip}
+        tooltip={DisabledTooltip}
         disabled={true}
         onClick={() => {
           alert('clicked');
@@ -97,15 +97,22 @@ export const Tooltip: Story = {
         button
       </Button>
       <Button
-        toolTip={NormalTooltip}
+        tooltip={NormalTooltip}
         disabled={false}
         onClick={() => {
           alert('clicked');
         }}
+        style={{ marginRight: '10px' }}
       >
         button
       </Button>
-    </div>
+      <Button
+        tooltip={false}
+        disabled={true}
+      >
+        disabled but no tooltip
+      </Button>
+    </div >
   ),
 };
 

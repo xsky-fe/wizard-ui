@@ -3,10 +3,10 @@ import Button from './index';
 import { mount } from 'enzyme';
 
 describe('Button-Tooltip', () => {
-  it('Button is not disabled and show toolTip', () => {
+  it('Button is not disabled and show tooltip', () => {
     const button = mount(
       <Button
-        toolTip={{ placement: 'top', children: 'tooltip showed and able to click' }}
+        tooltip={{ placement: 'top', children: 'tooltip showed and able to click' }}
         onClick={() => (document.title = 'clicked')}
       >
         click
@@ -20,11 +20,11 @@ describe('Button-Tooltip', () => {
     button.simulate('click');
     expect(document.title === 'clicked');
   });
-  it('Button is disabled and show toolTip', () => {
+  it('Button is disabled and show tooltip', () => {
     const button = mount(
       <Button
         disabled
-        toolTip={{ placement: 'top', children: 'tooltip showed and not allowed to click' }}
+        tooltip={{ placement: 'top', children: 'tooltip showed and not allowed to click' }}
         onClick={() => (document.title = 'clicked')}
       >
         click

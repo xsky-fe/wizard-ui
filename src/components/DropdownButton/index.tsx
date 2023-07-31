@@ -75,13 +75,13 @@ function renderMenu(
     // 如果有传入 onSelect 回调函数，会继续执行传入的回调函数
     if (onSelect) onSelect(eventKey);
   };
-  const menuProps = omit(item, ['toolTip', 'divider']);
+  const menuProps = omit(item, ['tooltip', 'divider']);
 
   return (
     <Dropdown.Item {...menuProps} onSelect={handleItemSelect}>
-      {item.toolTip ? (
-        <Tooltip {...item.toolTip} label={item?.toolTip?.label || item.title} placement={item?.toolTip?.placement || 'right'}>
-          {item.toolTip.children}
+      {item.tooltip ? (
+        <Tooltip {...item.tooltip} label={item?.tooltip?.label || item.title} placement={item?.tooltip?.placement || 'right'}>
+          {item.tooltip.children}
         </Tooltip>
       ) : (
         item.title
