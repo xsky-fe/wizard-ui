@@ -1,3 +1,17 @@
+## [1.0.4](https://github.com/xsky-fe/wizard-ui/compare/1.0.3...1.0.4) (2023-07-31)
+
+
+### Bug Fixes
+
+* button warning ([e1a8194](https://github.com/xsky-fe/wizard-ui/commit/e1a819493d4bfe1faf7915647d2d957484cb20b8))
+* conflict ([d773823](https://github.com/xsky-fe/wizard-ui/commit/d7738236dc9ce8c5b74c7d13aad5d4090d488077))
+* tooltip spell ([12cdccd](https://github.com/xsky-fe/wizard-ui/commit/12cdccdbec92c59cf2b10b37bcfe1a13c329c965))
+
+
+### Features
+
+* add false type in button toolTip ([98b23a4](https://github.com/xsky-fe/wizard-ui/commit/98b23a467fc717533824be14dbe8c1fe7f417b26))
+
 # [1.0.3](https://github.com/xsky-fe/wizard-ui/compare/1.0.2...1.0.3) (2023-07-17)
 
 ### Features
