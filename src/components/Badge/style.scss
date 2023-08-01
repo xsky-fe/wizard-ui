@@ -16,28 +16,25 @@
     padding: 0 6px;
     white-space: nowrap;
   }
-  &__text {
-    margin-left: 8px;
-  }
   &__dot {
     display: inline-block;
     vertical-align: middle;
     &.small {
       width: $badge-dot-small-size;
       height: $badge-dot-small-size;
-      margin-right: $badge-dot-small-size;
+      margin-right: 4px;
       border-radius: calc($badge-dot-small-size / 2);
     }
     &.middle {
       width: $badge-dot-small-size * 2;
       height: $badge-dot-small-size * 2;
-      margin-right: $badge-dot-small-size;
+      margin-right: 4px;
       border-radius: $badge-dot-small-size;
     }
     &.large {
       width: $badge-dot-small-size * 3;
       height: $badge-dot-small-size * 3;
-      margin-right: $badge-dot-small-size * 1.5;
+      margin-right: 4px;
       border-radius: $badge-dot-small-size * 1.5;
     }
   }

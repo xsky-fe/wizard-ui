@@ -1,15 +1,6 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import { Popover, Button as BaseButton } from '../src';
-import { ButtonProps } from 'react-bootstrap/Button';
-
-const Button = (props: ButtonProps) => (
-  // @ts-ignore
-  <>
-    <BaseButton {...props}></BaseButton>
-    <span style={{ margin: 25 }} />
-  </>
-);
+import { Popover, Button } from '../src';
 
 const meta: Meta<typeof Popover> = {
   title: 'DATA DISPLAY/Popover',
@@ -42,6 +33,13 @@ export const Basic: Story = {
 };
 
 export const Placement: Story = {
+  decorators: [
+    Story => (
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Story />
+      </div>
+    ),
+  ],
   render: props => (
     <>
       <Popover

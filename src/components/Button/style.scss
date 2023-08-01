@@ -1,6 +1,7 @@
 @import '../../../node_modules/bootstrap/scss/functions';
 @import '../../style/bootstrap-custom.scss';
 @import '../../../node_modules/bootstrap/scss/mixins/buttons';
+@import '../../../node_modules/bootstrap/scss/mixins/box-shadow';
 
 
 .Button_Tooltip-Div {
@@ -112,5 +113,36 @@
 
 .btn[disabled] {
   cursor: not-allowed;
-  pointer-events: auto;
+  pointer-events: unset;
 }
+
+.btn-primary[disabled]:hover,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:active,
+.btn-primary.disabled:active {
+  background-color: $primary-normal !important;
+  border-color: $primary-normal ;
+  color: $white ;
+  box-shadow: none;
+}
+
+.btn-danger[disabled]:hover,
+.btn-danger.disabled:hover,
+.btn-danger[disabled]:active,
+.btn-danger.disabled:active{
+  background-color: $error-normal;
+  border-color: $error-normal;
+  color: $white;
+  box-shadow: none;
+}
+
+.btn-info[disabled]:hover,
+.btn-info.disabled:hover,
+.btn-info[disabled]:active,
+.btn-info.disabled:active{
+  background-color: $white;
+  border-color: $border-2;
+  color: $text-2;
+  box-shadow: none;
+}
+

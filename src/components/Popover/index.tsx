@@ -43,10 +43,10 @@ const Popover: React.FC<PopoverProps> = props => {
   const hoverTrigger = lodash.includes(trigger, 'hover');
   const clickTrigger = lodash.includes(trigger, 'click');
   const focusTrigger = lodash.includes(trigger, 'focus');
-  const _placement:any = defaultPlacement ? defaultPlacement : placement;
+  const _placement: any = defaultPlacement ? defaultPlacement : placement;
   let className = classNames('Popover', {
     'space-between': true,
-    shadow: shadow,
+    'ArrowShadow': shadow,
   });
   if (modifer) {
     className += ' ' + modifer;
