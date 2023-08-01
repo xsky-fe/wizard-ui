@@ -22,19 +22,19 @@
     &.small {
       width: $badge-dot-small-size;
       height: $badge-dot-small-size;
-      margin-right: $badge-dot-small-size;
+      margin-right: 4px;
       border-radius: calc($badge-dot-small-size / 2);
     }
     &.middle {
       width: $badge-dot-small-size * 2;
       height: $badge-dot-small-size * 2;
-      margin-right: $badge-dot-small-size;
+      margin-right: 4px;
       border-radius: $badge-dot-small-size;
     }
     &.large {
       width: $badge-dot-small-size * 3;
       height: $badge-dot-small-size * 3;
-      margin-right: $badge-dot-small-size;
+      margin-right: 4px;
       border-radius: $badge-dot-small-size * 1.5;
     }
   }

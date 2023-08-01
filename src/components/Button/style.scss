@@ -114,15 +114,35 @@
 .btn[disabled] {
   cursor: not-allowed;
   pointer-events: unset;
-  &:hover,
-  &:active
-  {
-    color: var(--#{$prefix}btn-disabled-color);
-    background-color: var(--#{$prefix}btn-disabled-bg);
-    background-image: if($enable-gradients, none, null);
-    border-color: var(--#{$prefix}btn-disabled-border-color);
-    opacity: var(--#{$prefix}btn-disabled-opacity);
-    @include box-shadow(none);
-  }
+}
+
+.btn-primary[disabled]:hover,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:active,
+.btn-primary.disabled:active {
+  background-color: $primary-normal !important;
+  border-color: $primary-normal ;
+  color: $white ;
+  box-shadow: none;
+}
+
+.btn-danger[disabled]:hover,
+.btn-danger.disabled:hover,
+.btn-danger[disabled]:active,
+.btn-danger.disabled:active{
+  background-color: $error-normal;
+  border-color: $error-normal;
+  color: $white;
+  box-shadow: none;
+}
+
+.btn-info[disabled]:hover,
+.btn-info.disabled:hover,
+.btn-info[disabled]:active,
+.btn-info.disabled:active{
+  background-color: $white;
+  border-color: $border-2;
+  color: $text-2;
+  box-shadow: none;
 }
 
