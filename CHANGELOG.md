@@ -1,3 +1,11 @@
+## [1.0.5](https://github.com/xsky-fe/wizard-ui/compare/1.0.4...1.0.5) (2023-08-01)
+
+
+### Bug Fixes
+
+* [XEOS-9576] change switch disabled opacity ([ed1492d](https://github.com/xsky-fe/wizard-ui/commit/ed1492da4d427899a55914d0d7bc34ec54927c28))
+* ui style ([#276](https://github.com/xsky-fe/wizard-ui/issues/276)) ([5e5c46c](https://github.com/xsky-fe/wizard-ui/commit/5e5c46ca1a1ca3eb009f2277ab47471b6e892e51))
+
 ## [1.0.4](https://github.com/xsky-fe/wizard-ui/compare/1.0.3...1.0.4) (2023-07-31)
 
 
