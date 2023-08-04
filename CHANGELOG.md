@@ -1,3 +1,11 @@
+## [1.0.6](https://github.com/xsky-fe/wizard-ui/compare/1.0.5...1.0.6) (2023-08-04)
+
+
+### Bug Fixes
+
+* button tooltip bug ([#281](https://github.com/xsky-fe/wizard-ui/issues/281)) ([88314c3](https://github.com/xsky-fe/wizard-ui/commit/88314c3b23ffae3235645e31ff81b9b4afe09426))
+* ui problems ([#280](https://github.com/xsky-fe/wizard-ui/issues/280)) ([b333784](https://github.com/xsky-fe/wizard-ui/commit/b333784a00e608a20d2c4f289e5d952a41e3470c))
+
 ## [1.0.5](https://github.com/xsky-fe/wizard-ui/compare/1.0.4...1.0.5) (2023-08-01)
 
 
