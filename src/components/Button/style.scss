@@ -8,7 +8,7 @@
   display: inline-block;
   cursor: not-allowed;
 
-  &-Button {
+  .btn[disabled] {
     pointer-events: none;
   }
 }
