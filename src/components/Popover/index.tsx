@@ -69,6 +69,16 @@ const Popover: React.FC<PopoverProps> = props => {
         target={wrapper.current || null}
         show={show}
         onHide={handleHide}
+        popperConfig={{
+          modifiers:[
+            {
+              name: 'offset',
+              options: {
+                offset: [0, 11],
+              },
+            },
+          ]
+        }}
       >
         <BasePopover
           id="popover"

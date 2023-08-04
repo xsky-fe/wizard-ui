@@ -146,3 +146,39 @@
   box-shadow: none;
 }
 
+.btn-default[disabled]:hover,
+.btn-default.disabled:hover,
+.btn-default[disabled]:active,
+.btn-default.disabled:active{
+ background-color: $white;
+ border-color: $border-2;
+ color: $text-2;
+ box-shadow: none;
+}
+
+.btn-success[disabled]:hover,
+.btn-success.disabled:hover,
+.btn-success[disabled]:active,
+.btn-success.disabled:active{
+  background-color: $success-normal;
+ box-shadow: none;
+}
+
+.btn-warning[disabled]:hover,
+.btn-warning.disabled:hover,
+.btn-warning[disabled]:active,
+.btn-warning.disabled:active{
+  background-color: $warning-normal;
+ box-shadow: none;
+}
+
+.btn-link.disabled,
+.btn-link[disabled],
+.btn-link[disabled]:hover,
+.btn-link.disabled:hover,
+.btn-link[disabled]:active,
+.btn-link.disabled:active{
+  color: $primary-normal;
+  text-decoration: none;
+}
+
