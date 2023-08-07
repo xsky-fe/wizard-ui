@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/xsky-fe/wizard-ui/compare/1.0.6...1.0.7) (2023-08-07)
+
+
+### Bug Fixes
+
+* [XEOS-9628] fix tooltip arrow not center bug ([78819a9](https://github.com/xsky-fe/wizard-ui/commit/78819a9179ecf62593b20f3b2c06624d41ea9d08))
+
 ## [1.0.6](https://github.com/xsky-fe/wizard-ui/compare/1.0.5...1.0.6) (2023-08-04)
 
 
