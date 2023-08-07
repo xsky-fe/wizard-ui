@@ -12,6 +12,7 @@ import CALENDAR_EN from 'rc-calendar/lib/locale/en_US';
 import moment, { Moment, DurationInputArg1, DurationInputArg2 } from 'moment';
 import { RangePickerProps, RangePickerState } from '../../interface';
 import isEmpty from 'lodash/isEmpty';
+import pick from 'lodash/pick';
 import Icon from '../Icon';
 
 import './style.scss';
@@ -44,6 +45,36 @@ function disabledDate(current: Moment) {
   if (!current) return false;
   const date = moment();
   return current.isAfter(date); // can not select days after today
+}
+
+function disabledTime(current:any, type:string) {
+  const now = moment();
+  const result = {
+    disabledHours: () => [...Array(24).keys()].slice(now.hour() + 1),
+    disabledMinutes: () => [...Array(60).keys()].slice(now.minute() + 1),
+    disabledSeconds: () => [...Array(60).keys()],
+  }
+
+  function getRes(type: string) {
+    const index = type === 'start' ? 0: 1;
+
+    if(current[index]?.isSame(now, 'day') && current[index]?.isSame(now, 'hour') && current[index]?.isSame(now, 'minute')) {
+      return result;
+    }
+    if(current[index]?.isSame(now, 'day') && current[index]?.isSame(now, 'hour')) {
+      return pick(result, 'disabledHours','disabledMinutes');
+    }
+    if(current[index]?.isSame(now, 'day')) {
+      return pick(result, 'disabledHours');
+    }
+    
+    return null;
+  }
+  if (current) {
+    return getRes(type)
+  }
+
+  return null;
 }
 
 export default class RangePicker extends React.PureComponent<RangePickerProps, RangePickerState> {
@@ -168,6 +199,7 @@ export default class RangePicker extends React.PureComponent<RangePickerProps, R
   };
   renderCalendar = () => {
     const { onOk, format } = this.props;
+
     return (
       <RangeCalendar
         seperator={this.seperator}
@@ -176,9 +208,10 @@ export default class RangePicker extends React.PureComponent<RangePickerProps, R
         format={format}
         onOk={onOk}
         disabledDate={disabledDate}
-        timePicker={<TimePickerPanel />}
+        timePicker={<TimePickerPanel  />}
         renderFooter={this.renderFooter}
         showToday={false}
+        disabledTime={disabledTime}
       />
     );
   };
