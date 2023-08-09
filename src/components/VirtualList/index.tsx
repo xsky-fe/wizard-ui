@@ -316,8 +316,9 @@ export default class VirtualList<T> extends React.Component<VirtualListProps<T>,
   };
 
   tryToFetchData = () => {
-    const { data, query, onQueryChange, isFetching } = this.props;
+    const { data, query, onQueryChange, isFetching,error } = this.props;
     const { endIndex } = this.state;
+    if (error) return;
     if (isFetching) return;
     if (endIndex < data.length) return;
     if (this.noMore) return;

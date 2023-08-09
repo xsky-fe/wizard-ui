@@ -570,6 +570,7 @@ export interface VirtualListProps<T> extends VirtualListDefaultProps<T> {
   className?: string;
   /** 是否开启计算 */
   isEstimate?: boolean;
+  error?: unknown
 }
 
 export interface VirtualSelectBoxDefaultProps<T> {
