@@ -1,3 +1,11 @@
+## [1.0.8](https://github.com/xsky-fe/wizard-ui/compare/1.0.7...1.0.8) (2023-08-09)
+
+
+### Bug Fixes
+
+* fix vlist error try to fetch data ([c2db9a1](https://github.com/xsky-fe/wizard-ui/commit/c2db9a16b184f204444578fb205a03a5483d2561))
+* modify error type ([2f89f18](https://github.com/xsky-fe/wizard-ui/commit/2f89f184451c1d4fea3b0b31eccb153e5432dde8))
+
 ## [1.0.7](https://github.com/xsky-fe/wizard-ui/compare/1.0.6...1.0.7) (2023-08-07)
 
 
