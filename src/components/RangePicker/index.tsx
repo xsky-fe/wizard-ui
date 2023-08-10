@@ -40,12 +40,6 @@ const ranges = [
   },
 ];
 
-function disabledDate(current: Moment) {
-  if (!current) return false;
-  const date = moment();
-  return current.isAfter(date); // can not select days after today
-}
-
 export default class RangePicker extends React.PureComponent<RangePickerProps, RangePickerState> {
   static defaultProps = {
     disabled: false,
@@ -167,7 +161,7 @@ export default class RangePicker extends React.PureComponent<RangePickerProps, R
     );
   };
   renderCalendar = () => {
-    const { onOk, format } = this.props;
+    const { onOk, format, disabledDate } = this.props;
     return (
       <RangeCalendar
         seperator={this.seperator}
@@ -175,10 +169,10 @@ export default class RangePicker extends React.PureComponent<RangePickerProps, R
         locale={this.locale}
         format={format}
         onOk={onOk}
-        disabledDate={disabledDate}
         timePicker={<TimePickerPanel />}
         renderFooter={this.renderFooter}
         showToday={false}
+        disabledDate={disabledDate}
       />
     );
   };

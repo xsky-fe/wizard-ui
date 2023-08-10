@@ -391,6 +391,8 @@ export interface RangePickerProps {
   showDuration?: boolean;
   /**默认时间区间 */
   defaultValue?: Moment[];
+  /** 是否禁用当前日期的选择 */
+  disabledDate?: (current:Moment) => Boolean;
 }
 
 export interface RangePickerState {
