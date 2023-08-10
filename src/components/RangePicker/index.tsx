@@ -135,18 +135,6 @@ export default class RangePicker extends React.PureComponent<RangePickerProps, R
   };
   handleOpenChange = (open: boolean) => {
     const { onOpenChange } = this.props;
-    const { value } = this.state;
-
-    const now = moment();
-    if (moment(value[0]).isAfter(now) || moment(value[1]).isAfter(now)) {
-      const newValue = [
-        moment(value[0]).isAfter(now) ? now : moment(value[0]),
-        moment(value[1]).isAfter(now) ? now : moment(value[1])
-      ];
-
-      this.setState({ value: newValue });
-    }
-    
     this.setState({ open });
     if (onOpenChange) {
       onOpenChange(open);
