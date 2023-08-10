@@ -128,10 +128,16 @@ export default class RangePicker extends React.PureComponent<RangePickerProps, R
     });
   };
   handleOpenChange = (open: boolean) => {
-    const { onOpenChange } = this.props;
+    const { onOpenChange, disabledDateTime } = this.props;
+    const { value } = this.state;
+
     this.setState({ open });
     if (onOpenChange) {
       onOpenChange(open);
+    }
+    if (!open && disabledDateTime) {
+      const newValue = disabledDateTime(value);
+      this.setState({ value: newValue });
     }
   };
   clearSelection = (e: React.MouseEvent) => {

@@ -392,7 +392,9 @@ export interface RangePickerProps {
   /**默认时间区间 */
   defaultValue?: Moment[];
   /** 是否禁用当前日期的选择 */
-  disabledDate?: (current:Moment) => Boolean;
+  disabledDate?: (current: Moment) => Boolean;
+  /** 是否禁用当前时间的选择 */
+  disabledDateTime?: (value: Moment[] | string[]) => Moment[] | string[];
 }
 
 export interface RangePickerState {
