@@ -26,8 +26,8 @@
       border-radius: calc($badge-dot-small-size / 2);
     }
     &.middle {
-      width: $badge-dot-small-size * 2;
-      height: $badge-dot-small-size * 2;
+      width: $badge-dot-small-size * 1.66666666666666;
+      height: $badge-dot-small-size * 1.66666666666666;
       margin-right: 4px;
       border-radius: $badge-dot-small-size;
     }

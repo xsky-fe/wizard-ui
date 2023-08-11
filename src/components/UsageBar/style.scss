@@ -53,7 +53,7 @@
         &::before {
           content: '';
           display: inline-block;
-          width: 8px;
+          width: 6px;
           height: $progress-legend-height;
           margin-right: 4px;
           border-radius: calc($progress-legend-height / 2);
