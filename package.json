@@ -1,6 +1,6 @@
 {
   "name": "wizard-ui",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "private": false,
   "main": "lib/index.js",
   "module": "esm/index.js",
