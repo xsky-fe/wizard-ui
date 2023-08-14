@@ -167,7 +167,7 @@ export default class RangePicker extends React.PureComponent<RangePickerProps, R
     );
   };
   renderCalendar = () => {
-    const { onOk, format, disabledDate } = this.props;
+    const { onOk, format, disabledDate, disabledTime } = this.props;
     return (
       <RangeCalendar
         seperator={this.seperator}
@@ -179,6 +179,7 @@ export default class RangePicker extends React.PureComponent<RangePickerProps, R
         renderFooter={this.renderFooter}
         showToday={false}
         disabledDate={disabledDate}
+        disabledTime={disabledTime}
       />
     );
   };
