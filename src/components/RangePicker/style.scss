@@ -5,10 +5,14 @@
   min-width: 366px;
   width: auto;
   & > input {
+    color: $text-1;
     text-align: center;
     border-style: none;
     &:focus {
       outline: 0;
+    }
+    &::placeholder {
+      color: $text-4;
     }
   }
   &__duration {
@@ -21,7 +25,7 @@
   }
   &-calendar{
     vertical-align: text-top;
-    fill: $icon-2;
+    fill: $icon-3;
   }
   &:hover span.icon-close-line {
     visibility: visible;

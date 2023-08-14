@@ -118,44 +118,44 @@ $black: #000;
 *            业务颜色           *
 ********************************/
 $primary-normal: $purple-6;
-$primary-hover: $purple-5;
-$primary-click: $purple-7;
+$primary-hover: $purple-7;
+$primary-click: $purple-8;
 $primary-bg: $purple-1;
 $primary-disable: rgba($primary-normal, 0.4);
 
 $success-normal: $green-6;
-$success-hover: $green-5;
-$success-click: $green-7;
+$success-hover: $green-7;
+$success-click: $green-8;
 $success-bg: $green-1;
 $success-disable: rgba($success-normal, 0.4);
 
 $warning-normal: $yellow-6;
-$warning-hover: $yellow-5;
-$warning-click: $yellow-7;
+$warning-hover: $yellow-7;
+$warning-click: $yellow-8;
 $warning-bg: $yellow-1;
 $warning-disable: rgba($warning-normal, 0.4);
 
 $error-normal: $red-6;
-$error-hover: $red-5;
-$error-click: $red-7;
+$error-hover: $red-7;
+$error-click: $red-8;
 $error-bg: $red-1;
 $error-disable: rgba($error-normal, 0.4);
 
 $critical-normal: $deep-red-6;
-$critical-hover: $deep-red-5;
-$critical-click: $deep-red-7;
+$critical-hover: $deep-red-7;
+$critical-click: $deep-red-8;
 $critical-bg: $deep-red-1;
 $critical-disable: rgba($critical-normal, 0.4);
 
 $updating-normal: $blue-6;
-$updating-hover: $blue-5;
-$updating-click: $blue-7;
+$updating-hover: $blue-7;
+$updating-click: $blue-8;
 $updating-bg: $blue-1;
 $updating-disable: rgba($updating-normal, 0.4);
 
 $offline-normal: $grey-7;
-$offline-hover: $grey-6;
-$offline-click: $grey-8;
+$offline-hover: $grey-8;
+$offline-click: $grey-9;
 $offline-disabled: rgba($offline-normal, 0.4);
 
 $text-1: $grey-13;
@@ -261,9 +261,6 @@ $bg-1-click: $grey-5;
 $bg-2: $grey-1;
 $bg-2-hover: $grey-2;
 $bg-2-click: $grey-3;
-$tooltips-bg: $grey-10;
-$tab-bg: $grey-3;
-$tab-bg-hover: $grey-5;
 
 /** 边框颜色 **/
 $border-1: $grey-5;
