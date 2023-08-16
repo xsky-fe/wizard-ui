@@ -346,7 +346,11 @@ export default class VirtualList<T> extends React.Component<VirtualListProps<T>,
     } = this.props;
     const noData = data.length === 0;
     return (
-      <div className="VirtualList__holder" ref={this.holder} style={{ height }}>
+      <div
+        className="VirtualList__holder"
+        ref={this.holder}
+        style={{ height: noData ? '100vh' : height }}
+      >
         <div
           className="VirtualList__wrapper"
           style={{ height: this.wrapperHeight }}
