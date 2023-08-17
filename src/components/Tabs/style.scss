@@ -97,7 +97,6 @@
 
 .Tabs:not(.Tabs--secondary) >#Tabs >.nav-tabs > li {
   position: relative;
-  z-index: 1;
   &:has(a:active),
   &:has(a.active) {
     border-top: 2px solid $primary-normal;
