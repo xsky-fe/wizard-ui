@@ -120,8 +120,8 @@
 .btn-primary.disabled:hover,
 .btn-primary[disabled]:active,
 .btn-primary.disabled:active {
-  background-color: $primary-normal !important;
-  border-color: $primary-normal ;
+  background-color: $primary-normal;
+  border-color: $primary-normal;
   color: $white ;
   box-shadow: none;
 }
