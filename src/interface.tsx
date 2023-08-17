@@ -391,6 +391,12 @@ export interface RangePickerProps {
   showDuration?: boolean;
   /**默认时间区间 */
   defaultValue?: Moment[];
+  /** 是否禁用当前日期的选择 */
+  disabledDate?: (current: Moment) => Boolean;
+  /** 是否禁用当前时间的选择 */
+  disabledDateTime?: (value: Moment[] | string[]) => Moment[] | string[];
+  /** 一个函数，根据rc-time-picker返回一个成员为disabledHours/disabledMinutes/disabledSeconds的对象 */
+  disabledTime?: (current: Moment) => Object;
 }
 
 export interface RangePickerState {
