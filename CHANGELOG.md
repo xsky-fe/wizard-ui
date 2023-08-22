@@ -1,3 +1,13 @@
+## [1.0.10](https://github.com/xsky-fe/wizard-ui/compare/1.0.9...1.0.10) (2023-08-22)
+
+
+### Bug Fixes
+
+* [XEOS-9999] fix tag z-index error ([ba5acf7](https://github.com/xsky-fe/wizard-ui/commit/ba5acf72db65b8af1071193fd9991934e58cb9eb))
+* [XSOS-6275] fix datepicker code format error ([cd7924f](https://github.com/xsky-fe/wizard-ui/commit/cd7924f5af5ebfb972502db5c09fec4f69f74485))
+* [XSOS-6398] fix tooltips center error ([dfebfff](https://github.com/xsky-fe/wizard-ui/commit/dfebfff484cb41baebe94deb123c8c5f023cdbcd))
+* fix style format ([f95370c](https://github.com/xsky-fe/wizard-ui/commit/f95370caf51c8c12fe954753ea4b670ffeadaa02))
+
 ## [1.0.9](https://github.com/xsky-fe/wizard-ui/compare/1.0.8...1.0.9) (2023-08-17)
 
 
