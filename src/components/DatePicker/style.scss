@@ -8,20 +8,30 @@
       display: block;
       transform: scale(0.5, 1.2);
     }
-    .rc-calendar-prev-year-btn::after {
-      content: '\3C\3C';
-      display: block;
-      transform: scale(0.5, 1.2);
+    .rc-calendar-prev-year-btn,
+    .rc-calendar-month-panel-prev-year-btn,
+    .rc-calendar-year-panel-prev-decade-btn,
+    .rc-calendar-decade-panel-prev-century-btn {
+      &::after {
+        content: '\3C\3C';
+        display: block;
+        transform: scale(0.5, 1.2);
+      }
     }
     .rc-calendar-next-month-btn:after {
       content: '\3E';
       display: block;
       transform: scale(0.5, 1.2);
     }
-    .rc-calendar-next-year-btn:after {
-      content: '\3E\3E';
-      display: block;
-      transform: scale(0.5, 1.2);
+    .rc-calendar-next-year-btn,
+    .rc-calendar-month-panel-next-year-btn,
+    .rc-calendar-year-panel-next-decade-btn,
+    .rc-calendar-decade-panel-next-century-btn {
+      &::after {
+        content: '\3E\3E';
+        display: block;
+        transform: scale(0.5, 1.2);
+      }
     }
   }
 }
