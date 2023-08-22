@@ -101,6 +101,11 @@
   &:has(a.active) {
     border-top: 2px solid $primary-normal;
   }
+
+  .nav-link {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 .Tabs {
