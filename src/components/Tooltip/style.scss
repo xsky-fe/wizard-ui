@@ -8,11 +8,13 @@
   }
 }
 .tooltip {
-  &.bs-tooltip-top,
-  &.bs-tooltip-bottom {
-    .tooltip-arrow {
-      left: 50%!important;
-      transform: translate(-50%, 0)!important;
+  &.tooltip-center {
+    &.bs-tooltip-top,
+    &.bs-tooltip-bottom {
+      .tooltip-arrow {
+        left: 50%!important;
+        transform: translate(-50%, 0)!important;
+      }
     }
   }
   .tooltip-inner {
