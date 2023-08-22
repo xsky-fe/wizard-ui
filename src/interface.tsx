@@ -77,6 +77,8 @@ export interface IconProps {
 }
 
 export interface TooltipProps {
+  /**箭头对齐方式*/
+  arrowAlign?: 'center' | 'auto';
   /**给图标传入的其他 class； */
   iconClass?: string;
   /**icon的type,用于图标提示 */
