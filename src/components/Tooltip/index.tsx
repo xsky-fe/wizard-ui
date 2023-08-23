@@ -16,6 +16,7 @@ const Tooltip: React.FC<TooltipProps> = props => {
     contrast,
     className,
     style,
+    arrowAlign,
     children,
     placement: defaultPlacement,
     ...extra
@@ -75,7 +76,7 @@ const Tooltip: React.FC<TooltipProps> = props => {
         <BaseTooltip
           id="tooltip"
           style={Object.assign({}, { maxWidth: 280 }, style)}
-          className={`${cn({ contrast })} ${className}`}
+          className={`${cn({ contrast, 'tooltip-center': arrowAlign === 'center' })} ${className}`}
           onMouseEnter={handleShow}
           onMouseLeave={handleHide}
         >
@@ -120,12 +121,17 @@ Tooltip.propTypes = {
    * 样式
    */
   style: PropTypes.object,
+  /**
+   * 箭头对齐方式
+   */
+  arrowAlign: PropTypes.oneOf(['center', 'auto']),
 };
 
 Tooltip.defaultProps = {
   icon: 'tip-line',
   iconAlign: 'text-bottom',
   contrast: false,
+  arrowAlign: 'center',
 };
 
 export default Tooltip;
