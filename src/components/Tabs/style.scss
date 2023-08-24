@@ -1,5 +1,8 @@
 @import '../../style/variables.scss';
 
+$tab-bg: $grey-3;
+$tab-bg-hover: $grey-5;
+
 .Tabs--right {
   flex-grow: 1;
   & > #Tabs{
@@ -156,7 +159,6 @@
       font-size: $font-size-14;
       height: 34px;
       & > a {
-        color: $text-3;
         border-radius: 0;
         padding: 8px 10px;
       }
