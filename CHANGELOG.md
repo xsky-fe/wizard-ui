@@ -1,3 +1,10 @@
+## [1.0.11](https://github.com/xsky-fe/wizard-ui/compare/1.0.10...1.0.11) (2023-08-24)
+
+
+### Features
+
+* refactor: replace color ([#292](https://github.com/xsky-fe/wizard-ui/issues/292)) ([fbe5eac](https://github.com/xsky-fe/wizard-ui/commit/fbe5eac03d10d9051aafc44439ead9c5612516a3))
+
 ## [1.0.10](https://github.com/xsky-fe/wizard-ui/compare/1.0.9...1.0.10) (2023-08-22)
 
 
