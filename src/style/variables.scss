@@ -1,24 +1,24 @@
-$purple-1: #f0e8ff;
-$purple-2: #ddccff;
-$purple-3: #c7b1fc;
-$purple-4: #b297fc;
-$purple-5: #9a7dfa;
-$purple-6: #8264fa;
-$purple-7: #563ecf;
-$purple-8: #3221a3;
-$purple-9: #170c78;
-$purple-10: #05004d;
+$purple-1: #f1e8ff;
+$purple-2: #dcc9ff;
+$purple-3: #c5acfc;
+$purple-4: #ad8dfc;
+$purple-5: #9370fa;
+$purple-6: #7855fa;
+$purple-7: #5034cf;
+$purple-8: #301ca3;
+$purple-9: #160a78;
+$purple-10: #06004d;
 
-$blue-1: #e8f5ff;
-$blue-2: #c7e6ff;
-$blue-3: #a8d5ff;
-$blue-4: #8ac2ff;
-$blue-5: #6baeff;
-$blue-6: #4d97ff;
-$blue-7: #2f6ed4;
-$blue-8: #194aa6;
-$blue-9: #092d7a;
-$blue-10: #00164d;
+$blue-1: #e8f4ff;
+$blue-2: #c7e3ff;
+$blue-3: #a8d1ff;
+$blue-4: #87bbff;
+$blue-5: #66a3ff;
+$blue-6: #448aff;
+$blue-7: #2a63d4;
+$blue-8: #1641a6;
+$blue-9: #09277a;
+$blue-10: #00124d;
 
 $azure-1: #e8fdff;
 $azure-2: #c2f7ff;
@@ -31,16 +31,16 @@ $azure-8: #1174a6;
 $azure-9: #06507a;
 $azure-10: #002e4d;
 
-$green-1: #e8ffec;
-$green-2: #bdf2c8;
-$green-3: #97e6aa;
-$green-4: #75d990;
-$green-5: #56cc79;
-$green-6: #39bf66;
-$green-7: #24a353;
-$green-8: #148742;
-$green-9: #076931;
-$green-10: #004d24;
+$green-1: #e8ffee;
+$green-2: #bbf2cb;
+$green-3: #91e6ad;
+$green-4: #6ad993;
+$green-5: #47cc7c;
+$green-6: #28be69;
+$green-7: #1aa35a;
+$green-8: #0e874a;
+$green-9: #05693a;
+$green-10: #004d2b;
 
 $olivine-1: #feffe8;
 $olivine-2: #eff2bd;
@@ -53,16 +53,16 @@ $olivine-8: #698714;
 $olivine-9: #4b6907;
 $olivine-10: #334d00;
 
-$yellow-1: #fffbe8;
-$yellow-2: #fff3c2;
-$yellow-3: #ffe89e;
-$yellow-4: #ffdc7a;
-$yellow-5: #ffcd57;
-$yellow-6: #ffbb33;
-$yellow-7: #d49220;
-$yellow-8: #a66a11;
-$yellow-9: #7a4806;
-$yellow-10: #4d2900;
+$yellow-1: #fffce8;
+$yellow-2: #fff2ba;
+$yellow-3: #ffe78f;
+$yellow-4: #ffd761;
+$yellow-5: #ffc636;
+$yellow-6: #ffb20b;
+$yellow-7: #d48c06;
+$yellow-8: #a66703;
+$yellow-9: #7a4801;
+$yellow-10: #4d2a00;
 
 $orange-1: #fff6e8;
 $orange-2: #ffe4c2;
@@ -76,38 +76,40 @@ $orange-9: #7a2d06;
 $orange-10: #4d1700;
 
 $red-1: #ffece8;
-$red-2: #ffcec7;
-$red-3: #ffb1a8;
-$red-4: #ff928a;
-$red-5: #ff706b;
-$red-6: #ff4d4d;
-$red-7: #d42f34;
-$red-8: #a61922;
-$red-9: #7a0914;
+$red-2: #fcd1ca;
+$red-3: #f7b2ab;
+$red-4: #f5958e;
+$red-5: #f07571;
+$red-6: #eb5555;
+$red-7: #c4353a;
+$red-8: #9c1c25;
+$red-9: #750b15;
 $red-10: #4d000a;
 
-$deep-red-1: #ffe9e8;
-$deep-red-2: #f2b8b8;
-$deep-red-3: #e68e91;
-$deep-red-4: #d96870;
-$deep-red-5: #cc4553;
-$deep-red-6: #bf263b;
-$deep-red-7: #a31830;
-$deep-red-8: #870e26;
-$deep-red-9: #69051c;
-$deep-red-10: #4d0014;
+$deep-red-1: #ffece8;
+$deep-red-2: #edb8af;
+$deep-red-3: #db887f;
+$deep-red-4: #c95c55;
+$deep-red-5: #b83430;
+$deep-red-6: #a61111;
+$deep-red-7: #8f0a0e;
+$deep-red-8: #7a060e;
+$deep-red-9: #63020c;
+$deep-red-10: #4d000a;
 
-$grey-1: #f7f8fb;
-$grey-2: #f3f4f8;
-$grey-3: #ecedf3;
-$grey-4: #e2e4ed;
-$grey-5: #d7dae7;
-$grey-6: #c4c8d6;
-$grey-7: #abafc0;
-$grey-8: #808495;
-$grey-9: #555a6b;
-$grey-10: #404556;
-$grey-11: #2a2f40;
+$grey-1: #f6f8fd;
+$grey-2: #f1f3fa;
+$grey-3: #eaedf6;
+$grey-4: #dfe3f1;
+$grey-5: #d2d8ed;
+$grey-6: #bcc3dc;
+$grey-7: #a5acc9;
+$grey-8: #9098b4;
+$grey-9: #7a829e;
+$grey-10: #656d89;
+$grey-11: #505774;
+$grey-12: #3b425f;
+$grey-13: #252c49;
 
 $white: #fff;
 $black: #000;
@@ -116,58 +118,63 @@ $black: #000;
 *            业务颜色           *
 ********************************/
 $primary-normal: $purple-6;
-$primary-hover: $purple-5;
-$primary-click: $purple-7;
+$primary-hover: $purple-7;
+$primary-click: $purple-8;
 $primary-bg: $purple-1;
 $primary-disable: rgba($primary-normal, 0.4);
 
 $success-normal: $green-6;
-$success-hover: $green-5;
-$success-click: $green-7;
+$success-hover: $green-7;
+$success-click: $green-8;
 $success-bg: $green-1;
 $success-disable: rgba($success-normal, 0.4);
 
 $warning-normal: $yellow-6;
-$warning-hover: $yellow-5;
-$warning-click: $yellow-7;
+$warning-hover: $yellow-7;
+$warning-click: $yellow-8;
 $warning-bg: $yellow-1;
 $warning-disable: rgba($warning-normal, 0.4);
 
 $error-normal: $red-6;
-$error-hover: $red-5;
-$error-click: $red-7;
+$error-hover: $red-7;
+$error-click: $red-8;
 $error-bg: $red-1;
 $error-disable: rgba($error-normal, 0.4);
 
 $critical-normal: $deep-red-6;
-$critical-hover: $deep-red-5;
-$critical-click: $deep-red-7;
+$critical-hover: $deep-red-7;
+$critical-click: $deep-red-8;
 $critical-bg: $deep-red-1;
 $critical-disable: rgba($critical-normal, 0.4);
 
 $updating-normal: $blue-6;
-$updating-hover: $blue-5;
-$updating-click: $blue-7;
+$updating-hover: $blue-7;
+$updating-click: $blue-8;
 $updating-bg: $blue-1;
 $updating-disable: rgba($updating-normal, 0.4);
 
 $offline-normal: $grey-7;
-$offline-hover: $grey-6;
-$offline-click: $grey-8;
+$offline-hover: $grey-8;
+$offline-click: $grey-9;
 $offline-disabled: rgba($offline-normal, 0.4);
 
-$text-1: $grey-11;
-$text-2: $grey-9;
-$text-3: $grey-8;
+$text-1: $grey-13;
+$text-2: $grey-11;
+$text-3: $grey-9;
+$text-4: $grey-8;
+$text-5: $white;
+$text-6: color-mod($white a(80%));
 
 $text-success: $green-7;
 $text-warning: $yellow-7;
 $text-error: $red-7;
 $text-critical: $deep-red-7;
 $text-updating: $blue-7;
+$text-offline: $grey-7;
 
-$icon-1: $grey-8;
-$icon-2: $grey-7;
+$icon-1: $grey-11;
+$icon-2: $grey-9;
+$icon-3: $grey-7;
 
 /** 图表颜色 **/
 $chart-1: $purple-6;
@@ -184,40 +191,40 @@ $chart-2-bg-hover: $blue-3;
 $chart-2-click: $blue-7;
 $chart-2-bg-click: $blue-5;
 
-$chart-3: $yellow-6;
-$chart-3-bg: $yellow-4;
-$chart-3-hover: $yellow-5;
-$chart-3-bg-hover: $yellow-3;
-$chart-3-click: $yellow-7;
-$chart-3-bg-click: $yellow-5;
+$chart-3: $orange-6;
+$chart-3-bg: $orange-4;
+$chart-3-hover: $orange-5;
+$chart-3-bg-hover: $orange-3;
+$chart-3-click: $orange-7;
+$chart-3-bg-click: $orange-5;
 
-$chart-4: $green-6;
-$chart-4-bg: $green-4;
-$chart-4-hover: $green-5;
-$chart-4-bg-hover: $green-3;
-$chart-4-click: $green-7;
-$chart-4-bg-click: $green-5;
+$chart-4: $olivine-6;
+$chart-4-bg: $olivine-4;
+$chart-4-hover: $olivine-5;
+$chart-4-bg-hover: $olivine-3;
+$chart-4-click: $olivine-7;
+$chart-4-bg-click: $olivine-5;
 
-$chart-5: $orange-6;
-$chart-5-bg: $orange-4;
-$chart-5-hover: $orange-5;
-$chart-5-bg-hover: $orange-3;
-$chart-5-click: $orange-7;
-$chart-5-bg-click: $orange-5;
+$chart-5: $azure-6;
+$chart-5-bg: $azure-4;
+$chart-5-hover: $azure-5;
+$chart-5-bg-hover: $azure-3;
+$chart-5-click: $azure-7;
+$chart-5-bg-click: $azure-5;
 
-$chart-6: $azure-6;
-$chart-6-bg: $azure-4;
-$chart-6-hover: $azure-5;
-$chart-6-bg-hover: $azure-3;
-$chart-6-click: $azure-7;
-$chart-6-bg-click: $azure-5;
+$chart-6: $yellow-6;
+$chart-6-bg: $yellow-4;
+$chart-6-hover: $yellow-5;
+$chart-6-bg-hover: $yellow-3;
+$chart-6-click: $yellow-7;
+$chart-6-bg-click: $yellow-5;
 
-$chart-7: $olivine-6;
-$chart-7-bg: $olivine-4;
-$chart-7-hover: $olivine-5;
-$chart-7-bg-hover: $olivine-3;
-$chart-7-click: $olivine-7;
-$chart-7-bg-click: $olivine-5;
+$chart-7: $green-6;
+$chart-7-bg: $green-4;
+$chart-7-hover: $green-5;
+$chart-7-bg-hover: $green-3;
+$chart-7-click: $green-7;
+$chart-7-bg-click: $green-5;
 
 $chart-8: $purple-4;
 $chart-8-bg: $purple-2;
@@ -249,16 +256,20 @@ $chart-11-bg-click: $grey-5;
 
 /** 背景颜色 **/
 $bg-1: $grey-3;
+$bg-1-hover: $grey-4;
+$bg-1-click: $grey-5;
 $bg-2: $grey-1;
 $bg-2-hover: $grey-2;
 $bg-2-click: $grey-3;
-$tooltips-bg: $grey-10;
-$tab-bg: $grey-3;
-$tab-bg-hover: $grey-5;
 
-/** 边框、线条颜色 **/
+/** 边框颜色 **/
 $border-1: $grey-5;
 $border-2: $grey-4;
+
+/** 线条颜色 **/
+$line-1: $grey-5;
+$line-2: $grey-3;
+$line-3: $grey-5;
 
 /* Badge */
 $badge-height: 20px;
@@ -325,8 +336,3 @@ $shadow-tooltip: $shadow-2-bottom;
 /* 一级阴影 */
 $shadow-panel: $shadow-1-bottom;
 $shadow-switch: $shadow-1-bottom;
-
-:export {
-    successNormal: $success-normal;
-    border1: $border-1;
-}
