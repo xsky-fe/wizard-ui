@@ -15,12 +15,12 @@ const meta: Meta = {
   ],
   argTypes: {
     variant: {
-      description: '样式支持default，primary，success，info，warning，danger，默认为default',
+      description: '样式支持primary，success，info，warning，danger，默认为info',
       table: {
         type: {
           summary: 'string',
         },
-        defaultValue: { summary: 'default' },
+        defaultValue: { summary: 'info' },
       },
       control: 'text'
     },
@@ -118,12 +118,6 @@ export const Style: Story = {
   ],
   render: props => (
     <>
-      <DropdownButton
-        id="a1"
-        variant="default"
-        title="default"
-        menu={['menu1', 'menu2', 'menu3']}
-      />
       <DropdownButton
         id="a2"
         variant="primary"

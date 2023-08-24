@@ -578,7 +578,7 @@ export interface VirtualListProps<T> extends VirtualListDefaultProps<T> {
   className?: string;
   /** 是否开启计算 */
   isEstimate?: boolean;
-  error?: unknown
+  error?: unknown;
 }
 
 export interface VirtualSelectBoxDefaultProps<T> {
@@ -676,6 +676,10 @@ export interface ButtonProps extends BaseButtonProps {
   size?: ButtonSizes;
   /**按钮禁用 */
   disabled?: boolean;
+  /**Icon按钮 */
+  isIcon?: boolean;
+  /**面性图标 */
+  filled?: boolean;
 }
 
 export interface HeaderToggleProps {

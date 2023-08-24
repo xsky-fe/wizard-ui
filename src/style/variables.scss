@@ -312,7 +312,7 @@ $radius-4-modal: $radius-middle;
 $radius-4-input: $radius-middle;
 $radius-4-dropdown: $radius-middle;
 $radius-4-popover: $radius-middle;
-$radius-4-btn: $radius-middle;
+$radius-4-btn: $radius-small;
 $radius-4-tab: $radius-middle;
 /* 全圆角 */
 $radius-100-load: $radius-full;
@@ -336,3 +336,17 @@ $shadow-tooltip: $shadow-2-bottom;
 /* 一级阴影 */
 $shadow-panel: $shadow-1-bottom;
 $shadow-switch: $shadow-1-bottom;
+
+$interactive-primary-focus: 0px 0px 0px 2px rgba(147, 113, 250, 0.16);
+$interactive-primary-active: 0px 0px 0px 2px rgba(80, 52, 207, 0.24);
+$interactive-danger-focus: 0px 0px 0px 2px rgba(240, 117, 113, 0.16);
+$interactive-danger-active: 0px 0px 0px 2px rgba(196, 53, 58, 0.24);
+$icon-status-outlined-hover: rgba(80, 87, 116,1);
+$icon-status-outlined-click:  rgba(37, 44, 73,1);
+$icon-bg-default-hover: rgba(188, 195, 220, 0.35);
+$icon-bg-default-click: rgba(188, 195, 220, 0.5);
+
+:export {
+    successNormal: $success-normal;
+    border1: $border-1;
+}

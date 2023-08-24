@@ -6,19 +6,27 @@ import classNames from 'classnames';
 import './style.scss';
 
 const Button: React.FC<ButtonProps> = (props: any) => {
-  const { tooltip, children, block, ...restProps } = props;
-  const { disabled, className = null, variant } = restProps;
-  const tooltipClassName = disabled ? `Button_Tooltip-Div-Button ${className}` : '';
+  const { tooltip, children, block, isIcon, filled, ...restProps } = props;
+  const { disabled, className = '', variant } = restProps;
+  const tooltipClassName = disabled ? `Button_Tooltip-Div-Button` : '';
   const blockClassName = block ? 'btn-block' : '';
+  const iconClassName = isIcon ? 'iconButton' : '';
+  const filledClassName = filled ? 'filled' : '';
 
   return tooltip ? (
     <Tooltip
       label={
         <div className="Button_Tooltip-Div">
           <BSButton
-            variant={variant ? variant : 'default'}
+            variant={variant ? variant : 'info'}
             {...restProps}
-            className={classNames(tooltipClassName, blockClassName, className)}
+            className={classNames(
+              tooltipClassName,
+              blockClassName,
+              className,
+              iconClassName,
+              filledClassName,
+            )}
           >
             {children}
           </BSButton>
@@ -28,9 +36,9 @@ const Button: React.FC<ButtonProps> = (props: any) => {
     />
   ) : (
     <BSButton
-      variant={variant ? variant : 'default'}
-      className={classNames(blockClassName, className)}
+      variant={variant ? variant : 'info'}
       {...restProps}
+      className={classNames(blockClassName, className, iconClassName, filledClassName)}
     >
       {children}
     </BSButton>
@@ -41,7 +49,7 @@ Button.defaultProps = {
   variant: 'info',
   active: false,
   disabled: false,
-  block: false
-}
+  block: false,
+};
 
 export default Button;

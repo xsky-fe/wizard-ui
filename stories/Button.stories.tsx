@@ -2,6 +2,7 @@ import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { Button } from '../src';
 import { Placement } from 'react-bootstrap/esm/types';
+import { CloseLine } from 'wizard-ui-icon';
 
 const DisabledTooltip: { children: React.ReactNode; placement: Placement } = {
   children: <span>don't allowed to click</span>,
@@ -40,15 +41,33 @@ export const Variant: Story = {
   ],
   render: props => (
     <>
-      <Button variant="default">默认default</Button>
-      <Button variant="primary">通用primary</Button>
-      <Button variant="info">通知info</Button>
-      <Button variant="success">成功success</Button>
-      <Button variant="danger">危险danger</Button>
-      <Button variant="warning">警告warning</Button>
-      <Button variant="link">链接link</Button>
+      <Button variant="primary">Button</Button>
+      <Button variant="info">Button</Button>
+      <Button variant="danger">Button</Button>
+      <Button variant="outline-danger">Button</Button>
+      <Button variant="text-primary">Button</Button>
+      <Button variant="text-danger">Button</Button>
+      <Button variant="text-default">Button</Button>
     </>
   ),
+};
+
+export const IconButton: Story = {
+  render: () => {
+    return (
+      <>
+        <Button className='hcy' isIcon>
+          <CloseLine size={12} />
+        </Button>
+        {/* <Button isIcon>
+          <CloseLine size={16} />
+        </Button>
+        <Button isIcon>
+          <CloseLine size={20} />
+        </Button> */}
+      </>
+    );
+  },
 };
 
 export const Size: Story = {
@@ -106,13 +125,10 @@ export const Tooltip: Story = {
       >
         button
       </Button>
-      <Button
-        tooltip={false}
-        disabled={true}
-      >
+      <Button tooltip={false} disabled={true}>
         disabled but no tooltip
       </Button>
-    </div >
+    </div>
   ),
 };
 

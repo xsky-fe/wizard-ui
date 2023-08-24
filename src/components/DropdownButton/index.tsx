@@ -120,7 +120,7 @@ const DropdownButton = (props: DropdownButtonProps) => {
   const containerClassName = getContainerClass();
   return (
     <BootstrapDropdownButton
-      variant={variant || 'default'}
+      variant={variant || 'info'}
       id={id}
       title={title}
       onToggle={(isShow: boolean) => getOnToggle(isShow)}

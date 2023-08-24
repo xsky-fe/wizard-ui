@@ -13,18 +13,31 @@
   }
 }
 
-.btn-lg {
-  line-height: $line-height-lg;
-}
+.iconButton{
+  border: none;
+  padding: 2px;
+  line-height: .75;
+  color: $icon-1;
+  background-color: inherit;
+  &.filled{
+    color: $icon-3;
+  }
 
-.btn-sm {
-  line-height: $line-height-sm;
+  &:hover{
+    background-color: $icon-bg-default-hover !important;
+    color: $icon-status-outlined-hover !important;
+  }
+
+  &:active{
+    background-color: $icon-bg-default-click !important;
+    color: $icon-status-outlined-click !important;
+  }
 }
 
 .btn-xs {
-  padding: 1px 5px;
+  padding: 1px 8px;
   font-size: 12px;
-  line-height: $line-height-sm;
+  line-height: 20px;
 }
 
 .btn-block {
@@ -32,57 +45,133 @@
   width: 100%;
 }
 
-.btn-default {
-  @include button-variant($white,
-    $border-2,
+.btn-text-default{
+  @include button-variant(
+    $white,
+    transparent,
     $text-2,
     $bg-2-hover,
-    $grey-7,
+    transparent,
     $text-2,
-    shade-color($white, $btn-active-bg-shade-amount),
-    shade-color($border-2, $btn-active-border-shade-amount),
+    $bg-2-click,
+    transparent,
     $text-2,
-    $disabled-border: $border-2,
-    $disabled-color: $text-2)
+    $white,
+    transparent,
+    $text-4
+  )
+}
+
+.btn-text-primary{
+  @include button-variant(
+    $white,
+    transparent,
+    $primary-normal,
+    $bg-2-hover,
+    transparent,
+    $primary-normal,
+    $bg-2-click,
+    transparent,
+    $primary-normal,
+    $white,
+    transparent,
+    $primary-disable
+  )
+}
+
+.btn-text-danger{
+  @include button-variant(
+    $white,
+    transparent,
+    $error-normal,
+    $bg-2-hover,
+    transparent,
+    $error-normal,
+    $bg-2-click,
+    transparent,
+    $error-normal,
+    $white,
+    transparent,
+    $error-disable
+  )
 }
 
 .btn-info {
   @include button-variant ($white,
     $border-2,
     $text-2,
-    $white,
-    $grey-7,
-    $text-1,
-    $white,
-    $grey-7,
-    $text-1,
-    $disabled-color: $text-2 );
+    $grey-1,
+    $border-2,
+    $text-2,
+    $grey-2,
+    $border-2,
+    $text-2,
+    $disabled-background: $grey-2,
+    $disabled-color: $text-4 );
 }
 
 .btn-primary {
+  border-color: transparent;
+  &:focus{
+    @include box-shadow($interactive-primary-focus !important)
+  }
+  &:active{
+    @include box-shadow($interactive-primary-active !important);
+  }
   @include button-variant($primary-normal,
-    $primary-normal,
+    transparent,
     $white,
     $primary-hover,
-    $primary-normal,
+    transparent,
     $white,
     $primary-click,
-    $primary-normal,
+    transparent,
     $white,
-    $disabled-color: $white)
+     $primary-disable,
+     transparent,
+     $white)
 }
 
 .btn-danger {
+  &:focus{
+    @include box-shadow($interactive-danger-focus !important)
+  }
+  &:active{
+    @include box-shadow($interactive-danger-active !important);
+  }
   @include button-variant($error-normal,
-    $error-normal,
+  transparent,
     $white,
     $error-hover,
-    $error-normal,
+    transparent,
     $white,
     $error-click,
-    $error-normal,
+    transparent,
     $white,
-    $disabled-color: $white)
+     $error-disable,
+     transparent,
+    $white)
+}
+
+.btn-outline-danger{
+  &:focus{
+    @include box-shadow($interactive-danger-focus !important)
+  }
+  &:active{
+    @include box-shadow($interactive-danger-active !important);
+  }
+  @include button-variant($white,
+  $error-normal,
+  $error-normal,
+  $red-1,
+  $error-normal,
+  $error-normal,
+  $red-2,
+  $error-normal,
+  $error-normal,
+  $white,
+  $error-disable,
+  $error-disable)
 }
 
 .btn-success {
@@ -119,41 +208,33 @@
 .btn-primary[disabled]:hover,
 .btn-primary.disabled:hover,
 .btn-primary[disabled]:active,
-.btn-primary.disabled:active {
-  background-color: $primary-normal;
-  border-color: $primary-normal;
+.btn-primary.disabled:active 
+.btn-primary[disabled]:focus,
+.btn-primary.disabled:focus
+{
+  background-color: $primary-disable;
   color: $white ;
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
 .btn-danger[disabled]:hover,
 .btn-danger.disabled:hover,
 .btn-danger[disabled]:active,
-.btn-danger.disabled:active{
-  background-color: $error-normal;
-  border-color: $error-normal;
+.btn-danger.disabled:active,
+.btn-danger[disabled]:focus,
+.btn-danger.disabled:focus{
+  background-color: $error-disable;
   color: $white;
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
 .btn-info[disabled]:hover,
 .btn-info.disabled:hover,
 .btn-info[disabled]:active,
 .btn-info.disabled:active{
-  background-color: $white;
+  background-color: $grey-2;
   border-color: $border-2;
-  color: $text-2;
-  box-shadow: none;
-}
-
-.btn-default[disabled]:hover,
-.btn-default.disabled:hover,
-.btn-default[disabled]:active,
-.btn-default.disabled:active{
- background-color: $white;
- border-color: $border-2;
- color: $text-2;
- box-shadow: none;
+  color: $text-4;
 }
 
 .btn-success[disabled]:hover,
@@ -182,3 +263,47 @@
   text-decoration: none;
 }
 
+.btn-outline-danger[disabled]:hover,
+.btn-outline-danger.disabled:hover,
+.btn-outline-danger[disabled]:active,
+.btn-outline-danger.disabled:active,
+.btn-outline-danger[disabled]:focus,
+.btn-outline-danger.disabled:focus{
+  background-color: $white;
+  color: $error-disable;
+  border-color: $error-disable;
+  box-shadow: none !important;
+}
+
+.btn-text-primary[disabled]:hover,
+.btn-text-primary.disabled:hover,
+.btn-text-primary[disabled]:active,
+.btn-text-primary.disabled:active 
+.btn-text-primary[disabled]:focus,
+.btn-text-primary.disabled:focus
+{
+  background-color: $white;
+  color: $primary-disable ;
+}
+
+.btn-text-danger[disabled]:hover,
+.btn-text-danger.disabled:hover,
+.btn-text-danger[disabled]:active,
+.btn-text-danger.disabled:active 
+.btn-text-danger[disabled]:focus,
+.btn-text-danger.disabled:focus
+{
+  background-color: $white;
+  color: $error-disable ;
+}
+
+.btn-text-default[disabled]:hover,
+.btn-text-default.disabled:hover,
+.btn-text-default[disabled]:active,
+.btn-text-default.disabled:active 
+.btn-text-default[disabled]:focus,
+.btn-text-default.disabled:focus
+{
+  background-color: $white;
+  color: $text-4 ;
+}

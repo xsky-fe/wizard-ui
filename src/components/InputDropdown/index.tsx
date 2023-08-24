@@ -34,7 +34,7 @@ const InputDropdown = (props: InputDropdownProps) => {
     <DropdownButton
       id={uuid()}
       as={Button}
-      variant="default"
+      variant="info"
       onSelect={handleSelect}
       title={getTitle()}
       {...rest}

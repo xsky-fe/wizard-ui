@@ -13,10 +13,10 @@ const Dropdown = (props: DropdownProps) => {
   return (
     <BootstrapDropdown id={id} className={className} align={align}>
       {customToggle && title && (
-        <BootstrapDropdown.Toggle variant="default" as={title as React.ElementType} />
+        <BootstrapDropdown.Toggle variant="info" as={title as React.ElementType} />
       )}
       {!customToggle && title && (
-        <BootstrapDropdown.Toggle variant="default">{title}</BootstrapDropdown.Toggle>
+        <BootstrapDropdown.Toggle variant="info">{title}</BootstrapDropdown.Toggle>
       )}
       <BootstrapDropdown.Menu>{children}</BootstrapDropdown.Menu>
     </BootstrapDropdown>
