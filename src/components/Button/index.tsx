@@ -10,8 +10,6 @@ const Button: React.FC<ButtonProps> = (props: any) => {
   const { disabled, className = '', variant } = restProps;
   const tooltipClassName = disabled ? `Button_Tooltip-Div-Button` : '';
   const blockClassName = block ? 'btn-block' : '';
-  const iconClassName = isIcon ? 'iconButton' : '';
-  const filledClassName = filled ? 'filled' : '';
 
   return tooltip ? (
     <Tooltip
@@ -24,8 +22,6 @@ const Button: React.FC<ButtonProps> = (props: any) => {
               tooltipClassName,
               blockClassName,
               className,
-              iconClassName,
-              filledClassName,
             )}
           >
             {children}
@@ -38,7 +34,7 @@ const Button: React.FC<ButtonProps> = (props: any) => {
     <BSButton
       variant={variant ? variant : 'info'}
       {...restProps}
-      className={classNames(blockClassName, className, iconClassName, filledClassName)}
+      className={classNames(blockClassName, className)}
     >
       {children}
     </BSButton>

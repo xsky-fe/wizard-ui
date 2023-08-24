@@ -13,27 +13,6 @@
   }
 }
 
-.iconButton{
-  border: none;
-  padding: 2px;
-  line-height: .75;
-  color: $icon-1;
-  background-color: inherit;
-  &.filled{
-    color: $icon-3;
-  }
-
-  &:hover{
-    background-color: $icon-bg-default-hover !important;
-    color: $icon-status-outlined-hover !important;
-  }
-
-  &:active{
-    background-color: $icon-bg-default-click !important;
-    color: $icon-status-outlined-click !important;
-  }
-}
-
 .btn-xs {
   padding: 1px 8px;
   font-size: 12px;

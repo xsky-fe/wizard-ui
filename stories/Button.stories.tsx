@@ -52,24 +52,6 @@ export const Variant: Story = {
   ),
 };
 
-export const IconButton: Story = {
-  render: () => {
-    return (
-      <>
-        <Button className='hcy' isIcon>
-          <CloseLine size={12} />
-        </Button>
-        {/* <Button isIcon>
-          <CloseLine size={16} />
-        </Button>
-        <Button isIcon>
-          <CloseLine size={20} />
-        </Button> */}
-      </>
-    );
-  },
-};
-
 export const Size: Story = {
   render: props => (
     <>
