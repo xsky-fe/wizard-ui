@@ -7,7 +7,7 @@ import {
   DropdownProps as BsDropdownProps,
   PaginationProps as BsPaginationProps,
 } from 'react-bootstrap';
-import { ButtonProps as BaseButtonProps } from '@restart/ui/Button';
+import { ButtonProps as BaseButtonProps } from 'react-bootstrap';
 import { ButtonVariant } from 'react-bootstrap/esm/types';
 import CSS from 'csstype';
 import { TreeProps as RCTreeProps } from 'rc-tree';
@@ -663,7 +663,7 @@ export interface NotificationListStates {
   expanded?: boolean;
 }
 
-export interface ButtonProps extends BaseButtonProps {
+export interface ButtonProps extends Omit<BaseButtonProps, 'size'> {
   /**按钮文字提示 */
   tooltip?: TooltipProps | false;
   /**按钮占据整行 */
@@ -676,6 +676,8 @@ export interface ButtonProps extends BaseButtonProps {
   size?: ButtonSizes;
   /**按钮禁用 */
   disabled?: boolean;
+  /**是否在深色背景使用 */
+  dark?: boolean;
 }
 
 export interface HeaderToggleProps {

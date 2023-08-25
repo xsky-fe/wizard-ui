@@ -32,22 +32,43 @@ type Story = StoryObj<typeof Button>;
 export const Basic: Story = {};
 
 export const Variant: Story = {
-  decorators: [
-    Story => (
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Story />
-      </div>
-    ),
-  ],
   render: props => (
     <>
-      <Button variant="primary">Button</Button>
-      <Button variant="info">Button</Button>
-      <Button variant="danger">Button</Button>
-      <Button variant="outline-danger">Button</Button>
-      <Button variant="text-primary">Button</Button>
-      <Button variant="text-danger">Button</Button>
-      <Button variant="text-default">Button</Button>
+      <h3>填充按钮</h3>
+      <div style={{ display: 'flex', gap: '16px' }}>
+        <Button variant="primary">Button</Button>
+        <Button variant="danger">Button</Button>
+        <Button variant="secondary">Button</Button>
+      </div>
+      <br />
+      <h3>描边按钮</h3>
+      <div style={{ display: 'flex', gap: '16px' }}>
+        <Button variant="info">Button</Button>
+        <Button variant="outline-danger">Button</Button>
+      </div>
+      <br />
+      <h3>文字按钮</h3>
+      <div style={{ display: 'flex', gap: '16px' }}>
+        <Button variant="text-primary">Button</Button>
+        <Button variant="text-danger">Button</Button>
+        <Button variant="text-default">Button</Button>
+      </div>
+      <br />
+      <h3>深色背景</h3>
+      <div style={{ display: 'flex', gap: '16px' }}>
+        <Button variant="secondary" dark>
+          Button
+        </Button>
+        <Button variant="text-primary" dark>
+          Button
+        </Button>
+        <Button variant="text-danger" dark>
+          Button
+        </Button>
+        <Button variant="text-default" dark>
+          Button
+        </Button>
+      </div>
     </>
   ),
 };
@@ -61,6 +82,17 @@ export const Size: Story = {
       <Button size="xs">button</Button>
     </>
   ),
+};
+
+export const WithIcon: Story = {
+  render: () => {
+    return (
+      <Button>
+        <CloseLine />
+        Button
+      </Button>
+    );
+  },
 };
 
 export const Active: Story = {

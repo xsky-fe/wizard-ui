@@ -24,6 +24,41 @@
   width: 100%;
 }
 
+.btn:has(svg){
+  display: inline-flex;
+  align-items: center;
+  & > svg{
+    margin-right: 4px;
+  }
+}
+
+.btn.dark{
+  &:hover{
+    background-color: $grey-4;
+  }
+
+  &:active{
+    background-color: $grey-5;
+  }
+}
+
+.btn-secondary{
+  @include button-variant(
+    $bg-2,
+    transparent,
+    $primary-normal,
+    $bg-2-hover,
+    transparent,
+    $primary-normal,
+    $bg-2-click,
+    transparent,
+    $primary-normal,
+    $bg-2,
+    transparent,
+    $primary-disable 
+  )
+}
+
 .btn-text-default{
   @include button-variant(
     $white,
@@ -43,7 +78,7 @@
 
 .btn-text-primary{
   @include button-variant(
-    $white,
+    transparent,
     transparent,
     $primary-normal,
     $bg-2-hover,
@@ -207,6 +242,16 @@
   box-shadow: none !important;
 }
 
+.btn-secondary[disabled]:hover,
+.btn-secondary.disabled:hover,
+.btn-secondary[disabled]:active,
+.btn-secondary.disabled:active,
+.btn-secondary[disabled]:focus,
+.btn-secondary.disabled:focus{
+  background-color: $bg-2;
+  color: $primary-disable;
+}
+
 .btn-info[disabled]:hover,
 .btn-info.disabled:hover,
 .btn-info[disabled]:active,
@@ -216,31 +261,15 @@
   color: $text-4;
 }
 
-.btn-success[disabled]:hover,
-.btn-success.disabled:hover,
-.btn-success[disabled]:active,
-.btn-success.disabled:active{
-  background-color: $success-normal;
- box-shadow: none;
-}
-
-.btn-warning[disabled]:hover,
-.btn-warning.disabled:hover,
-.btn-warning[disabled]:active,
-.btn-warning.disabled:active{
-  background-color: $warning-normal;
- box-shadow: none;
-}
-
-.btn-link.disabled,
-.btn-link[disabled],
-.btn-link[disabled]:hover,
-.btn-link.disabled:hover,
-.btn-link[disabled]:active,
-.btn-link.disabled:active{
-  color: $primary-normal;
-  text-decoration: none;
-}
+// .btn-link.disabled,
+// .btn-link[disabled],
+// .btn-link[disabled]:hover,
+// .btn-link.disabled:hover,
+// .btn-link[disabled]:active,
+// .btn-link.disabled:active{
+//   color: $primary-normal;
+//   text-decoration: none;
+// }
 
 .btn-outline-danger[disabled]:hover,
 .btn-outline-danger.disabled:hover,
