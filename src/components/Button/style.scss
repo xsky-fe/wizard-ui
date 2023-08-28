@@ -167,6 +167,27 @@
     $white)
 }
 
+.btn-outline-primary{
+  &:focus{
+    @include box-shadow($interactive-primary-focus !important)
+  }
+  &:active{
+    @include box-shadow($interactive-primary-active !important);
+  }
+  @include button-variant($white,
+  $primary-normal,
+  $primary-normal,
+  $primary-bg,
+  $primary-normal,
+  $primary-normal,
+  $purple-2,
+  $primary-normal,
+  $primary-normal,
+  $white,
+  $primary-disable,
+  $primary-disable)
+}
+
 .btn-outline-danger{
   &:focus{
     @include box-shadow($interactive-danger-focus !important)
@@ -261,16 +282,6 @@
   color: $text-4;
 }
 
-// .btn-link.disabled,
-// .btn-link[disabled],
-// .btn-link[disabled]:hover,
-// .btn-link.disabled:hover,
-// .btn-link[disabled]:active,
-// .btn-link.disabled:active{
-//   color: $primary-normal;
-//   text-decoration: none;
-// }
-
 .btn-outline-danger[disabled]:hover,
 .btn-outline-danger.disabled:hover,
 .btn-outline-danger[disabled]:active,
@@ -280,6 +291,18 @@
   background-color: $white;
   color: $error-disable;
   border-color: $error-disable;
+  box-shadow: none !important;
+}
+
+.btn-outline-primary[disabled]:hover,
+.btn-outline-primary.disabled:hover,
+.btn-outline-primary[disabled]:active,
+.btn-outline-primary.disabled:active,
+.btn-outline-primary[disabled]:focus,
+.btn-outline-primary.disabled:focus{
+  background-color: $white;
+  color: $primary-disable;
+  border-color: $primary-disable;
   box-shadow: none !important;
 }
 

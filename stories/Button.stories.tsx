@@ -43,8 +43,9 @@ export const Variant: Story = {
       <br />
       <h3>描边按钮</h3>
       <div style={{ display: 'flex', gap: '16px' }}>
-        <Button variant="info">Button</Button>
+        <Button variant="outline-primary">Button</Button>
         <Button variant="outline-danger">Button</Button>
+        <Button variant="info">Button</Button>
       </div>
       <br />
       <h3>文字按钮</h3>
