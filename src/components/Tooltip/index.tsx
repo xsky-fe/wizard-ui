@@ -72,6 +72,16 @@ const Tooltip: React.FC<TooltipProps> = props => {
         placement={defaultPlacement || placement}
         target={wrapper.current || null}
         show={show}
+        popperConfig={{
+          modifiers:[
+            {
+              name: 'offset',
+              options: {
+                offset: [0, 3],
+              },
+            },
+          ]
+        }}
       >
         <BaseTooltip
           id="tooltip"
