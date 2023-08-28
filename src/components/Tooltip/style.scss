@@ -18,7 +18,10 @@
     }
   }
   .tooltip-inner {
-    box-shadow: $shadow-tooltip;
+    box-shadow: $elevation-2-bottom;
+    max-width: 280px;
+    white-space: wrap;
+    text-align: justify;
   }
   &.contrast {
     &.bs-tooltip-top .tooltip-arrow::before {
