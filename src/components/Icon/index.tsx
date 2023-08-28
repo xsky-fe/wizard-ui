@@ -18,7 +18,7 @@ const Icon: React.FC<IconProps> = props => {
   const IconComponent = Icons[name];
 
   return (
-    <span className={cls} onClick={onClick} style={style}>
+    <span className={cls} onClick={onClick} style={{ display: 'inline-flex', ...style }}>
       {IconComponent && <IconComponent size={size} />}
     </span>
   );

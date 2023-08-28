@@ -2,6 +2,7 @@
 
 .Tooltip {
   display: inline-block;
+  line-height: .75;
   & .Tooltip__icon {
     font-size: $font-size-16;
     color: $icon-2;
@@ -21,7 +22,8 @@
     box-shadow: $elevation-2-bottom;
     max-width: 280px;
     white-space: wrap;
-    text-align: justify;
+    text-align: start;
+    font-size: $font-size-14;
   }
   &.contrast {
     &.bs-tooltip-top .tooltip-arrow::before {
