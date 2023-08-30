@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { FormCheck, FormCheckProps } from 'react-bootstrap';
 
-export default function FormCheckComponent(props: FormCheckProps) {
+function FormCheckComponent(props: FormCheckProps) {
   const { type = 'checkbox', inline } = props;
   let basicClassName = type === 'radio' ? 'radio' : 'checkbox';
   if (inline) {
@@ -11,3 +11,7 @@ export default function FormCheckComponent(props: FormCheckProps) {
 
   return <FormCheck {...props} className={classNames(props.className, basicClassName)} />;
 }
+export default Object.assign(FormCheckComponent, {
+  Input: FormCheck.Input,
+  Label: FormCheck.Label,
+});
