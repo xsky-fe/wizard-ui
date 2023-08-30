@@ -44,6 +44,7 @@ const Modal: React.FC<ModalProps> = props => {
   const {
     title,
     onHide,
+    onShow,
     onOk,
     show,
     style,
@@ -77,6 +78,7 @@ const Modal: React.FC<ModalProps> = props => {
       size={size}
       backdrop="static"
       onHide={onHide}
+      onShow={onShow}
       show={show}
       centered={centered}
     >
@@ -124,6 +126,8 @@ Modal.propTypes = {
   title: PropTypes.string.isRequired,
   /** 隐藏对话框操作 */
   onHide: PropTypes.func.isRequired,
+  /** 展示对话框操作 */
+  onShow: PropTypes.func,
   /** 确定、提交操作 */
   onOk: PropTypes.func,
   /** 是否展示对话框 */
