@@ -1,3 +1,15 @@
+## [1.0.12](https://github.com/xsky-fe/wizard-ui/compare/1.0.11...1.0.12) (2023-08-30)
+
+
+### Bug Fixes
+
+* add formcheck input and label ([37d43d2](https://github.com/xsky-fe/wizard-ui/commit/37d43d25f0b09e12586eca6dea987cf34929124a))
+
+
+### Features
+
+* Modal Component add onShow fun props ([3806ed7](https://github.com/xsky-fe/wizard-ui/commit/3806ed74e208061553302d16f190288f195440c0))
+
 ## [1.0.11](https://github.com/xsky-fe/wizard-ui/compare/1.0.10...1.0.11) (2023-08-24)
 
 
