@@ -17,7 +17,7 @@ const Badge: React.FC<BadgeProps> = props => {
       </span>
     );
   }
-  if (dot) {
+  if (dot || !count) {
     return (
       <span className={parentCls}>
         {children}
