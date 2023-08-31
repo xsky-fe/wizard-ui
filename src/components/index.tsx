@@ -24,6 +24,7 @@ export { default as Switch } from './Switch';
 export { default as Tabs } from './Tabs';
 export { default as TimePicker } from './TimePicker';
 export { default as Tooltip } from './Tooltip';
+export { Tooltip as BSTooltip } from 'react-bootstrap';
 export { default as Tree } from './Tree';
 export { default as UsageBar } from './UsageBar';
 export { default as VirtualList } from './VirtualList';
