@@ -4,7 +4,7 @@
   display: inline-block;
   line-height: 1;
   &__count {
-    // margin: 0 5px;
+    margin: 0 5px;
     color: $white;
     display: inline-block;
     border-radius: calc($badge-height / 2);
@@ -21,6 +21,7 @@
     vertical-align: middle;
     & + .Badge__text{
       margin-left: 4px;
+      vertical-align: middle;
     }
     &.small {
       width: $badge-dot-small-size;
