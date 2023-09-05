@@ -11,10 +11,10 @@
 
 .Loader__circle {
     box-sizing: border-box;
-    width: 80px;
-    height: 80px;
+    width: 64px;
+    height: 64px;
     border-radius: $radius-100-load;
-    border: 8px solid rgba($white, 0.2);
+    border: 6px solid rgba($white, 0.3);
     border-top-color: $white;
     animation: spin 1s infinite linear;
     display: inline-block;
@@ -59,7 +59,7 @@
 }
 
 .Loader--primary .Loader__circle {
-    border-color: $primary-disable;
+    border-color: rgba($primary-normal, 0.3);
     border-top-color: $primary-normal;
 }
 .Loader--primary .Loader__text {
