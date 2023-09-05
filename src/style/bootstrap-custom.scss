@@ -1327,7 +1327,7 @@ $popover-font-size:                 $font-size-sm !default;
 $popover-bg:                        $white !default;
 $popover-max-width:                 276px !default;
 $popover-border-width:              $border-width !default;
-$popover-border-color:              $grey-4 !default;
+$popover-border-color:              transparent !default;
 $popover-border-radius:             $radius-4-popover !default;
 $popover-inner-border-radius:       subtract($popover-border-radius, $popover-border-width) !default;
 $popover-box-shadow:                $shadow-popover !default;
