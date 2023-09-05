@@ -2,25 +2,39 @@
 /* dropdown submenu */
 .SubMenu {
   .dropdown-submenu-header {
+      padding: var(--bs-dropdown-item-padding-y) 0;
       position: relative;
       font-size: $font-size-14;
       cursor: default;
       color: initial;
-      padding: 0;
       text-decoration: none;
       > span {
-        padding: 3px 20px;
+        padding: 0 20px;
         font-size: $font-size-14;
-        line-height: 1.42857143;
+        line-height: 24px;
         display: block;
       }
+
+    &:hover, 
+    &:focus {
+        background-color: var(--bs-dropdown-link-hover-bg);
+    } 
+
+    &::after {
+        content: " ";
+        position: absolute;
+        display: block;
+        left: 100%;
+        width: 4px;
+        height: 100%;
+        top: 0;
+    }
   }
 
   .dropdown-submenu-header>.dropdown-menu {
       top: 0;
       left: 100%;
-      margin-top: -4px;
-      margin-left: 0;
+      margin-left: 4px;
       -webkit-border-radius: 0 $radius-4-dropdown $radius-4-dropdown $radius-4-dropdown;
       -moz-border-radius: 0 $radius-4-dropdown $radius-4-dropdown;
       border-radius: 0 $radius-4-dropdown $radius-4-dropdown $radius-4-dropdown;
