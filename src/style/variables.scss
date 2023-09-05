@@ -326,12 +326,13 @@ $shadow-2-top: 0px -2px 6px 0px $shadow-2, 0px -2px 8px 0px $shadow-3, 0px -4px 
 $shadow-2-left: -2px 0px 6px 0px $shadow-2, -2px 0px 8px 0px $shadow-3, -4px 0px 15px 0px $shadow-3;
 $shadow-2-right: 2px 0px 6px 0px $shadow-2, 2px 0px 8px 0px $shadow-3, 4px 0px 15px 0px $shadow-3;
 $shadow-3-bottom: 0px 4px 10px 2px $shadow-2, 0px 4px 15px 5px $shadow-3, 0px 6px 20px 0px $shadow-3;
+$elevation-2-bottom: 0px 4px 15px 0px rgba(0, 0, 0, 0.06), 0px 2px 8px 0px rgba(0, 0, 0, 0.03), 0px 2px 6px 0px rgba(0, 0, 0, 0.05);
 /* 三级阴影 */
 $shadow-modal: $shadow-3-bottom;
 /* 二级阴影 */
 $shadow-dropdown: $shadow-2-bottom;
 $shadow-timePicker: $shadow-2-bottom;
-$shadow-popover: $shadow-2-bottom;
+$shadow-popover: $elevation-2-bottom;
 $shadow-tooltip: $shadow-2-bottom;
 /* 一级阴影 */
 $shadow-panel: $shadow-1-bottom;
