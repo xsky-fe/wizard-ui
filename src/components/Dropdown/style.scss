@@ -10,8 +10,8 @@
 .dropdown-toggle.btn {
   border-color: $border-2;
 
-  &.btn-default,
-  &.btn-info {
+  &.btn-default:not(:disabled),
+  &.btn-info:not(:disabled) {
     &:hover {
       background-color: $bg-2-hover;
     }
