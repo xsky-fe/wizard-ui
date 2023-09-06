@@ -13,28 +13,29 @@
     text-align: center;
     line-height: $badge-height;
     font-size: $font-size-12;
-    padding: 0 6px;
+    padding: 0 4px;
     white-space: nowrap;
   }
   &__dot {
     display: inline-block;
     vertical-align: middle;
+    & + .Badge__text{
+      margin-left: 4px;
+      vertical-align: middle;
+    }
     &.small {
       width: $badge-dot-small-size;
       height: $badge-dot-small-size;
-      margin-right: 4px;
       border-radius: calc($badge-dot-small-size / 2);
     }
     &.middle {
       width: $badge-dot-small-size * 1.66666666666666;
       height: $badge-dot-small-size * 1.66666666666666;
-      margin-right: 4px;
       border-radius: $badge-dot-small-size;
     }
     &.large {
       width: $badge-dot-small-size * 3;
       height: $badge-dot-small-size * 3;
-      margin-right: 4px;
       border-radius: $badge-dot-small-size * 1.5;
     }
   }
@@ -88,8 +89,7 @@
 }
 
 .Badge__count {
-  min-width: 18px;
-  line-height: 18px;
-  height: 18px;
-  padding: 0 5px;
+  min-width: 16px;
+  line-height: 16px;
+  height: 16px;
 }
