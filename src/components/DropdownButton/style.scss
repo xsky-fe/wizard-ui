@@ -50,26 +50,11 @@
     display: none;
   }
 
-  .dropdown-toggle {
-    border-color: $border-2;
-
-    &.btn-info {
-      &:hover {
-        background-color: $bg-2-hover;
-      }
-      &:active {
-        box-shadow: none;
-        background-color: $bg-2-click;
-        border-color: $border-2;
-      }
-    }
+  .dropdown-menu.show {
+    margin-top: 2px;
   }
 
   &.btn-group.show .dropdown-toggle {
     box-shadow: none;
-  }
-
-  .dropdown-menu.show {
-    margin-top: 2px;
   }
 }
