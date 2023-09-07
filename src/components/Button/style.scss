@@ -24,7 +24,7 @@
   width: 100%;
 }
 
-.btn:has(svg){
+.btn:has(>svg){
   display: inline-flex;
   align-items: center;
   & > svg{
@@ -61,7 +61,7 @@
 
 .btn-text-default{
   @include button-variant(
-    $white,
+    transparent,
     transparent,
     $text-2,
     $bg-2-hover,
@@ -70,7 +70,7 @@
     $bg-2-click,
     transparent,
     $text-2,
-    $white,
+    transparent,
     transparent,
     $text-4
   )
@@ -87,7 +87,7 @@
     $bg-2-click,
     transparent,
     $primary-normal,
-    $white,
+    transparent,
     transparent,
     $primary-disable
   )
@@ -95,7 +95,7 @@
 
 .btn-text-danger{
   @include button-variant(
-    $white,
+    transparent,
     transparent,
     $error-normal,
     $bg-2-hover,
@@ -104,7 +104,7 @@
     $bg-2-click,
     transparent,
     $error-normal,
-    $white,
+    transparent,
     transparent,
     $error-disable
   )
