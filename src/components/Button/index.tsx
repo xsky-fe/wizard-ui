@@ -11,7 +11,6 @@ const Button = forwardRef((props: ButtonProps, ref) => {
   const tooltipClassName = disabled ? `Button_Tooltip-Div-Button` : '';
   const blockClassName = block ? 'btn-block' : '';
   const darkClassName = dark ? 'dark' : '';
-  console.log(ref);
   return tooltip ? (
     <Tooltip
       label={
