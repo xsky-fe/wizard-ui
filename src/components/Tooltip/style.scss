@@ -19,11 +19,6 @@
   }
   .tooltip-inner {
     box-shadow: $shadow-tooltip;
-    max-width: 280px;
-    max-height: 300px;
-    white-space: wrap;
-    text-align: start;
-    overflow-y: auto;
   }
   &.contrast {
     &.bs-tooltip-top .tooltip-arrow::before {
