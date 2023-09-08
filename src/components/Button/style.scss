@@ -60,6 +60,12 @@
 }
 
 .btn-primary {
+  &:focus{
+    @include box-shadow($interactive-primary-focus !important)
+  }
+  &:active{
+    @include box-shadow($interactive-primary-active !important);
+  }
   @include button-variant($primary-normal,
     $primary-normal,
     $white,
@@ -73,6 +79,12 @@
 }
 
 .btn-danger {
+  &:focus{
+    @include box-shadow($interactive-danger-focus !important)
+  }
+  &:active{
+    @include box-shadow($interactive-danger-active !important);
+  }
   @include button-variant($error-normal,
     $error-normal,
     $white,

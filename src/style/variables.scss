@@ -337,3 +337,8 @@ $shadow-tooltip: $elevation-2-bottom;
 /* 一级阴影 */
 $shadow-panel: $shadow-1-bottom;
 $shadow-switch: $shadow-1-bottom;
+
+$interactive-primary-focus: 0px 0px 0px 2px rgba(147, 113, 250, 0.16);
+$interactive-primary-active: 0px 0px 0px 2px rgba(80, 52, 207, 0.24);
+$interactive-danger-focus: 0px 0px 0px 2px rgba(240, 117, 113, 0.16);
+$interactive-danger-active: 0px 0px 0px 2px rgba(196, 53, 58, 0.24);
