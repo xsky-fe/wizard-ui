@@ -135,7 +135,7 @@
   background-color: $primary-normal;
   border-color: $primary-normal;
   color: $white ;
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
 .btn-danger[disabled]:hover,
@@ -145,7 +145,7 @@
   background-color: $error-normal;
   border-color: $error-normal;
   color: $white;
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
 .btn-info[disabled]:hover,
