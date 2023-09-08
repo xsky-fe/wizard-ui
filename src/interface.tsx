@@ -54,7 +54,7 @@ export interface BadgeProps {
   /**封顶数值 */
   overflowCount?: number;
   /**状态点对应的文本 */
-  text?: string;
+  text?: string | number;
   /**鼠标hover在点上展现的文字, 默认为count */
   title?: string;
 }
