@@ -19,6 +19,7 @@ const Tooltip: React.FC<TooltipProps> = props => {
     arrowAlign,
     children,
     placement: defaultPlacement,
+    renderInParent,
     ...extra
   } = props;
 
@@ -64,11 +65,13 @@ const Tooltip: React.FC<TooltipProps> = props => {
   ) : (
     undefined
   );
+  const container = renderInParent ? wrapper.current : extra?.container ? extra?.container : null;
   return (
     <div ref={wrapper} className="Tooltip" onMouseEnter={handleShow} onMouseLeave={handleHide}>
       {placeholder}
       <Overlay
         {...extra}
+        container={container}
         placement={defaultPlacement || placement}
         target={wrapper.current || null}
         show={show}

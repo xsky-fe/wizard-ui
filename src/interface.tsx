@@ -6,6 +6,7 @@ import {
   DropdownButtonProps as BsDropdownButtonProps,
   DropdownProps as BsDropdownProps,
   PaginationProps as BsPaginationProps,
+  OverlayProps as BsOverlayProps,
 } from 'react-bootstrap';
 import { ButtonProps as BaseButtonProps } from '@restart/ui/Button';
 import { ButtonVariant } from 'react-bootstrap/esm/types';
@@ -99,6 +100,10 @@ export interface TooltipProps {
   children: React.ReactNode;
   /**类名 */
   className?: string;
+  /**提示框自动渲染进父容器 */
+  renderInParent?: boolean;
+  /**是否显示箭头 */
+  container?: BsOverlayProps['container'];
 }
 
 export interface PopoverProps {
@@ -262,7 +267,7 @@ export interface SwitchProps {
   checked?: boolean;
   /**加载中 */
   loading?: boolean;
-  /**	值变化时候的回调函数 */
+  /**  值变化时候的回调函数 */
   onChange?: any;
   /**颜色序号 */
   colorIndex?: number | string;
@@ -578,7 +583,7 @@ export interface VirtualListProps<T> extends VirtualListDefaultProps<T> {
   className?: string;
   /** 是否开启计算 */
   isEstimate?: boolean;
-  error?: unknown
+  error?: unknown;
 }
 
 export interface VirtualSelectBoxDefaultProps<T> {
