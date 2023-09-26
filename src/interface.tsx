@@ -134,6 +134,7 @@ export interface StepsProps {
 export interface ModalProps {
   title: string;
   onHide: any;
+  onShow: any;
   onOk?: any;
   show?: boolean;
   style?: React.CSSProperties;
