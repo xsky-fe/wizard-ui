@@ -1,3 +1,18 @@
+## [0.7.13](https://github.com/xsky-fe/wizard-ui/compare/0.7.11...0.7.13) (2023-09-26)
+
+
+### Bug Fixes
+
+* [XSOS-6275] fix datepicker code format error ([827c195](https://github.com/xsky-fe/wizard-ui/commit/827c1955eca219776df38671cdf898849f2e8b89))
+* [XSOS-6604] fix datepicker display error ([2adcbd1](https://github.com/xsky-fe/wizard-ui/commit/2adcbd1e1f2c997918e4c125e99d97f9e7f3f5ce))
+* fix modal props define ([5128d48](https://github.com/xsky-fe/wizard-ui/commit/5128d488ba3110029ff30421e256d7674ce7f602))
+
+
+### Features
+
+* font-family and font-size update ([#213](https://github.com/xsky-fe/wizard-ui/issues/213)) ([8a21a76](https://github.com/xsky-fe/wizard-ui/commit/8a21a765105bbe766709fb3e1ede413a47b9979d))
+* Modal Component add onShow fun props ([b8adf5c](https://github.com/xsky-fe/wizard-ui/commit/b8adf5cc6cb38d7e091a64c5b56383ab34a5cf57))
+
 # [0.7.12](https://github.com/xsky-fe/wizard-ui/compare/0.7.11...0.7.12) (2023-04-12)
 
 
