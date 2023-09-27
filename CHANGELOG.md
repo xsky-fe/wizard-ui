@@ -1,3 +1,17 @@
+# [1.1.0](https://github.com/xsky-fe/wizard-ui/compare/1.0.13...1.1.0) (2023-09-27)
+
+
+### Bug Fixes
+
+* add important ([7885619](https://github.com/xsky-fe/wizard-ui/commit/788561909180bf3dfcc876d9165bac7bb8a9cb07))
+* fix btn style ([64c7fda](https://github.com/xsky-fe/wizard-ui/commit/64c7fda4a830c5e5041ef7da2b6b20f7a5afc44d))
+* modify font size ([fa372cc](https://github.com/xsky-fe/wizard-ui/commit/fa372ccdd15bf2d5ae5b6703baefbe24a30570cb))
+* modify radius ([9d5e2fa](https://github.com/xsky-fe/wizard-ui/commit/9d5e2facf575b1e10bfc6425febc775fbeea116b))
+* modify something ([76aa4f9](https://github.com/xsky-fe/wizard-ui/commit/76aa4f9992996600afb1af47c6c074dcc081562a))
+* modify something ([d5f3f59](https://github.com/xsky-fe/wizard-ui/commit/d5f3f595c2cce6866f550f6af9b071ea9806e0b2))
+* modify something ([852439d](https://github.com/xsky-fe/wizard-ui/commit/852439d576b1d5426b26cf6d3226c48fc1e037ac))
+* modify something ([cb21eb2](https://github.com/xsky-fe/wizard-ui/commit/cb21eb252c9a1885d6e4abc1c6744e149f69d651))
+
 ## [1.0.13](https://github.com/xsky-fe/wizard-ui/compare/1.0.12...1.0.13) (2023-09-14)
 
 ## [1.0.12](https://github.com/xsky-fe/wizard-ui/compare/1.0.11...1.0.12) (2023-08-30)
