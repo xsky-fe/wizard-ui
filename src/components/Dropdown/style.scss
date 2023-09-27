@@ -6,3 +6,27 @@
 #CustomDropdown{
   cursor: pointer;
 }
+
+.dropdown-toggle.btn {
+  border-color: $border-2;
+
+  &.btn-default:not(:disabled),
+  &.btn-info:not(:disabled) {
+    &:hover {
+      background-color: $bg-2-hover;
+    }
+    &:active {
+      box-shadow: none;
+      border-color: $border-2;
+      background-color: $bg-2-click;
+    }
+  }
+  &.show {
+    box-shadow: none;
+    background-color: $bg-2-click;
+  }
+}
+
+.dropdown-menu.show {
+  margin-top: 2px;
+}

@@ -1297,13 +1297,13 @@ $tooltip-max-width:                 200px !default;
 $tooltip-color:                     $white !default;
 $tooltip-bg:                        $grey-12 !default;
 $tooltip-border-radius:             $border-radius !default;
-$tooltip-opacity:                   .9 !default;
-$tooltip-padding-y:                 $spacer * .25 !default;
-$tooltip-padding-x:                 $spacer * .5 !default;
+$tooltip-opacity:                   1 !default;
+$tooltip-padding-y:                 8px !default;
+$tooltip-padding-x:                 8px !default;
 $tooltip-margin:                    null !default; // TODO: remove this in v6
 
-$tooltip-arrow-width:               .8rem !default;
-$tooltip-arrow-height:              .4rem !default;
+$tooltip-arrow-width:               12px !default;
+$tooltip-arrow-height:              6px !default;
 // fusv-disable
 $tooltip-arrow-color:               null !default; // Deprecated in Bootstrap 5.2.0 for CSS variables
 // fusv-enable

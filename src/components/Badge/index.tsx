@@ -17,12 +17,12 @@ const Badge: React.FC<BadgeProps> = props => {
       </span>
     );
   }
-  if (dot) {
+  if (dot || !count) {
     return (
       <span className={parentCls}>
         {children}
         <span className={`Badge__dot ${statusCls} ${size}`} title={title} />
-        {text && <span className="Badge__text">{text}</span>}
+        {(text || typeof text === 'number') && <span className="Badge__text">{text}</span>}
       </span>
     );
   }
