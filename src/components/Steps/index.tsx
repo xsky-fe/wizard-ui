@@ -23,8 +23,8 @@ const Steps: React.FC<StepsProps> = props => {
               count={!showIcon ? (stepCount ? stepCount : index + 1) : ''}
               size={iconSize}
               status={iconStatus}
-              text={stepLabel}
             />
+            {stepLabel}
             {index !== steps.length - 1 && <Icon type="arrow-right-line" size={12} />}
           </div>
         );
