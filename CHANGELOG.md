@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/xsky-fe/wizard-ui/compare/1.1.0...1.1.1) (2023-10-12)
+
+
+### Bug Fixes
+
+* fix step component error ([7f48214](https://github.com/xsky-fe/wizard-ui/commit/7f48214cdd8fd33bfeef7b81e3012d919dc30b5e))
+
 # [1.1.0](https://github.com/xsky-fe/wizard-ui/compare/1.0.13...1.1.0) (2023-09-27)
 
 
