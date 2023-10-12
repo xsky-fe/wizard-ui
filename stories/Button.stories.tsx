@@ -47,6 +47,7 @@ export const Variant: Story = {
       <Button variant="danger">危险danger</Button>
       <Button variant="warning">警告warning</Button>
       <Button variant="link">链接link</Button>
+      <Button variant="text">文字</Button>
     </>
   ),
 };

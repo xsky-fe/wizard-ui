@@ -128,6 +128,24 @@
     $disabled-color: $white)
 }
 
+.btn-text{
+  &:active,
+  &.active{
+    box-shadow: none !important;
+  }
+  @include button-variant ($white,
+    transparent,
+    $text-2,
+    $grey-2,
+    transparent,
+    $text-2,
+    $grey-3,
+    transparent,
+    $text-2,
+    $disabled-background: $white,
+    $disabled-color: $text-4 );
+}
+
 .btn[disabled] {
   cursor: not-allowed;
   pointer-events: unset;
@@ -196,5 +214,15 @@
 .btn-link.disabled:active{
   color: $primary-normal;
   text-decoration: none;
+}
+
+.btn-text.disabled,
+.btn-text[disabled],
+.btn-text[disabled]:hover,
+.btn-text.disabled:hover,
+.btn-text[disabled]:active,
+.btn-text.disabled:active{
+  background-color: $white;
+  color: $text-4;
 }
 
