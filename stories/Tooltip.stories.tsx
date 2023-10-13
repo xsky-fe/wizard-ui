@@ -23,7 +23,7 @@ type Story = StoryObj<typeof Tooltip>;
 
 export const Basic: Story = {
   args: {
-    children: '文字提示',
+    children: '文字提示文字提示文字提示文字提示文字提示文字提示文字提示文字提示文字提示文字提示文字提示文字提示文字提示',
     placement: 'right',
     label: <span>hover 试试</span>,
   },

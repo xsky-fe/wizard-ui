@@ -47,19 +47,30 @@
 }
 
 .btn-info {
+  &:active,
+  &.active{
+    box-shadow: none !important;
+  }
   @include button-variant ($white,
     $border-2,
     $text-2,
-    $white,
-    $grey-7,
-    $text-1,
-    $white,
-    $grey-7,
-    $text-1,
-    $disabled-color: $text-2 );
+    $grey-1,
+    $border-2,
+    $text-2,
+    $grey-2,
+    $border-2,
+    $text-2,
+    $disabled-background: $grey-2,
+    $disabled-color: $text-4 );
 }
 
 .btn-primary {
+  &:focus{
+    @include box-shadow($interactive-primary-focus !important)
+  }
+  &:active{
+    @include box-shadow($interactive-primary-active !important);
+  }
   @include button-variant($primary-normal,
     $primary-normal,
     $white,
@@ -73,6 +84,12 @@
 }
 
 .btn-danger {
+  &:focus{
+    @include box-shadow($interactive-danger-focus !important)
+  }
+  &:active{
+    @include box-shadow($interactive-danger-active !important);
+  }
   @include button-variant($error-normal,
     $error-normal,
     $white,
@@ -111,6 +128,24 @@
     $disabled-color: $white)
 }
 
+.btn-text{
+  &:active,
+  &.active{
+    box-shadow: none !important;
+  }
+  @include button-variant ($white,
+    transparent,
+    $text-2,
+    $grey-2,
+    transparent,
+    $text-2,
+    $grey-3,
+    transparent,
+    $text-2,
+    $disabled-background: $white,
+    $disabled-color: $text-4 );
+}
+
 .btn[disabled] {
   cursor: not-allowed;
   pointer-events: unset;
@@ -123,7 +158,7 @@
   background-color: $primary-normal;
   border-color: $primary-normal;
   color: $white ;
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
 .btn-danger[disabled]:hover,
@@ -133,17 +168,16 @@
   background-color: $error-normal;
   border-color: $error-normal;
   color: $white;
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
 .btn-info[disabled]:hover,
 .btn-info.disabled:hover,
 .btn-info[disabled]:active,
 .btn-info.disabled:active{
-  background-color: $white;
+  background-color: $grey-2;
   border-color: $border-2;
-  color: $text-2;
-  box-shadow: none;
+  color: $text-4;
 }
 
 .btn-default[disabled]:hover,
@@ -180,5 +214,15 @@
 .btn-link.disabled:active{
   color: $primary-normal;
   text-decoration: none;
+}
+
+.btn-text.disabled,
+.btn-text[disabled],
+.btn-text[disabled]:hover,
+.btn-text.disabled:hover,
+.btn-text[disabled]:active,
+.btn-text.disabled:active{
+  background-color: $white;
+  color: $text-4;
 }
 
