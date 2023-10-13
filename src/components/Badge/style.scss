@@ -19,24 +19,23 @@
   &__dot {
     display: inline-block;
     vertical-align: middle;
-    & + .Badge__text{
-      margin-left: 4px;
-      vertical-align: middle;
-    }
     &.small {
       width: $badge-dot-small-size;
       height: $badge-dot-small-size;
       border-radius: calc($badge-dot-small-size / 2);
+      margin-right: 4px;
     }
     &.middle {
       width: $badge-dot-small-size * 1.66666666666666;
       height: $badge-dot-small-size * 1.66666666666666;
       border-radius: $badge-dot-small-size;
+      margin-right: 4px;
     }
     &.large {
       width: $badge-dot-small-size * 3;
       height: $badge-dot-small-size * 3;
       border-radius: $badge-dot-small-size * 1.5;
+      margin-right: 4px;
     }
   }
   &--default {
