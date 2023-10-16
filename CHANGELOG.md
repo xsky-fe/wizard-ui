@@ -1,3 +1,11 @@
+## [1.1.2](https://github.com/xsky-fe/wizard-ui/compare/1.1.1...1.1.2) (2023-10-16)
+
+
+### Bug Fixes
+
+* badge style ([3f89c7c](https://github.com/xsky-fe/wizard-ui/commit/3f89c7cfc91f1b11806d712a8f5e3bc5c3bdaf3c))
+* change ([b1d0df0](https://github.com/xsky-fe/wizard-ui/commit/b1d0df016f7bce63b7b9a704b1359306de05bdf2))
+
 ## [1.1.1](https://github.com/xsky-fe/wizard-ui/compare/1.1.0...1.1.1) (2023-10-12)
 
 
