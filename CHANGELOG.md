@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/xsky-fe/wizard-ui/compare/1.1.2...1.1.3) (2023-10-27)
+
+
+### Bug Fixes
+
+* alert text overflow wrap ([522dfa6](https://github.com/xsky-fe/wizard-ui/commit/522dfa6c5b438f864b0e8907b1b29ee6914982ad))
+
 ## [1.1.2](https://github.com/xsky-fe/wizard-ui/compare/1.1.1...1.1.2) (2023-10-16)
 
 
