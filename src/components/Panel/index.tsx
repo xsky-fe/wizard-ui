@@ -18,13 +18,14 @@ const Panel: React.FC<PanelProps> = props => {
     ...restProps
   } = props;
   const embeddedClass = embedded && 'panel-embedded';
+  const [open, setOpen] = useState(expanded);
   const cardClassName = classNames(
     'panel',
     `panel-${innerPaddingSize}`,
+    `panel-expand-${open}`,
     className,
     embeddedClass,
   );
-  const [open, setOpen] = useState(expanded);
 
   useEffect(() => {
     setOpen(expanded);
