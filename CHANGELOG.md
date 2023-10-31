@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/xsky-fe/wizard-ui/compare/1.1.3...1.1.4) (2023-10-31)
+
+
+### Bug Fixes
+
+* modify chart-1 color ([9a0966a](https://github.com/xsky-fe/wizard-ui/commit/9a0966a015d160ed848d97aab8208c8fdcf30c34))
+
 ## [1.1.3](https://github.com/xsky-fe/wizard-ui/compare/1.1.2...1.1.3) (2023-10-27)
 
 
