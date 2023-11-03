@@ -99,6 +99,8 @@ export interface TooltipProps {
   children: React.ReactNode;
   /**类名 */
   className?: string;
+  expandHotZone?: boolean;
+  width?: string;
 }
 
 export interface PopoverProps {
