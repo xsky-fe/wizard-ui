@@ -11,21 +11,15 @@ const Panel: React.FC<PanelProps> = props => {
     className,
     collapsible,
     header,
-    expanded,
+    expanded = false,
     embedded = false,
     innerPaddingSize = 'default',
     onSelect,
     ...restProps
   } = props;
   const embeddedClass = embedded && 'panel-embedded';
+  const cardClassName = classNames('panel', `panel-${innerPaddingSize}`, className, embeddedClass);
   const [open, setOpen] = useState(expanded);
-  const cardClassName = classNames(
-    'panel',
-    `panel-${innerPaddingSize}`,
-    `panel-expand-${open}`,
-    className,
-    embeddedClass,
-  );
 
   useEffect(() => {
     setOpen(expanded);
@@ -37,7 +31,7 @@ const Panel: React.FC<PanelProps> = props => {
   };
 
   return collapsible ? (
-    <Card className={cardClassName}>
+    <Card className={`${cardClassName} panel-expand-${open}`}>
       <Card.Header
         className="panel-heading"
         onClick={handleHeaderClick}
@@ -72,7 +66,7 @@ Panel.propTypes = {
    * 卡片内边距的大小
    **/
   innerPaddingSize: PropTypes.oneOf(['default', 'sm', 'xs']),
-}
+};
 
 Panel.defaultProps = {
   collapsible: false,
